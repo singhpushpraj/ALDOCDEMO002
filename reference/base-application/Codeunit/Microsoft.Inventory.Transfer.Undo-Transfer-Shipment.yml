@@ -1,0 +1,61 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."Undo Transfer Shipment"
+alId: ID 9030
+namespace: Microsoft.Inventory.Transfer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Transfer Line" = rimd,
+                      TableData "Transfer Shipment Line" = rimd,
+                      TableData "Item Application Entry" = rmd,
+                      TableData "Item Entry Relation" = ri
+  promoted: false
+- name: TableNo
+  value: Transfer Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Transfer#Transfer_Shipment_Line
+    name: Microsoft.Inventory.Transfer."Transfer Shipment Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Undo_Transfer_Shipment.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure GetCorrectionLineNo(TransferShptLine: Record "Transfer Shipment Line"): Integer'
+    parameters:
+    - id: TransferShptLine
+      parameterType:
+        name: Record "Transfer Shipment Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCorrectionLineNo
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Undo_Transfer_Shipment.GetCorrectionLineNo(Transfer_Shipment_Line):Integer
+- syntax:
+    content: 'procedure UpdateOrderLine(TransShptLine: Record "Transfer Shipment Line")'
+    parameters:
+    - id: TransShptLine
+      parameterType:
+        name: Record "Transfer Shipment Line"
+        isExternal: true
+  name: UpdateOrderLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Undo_Transfer_Shipment.UpdateOrderLine(Transfer_Shipment_Line)
+commentId: O:Codeunit::Microsoft#Inventory#Transfer#Undo Transfer Shipment
+name: '"Undo Transfer Shipment"'
+uid: O:Codeunit::Microsoft#Inventory#Transfer#Undo_Transfer_Shipment

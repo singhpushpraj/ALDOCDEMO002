@@ -1,0 +1,226 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Analysis."Update Analysis View"
+alId: ID 410
+namespace: Microsoft.Finance.Analysis
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Analysis
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = r,
+                      TableData "G/L Budget Entry" = r,
+                      TableData "Analysis View" = rm,
+                      TableData "Analysis View Filter" = r,
+                      TableData "Analysis View Entry" = rimd,
+                      TableData "Analysis View Budget Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Analysis View
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#Analysis#Analysis_View
+    name: Microsoft.Finance.Analysis."Analysis View"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure UpdateAll(Which: Option, DirectlyFromPosting: Boolean)'
+    parameters:
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DirectlyFromPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateAll
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.UpdateAll(Option,Boolean)
+- syntax:
+    content: 'procedure Update(var NewAnalysisView: Record "Analysis View", Which: Option, ShowWindow: Boolean)'
+    parameters:
+    - id: NewAnalysisView
+      parameterType:
+        name: Record "Analysis View"
+        isExternal: true
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ShowWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.Update(Analysis_View@,Option,Boolean)
+- syntax:
+    content: 'procedure UpdateAnalysisViewEntry(AccNo: Code[20], BusUnitCode: Code[20], CashFlowForecastNo: Code[20], DimValue1: Code[20], DimValue2: Code[20], DimValue3: Code[20], DimValue4: Code[20], PostingDate: Date, Amount: Decimal, DebitAmount: Decimal, CreditAmount: Decimal, AmountACY: Decimal, DebitAmountACY: Decimal, CreditAmountACY: Decimal, EntryNo: Integer)'
+    parameters:
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BusUnitCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CashFlowForecastNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue3
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue4
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DebitAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CreditAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DebitAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CreditAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateAnalysisViewEntry
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.UpdateAnalysisViewEntry(Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Date,Decimal,Decimal,Decimal,Decimal,Decimal,Decimal,Integer)
+- syntax:
+    content: 'procedure UpdateAnalysisViewEntry(UpdAnalysisViewEntryBuffer: Record "Upd Analysis View Entry Buffer" temporary)'
+    parameters:
+    - id: UpdAnalysisViewEntryBuffer
+      parameterType:
+        name: Record "Upd Analysis View Entry Buffer" temporary
+        isExternal: true
+  name: UpdateAnalysisViewEntry
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.UpdateAnalysisViewEntry(Upd_Analysis_View_Entry_Buffer)
+- syntax:
+    content: 'procedure CalculatePeriodStart(PostingDate: Date, DateCompression: Integer): Date'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DateCompression
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalculatePeriodStart
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.CalculatePeriodStart(Date,Integer):Date
+- syntax:
+    content: procedure FlushAnalysisViewEntry()
+  name: FlushAnalysisViewEntry
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.FlushAnalysisViewEntry
+- syntax:
+    content: procedure FlushAnalysisViewBudgetEntry()
+  name: FlushAnalysisViewBudgetEntry
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.FlushAnalysisViewBudgetEntry
+- syntax:
+    content: 'procedure GetDimVal(DimCode: Code[20], DimSetID: Integer): Code[20]'
+    parameters:
+    - id: DimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetDimVal
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.GetDimVal(Code[20],Integer):Code[20]
+- syntax:
+    content: 'procedure UpdateWindowCounter(EntryNo: Integer)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateWindowCounter
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.UpdateWindowCounter(Integer)
+- syntax:
+    content: 'procedure UpdateWindowHeader(TableID: Integer, EntryNo: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateWindowHeader
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.UpdateWindowHeader(Integer,Integer)
+- syntax:
+    content: 'procedure SetLastBudgetEntryNo(NewLastBudgetEntryNo: Integer)'
+    parameters:
+    - id: NewLastBudgetEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLastBudgetEntryNo
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.SetLastBudgetEntryNo(Integer)
+- syntax:
+    content: 'procedure DimSetIDInFilter(DimSetID: Integer, var AnalysisView: Record "Analysis View"): Boolean'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AnalysisView
+      parameterType:
+        name: Record "Analysis View"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DimSetIDInFilter
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View.DimSetIDInFilter(Integer,Analysis_View@):Boolean
+commentId: O:Codeunit::Microsoft#Finance#Analysis#Update Analysis View
+name: '"Update Analysis View"'
+uid: O:Codeunit::Microsoft#Finance#Analysis#Update_Analysis_View

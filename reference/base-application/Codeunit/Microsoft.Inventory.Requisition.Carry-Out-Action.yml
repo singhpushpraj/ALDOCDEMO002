@@ -1,0 +1,484 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition."Carry Out Action"
+alId: ID 99000813
+namespace: Microsoft.Inventory.Requisition
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Prod. Order Capacity Need" = rid
+  promoted: false
+- name: TableNo
+  value: Requisition Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Requisition#Requisition_Line
+    name: Microsoft.Inventory.Requisition."Requisition Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure TryCarryOutAction(SourceType: Enum "Planning Create Source Type", var RequisitionLine: Record "Requisition Line", Choice: Option, WkshTempl: Code[10], WkshName: Code[10]): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Planning#Planning_Create_Source_Type
+        name: Microsoft.Inventory.Planning."Planning Create Source Type"
+        isExternal: false
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: Choice
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: WkshTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TryCarryOutAction
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.TryCarryOutAction(Enum::Microsoft#Inventory#Planning#Planning_Create_Source_Type,Requisition_Line@,Option,Code[10],Code[10]):Boolean
+- syntax:
+    content: 'procedure SetParameters(SourceType: Enum "Planning Create Source Type", Choice: Integer, WkshTempl: Code[10], WkshName: Code[10])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Planning#Planning_Create_Source_Type
+        name: Microsoft.Inventory.Planning."Planning Create Source Type"
+        isExternal: false
+    - id: Choice
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: WkshTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.SetParameters(Enum::Microsoft#Inventory#Planning#Planning_Create_Source_Type,Integer,Code[10],Code[10])
+- syntax:
+    content: 'procedure CarryOutActionsFromProdOrder(RequisitionLine: Record "Requisition Line", ProdOrderChoice: Enum "Planning Create Prod. Order", ProdWkshTempl: Code[10], ProdWkshName: Code[10]): Boolean'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ProdOrderChoice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Planning_Create_Prod#_Order
+        name: Microsoft.Manufacturing.Document."Planning Create Prod. Order"
+        isExternal: false
+    - id: ProdWkshTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ProdWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CarryOutActionsFromProdOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.CarryOutActionsFromProdOrder(Requisition_Line,Enum::Microsoft#Manufacturing#Document#Planning_Create_Prod#_Order,Code[10],Code[10]):Boolean
+- syntax:
+    content: 'procedure CarryOutActionsFromTransOrder(RequisitionLine: Record "Requisition Line", TransOrderChoice: Enum "Planning Create Transfer Order", TransWkshTempName: Code[10], TransJournalName: Code[10])'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: TransOrderChoice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Planning#Planning_Create_Transfer_Order
+        name: Microsoft.Inventory.Planning."Planning Create Transfer Order"
+        isExternal: false
+    - id: TransWkshTempName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TransJournalName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CarryOutActionsFromTransOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.CarryOutActionsFromTransOrder(Requisition_Line,Enum::Microsoft#Inventory#Planning#Planning_Create_Transfer_Order,Code[10],Code[10])
+- syntax:
+    content: 'procedure CarryOutActionsFromAssemblyOrder(RequisitionLine: Record "Requisition Line", AsmOrderChoice: Enum "Planning Create Assembly Order"): Boolean'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: AsmOrderChoice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Requisition#Planning_Create_Assembly_Order
+        name: Microsoft.Inventory.Requisition."Planning Create Assembly Order"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CarryOutActionsFromAssemblyOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.CarryOutActionsFromAssemblyOrder(Requisition_Line,Enum::Microsoft#Inventory#Requisition#Planning_Create_Assembly_Order):Boolean
+- syntax:
+    content: 'procedure CarryOutToReqWksh(RequisitionLine: Record "Requisition Line", ReqWkshTempName: Code[10], ReqJournalName: Code[10])'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReqWkshTempName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ReqJournalName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CarryOutToReqWksh
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.CarryOutToReqWksh(Requisition_Line,Code[10],Code[10])
+- syntax:
+    content: 'procedure GetTransferOrdersToPrint(var TransferHeader: Record "Transfer Header")'
+    parameters:
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: GetTransferOrdersToPrint
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.GetTransferOrdersToPrint(Transfer_Header@)
+- syntax:
+    content: 'procedure ProdOrderChgAndReshedule(RequisitionLine: Record "Requisition Line"): Boolean'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ProdOrderChgAndReshedule
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.ProdOrderChgAndReshedule(Requisition_Line):Boolean
+- syntax:
+    content: 'procedure PurchOrderChgAndReshedule(RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: PurchOrderChgAndReshedule
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.PurchOrderChgAndReshedule(Requisition_Line)
+- syntax:
+    content: 'procedure TransOrderChgAndReshedule(RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: TransOrderChgAndReshedule
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.TransOrderChgAndReshedule(Requisition_Line)
+- syntax:
+    content: 'procedure AsmOrderChgAndReshedule(RequisitionLine: Record "Requisition Line"): Boolean'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AsmOrderChgAndReshedule
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.AsmOrderChgAndReshedule(Requisition_Line):Boolean
+- syntax:
+    content: 'procedure DeleteOrderLines(RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: DeleteOrderLines
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.DeleteOrderLines(Requisition_Line)
+- syntax:
+    content: 'procedure InsertProductionOrder(RequisitionLine: Record "Requisition Line", ProdOrderChoice: Enum "Planning Create Prod. Order")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ProdOrderChoice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Planning_Create_Prod#_Order
+        name: Microsoft.Manufacturing.Document."Planning Create Prod. Order"
+        isExternal: false
+  name: InsertProductionOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.InsertProductionOrder(Requisition_Line,Enum::Microsoft#Manufacturing#Document#Planning_Create_Prod#_Order)
+- syntax:
+    content: 'procedure InsertProdOrderLine(RequisitionLine: Record "Requisition Line", ProductionOrder: Record "Production Order", Item: Record Item)'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ProductionOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: InsertProdOrderLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.InsertProdOrderLine(Requisition_Line,Production_Order,Item)
+- syntax:
+    content: 'procedure TransferAsmPlanningComp(RequisitionLine: Record "Requisition Line", AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: TransferAsmPlanningComp
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.TransferAsmPlanningComp(Requisition_Line,Assembly_Header)
+- syntax:
+    content: 'procedure InsertTransHeader(RequisitionLine: Record "Requisition Line", var TransferHeader: Record "Transfer Header")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: InsertTransHeader
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.InsertTransHeader(Requisition_Line,Transfer_Header@)
+- syntax:
+    content: 'procedure InsertTransLine(RequisitionLine: Record "Requisition Line", var TransferHeader: Record "Transfer Header")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: InsertTransLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.InsertTransLine(Requisition_Line,Transfer_Header@)
+- syntax:
+    content: procedure PrintTransferOrders()
+  name: PrintTransferOrders
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.PrintTransferOrders
+- syntax:
+    content: 'procedure PrintTransferOrder(TransferHeader: Record "Transfer Header")'
+    parameters:
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: PrintTransferOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.PrintTransferOrder(Transfer_Header)
+- syntax:
+    content: 'procedure PrintPurchaseOrder(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PrintPurchaseOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.PrintPurchaseOrder(Purchase_Header)
+- syntax:
+    content: 'procedure PrintMultiplePurchaseOrders(var TempPurchaseHeader: Record "Purchase Header" temporary)'
+    parameters:
+    - id: TempPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header" temporary
+        isExternal: true
+  name: PrintMultiplePurchaseOrders
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.PrintMultiplePurchaseOrders(Purchase_Header@)
+- syntax:
+    content: 'procedure PrintAsmOrder(AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: PrintAsmOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.PrintAsmOrder(Assembly_Header)
+- syntax:
+    content: 'procedure TransferRouting(RequisitionLine: Record "Requisition Line", ProductionOrder: Record "Production Order", RoutingNo: Code[20], RoutingRefNo: Integer): Boolean'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ProductionOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransferRouting
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.TransferRouting(Requisition_Line,Production_Order,Code[20],Integer):Boolean
+- syntax:
+    content: 'procedure TransferBOM(RequisitionLine: Record "Requisition Line", ProductionOrder: Record "Production Order", ProdOrderLineNo: Integer)'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ProductionOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: ProdOrderLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: TransferBOM
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.TransferBOM(Requisition_Line,Production_Order,Integer)
+- syntax:
+    content: 'procedure TransferCapNeed(RequisitionLine: Record "Requisition Line", ProductionOrder: Record "Production Order", RoutingNo: Code[20], RoutingRefNo: Integer)'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ProductionOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: TransferCapNeed
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.TransferCapNeed(Requisition_Line,Production_Order,Code[20],Integer)
+- syntax:
+    content: 'procedure UpdateComponentLink(ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: UpdateComponentLink
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.UpdateComponentLink(Prod#_Order_Line)
+- syntax:
+    content: 'procedure SetCreatedDocumentBuffer(var TempDocumentEntryNew: Record "Document Entry" temporary)'
+    parameters:
+    - id: TempDocumentEntryNew
+      parameterType:
+        name: Record "Document Entry" temporary
+        isExternal: true
+  name: SetCreatedDocumentBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.SetCreatedDocumentBuffer(Document_Entry@)
+- syntax:
+    content: 'procedure SetPrintOrder(OrderPrinting: Boolean)'
+    parameters:
+    - id: OrderPrinting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPrintOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.SetPrintOrder(Boolean)
+- syntax:
+    content: 'procedure SetSplitTransferOrders(Split: Boolean)'
+    parameters:
+    - id: Split
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSplitTransferOrders
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.SetSplitTransferOrders(Boolean)
+- syntax:
+    content: 'procedure ReserveBindingOrderToProd(var ProdOrderLine: Record "Prod. Order Line", var RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ReserveBindingOrderToProd
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.ReserveBindingOrderToProd(Prod#_Order_Line@,Requisition_Line@)
+- syntax:
+    content: 'procedure ReserveBindingOrderToTrans(var TransferLine: Record "Transfer Line", var RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ReserveBindingOrderToTrans
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.ReserveBindingOrderToTrans(Transfer_Line@,Requisition_Line@)
+- syntax:
+    content: 'procedure ReserveBindingOrderToAsm(var AssemblyHeader: Record "Assembly Header", var RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ReserveBindingOrderToAsm
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.ReserveBindingOrderToAsm(Assembly_Header@,Requisition_Line@)
+- syntax:
+    content: 'procedure ReserveBindingOrderToReqline(var DemandRequisitionLine: Record "Requisition Line", var SupplyRequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: DemandRequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: SupplyRequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ReserveBindingOrderToReqline
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action.ReserveBindingOrderToReqline(Requisition_Line@,Requisition_Line@)
+commentId: O:Codeunit::Microsoft#Inventory#Requisition#Carry Out Action
+name: '"Carry Out Action"'
+uid: O:Codeunit::Microsoft#Inventory#Requisition#Carry_Out_Action

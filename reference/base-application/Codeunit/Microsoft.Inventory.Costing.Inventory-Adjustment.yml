@@ -1,0 +1,258 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Inventory Adjustment"
+alId: ID 5895
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = rm,
+                      TableData "Item Ledger Entry" = rm,
+                      TableData "Item Application Entry" = rimd,
+                      TableData "Value Entry" = rim,
+                      TableData "Avg. Cost Adjmt. Entry Point" = rimd,
+                      TableData "Inventory Adjmt. Entry (Order)" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetProperties(NewIsOnlineAdjmt: Boolean, NewPostToGL: Boolean)'
+    parameters:
+    - id: NewIsOnlineAdjmt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostToGL
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProperties
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.SetProperties(Boolean,Boolean)
+- syntax:
+    content: 'procedure SetFilterItem(var NewItem: Record Item)'
+    parameters:
+    - id: NewItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: SetFilterItem
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.SetFilterItem(Item@)
+- syntax:
+    content: procedure MakeMultiLevelAdjmt()
+  name: MakeMultiLevelAdjmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.MakeMultiLevelAdjmt
+- syntax:
+    content: 'procedure IncludedInCostCalculation(InbndValueEntry: Record "Value Entry", OutbndItemLedgEntryNo: Integer): Boolean'
+    parameters:
+    - id: InbndValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: OutbndItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IncludedInCostCalculation
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.IncludedInCostCalculation(Value_Entry,Integer):Boolean
+- syntax:
+    content: 'procedure ExpCostIsCompletelyInvoiced(ItemLedgEntry: Record "Item Ledger Entry", ValueEntry: Record "Value Entry"): Boolean'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ExpCostIsCompletelyInvoiced
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.ExpCostIsCompletelyInvoiced(Item_Ledger_Entry,Value_Entry):Boolean
+- syntax:
+    content: 'procedure SetJobUpdateProperties(SkipJobUpdate: Boolean)'
+    parameters:
+    - id: SkipJobUpdate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetJobUpdateProperties
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.SetJobUpdateProperties(Boolean)
+- syntax:
+    content: procedure CallInitializeAdjmt()
+  name: CallInitializeAdjmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallInitializeAdjmt
+- syntax:
+    content: procedure CallFinalizeAdjmt()
+  name: CallFinalizeAdjmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallFinalizeAdjmt
+- syntax:
+    content: 'procedure CallInvtToAdjustExist(var ToItem: Record Item): Boolean'
+    parameters:
+    - id: ToItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallInvtToAdjustExist
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallInvtToAdjustExist(Item@):Boolean
+- syntax:
+    content: 'procedure CallMakeSingleLevelAdjmt(var TheItem: Record Item, var TempAvgCostAdjmtEntryPoint: Record "Avg. Cost Adjmt. Entry Point" temporary)'
+    parameters:
+    - id: TheItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: TempAvgCostAdjmtEntryPoint
+      parameterType:
+        name: Record "Avg. Cost Adjmt. Entry Point" temporary
+        isExternal: true
+  name: CallMakeSingleLevelAdjmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallMakeSingleLevelAdjmt(Item@,Avg#_Cost_Adjmt#_Entry_Point@)
+- syntax:
+    content: 'procedure CallWIPToAdjustExist(var ToInventoryAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)"): Boolean'
+    parameters:
+    - id: ToInventoryAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallWIPToAdjustExist
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallWIPToAdjustExist(Inventory_Adjmt#_Entry_(Order)@):Boolean
+- syntax:
+    content: 'procedure CallMakeWIPAdjmt(var SourceInvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)", var TempAvgCostAdjmtEntryPoint: Record "Avg. Cost Adjmt. Entry Point" temporary)'
+    parameters:
+    - id: SourceInvtAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    - id: TempAvgCostAdjmtEntryPoint
+      parameterType:
+        name: Record "Avg. Cost Adjmt. Entry Point" temporary
+        isExternal: true
+  name: CallMakeWIPAdjmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallMakeWIPAdjmt(Inventory_Adjmt#_Entry_(Order)@,Avg#_Cost_Adjmt#_Entry_Point@)
+- syntax:
+    content: 'procedure CallAssemblyToAdjustExists(var ToInventoryAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)"): Boolean'
+    parameters:
+    - id: ToInventoryAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallAssemblyToAdjustExists
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallAssemblyToAdjustExists(Inventory_Adjmt#_Entry_(Order)@):Boolean
+- syntax:
+    content: 'procedure CallMakeAssemblyAdjmt(var SourceInvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)", var TempAvgCostAdjmtEntryPoint: Record "Avg. Cost Adjmt. Entry Point" temporary)'
+    parameters:
+    - id: SourceInvtAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    - id: TempAvgCostAdjmtEntryPoint
+      parameterType:
+        name: Record "Avg. Cost Adjmt. Entry Point" temporary
+        isExternal: true
+  name: CallMakeAssemblyAdjmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallMakeAssemblyAdjmt(Inventory_Adjmt#_Entry_(Order)@,Avg#_Cost_Adjmt#_Entry_Point@)
+- syntax:
+    content: 'procedure CallUpdateAdjmtBuf(OrigValueEntry: Record "Value Entry", NewAdjustedCost: Decimal, NewAdjustedCostACY: Decimal, ItemLedgEntryPostingDate: Date, EntryType: Enum "Cost Entry Type"): Boolean'
+    parameters:
+    - id: OrigValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: NewAdjustedCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewAdjustedCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgEntryPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Entry_Type
+        name: Microsoft.Inventory.Costing."Cost Entry Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallUpdateAdjmtBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallUpdateAdjmtBuf(Value_Entry,Decimal,Decimal,Date,Enum::Microsoft#Inventory#Costing#Cost_Entry_Type):Boolean
+- syntax:
+    content: 'procedure CallPostAdjmtBuf(var TempAvgCostAdjmtEntryPoint: Record "Avg. Cost Adjmt. Entry Point" temporary)'
+    parameters:
+    - id: TempAvgCostAdjmtEntryPoint
+      parameterType:
+        name: Record "Avg. Cost Adjmt. Entry Point" temporary
+        isExternal: true
+  name: CallPostAdjmtBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallPostAdjmtBuf(Avg#_Cost_Adjmt#_Entry_Point@)
+- syntax:
+    content: 'procedure CallPostOutputAdjmtBuf(var TempAvgCostAdjmtEntryPoint: Record "Avg. Cost Adjmt. Entry Point" temporary)'
+    parameters:
+    - id: TempAvgCostAdjmtEntryPoint
+      parameterType:
+        name: Record "Avg. Cost Adjmt. Entry Point" temporary
+        isExternal: true
+  name: CallPostOutputAdjmtBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallPostOutputAdjmtBuf(Avg#_Cost_Adjmt#_Entry_Point@)
+- syntax:
+    content: 'procedure CallSetAppliedEntryToAdjustFromBuf(ItemNo: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CallSetAppliedEntryToAdjustFromBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallSetAppliedEntryToAdjustFromBuf(Code[20])
+- syntax:
+    content: 'procedure CallAppliedEntryToAdjustBufExists(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallAppliedEntryToAdjustBufExists
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallAppliedEntryToAdjustBufExists(Code[20]):Boolean
+- syntax:
+    content: procedure CallUpdateJobItemCost()
+  name: CallUpdateJobItemCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment.CallUpdateJobItemCost
+implements:
+- internalReference: O:Interface::Microsoft#Inventory#Costing#Inventory_Adjustment
+  name: Microsoft.Inventory.Costing."Inventory Adjustment"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Inventory#Costing#Inventory Adjustment
+name: '"Inventory Adjustment"'
+uid: O:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment

@@ -1,0 +1,103 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.ProductionBOM."Where-Used Management"
+alId: ID 99000770
+namespace: Microsoft.Manufacturing.ProductionBOM
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.ProductionBOM
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Production BOM Header" = r,
+                      TableData "Production BOM Version" = r,
+                      TableData "Where-Used Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindRecord(Which: Text[30], var WhereUsedList2: Record "Where-Used Line"): Boolean'
+    parameters:
+    - id: Which
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: WhereUsedList2
+      parameterType:
+        name: Record "Where-Used Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindRecord
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used_Management.FindRecord(Text[30],Where-Used_Line@):Boolean
+- syntax:
+    content: 'procedure NextRecord(Steps: Integer, var WhereUsedList2: Record "Where-Used Line"): Integer'
+    parameters:
+    - id: Steps
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: WhereUsedList2
+      parameterType:
+        name: Record "Where-Used Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NextRecord
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used_Management.NextRecord(Integer,Where-Used_Line@):Integer
+- syntax:
+    content: 'procedure WhereUsedFromItem(Item: Record Item, CalcDate: Date, NewMultiLevel: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: CalcDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewMultiLevel
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: WhereUsedFromItem
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used_Management.WhereUsedFromItem(Item,Date,Boolean)
+- syntax:
+    content: 'procedure WhereUsedFromProdBOM(ProdBOM: Record "Production BOM Header", CalcDate: Date, NewMultiLevel: Boolean)'
+    parameters:
+    - id: ProdBOM
+      parameterType:
+        name: Record "Production BOM Header"
+        isExternal: true
+    - id: CalcDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewMultiLevel
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: WhereUsedFromProdBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used_Management.WhereUsedFromProdBOM(Production_BOM_Header,Date,Boolean)
+- syntax:
+    content: 'procedure IsActiveProductionBOM(ProductionBOMLine: Record "Production BOM Line"): Boolean'
+    parameters:
+    - id: ProductionBOMLine
+      parameterType:
+        name: Record "Production BOM Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsActiveProductionBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used_Management.IsActiveProductionBOM(Production_BOM_Line):Boolean
+commentId: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used Management
+name: '"Where-Used Management"'
+uid: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Where-Used_Management

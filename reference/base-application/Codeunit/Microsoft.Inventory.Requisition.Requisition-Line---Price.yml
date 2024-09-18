@@ -1,0 +1,204 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition."Requisition Line - Price"
+alId: ID 7025
+namespace: Microsoft.Inventory.Requisition
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetTableNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetTableNo
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.GetTableNo:Integer
+- syntax:
+    content: 'procedure SetLine(PriceType: Enum "Price Type", Line: Variant)'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: Line
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.SetLine(Enum::Microsoft#Pricing#PriceList#Price_Type,Variant)
+- syntax:
+    content: 'procedure SetLine(PriceType: Enum "Price Type", Header: Variant, Line: Variant)'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: Header
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: Line
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.SetLine(Enum::Microsoft#Pricing#PriceList#Price_Type,Variant,Variant)
+- syntax:
+    content: 'procedure SetSources(var NewPriceSourceList: Codeunit "Price Source List")'
+    parameters:
+    - id: NewPriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+  name: SetSources
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.SetSources(Codeunit::Microsoft#Pricing#Source#Price_Source_List@)
+- syntax:
+    content: 'procedure GetLine(var Line: Variant)'
+    parameters:
+    - id: Line
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.GetLine(Variant@)
+- syntax:
+    content: 'procedure GetLine(var Header: Variant, var Line: Variant)'
+    parameters:
+    - id: Header
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: Line
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.GetLine(Variant@,Variant@)
+- syntax:
+    content: 'procedure GetPriceType(): Enum "Price Type"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+  name: GetPriceType
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.GetPriceType:Enum::Microsoft#Pricing#PriceList#Price_Type
+- syntax:
+    content: 'procedure IsPriceUpdateNeeded(AmountType: Enum "Price Amount Type", FoundPrice: Boolean, CalledByFieldNo: Integer): Boolean'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: FoundPrice
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPriceUpdateNeeded
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.IsPriceUpdateNeeded(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Boolean,Integer):Boolean
+- syntax:
+    content: 'procedure IsDiscountAllowed(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDiscountAllowed
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.IsDiscountAllowed:Boolean
+- syntax:
+    content: procedure Verify()
+  name: Verify
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.Verify
+- syntax:
+    content: 'procedure SetAssetSourceForSetup(var DtldPriceCalculationSetup: Record "Dtld. Price Calculation Setup"): Boolean'
+    parameters:
+    - id: DtldPriceCalculationSetup
+      parameterType:
+        name: Record "Dtld. Price Calculation Setup"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetAssetSourceForSetup
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.SetAssetSourceForSetup(Dtld#_Price_Calculation_Setup@):Boolean
+- syntax:
+    content: 'procedure GetAssetType(): Enum "Price Asset Type"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+  name: GetAssetType
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.GetAssetType:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+- syntax:
+    content: 'procedure CopyToBuffer(var PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt."): Boolean'
+    parameters:
+    - id: PriceCalculationBufferMgt
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#
+        name: Microsoft.Pricing.Calculation."Price Calculation Buffer Mgt."
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyToBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.CopyToBuffer(Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#@):Boolean
+- syntax:
+    content: 'procedure SetPrice(AmountType: Enum "Price Amount Type", PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: SetPrice
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.SetPrice(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Price_List_Line)
+- syntax:
+    content: 'procedure ValidatePrice(AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ValidatePrice
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.ValidatePrice(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure Update(AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: Update
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price.Update(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+implements:
+- internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+  name: Microsoft.Pricing.PriceList."Line With Price"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Inventory#Requisition#Requisition Line - Price
+name: '"Requisition Line - Price"'
+uid: O:Codeunit::Microsoft#Inventory#Requisition#Requisition_Line_-_Price

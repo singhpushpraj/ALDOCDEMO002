@@ -1,0 +1,48 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Assembly.Posting."Assembly-Post (Yes/No)"
+alId: ID 901
+namespace: Microsoft.Assembly.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Assembly.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Assembly Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Assembly#Document#Assembly_Header
+    name: Microsoft.Assembly.Document."Assembly Header"
+    isExternal: false
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Preview(var AssemblyHeaderToPreview: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeaderToPreview
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post_(Yes/No).Preview(Assembly_Header@)
+- syntax:
+    content: 'procedure MessageIfPostingPreviewMultipleDocuments(var AssemblyHeaderToPreview: Record "Assembly Header", DocumentNo: Code[20])'
+    parameters:
+    - id: AssemblyHeaderToPreview
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MessageIfPostingPreviewMultipleDocuments
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post_(Yes/No).MessageIfPostingPreviewMultipleDocuments(Assembly_Header@,Code[20])
+commentId: O:Codeunit::Microsoft#Assembly#Posting#Assembly-Post (Yes/No)
+name: '"Assembly-Post (Yes/No)"'
+uid: O:Codeunit::Microsoft#Assembly#Posting#Assembly-Post_(Yes/No)

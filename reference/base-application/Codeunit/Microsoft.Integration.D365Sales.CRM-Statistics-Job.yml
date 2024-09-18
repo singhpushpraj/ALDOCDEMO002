@@ -1,0 +1,69 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.D365Sales."CRM Statistics Job"
+alId: ID 5350
+namespace: Microsoft.Integration.D365Sales
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.D365Sales
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateOrUpdateCRMAccountStatistics(Customer: Record Customer, var CRMAccount: Record "CRM Account"): Integer'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: CRMAccount
+      parameterType:
+        name: Record "CRM Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateOrUpdateCRMAccountStatistics
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Statistics_Job.CreateOrUpdateCRMAccountStatistics(Customer,CRM_Account@):Integer
+- syntax:
+    content: 'procedure GetAccStatsUpdateFinalMessage(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetAccStatsUpdateFinalMessage
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Statistics_Job.GetAccStatsUpdateFinalMessage:Text
+- syntax:
+    content: 'procedure GetInvStatusUpdateFinalMessage(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetInvStatusUpdateFinalMessage
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Statistics_Job.GetInvStatusUpdateFinalMessage:Text
+- syntax:
+    content: 'procedure UpdateStatusOfPaidInvoices(CustomerNo: Code[20]): Integer'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: UpdateStatusOfPaidInvoices
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Statistics_Job.UpdateStatusOfPaidInvoices(Code[20]):Integer
+commentId: O:Codeunit::Microsoft#Integration#D365Sales#CRM Statistics Job
+name: '"CRM Statistics Job"'
+uid: O:Codeunit::Microsoft#Integration#D365Sales#CRM_Statistics_Job

@@ -1,0 +1,387 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.CrossDock."Whse. Cross-Dock Management"
+alId: ID 5780
+namespace: Microsoft.Warehouse.CrossDock
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.CrossDock
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetUseCrossDock(var UseCrossDock: Boolean, LocationCode: Code[10], ItemNo: Code[20])'
+    parameters:
+    - id: UseCrossDock
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetUseCrossDock
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.GetUseCrossDock(Boolean@,Code[10],Code[20])
+- syntax:
+    content: 'procedure CalculateCrossDockLines(var WhseCrossDockOpportunity: Record "Whse. Cross-Dock Opportunity", NewTemplateName: Code[10], NewNameNo: Code[20], NewLocationCode: Code[10])'
+    parameters:
+    - id: WhseCrossDockOpportunity
+      parameterType:
+        name: Record "Whse. Cross-Dock Opportunity"
+        isExternal: true
+    - id: NewTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewNameNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CalculateCrossDockLines
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.CalculateCrossDockLines(Whse#_Cross-Dock_Opportunity@,Code[10],Code[20],Code[10])
+- syntax:
+    content: 'procedure CalcRemainingNeededQtyBase(ItemNo: Code[20], VariantCode: Code[10], QtyNeededBase: Decimal, var QtyToCrossDockBase: Decimal, var QtyOnCrossDockBase: Decimal, QtyToHandleBase: Decimal): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyNeededBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToCrossDockBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyOnCrossDockBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToHandleBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcRemainingNeededQtyBase
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.CalcRemainingNeededQtyBase(Code[20],Code[10],Decimal,Decimal@,Decimal@,Decimal):Decimal
+- syntax:
+    content: 'procedure CalculateCrossDockLine(var WhseCrossDockOpportunity: Record "Whse. Cross-Dock Opportunity", ItemNo: Code[20], VariantCode: Code[10], var QtyNeededBase: Decimal, var QtyToCrossDockBase: Decimal, var QtyOnCrossDockBase: Decimal, LineNo: Integer, QtyToHandleBase: Decimal)'
+    parameters:
+    - id: WhseCrossDockOpportunity
+      parameterType:
+        name: Record "Whse. Cross-Dock Opportunity"
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyNeededBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToCrossDockBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyOnCrossDockBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyToHandleBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculateCrossDockLine
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.CalculateCrossDockLine(Whse#_Cross-Dock_Opportunity@,Code[20],Code[10],Decimal@,Decimal@,Decimal@,Integer,Decimal)
+- syntax:
+    content: 'procedure InsertCrossDockOpp(var WhseCrossDockOpportunity: Record "Whse. Cross-Dock Opportunity", SourceType: Integer, SourceSubType: Integer, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer, QtyOutstanding: Decimal, QtyOutstandingBase: Decimal, QtyOnPick: Decimal, QtyOnPickBase: Decimal, QtyPicked: Decimal, QtyPickedBase: Decimal, UOMCode: Code[10], QtyPerUOM: Decimal, DueDate: Date, ItemNo: Code[20], VariantCode: Code[10], LineNo: Integer)'
+    parameters:
+    - id: WhseCrossDockOpportunity
+      parameterType:
+        name: Record "Whse. Cross-Dock Opportunity"
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyOutstanding
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyOutstandingBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyOnPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyOnPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPicked
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPickedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertCrossDockOpp
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.InsertCrossDockOpp(Whse#_Cross-Dock_Opportunity@,Integer,Integer,Code[20],Integer,Integer,Decimal,Decimal,Decimal,Decimal,Decimal,Decimal,Code[10],Decimal,Date,Code[20],Code[10],Integer)
+- syntax:
+    content: 'procedure ShowCrossDock(var WhseCrossDockOpportunity: Record "Whse. Cross-Dock Opportunity", SourceTemplateName: Code[10], SourceNameNo: Code[20], SourceLineNo: Integer, LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10])'
+    parameters:
+    - id: WhseCrossDockOpportunity
+      parameterType:
+        name: Record "Whse. Cross-Dock Opportunity"
+        isExternal: true
+    - id: SourceTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceNameNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ShowCrossDock
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.ShowCrossDock(Whse#_Cross-Dock_Opportunity@,Code[10],Code[20],Integer,Code[10],Code[20],Code[10])
+- syntax:
+    content: 'procedure CalcCrossDockedItems(ItemNo: Code[20], VariantCode: Code[10], UOMCode: Code[10], LocationCode: Code[10], var QtyCrossDockedUOMBase: Decimal, var QtyCrossDockedAllUOMBase: Decimal)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyCrossDockedUOMBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyCrossDockedAllUOMBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcCrossDockedItems
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.CalcCrossDockedItems(Code[20],Code[10],Code[10],Code[10],Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcCrossDockReceivedNotCrossDocked(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10]): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCrossDockReceivedNotCrossDocked
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.CalcCrossDockReceivedNotCrossDocked(Code[10],Code[20],Code[10]):Decimal
+- syntax:
+    content: 'procedure ShowBinContentsCrossDocked(ItemNo: Code[20], VariantCode: Code[10], UOMCode: Code[10], LocationCode: Code[10], FilterOnUOM: Boolean)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FilterOnUOM
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowBinContentsCrossDocked
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.ShowBinContentsCrossDocked(Code[20],Code[10],Code[10],Code[10],Boolean)
+- syntax:
+    content: 'procedure CalculatePickQty(SourceType: Integer, SourceSubtype: Integer, SourceNo: Code[20], SourceLineNo: Integer, var QtyOnPick: Decimal, var QtyOnPickBase: Decimal, var QtyPicked: Decimal, var QtyPickedBase: Decimal, Qty: Decimal, QtyBase: Decimal, OutstandingQty: Decimal, OutstandingQtyBase: Decimal)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyOnPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyOnPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPicked
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPickedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OutstandingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OutstandingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculatePickQty
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.CalculatePickQty(Integer,Integer,Code[20],Integer,Decimal@,Decimal@,Decimal@,Decimal@,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetTemplate(NewTemplateName: Code[10], NewNameNo: Code[20], NewLocationCode: Code[10])'
+    parameters:
+    - id: NewTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewNameNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetTemplate
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.SetTemplate(Code[10],Code[20],Code[10])
+- syntax:
+    content: 'procedure FilterCrossDockOpp(var WhseCrossDockOpportunity: Record "Whse. Cross-Dock Opportunity")'
+    parameters:
+    - id: WhseCrossDockOpportunity
+      parameterType:
+        name: Record "Whse. Cross-Dock Opportunity"
+        isExternal: true
+  name: FilterCrossDockOpp
+  uid: M:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management.FilterCrossDockOpp(Whse#_Cross-Dock_Opportunity@)
+commentId: O:Codeunit::Microsoft#Warehouse#CrossDock#Whse# Cross-Dock Management
+name: '"Whse. Cross-Dock Management"'
+uid: O:Codeunit::Microsoft#Warehouse#CrossDock#Whse#_Cross-Dock_Management

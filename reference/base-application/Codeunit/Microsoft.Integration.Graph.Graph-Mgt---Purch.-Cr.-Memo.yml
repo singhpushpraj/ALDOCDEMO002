@@ -1,0 +1,147 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - Purch. Cr. Memo"
+alId: ID 5511
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "Purch. Cr. Memo Hdr." = rimd,
+                      tabledata "Purch. Cr. Memo Entity Buffer" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PropagateOnInsert(var PurchCrMemoEntityBuffer: Record "Purch. Cr. Memo Entity Buffer", var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchCrMemoEntityBuffer
+      parameterType:
+        name: Record "Purch. Cr. Memo Entity Buffer"
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateOnInsert
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.PropagateOnInsert(Purch#_Cr#_Memo_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateOnModify(var PurchCrMemoEntityBuffer: Record "Purch. Cr. Memo Entity Buffer", var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchCrMemoEntityBuffer
+      parameterType:
+        name: Record "Purch. Cr. Memo Entity Buffer"
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateOnModify
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.PropagateOnModify(Purch#_Cr#_Memo_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateOnDelete(var PurchCrMemoEntityBuffer: Record "Purch. Cr. Memo Entity Buffer")'
+    parameters:
+    - id: PurchCrMemoEntityBuffer
+      parameterType:
+        name: Record "Purch. Cr. Memo Entity Buffer"
+        isExternal: true
+  name: PropagateOnDelete
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.PropagateOnDelete(Purch#_Cr#_Memo_Entity_Buffer@)
+- syntax:
+    content: procedure UpdateBufferTableRecords()
+  name: UpdateBufferTableRecords
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.UpdateBufferTableRecords
+- syntax:
+    content: 'procedure GetPurchaseCrMemoHeaderId(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."): Guid'
+    parameters:
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetPurchaseCrMemoHeaderId
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.GetPurchaseCrMemoHeaderId(Purch#_Cr#_Memo_Hdr#@):Guid
+- syntax:
+    content: 'procedure GetPurchaseCrMemoHeaderFromId(Id: Text, var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."): Boolean'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPurchaseCrMemoHeaderFromId
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.GetPurchaseCrMemoHeaderFromId(Text,Purch#_Cr#_Memo_Hdr#@):Boolean
+- syntax:
+    content: 'procedure RedistributeCreditMemoDiscounts(var PurchCrMemoEntityBuffer: Record "Purch. Cr. Memo Entity Buffer")'
+    parameters:
+    - id: PurchCrMemoEntityBuffer
+      parameterType:
+        name: Record "Purch. Cr. Memo Entity Buffer"
+        isExternal: true
+  name: RedistributeCreditMemoDiscounts
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.RedistributeCreditMemoDiscounts(Purch#_Cr#_Memo_Entity_Buffer@)
+- syntax:
+    content: 'procedure LoadLines(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, DocumentIdFilter: Text)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: DocumentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LoadLines
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.LoadLines(Purch#_Inv#_Line_Aggregate@,Text)
+- syntax:
+    content: 'procedure PropagateInsertLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateInsertLine
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.PropagateInsertLine(Purch#_Inv#_Line_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateModifyLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateModifyLine
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.PropagateModifyLine(Purch#_Inv#_Line_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateDeleteLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+  name: PropagateDeleteLine
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo.PropagateDeleteLine(Purch#_Inv#_Line_Aggregate@)
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - Purch# Cr# Memo
+name: '"Graph Mgt - Purch. Cr. Memo"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purch#_Cr#_Memo

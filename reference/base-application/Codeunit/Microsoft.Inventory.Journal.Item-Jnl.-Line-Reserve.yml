@@ -1,0 +1,256 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Journal."Item Jnl. Line-Reserve"
+alId: ID 99000835
+namespace: Microsoft.Inventory.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(var ItemJournalLine: Record "Item Journal Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.CreateReservation(Item_Journal_Line@,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure Caption(ItemJournalLine: Record "Item Journal Line"): Text'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.Caption(Item_Journal_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(ItemJournalLine: Record "Item Journal Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.FindReservEntry(Item_Journal_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure ReservEntryExist(ItemJournalLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.ReservEntryExist(Item_Journal_Line):Boolean
+- syntax:
+    content: 'procedure ReservEntryExist(ItemJournalLine: Record "Item Journal Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.ReservEntryExist(Item_Journal_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewItemJournalLine: Record "Item Journal Line", var OldItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: NewItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: OldItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.VerifyChange(Item_Journal_Line@,Item_Journal_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewItemJournalLine: Record "Item Journal Line", var OldItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: NewItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: OldItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.VerifyQuantity(Item_Journal_Line@,Item_Journal_Line@)
+- syntax:
+    content: 'procedure TransferItemJnlToItemLedgEntry(var ItemJournalLine: Record "Item Journal Line", var ItemLedgerEntry: Record "Item Ledger Entry", TransferQty: Decimal, SkipInventory: Boolean): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SkipInventory
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransferItemJnlToItemLedgEntry
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.TransferItemJnlToItemLedgEntry(Item_Journal_Line@,Item_Ledger_Entry@,Decimal,Boolean):Boolean
+- syntax:
+    content: 'procedure RenameLine(var NewItemJournalLine: Record "Item Journal Line", var OldItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: NewItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: OldItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: RenameLine
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.RenameLine(Item_Journal_Line@,Item_Journal_Line@)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var ItemJournalLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.DeleteLineConfirm(Item_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var ItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.DeleteLine(Item_Journal_Line@)
+- syntax:
+    content: 'procedure AssignForPlanning(var ItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: AssignForPlanning
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.AssignForPlanning(Item_Journal_Line@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var ItemJournalLine: Record "Item Journal Line", IsReclass: Boolean)'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: IsReclass
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.CallItemTracking(Item_Journal_Line@,Boolean)
+- syntax:
+    content: 'procedure CreateItemTracking(var ItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: CreateItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.CreateItemTracking(Item_Journal_Line@)
+- syntax:
+    content: 'procedure RegisterBinContentItemTracking(var ItemJournalLine: Record "Item Journal Line", var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: RegisterBinContentItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve.RegisterBinContentItemTracking(Item_Journal_Line@,Tracking_Specification@)
+commentId: O:Codeunit::Microsoft#Inventory#Journal#Item Jnl# Line-Reserve
+name: '"Item Jnl. Line-Reserve"'
+uid: O:Codeunit::Microsoft#Inventory#Journal#Item_Jnl#_Line-Reserve

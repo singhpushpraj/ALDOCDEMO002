@@ -1,0 +1,61 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Interaction."Word Template Interactions"
+alId: ID 5069
+namespace: Microsoft.CRM.Interaction
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Interaction
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure Merge(var TempDeliverySorterWord: Record "Delivery Sorter" temporary)'
+    parameters:
+    - id: TempDeliverySorterWord
+      description: A temporary table containing information about attachments and their recipients.
+      parameterType:
+        name: Record "Delivery Sorter" temporary
+        isExternal: true
+  summary: >-
+    Performs mail merge on the Word templates from the attachments specified by TempDeliverySorterWord
+
+    and sends them according to the correspondence Type.
+  name: Merge
+  uid: M:Codeunit::Microsoft#CRM#Interaction#Word_Template_Interactions.Merge(Delivery_Sorter@)
+- syntax:
+    content: 'procedure RunMergedDocument(var SegLine: Record "Segment Line", var Attachment: Record Attachment)'
+    parameters:
+    - id: SegLine
+      description: Specifies the segment line for which the attachment is for.
+      parameterType:
+        name: Record "Segment Line"
+        isExternal: true
+    - id: Attachment
+      description: Specifies the attachemnt (Word template) to be downloaded.
+      parameterType:
+        name: Record Attachment
+        isExternal: true
+  summary: Download a merged Word template for a given segment line and attachment.
+  name: RunMergedDocument
+  uid: M:Codeunit::Microsoft#CRM#Interaction#Word_Template_Interactions.RunMergedDocument(Segment_Line@,Attachment@)
+- syntax:
+    content: 'procedure IsWordDocumentExtension(FileExtension: Text): Boolean'
+    parameters:
+    - id: FileExtension
+      description: File extension to check.
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      description: True if the provided extension is a Word document extension, false otherwise.
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Checks if the provided file extension is a Word document extension.
+  name: IsWordDocumentExtension
+  uid: M:Codeunit::Microsoft#CRM#Interaction#Word_Template_Interactions.IsWordDocumentExtension(Text):Boolean
+commentId: O:Codeunit::Microsoft#CRM#Interaction#Word Template Interactions
+name: '"Word Template Interactions"'
+uid: O:Codeunit::Microsoft#CRM#Interaction#Word_Template_Interactions

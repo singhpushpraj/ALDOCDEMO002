@@ -1,0 +1,581 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Line-Reserve"
+alId: ID 99000832
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = rimd,
+                      TableData "Planning Assignment" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(SalesLine: Record "Sales Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CreateReservation(Sales_Line,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateBindingReservation(SalesLine: Record "Sales Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateBindingReservation
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CreateBindingReservation(Sales_Line,Text[100],Date,Decimal,Decimal)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure SetDisallowCancellation(DisallowCancellation: Boolean)'
+    parameters:
+    - id: DisallowCancellation
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDisallowCancellation
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetDisallowCancellation(Boolean)
+- syntax:
+    content: 'procedure ReservQuantity(SalesLine: Record "Sales Line", var QtyToReserve: Decimal, var QtyToReserveBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ReservQuantity
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.ReservQuantity(Sales_Line,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure Caption(SalesLine: Record "Sales Line"): Text'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.Caption(Sales_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(SalesLine: Record "Sales Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.FindReservEntry(Sales_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(SalesLine: Record "Sales Line"): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.GetReservedQtyFromInventory(Sales_Line):Decimal
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(SalesHeader: Record "Sales Header"): Decimal'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.GetReservedQtyFromInventory(Sales_Header):Decimal
+- syntax:
+    content: 'procedure ReservEntryExist(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.ReservEntryExist(Sales_Line):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewSalesLine: Record "Sales Line", var OldSalesLine: Record "Sales Line")'
+    parameters:
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.VerifyChange(Sales_Line@,Sales_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewSalesLine: Record "Sales Line", var OldSalesLine: Record "Sales Line")'
+    parameters:
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.VerifyQuantity(Sales_Line@,Sales_Line@)
+- syntax:
+    content: 'procedure SetSaleShipQty(ErrorInfo: ErrorInfo)'
+    parameters:
+    - id: ErrorInfo
+      parameterType:
+        name: ErrorInfo
+        isExternal: true
+  name: SetSaleShipQty
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetSaleShipQty(ErrorInfo)
+- syntax:
+    content: 'procedure SetSalesQtyInvoice(ErrorInfo: ErrorInfo)'
+    parameters:
+    - id: ErrorInfo
+      parameterType:
+        name: ErrorInfo
+        isExternal: true
+  name: SetSalesQtyInvoice
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetSalesQtyInvoice(ErrorInfo)
+- syntax:
+    content: 'procedure TransferSalesLineToItemJnlLine(var SalesLine: Record "Sales Line", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, var CheckApplFromItemEntry: Boolean, OnlyILEReservations: Boolean): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: OnlyILEReservations
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TransferSalesLineToItemJnlLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.TransferSalesLineToItemJnlLine(Sales_Line@,Item_Journal_Line@,Decimal,Boolean@,Boolean):Decimal
+- syntax:
+    content: 'procedure TransferSaleLineToSalesLine(var OldSalesLine: Record "Sales Line", var NewSalesLine: Record "Sales Line", TransferQty: Decimal)'
+    parameters:
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferSaleLineToSalesLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.TransferSaleLineToSalesLine(Sales_Line@,Sales_Line@,Decimal)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.DeleteLineConfirm(Sales_Line@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.DeleteLine(Sales_Line@)
+- syntax:
+    content: 'procedure AssignForPlanning(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: AssignForPlanning
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.AssignForPlanning(Sales_Line@)
+- syntax:
+    content: 'procedure CallItemTracking(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CallItemTracking(Sales_Line@)
+- syntax:
+    content: 'procedure CallItemTracking(var SalesLine: Record "Sales Line", SecondSourceQuantityArray: array[3] of Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SecondSourceQuantityArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CallItemTracking(Sales_Line@,Decimal[])
+- syntax:
+    content: 'procedure CallItemTrackingSecondSource(var SalesLine: Record "Sales Line", SecondSourceQuantityArray: array[3] of Decimal, AsmToOrder: Boolean)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SecondSourceQuantityArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+    - id: AsmToOrder
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CallItemTrackingSecondSource
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CallItemTrackingSecondSource(Sales_Line@,Decimal[],Boolean)
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification(var SalesLine: Record "Sales Line", var TempInvoicingTrackingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempInvoicingTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.RetrieveInvoiceSpecification(Sales_Line@,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification2(var SalesLine: Record "Sales Line", var TempInvoicingTrackingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempInvoicingTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification2
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.RetrieveInvoiceSpecification2(Sales_Line@,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromHeader(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: DeleteInvoiceSpecFromHeader
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.DeleteInvoiceSpecFromHeader(Sales_Header@)
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.UpdateItemTrackingAfterPosting(Sales_Header)
+- syntax:
+    content: 'procedure SetApplySpecificItemTracking(ApplySpecific: Boolean)'
+    parameters:
+    - id: ApplySpecific
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetApplySpecificItemTracking
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetApplySpecificItemTracking(Boolean)
+- syntax:
+    content: 'procedure SetOverruleItemTracking(Overrule: Boolean)'
+    parameters:
+    - id: Overrule
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetOverruleItemTracking
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetOverruleItemTracking(Boolean)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure SetItemTrkgAlreadyOverruled(HasBeenOverruled: Boolean)'
+    parameters:
+    - id: HasBeenOverruled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetItemTrkgAlreadyOverruled
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetItemTrkgAlreadyOverruled(Boolean)
+- syntax:
+    content: 'procedure BindToPurchase(SalesLine: Record "Sales Line", PurchaseLine: Record "Purchase Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToPurchase
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.BindToPurchase(Sales_Line,Purchase_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToProdOrder(SalesLine: Record "Sales Line", ProdOrderLine: Record "Prod. Order Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToProdOrder
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.BindToProdOrder(Sales_Line,Prod#_Order_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToRequisition(SalesLine: Record "Sales Line", RequisitionLine: Record "Requisition Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToRequisition
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.BindToRequisition(Sales_Line,Requisition_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToAssembly(SalesLine: Record "Sales Line", AssemblyHeader: Record "Assembly Header", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToAssembly
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.BindToAssembly(Sales_Line,Assembly_Header,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToTransfer(SalesLine: Record "Sales Line", TransferLine: Record "Transfer Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToTransfer
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.BindToTransfer(Sales_Line,Transfer_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetDeleteItemTracking(NewDeleteItemTracking: Boolean)'
+    parameters:
+    - id: NewDeleteItemTracking
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDeleteItemTracking
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.SetDeleteItemTracking(Boolean)
+- syntax:
+    content: 'procedure CopyReservEntryToTemp(var TempReservationEntry: Record "Reservation Entry" temporary, OldSalesLine: Record "Sales Line")'
+    parameters:
+    - id: TempReservationEntry
+      parameterType:
+        name: Record "Reservation Entry" temporary
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CopyReservEntryToTemp
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CopyReservEntryToTemp(Reservation_Entry@,Sales_Line)
+- syntax:
+    content: 'procedure CopyReservEntryFromTemp(var TempReservationEntry: Record "Reservation Entry" temporary, OldSalesLine: Record "Sales Line", NewSourceRefNo: Integer)'
+    parameters:
+    - id: TempReservationEntry
+      parameterType:
+        name: Record "Reservation Entry" temporary
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewSourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyReservEntryFromTemp
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve.CopyReservEntryFromTemp(Reservation_Entry@,Sales_Line,Integer)
+commentId: O:Codeunit::Microsoft#Sales#Document#Sales Line-Reserve
+name: '"Sales Line-Reserve"'
+uid: O:Codeunit::Microsoft#Sales#Document#Sales_Line-Reserve

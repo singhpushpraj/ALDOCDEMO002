@@ -1,0 +1,90 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Whse.-Activity-Post"
+alId: ID 7324
+namespace: Microsoft.Warehouse.Activity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Warehouse Setup" = rm,
+                      TableData "Warehouse Journal Batch" = rimd,
+                      TableData "Posted Invt. Put-away Header" = ri,
+                      TableData "Posted Invt. Put-away Line" = ri,
+                      TableData "Posted Invt. Pick Header" = ri,
+                      TableData "Posted Invt. Pick Line" = ri
+  promoted: false
+- name: TableNo
+  value: Warehouse Activity Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Line
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateWhseJnlLine(var WhseJnlLine: Record "Warehouse Journal Line", WhseActivLine: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: CreateWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post.CreateWhseJnlLine(Warehouse_Journal_Line@,Warehouse_Activity_Line)
+- syntax:
+    content: 'procedure ShowHideDialog(HideDialog2: Boolean)'
+    parameters:
+    - id: HideDialog2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowHideDialog
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post.ShowHideDialog(Boolean)
+- syntax:
+    content: 'procedure SetInvoiceSourceDoc(Invoice: Boolean)'
+    parameters:
+    - id: Invoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInvoiceSourceDoc
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post.SetInvoiceSourceDoc(Boolean)
+- syntax:
+    content: 'procedure PrintDocument(SetPrint: Boolean)'
+    parameters:
+    - id: SetPrint
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PrintDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post.PrintDocument(Boolean)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetIsPreview(NewIsPreview: Boolean)'
+    parameters:
+    - id: NewIsPreview
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetIsPreview
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post.SetIsPreview(Boolean)
+commentId: O:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post
+name: '"Whse.-Activity-Post"'
+uid: O:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Post

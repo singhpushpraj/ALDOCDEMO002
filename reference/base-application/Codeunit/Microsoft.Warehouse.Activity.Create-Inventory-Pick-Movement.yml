@@ -1,0 +1,386 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Create Inventory Pick/Movement"
+alId: ID 7322
+namespace: Microsoft.Warehouse.Activity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Whse. Item Tracking Line" = rimd
+  promoted: false
+- name: TableNo
+  value: Warehouse Activity Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetSourceDocDetailsFilter(var WarehouseSourceFilter2: Record "Warehouse Source Filter")'
+    parameters:
+    - id: WarehouseSourceFilter2
+      parameterType:
+        name: Record "Warehouse Source Filter"
+        isExternal: true
+  name: SetSourceDocDetailsFilter
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SetSourceDocDetailsFilter(Warehouse_Source_Filter@)
+- syntax:
+    content: procedure FindNextLineNo()
+  name: FindNextLineNo
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.FindNextLineNo
+- syntax:
+    content: 'procedure RunCreatePickOrMoveLine(NewWarehouseActivityLine: Record "Warehouse Activity Line", var RemQtyToPickBase: Decimal, OutstandingQtyBase: Decimal, ReservationExists: Boolean)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: RemQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OutstandingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservationExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunCreatePickOrMoveLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.RunCreatePickOrMoveLine(Warehouse_Activity_Line,Decimal@,Decimal,Boolean)
+- syntax:
+    content: 'procedure InsertPickOrMoveBinWhseActLine(NewWarehouseActivityLine: Record "Warehouse Activity Line", BinCode: Code[20], DefaultBin: Boolean, var RemQtyToPickBase: Decimal, WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DefaultBin
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RemQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: InsertPickOrMoveBinWhseActLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.InsertPickOrMoveBinWhseActLine(Warehouse_Activity_Line,Code[20],Boolean,Decimal@,Item_Tracking_Setup)
+- syntax:
+    content: 'procedure InsertShelfWhseActivLine(NewWarehouseActivityLine: Record "Warehouse Activity Line", var RemQtyToPickBase: Decimal, WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: RemQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: InsertShelfWhseActivLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.InsertShelfWhseActivLine(Warehouse_Activity_Line,Decimal@,Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CalcInvtAvailability(WarehouseActivityLine: Record "Warehouse Activity Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcInvtAvailability
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.CalcInvtAvailability(Warehouse_Activity_Line,Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure SetWhseRequest(NewWarehouseRequest: Record "Warehouse Request", SetHideDialog: Boolean)'
+    parameters:
+    - id: NewWarehouseRequest
+      parameterType:
+        name: Record "Warehouse Request"
+        isExternal: true
+    - id: SetHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetWhseRequest
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SetWhseRequest(Warehouse_Request,Boolean)
+- syntax:
+    content: 'procedure CheckSourceDoc(NewWarehouseRequest: Record "Warehouse Request"): Boolean'
+    parameters:
+    - id: NewWarehouseRequest
+      parameterType:
+        name: Record "Warehouse Request"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckSourceDoc
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.CheckSourceDoc(Warehouse_Request):Boolean
+- syntax:
+    content: 'procedure AutoCreatePickOrMove(var NewWarehouseActivityHeader: Record "Warehouse Activity Header")'
+    parameters:
+    - id: NewWarehouseActivityHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+  name: AutoCreatePickOrMove
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.AutoCreatePickOrMove(Warehouse_Activity_Header@)
+- syntax:
+    content: 'procedure SetReportGlobals(PrintDocument2: Boolean, ShowError2: Boolean)'
+    parameters:
+    - id: PrintDocument2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowError2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetReportGlobals
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SetReportGlobals(Boolean,Boolean)
+- syntax:
+    content: 'procedure SetReportGlobals(PrintDocument2: Boolean, ShowError2: Boolean, ReservedFromStock2: Enum "Reservation From Stock")'
+    parameters:
+    - id: PrintDocument2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowError2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ReservedFromStock2
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+  name: SetReportGlobals
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SetReportGlobals(Boolean,Boolean,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock)
+- syntax:
+    content: 'procedure SetInvtMovement(InvtMovement: Boolean)'
+    parameters:
+    - id: InvtMovement
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInvtMovement
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SetInvtMovement(Boolean)
+- syntax:
+    content: 'procedure UndefinedItemTracking(var QtyToTrackBase: Decimal): Boolean'
+    parameters:
+    - id: QtyToTrackBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UndefinedItemTracking
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.UndefinedItemTracking(Decimal@):Boolean
+- syntax:
+    content: 'procedure CreateTempHandlingSpec(WarehouseActivityLine: Record "Warehouse Activity Line", TotalQtyToPickBase: Decimal)'
+    parameters:
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: TotalQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateTempHandlingSpec
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.CreateTempHandlingSpec(Warehouse_Activity_Line,Decimal)
+- syntax:
+    content: 'procedure CreateInvtMvntWithoutSource(var InternalMovementHeader: Record "Internal Movement Header")'
+    parameters:
+    - id: InternalMovementHeader
+      parameterType:
+        name: Record "Internal Movement Header"
+        isExternal: true
+  name: CreateInvtMvntWithoutSource
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.CreateInvtMvntWithoutSource(Internal_Movement_Header@)
+- syntax:
+    content: 'procedure CreateInvtMvntWithoutSource(var WhseWorksheetLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: CreateInvtMvntWithoutSource
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.CreateInvtMvntWithoutSource(Whse#_Worksheet_Line@)
+- syntax:
+    content: 'procedure SynchronizeWhseItemTracking(var TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: SynchronizeWhseItemTracking
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SynchronizeWhseItemTracking(Tracking_Specification@)
+- syntax:
+    content: 'procedure GetExpiredItemMessage(): Text[100]'
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetExpiredItemMessage
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.GetExpiredItemMessage:Text[100]
+- syntax:
+    content: 'procedure PickStrictExpirationPosting(ItemNo: Code[20], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PickStrictExpirationPosting
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.PickStrictExpirationPosting(Code[20],Item_Tracking_Setup):Boolean
+- syntax:
+    content: procedure MakeWarehouseActivityHeader()
+  name: MakeWarehouseActivityHeader
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.MakeWarehouseActivityHeader
+- syntax:
+    content: 'procedure MakeWarehouseActivityLine(var NewWarehouseActivityLine: Record "Warehouse Activity Line", TakeBinCode: Code[20], QtyToPickBase: Decimal, var RemQtyToPickBase: Decimal)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: TakeBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: QtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: MakeWarehouseActivityLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.MakeWarehouseActivityLine(Warehouse_Activity_Line@,Code[20],Decimal,Decimal@)
+- syntax:
+    content: 'procedure MakeLineWhenSNoReq(var NewWarehouseActivityLine: Record "Warehouse Activity Line", TakeBinCode: Code[20], QtyToPickBase: Decimal, var RemQtyToPickBase: Decimal, var RemQtyToPick: Decimal)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: TakeBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: QtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: MakeLineWhenSNoReq
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.MakeLineWhenSNoReq(Warehouse_Activity_Line@,Code[20],Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetSpecEquipmentCode(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], BinCode: Code[20]): Code[10]'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetSpecEquipmentCode
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.GetSpecEquipmentCode(Code[20],Code[10],Code[10],Code[20]):Code[10]
+- syntax:
+    content: 'procedure CreateATOPickLine(NewWarehouseActivityLine: Record "Warehouse Activity Line", BinCode: Code[20], var RemQtyToPickBase: Decimal)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RemQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateATOPickLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.CreateATOPickLine(Warehouse_Activity_Line,Code[20],Decimal@)
+- syntax:
+    content: 'procedure GetATOMovementsCounters(var MovementsCreated: Integer, var TotalMovementsCreated: Integer)'
+    parameters:
+    - id: MovementsCreated
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalMovementsCreated
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetATOMovementsCounters
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.GetATOMovementsCounters(Integer@,Integer@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement.SetSuppressCommit(Boolean)
+commentId: O:Codeunit::Microsoft#Warehouse#Activity#Create Inventory Pick/Movement
+name: '"Create Inventory Pick/Movement"'
+uid: O:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Pick/Movement

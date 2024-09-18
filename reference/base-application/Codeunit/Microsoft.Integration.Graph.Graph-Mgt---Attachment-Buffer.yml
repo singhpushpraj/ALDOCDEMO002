@@ -1,0 +1,344 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - Attachment Buffer"
+alId: ID 5503
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Incoming Document Attachment" = rimd, tabledata "Tenant Media" = r
+  promoted: false
+methods:
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure LoadDocumentAttachments(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, DocumentFilter: Text)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: DocumentFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LoadDocumentAttachments
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.LoadDocumentAttachments(Attachment_Entity_Buffer@,Text)
+- syntax:
+    content: 'procedure ConvertDocumentTypeToDocumentAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var DocumentAttachment: Record "Document Attachment")'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: DocumentAttachment
+      parameterType:
+        name: Record "Document Attachment"
+        isExternal: true
+  name: ConvertDocumentTypeToDocumentAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.ConvertDocumentTypeToDocumentAttachment(Attachment_Entity_Buffer@,Document_Attachment@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure LoadAttachments(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, DocumentIdFilter: Text, AttachmentIdFilter: Text)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: DocumentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AttachmentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LoadAttachments
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.LoadAttachments(Attachment_Entity_Buffer@,Text,Text)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure LoadAttachmentsWithDocumentType(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, DocumentIdFilter: Text, AttachmentIdFilter: Text, DocumentTypeFilter: Text)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: DocumentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AttachmentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentTypeFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LoadAttachmentsWithDocumentType
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.LoadAttachmentsWithDocumentType(Attachment_Entity_Buffer@,Text,Text,Text)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure PropagateInsertAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateInsertAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateInsertAttachment(Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure PropagateInsertAttachmentSafe(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateInsertAttachmentSafe
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateInsertAttachmentSafe(Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure PropagateInsertAttachmentSafeWithDocumentType(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateInsertAttachmentSafeWithDocumentType
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateInsertAttachmentSafeWithDocumentType(Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure PropagateModifyAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateModifyAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateModifyAttachment(Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure PropagateModifyAttachmentWithDocumentType(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateModifyAttachmentWithDocumentType
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateModifyAttachmentWithDocumentType(Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateDeleteAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+  name: PropagateDeleteAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateDeleteAttachment(Attachment_Entity_Buffer@)
+- syntax:
+    content: 'procedure PropagateDeleteAttachmentWithDocumentType(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+  name: PropagateDeleteAttachmentWithDocumentType
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.PropagateDeleteAttachmentWithDocumentType(Attachment_Entity_Buffer@)
+- syntax:
+    content: 'procedure DeleteLinkedAttachment(var IncomingDocumentAttachment: Record "Incoming Document Attachment", var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocumentAttachment
+      parameterType:
+        name: Record "Incoming Document Attachment"
+        isExternal: true
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: DeleteLinkedAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.DeleteLinkedAttachment(Incoming_Document_Attachment@,Incoming_Document@)
+- syntax:
+    content: 'procedure InsertFromTempAttachmentEntityBufferToDocumentAttachment(var DocumentAttachment: Record "Document Attachment", var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: DocumentAttachment
+      parameterType:
+        name: Record "Document Attachment"
+        isExternal: true
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: InsertFromTempAttachmentEntityBufferToDocumentAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.InsertFromTempAttachmentEntityBufferToDocumentAttachment(Document_Attachment@,Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    content: 'procedure ModifyFromTempAttachmentEntityBufferToDocumentAttachment(var DocumentAttachment: Record "Document Attachment", var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: DocumentAttachment
+      parameterType:
+        name: Record "Document Attachment"
+        isExternal: true
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: ModifyFromTempAttachmentEntityBufferToDocumentAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.ModifyFromTempAttachmentEntityBufferToDocumentAttachment(Document_Attachment@,Attachment_Entity_Buffer@,Field_Buffer@)
+- syntax:
+    content: 'procedure SetDocumentAttachmentNo(var DocumentAttachment: Record "Document Attachment", var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary)'
+    parameters:
+    - id: DocumentAttachment
+      parameterType:
+        name: Record "Document Attachment"
+        isExternal: true
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+  name: SetDocumentAttachmentNo
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.SetDocumentAttachmentNo(Document_Attachment@,Attachment_Entity_Buffer@)
+- syntax:
+    content: 'procedure CopyAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var UnlinkedAttachment: Record "Unlinked Attachment", GenerateNewId: Boolean)'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: UnlinkedAttachment
+      parameterType:
+        name: Record "Unlinked Attachment"
+        isExternal: true
+    - id: GenerateNewId
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.CopyAttachment(Attachment_Entity_Buffer@,Unlinked_Attachment@,Boolean)
+- syntax:
+    content: 'procedure RegisterFieldSet(FieldNo: Integer, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: RegisterFieldSet
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.RegisterFieldSet(Integer,Field_Buffer@)
+- syntax:
+    content: 'procedure GetDocumentIdFromAttachmentId(AttachmentId: Guid): Guid'
+    parameters:
+    - id: AttachmentId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetDocumentIdFromAttachmentId
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.GetDocumentIdFromAttachmentId(Guid):Guid
+- syntax:
+    content: 'procedure GetDocumentTypeFromAttachmentIdAndDocumentId(AttachmentId: Guid, DocumentId: Guid): Enum "Attachment Entity Buffer Document Type"'
+    parameters:
+    - id: AttachmentId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: DocumentId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Integration#Graph#Attachment_Entity_Buffer_Document_Type
+        name: Microsoft.Integration.Graph."Attachment Entity Buffer Document Type"
+        isExternal: false
+  name: GetDocumentTypeFromAttachmentIdAndDocumentId
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.GetDocumentTypeFromAttachmentIdAndDocumentId(Guid,Guid):Enum::Microsoft#Integration#Graph#Attachment_Entity_Buffer_Document_Type
+- syntax:
+    content: 'procedure TransferFromIncomingDocumentAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var IncomingDocumentAttachment: Record "Incoming Document Attachment")'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: IncomingDocumentAttachment
+      parameterType:
+        name: Record "Incoming Document Attachment"
+        isExternal: true
+  name: TransferFromIncomingDocumentAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.TransferFromIncomingDocumentAttachment(Attachment_Entity_Buffer@,Incoming_Document_Attachment@)
+- syntax:
+    content: 'procedure TransferFromUnlinkedAttachment(var TempAttachmentEntityBuffer: Record "Attachment Entity Buffer" temporary, var UnlinkedAttachment: Record "Unlinked Attachment")'
+    parameters:
+    - id: TempAttachmentEntityBuffer
+      parameterType:
+        name: Record "Attachment Entity Buffer" temporary
+        isExternal: true
+    - id: UnlinkedAttachment
+      parameterType:
+        name: Record "Unlinked Attachment"
+        isExternal: true
+  name: TransferFromUnlinkedAttachment
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.TransferFromUnlinkedAttachment(Attachment_Entity_Buffer@,Unlinked_Attachment@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure GetContentLength(TempBlob: __MissingTypeSymbol__): Integer'
+    parameters:
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetContentLength
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer.GetContentLength(__MissingSymbol__@):Integer
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - Attachment Buffer
+name: '"Graph Mgt - Attachment Buffer"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Attachment_Buffer

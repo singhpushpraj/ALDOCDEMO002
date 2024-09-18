@@ -1,0 +1,85 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.ProductionBOM."Production BOM-Check"
+alId: ID 99000769
+namespace: Microsoft.Manufacturing.ProductionBOM
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.ProductionBOM
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = r,
+                      TableData "Routing Line" = r,
+                      TableData "Manufacturing Setup" = r
+  promoted: false
+- name: TableNo
+  value: Production BOM Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Manufacturing#ProductionBOM#Production_BOM_Header
+    name: Microsoft.Manufacturing.ProductionBOM."Production BOM Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Code(var ProdBOMHeader: Record "Production BOM Header", VersionCode: Code[20])'
+    parameters:
+    - id: ProdBOMHeader
+      parameterType:
+        name: Record "Production BOM Header"
+        isExternal: true
+    - id: VersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: Code
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Check.Code(Production_BOM_Header@,Code[20])
+- syntax:
+    content: 'procedure CheckBOMStructure(BOMHeaderNo: Code[20], VersionCode: Code[20], Level: Integer)'
+    parameters:
+    - id: BOMHeaderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckBOMStructure
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Check.CheckBOMStructure(Code[20],Code[20],Integer)
+- syntax:
+    content: 'procedure ProdBOMLineCheck(ProdBOMNo: Code[20], VersionCode: Code[20])'
+    parameters:
+    - id: ProdBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ProdBOMLineCheck
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Check.ProdBOMLineCheck(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckBOM(ProductionBOMNo: Code[20], VersionCode: Code[20])'
+    parameters:
+    - id: ProductionBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Check.CheckBOM(Code[20],Code[20])
+commentId: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production BOM-Check
+name: '"Production BOM-Check"'
+uid: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Check

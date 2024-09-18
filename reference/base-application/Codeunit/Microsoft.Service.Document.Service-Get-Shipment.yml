@@ -1,0 +1,54 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service-Get Shipment"
+alId: ID 5932
+namespace: Microsoft.Service.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Service Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#Document#Service_Line
+    name: Microsoft.Service.Document."Service Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateInvLines(var ServiceShptLine2: Record "Service Shipment Line")'
+    parameters:
+    - id: ServiceShptLine2
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: CreateInvLines
+  uid: M:Codeunit::Microsoft#Service#Document#Service-Get_Shipment.CreateInvLines(Service_Shipment_Line@)
+- syntax:
+    content: 'procedure GetServiceOrderInvoices(var TempServiceInvoiceHeader: Record "Service Invoice Header" temporary, OrderNo: Code[20])'
+    parameters:
+    - id: TempServiceInvoiceHeader
+      parameterType:
+        name: Record "Service Invoice Header" temporary
+        isExternal: true
+    - id: OrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetServiceOrderInvoices
+  uid: M:Codeunit::Microsoft#Service#Document#Service-Get_Shipment.GetServiceOrderInvoices(Service_Invoice_Header@,Code[20])
+- syntax:
+    content: 'procedure SetServiceHeader(var ServiceHeader2: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader2
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetServiceHeader
+  uid: M:Codeunit::Microsoft#Service#Document#Service-Get_Shipment.SetServiceHeader(Service_Header@)
+commentId: O:Codeunit::Microsoft#Service#Document#Service-Get Shipment
+name: '"Service-Get Shipment"'
+uid: O:Codeunit::Microsoft#Service#Document#Service-Get_Shipment

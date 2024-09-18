@@ -1,0 +1,40 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Document."Invt. Doc.-Post Shipment"
+alId: ID 5851
+namespace: Microsoft.Inventory.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Entry Relation" = ri,
+                      TableData "Value Entry Relation" = ri,
+                      TableData "Invt. Shipment Header" = rimd,
+                      TableData "Invt. Shipment Line" = rimd,
+                      tabledata "G/L Entry" = r
+  promoted: false
+- name: TableNo
+  value: Invt. Document Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Document#Invt#_Document_Header
+    name: Microsoft.Inventory.Document."Invt. Document Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#-Post_Shipment.SetHideValidationDialog(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Document#Invt# Doc#-Post Shipment
+name: '"Invt. Doc.-Post Shipment"'
+uid: O:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#-Post_Shipment

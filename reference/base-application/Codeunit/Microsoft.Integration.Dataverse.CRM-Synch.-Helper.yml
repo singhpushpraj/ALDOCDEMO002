@@ -1,0 +1,1042 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Dataverse."CRM Synch. Helper"
+alId: ID 5342
+namespace: Microsoft.Integration.Dataverse
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Dataverse
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Sales Invoice Header" = m
+  promoted: false
+methods:
+- syntax:
+    content: procedure ClearCache()
+  name: ClearCache
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ClearCache
+- syntax:
+    content: 'procedure GetDefaultPriceListName(): Text[100]'
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetDefaultPriceListName
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetDefaultPriceListName:Text[100]
+- syntax:
+    content: 'procedure CreateCRMPricelevelInCurrency(var CRMPricelevel: Record "CRM Pricelevel", CurrencyCode: Code[10], NewExchangeRate: Decimal)'
+    parameters:
+    - id: CRMPricelevel
+      parameterType:
+        name: Record "CRM Pricelevel"
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewExchangeRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateCRMPricelevelInCurrency
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.CreateCRMPricelevelInCurrency(CRM_Pricelevel@,Code[10],Decimal)
+- syntax:
+    content: 'procedure CreateCRMPriceList(SalesHeader: Record "Sales Header", var CRMPricelevel: Record "CRM Pricelevel")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CRMPricelevel
+      parameterType:
+        name: Record "CRM Pricelevel"
+        isExternal: true
+  name: CreateCRMPriceList
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.CreateCRMPriceList(Sales_Header,CRM_Pricelevel@)
+- syntax:
+    content: 'procedure UpdateCRMPriceList(SalesHeader: Record "Sales Header", CRMPricelevelId: Guid)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CRMPricelevelId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: UpdateCRMPriceList
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMPriceList(Sales_Header,Guid)
+- syntax:
+    content: 'procedure CreateCRMProductpricelevelForProductAndUom(CRMProduct: Record "CRM Product", NewPriceLevelId: Guid, CRMUom: Record "CRM Uom")'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    - id: NewPriceLevelId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: CRMUom
+      parameterType:
+        name: Record "CRM Uom"
+        isExternal: true
+  name: CreateCRMProductpricelevelForProductAndUom
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.CreateCRMProductpricelevelForProductAndUom(CRM_Product,Guid,CRM_Uom)
+- syntax:
+    content: 'procedure CreateCRMProductpriceIfAbsent(CRMInvoicedetail: Record "CRM Invoicedetail")'
+    parameters:
+    - id: CRMInvoicedetail
+      parameterType:
+        name: Record "CRM Invoicedetail"
+        isExternal: true
+  name: CreateCRMProductpriceIfAbsent
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.CreateCRMProductpriceIfAbsent(CRM_Invoicedetail)
+- syntax:
+    content: 'procedure FindCRMDefaultPriceList(var CRMPricelevel: Record "CRM Pricelevel")'
+    parameters:
+    - id: CRMPricelevel
+      parameterType:
+        name: Record "CRM Pricelevel"
+        isExternal: true
+  name: FindCRMDefaultPriceList
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindCRMDefaultPriceList(CRM_Pricelevel@)
+- syntax:
+    content: 'procedure FindCRMPriceListByCurrencyCode(var CRMPricelevel: Record "CRM Pricelevel", CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: CRMPricelevel
+      parameterType:
+        name: Record "CRM Pricelevel"
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindCRMPriceListByCurrencyCode
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindCRMPriceListByCurrencyCode(CRM_Pricelevel@,Code[10]):Boolean
+- syntax:
+    content: 'procedure FindCRMProductPriceFromCRMInvoicedetail(CRMInvoicedetail: Record "CRM Invoicedetail"): Boolean'
+    parameters:
+    - id: CRMInvoicedetail
+      parameterType:
+        name: Record "CRM Invoicedetail"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindCRMProductPriceFromCRMInvoicedetail
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindCRMProductPriceFromCRMInvoicedetail(CRM_Invoicedetail):Boolean
+- syntax:
+    content: 'procedure FindNAVLocalCurrencyInCRM(var CRMTransactioncurrency: Record "CRM Transactioncurrency"): Guid'
+    parameters:
+    - id: CRMTransactioncurrency
+      parameterType:
+        name: Record "CRM Transactioncurrency"
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: FindNAVLocalCurrencyInCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindNAVLocalCurrencyInCRM(CRM_Transactioncurrency@):Guid
+- syntax:
+    content: 'procedure GetBaseCurrencyPrecision(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetBaseCurrencyPrecision
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetBaseCurrencyPrecision:Decimal
+- syntax:
+    content: 'procedure GetCRMCurrencyDefaultPrecision(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCRMCurrencyDefaultPrecision
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetCRMCurrencyDefaultPrecision:Integer
+- syntax:
+    content: 'procedure GetCRMLCYToFCYExchangeRate(ToCurrencyISOCode: Text[10]): Decimal'
+    parameters:
+    - id: ToCurrencyISOCode
+      parameterType:
+        name: Text[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetCRMLCYToFCYExchangeRate
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetCRMLCYToFCYExchangeRate(Text[10]):Decimal
+- syntax:
+    content: 'procedure GetFCYtoFCYExchangeRate(FromFCY: Code[10], ToFCY: Code[10]): Decimal'
+    parameters:
+    - id: FromFCY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ToFCY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetFCYtoFCYExchangeRate
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetFCYtoFCYExchangeRate(Code[10],Code[10]):Decimal
+- syntax:
+    content: 'procedure GetUnitGroupName(UnitOfMeasureCode: Text): Text[200]'
+    parameters:
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text[200]
+        isExternal: true
+  name: GetUnitGroupName
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetUnitGroupName(Text):Text[200]
+- syntax:
+    content: 'procedure GetUnitOfMeasureName(UnitOfMeasureRecordRef: RecordRef): Text[100]'
+    parameters:
+    - id: UnitOfMeasureRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetUnitOfMeasureName
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetUnitOfMeasureName(RecordRef):Text[100]
+- syntax:
+    content: 'procedure SetCRMDecimalsSupportedValue(var CRMProduct: Record "CRM Product")'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+  name: SetCRMDecimalsSupportedValue
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SetCRMDecimalsSupportedValue(CRM_Product@)
+- syntax:
+    content: 'procedure SetCRMDefaultPriceListOnProduct(var CRMProduct: Record "CRM Product"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetCRMDefaultPriceListOnProduct
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SetCRMDefaultPriceListOnProduct(CRM_Product@):Boolean
+- syntax:
+    content: 'procedure SetCRMProductStateToActive(var CRMProduct: Record "CRM Product")'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+  name: SetCRMProductStateToActive
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SetCRMProductStateToActive(CRM_Product@)
+- syntax:
+    content: 'procedure SetCRMProductStateToRetired(var CRMProduct: Record "CRM Product")'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+  name: SetCRMProductStateToRetired
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SetCRMProductStateToRetired(CRM_Product@)
+- syntax:
+    content: 'procedure SetContactParentCompany(AccountID: Guid, DestinationContactRecordRef: RecordRef): Boolean'
+    parameters:
+    - id: AccountID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: DestinationContactRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetContactParentCompany
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SetContactParentCompany(Guid,RecordRef):Boolean
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure SynchRecordIfMappingExists(TableNo: Integer, IntegrationTableNo: Integer, PrimaryKey: Variant): Boolean'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IntegrationTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PrimaryKey
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SynchRecordIfMappingExists
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SynchRecordIfMappingExists(Integer,Integer,Variant):Boolean
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure SynchRecordIfMappingExists(TableNo: Integer, IntegrationTableNo: Integer, PrimaryKey: Variant, var OutOfMapFilter: Boolean): Boolean'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IntegrationTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PrimaryKey
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: OutOfMapFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SynchRecordIfMappingExists
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.SynchRecordIfMappingExists(Integer,Integer,Variant,Boolean@):Boolean
+- syntax:
+    content: 'procedure UpdateCRMCurrencyIdIfChanged(CurrencyCode: Text, var DestinationCurrencyIDFieldRef: FieldRef): Boolean'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DestinationCurrencyIDFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMCurrencyIdIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMCurrencyIdIfChanged(Text,FieldRef@):Boolean
+- syntax:
+    content: 'procedure UpdateCRMInvoiceStatus(var CRMInvoice: Record "CRM Invoice", SalesInvoiceHeader: Record "Sales Invoice Header")'
+    parameters:
+    - id: CRMInvoice
+      parameterType:
+        name: Record "CRM Invoice"
+        isExternal: true
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: UpdateCRMInvoiceStatus
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMInvoiceStatus(CRM_Invoice@,Sales_Invoice_Header)
+- syntax:
+    content: 'procedure UpdateCRMInvoiceStatusFromEntry(var CRMInvoice: Record "CRM Invoice", CustLedgerEntry: Record "Cust. Ledger Entry"): Integer'
+    parameters:
+    - id: CRMInvoice
+      parameterType:
+        name: Record "CRM Invoice"
+        isExternal: true
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: UpdateCRMInvoiceStatusFromEntry
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMInvoiceStatusFromEntry(CRM_Invoice@,Cust#_Ledger_Entry):Integer
+- syntax:
+    content: 'procedure UpdateCRMPriceListItem(var CRMProduct: Record "CRM Product"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMPriceListItem
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMPriceListItem(CRM_Product@):Boolean
+- syntax:
+    content: 'procedure UpdateCRMPriceListItems(var CRMProduct: Record "CRM Product"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMPriceListItems
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMPriceListItems(CRM_Product@):Boolean
+- syntax:
+    content: 'procedure UpdateCRMPriceListItemForUom(var CRMProduct: Record "CRM Product", CRMUom: Record "CRM Uom"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    - id: CRMUom
+      parameterType:
+        name: Record "CRM Uom"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMPriceListItemForUom
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMPriceListItemForUom(CRM_Product@,CRM_Uom):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductPriceIfNegative(var CRMProduct: Record "CRM Product"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductPriceIfNegative
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductPriceIfNegative(CRM_Product@):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductQuantityOnHandIfNegative(var CRMProduct: Record "CRM Product"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductQuantityOnHandIfNegative
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductQuantityOnHandIfNegative(CRM_Product@):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductTypeCodeIfChanged(var CRMProduct: Record "CRM Product", NewProductTypeCode: Integer): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    - id: NewProductTypeCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductTypeCodeIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductTypeCodeIfChanged(CRM_Product@,Integer):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductStateCodeIfChanged(var CRMProduct: Record "CRM Product", NewBlocked: Boolean): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    - id: NewBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductStateCodeIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductStateCodeIfChanged(CRM_Product@,Boolean):Boolean
+- syntax:
+    content: 'procedure UpdateItemBlockedIfChanged(var Item: Record Item, NewBlocked: Boolean): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NewBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateItemBlockedIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateItemBlockedIfChanged(Item@,Boolean):Boolean
+- syntax:
+    content: 'procedure UpdateResourceBlockedIfChanged(var Resource: Record Resource, NewBlocked: Boolean): Boolean'
+    parameters:
+    - id: Resource
+      parameterType:
+        name: Record Resource
+        isExternal: true
+    - id: NewBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateResourceBlockedIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateResourceBlockedIfChanged(Resource@,Boolean):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductUoMFieldsIfChanged(var CRMProduct: Record "CRM Product", UnitOfMeasureCode: Code[10]): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductUoMFieldsIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductUoMFieldsIfChanged(CRM_Product@,Code[10]):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductUomscheduleId(var CRMProduct: Record "CRM Product", SourceRecordRef: RecordRef): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductUomscheduleId
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductUomscheduleId(CRM_Product@,RecordRef):Boolean
+- syntax:
+    content: 'procedure UpdateCRMProductVendorNameIfChanged(var CRMProduct: Record "CRM Product"): Boolean'
+    parameters:
+    - id: CRMProduct
+      parameterType:
+        name: Record "CRM Product"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCRMProductVendorNameIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCRMProductVendorNameIfChanged(CRM_Product@):Boolean
+- syntax:
+    content: 'procedure UpdateOwnerIfChanged(SourceRecordRef: RecordRef, DestinationRecordRef: RecordRef, SourceSalespersonCodeFieldNo: Integer, DestinationOwnerFieldNo: Integer, DestinationOwnerTypeFieldNo: Integer, DestinationOwnerTypeValue: Option): Boolean'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SourceSalespersonCodeFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DestinationOwnerFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DestinationOwnerTypeFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DestinationOwnerTypeValue
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateOwnerIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateOwnerIfChanged(RecordRef,RecordRef,Integer,Integer,Integer,Option):Boolean
+- syntax:
+    content: 'procedure UpdateContactOnModifyCustomer(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: UpdateContactOnModifyCustomer
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateContactOnModifyCustomer(RecordRef)
+- syntax:
+    content: 'procedure UpdateContactOnModifyVendor(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: UpdateContactOnModifyVendor
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateContactOnModifyVendor(RecordRef)
+- syntax:
+    content: 'procedure FindContactRelatedCustomer(SourceRecordRef: RecordRef, var ContactBusinessRelation: Record "Contact Business Relation"): Boolean'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ContactBusinessRelation
+      parameterType:
+        name: Record "Contact Business Relation"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindContactRelatedCustomer
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindContactRelatedCustomer(RecordRef,Contact_Business_Relation@):Boolean
+- syntax:
+    content: 'procedure FindContactRelatedVendor(SourceRecordRef: RecordRef, var ContactBusinessRelation: Record "Contact Business Relation"): Boolean'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ContactBusinessRelation
+      parameterType:
+        name: Record "Contact Business Relation"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindContactRelatedVendor
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindContactRelatedVendor(RecordRef,Contact_Business_Relation@):Boolean
+- syntax:
+    content: 'procedure UpdateSalesPersonCodeIfChanged(SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, SourceOwnerIDFieldNo: Integer, SourceOwnerTypeFieldNo: Integer, AllowedOwnerTypeValue: Option, DestinationSalesPersonCodeFieldNo: Integer): Boolean'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SourceOwnerIDFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceOwnerTypeFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AllowedOwnerTypeValue
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DestinationSalesPersonCodeFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateSalesPersonCodeIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateSalesPersonCodeIfChanged(RecordRef,RecordRef@,Integer,Integer,Option,Integer):Boolean
+- syntax:
+    content: 'procedure UpdateFieldRefValueIfChanged(var DestinationFieldRef: FieldRef, NewFieldValue: Text): Boolean'
+    parameters:
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: NewFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateFieldRefValueIfChanged
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateFieldRefValueIfChanged(FieldRef@,Text):Boolean
+- syntax:
+    content: 'procedure GetValidCRMUnitOfMeasureRecords(var CRMUom: Record "CRM Uom", var CRMUomschedule: Record "CRM Uomschedule", UnitOfMeasureCode: Code[10])'
+    parameters:
+    - id: CRMUom
+      parameterType:
+        name: Record "CRM Uom"
+        isExternal: true
+    - id: CRMUomschedule
+      parameterType:
+        name: Record "CRM Uomschedule"
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetValidCRMUnitOfMeasureRecords
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetValidCRMUnitOfMeasureRecords(CRM_Uom@,CRM_Uomschedule@,Code[10])
+- syntax:
+    content: 'procedure GetNavCurrencyCode(TransactionCurrencyId: Guid): Code[10]'
+    parameters:
+    - id: TransactionCurrencyId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetNavCurrencyCode
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetNavCurrencyCode(Guid):Code[10]
+- syntax:
+    content: 'procedure GetCRMTransactioncurrency(CurrencyCode: Text): Guid'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetCRMTransactioncurrency
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetCRMTransactioncurrency(Text):Guid
+- syntax:
+    content: 'procedure ShowPage(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowPage
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ShowPage(RecordId)
+- syntax:
+    content: 'procedure FindNewValueForSpecialMapping(SourceFieldRef: FieldRef, var NewValue: Variant): Boolean'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindNewValueForSpecialMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindNewValueForSpecialMapping(FieldRef,Variant@):Boolean
+- syntax:
+    content: 'procedure FindPKByRecordID(RecID: RecordId, var PrimaryKey: Variant): Boolean'
+    parameters:
+    - id: RecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: PrimaryKey
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindPKByRecordID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindPKByRecordID(RecordId,Variant@):Boolean
+- syntax:
+    content: 'procedure FindRecordIDByPK(TableID: Integer, PrimaryKey: Variant, var RecID: RecordId): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PrimaryKey
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: RecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindRecordIDByPK
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindRecordIDByPK(Integer,Variant,RecordId@):Boolean
+- syntax:
+    content: 'procedure FindSourceIntegrationTableMapping(var IntegrationTableMapping: Record "Integration Table Mapping", SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef): Boolean'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindSourceIntegrationTableMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.FindSourceIntegrationTableMapping(Integration_Table_Mapping@,FieldRef,FieldRef):Boolean
+- syntax:
+    content: 'procedure IsClearValueOnFailedSync(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef): Boolean'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsClearValueOnFailedSync
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.IsClearValueOnFailedSync(FieldRef,FieldRef):Boolean
+- syntax:
+    content: 'procedure AreFieldsRelatedToMappedTables(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef, var IntegrationTableMapping: Record "Integration Table Mapping"): Boolean'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AreFieldsRelatedToMappedTables
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.AreFieldsRelatedToMappedTables(FieldRef,FieldRef,Integration_Table_Mapping@):Boolean
+- syntax:
+    content: 'procedure GetCoupledCDSUserId(SourceRecordRef: RecordRef): Guid'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetCoupledCDSUserId
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.GetCoupledCDSUserId(RecordRef):Guid
+- syntax:
+    content: 'procedure ConvertBaseUnitOfMeasureToUomId(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef, var NewValue: Variant)'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: ConvertBaseUnitOfMeasureToUomId
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ConvertBaseUnitOfMeasureToUomId(FieldRef,FieldRef,Variant@)
+- syntax:
+    content: 'procedure ConvertUomIdToBaseUnitOfMeasure(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef, var NewValue: Variant)'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: ConvertUomIdToBaseUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ConvertUomIdToBaseUnitOfMeasure(FieldRef,FieldRef,Variant@)
+- syntax:
+    content: 'procedure PrefixUnitGroupCode(SourceFieldRef: FieldRef, var NewValue: Variant)'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: PrefixUnitGroupCode
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.PrefixUnitGroupCode(FieldRef,Variant@)
+- syntax:
+    signatures:
+    - '[Obsolete(Use another implementation of ConvertTableToOption,20.0)]'
+    content: 'procedure ConvertTableToOption(SourceFieldRef: FieldRef, var OptionValue: Integer): Boolean'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: OptionValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConvertTableToOption
+  obsoletion:
+    state: pending
+    reason: Use another implementation of ConvertTableToOption
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ConvertTableToOption(FieldRef,Integer@):Boolean
+- syntax:
+    content: 'procedure ConvertTableToOption(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef, var OptionValue: Integer): Boolean'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: OptionValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConvertTableToOption
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ConvertTableToOption(FieldRef,FieldRef,Integer@):Boolean
+- syntax:
+    content: 'procedure ConvertOptionToTable(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef, var TableValue: Text): Boolean'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: TableValue
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConvertOptionToTable
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ConvertOptionToTable(FieldRef,FieldRef,Text@):Boolean
+- syntax:
+    content: 'procedure UpdateCDSOptionMapping(OldRecId: RecordId, NewRecId: RecordId)'
+    parameters:
+    - id: OldRecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NewRecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: UpdateCDSOptionMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.UpdateCDSOptionMapping(RecordId,RecordId)
+- syntax:
+    content: 'procedure TransformValue(SourceRecordRef: RecordRef, DestinationRecordRef: RecordRef, TransformationRule: Record "Transformation Rule", SourceFieldNo: Integer, DestinationFieldNo: Integer)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TransformationRule
+      parameterType:
+        name: Record "Transformation Rule"
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DestinationFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: TransformValue
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.TransformValue(RecordRef,RecordRef,Transformation_Rule,Integer,Integer)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnGetCDSOwnershipModel(var OwnershipModel: Option, var handled: Boolean)'
+    parameters:
+    - id: OwnershipModel
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnGetCDSOwnershipModel
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.OnGetCDSOwnershipModel(Option@,Boolean@)
+commentId: O:Codeunit::Microsoft#Integration#Dataverse#CRM Synch# Helper
+name: '"CRM Synch. Helper"'
+uid: O:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper

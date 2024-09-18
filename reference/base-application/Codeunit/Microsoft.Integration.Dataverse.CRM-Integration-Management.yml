@@ -1,0 +1,1186 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Dataverse."CRM Integration Management"
+alId: ID 5330
+namespace: Microsoft.Integration.Dataverse
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Dataverse
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: >-
+    tabledata "Sales Invoice Header" = rm,
+                      tabledata "CDS Connection Setup" = r,
+                      tabledata "CRM Connection Setup" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure IsCRMIntegrationEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCRMIntegrationEnabled
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsCRMIntegrationEnabled:Boolean
+- syntax:
+    content: 'procedure IsCDSIntegrationEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCDSIntegrationEnabled
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsCDSIntegrationEnabled:Boolean
+- syntax:
+    content: 'procedure IsCRMSolutionInstalled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCRMSolutionInstalled
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsCRMSolutionInstalled:Boolean
+- syntax:
+    content: 'procedure SetCRMNAVConnectionUrl(WebClientUrl: Text[250])'
+    parameters:
+    - id: WebClientUrl
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SetCRMNAVConnectionUrl
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCRMNAVConnectionUrl(Text[250])
+- syntax:
+    content: 'procedure UpdateMultipleNow(RecVariant: Variant)'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: UpdateMultipleNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateMultipleNow(Variant)
+- syntax:
+    content: 'procedure UpdateMultipleNow(RecVariant: Variant, IsOption: Boolean)'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: IsOption
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateMultipleNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateMultipleNow(Variant,Boolean)
+- syntax:
+    content: 'procedure UpdateOneNow(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: UpdateOneNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateOneNow(RecordId)
+- syntax:
+    content: 'procedure UpdateSkippedNow(var CRMIntegrationRecord: Record "CRM Integration Record")'
+    parameters:
+    - id: CRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record"
+        isExternal: true
+  name: UpdateSkippedNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateSkippedNow(CRM_Integration_Record@)
+- syntax:
+    content: 'procedure UpdateSkippedNow(var CRMIntegrationRecord: Record "CRM Integration Record", var CRMOptionMapping: Record "CRM Option Mapping")'
+    parameters:
+    - id: CRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record"
+        isExternal: true
+    - id: CRMOptionMapping
+      parameterType:
+        name: Record "CRM Option Mapping"
+        isExternal: true
+  name: UpdateSkippedNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateSkippedNow(CRM_Integration_Record@,CRM_Option_Mapping@)
+- syntax:
+    content: 'procedure UpdateSkippedNow(var CRMIntegrationRecord: Record "CRM Integration Record", SkipNotification: Boolean)'
+    parameters:
+    - id: CRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record"
+        isExternal: true
+    - id: SkipNotification
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateSkippedNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateSkippedNow(CRM_Integration_Record@,Boolean)
+- syntax:
+    content: 'procedure UpdateSkippedNow(var CRMIntegrationRecord: Record "CRM Integration Record", var CRMOptionMapping: Record "CRM Option Mapping", SkipNotification: Boolean)'
+    parameters:
+    - id: CRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record"
+        isExternal: true
+    - id: CRMOptionMapping
+      parameterType:
+        name: Record "CRM Option Mapping"
+        isExternal: true
+    - id: SkipNotification
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateSkippedNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateSkippedNow(CRM_Integration_Record@,CRM_Option_Mapping@,Boolean)
+- syntax:
+    content: procedure UpdateAllSkippedNow()
+  name: UpdateAllSkippedNow
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateAllSkippedNow
+- syntax:
+    content: procedure CheckOrEnableCRMConnection()
+  name: CheckOrEnableCRMConnection
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CheckOrEnableCRMConnection
+- syntax:
+    content: 'procedure CreateNewRecordsInCRM(RecVariant: Variant)'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CreateNewRecordsInCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewRecordsInCRM(Variant)
+- syntax:
+    content: 'procedure CreateNewOptionsInCRM(RecVariant: Variant)'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CreateNewOptionsInCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewOptionsInCRM(Variant)
+- syntax:
+    content: 'procedure CreateNewOptionsInCRM(var LocalIdListDictionary: Dictionary of [Code[20], List of [Guid]])'
+    parameters:
+    - id: LocalIdListDictionary
+      parameterType:
+        name: Dictionary of [Code[20], List of [Guid]]
+        isExternal: true
+  name: CreateNewOptionsInCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewOptionsInCRM(Dictionary_of_[Code,List]@)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure CreateNewRecordsFromSelectedCRMOptions(RecVariant: Variant)'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CreateNewRecordsFromSelectedCRMOptions
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewRecordsFromSelectedCRMOptions(Variant)
+- syntax:
+    content: 'procedure EnqueueOptionSyncJobFromIntegrationTable(IntegrationTableMapping: Record "Integration Table Mapping", CRMOptionIds: List of [Integer], Direction: Integer, SynchronizeOnlyCoupledRecords: Boolean): Boolean'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: CRMOptionIds
+      parameterType:
+        name: List of [Integer]
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SynchronizeOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EnqueueOptionSyncJobFromIntegrationTable
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.EnqueueOptionSyncJobFromIntegrationTable(Integration_Table_Mapping,List_of_[Integer],Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure EnqueueOptionSyncJobToIntegrationTable(IntegrationTableMapping: Record "Integration Table Mapping", LocalIdList: List of [Guid], Direction: Integer, SynchronizeOnlyCoupledRecords: Boolean): Boolean'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: LocalIdList
+      parameterType:
+        name: List of [Guid]
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SynchronizeOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EnqueueOptionSyncJobToIntegrationTable
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.EnqueueOptionSyncJobToIntegrationTable(Integration_Table_Mapping,List_of_[Guid],Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure CreateNewRecordsFromCRM(RecVariant: Variant)'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CreateNewRecordsFromCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewRecordsFromCRM(Variant)
+- syntax:
+    content: procedure RepairBrokenCouplings()
+  name: RepairBrokenCouplings
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RepairBrokenCouplings
+- syntax:
+    content: 'procedure RepairBrokenCouplings(UseLocalRecordsOnly: Boolean)'
+    parameters:
+    - id: UseLocalRecordsOnly
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RepairBrokenCouplings
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RepairBrokenCouplings(Boolean)
+- syntax:
+    content: 'procedure RemoveCoupling(TableID: Integer, CRMTableID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(Integer,Integer)
+- syntax:
+    content: 'procedure MatchBasedCoupling(TableID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: MatchBasedCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.MatchBasedCoupling(Integer):Boolean
+- syntax:
+    content: 'procedure MatchBasedCoupling(TableID: Integer, SkipSettingCriteria: Boolean, IsFullSync: Boolean, InForeground: Boolean): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SkipSettingCriteria
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsFullSync
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: InForeground
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: MatchBasedCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.MatchBasedCoupling(Integer,Boolean,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure RemoveCoupling(var LocalRecordRef: RecordRef)'
+    parameters:
+    - id: LocalRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(RecordRef@)
+- syntax:
+    content: 'procedure MatchBasedCoupling(var LocalRecordRef: RecordRef)'
+    parameters:
+    - id: LocalRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: MatchBasedCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.MatchBasedCoupling(RecordRef@)
+- syntax:
+    content: 'procedure RemoveCoupling(LocalTableID: Integer, var LocalIdList: List of [Guid])'
+    parameters:
+    - id: LocalTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocalIdList
+      parameterType:
+        name: List of [Guid]
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(Integer,List_of_[Guid]@)
+- syntax:
+    content: 'procedure RemoveCoupling(LocalTableID: Integer, var LocalIdList: List of [Guid], Schedule: Boolean)'
+    parameters:
+    - id: LocalTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocalIdList
+      parameterType:
+        name: List of [Guid]
+        isExternal: true
+    - id: Schedule
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(Integer,List_of_[Guid]@,Boolean)
+- syntax:
+    content: 'procedure RemoveCoupling(LocalTableID: Integer, IntegrationTableID: Integer, var IntegrationIdList: List of [Guid])'
+    parameters:
+    - id: LocalTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IntegrationTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IntegrationIdList
+      parameterType:
+        name: List of [Guid]
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(Integer,Integer,List_of_[Guid]@)
+- syntax:
+    content: 'procedure RemoveOptionMapping(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: RemoveOptionMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveOptionMapping(RecordRef@)
+- syntax:
+    content: 'procedure CreateOptionMapping(RecordID: RecordId, CRMOptionId: Integer, CRMOptionValue: Text[250])'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: CRMOptionId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMOptionValue
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: CreateOptionMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateOptionMapping(RecordId,Integer,Text[250])
+- syntax:
+    content: 'procedure GetMappedCRMOptionId(RecordID: RecordId, var CRMOptionId: Integer): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: CRMOptionId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetMappedCRMOptionId
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetMappedCRMOptionId(RecordId,Integer@):Boolean
+- syntax:
+    content: 'procedure RemoveCoupling(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(RecordId)
+- syntax:
+    content: 'procedure RemoveCoupling(TableID: Integer, CRMTableID: Integer, CRMID: Guid)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: RemoveCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.RemoveCoupling(Integer,Integer,Guid)
+- syntax:
+    content: 'procedure GetIntegrationTableMapping(var IntegrationTableMapping: Record "Integration Table Mapping", RecId: RecordId)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: GetIntegrationTableMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetIntegrationTableMapping(Integration_Table_Mapping@,RecordId)
+- syntax:
+    content: 'procedure GetIntegrationTableMapping(var IntegrationTableMapping: Record "Integration Table Mapping", TableID: Integer)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetIntegrationTableMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetIntegrationTableMapping(Integration_Table_Mapping@,Integer)
+- syntax:
+    content: 'procedure IsCRMTable(TableID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCRMTable
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsCRMTable(Integer):Boolean
+- syntax:
+    content: 'procedure EnqueueFullSyncJob(Name: Code[20]): Guid'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: EnqueueFullSyncJob
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.EnqueueFullSyncJob(Code[20]):Guid
+- syntax:
+    content: 'procedure CloneIntegrationFieldMapping(SourceMappingName: Code[20], DestinationMappingName: Code[20])'
+    parameters:
+    - id: SourceMappingName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DestinationMappingName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CloneIntegrationFieldMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CloneIntegrationFieldMapping(Code[20],Code[20])
+- syntax:
+    content: 'procedure CreateOrUpdateCRMAccountStatistics(Customer: Record Customer)'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: CreateOrUpdateCRMAccountStatistics
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateOrUpdateCRMAccountStatistics(Customer)
+- syntax:
+    content: 'procedure ShowCRMEntityFromRecordID(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowCRMEntityFromRecordID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ShowCRMEntityFromRecordID(RecordId)
+- syntax:
+    content: 'procedure GetCRMEntityUrlFromRecordID(TargetRecordID: RecordId): Text'
+    parameters:
+    - id: TargetRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCRMEntityUrlFromRecordID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCRMEntityUrlFromRecordID(RecordId):Text
+- syntax:
+    content: 'procedure GetCRMEntityUrlFromCRMID(TableId: Integer, CRMId: Guid): Text'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCRMEntityUrlFromCRMID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCRMEntityUrlFromCRMID(Integer,Guid):Text
+- syntax:
+    content: 'procedure GetCRMEntityUrlFromCRMID(TableId: Integer, CRMTableId: Integer, CRMId: Guid): Text'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCRMEntityUrlFromCRMID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCRMEntityUrlFromCRMID(Integer,Integer,Guid):Text
+- syntax:
+    content: 'procedure OpenCoupledNavRecordPage(CRMID: Guid, CRMEntityTypeName: Text): Boolean'
+    parameters:
+    - id: CRMID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: CRMEntityTypeName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OpenCoupledNavRecordPage
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.OpenCoupledNavRecordPage(Guid,Text):Boolean
+- syntax:
+    content: 'procedure GetCRMEntityTypeName(TableId: Integer): Text'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCRMEntityTypeName
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCRMEntityTypeName(Integer):Text
+- syntax:
+    content: 'procedure GetCRMEntityTypeName(TableId: Integer, CRMTableId: Integer): Text'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CRMTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCRMEntityTypeName
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCRMEntityTypeName(Integer,Integer):Text
+- syntax:
+    content: 'procedure DefineCoupling(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DefineCoupling
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.DefineCoupling(RecordId):Boolean
+- syntax:
+    content: 'procedure DefineOptionMapping(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DefineOptionMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.DefineOptionMapping(RecordId):Boolean
+- syntax:
+    content: 'procedure ManageCreateNewRecordFromCRM(TableID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ManageCreateNewRecordFromCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ManageCreateNewRecordFromCRM(Integer)
+- syntax:
+    content: procedure CreateNewContactFromCRM()
+  name: CreateNewContactFromCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewContactFromCRM
+- syntax:
+    content: procedure CreateNewCustomerFromCRM()
+  name: CreateNewCustomerFromCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewCustomerFromCRM
+- syntax:
+    content: procedure CreateNewVendorFromCRM()
+  name: CreateNewVendorFromCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CreateNewVendorFromCRM
+- syntax:
+    content: 'procedure GetNoOfCRMOpportunities(Customer: Record Customer): Integer'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNoOfCRMOpportunities
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetNoOfCRMOpportunities(Customer):Integer
+- syntax:
+    content: 'procedure GetNoOfCRMQuotes(Customer: Record Customer): Integer'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNoOfCRMQuotes
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetNoOfCRMQuotes(Customer):Integer
+- syntax:
+    content: 'procedure GetNoOfCRMCases(Customer: Record Customer): Integer'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNoOfCRMCases
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetNoOfCRMCases(Customer):Integer
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,1400,OnRegisterServiceConnection,,False,False)]'
+    content: 'procedure HandleCRMRegisterServiceConnection(var ServiceConnection: Record "Service Connection" temporary)'
+    parameters:
+    - id: ServiceConnection
+      parameterType:
+        name: Record "Service Connection" temporary
+        isExternal: true
+  name: HandleCRMRegisterServiceConnection
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.HandleCRMRegisterServiceConnection(Service_Connection@)
+- syntax:
+    content: procedure ClearState()
+  name: ClearState
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ClearState
+- syntax:
+    content: procedure ClearFSState()
+  name: ClearFSState
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ClearFSState
+- syntax:
+    content: 'procedure CheckConnectRequiredFields(ServerAddress: Text, IntegrationUserEmail: Text)'
+    parameters:
+    - id: ServerAddress
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IntegrationUserEmail
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckConnectRequiredFields
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CheckConnectRequiredFields(Text,Text)
+- syntax:
+    content: 'procedure CheckModifyCRMConnectionURL(var ServerAddress: Text[250])'
+    parameters:
+    - id: ServerAddress
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: CheckModifyCRMConnectionURL
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CheckModifyCRMConnectionURL(Text[250]@)
+- syntax:
+    content: 'procedure GetOrganizationFromUrl(ServerAddress: Text[250]): Text'
+    parameters:
+    - id: ServerAddress
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetOrganizationFromUrl
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetOrganizationFromUrl(Text[250]):Text
+- syntax:
+    content: 'procedure ConstructConnectionStringForSolutionImport(ServerAddress: Text): Text'
+    parameters:
+    - id: ServerAddress
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ConstructConnectionStringForSolutionImport
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ConstructConnectionStringForSolutionImport(Text):Text
+- syntax:
+    content: 'procedure GetCommonNotificationID(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetCommonNotificationID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCommonNotificationID:Guid
+- syntax:
+    content: 'procedure GetSkippedNotificationID(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetSkippedNotificationID
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetSkippedNotificationID:Guid
+- syntax:
+    content: 'procedure SendResultNotification(RecVariant: Variant): Boolean'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SendResultNotification
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SendResultNotification(Variant):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Unused method.,22.0)]'
+    content: 'procedure LinkMissingOptionDoc(SkippedSyncNotification: Notification)'
+    parameters:
+    - id: SkippedSyncNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: LinkMissingOptionDoc
+  obsoletion:
+    state: pending
+    reason: Unused method.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.LinkMissingOptionDoc(Notification)
+- syntax:
+    content: 'procedure ShowLog(RecId: RecordId)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowLog
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ShowLog(RecordId)
+- syntax:
+    content: 'procedure ShowOptionLog(RecId: RecordId)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowOptionLog
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ShowOptionLog(RecordId)
+- syntax:
+    content: 'procedure ShowSkippedRecords(SkippedSyncNotification: Notification)'
+    parameters:
+    - id: SkippedSyncNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowSkippedRecords
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ShowSkippedRecords(Notification)
+- syntax:
+    content: 'procedure CoupleCRMEntity(RecordID: RecordId, CRMID: Guid, var Synchronize: Boolean, var Direction: Option): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: CRMID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: Synchronize
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CoupleCRMEntity
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.CoupleCRMEntity(RecordId,Guid,Boolean@,Option@):Boolean
+- syntax:
+    content: 'procedure ClearConnectionDisableReason(var CRMConnectionSetup: Record "CRM Connection Setup")'
+    parameters:
+    - id: CRMConnectionSetup
+      parameterType:
+        name: Record "CRM Connection Setup"
+        isExternal: true
+  name: ClearConnectionDisableReason
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.ClearConnectionDisableReason(CRM_Connection_Setup@)
+- syntax:
+    content: 'procedure GetCRMDisabledErrorReasonNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetCRMDisabledErrorReasonNotificationId
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCRMDisabledErrorReasonNotificationId:Guid
+- syntax:
+    content: 'procedure IsWorkingConnection(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsWorkingConnection
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsWorkingConnection:Boolean
+- syntax:
+    content: 'procedure SendConnectionDisabledNotification(DisableReason: Text[250])'
+    parameters:
+    - id: DisableReason
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SendConnectionDisabledNotification
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SendConnectionDisabledNotification(Text[250])
+- syntax:
+    content: procedure InitializeCRMSynchStatus()
+  name: InitializeCRMSynchStatus
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.InitializeCRMSynchStatus
+- syntax:
+    content: 'procedure HasUncoupledSelectedUsers(var SelectedCRMSystemuser: Record "CRM Systemuser"): Boolean'
+    parameters:
+    - id: SelectedCRMSystemuser
+      parameterType:
+        name: Record "CRM Systemuser"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasUncoupledSelectedUsers
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.HasUncoupledSelectedUsers(CRM_Systemuser@):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(This functionality is replaced with flow fields Coupled to Dataverse.,23.0)]'
+    content: 'procedure SetCoupledFlag(CRMIntegrationRecord: Record "CRM Integration Record", NewValue: Boolean): Boolean'
+    parameters:
+    - id: CRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record"
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetCoupledFlag
+  obsoletion:
+    state: pending
+    reason: This functionality is replaced with flow fields Coupled to Dataverse.
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCoupledFlag(CRM_Integration_Record,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(This functionality is replaced with flow fields Coupled to Dataverse.,23.0)]'
+    content: 'procedure SetCoupledFlag(CRMIntegrationRecord: Record "CRM Integration Record", NewValue: Boolean, ScheduleTask: Boolean): Boolean'
+    parameters:
+    - id: CRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record"
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ScheduleTask
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetCoupledFlag
+  obsoletion:
+    state: pending
+    reason: This functionality is replaced with flow fields Coupled to Dataverse.
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCoupledFlag(CRM_Integration_Record,Boolean,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(This functionality is replaced with flow fields Coupled to Dataverse.,23.0)]'
+    content: 'procedure SetCoupledFlag(CRMOptionMapping: Record "CRM Option Mapping", NewValue: Boolean): Boolean'
+    parameters:
+    - id: CRMOptionMapping
+      parameterType:
+        name: Record "CRM Option Mapping"
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetCoupledFlag
+  obsoletion:
+    state: pending
+    reason: This functionality is replaced with flow fields Coupled to Dataverse.
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCoupledFlag(CRM_Option_Mapping,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Feature CurrencySymbolMapping will be enabled by default in version 22.0.,22.0)]'
+    content: 'procedure IsCurrencySymbolMappingEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCurrencySymbolMappingEnabled
+  obsoletion:
+    state: pending
+    reason: Feature CurrencySymbolMapping will be enabled by default in version 22.0.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsCurrencySymbolMappingEnabled:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Feature CurrencySymbolMapping will be enabled by default in version 22.0.,22.0)]'
+    content: 'procedure GetCurrencySymbolMappingFeatureKey(): Text[50]'
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetCurrencySymbolMappingFeatureKey
+  obsoletion:
+    state: pending
+    reason: Feature CurrencySymbolMapping will be enabled by default in version 22.0.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCurrencySymbolMappingFeatureKey:Text[50]
+- syntax:
+    content: 'procedure EnableUnitGroupMapping(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: EnableUnitGroupMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.EnableUnitGroupMapping:Guid
+- syntax:
+    content: procedure DisableUnitGroupMapping()
+  name: DisableUnitGroupMapping
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.DisableUnitGroupMapping
+- syntax:
+    content: procedure AdjustUnitGroupCRMConnectionSetup()
+  name: AdjustUnitGroupCRMConnectionSetup
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.AdjustUnitGroupCRMConnectionSetup
+- syntax:
+    content: procedure UpdateItemUnitGroup()
+  name: UpdateItemUnitGroup
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateItemUnitGroup
+- syntax:
+    content: procedure UpdateResourceUnitGroup()
+  name: UpdateResourceUnitGroup
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.UpdateResourceUnitGroup
+- syntax:
+    content: 'procedure IsUnitGroupMappingEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsUnitGroupMappingEnabled
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsUnitGroupMappingEnabled:Boolean
+- syntax:
+    content: 'procedure MultipleCompanyLearnMore(var Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: MultipleCompanyLearnMore
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.MultipleCompanyLearnMore(Notification@)
+- syntax:
+    signatures:
+    - '[Obsolete(Feature OptionMapping will be enabled by default in version 22.0.,22.0)]'
+    content: 'procedure IsOptionMappingEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOptionMappingEnabled
+  obsoletion:
+    state: pending
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsOptionMappingEnabled:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Feature OptionMapping will be enabled by default in version 22.0.,22.0)]'
+    content: 'procedure GetOptionMappingFeatureKey(): Text[50]'
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetOptionMappingFeatureKey
+  obsoletion:
+    state: pending
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetOptionMappingFeatureKey:Text[50]
+- syntax:
+    content: 'procedure IsIntegrationRecordChild(TableID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsIntegrationRecordChild
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsIntegrationRecordChild(Integer):Boolean
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnInitCDSConnection(var ConnectionName: Text, var handled: Boolean)'
+    parameters:
+    - id: ConnectionName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnInitCDSConnection
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.OnInitCDSConnection(Text@,Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnGetCDSIntegrationUserId(var IntegrationUserId: Guid, var handled: Boolean)'
+    parameters:
+    - id: IntegrationUserId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnGetCDSIntegrationUserId
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.OnGetCDSIntegrationUserId(Guid@,Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnGetCDSServerAddress(var CDSServerAddress: Text, var handled: Boolean)'
+    parameters:
+    - id: CDSServerAddress
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnGetCDSServerAddress
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.OnGetCDSServerAddress(Text@,Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnTestCDSConnection(var handled: Boolean)'
+    parameters:
+    - id: handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnTestCDSConnection
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.OnTestCDSConnection(Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCloseCDSConnection(ConnectionName: Text, var handled: Boolean)'
+    parameters:
+    - id: ConnectionName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnCloseCDSConnection
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.OnCloseCDSConnection(Text,Boolean@)
+commentId: O:Codeunit::Microsoft#Integration#Dataverse#CRM Integration Management
+name: '"CRM Integration Management"'
+uid: O:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management

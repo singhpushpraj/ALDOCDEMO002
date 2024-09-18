@@ -1,0 +1,36 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Posting."Sales Post Batch via Job Queue"
+alId: ID 85
+namespace: Microsoft.Sales.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure EnqueueSalesBatch(var SalesHeader: Record "Sales Header", var JobQueueEntry: Record "Job Queue Entry")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+  name: EnqueueSalesBatch
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales_Post_Batch_via_Job_Queue.EnqueueSalesBatch(Sales_Header@,Job_Queue_Entry@)
+commentId: O:Codeunit::Microsoft#Sales#Posting#Sales Post Batch via Job Queue
+name: '"Sales Post Batch via Job Queue"'
+uid: O:Codeunit::Microsoft#Sales#Posting#Sales_Post_Batch_via_Job_Queue

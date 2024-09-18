@@ -1,0 +1,90 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Analysis."Update Item Analysis View"
+alId: ID 7150
+namespace: Microsoft.Inventory.Analysis
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Analysis
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Analysis View" = rm,
+                      TableData "Item Analysis View Filter" = r,
+                      TableData "Item Analysis View Entry" = rimd,
+                      TableData "Item Analysis View Budg. Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Item Analysis View
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Analysis#Item_Analysis_View
+    name: Microsoft.Inventory.Analysis."Item Analysis View"
+    isExternal: false
+methods:
+- syntax:
+    content: procedure InitLastEntryNo()
+  name: InitLastEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Update_Item_Analysis_View.InitLastEntryNo
+- syntax:
+    content: 'procedure UpdateAll(Which: Option, DirectlyFromPosting: Boolean)'
+    parameters:
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DirectlyFromPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateAll
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Update_Item_Analysis_View.UpdateAll(Option,Boolean)
+- syntax:
+    content: 'procedure Update(var NewItemAnalysisView: Record "Item Analysis View", Which: Option, ShowWindow: Boolean)'
+    parameters:
+    - id: NewItemAnalysisView
+      parameterType:
+        name: Record "Item Analysis View"
+        isExternal: true
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ShowWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Update
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Update_Item_Analysis_View.Update(Item_Analysis_View@,Option,Boolean)
+- syntax:
+    content: 'procedure SetLastBudgetEntryNo(NewLastBudgetEntryNo: Integer)'
+    parameters:
+    - id: NewLastBudgetEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLastBudgetEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Update_Item_Analysis_View.SetLastBudgetEntryNo(Integer)
+- syntax:
+    content: 'procedure DimSetIDInFilter(DimSetID: Integer, var ItemAnalysisView: Record "Item Analysis View"): Boolean'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemAnalysisView
+      parameterType:
+        name: Record "Item Analysis View"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DimSetIDInFilter
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Update_Item_Analysis_View.DimSetIDInFilter(Integer,Item_Analysis_View@):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Analysis#Update Item Analysis View
+name: '"Update Item Analysis View"'
+uid: O:Codeunit::Microsoft#Inventory#Analysis#Update_Item_Analysis_View

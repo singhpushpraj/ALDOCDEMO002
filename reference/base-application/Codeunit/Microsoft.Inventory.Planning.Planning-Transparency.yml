@@ -1,0 +1,185 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Planning."Planning Transparency"
+alId: ID 99000856
+namespace: Microsoft.Inventory.Planning
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Planning
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetTemplAndWorksheet(TemplateName: Code[10], WorksheetName: Code[10])'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WorksheetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetTemplAndWorksheet
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.SetTemplAndWorksheet(Code[10],Code[10])
+- syntax:
+    content: 'procedure FindReason(var DemandInvProfile: Record "Inventory Profile"): Integer'
+    parameters:
+    - id: DemandInvProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindReason
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.FindReason(Inventory_Profile@):Integer
+- syntax:
+    content: 'procedure LogSurplus(SupplyLineNo: Integer, DemandLineNo: Integer, SourceType: Integer, SourceID: Code[20], Qty: Decimal, SurplusType: Option)'
+    parameters:
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DemandLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SurplusType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: LogSurplus
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.LogSurplus(Integer,Integer,Integer,Code[20],Decimal,Option)
+- syntax:
+    content: 'procedure ModifyLogEntry(SupplyLineNo: Integer, DemandLineNo: Integer, SourceType: Integer, SourceID: Code[20], Qty: Decimal, SurplusType: Option)'
+    parameters:
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DemandLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SurplusType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ModifyLogEntry
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.ModifyLogEntry(Integer,Integer,Integer,Code[20],Decimal,Option)
+- syntax:
+    content: 'procedure CleanLog(SupplyLineNo: Integer)'
+    parameters:
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CleanLog
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.CleanLog(Integer)
+- syntax:
+    content: 'procedure PublishSurplus(var SupplyInvProfile: Record "Inventory Profile", var SKU: Record "Stockkeeping Unit", var ReqLine: Record "Requisition Line", var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: SupplyInvProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: SKU
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: PublishSurplus
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.PublishSurplus(Inventory_Profile@,Stockkeeping_Unit@,Requisition_Line@,Reservation_Entry@)
+- syntax:
+    content: 'procedure SetCurrReqLine(var CurrentReqLine: Record "Requisition Line")'
+    parameters:
+    - id: CurrentReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: SetCurrReqLine
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.SetCurrReqLine(Requisition_Line@)
+- syntax:
+    content: 'procedure DrillDownUntrackedQty(CaptionText: Text)'
+    parameters:
+    - id: CaptionText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: DrillDownUntrackedQty
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.DrillDownUntrackedQty(Text)
+- syntax:
+    content: 'procedure ReqLineWarningLevel(ReqLine: Record "Requisition Line"): Integer'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ReqLineWarningLevel
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.ReqLineWarningLevel(Requisition_Line):Integer
+- syntax:
+    content: 'procedure LogWarning(SupplyLineNo: Integer, ReqLine: Record "Requisition Line", WarningLevel: Option, Source: Text[200]): Boolean'
+    parameters:
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: WarningLevel
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Source
+      parameterType:
+        name: Text[200]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogWarning
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency.LogWarning(Integer,Requisition_Line,Option,Text[200]):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Planning#Planning Transparency
+name: '"Planning Transparency"'
+uid: O:Codeunit::Microsoft#Inventory#Planning#Planning_Transparency

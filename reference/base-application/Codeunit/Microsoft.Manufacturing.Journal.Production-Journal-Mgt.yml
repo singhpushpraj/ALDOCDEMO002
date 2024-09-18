@@ -1,0 +1,186 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Journal."Production Journal Mgt"
+alId: ID 5510
+namespace: Microsoft.Manufacturing.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure Handling(ProdOrder: Record "Production Order", ActualLineNo: Integer)'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: ActualLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Handling
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.Handling(Production_Order,Integer)
+- syntax:
+    content: 'procedure CreateJnlLines(ProdOrder: Record "Production Order", ProdOrderLineNo: Integer)'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: ProdOrderLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateJnlLines
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.CreateJnlLines(Production_Order,Integer)
+- syntax:
+    content: 'procedure InsertComponents(ProdOrderLine: Record "Prod. Order Line", CheckRoutingLink: Boolean, Level: Integer)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: CheckRoutingLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertComponents
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.InsertComponents(Prod#_Order_Line,Boolean,Integer)
+- syntax:
+    content: 'procedure RoutingLinkValid(ProdOrderComp: Record "Prod. Order Component", ProdOrderLine: Record "Prod. Order Line"): Boolean'
+    parameters:
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RoutingLinkValid
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.RoutingLinkValid(Prod#_Order_Component,Prod#_Order_Line):Boolean
+- syntax:
+    content: 'procedure InsertConsumptionItemJnlLine(ProdOrderComp: Record "Prod. Order Component", ProdOrderLine: Record "Prod. Order Line", Level: Integer)'
+    parameters:
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertConsumptionItemJnlLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.InsertConsumptionItemJnlLine(Prod#_Order_Component,Prod#_Order_Line,Integer)
+- syntax:
+    content: 'procedure InsertOutputItemJnlLine(ProdOrderRtngLine: Record "Prod. Order Routing Line", ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: InsertOutputItemJnlLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.InsertOutputItemJnlLine(Prod#_Order_Routing_Line,Prod#_Order_Line)
+- syntax:
+    content: procedure InitSetupValues()
+  name: InitSetupValues
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.InitSetupValues
+- syntax:
+    content: procedure SetTemplateAndBatchName()
+  name: SetTemplateAndBatchName
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.SetTemplateAndBatchName
+- syntax:
+    content: 'procedure SetJnlTemplateAndBatchName(TemplateName: Code[10], BatchName: Code[10])'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetJnlTemplateAndBatchName
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.SetJnlTemplateAndBatchName(Code[10],Code[10])
+- syntax:
+    content: 'procedure DeleteJnlLines(TemplateName: Code[10], BatchName: Code[10], ProdOrderNo: Code[20], ProdOrderLineNo: Integer)'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ProdOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ProdOrderLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteJnlLines
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.DeleteJnlLines(Code[10],Code[10],Code[20],Integer)
+- syntax:
+    content: 'procedure ReservEntryExist(ItemJnlLine2: Record "Item Journal Line", var ReservEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ItemJnlLine2
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.ReservEntryExist(Item_Journal_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure SetNextLineNo(var ItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: SetNextLineNo
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.SetNextLineNo(Item_Journal_Line@)
+- syntax:
+    content: 'procedure GetJnlTemplateAndBatchName(var TemplateName: Code[10], var BatchName: Code[10])'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetJnlTemplateAndBatchName
+  uid: M:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt.GetJnlTemplateAndBatchName(Code[10]@,Code[10]@)
+commentId: O:Codeunit::Microsoft#Manufacturing#Journal#Production Journal Mgt
+name: '"Production Journal Mgt"'
+uid: O:Codeunit::Microsoft#Manufacturing#Journal#Production_Journal_Mgt

@@ -1,0 +1,177 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.FixedAsset."Calculate Disposal"
+alId: ID 5605
+namespace: Microsoft.FixedAssets.FixedAsset
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.FixedAsset
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = r,
+                      TableData "Maintenance Ledger Entry" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalcGainLoss(FANo: Code[20], DeprBookCode: Code[10], var EntryAmounts: array[14] of Decimal)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntryAmounts
+      parameterType:
+        name: array[14] of Decimal
+        isExternal: true
+  name: CalcGainLoss
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.CalcGainLoss(Code[20],Code[10],Decimal[]@)
+- syntax:
+    content: 'procedure CalcSecondGainLoss(FANo: Code[20], DeprBookCode: Code[10], LastDisposalPrice: Decimal, var EntryAmounts: array[14] of Decimal)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LastDisposalPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: EntryAmounts
+      parameterType:
+        name: array[14] of Decimal
+        isExternal: true
+  name: CalcSecondGainLoss
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.CalcSecondGainLoss(Code[20],Code[10],Decimal,Decimal[]@)
+- syntax:
+    content: 'procedure CalcReverseAmounts(FANo: Code[20], DeprBookCode: Code[10], var EntryAmounts: array[4] of Decimal)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntryAmounts
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+  name: CalcReverseAmounts
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.CalcReverseAmounts(Code[20],Code[10],Decimal[]@)
+- syntax:
+    content: 'procedure GetDisposalType(FANo: Code[20], DeprBookCode: Code[10], ErrorNo: Integer, var DisposalType: Option, var DisposalMethod: Option, var MaxDisposalNo: Integer, var SalesEntryNo: Integer)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ErrorNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DisposalType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DisposalMethod
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MaxDisposalNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SalesEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetDisposalType
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.GetDisposalType(Code[20],Code[10],Integer,Option@,Option@,Integer@,Integer@)
+- syntax:
+    content: 'procedure GetErrorDisposal(FANo: Code[20], DeprBookCode: Code[10], OnlyGainLoss: Boolean, MaxDisposalNo: Integer, var EntryAmounts: array[14] of Decimal, var EntryNumbers: array[14] of Integer)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: OnlyGainLoss
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: MaxDisposalNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EntryAmounts
+      parameterType:
+        name: array[14] of Decimal
+        isExternal: true
+    - id: EntryNumbers
+      parameterType:
+        name: array[14] of Integer
+        isExternal: true
+  name: GetErrorDisposal
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.GetErrorDisposal(Code[20],Code[10],Boolean,Integer,Decimal[]@,Integer[]@)
+- syntax:
+    content: 'procedure SetFAPostingType(i: Integer): Integer'
+    parameters:
+    - id: i
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SetFAPostingType
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.SetFAPostingType(Integer):Integer
+- syntax:
+    content: 'procedure SetFAPostingCategory(i: Integer): Integer'
+    parameters:
+    - id: i
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SetFAPostingCategory
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.SetFAPostingCategory(Integer):Integer
+- syntax:
+    content: 'procedure SetReverseType(i: Integer): Integer'
+    parameters:
+    - id: i
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SetReverseType
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal.SetReverseType(Integer):Integer
+commentId: O:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate Disposal
+name: '"Calculate Disposal"'
+uid: O:Codeunit::Microsoft#FixedAssets#FixedAsset#Calculate_Disposal

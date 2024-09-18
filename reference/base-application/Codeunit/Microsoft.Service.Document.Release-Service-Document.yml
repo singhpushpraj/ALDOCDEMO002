@@ -1,0 +1,55 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Release Service Document"
+alId: ID 416
+namespace: Microsoft.Service.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Service Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#Document#Service_Header
+    name: Microsoft.Service.Document."Service Header"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Service Header" = rm,
+                      TableData "Service Line" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Reopen(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: Reopen
+  uid: M:Codeunit::Microsoft#Service#Document#Release_Service_Document.Reopen(Service_Header@)
+- syntax:
+    content: 'procedure PerformManualRelease(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: PerformManualRelease
+  uid: M:Codeunit::Microsoft#Service#Document#Release_Service_Document.PerformManualRelease(Service_Header@)
+- syntax:
+    content: 'procedure PerformManualReopen(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: PerformManualReopen
+  uid: M:Codeunit::Microsoft#Service#Document#Release_Service_Document.PerformManualReopen(Service_Header@)
+commentId: O:Codeunit::Microsoft#Service#Document#Release Service Document
+name: '"Release Service Document"'
+uid: O:Codeunit::Microsoft#Service#Document#Release_Service_Document

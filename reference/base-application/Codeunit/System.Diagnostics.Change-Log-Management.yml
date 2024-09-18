@@ -1,0 +1,205 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Diagnostics."Change Log Management"
+alId: ID 423
+namespace: System.Diagnostics
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Diagnostics
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Change Log Setup" = r,
+                      TableData "Change Log Setup (Table)" = r,
+                      TableData "Change Log Setup (Field)" = r,
+                      TableData "Change Log Entry" = ri,
+                      TableData "Field Monitoring Setup" = r
+  promoted: false
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetDatabaseTableTriggerSetup(TableID: Integer, var LogInsert: Boolean, var LogModify: Boolean, var LogDelete: Boolean, var LogRename: Boolean)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LogInsert
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LogModify
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LogDelete
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LogRename
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetDatabaseTableTriggerSetup
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.GetDatabaseTableTriggerSetup(Integer,Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure IsLogActive(TableNumber: Integer, FieldNumber: Integer, TypeOfChange: Option): Boolean'
+    parameters:
+    - id: TableNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TypeOfChange
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsLogActive
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.IsLogActive(Integer,Integer,Option):Boolean
+- syntax:
+    content: 'procedure IsAlwaysLoggedTable(TableID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAlwaysLoggedTable
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.IsAlwaysLoggedTable(Integer):Boolean
+- syntax:
+    content: 'procedure InsertLogEntry(var FldRef: FieldRef, var xFldRef: FieldRef, var RecRef: RecordRef, TypeOfChange: Enum "Change Log Entry Type", IsReadable: Boolean)'
+    parameters:
+    - id: FldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: xFldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TypeOfChange
+      parameterType:
+        internalReference: O:Enum::System#Diagnostics#Change_Log_Entry_Type
+        name: System.Diagnostics."Change Log Entry Type"
+        isExternal: false
+    - id: IsReadable
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertLogEntry
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.InsertLogEntry(FieldRef@,FieldRef@,RecordRef@,Enum::System#Diagnostics#Change_Log_Entry_Type,Boolean)
+- syntax:
+    content: 'procedure LogInsertion(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: LogInsertion
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.LogInsertion(RecordRef@)
+- syntax:
+    content: 'procedure LogModification(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: LogModification
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.LogModification(RecordRef@)
+- syntax:
+    content: 'procedure LogRename(var RecRef: RecordRef, var xRecRefParam: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: xRecRefParam
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: LogRename
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.LogRename(RecordRef@,RecordRef@)
+- syntax:
+    content: 'procedure LogDeletion(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: LogDeletion
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.LogDeletion(RecordRef@)
+- syntax:
+    content: 'procedure IsNormalField(FieldRef: FieldRef): Boolean'
+    parameters:
+    - id: FieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNormalField
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.IsNormalField(FieldRef):Boolean
+- syntax:
+    content: 'procedure HasValue(FldRef: FieldRef): Boolean'
+    parameters:
+    - id: FldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasValue
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.HasValue(FieldRef):Boolean
+- syntax:
+    content: procedure InitChangeLog()
+  name: InitChangeLog
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.InitChangeLog
+- syntax:
+    content: 'procedure EvaluateTextToFieldRef(InputText: Text, var FieldRef: FieldRef): Boolean'
+    parameters:
+    - id: InputText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EvaluateTextToFieldRef
+  uid: M:Codeunit::System#Diagnostics#Change_Log_Management.EvaluateTextToFieldRef(Text,FieldRef@):Boolean
+commentId: O:Codeunit::System#Diagnostics#Change Log Management
+name: '"Change Log Management"'
+uid: O:Codeunit::System#Diagnostics#Change_Log_Management

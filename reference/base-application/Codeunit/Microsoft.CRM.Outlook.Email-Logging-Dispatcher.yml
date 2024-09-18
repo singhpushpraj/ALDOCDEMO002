@@ -1,0 +1,151 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Outlook."Email Logging Dispatcher"
+alId: ID 5064
+namespace: Microsoft.CRM.Outlook
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Outlook
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+- name: ObsoleteReason
+  value: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  promoted: false
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "22.0"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetErrorContext(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetErrorContext
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.GetErrorContext:Text
+- syntax:
+    content: 'procedure SetErrorContext(NewContext: Text)'
+    parameters:
+    - id: NewContext
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetErrorContext
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.SetErrorContext(Text)
+- syntax:
+    content: 'procedure ItemLinkedFromAttachment(MessageId: Text, var Attachment: Record Attachment): Boolean'
+    parameters:
+    - id: MessageId
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Attachment
+      parameterType:
+        name: Record Attachment
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemLinkedFromAttachment
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.ItemLinkedFromAttachment(Text,Attachment@):Boolean
+- syntax:
+    content: 'procedure AttachmentRecordAlreadyExists(AttachmentNo: Text, var Attachment: Record Attachment): Boolean'
+    parameters:
+    - id: AttachmentNo
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Attachment
+      parameterType:
+        name: Record Attachment
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AttachmentRecordAlreadyExists
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.AttachmentRecordAlreadyExists(Text,Attachment@):Boolean
+- syntax:
+    content: 'procedure InsertInteractionLogEntry(SegLine: Record "Segment Line", EntryNo: Integer): Integer'
+    parameters:
+    - id: SegLine
+      parameterType:
+        name: Record "Segment Line"
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertInteractionLogEntry
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.InsertInteractionLogEntry(Segment_Line,Integer):Integer
+- syntax:
+    content: 'procedure IsSalesperson(Email: Text, var SalespersonCode: Code[20]): Boolean'
+    parameters:
+    - id: Email
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalespersonCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSalesperson
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.IsSalesperson(Text,Code[20]@):Boolean
+- syntax:
+    content: 'procedure IsContact(EMail: Text, var SegLine: Record "Segment Line"): Boolean'
+    parameters:
+    - id: EMail
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SegLine
+      parameterType:
+        name: Record "Segment Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsContact
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.IsContact(Text,Segment_Line@):Boolean
+- syntax:
+    content: 'procedure CheckInteractionTemplateSetup(var ErrorMsg: Text): Boolean'
+    parameters:
+    - id: ErrorMsg
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckInteractionTemplateSetup
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher.CheckInteractionTemplateSetup(Text@):Boolean
+commentId: O:Codeunit::Microsoft#CRM#Outlook#Email Logging Dispatcher
+name: '"Email Logging Dispatcher"'
+obsoletion:
+  state: pending
+  reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  version: "22.0"
+uid: O:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher

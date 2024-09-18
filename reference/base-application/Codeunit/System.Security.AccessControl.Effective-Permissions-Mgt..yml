@@ -1,0 +1,178 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Security.AccessControl."Effective Permissions Mgt."
+alId: ID 9852
+namespace: System.Security.AccessControl
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Security.AccessControl
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure OpenPageForUser(UserSID: Guid)'
+    parameters:
+    - id: UserSID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: OpenPageForUser
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.OpenPageForUser(Guid)
+- syntax:
+    content: 'procedure DisallowViewingEffectivePermissionsForNonAdminUsers(OtherUserSecurityId: Guid)'
+    parameters:
+    - id: OtherUserSecurityId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: DisallowViewingEffectivePermissionsForNonAdminUsers
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.DisallowViewingEffectivePermissionsForNonAdminUsers(Guid)
+- syntax:
+    content: 'procedure PopulatePermissionBuffer(var PermissionBuffer: Record "Permission Buffer", PassedUserID: Guid, PassedCompanyName: Text[50], PassedObjectType: Integer, PassedObjectId: Integer)'
+    parameters:
+    - id: PermissionBuffer
+      parameterType:
+        name: Record "Permission Buffer"
+        isExternal: true
+    - id: PassedUserID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: PassedCompanyName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PassedObjectType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PassedObjectId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PopulatePermissionBuffer
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.PopulatePermissionBuffer(Permission_Buffer@,Guid,Text[50],Integer,Integer)
+- syntax:
+    content: 'procedure PopulateEffectivePermissionsBuffer(Permission: __MissingTypeSymbol__, PassedUserID: Guid, PassedCompanyName: Text[50], PassedObjectType: Integer, PassedObjectId: Integer, ShowAllObjects: Boolean)'
+    parameters:
+    - id: Permission
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: PassedUserID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: PassedCompanyName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PassedObjectType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PassedObjectId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShowAllObjects
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PopulateEffectivePermissionsBuffer
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.PopulateEffectivePermissionsBuffer(__MissingSymbol__@,Guid,Text[50],Integer,Integer,Boolean)
+- syntax:
+    content: 'procedure PopulatePermissionRecordWithEffectivePermissionsForObject(Permission: __MissingTypeSymbol__, PassedUserID: Guid, PassedCompanyName: Text[50], PassedObjectType: Option, PassedObjectId: Integer)'
+    parameters:
+    - id: Permission
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: PassedUserID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: PassedCompanyName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PassedObjectType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PassedObjectId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PopulatePermissionRecordWithEffectivePermissionsForObject
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.PopulatePermissionRecordWithEffectivePermissionsForObject(__MissingSymbol__@,Guid,Text[50],Option,Integer)
+- syntax:
+    content: 'procedure ModifyPermission(FieldNumChanged: Integer, PermissionBuffer: Record "Permission Buffer", PassedObjectType: Integer, PassedObjectId: Integer, PassedUserID: Guid)'
+    parameters:
+    - id: FieldNumChanged
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PermissionBuffer
+      parameterType:
+        name: Record "Permission Buffer"
+        isExternal: true
+    - id: PassedObjectType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PassedObjectId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PassedUserID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ModifyPermission
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.ModifyPermission(Integer,Permission_Buffer,Integer,Integer,Guid)
+- syntax:
+    content: 'procedure NotificationShowUsers(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: NotificationShowUsers
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.NotificationShowUsers(Notification)
+- syntax:
+    content: 'procedure NotificationUndoChange(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: NotificationUndoChange
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.NotificationUndoChange(Notification)
+- syntax:
+    content: 'procedure DisableNotification(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DisableNotification
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.DisableNotification(Notification)
+- syntax:
+    content: 'procedure ConvertToPermission(PermissionOption: Option): Enum Permission'
+    parameters:
+    - id: PermissionOption
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        internalReference: O:Enum::System#Security#AccessControl#Permission
+        name: System.Security.AccessControl.Permission
+        isExternal: false
+  name: ConvertToPermission
+  uid: M:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#.ConvertToPermission(Option):Enum::System#Security#AccessControl#Permission
+commentId: O:Codeunit::System#Security#AccessControl#Effective Permissions Mgt#
+name: '"Effective Permissions Mgt."'
+uid: O:Codeunit::System#Security#AccessControl#Effective_Permissions_Mgt#

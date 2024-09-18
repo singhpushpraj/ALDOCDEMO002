@@ -1,0 +1,127 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities."Find Record Management"
+alId: ID 703
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "G/L Entry" = r,
+                      tabledata "Capacity Ledger Entry" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindLastEntryIgnoringSecurityFilter(var RecRef: RecordRef): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLastEntryIgnoringSecurityFilter
+  uid: M:Codeunit::Microsoft#Utilities#Find_Record_Management.FindLastEntryIgnoringSecurityFilter(RecordRef@):Boolean
+- syntax:
+    content: 'procedure GetLastEntryIntFieldValue(SourceRec: Variant, FieldNo: Integer): Integer'
+    parameters:
+    - id: SourceRec
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastEntryIntFieldValue
+  uid: M:Codeunit::Microsoft#Utilities#Find_Record_Management.GetLastEntryIntFieldValue(Variant,Integer):Integer
+- syntax:
+    content: 'procedure GetLastEntryIntFieldValues(SourceRec: Variant, var FieldNoValues: List of [Integer])'
+    parameters:
+    - id: SourceRec
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: FieldNoValues
+      parameterType:
+        name: List of [Integer]
+        isExternal: true
+  name: GetLastEntryIntFieldValues
+  uid: M:Codeunit::Microsoft#Utilities#Find_Record_Management.GetLastEntryIntFieldValues(Variant,List_of_[Integer]@)
+- syntax:
+    content: 'procedure FindNoFromTypedValue(Type: Option, Value: Code[20], UseDefaultTableRelationFilters: Boolean): Code[20]'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UseDefaultTableRelationFilters
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: FindNoFromTypedValue
+  uid: M:Codeunit::Microsoft#Utilities#Find_Record_Management.FindNoFromTypedValue(Option,Code[20],Boolean):Code[20]
+- syntax:
+    content: 'procedure FindRecordByDescription(var Result: Text, Type: Option, SearchText: Text): Integer'
+    parameters:
+    - id: Result
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SearchText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindRecordByDescription
+  uid: M:Codeunit::Microsoft#Utilities#Find_Record_Management.FindRecordByDescription(Text@,Option,Text):Integer
+- syntax:
+    content: 'procedure FindRecordWithSimilarName(RecRef: RecordRef, SearchText: Text, DescriptionFieldNo: Integer): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SearchText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DescriptionFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindRecordWithSimilarName
+  uid: M:Codeunit::Microsoft#Utilities#Find_Record_Management.FindRecordWithSimilarName(RecordRef,Text,Integer):Boolean
+commentId: O:Codeunit::Microsoft#Utilities#Find Record Management
+name: '"Find Record Management"'
+uid: O:Codeunit::Microsoft#Utilities#Find_Record_Management

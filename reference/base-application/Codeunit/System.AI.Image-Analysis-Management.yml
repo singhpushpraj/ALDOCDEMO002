@@ -1,0 +1,275 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.AI."Image Analysis Management"
+alId: ID 2020
+namespace: System.AI
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.AI
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: procedure Initialize()
+  name: Initialize
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.Initialize
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure Initialize(InputImageAnalysisProvider: Enum "Image Analysis Provider")'
+    parameters:
+    - id: InputImageAnalysisProvider
+      parameterType:
+        internalReference: O:Enum::System#AI#Image_Analysis_Provider
+        name: System.AI."Image Analysis Provider"
+        isExternal: false
+  name: Initialize
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.Initialize(Enum::System#AI#Image_Analysis_Provider)
+- syntax:
+    content: 'procedure SetMedia(MediaId: Guid)'
+    parameters:
+    - id: MediaId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: SetMedia
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetMedia(Guid)
+- syntax:
+    content: 'procedure SetImagePath(Path: Text)'
+    parameters:
+    - id: Path
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetImagePath
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetImagePath(Text)
+- syntax:
+    content: 'procedure SetBlob(TempBlob: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: SetBlob
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetBlob(__MissingSymbol__)
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Replaced by SetUriAndKey with SecretText data type for KeyValue parameter.,24.0)]'
+    content: 'procedure SetUriAndKey(UriValue: Text, KeyValue: Text)'
+    parameters:
+    - id: UriValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: KeyValue
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetUriAndKey
+  obsoletion:
+    state: pending
+    reason: Replaced by SetUriAndKey with SecretText data type for KeyValue parameter.
+    version: "24.0"
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetUriAndKey(Text,Text)
+- syntax:
+    content: 'procedure SetUriAndKey(UriValue: Text, KeyValue: SecretText)'
+    parameters:
+    - id: UriValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: KeyValue
+      parameterType:
+        name: SecretText
+        isExternal: true
+  name: SetUriAndKey
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetUriAndKey(Text,SecretText)
+- syntax:
+    content: 'procedure SetLimitInYears(Value: Integer)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLimitInYears
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetLimitInYears(Integer)
+- syntax:
+    content: 'procedure SetLimitInMonths(Value: Integer)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLimitInMonths
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetLimitInMonths(Integer)
+- syntax:
+    content: 'procedure SetLimitInDays(Value: Integer)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLimitInDays
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetLimitInDays(Integer)
+- syntax:
+    content: 'procedure SetLimitInHours(Value: Integer)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLimitInHours
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.SetLimitInHours(Integer)
+- syntax:
+    content: 'procedure AnalyzeTags(var ImageAnalysisResult: Codeunit "Image Analysis Result"): Boolean'
+    parameters:
+    - id: ImageAnalysisResult
+      parameterType:
+        internalReference: O:Codeunit::System#AI#Image_Analysis_Result
+        name: System.AI."Image Analysis Result"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AnalyzeTags
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.AnalyzeTags(Codeunit::System#AI#Image_Analysis_Result@):Boolean
+- syntax:
+    content: 'procedure AnalyzeColors(var ImageAnalysisResult: Codeunit "Image Analysis Result"): Boolean'
+    parameters:
+    - id: ImageAnalysisResult
+      parameterType:
+        internalReference: O:Codeunit::System#AI#Image_Analysis_Result
+        name: System.AI."Image Analysis Result"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AnalyzeColors
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.AnalyzeColors(Codeunit::System#AI#Image_Analysis_Result@):Boolean
+- syntax:
+    content: 'procedure AnalyzeFaces(var ImageAnalysisResult: Codeunit "Image Analysis Result"): Boolean'
+    parameters:
+    - id: ImageAnalysisResult
+      parameterType:
+        internalReference: O:Codeunit::System#AI#Image_Analysis_Result
+        name: System.AI."Image Analysis Result"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AnalyzeFaces
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.AnalyzeFaces(Codeunit::System#AI#Image_Analysis_Result@):Boolean
+- syntax:
+    content: 'procedure Analyze(var ImageAnalysisResult: Codeunit "Image Analysis Result", AnalysisType: Enum "Image Analysis Type"): Boolean'
+    parameters:
+    - id: ImageAnalysisResult
+      parameterType:
+        internalReference: O:Codeunit::System#AI#Image_Analysis_Result
+        name: System.AI."Image Analysis Result"
+        isExternal: false
+    - id: AnalysisType
+      parameterType:
+        internalReference: O:Enum::System#AI#Image_Analysis_Type
+        name: System.AI."Image Analysis Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Analyze
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.Analyze(Codeunit::System#AI#Image_Analysis_Result@,Enum::System#AI#Image_Analysis_Type):Boolean
+- syntax:
+    content: 'procedure Analyze(var ImageAnalysisResult: Codeunit "Image Analysis Result", AnalysisTypes: List of [Enum "Image Analysis Type"]): Boolean'
+    parameters:
+    - id: ImageAnalysisResult
+      parameterType:
+        internalReference: O:Codeunit::System#AI#Image_Analysis_Result
+        name: System.AI."Image Analysis Result"
+        isExternal: false
+    - id: AnalysisTypes
+      parameterType:
+        name: List of [Enum System.AI."Image Analysis Type"]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Analyze
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.Analyze(Codeunit::System#AI#Image_Analysis_Result@,List_of_[Image_Analysis_Type]):Boolean
+- syntax:
+    content: 'procedure GetLastError(var Message: Text, var IsUsageLimitError: Boolean): Boolean'
+    parameters:
+    - id: Message
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IsUsageLimitError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetLastError
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.GetLastError(Text@,Boolean@):Boolean
+- syntax:
+    content: 'procedure GetTelemetryCategory(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTelemetryCategory
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.GetTelemetryCategory:Text
+- syntax:
+    content: 'procedure GetNoImageErr(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetNoImageErr
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.GetNoImageErr:Text
+- syntax:
+    content: 'procedure HasError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasError
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.HasError:Boolean
+- syntax:
+    content: 'procedure GetLimitParams(var LimitTypeOut: Option, var LimitValueOut: Integer)'
+    parameters:
+    - id: LimitTypeOut
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LimitValueOut
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetLimitParams
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.GetLimitParams(Option@,Integer@)
+- syntax:
+    content: 'procedure IsCurrentUserLanguageSupported(AnalysisTypes: List of [Enum "Image Analysis Type"]): Boolean'
+    parameters:
+    - id: AnalysisTypes
+      parameterType:
+        name: List of [Enum System.AI."Image Analysis Type"]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCurrentUserLanguageSupported
+  uid: M:Codeunit::System#AI#Image_Analysis_Management.IsCurrentUserLanguageSupported(List_of_[Image_Analysis_Type]):Boolean
+commentId: O:Codeunit::System#AI#Image Analysis Management
+name: '"Image Analysis Management"'
+uid: O:Codeunit::System#AI#Image_Analysis_Management

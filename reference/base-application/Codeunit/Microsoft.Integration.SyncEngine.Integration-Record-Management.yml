@@ -1,0 +1,325 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.SyncEngine."Integration Record Management"
+alId: ID 5338
+namespace: Microsoft.Integration.SyncEngine
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.SyncEngine
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure FindRecordIdByIntegrationTableUid(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, DestinationTableId: Integer, var DestinationRecordId: RecordId): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DestinationRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindRecordIdByIntegrationTableUid
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.FindRecordIdByIntegrationTableUid(TableConnectionType,Variant,Integer,RecordId@):Boolean
+- syntax:
+    content: 'procedure FindIntegrationTableUIdByRecordId(IntegrationTableConnectionType: TableConnectionType, SourceRecordId: RecordId, var IntegrationTableUid: Variant): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindIntegrationTableUIdByRecordId
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.FindIntegrationTableUIdByRecordId(TableConnectionType,RecordId,Variant@):Boolean
+- syntax:
+    content: 'procedure FindIntegrationTableUIdByRecordRef(IntegrationTableConnectionType: TableConnectionType, SourceRecordRef: RecordRef, var IntegrationTableUid: Variant): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindIntegrationTableUIdByRecordRef
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.FindIntegrationTableUIdByRecordRef(TableConnectionType,RecordRef,Variant@):Boolean
+- syntax:
+    content: 'procedure MarkLastSynchAsFailure(IntegrationTableConnectionType: TableConnectionType, SourceRecRef: RecordRef, DirectionToIntTable: Boolean, JobID: Guid)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DirectionToIntTable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: JobID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: MarkLastSynchAsFailure
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.MarkLastSynchAsFailure(TableConnectionType,RecordRef,Boolean,Guid)
+- syntax:
+    content: 'procedure MarkLastSynchAsFailure(IntegrationTableConnectionType: TableConnectionType, SourceRecRef: RecordRef, DirectionToIntTable: Boolean, JobID: Guid, var MarkedAsSkipped: Boolean)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DirectionToIntTable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: JobID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: MarkedAsSkipped
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: MarkLastSynchAsFailure
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.MarkLastSynchAsFailure(TableConnectionType,RecordRef,Boolean,Guid,Boolean@)
+- syntax:
+    content: 'procedure IsIntegrationRecordSkipped(IntegrationTableConnectionType: TableConnectionType, SourceRecRef: RecordRef, DirectionToIntTable: Boolean): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DirectionToIntTable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsIntegrationRecordSkipped
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.IsIntegrationRecordSkipped(TableConnectionType,RecordRef,Boolean):Boolean
+- syntax:
+    content: 'procedure UpdateIntegrationTableCoupling(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, RecordId: RecordId)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: UpdateIntegrationTableCoupling
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.UpdateIntegrationTableCoupling(TableConnectionType,Variant,RecordId)
+- syntax:
+    content: 'procedure UpdateIntegrationTableCoupling(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, RecordRef: RecordRef)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: RecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: UpdateIntegrationTableCoupling
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.UpdateIntegrationTableCoupling(TableConnectionType,Variant,RecordRef)
+- syntax:
+    content: 'procedure RemoveIntegrationTableCoupling(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, DestinationTableID: Integer, RecordId: RecordId)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DestinationTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: RemoveIntegrationTableCoupling
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.RemoveIntegrationTableCoupling(TableConnectionType,Variant,Integer,RecordId)
+- syntax:
+    content: 'procedure RemoveIntegrationTableCoupling(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, DestinationTableID: Integer, RecordRef: RecordRef)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DestinationTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: RemoveIntegrationTableCoupling
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.RemoveIntegrationTableCoupling(TableConnectionType,Variant,Integer,RecordRef)
+- syntax:
+    content: 'procedure UpdateIntegrationTableTimestamp(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, IntegrationTableModfiedOn: DateTime, TableID: Integer, ModifiedOn: DateTime, JobID: Guid, Direction: Option)'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: IntegrationTableModfiedOn
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ModifiedOn
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: JobID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateIntegrationTableTimestamp
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.UpdateIntegrationTableTimestamp(TableConnectionType,Variant,DateTime,Integer,DateTime,Guid,Option)
+- syntax:
+    content: 'procedure IsModifiedAfterIntegrationTableRecordLastSynch(IntegrationTableConnectionType: TableConnectionType, IntegrationTableUid: Variant, DestinationTableId: Integer, LastModifiedOn: DateTime): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableUid
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LastModifiedOn
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsModifiedAfterIntegrationTableRecordLastSynch
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.IsModifiedAfterIntegrationTableRecordLastSynch(TableConnectionType,Variant,Integer,DateTime):Boolean
+- syntax:
+    content: 'procedure IsModifiedAfterRecordLastSynch(IntegrationTableConnectionType: TableConnectionType, SourceRecordID: RecordId, LastModifiedOn: DateTime): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: LastModifiedOn
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsModifiedAfterRecordLastSynch
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.IsModifiedAfterRecordLastSynch(TableConnectionType,RecordId,DateTime):Boolean
+- syntax:
+    content: 'procedure IsModifiedAfterRecordLastSynch(IntegrationTableConnectionType: TableConnectionType, SourceRecordRef: RecordRef, LastModifiedOn: DateTime): Boolean'
+    parameters:
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: LastModifiedOn
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsModifiedAfterRecordLastSynch
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management.IsModifiedAfterRecordLastSynch(TableConnectionType,RecordRef,DateTime):Boolean
+commentId: O:Codeunit::Microsoft#Integration#SyncEngine#Integration Record Management
+name: '"Integration Record Management"'
+uid: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Management

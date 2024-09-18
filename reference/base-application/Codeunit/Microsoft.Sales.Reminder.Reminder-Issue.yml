@@ -1,0 +1,153 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reminder."Reminder-Issue"
+alId: ID 393
+namespace: Microsoft.Sales.Reminder
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reminder
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Issued Reminder Header" = rimd,
+                      TableData "Issued Reminder Line" = rimd,
+                      TableData "Reminder/Fin. Charge Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Set(var NewReminderHeader: Record "Reminder Header", NewReplacePostingDate: Boolean, NewPostingDate: Date, NewReplaceVATDate: Boolean, NewVATDate: Date)'
+    parameters:
+    - id: NewReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: NewReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewReplaceVATDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewVATDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: Set
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.Set(Reminder_Header@,Boolean,Date,Boolean,Date)
+- syntax:
+    content: 'procedure Set(var NewReminderHeader: Record "Reminder Header", NewReplacePostingDate: Boolean, NewPostingDate: Date)'
+    parameters:
+    - id: NewReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: NewReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: Set
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.Set(Reminder_Header@,Boolean,Date)
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.SetGenJnlBatch(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure GetIssuedReminder(var NewIssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: NewIssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: GetIssuedReminder
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.GetIssuedReminder(Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure DeleteIssuedReminderLines(ParentIssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: ParentIssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: DeleteIssuedReminderLines
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.DeleteIssuedReminderLines(Issued_Reminder_Header)
+- syntax:
+    content: 'procedure IncrNoPrinted(var IssuedReminderHeaderToIncrement: Record "Issued Reminder Header")'
+    parameters:
+    - id: IssuedReminderHeaderToIncrement
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: IncrNoPrinted
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.IncrNoPrinted(Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure TestDeleteHeader(ReminderHeaderToDelete: Record "Reminder Header", var IssuedReminderHeaderToDelete: Record "Issued Reminder Header")'
+    parameters:
+    - id: ReminderHeaderToDelete
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: IssuedReminderHeaderToDelete
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: TestDeleteHeader
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.TestDeleteHeader(Reminder_Header,Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure DeleteHeader(ReminderHeader: Record "Reminder Header", var IssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: ReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: DeleteHeader
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.DeleteHeader(Reminder_Header,Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure ChangeDueDate(var ReminderEntry2: Record "Reminder/Fin. Charge Entry", NewDueDate: Date, OldDueDate: Date)'
+    parameters:
+    - id: ReminderEntry2
+      parameterType:
+        name: Record "Reminder/Fin. Charge Entry"
+        isExternal: true
+    - id: NewDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OldDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ChangeDueDate
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.ChangeDueDate(Reminder/Fin#_Charge_Entry@,Date,Date)
+- syntax:
+    content: 'procedure UpdateCustLedgEntryLastIssuedReminderLevel(ReminderFinChargeEntry: Record "Reminder/Fin. Charge Entry")'
+    parameters:
+    - id: ReminderFinChargeEntry
+      parameterType:
+        name: Record "Reminder/Fin. Charge Entry"
+        isExternal: true
+  name: UpdateCustLedgEntryLastIssuedReminderLevel
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue.UpdateCustLedgEntryLastIssuedReminderLevel(Reminder/Fin#_Charge_Entry)
+commentId: O:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue
+name: '"Reminder-Issue"'
+uid: O:Codeunit::Microsoft#Sales#Reminder#Reminder-Issue

@@ -1,0 +1,128 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Warehouse Mgt."
+alId: ID 5991
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SalesLineVerifyChange(var NewSalesLine: Record "Sales Line", var OldSalesLine: Record "Sales Line")'
+    parameters:
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SalesLineVerifyChange
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.SalesLineVerifyChange(Sales_Line@,Sales_Line@)
+- syntax:
+    content: 'procedure SalesLineDelete(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SalesLineDelete
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.SalesLineDelete(Sales_Line@)
+- syntax:
+    content: 'procedure SalesHeaderVerifyChange(var NewSalesHeader: Record "Sales Header", var OldSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: NewSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OldSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SalesHeaderVerifyChange
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.SalesHeaderVerifyChange(Sales_Header@,Sales_Header@)
+- syntax:
+    content: 'procedure FromSalesLine2ShptLine(WarehouseShipmentHeader: Record "Warehouse Shipment Header", SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: WarehouseShipmentHeader
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FromSalesLine2ShptLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.FromSalesLine2ShptLine(Warehouse_Shipment_Header,Sales_Line):Boolean
+- syntax:
+    content: 'procedure SalesLine2ReceiptLine(WarehouseReceiptHeader: Record "Warehouse Receipt Header", SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: WarehouseReceiptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLine2ReceiptLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.SalesLine2ReceiptLine(Warehouse_Receipt_Header,Sales_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromSalesLine2ShptLine(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromSalesLine2ShptLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.CheckIfFromSalesLine2ShptLine(Sales_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromSalesLine2ShptLine(SalesLine: Record "Sales Line", ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromSalesLine2ShptLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.CheckIfFromSalesLine2ShptLine(Sales_Line,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+- syntax:
+    content: 'procedure CheckIfSalesLine2ReceiptLine(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfSalesLine2ReceiptLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#.CheckIfSalesLine2ReceiptLine(Sales_Line):Boolean
+commentId: O:Codeunit::Microsoft#Sales#Document#Sales Warehouse Mgt#
+name: '"Sales Warehouse Mgt."'
+uid: O:Codeunit::Microsoft#Sales#Document#Sales_Warehouse_Mgt#

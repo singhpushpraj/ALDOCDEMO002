@@ -1,0 +1,159 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Document."Whse.-Post Shipment"
+alId: ID 5763
+namespace: Microsoft.Warehouse.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Whse. Item Tracking Line" = r,
+                      TableData "Posted Whse. Shipment Header" = rim,
+                      TableData "Posted Whse. Shipment Line" = ri
+  promoted: false
+- name: TableNo
+  value: Warehouse Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Document#Warehouse_Shipment_Line
+    name: Microsoft.Warehouse.Document."Warehouse Shipment Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetPrint(Print2: Boolean)'
+    parameters:
+    - id: Print2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPrint
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.SetPrint(Boolean)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure PostUpdateWhseDocuments(var WhseShptHeaderParam: Record "Warehouse Shipment Header")'
+    parameters:
+    - id: WhseShptHeaderParam
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+  name: PostUpdateWhseDocuments
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.PostUpdateWhseDocuments(Warehouse_Shipment_Header@)
+- syntax:
+    content: procedure GetResultMessage()
+  name: GetResultMessage
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.GetResultMessage
+- syntax:
+    content: 'procedure SetPostingSettings(PostInvoice: Boolean)'
+    parameters:
+    - id: PostInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPostingSettings
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.SetPostingSettings(Boolean)
+- syntax:
+    content: 'procedure CreatePostedShptHeader(var PostedWhseShptHeader: Record "Posted Whse. Shipment Header", var WhseShptHeader: Record "Warehouse Shipment Header", LastShptNo2: Code[20], PostingDate2: Date)'
+    parameters:
+    - id: PostedWhseShptHeader
+      parameterType:
+        name: Record "Posted Whse. Shipment Header"
+        isExternal: true
+    - id: WhseShptHeader
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: LastShptNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreatePostedShptHeader
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.CreatePostedShptHeader(Posted_Whse#_Shipment_Header@,Warehouse_Shipment_Header@,Code[20],Date)
+- syntax:
+    content: 'procedure CreatePostedShptLine(var WhseShptLine: Record "Warehouse Shipment Line", var PostedWhseShptHeader: Record "Posted Whse. Shipment Header", var PostedWhseShptLine: Record "Posted Whse. Shipment Line", var TempHandlingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: WhseShptLine
+      parameterType:
+        name: Record "Warehouse Shipment Line"
+        isExternal: true
+    - id: PostedWhseShptHeader
+      parameterType:
+        name: Record "Posted Whse. Shipment Header"
+        isExternal: true
+    - id: PostedWhseShptLine
+      parameterType:
+        name: Record "Posted Whse. Shipment Line"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreatePostedShptLine
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.CreatePostedShptLine(Warehouse_Shipment_Line@,Posted_Whse#_Shipment_Header@,Posted_Whse#_Shipment_Line@,Tracking_Specification@)
+- syntax:
+    content: 'procedure CreateWhseJnlLine(var WhseJnlLine: Record "Warehouse Journal Line", PostedWhseShptLine: Record "Posted Whse. Shipment Line")'
+    parameters:
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: PostedWhseShptLine
+      parameterType:
+        name: Record "Posted Whse. Shipment Line"
+        isExternal: true
+  name: CreateWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.CreateWhseJnlLine(Warehouse_Journal_Line@,Posted_Whse#_Shipment_Line)
+- syntax:
+    content: 'procedure SetWhseJnlRegisterCU(var NewWhseJnlRegisterLine: Codeunit "Whse. Jnl.-Register Line")'
+    parameters:
+    - id: NewWhseJnlRegisterLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line
+        name: Microsoft.Warehouse.Journal."Whse. Jnl.-Register Line"
+        isExternal: false
+  name: SetWhseJnlRegisterCU
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.SetWhseJnlRegisterCU(Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure GetCounterSourceDocTotal(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCounterSourceDocTotal
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.GetCounterSourceDocTotal:Integer
+- syntax:
+    content: 'procedure GetCounterSourceDocOK(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCounterSourceDocOK
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment.GetCounterSourceDocOK:Integer
+commentId: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post Shipment
+name: '"Whse.-Post Shipment"'
+uid: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment

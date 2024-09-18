@@ -1,0 +1,203 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.FixedAsset."FA General Report"
+alId: ID 5626
+namespace: Microsoft.FixedAssets.FixedAsset
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.FixedAsset
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Fixed Asset" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetLastDate(FANo: Code[20], PostingType: Integer, EndingDate: Date, DeprBookCode: Code[10], GLEntry: Boolean): Date'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetLastDate
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.GetLastDate(Code[20],Integer,Date,Code[10],Boolean):Date
+- syntax:
+    content: 'procedure CalcFAPostedAmount(FANo: Code[20], PostingType: Integer, Period: Option, StartingDate: Date, EndingDate: Date, DeprBookCode: Code[10], BeforeAmount: Decimal, UntilAmount: Decimal, OnlyReclassified: Boolean, OnlyBookValue: Boolean): Decimal'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Period
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BeforeAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UntilAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OnlyReclassified
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: OnlyBookValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcFAPostedAmount
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.CalcFAPostedAmount(Code[20],Integer,Option,Date,Date,Code[10],Decimal,Decimal,Boolean,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcGLPostedAmount(FANo: Code[20], PostingType: Integer, Period: Option, StartingDate: Date, EndingDate: Date, DeprBookCode: Code[10]): Decimal'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Period
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcGLPostedAmount
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.CalcGLPostedAmount(Code[20],Integer,Option,Date,Date,Code[10]):Decimal
+- syntax:
+    content: 'procedure AppendFAPostingFilter(var FA: Record "Fixed Asset", StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: FA
+      parameterType:
+        name: Record "Fixed Asset"
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AppendFAPostingFilter
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.AppendFAPostingFilter(Fixed_Asset@,Date,Date)
+- syntax:
+    content: 'procedure AppendPostingDateFilter(var FAFilter: Text, StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: FAFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AppendPostingDateFilter
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.AppendPostingDateFilter(Text@,Date,Date)
+- syntax:
+    content: 'procedure ValidateDates(StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ValidateDates
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.ValidateDates(Date,Date)
+- syntax:
+    content: 'procedure ValidateDeprDates(StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ValidateDeprDates
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.ValidateDeprDates(Date,Date)
+- syntax:
+    content: 'procedure SetFAPostingGroup(var FA2: Record "Fixed Asset", DeprBookCode: Code[10])'
+    parameters:
+    - id: FA2
+      parameterType:
+        name: Record "Fixed Asset"
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetFAPostingGroup
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report.SetFAPostingGroup(Fixed_Asset@,Code[10])
+commentId: O:Codeunit::Microsoft#FixedAssets#FixedAsset#FA General Report
+name: '"FA General Report"'
+uid: O:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_General_Report

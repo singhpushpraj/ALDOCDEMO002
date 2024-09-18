@@ -1,0 +1,451 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.PriceList."Price List Management"
+alId: ID 7017
+namespace: Microsoft.Pricing.PriceList
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.PriceList
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure AddLines(var PriceListHeader: Record "Price List Header")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+  name: AddLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.AddLines(Price_List_Header@)
+- syntax:
+    content: 'procedure AddLines(var ToPriceListHeader: Record "Price List Header", PriceLineFilters: Record "Price Line Filters" temporary)'
+    parameters:
+    - id: ToPriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceLineFilters
+      parameterType:
+        name: Record "Price Line Filters" temporary
+        isExternal: true
+  name: AddLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.AddLines(Price_List_Header@,Price_Line_Filters)
+- syntax:
+    content: 'procedure AdjustAmount(var Price: Decimal, PriceLineFilters: Record "Price Line Filters" temporary)'
+    parameters:
+    - id: Price
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PriceLineFilters
+      parameterType:
+        name: Record "Price Line Filters" temporary
+        isExternal: true
+  name: AdjustAmount
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.AdjustAmount(Decimal@,Price_Line_Filters)
+- syntax:
+    content: 'procedure CopyLines(var ToPriceListHeader: Record "Price List Header")'
+    parameters:
+    - id: ToPriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+  name: CopyLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.CopyLines(Price_List_Header@)
+- syntax:
+    content: 'procedure CopyLines(var ToPriceListHeader: Record "Price List Header", UpdateMultiplePriceLists: Boolean)'
+    parameters:
+    - id: ToPriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: UpdateMultiplePriceLists
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.CopyLines(Price_List_Header@,Boolean)
+- syntax:
+    content: 'procedure CopyLines(var ToPriceListHeader: Record "Price List Header", PriceLineFilters: Record "Price Line Filters" temporary)'
+    parameters:
+    - id: ToPriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceLineFilters
+      parameterType:
+        name: Record "Price Line Filters" temporary
+        isExternal: true
+  name: CopyLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.CopyLines(Price_List_Header@,Price_Line_Filters)
+- syntax:
+    content: 'procedure FindDuplicatePrice(PriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDuplicatePrice
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.FindDuplicatePrice(Price_List_Line):Boolean
+- syntax:
+    content: 'procedure FindDuplicatePrices(PriceListHeader: Record "Price List Header", SearchInside: Boolean, var DuplicatePriceLine: Record "Duplicate Price Line" temporary): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: SearchInside
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DuplicatePriceLine
+      parameterType:
+        name: Record "Duplicate Price Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDuplicatePrices
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.FindDuplicatePrices(Price_List_Header,Boolean,Duplicate_Price_Line@):Boolean
+- syntax:
+    content: 'procedure FindDuplicatePrices(PriceListHeader: Record "Price List Header", var PriceListLine: Record "Price List Line", SearchInside: Boolean, var DuplicatePriceLine: Record "Duplicate Price Line" temporary): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: SearchInside
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DuplicatePriceLine
+      parameterType:
+        name: Record "Duplicate Price Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDuplicatePrices
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.FindDuplicatePrices(Price_List_Header,Price_List_Line@,Boolean,Duplicate_Price_Line@):Boolean
+- syntax:
+    content: 'procedure GetDefaultPriceListCode(PriceType: Enum "Price Type", SourceGroup: Enum "Price Source Group", FailIfBlank: Boolean): Code[20]'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: SourceGroup
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Group
+        name: Microsoft.Pricing.Source."Price Source Group"
+        isExternal: false
+    - id: FailIfBlank
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetDefaultPriceListCode
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.GetDefaultPriceListCode(Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#Source#Price_Source_Group,Boolean):Code[20]
+- syntax:
+    content: 'procedure DefineDefaultPriceList(PriceType: Enum "Price Type", SourceGroup: Enum "Price Source Group"): Code[20]'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: SourceGroup
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Group
+        name: Microsoft.Pricing.Source."Price Source Group"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: DefineDefaultPriceList
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.DefineDefaultPriceList(Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#Source#Price_Source_Group):Code[20]
+- syntax:
+    content: 'procedure IsAllowedEditingActivePrice(PriceType: Enum "Price Type"): Boolean'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAllowedEditingActivePrice
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.IsAllowedEditingActivePrice(Enum::Microsoft#Pricing#PriceList#Price_Type):Boolean
+- syntax:
+    content: procedure SendVerifyLinesNotification()
+  name: SendVerifyLinesNotification
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SendVerifyLinesNotification
+- syntax:
+    content: 'procedure SendVerifyLinesNotification(PriceListHeader: Record "Price List Header")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+  name: SendVerifyLinesNotification
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SendVerifyLinesNotification(Price_List_Header)
+- syntax:
+    content: 'procedure ActivateDraftLines(VerifyLinesNotification: Notification)'
+    parameters:
+    - id: VerifyLinesNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ActivateDraftLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ActivateDraftLines(Notification)
+- syntax:
+    content: 'procedure ActivateDraftLines(VerifyLinesNotification: Notification, SkipMessage: Boolean)'
+    parameters:
+    - id: VerifyLinesNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+    - id: SkipMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ActivateDraftLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ActivateDraftLines(Notification,Boolean)
+- syntax:
+    content: 'procedure ActivateDraftLines(PriceListHeader: Record "Price List Header"): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ActivateDraftLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ActivateDraftLines(Price_List_Header):Boolean
+- syntax:
+    content: 'procedure ActivateDraftLines(PriceListHeader: Record "Price List Header", SkipMessage: Boolean): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: SkipMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ActivateDraftLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ActivateDraftLines(Price_List_Header,Boolean):Boolean
+- syntax:
+    content: 'procedure ActivateDraftLines(var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: ActivateDraftLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ActivateDraftLines(Price_List_Line@)
+- syntax:
+    content: 'procedure VerifyLines(var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: VerifyLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.VerifyLines(Price_List_Line@)
+- syntax:
+    content: 'procedure ResolveDuplicatePrices(PriceListHeader: Record "Price List Header"): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ResolveDuplicatePrices
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ResolveDuplicatePrices(Price_List_Header):Boolean
+- syntax:
+    content: 'procedure ResolveDuplicatePrices(var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: ResolveDuplicatePrices
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ResolveDuplicatePrices(Price_List_Line@)
+- syntax:
+    content: 'procedure SetPriceListsFilters(var PriceListHeader: Record "Price List Header", PriceSourceList: Codeunit "Price Source List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListsFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SetPriceListsFilters(Price_List_Header@,Codeunit::Microsoft#Pricing#Source#Price_Source_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListLineFilters(var PriceListLine: Record "Price List Line", PriceSourceList: Codeunit "Price Source List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListLineFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SetPriceListLineFilters(Price_List_Line@,Codeunit::Microsoft#Pricing#Source#Price_Source_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListLineFilters(var PriceListLine: Record "Price List Line", PriceSource: Record "Price Source" temporary, PriceAssetList: Codeunit "Price Asset List", AmountType: Enum "Price Amount Type"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: PriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetPriceListLineFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SetPriceListLineFilters(Price_List_Line@,Price_Source,Codeunit::Microsoft#Pricing#Asset#Price_Asset_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type):Boolean
+- syntax:
+    content: procedure FindIfPriceExists()
+  name: FindIfPriceExists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.FindIfPriceExists
+- syntax:
+    content: 'procedure IsPriceFound(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPriceFound
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.IsPriceFound:Boolean
+- syntax:
+    content: 'procedure SetHeadersFilters(PriceListLine: Record "Price List Line", var DuplicatePriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: DuplicatePriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: SetHeadersFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SetHeadersFilters(Price_List_Line,Price_List_Line@)
+- syntax:
+    content: 'procedure SetAssetFilters(PriceListLine: Record "Price List Line", var DuplicatePriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: DuplicatePriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: SetAssetFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.SetAssetFilters(Price_List_Line,Price_List_Line@)
+- syntax:
+    content: 'procedure ResolveDuplicatePrices(PriceListHeader: Record "Price List Header", var DuplicatePriceLine: Record "Duplicate Price Line" temporary): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: DuplicatePriceLine
+      parameterType:
+        name: Record "Duplicate Price Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ResolveDuplicatePrices
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ResolveDuplicatePrices(Price_List_Header,Duplicate_Price_Line@):Boolean
+- syntax:
+    content: 'procedure ImplementNewPrices(var PriceWorksheetLine: Record "Price Worksheet Line")'
+    parameters:
+    - id: PriceWorksheetLine
+      parameterType:
+        name: Record "Price Worksheet Line"
+        isExternal: true
+  name: ImplementNewPrices
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.ImplementNewPrices(Price_Worksheet_Line@)
+- syntax:
+    content: 'procedure VerifySourceGroupInLines(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: VerifySourceGroupInLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.VerifySourceGroupInLines:Boolean
+- syntax:
+    content: 'procedure UpdateSourceGroupInLines(UpgradeNotification: Notification)'
+    parameters:
+    - id: UpgradeNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: UpdateSourceGroupInLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management.UpdateSourceGroupInLines(Notification)
+commentId: O:Codeunit::Microsoft#Pricing#PriceList#Price List Management
+name: '"Price List Management"'
+uid: O:Codeunit::Microsoft#Pricing#PriceList#Price_List_Management

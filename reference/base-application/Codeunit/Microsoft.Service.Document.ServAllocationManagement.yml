@@ -1,0 +1,165 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document.ServAllocationManagement
+alId: ID 5930
+namespace: Microsoft.Service.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Service Order Allocation" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AllocateDate(DocumentType: Integer, DocumentNo: Code[20], EntryNo: Integer, ResNo: Code[20], ResGrNo: Code[20], CurrentDate: Date, Quantity: Decimal)'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ResNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ResGrNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CurrentDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AllocateDate
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.AllocateDate(Integer,Code[20],Integer,Code[20],Code[20],Date,Decimal)
+- syntax:
+    content: 'procedure CancelAllocation(var ServOrderAlloc: Record "Service Order Allocation")'
+    parameters:
+    - id: ServOrderAlloc
+      parameterType:
+        name: Record "Service Order Allocation"
+        isExternal: true
+  name: CancelAllocation
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.CancelAllocation(Service_Order_Allocation@)
+- syntax:
+    content: 'procedure CreateAllocationEntry(DocumentType: Integer, DocumentNo: Code[20], ServItemLineNo: Integer, ServItemNo: Code[20], ServSerialNo: Code[50])'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServItemLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServSerialNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: CreateAllocationEntry
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.CreateAllocationEntry(Integer,Code[20],Integer,Code[20],Code[50])
+- syntax:
+    content: 'procedure SplitAllocation(var SplitServOrderAlloc: Record "Service Order Allocation")'
+    parameters:
+    - id: SplitServOrderAlloc
+      parameterType:
+        name: Record "Service Order Allocation"
+        isExternal: true
+  name: SplitAllocation
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.SplitAllocation(Service_Order_Allocation@)
+- syntax:
+    content: 'procedure ResourceQualified(ResourceNo: Code[20], Type: Enum "Resource Skill Type", No: Code[20]): Boolean'
+    parameters:
+    - id: ResourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Resources#Resource_Skill_Type
+        name: Microsoft.Service.Resources."Resource Skill Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ResourceQualified
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.ResourceQualified(Code[20],Enum::Microsoft#Service#Resources#Resource_Skill_Type,Code[20]):Boolean
+- syntax:
+    content: 'procedure QualifiedForServiceItemLine(var ServiceItemLine: Record "Service Item Line", ResourceNo: Code[20]): Boolean'
+    parameters:
+    - id: ServiceItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: ResourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: QualifiedForServiceItemLine
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.QualifiedForServiceItemLine(Service_Item_Line@,Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckServiceItemLineFinished(var ServHeader: Record "Service Header", ServiceItemLineNo: Integer)'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceItemLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckServiceItemLineFinished
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.CheckServiceItemLineFinished(Service_Header@,Integer)
+- syntax:
+    content: 'procedure SetServOrderAllocStatus(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetServOrderAllocStatus
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.SetServOrderAllocStatus(Service_Header@)
+- syntax:
+    content: 'procedure SetServLineAllocStatus(var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: SetServLineAllocStatus
+  uid: M:Codeunit::Microsoft#Service#Document#ServAllocationManagement.SetServLineAllocStatus(Service_Line@)
+commentId: O:Codeunit::Microsoft#Service#Document#ServAllocationManagement
+name: ServAllocationManagement
+uid: O:Codeunit::Microsoft#Service#Document#ServAllocationManagement

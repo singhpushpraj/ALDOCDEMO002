@@ -1,0 +1,477 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration."GL Acc. Data Migration Facade"
+alId: ID 6110
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Data Migration Parameters
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Integration#Data_Migration_Parameters
+    name: System.Integration."Data Migration Parameters"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ModifyGLAccount(RunTrigger: Boolean)'
+    parameters:
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ModifyGLAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.ModifyGLAccount(Boolean)
+- syntax:
+    content: 'procedure CreateGLAccountIfNeeded(AccountNoToSet: Code[20], AccountNameToSet: Text[50], AccountTypeToSet: Option): Boolean'
+    parameters:
+    - id: AccountNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AccountNameToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: AccountTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateGLAccountIfNeeded
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateGLAccountIfNeeded(Code[20],Text[50],Option):Boolean
+- syntax:
+    content: 'procedure CreateGeneralPostingSetupIfNeeded(GeneralPostingGroupCode: Code[10])'
+    parameters:
+    - id: GeneralPostingGroupCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CreateGeneralPostingSetupIfNeeded
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateGeneralPostingSetupIfNeeded(Code[10])
+- syntax:
+    content: 'procedure CreateGenProductPostingGroupIfNeeded(PostingGroupCode: Code[20], PostingGroupDescription: Text[50])'
+    parameters:
+    - id: PostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingGroupDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: CreateGenProductPostingGroupIfNeeded
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateGenProductPostingGroupIfNeeded(Code[20],Text[50])
+- syntax:
+    content: 'procedure CreateGenBusinessPostingGroupIfNeeded(PostingGroupCode: Code[20], PostingGroupDescription: Text[50])'
+    parameters:
+    - id: PostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingGroupDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: CreateGenBusinessPostingGroupIfNeeded
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateGenBusinessPostingGroupIfNeeded(Code[20],Text[50])
+- syntax:
+    content: 'procedure CreateGeneralJournalLine(GeneralJournalBatchCode: Code[10], DocumentNo: Code[20], Description: Text[50], PostingDate: Date, DueDate: Date, Amount: Decimal, AmountLCY: Decimal, Currency: Code[10], BalancingAccount: Code[20])'
+    parameters:
+    - id: GeneralJournalBatchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BalancingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateGeneralJournalLine
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateGeneralJournalLine(Code[10],Code[20],Text[50],Date,Date,Decimal,Decimal,Code[10],Code[20])
+- syntax:
+    content: 'procedure CreateGeneralJournalBatchIfNeeded(GeneralJournalBatchCode: Code[10], NoSeriesCode: Code[20], PostingNoSeriesCode: Code[20])'
+    parameters:
+    - id: GeneralJournalBatchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingNoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateGeneralJournalBatchIfNeeded
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateGeneralJournalBatchIfNeeded(Code[10],Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGlobalGLAccount(GLAccountNo: Code[20]): Boolean'
+    parameters:
+    - id: GLAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetGlobalGLAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGlobalGLAccount(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetIncomeBalanceType(IncomeBalanceTypeToSet: Option)'
+    parameters:
+    - id: IncomeBalanceTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetIncomeBalanceType
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetIncomeBalanceType(Option)
+- syntax:
+    content: 'procedure SetTotaling(TotalingToSet: Text[250])'
+    parameters:
+    - id: TotalingToSet
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SetTotaling
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetTotaling(Text[250])
+- syntax:
+    content: 'procedure SetDebitCreditType(DebitCreditTypeToSet: Option)'
+    parameters:
+    - id: DebitCreditTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetDebitCreditType
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetDebitCreditType(Option)
+- syntax:
+    content: 'procedure SetExchangeRateAdjustmentType(ExchangeRateAdjustmentTypeToSet: Option)'
+    parameters:
+    - id: ExchangeRateAdjustmentTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetExchangeRateAdjustmentType
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetExchangeRateAdjustmentType(Option)
+- syntax:
+    content: 'procedure SetDirectPosting(DirectPostingToSet: Boolean)'
+    parameters:
+    - id: DirectPostingToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDirectPosting
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetDirectPosting(Boolean)
+- syntax:
+    content: 'procedure SetBlocked(BlockedToSet: Boolean)'
+    parameters:
+    - id: BlockedToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetBlocked
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetBlocked(Boolean)
+- syntax:
+    content: 'procedure SetLastModifiedDateTime(LastModifiedDateTimeToSet: DateTime)'
+    parameters:
+    - id: LastModifiedDateTimeToSet
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SetLastModifiedDateTime
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetLastModifiedDateTime(DateTime)
+- syntax:
+    content: 'procedure SetLastDateModified(LastDateModifiedToSet: Date)'
+    parameters:
+    - id: LastDateModifiedToSet
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetLastDateModified
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetLastDateModified(Date)
+- syntax:
+    content: 'procedure SetAccountCategory(AccountCategoryToSet: Option)'
+    parameters:
+    - id: AccountCategoryToSet
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetAccountCategory
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetAccountCategory(Option)
+- syntax:
+    content: 'procedure SetAccountSubCategory(AccountSubCategoryToSet: Integer)'
+    parameters:
+    - id: AccountSubCategoryToSet
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetAccountSubCategory
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetAccountSubCategory(Integer)
+- syntax:
+    content: 'procedure SetGeneralPostingSetupSalesAccount(GeneralPostingSetupCode: Code[20], SalesAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupSalesAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupSalesAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupSalesLineDiscAccount(GeneralPostingSetupCode: Code[20], SalesLineDiscAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesLineDiscAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupSalesLineDiscAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupSalesLineDiscAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupSalesInvDiscAccount(GeneralPostingSetupCode: Code[20], SalesInvDiscAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesInvDiscAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupSalesInvDiscAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupSalesInvDiscAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupSalesPmtDiscDebitAccount(GeneralPostingSetupCode: Code[20], SalesPmtDiscDebitAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesPmtDiscDebitAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupSalesPmtDiscDebitAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupSalesPmtDiscDebitAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchAccount(GeneralPostingSetupCode: Code[20], PurchAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchLineDiscAccount(GeneralPostingSetupCode: Code[20], PurchLineDiscAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchLineDiscAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchLineDiscAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchLineDiscAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchInvDiscAccount(GeneralPostingSetupCode: Code[20], PurchInvDiscAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchInvDiscAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchInvDiscAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchInvDiscAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchCreditMemoAccount(GeneralPostingSetupCode: Code[20], PurchCreditMemoAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchCreditMemoAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchCreditMemoAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchCreditMemoAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupCOGSAccount(GeneralPostingSetupCode: Code[20], CogsAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CogsAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupCOGSAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupCOGSAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupInventoryAdjmtAccount(GeneralPostingSetupCode: Code[20], InventoryAdjmtAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InventoryAdjmtAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupInventoryAdjmtAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupInventoryAdjmtAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupSalesCreditMemoAccount(GeneralPostingSetupCode: Code[20], SalesCreditMemoAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesCreditMemoAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupSalesCreditMemoAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupSalesCreditMemoAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchPmtDiscDebitAccount(GeneralPostingSetupCode: Code[20], PurchPmtDiscDebitAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchPmtDiscDebitAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchPmtDiscDebitAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchPmtDiscDebitAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchPrepaymentsAccount(GeneralPostingSetupCode: Code[20], PurchPrepaymentsAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchPrepaymentsAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchPrepaymentsAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchPrepaymentsAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupPurchaseVarianceAccount(GeneralPostingSetupCode: Code[20], PurchaseVarianceAccount: Code[20])'
+    parameters:
+    - id: GeneralPostingSetupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchaseVarianceAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupPurchaseVarianceAccount
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralPostingSetupPurchaseVarianceAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure CreateDefaultDimensionAndRequirementsIfNeeded(DimensionCode: Text[20], DimensionDescription: Text[50], DimensionValueCode: Code[20], DimensionValueName: Text[30])'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: DimensionDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DimensionValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CreateDefaultDimensionAndRequirementsIfNeeded
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.CreateDefaultDimensionAndRequirementsIfNeeded(Text[20],Text[50],Code[20],Text[30])
+- syntax:
+    content: 'procedure SetGeneralJournalLineDimension(var GenJournalLine: Record "Gen. Journal Line", DimensionCode: Code[20], DimensionDescription: Text[50], DimensionValueCode: Code[20], DimensionValueName: Text[50])'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DimensionValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: SetGeneralJournalLineDimension
+  uid: M:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade.SetGeneralJournalLineDimension(Gen#_Journal_Line@,Code[20],Text[50],Code[20],Text[50])
+commentId: O:Codeunit::System#Integration#GL Acc# Data Migration Facade
+name: '"GL Acc. Data Migration Facade"'
+uid: O:Codeunit::System#Integration#GL_Acc#_Data_Migration_Facade

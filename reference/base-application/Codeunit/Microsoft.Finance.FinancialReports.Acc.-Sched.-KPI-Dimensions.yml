@@ -1,0 +1,137 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.FinancialReports."Acc. Sched. KPI Dimensions"
+alId: ID 9
+namespace: Microsoft.Finance.FinancialReports
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.FinancialReports
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Acc. Schedule Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#FinancialReports#Acc#_Schedule_Line
+    name: Microsoft.Finance.FinancialReports."Acc. Schedule Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetCellDataWithDimensions(var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout", var TempAccSchedKPIBuffer2: Record "Acc. Sched. KPI Buffer" temporary)'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: TempAccSchedKPIBuffer2
+      parameterType:
+        name: Record "Acc. Sched. KPI Buffer" temporary
+        isExternal: true
+  name: GetCellDataWithDimensions
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.GetCellDataWithDimensions(Acc#_Schedule_Line@,Column_Layout@,Acc#_Sched#_KPI_Buffer@)
+- syntax:
+    content: 'procedure ConflictAmountType(AccSchedLine: Record "Acc. Schedule Line", ColumnLayoutAmtType: Enum "Account Schedule Amount Type", var AmountType: Enum "Account Schedule Amount Type"): Boolean'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayoutAmtType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type
+        name: Microsoft.Finance.FinancialReports."Account Schedule Amount Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type
+        name: Microsoft.Finance.FinancialReports."Account Schedule Amount Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConflictAmountType
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.ConflictAmountType(Acc#_Schedule_Line,Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type,Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type@):Boolean
+- syntax:
+    content: 'procedure CombineFilters(FilterPart1: Text, FilterPart2: Text, CombineSymbol: Text[1]): Text'
+    parameters:
+    - id: FilterPart1
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FilterPart2
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CombineSymbol
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: CombineFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.CombineFilters(Text,Text,Text[1]):Text
+- syntax:
+    content: 'procedure PrepareFilterPart(var FilterText: Text)'
+    parameters:
+    - id: FilterText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: PrepareFilterPart
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.PrepareFilterPart(Text@)
+- syntax:
+    content: 'procedure PostProcessAmount(AccSchedLine: Record "Acc. Schedule Line", Amount: Decimal): Decimal'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: PostProcessAmount
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.PostProcessAmount(Acc#_Schedule_Line,Decimal):Decimal
+- syntax:
+    content: 'procedure PassToResult(AccSchedLineShow: Enum "Acc. Schedule Line Show", Balance: Decimal): Boolean'
+    parameters:
+    - id: AccSchedLineShow
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#FinancialReports#Acc#_Schedule_Line_Show
+        name: Microsoft.Finance.FinancialReports."Acc. Schedule Line Show"
+        isExternal: false
+    - id: Balance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PassToResult
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.PassToResult(Enum::Microsoft#Finance#FinancialReports#Acc#_Schedule_Line_Show,Decimal):Boolean
+- syntax:
+    content: 'procedure SetTempAccSchedKPIBuffer(var NewTempAccSchedKPIBuffer: Record "Acc. Sched. KPI Buffer" temporary)'
+    parameters:
+    - id: NewTempAccSchedKPIBuffer
+      parameterType:
+        name: Record "Acc. Sched. KPI Buffer" temporary
+        isExternal: true
+  name: SetTempAccSchedKPIBuffer
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions.SetTempAccSchedKPIBuffer(Acc#_Sched#_KPI_Buffer@)
+commentId: O:Codeunit::Microsoft#Finance#FinancialReports#Acc# Sched# KPI Dimensions
+name: '"Acc. Sched. KPI Dimensions"'
+uid: O:Codeunit::Microsoft#Finance#FinancialReports#Acc#_Sched#_KPI_Dimensions

@@ -1,0 +1,174 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Payment."Payment Registration Mgt."
+alId: ID 980
+namespace: Microsoft.Bank.Payment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Payment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: TableNo
+  value: Payment Registration Buffer
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Payment#Payment_Registration_Buffer
+    name: Microsoft.Bank.Payment."Payment Registration Buffer"
+    isExternal: false
+methods:
+- syntax:
+    content: procedure RunSetup()
+  name: RunSetup
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.RunSetup
+- syntax:
+    content: 'procedure ConfirmClose(var PaymentRegistrationBuffer: Record "Payment Registration Buffer"): Boolean'
+    parameters:
+    - id: PaymentRegistrationBuffer
+      parameterType:
+        name: Record "Payment Registration Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmClose
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.ConfirmClose(Payment_Registration_Buffer@):Boolean
+- syntax:
+    content: 'procedure ConfirmPost(var PaymentRegistrationBuffer: Record "Payment Registration Buffer")'
+    parameters:
+    - id: PaymentRegistrationBuffer
+      parameterType:
+        name: Record "Payment Registration Buffer"
+        isExternal: true
+  name: ConfirmPost
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.ConfirmPost(Payment_Registration_Buffer@)
+- syntax:
+    content: 'procedure FindRecords(var TempDocumentSearchResult: Record "Document Search Result" temporary, DocNoFilter: Code[20], AmountFilter: Decimal, AmountTolerancePerc: Decimal)'
+    parameters:
+    - id: TempDocumentSearchResult
+      parameterType:
+        name: Record "Document Search Result" temporary
+        isExternal: true
+    - id: DocNoFilter
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AmountFilter
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountTolerancePerc
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: FindRecords
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.FindRecords(Document_Search_Result@,Code[20],Decimal,Decimal)
+- syntax:
+    content: 'procedure ShowRecords(var TempDocumentSearchResult: Record "Document Search Result" temporary)'
+    parameters:
+    - id: TempDocumentSearchResult
+      parameterType:
+        name: Record "Document Search Result" temporary
+        isExternal: true
+  name: ShowRecords
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.ShowRecords(Document_Search_Result@)
+- syntax:
+    content: 'procedure ConfirmPostLumpPayment(var SourcePaymentRegistrationBuffer: Record "Payment Registration Buffer")'
+    parameters:
+    - id: SourcePaymentRegistrationBuffer
+      parameterType:
+        name: Record "Payment Registration Buffer"
+        isExternal: true
+  name: ConfirmPostLumpPayment
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.ConfirmPostLumpPayment(Payment_Registration_Buffer@)
+- syntax:
+    content: 'procedure SetToleranceLimits(Amount: Decimal, AmountTolerance: Decimal, ToleranceTxt: Text): Text'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountTolerance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToleranceTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SetToleranceLimits
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.SetToleranceLimits(Decimal,Decimal,Text):Text
+- syntax:
+    content: 'procedure CalculateBalance(var PostedBalance: Decimal, var UnpostedBalance: Decimal)'
+    parameters:
+    - id: PostedBalance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnpostedBalance
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculateBalance
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.CalculateBalance(Decimal@,Decimal@)
+- syntax:
+    content: procedure OpenGenJnl()
+  name: OpenGenJnl
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.OpenGenJnl
+- syntax:
+    content: 'procedure Preview(var PaymentRegistrationBuffer: Record "Payment Registration Buffer", AsLump: Boolean)'
+    parameters:
+    - id: PaymentRegistrationBuffer
+      parameterType:
+        name: Record "Payment Registration Buffer"
+        isExternal: true
+    - id: AsLump
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.Preview(Payment_Registration_Buffer@,Boolean)
+- syntax:
+    content: 'procedure SetPreviewContext(AsLump: Boolean)'
+    parameters:
+    - id: AsLump
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewContext
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.SetPreviewContext(Boolean)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforePost(var TempPaymentRegistrationBuffer: Record "Payment Registration Buffer" temporary)'
+    parameters:
+    - id: TempPaymentRegistrationBuffer
+      parameterType:
+        name: Record "Payment Registration Buffer" temporary
+        isExternal: true
+  name: OnBeforePost
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.OnBeforePost(Payment_Registration_Buffer@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnFindSalesHeaderRecordsOnBeforeToleranceCheck(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: OnFindSalesHeaderRecordsOnBeforeToleranceCheck
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#.OnFindSalesHeaderRecordsOnBeforeToleranceCheck(Sales_Header@)
+commentId: O:Codeunit::Microsoft#Bank#Payment#Payment Registration Mgt#
+name: '"Payment Registration Mgt."'
+uid: O:Codeunit::Microsoft#Bank#Payment#Payment_Registration_Mgt#

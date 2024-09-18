@@ -1,0 +1,235 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Calendar."Calendar Management"
+alId: ID 7600
+namespace: Microsoft.Foundation.Calendar
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Calendar
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Base Calendar Change" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetSource(SourceVariant: Variant, var NewCustomCalendarChange: Record "Customized Calendar Change")'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: NewCustomCalendarChange
+      parameterType:
+        name: Record "Customized Calendar Change"
+        isExternal: true
+  name: SetSource
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.SetSource(Variant,Customized_Calendar_Change@)
+- syntax:
+    content: 'procedure ShowCustomizedCalendar(SourceVariant: Variant)'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: ShowCustomizedCalendar
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.ShowCustomizedCalendar(Variant)
+- syntax:
+    content: 'procedure GetMaxDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetMaxDate
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.GetMaxDate:Date
+- syntax:
+    content: 'procedure IsNonworkingDay(TargetDate: Date, var CustomizedCalendarChange: Record "Customized Calendar Change"): Boolean'
+    parameters:
+    - id: TargetDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CustomizedCalendarChange
+      parameterType:
+        name: Record "Customized Calendar Change"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNonworkingDay
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.IsNonworkingDay(Date,Customized_Calendar_Change@):Boolean
+- syntax:
+    content: 'procedure CheckDateStatus(var TargetCustomizedCalendarChange: Record "Customized Calendar Change")'
+    parameters:
+    - id: TargetCustomizedCalendarChange
+      parameterType:
+        name: Record "Customized Calendar Change"
+        isExternal: true
+  name: CheckDateStatus
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CheckDateStatus(Customized_Calendar_Change@)
+- syntax:
+    content: 'procedure CreateWhereUsedEntries(BaseCalendarCode: Code[10])'
+    parameters:
+    - id: BaseCalendarCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CreateWhereUsedEntries
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CreateWhereUsedEntries(Code[10])
+- syntax:
+    content: 'procedure CustomizedChangesExist(SourceVariant: Variant): Boolean'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CustomizedChangesExist
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CustomizedChangesExist(Variant):Boolean
+- syntax:
+    content: 'procedure CalcDateBOC(OrgDateExpression: Text[30], OrgDate: Date, CustomCalendarChange: array[2] of Record "Customized Calendar Change", CheckBothCalendars: Boolean): Date'
+    parameters:
+    - id: OrgDateExpression
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: OrgDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CustomCalendarChange
+      parameterType:
+        name: array[2] of Record "Customized Calendar Change"
+        isExternal: true
+    - id: CheckBothCalendars
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcDateBOC
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CalcDateBOC(Text[30],Date,Customized_Calendar_Change[],Boolean):Date
+- syntax:
+    content: 'procedure CalcDateBOC2(OrgDateExpression: Text[30], OrgDate: Date, CustomCalendarChange: array[2] of Record "Customized Calendar Change", CheckBothCalendars: Boolean): Date'
+    parameters:
+    - id: OrgDateExpression
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: OrgDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CustomCalendarChange
+      parameterType:
+        name: array[2] of Record "Customized Calendar Change"
+        isExternal: true
+    - id: CheckBothCalendars
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcDateBOC2
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CalcDateBOC2(Text[30],Date,Customized_Calendar_Change[],Boolean):Date
+- syntax:
+    content: 'procedure CheckDateFormulaPositive(CurrentDateFormula: DateFormula)'
+    parameters:
+    - id: CurrentDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+  name: CheckDateFormulaPositive
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CheckDateFormulaPositive(DateFormula)
+- syntax:
+    content: 'procedure CalcTimeDelta(EndingTime: Time, StartingTime: Time): Integer'
+    parameters:
+    - id: EndingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: StartingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CalcTimeDelta
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CalcTimeDelta(Time,Time):Integer
+- syntax:
+    content: 'procedure CalcTimeSubtract(SubstractTime: Time, SubstractValue: Integer): Time'
+    parameters:
+    - id: SubstractTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: SubstractValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Time
+        isExternal: true
+  name: CalcTimeSubtract
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.CalcTimeSubtract(Time,Integer):Time
+- syntax:
+    content: 'procedure DeleteCustomizedBaseCalendarData(SourceType: Enum "Calendar Source Type", SourceCode: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Calendar#Calendar_Source_Type
+        name: Microsoft.Foundation.Calendar."Calendar Source Type"
+        isExternal: false
+    - id: SourceCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DeleteCustomizedBaseCalendarData
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.DeleteCustomizedBaseCalendarData(Enum::Microsoft#Foundation#Calendar#Calendar_Source_Type,Code[20])
+- syntax:
+    content: 'procedure RenameCustomizedBaseCalendarData(SourceType: Enum "Calendar Source Type", SourceCode: Code[20], xSourceCode: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Calendar#Calendar_Source_Type
+        name: Microsoft.Foundation.Calendar."Calendar Source Type"
+        isExternal: false
+    - id: SourceCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: xSourceCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RenameCustomizedBaseCalendarData
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.RenameCustomizedBaseCalendarData(Enum::Microsoft#Foundation#Calendar#Calendar_Source_Type,Code[20],Code[20])
+- syntax:
+    content: 'procedure ReverseDateFormula(var ReversedDateFormula: DateFormula, DateFormula: DateFormula)'
+    parameters:
+    - id: ReversedDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: DateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+  name: ReverseDateFormula
+  uid: M:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management.ReverseDateFormula(DateFormula@,DateFormula)
+commentId: O:Codeunit::Microsoft#Foundation#Calendar#Calendar Management
+name: '"Calendar Management"'
+uid: O:Codeunit::Microsoft#Foundation#Calendar#Calendar_Management

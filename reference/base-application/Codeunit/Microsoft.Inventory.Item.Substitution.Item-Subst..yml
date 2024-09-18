@@ -1,0 +1,144 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Item.Substitution."Item Subst."
+alId: ID 5701
+namespace: Microsoft.Inventory.Item.Substitution
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Item.Substitution
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Item Substitution" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ItemSubstGet(var SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemSubstGet
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.ItemSubstGet(Sales_Line@):Boolean
+- syntax:
+    content: 'procedure CalcCustPrice(var TempItemSubstitution: Record "Item Substitution" temporary, var ItemSubstitution: Record "Item Substitution", var TempSalesLine: Record "Sales Line" temporary)'
+    parameters:
+    - id: TempItemSubstitution
+      parameterType:
+        name: Record "Item Substitution" temporary
+        isExternal: true
+    - id: ItemSubstitution
+      parameterType:
+        name: Record "Item Substitution"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: CalcCustPrice
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.CalcCustPrice(Item_Substitution@,Item_Substitution@,Sales_Line@)
+- syntax:
+    content: 'procedure ItemServiceSubstGet(var ServiceLine2: Record "Service Line")'
+    parameters:
+    - id: ServiceLine2
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: ItemServiceSubstGet
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.ItemServiceSubstGet(Service_Line@)
+- syntax:
+    content: 'procedure GetCompSubst(var ProdOrderComp: Record "Prod. Order Component")'
+    parameters:
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: GetCompSubst
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.GetCompSubst(Prod#_Order_Component@)
+- syntax:
+    content: 'procedure UpdateComponent(var ProdOrderComp: Record "Prod. Order Component", SubstItemNo: Code[20], SubstVariantCode: Code[10])'
+    parameters:
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: SubstItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SubstVariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: UpdateComponent
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.UpdateComponent(Prod#_Order_Component@,Code[20],Code[10])
+- syntax:
+    content: 'procedure PrepareSubstList(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], DemandDate: Date, CalcATP: Boolean): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DemandDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CalcATP
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PrepareSubstList
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.PrepareSubstList(Code[20],Code[10],Code[10],Date,Boolean):Boolean
+- syntax:
+    content: 'procedure GetTempItemSubstList(var TempItemSubstitutionList: Record "Item Substitution" temporary)'
+    parameters:
+    - id: TempItemSubstitutionList
+      parameterType:
+        name: Record "Item Substitution" temporary
+        isExternal: true
+  name: GetTempItemSubstList
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.GetTempItemSubstList(Item_Substitution@)
+- syntax:
+    content: 'procedure ErrorMessage(ItemNo: Code[20], VariantCode: Code[10])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ErrorMessage
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.ErrorMessage(Code[20],Code[10])
+- syntax:
+    content: 'procedure ItemAssemblySubstGet(var AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: ItemAssemblySubstGet
+  uid: M:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#.ItemAssemblySubstGet(Assembly_Line@)
+commentId: O:Codeunit::Microsoft#Inventory#Item#Substitution#Item Subst#
+name: '"Item Subst."'
+uid: O:Codeunit::Microsoft#Inventory#Item#Substitution#Item_Subst#

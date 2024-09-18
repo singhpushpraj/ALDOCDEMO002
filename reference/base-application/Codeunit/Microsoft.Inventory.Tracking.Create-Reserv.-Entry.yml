@@ -1,0 +1,433 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Create Reserv. Entry"
+alId: ID 99000830
+namespace: Microsoft.Inventory.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rim
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateEntry(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], Description: Text[100], ExpectedReceiptDate: Date, ShipmentDate: Date, TransferredFromEntryNo: Integer, Status: Enum "Reservation Status")'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShipmentDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TransferredFromEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Status
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Status
+        name: Microsoft.Inventory.Tracking."Reservation Status"
+        isExternal: false
+  name: CreateEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateEntry(Code[20],Code[10],Code[10],Text[100],Date,Date,Integer,Enum::Microsoft#Inventory#Tracking#Reservation_Status)
+- syntax:
+    content: 'procedure CreateReservEntry(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], Description: Text[100], ExpectedReceiptDate: Date, ShipmentDate: Date)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShipmentDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreateReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateReservEntry(Code[20],Code[10],Code[10],Text[100],Date,Date)
+- syntax:
+    content: 'procedure CreateReservEntry(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], Description: Text[100], ExpectedReceiptDate: Date, ShipmentDate: Date, TransferedFromEntryNo: Integer)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShipmentDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TransferedFromEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateReservEntry(Code[20],Code[10],Code[10],Text[100],Date,Date,Integer)
+- syntax:
+    content: 'procedure CreateReservEntryFor(ForType: Option, ForSubtype: Integer, ForID: Code[20], ForBatchName: Code[10], ForProdOrderLine: Integer, ForRefNo: Integer, ForQtyPerUOM: Decimal, Quantity: Decimal, QuantityBase: Decimal, ForReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ForType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ForSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ForID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ForBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ForProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ForRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ForQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservEntryFor
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateReservEntryFor(Option,Integer,Code[20],Code[10],Integer,Integer,Decimal,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateReservEntryFrom(FromTrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: FromTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservEntryFrom
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateReservEntryFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure CreateReservEntryExtraFields(var OldTrackingSpecification: Record "Tracking Specification", var NewTrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: OldTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: NewTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservEntryExtraFields
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateReservEntryExtraFields(Tracking_Specification@,Tracking_Specification@)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure SetPlanningFlexibility(Flexibility: Enum "Reservation Planning Flexibility")'
+    parameters:
+    - id: Flexibility
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Planning_Flexibility
+        name: Microsoft.Inventory.Tracking."Reservation Planning Flexibility"
+        isExternal: false
+  name: SetPlanningFlexibility
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetPlanningFlexibility(Enum::Microsoft#Inventory#Tracking#Reservation_Planning_Flexibility)
+- syntax:
+    content: 'procedure SetDates(WarrantyDate: Date, ExpirationDate: Date)'
+    parameters:
+    - id: WarrantyDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ExpirationDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetDates
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetDates(Date,Date)
+- syntax:
+    content: 'procedure SetQtyToHandleAndInvoice(QtyToHandleBase: Decimal, QtyToInvoiceBase: Decimal)'
+    parameters:
+    - id: QtyToHandleBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToInvoiceBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetQtyToHandleAndInvoice
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetQtyToHandleAndInvoice(Decimal,Decimal)
+- syntax:
+    content: 'procedure SetNewTrackingFromItemJnlLine(ItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: SetNewTrackingFromItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetNewTrackingFromItemJnlLine(Item_Journal_Line)
+- syntax:
+    content: 'procedure SetNewTrackingFromNewTrackingSpecification(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: SetNewTrackingFromNewTrackingSpecification
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetNewTrackingFromNewTrackingSpecification(Tracking_Specification)
+- syntax:
+    content: 'procedure SetNewTrackingFromNewWhseItemTrackingLine(WhseItemTrackingLine: Record "Whse. Item Tracking Line")'
+    parameters:
+    - id: WhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+  name: SetNewTrackingFromNewWhseItemTrackingLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetNewTrackingFromNewWhseItemTrackingLine(Whse#_Item_Tracking_Line)
+- syntax:
+    content: 'procedure SetNewExpirationDate(NewExpirationDate: Date)'
+    parameters:
+    - id: NewExpirationDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetNewExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetNewExpirationDate(Date)
+- syntax:
+    content: 'procedure SetDisallowCancellation(NewDisallowCancellation: Boolean)'
+    parameters:
+    - id: NewDisallowCancellation
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDisallowCancellation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetDisallowCancellation(Boolean)
+- syntax:
+    content: 'procedure CreateRemainingReservEntry(var OldReservEntry: Record "Reservation Entry", RemainingQuantity: Decimal, RemainingQuantityBase: Decimal)'
+    parameters:
+    - id: OldReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: RemainingQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingQuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateRemainingReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.CreateRemainingReservEntry(Reservation_Entry@,Decimal,Decimal)
+- syntax:
+    content: 'procedure TransferReservEntry(NewType: Option, NewSubtype: Integer, NewID: Code[20], NewBatchName: Code[10], NewProdOrderLine: Integer, NewRefNo: Integer, QtyPerUOM: Decimal, OldReservEntry: Record "Reservation Entry", TransferQty: Decimal): Decimal'
+    parameters:
+    - id: NewType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OldReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TransferReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.TransferReservEntry(Option,Integer,Code[20],Code[10],Integer,Integer,Decimal,Reservation_Entry,Decimal):Decimal
+- syntax:
+    content: 'procedure SignFactor(var ReservEntry: Record "Reservation Entry"): Integer'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SignFactor
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SignFactor(Reservation_Entry@):Integer
+- syntax:
+    content: 'procedure GetLastEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: GetLastEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.GetLastEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure GetLastInsertReservEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: GetLastInsertReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.GetLastInsertReservEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure SetItemLedgEntryNo(EntryNo: Integer)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetItemLedgEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetItemLedgEntryNo(Integer)
+- syntax:
+    content: 'procedure SetApplyToEntryNo(EntryNo: Integer)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetApplyToEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetApplyToEntryNo(Integer)
+- syntax:
+    content: 'procedure SetApplyFromEntryNo(EntryNo: Integer)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetApplyFromEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetApplyFromEntryNo(Integer)
+- syntax:
+    content: 'procedure SetOverruleItemTracking(Overrule: Boolean)'
+    parameters:
+    - id: Overrule
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetOverruleItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetOverruleItemTracking(Boolean)
+- syntax:
+    content: 'procedure SetInbound(NewInbound: Boolean)'
+    parameters:
+    - id: NewInbound
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInbound
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetInbound(Boolean)
+- syntax:
+    content: 'procedure SetUseQtyToInvoice(UseQtyToInvoice2: Boolean)'
+    parameters:
+    - id: UseQtyToInvoice2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetUseQtyToInvoice
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.SetUseQtyToInvoice(Boolean)
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry.UpdateItemTrackingAfterPosting(Reservation_Entry@)
+commentId: O:Codeunit::Microsoft#Inventory#Tracking#Create Reserv# Entry
+name: '"Create Reserv. Entry"'
+uid: O:Codeunit::Microsoft#Inventory#Tracking#Create_Reserv#_Entry

@@ -1,0 +1,41 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Ledger."Show Applied Entries"
+alId: ID 5801
+namespace: Microsoft.Inventory.Ledger
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Ledger
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Ledger Entry" = rim,
+                      TableData "Item Application Entry" = r
+  promoted: false
+- name: TableNo
+  value: Item Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Ledger#Item_Ledger_Entry
+    name: Microsoft.Inventory.Ledger."Item Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure FindAppliedEntries(ItemLedgEntry: Record "Item Ledger Entry", var TempItemLedgerEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TempItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: FindAppliedEntries
+  uid: M:Codeunit::Microsoft#Inventory#Ledger#Show_Applied_Entries.FindAppliedEntries(Item_Ledger_Entry,Item_Ledger_Entry@)
+commentId: O:Codeunit::Microsoft#Inventory#Ledger#Show Applied Entries
+name: '"Show Applied Entries"'
+uid: O:Codeunit::Microsoft#Inventory#Ledger#Show_Applied_Entries

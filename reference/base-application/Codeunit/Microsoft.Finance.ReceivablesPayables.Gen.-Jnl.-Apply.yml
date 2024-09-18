@@ -1,0 +1,71 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Gen. Jnl.-Apply"
+alId: ID 225
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CheckAgainstApplnCurrency(ApplnCurrencyCode: Code[10], CompareCurrencyCode: Code[10], AccType: Enum "Gen. Journal Account Type", Message: Boolean): Boolean'
+    parameters:
+    - id: ApplnCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CompareCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AccType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: Message
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckAgainstApplnCurrency
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Gen#_Jnl#-Apply.CheckAgainstApplnCurrency(Code[10],Code[10],Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Boolean):Boolean
+- syntax:
+    content: 'procedure SetVendApplIdAPI(GenJournalLine: Record "Gen. Journal Line", VendorLedgerEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: SetVendApplIdAPI
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Gen#_Jnl#-Apply.SetVendApplIdAPI(Gen#_Journal_Line,Vendor_Ledger_Entry)
+- syntax:
+    content: 'procedure ApplyVendorLedgerEntryAPI(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ApplyVendorLedgerEntryAPI
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Gen#_Jnl#-Apply.ApplyVendorLedgerEntryAPI(Gen#_Journal_Line@)
+commentId: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Gen# Jnl#-Apply
+name: '"Gen. Jnl.-Apply"'
+uid: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Gen#_Jnl#-Apply

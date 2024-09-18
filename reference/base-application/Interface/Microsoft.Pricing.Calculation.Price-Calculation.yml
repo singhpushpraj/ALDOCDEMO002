@@ -1,0 +1,187 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Calculation."Price Calculation"
+namespace: Microsoft.Pricing.Calculation
+baseKind: Interface
+kind: Interface
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Calculation
+langs:
+- al
+seeAlso:
+- '[Interface](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-interfaces-in-al)'
+methods:
+- syntax:
+    content: 'procedure Init(LineWithPrice: Interface "Line With Price", PriceCalculationSetup: Record "Price Calculation Setup")'
+    parameters:
+    - id: LineWithPrice
+      description: The interface parameter for the document or journal line.
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+    - id: PriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+  summary: Save the source line as an interface variable inside the price calculation codeunit
+  name: Init
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.Init(Interface::Microsoft#Pricing#PriceList#Line_With_Price,Price_Calculation_Setup)
+- syntax:
+    content: 'procedure GetLine(var Line: Variant)'
+    parameters:
+    - id: Line
+      description: The updated source line.
+      parameterType:
+        name: Variant
+        isExternal: true
+  summary: >-
+    After the calculation is done by calling ApplyPrice() or ApplyDiscount() 
+
+    the updated line is retrieved by this method.
+  name: GetLine
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.GetLine(Variant@)
+- syntax:
+    content: procedure ApplyDiscount()
+  summary: Executes the calcluation of the discount amount.
+  name: ApplyDiscount
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.ApplyDiscount
+- syntax:
+    content: 'procedure ApplyPrice(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      description: The id of the field that caused the calculation.
+      parameterType:
+        name: Integer
+        isExternal: true
+  summary: Executes the calculation of the price or cost.
+  name: ApplyPrice
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.ApplyPrice(Integer)
+- syntax:
+    content: 'procedure CountDiscount(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      description: If true it widens the filters set to the price list line.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: Number of price list lines with discounts that fit the source line.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Returns the number of price list lines with discounts that fit the source line.
+  name: CountDiscount
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.CountDiscount(Boolean):Integer
+- syntax:
+    content: 'procedure CountPrice(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      description: If true it widens the filters set to the price list line.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: Number of price list lines with prices that fit the source line.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Returnes the number of price list lines with prices that fit the source line.
+  name: CountPrice
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.CountPrice(Boolean):Integer
+- syntax:
+    content: 'procedure FindDiscount(var TempPriceListLine: Record "Price List Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: TempPriceListLine
+      description: the temporary buffer containing the price list line that fit the source line.
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: ShowAll
+      description: If true it widens the filters set to the price list line.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: true if any price list line is found
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns the list of price list lines with discount that fit the source line.
+  name: FindDiscount
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.FindDiscount(Price_List_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure FindPrice(var TempPriceListLine: Record "Price List Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: TempPriceListLine
+      description: the temporary buffer containing the price list line that fit the source line.
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: ShowAll
+      description: If true it widens the filters set to the price list line.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: true if any price list line is found
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns the list of price list lines with prices ot costs that fit the source line.
+  name: FindPrice
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.FindPrice(Price_List_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure IsDiscountExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      description: If true it widens the filters set to the price list line.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: true if any price list line is found
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns true if exists any price list line with discount that fit the source line.
+  name: IsDiscountExists
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.IsDiscountExists(Boolean):Boolean
+- syntax:
+    content: 'procedure IsPriceExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      description: If true it widens the filters set to the price list line.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: true if any price list line is found
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns true if exists any price list line with price or cost that fit the source line.
+  name: IsPriceExists
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.IsPriceExists(Boolean):Boolean
+- syntax:
+    content: procedure PickDiscount()
+  summary: Allows to pick from the list of price list lines with disocunt that fit the source line.
+  name: PickDiscount
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.PickDiscount
+- syntax:
+    content: procedure PickPrice()
+  summary: Allows to pick from the list of price list lines with price or cost that fit the source line.
+  name: PickPrice
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.PickPrice
+- syntax:
+    content: 'procedure ShowPrices(var TempPriceListLine: Record "Price List Line")'
+    parameters:
+    - id: TempPriceListLine
+      description: The buffer with the found price list lines.
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  summary: Opens the list page for reviewing existing prices.
+  name: ShowPrices
+  uid: M:Interface::Microsoft#Pricing#Calculation#Price_Calculation.ShowPrices(Price_List_Line@)
+commentId: O:Interface::Microsoft#Pricing#Calculation#Price Calculation
+name: '"Price Calculation"'
+uid: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation

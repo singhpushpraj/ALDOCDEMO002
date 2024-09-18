@@ -1,0 +1,212 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Receivables."CustEntry-Apply Posted Entries"
+alId: ID 226
+namespace: Microsoft.Sales.Receivables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Receivables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: Permissions
+  value: TableData "Cust. Ledger Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Cust. Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Receivables#Cust#_Ledger_Entry
+    name: Microsoft.Sales.Receivables."Cust. Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Apply(CustLedgEntry: Record "Cust. Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary): Boolean'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Apply
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.Apply(Cust#_Ledger_Entry,Apply_Unapply_Parameters):Boolean
+- syntax:
+    content: 'procedure GetApplicationDate(CustLedgEntry: Record "Cust. Ledger Entry"): Date'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetApplicationDate
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.GetApplicationDate(Cust#_Ledger_Entry):Date
+- syntax:
+    content: 'procedure FindLastApplEntry(CustLedgEntryNo: Integer): Integer'
+    parameters:
+    - id: CustLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindLastApplEntry
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.FindLastApplEntry(Integer):Integer
+- syntax:
+    content: 'procedure UnApplyDtldCustLedgEntry(DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry")'
+    parameters:
+    - id: DtldCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+  name: UnApplyDtldCustLedgEntry
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.UnApplyDtldCustLedgEntry(Detailed_Cust#_Ledg#_Entry)
+- syntax:
+    content: 'procedure CheckCustLedgEntryToUnapply(CustLedgEntryNo: Integer, var DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry")'
+    parameters:
+    - id: CustLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DetailedCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+  name: CheckCustLedgEntryToUnapply
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.CheckCustLedgEntryToUnapply(Integer,Detailed_Cust#_Ledg#_Entry@)
+- syntax:
+    content: 'procedure UnApplyCustLedgEntry(CustLedgEntryNo: Integer)'
+    parameters:
+    - id: CustLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UnApplyCustLedgEntry
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.UnApplyCustLedgEntry(Integer)
+- syntax:
+    content: 'procedure PostUnApplyCustomer(DtldCustLedgEntry2: Record "Detailed Cust. Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DtldCustLedgEntry2
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PostUnApplyCustomer
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.PostUnApplyCustomer(Detailed_Cust#_Ledg#_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure PostUnApplyCustomerCommit(DtldCustLedgEntry2: Record "Detailed Cust. Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary, CommitChanges: Boolean)'
+    parameters:
+    - id: DtldCustLedgEntry2
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+    - id: CommitChanges
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostUnApplyCustomerCommit
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.PostUnApplyCustomerCommit(Detailed_Cust#_Ledg#_Entry,Apply_Unapply_Parameters,Boolean)
+- syntax:
+    content: 'procedure CheckReversal(CustLedgEntryNo: Integer)'
+    parameters:
+    - id: CustLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckReversal
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.CheckReversal(Integer)
+- syntax:
+    content: 'procedure ApplyCustEntryFormEntry(var ApplyingCustLedgEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: ApplyingCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: ApplyCustEntryFormEntry
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.ApplyCustEntryFormEntry(Cust#_Ledger_Entry@)
+- syntax:
+    content: 'procedure PreviewApply(CustLedgEntry: Record "Cust. Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PreviewApply
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.PreviewApply(Cust#_Ledger_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure PreviewUnapply(DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DetailedCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PreviewUnapply
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.PreviewUnapply(Detailed_Cust#_Ledg#_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure SetApplyContext(ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: SetApplyContext
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.SetApplyContext(Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure SetUnapplyContext(var DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DetailedCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: SetUnapplyContext
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.SetUnapplyContext(Detailed_Cust#_Ledg#_Entry@,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure GetAppliedCustLedgerEntries(var TempAppliedCustLedgerEntry: Record "Cust. Ledger Entry" temporary, CustLedgerEntryNo: Integer)'
+    parameters:
+    - id: TempAppliedCustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry" temporary
+        isExternal: true
+    - id: CustLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetAppliedCustLedgerEntries
+  uid: M:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries.GetAppliedCustLedgerEntries(Cust#_Ledger_Entry@,Integer)
+commentId: O:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply Posted Entries
+name: '"CustEntry-Apply Posted Entries"'
+uid: O:Codeunit::Microsoft#Sales#Receivables#CustEntry-Apply_Posted_Entries

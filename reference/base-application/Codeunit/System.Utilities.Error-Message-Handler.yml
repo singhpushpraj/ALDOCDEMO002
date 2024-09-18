@@ -1,0 +1,122 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Utilities."Error Message Handler"
+alId: ID 29
+namespace: System.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AppendTo(var TempErrorMessageBuf: Record "Error Message" temporary): Boolean'
+    parameters:
+    - id: TempErrorMessageBuf
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AppendTo
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.AppendTo(Error_Message@):Boolean
+- syntax:
+    content: 'procedure Activate(var ErrorMessageHandler: Codeunit "Error Message Handler"): Boolean'
+    parameters:
+    - id: ErrorMessageHandler
+      parameterType:
+        internalReference: O:Codeunit::System#Utilities#Error_Message_Handler
+        name: System.Utilities."Error Message Handler"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Activate
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.Activate(Codeunit::System#Utilities#Error_Message_Handler@):Boolean
+- syntax:
+    content: 'procedure ShowErrors(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.ShowErrors:Boolean
+- syntax:
+    content: procedure NotifyAboutErrors()
+  name: NotifyAboutErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.NotifyAboutErrors
+- syntax:
+    content: 'procedure InformAboutErrors(ErrorHandlingOptions: Enum "Error Handling Options")'
+    parameters:
+    - id: ErrorHandlingOptions
+      parameterType:
+        internalReference: O:Enum::Microsoft#Utilities#Error_Handling_Options
+        name: Microsoft.Utilities."Error Handling Options"
+        isExternal: false
+  name: InformAboutErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.InformAboutErrors(Enum::Microsoft#Utilities#Error_Handling_Options)
+- syntax:
+    content: 'procedure RegisterErrorMessages(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: RegisterErrorMessages
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.RegisterErrorMessages:Guid
+- syntax:
+    content: 'procedure RegisterErrorMessages(ClearError: Boolean): Guid'
+    parameters:
+    - id: ClearError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: RegisterErrorMessages
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.RegisterErrorMessages(Boolean):Guid
+- syntax:
+    content: 'procedure WriteMessagesToFile(FileName: Text, ThrowLastError: Boolean): Boolean'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ThrowLastError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WriteMessagesToFile
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.WriteMessagesToFile(Text,Boolean):Boolean
+- syntax:
+    content: 'procedure GetErrorCallStack(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetErrorCallStack
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.GetErrorCallStack:Text
+- syntax:
+    content: 'procedure HasErrors(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Handler.HasErrors:Boolean
+commentId: O:Codeunit::System#Utilities#Error Message Handler
+name: '"Error Message Handler"'
+uid: O:Codeunit::System#Utilities#Error_Message_Handler

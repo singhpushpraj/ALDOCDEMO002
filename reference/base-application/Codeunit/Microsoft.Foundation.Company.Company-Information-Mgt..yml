@@ -1,0 +1,100 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Company."Company Information Mgt."
+alId: ID 1306
+namespace: Microsoft.Foundation.Company
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Company
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: tabledata "Company Information" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure UpdateCompanyBankAccount(var CompanyInformation: Record "Company Information", BankAccountPostingGroup: Code[20], var BankAccount: Record "Bank Account")'
+    parameters:
+    - id: CompanyInformation
+      parameterType:
+        name: Record "Company Information"
+        isExternal: true
+    - id: BankAccountPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BankAccount
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+  name: UpdateCompanyBankAccount
+  uid: M:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#.UpdateCompanyBankAccount(Company_Information@,Code[20],Bank_Account@)
+- syntax:
+    content: 'procedure GetCompanyBankAccount(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCompanyBankAccount
+  uid: M:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#.GetCompanyBankAccount:Code[20]
+- syntax:
+    content: 'procedure GetCompanyBankAccountPostingGroup(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCompanyBankAccountPostingGroup
+  uid: M:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#.GetCompanyBankAccountPostingGroup:Code[20]
+- syntax:
+    signatures:
+    - '[InherentPermissions(TableData,79,r)]'
+    content: 'procedure IsDemoCompany(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDemoCompany
+  uid: M:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#.IsDemoCompany:Boolean
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,79,OnAfterModifyEvent,,False,False)]'
+    content: 'procedure SetCompanyDisplayNameOnCompanyInformationModify(var Rec: Record "Company Information", var xRec: Record "Company Information", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Company Information"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Company Information"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCompanyDisplayNameOnCompanyInformationModify
+  uid: M:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#.SetCompanyDisplayNameOnCompanyInformationModify(Company_Information@,Company_Information@,Boolean)
+- syntax:
+    content: 'procedure GetCompanyDisplayNameDefaulted(Company: __MissingTypeSymbol__): Text[250]'
+    parameters:
+    - id: Company
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetCompanyDisplayNameDefaulted
+  uid: M:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#.GetCompanyDisplayNameDefaulted(__MissingSymbol__):Text[250]
+commentId: O:Codeunit::Microsoft#Foundation#Company#Company Information Mgt#
+name: '"Company Information Mgt."'
+uid: O:Codeunit::Microsoft#Foundation#Company#Company_Information_Mgt#

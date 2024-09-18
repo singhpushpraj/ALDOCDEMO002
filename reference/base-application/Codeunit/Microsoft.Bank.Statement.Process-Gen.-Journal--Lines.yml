@@ -1,0 +1,57 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Statement."Process Gen. Journal  Lines"
+alId: ID 1247
+namespace: Microsoft.Bank.Statement
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Statement
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Data Exch." = rimd
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ImportBankStatement(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ImportBankStatement
+  uid: M:Codeunit::Microsoft#Bank#Statement#Process_Gen#_Journal__Lines.ImportBankStatement(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure CreateGeneralJournalLineTemplate(var GenJournalLineTemplate: Record "Gen. Journal Line", GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLineTemplate
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CreateGeneralJournalLineTemplate
+  uid: M:Codeunit::Microsoft#Bank#Statement#Process_Gen#_Journal__Lines.CreateGeneralJournalLineTemplate(Gen#_Journal_Line@,Gen#_Journal_Line)
+- syntax:
+    content: 'procedure UpdateGenJournalLines(var GenJournalLineTemplate: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLineTemplate
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: UpdateGenJournalLines
+  uid: M:Codeunit::Microsoft#Bank#Statement#Process_Gen#_Journal__Lines.UpdateGenJournalLines(Gen#_Journal_Line@)
+commentId: O:Codeunit::Microsoft#Bank#Statement#Process Gen# Journal  Lines
+name: '"Process Gen. Journal  Lines"'
+uid: O:Codeunit::Microsoft#Bank#Statement#Process_Gen#_Journal__Lines

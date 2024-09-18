@@ -1,0 +1,123 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Calculation."Feature - Price Calculation"
+alId: ID 7049
+namespace: Microsoft.Pricing.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "19.0"
+  promoted: false
+- name: ObsoleteReason
+  value: The feature will be automatically enabled on version 22.0
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure IsDataUpdateRequired(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDataUpdateRequired
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.IsDataUpdateRequired:Boolean
+- syntax:
+    content: procedure ReviewData()
+  name: ReviewData
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.ReviewData
+- syntax:
+    content: 'procedure AfterUpdate(FeatureDataUpdateStatus: __MissingTypeSymbol__)'
+    parameters:
+    - id: FeatureDataUpdateStatus
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: AfterUpdate
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.AfterUpdate(__MissingSymbol__)
+- syntax:
+    content: 'procedure UpdateData(FeatureDataUpdateStatus: __MissingTypeSymbol__)'
+    parameters:
+    - id: FeatureDataUpdateStatus
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: UpdateData
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.UpdateData(__MissingSymbol__)
+- syntax:
+    content: 'procedure GetTaskDescription(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTaskDescription
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.GetTaskDescription:Text
+- syntax:
+    content: 'procedure GetPriceListNoSeries(SeriesCode: Code[20], Description: Text[100], StartingNo: Code[20], EndingNo: Code[20]): Code[20]'
+    parameters:
+    - id: SeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: StartingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: EndingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetPriceListNoSeries
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.GetPriceListNoSeries(Code[20],Text[100],Code[20],Code[20]):Code[20]
+- syntax:
+    content: 'procedure DefineDefaultPriceList(PriceType: Enum "Price Type", SourceGroup: Enum "Price Source Group"): Code[20]'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: SourceGroup
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Group
+        name: Microsoft.Pricing.Source."Price Source Group"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: DefineDefaultPriceList
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.DefineDefaultPriceList(Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#Source#Price_Source_Group):Code[20]
+- syntax:
+    content: procedure FailIfFeatureDisabled()
+  name: FailIfFeatureDisabled
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.FailIfFeatureDisabled
+- syntax:
+    content: procedure FailIfFeatureEnabled()
+  name: FailIfFeatureEnabled
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation.FailIfFeatureEnabled
+implements:
+- name: __MissingInterface__
+  isExternal: true
+commentId: O:Codeunit::Microsoft#Pricing#Calculation#Feature - Price Calculation
+summary: Copies pricing data from old tables to "Price List Line" and "Price List Header" table.
+name: '"Feature - Price Calculation"'
+obsoletion:
+  state: pending
+  reason: The feature will be automatically enabled on version 22.0
+  version: "19.0"
+uid: O:Codeunit::Microsoft#Pricing#Calculation#Feature_-_Price_Calculation

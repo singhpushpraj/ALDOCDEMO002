@@ -1,0 +1,112 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Create Prod. Order Lines"
+alId: ID 99000787
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = r,
+                      TableData "Sales Header" = r,
+                      TableData "Sales Line" = r,
+                      TableData "Prod. Order Line" = rimd,
+                      TableData "Prod. Order Component" = rimd,
+                      TableData "Manufacturing Setup" = rim,
+                      TableData "Family Line" = r,
+                      TableData "Production Order" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckStructure(Status: Option, ProdOrderNo: Code[20], Direction: Option, MultiLevel: Boolean, LetDueDateDecrease: Boolean)'
+    parameters:
+    - id: Status
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ProdOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MultiLevel
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LetDueDateDecrease
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckStructure
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Create_Prod#_Order_Lines.CheckStructure(Option,Code[20],Option,Boolean,Boolean)
+- syntax:
+    content: 'procedure Copy(ProdOrder2: Record "Production Order", Direction: Option, VariantCode: Code[10], LetDueDateDecrease: Boolean): Boolean'
+    parameters:
+    - id: ProdOrder2
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LetDueDateDecrease
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Copy
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Create_Prod#_Order_Lines.Copy(Production_Order,Option,Code[10],Boolean):Boolean
+- syntax:
+    content: 'procedure CopyFromSalesOrder(SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyFromSalesOrder
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Create_Prod#_Order_Lines.CopyFromSalesOrder(Sales_Header):Boolean
+- syntax:
+    content: 'procedure CopyDimFromSalesLine(SalesLine: Record "Sales Line", var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: CopyDimFromSalesLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Create_Prod#_Order_Lines.CopyDimFromSalesLine(Sales_Line,Prod#_Order_Line@)
+- syntax:
+    content: 'procedure SetSalesLine(SalesLine2: Record "Sales Line")'
+    parameters:
+    - id: SalesLine2
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SetSalesLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Create_Prod#_Order_Lines.SetSalesLine(Sales_Line)
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Create Prod# Order Lines
+name: '"Create Prod. Order Lines"'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Create_Prod#_Order_Lines

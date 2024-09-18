@@ -1,0 +1,93 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: '"O365 Contact Sync. Helper"'
+alId: ID 6702
+baseKind: Codeunit
+kind: Codeunit
+parent: 'N:Module::Base_Application::Namespace::'
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetO365Contacts(ExchangeSync: Record "Exchange Sync", var TempContact: Record Contact temporary)'
+    parameters:
+    - id: ExchangeSync
+      parameterType:
+        name: Record "Exchange Sync"
+        isExternal: true
+    - id: TempContact
+      parameterType:
+        name: Record Contact temporary
+        isExternal: true
+  name: GetO365Contacts
+  uid: M:Codeunit::O365_Contact_Sync#_Helper.GetO365Contacts(Exchange_Sync,Contact@)
+- syntax:
+    content: 'procedure TransferExchangeContactToNavContact(var ExchangeContact: Record Contact, var NavContact: Record Contact, ExchangeSync: Record "Exchange Sync")'
+    parameters:
+    - id: ExchangeContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: NavContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: ExchangeSync
+      parameterType:
+        name: Record "Exchange Sync"
+        isExternal: true
+  name: TransferExchangeContactToNavContact
+  uid: M:Codeunit::O365_Contact_Sync#_Helper.TransferExchangeContactToNavContact(Contact@,Contact@,Exchange_Sync)
+- syntax:
+    content: 'procedure TransferBookingContactToNavContact(var ExchangeContact: Record Contact, var NavContact: Record Contact)'
+    parameters:
+    - id: ExchangeContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: NavContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: TransferBookingContactToNavContact
+  uid: M:Codeunit::O365_Contact_Sync#_Helper.TransferBookingContactToNavContact(Contact@,Contact@)
+- syntax:
+    content: 'procedure ProcessNavContactRecordSet(var Contact: Record Contact, var TempContact: Record Contact temporary, var ExchangeSync: Record "Exchange Sync")'
+    parameters:
+    - id: Contact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: TempContact
+      parameterType:
+        name: Record Contact temporary
+        isExternal: true
+    - id: ExchangeSync
+      parameterType:
+        name: Record "Exchange Sync"
+        isExternal: true
+  name: ProcessNavContactRecordSet
+  uid: M:Codeunit::O365_Contact_Sync#_Helper.ProcessNavContactRecordSet(Contact@,Contact@,Exchange_Sync@)
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure TransferNavContactToExchangeContact(var NavContact: Record Contact, var ExchangeContact: Record "Exchange Contact"): Boolean'
+    parameters:
+    - id: NavContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: ExchangeContact
+      parameterType:
+        name: Record "Exchange Contact"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransferNavContactToExchangeContact
+  uid: M:Codeunit::O365_Contact_Sync#_Helper.TransferNavContactToExchangeContact(Contact@,Exchange_Contact@):Boolean
+commentId: O:Codeunit::O365 Contact Sync# Helper
+name: '"O365 Contact Sync. Helper"'
+uid: O:Codeunit::O365_Contact_Sync#_Helper

@@ -1,0 +1,124 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Correct Posted Sales Invoice"
+alId: ID 1303
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                      TableData "Sales Cr.Memo Header" = rm
+  promoted: false
+- name: TableNo
+  value: Sales Invoice Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#History#Sales_Invoice_Header
+    name: Microsoft.Sales.History."Sales Invoice Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CancelPostedInvoice(var SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CancelPostedInvoice
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.CancelPostedInvoice(Sales_Invoice_Header@):Boolean
+- syntax:
+    content: 'procedure CreateCreditMemoCopyDocument(var SalesInvoiceHeader: Record "Sales Invoice Header", var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateCreditMemoCopyDocument
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.CreateCreditMemoCopyDocument(Sales_Invoice_Header@,Sales_Header@):Boolean
+- syntax:
+    content: 'procedure CreateCorrectiveCreditMemo(var InvoiceNotification: Notification)'
+    parameters:
+    - id: InvoiceNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: CreateCorrectiveCreditMemo
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.CreateCorrectiveCreditMemo(Notification@)
+- syntax:
+    content: 'procedure ShowAppliedEntries(var InvoiceNotification: Notification)'
+    parameters:
+    - id: InvoiceNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowAppliedEntries
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.ShowAppliedEntries(Notification@)
+- syntax:
+    content: 'procedure SkipCorrectiveCreditMemo(var InvoiceNotification: Notification)'
+    parameters:
+    - id: InvoiceNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: SkipCorrectiveCreditMemo
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.SkipCorrectiveCreditMemo(Notification@)
+- syntax:
+    content: 'procedure CancelPostedInvoiceCreateNewInvoice(var SalesInvoiceHeader: Record "Sales Invoice Header", var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CancelPostedInvoiceCreateNewInvoice
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.CancelPostedInvoiceCreateNewInvoice(Sales_Invoice_Header@,Sales_Header@)
+- syntax:
+    content: 'procedure TestCorrectInvoiceIsAllowed(var SalesInvoiceHeader: Record "Sales Invoice Header", Cancelling: Boolean)'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: Cancelling
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TestCorrectInvoiceIsAllowed
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.TestCorrectInvoiceIsAllowed(Sales_Invoice_Header@,Boolean)
+- syntax:
+    content: 'procedure FindItemLedgEntries(var ItemLedgEntry: Record "Item Ledger Entry", InvNo: Code[20])'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: InvNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: FindItemLedgEntries
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice.FindItemLedgEntries(Item_Ledger_Entry@,Code[20])
+commentId: O:Codeunit::Microsoft#Sales#History#Correct Posted Sales Invoice
+name: '"Correct Posted Sales Invoice"'
+uid: O:Codeunit::Microsoft#Sales#History#Correct_Posted_Sales_Invoice

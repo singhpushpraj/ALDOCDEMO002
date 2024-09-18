@@ -1,0 +1,138 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.History."Correct Posted Purch. Invoice"
+alId: ID 1313
+namespace: Microsoft.Purchases.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purch. Inv. Header" = rm,
+                      TableData "Purch. Cr. Memo Hdr." = rm
+  promoted: false
+- name: TableNo
+  value: Purch. Inv. Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#History#Purch#_Inv#_Header
+    name: Microsoft.Purchases.History."Purch. Inv. Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CancelPostedInvoice(var PurchInvHeader: Record "Purch. Inv. Header"): Boolean'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CancelPostedInvoice
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.CancelPostedInvoice(Purch#_Inv#_Header@):Boolean
+- syntax:
+    content: 'procedure CreateCreditMemoCopyDocument(var PurchInvHeader: Record "Purch. Inv. Header", var PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateCreditMemoCopyDocument
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.CreateCreditMemoCopyDocument(Purch#_Inv#_Header@,Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure CreateCorrectiveCreditMemo(var InvoiceNotification: Notification)'
+    parameters:
+    - id: InvoiceNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: CreateCorrectiveCreditMemo
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.CreateCorrectiveCreditMemo(Notification@)
+- syntax:
+    content: 'procedure ShowAppliedEntries(var InvoiceNotification: Notification)'
+    parameters:
+    - id: InvoiceNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowAppliedEntries
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.ShowAppliedEntries(Notification@)
+- syntax:
+    content: 'procedure SkipCorrectiveCreditMemo(var InvoiceNotification: Notification)'
+    parameters:
+    - id: InvoiceNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: SkipCorrectiveCreditMemo
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.SkipCorrectiveCreditMemo(Notification@)
+- syntax:
+    content: 'procedure CancelPostedInvoiceStartNewInvoice(var PurchInvHeader: Record "Purch. Inv. Header", var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CancelPostedInvoiceStartNewInvoice
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.CancelPostedInvoiceStartNewInvoice(Purch#_Inv#_Header@,Purchase_Header@)
+- syntax:
+    content: 'procedure TestCorrectInvoiceIsAllowed(var PurchInvHeader: Record "Purch. Inv. Header", Cancelling: Boolean)'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: Cancelling
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TestCorrectInvoiceIsAllowed
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.TestCorrectInvoiceIsAllowed(Purch#_Inv#_Header@,Boolean)
+- syntax:
+    content: 'procedure FindItemLedgEntries(var ItemLedgEntry: Record "Item Ledger Entry", InvNo: Code[20])'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: InvNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: FindItemLedgEntries
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.FindItemLedgEntries(Item_Ledger_Entry@,Code[20])
+- syntax:
+    content: 'procedure ErrorHelperHeader(HeaderErrorType: Enum "Correct Purch. Inv. Error Type", PurchInvHeader: Record "Purch. Inv. Header")'
+    parameters:
+    - id: HeaderErrorType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#History#Correct_Purch#_Inv#_Error_Type
+        name: Microsoft.Purchases.History."Correct Purch. Inv. Error Type"
+        isExternal: false
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+  name: ErrorHelperHeader
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice.ErrorHelperHeader(Enum::Microsoft#Purchases#History#Correct_Purch#_Inv#_Error_Type,Purch#_Inv#_Header)
+commentId: O:Codeunit::Microsoft#Purchases#History#Correct Posted Purch# Invoice
+name: '"Correct Posted Purch. Invoice"'
+uid: O:Codeunit::Microsoft#Purchases#History#Correct_Posted_Purch#_Invoice

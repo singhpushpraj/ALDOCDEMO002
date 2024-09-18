@@ -1,0 +1,383 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CostAccounting.Setup."Cost Account Mgt"
+alId: ID 1100
+namespace: Microsoft.CostAccounting.Setup
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CostAccounting.Setup
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Account" = rm,
+                      TableData "G/L Entry" = rm,
+                      TableData Dimension = r,
+                      TableData "Cost Entry" = rimd,
+                      TableData "Cost Center" = r,
+                      TableData "Cost Object" = r
+  promoted: false
+methods:
+- syntax:
+    content: procedure GetCostTypesFromChartOfAccount()
+  name: GetCostTypesFromChartOfAccount
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostTypesFromChartOfAccount
+- syntax:
+    content: procedure GetCostTypesFromChartDirect()
+  name: GetCostTypesFromChartDirect
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostTypesFromChartDirect
+- syntax:
+    content: 'procedure ConfirmUpdate(CallingTrigger: Option, TableCaption2: Text[80], Value: Code[20]): Boolean'
+    parameters:
+    - id: CallingTrigger
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: TableCaption2
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmUpdate
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.ConfirmUpdate(Option,Text[80],Code[20]):Boolean
+- syntax:
+    content: 'procedure UpdateCostTypeFromGLAcc(var GLAcc: Record "G/L Account", var xGLAcc: Record "G/L Account", CallingTrigger: Option)'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: xGLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: CallingTrigger
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateCostTypeFromGLAcc
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.UpdateCostTypeFromGLAcc(G/L_Account@,G/L_Account@,Option)
+- syntax:
+    content: 'procedure UpdateCostCenterFromDim(var DimValue: Record "Dimension Value", var xDimValue: Record "Dimension Value", CallingTrigger: Option)'
+    parameters:
+    - id: DimValue
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+    - id: xDimValue
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+    - id: CallingTrigger
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateCostCenterFromDim
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.UpdateCostCenterFromDim(Dimension_Value@,Dimension_Value@,Option)
+- syntax:
+    content: 'procedure UpdateCostObjectFromDim(var DimValue: Record "Dimension Value", var xDimValue: Record "Dimension Value", CallingTrigger: Option)'
+    parameters:
+    - id: DimValue
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+    - id: xDimValue
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+    - id: CallingTrigger
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateCostObjectFromDim
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.UpdateCostObjectFromDim(Dimension_Value@,Dimension_Value@,Option)
+- syntax:
+    content: 'procedure UpdateCostTypeFromDefaultDimension(var DefaultDim: Record "Default Dimension", var GLAcc: Record "G/L Account", CallingTrigger: Option)'
+    parameters:
+    - id: DefaultDim
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: CallingTrigger
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateCostTypeFromDefaultDimension
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.UpdateCostTypeFromDefaultDimension(Default_Dimension@,G/L_Account@,Option)
+- syntax:
+    content: procedure ConfirmIndentCostTypes()
+  name: ConfirmIndentCostTypes
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.ConfirmIndentCostTypes
+- syntax:
+    content: 'procedure IndentCostTypes(ShowMessage: Boolean)'
+    parameters:
+    - id: ShowMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: IndentCostTypes
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.IndentCostTypes(Boolean)
+- syntax:
+    content: procedure LinkCostTypesToGLAccountsYN()
+  name: LinkCostTypesToGLAccountsYN
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.LinkCostTypesToGLAccountsYN
+- syntax:
+    content: procedure LinkCostTypesToGLAccounts()
+  name: LinkCostTypesToGLAccounts
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.LinkCostTypesToGLAccounts
+- syntax:
+    content: procedure CreateCostCenters()
+  name: CreateCostCenters
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CreateCostCenters
+- syntax:
+    content: procedure IndentCostCentersYN()
+  name: IndentCostCentersYN
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.IndentCostCentersYN
+- syntax:
+    content: procedure IndentCostCenters()
+  name: IndentCostCenters
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.IndentCostCenters
+- syntax:
+    content: procedure CreateCostObjects()
+  name: CreateCostObjects
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CreateCostObjects
+- syntax:
+    content: procedure IndentCostObjectsYN()
+  name: IndentCostObjectsYN
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.IndentCostObjectsYN
+- syntax:
+    content: procedure IndentCostObjects()
+  name: IndentCostObjects
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.IndentCostObjects
+- syntax:
+    content: 'procedure CheckValidCCAndCOInGLEntry(DimSetID: Integer)'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckValidCCAndCOInGLEntry
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CheckValidCCAndCOInGLEntry(Integer)
+- syntax:
+    content: 'procedure GetCostCenterCodeFromDimSet(DimSetID: Integer): Code[20]'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCostCenterCodeFromDimSet
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostCenterCodeFromDimSet(Integer):Code[20]
+- syntax:
+    content: 'procedure GetCostCenterCodeFromDefDim(TableID: Integer, No: Code[20]): Code[20]'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCostCenterCodeFromDefDim
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostCenterCodeFromDefDim(Integer,Code[20]):Code[20]
+- syntax:
+    content: 'procedure CostCenterExists(CostCenterCode: Code[20]): Boolean'
+    parameters:
+    - id: CostCenterCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CostCenterExists
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CostCenterExists(Code[20]):Boolean
+- syntax:
+    content: 'procedure CostCenterExistsAsDimValue(CostCenterCode: Code[20]): Boolean'
+    parameters:
+    - id: CostCenterCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CostCenterExistsAsDimValue
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CostCenterExistsAsDimValue(Code[20]):Boolean
+- syntax:
+    content: 'procedure LookupCostCenterFromDimValue(var CostCenterCode: Code[20])'
+    parameters:
+    - id: CostCenterCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupCostCenterFromDimValue
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.LookupCostCenterFromDimValue(Code[20]@)
+- syntax:
+    content: 'procedure GetCostObjectCodeFromDimSet(DimSetID: Integer): Code[20]'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCostObjectCodeFromDimSet
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostObjectCodeFromDimSet(Integer):Code[20]
+- syntax:
+    content: 'procedure GetCostObjectCodeFromDefDim(TableID: Integer, No: Code[20]): Code[20]'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCostObjectCodeFromDefDim
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostObjectCodeFromDefDim(Integer,Code[20]):Code[20]
+- syntax:
+    content: 'procedure CostObjectExists(CostObjectCode: Code[20]): Boolean'
+    parameters:
+    - id: CostObjectCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CostObjectExists
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CostObjectExists(Code[20]):Boolean
+- syntax:
+    content: 'procedure CostObjectExistsAsDimValue(CostObjectCode: Code[20]): Boolean'
+    parameters:
+    - id: CostObjectCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CostObjectExistsAsDimValue
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.CostObjectExistsAsDimValue(Code[20]):Boolean
+- syntax:
+    content: 'procedure LookupCostObjectFromDimValue(var COstObjectCode: Code[20])'
+    parameters:
+    - id: COstObjectCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupCostObjectFromDimValue
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.LookupCostObjectFromDimValue(Code[20]@)
+- syntax:
+    content: 'procedure InsertCostBudgetRegister(CostBudgetEntryNo: Integer, CostBudgetName: Code[10], CostBudgetAmount: Decimal): Integer'
+    parameters:
+    - id: CostBudgetEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CostBudgetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CostBudgetAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertCostBudgetRegister
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.InsertCostBudgetRegister(Integer,Code[10],Decimal):Integer
+- syntax:
+    content: 'procedure UpdateCostBudgetRegister(CostBudgetRegNo: Integer, CostBudgetEntryNo: Integer, CostBudgetAmount: Decimal)'
+    parameters:
+    - id: CostBudgetRegNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CostBudgetEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CostBudgetAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateCostBudgetRegister
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.UpdateCostBudgetRegister(Integer,Integer,Decimal)
+- syntax:
+    content: 'procedure IsGLAccNoFirstFromRange(CostType: Record "Cost Type", GLAccNo: Code[20]): Boolean'
+    parameters:
+    - id: CostType
+      parameterType:
+        name: Record "Cost Type"
+        isExternal: true
+    - id: GLAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsGLAccNoFirstFromRange
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.IsGLAccNoFirstFromRange(Cost_Type,Code[20]):Boolean
+- syntax:
+    content: 'procedure GetCostType(GLAccNo: Code[20], var CostTypeExists: Boolean)'
+    parameters:
+    - id: GLAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CostTypeExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetCostType
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.GetCostType(Code[20],Boolean@)
+- syntax:
+    content: 'procedure OpenDimValueListFiltered(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: OpenDimValueListFiltered
+  uid: M:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt.OpenDimValueListFiltered(Integer)
+commentId: O:Codeunit::Microsoft#CostAccounting#Setup#Cost Account Mgt
+name: '"Cost Account Mgt"'
+uid: O:Codeunit::Microsoft#CostAccounting#Setup#Cost_Account_Mgt

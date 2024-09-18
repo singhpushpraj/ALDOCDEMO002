@@ -1,0 +1,84 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - Sales Credit Memo"
+alId: ID 5507
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Sales Cr.Memo Header" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ProcessComplexTypes(var SalesCrMemoEntityBuffer: Record "Sales Cr. Memo Entity Buffer", SellToAddressJSON: Text)'
+    parameters:
+    - id: SalesCrMemoEntityBuffer
+      parameterType:
+        name: Record "Sales Cr. Memo Entity Buffer"
+        isExternal: true
+    - id: SellToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ProcessComplexTypes
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Credit_Memo.ProcessComplexTypes(Sales_Cr#_Memo_Entity_Buffer@,Text)
+- syntax:
+    content: 'procedure ParseSellToCustomerAddressFromJSON(SellToAddressJSON: Text, var SalesCrMemoEntityBuffer: Record "Sales Cr. Memo Entity Buffer")'
+    parameters:
+    - id: SellToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesCrMemoEntityBuffer
+      parameterType:
+        name: Record "Sales Cr. Memo Entity Buffer"
+        isExternal: true
+  name: ParseSellToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Credit_Memo.ParseSellToCustomerAddressFromJSON(Text,Sales_Cr#_Memo_Entity_Buffer@)
+- syntax:
+    content: 'procedure ParseBillToCustomerAddressFromJSON(BillToAddressJSON: Text, var SalesCrMemoEntityBuffer: Record "Sales Cr. Memo Entity Buffer")'
+    parameters:
+    - id: BillToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesCrMemoEntityBuffer
+      parameterType:
+        name: Record "Sales Cr. Memo Entity Buffer"
+        isExternal: true
+  name: ParseBillToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Credit_Memo.ParseBillToCustomerAddressFromJSON(Text,Sales_Cr#_Memo_Entity_Buffer@)
+- syntax:
+    content: 'procedure SellToCustomerAddressToJSON(SalesCrMemoEntityBuffer: Record "Sales Cr. Memo Entity Buffer"): Text'
+    parameters:
+    - id: SalesCrMemoEntityBuffer
+      parameterType:
+        name: Record "Sales Cr. Memo Entity Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SellToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Credit_Memo.SellToCustomerAddressToJSON(Sales_Cr#_Memo_Entity_Buffer):Text
+- syntax:
+    content: 'procedure BillToCustomerAddressToJSON(SalesCrMemoEntityBuffer: Record "Sales Cr. Memo Entity Buffer"): Text'
+    parameters:
+    - id: SalesCrMemoEntityBuffer
+      parameterType:
+        name: Record "Sales Cr. Memo Entity Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: BillToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Credit_Memo.BillToCustomerAddressToJSON(Sales_Cr#_Memo_Entity_Buffer):Text
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - Sales Credit Memo
+name: '"Graph Mgt - Sales Credit Memo"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Credit_Memo

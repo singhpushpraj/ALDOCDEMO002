@@ -1,0 +1,286 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Security.AccessControl."Permission Manager"
+alId: ID 9002
+namespace: System.Security.AccessControl
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Security.AccessControl
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Permission Set Link" = rd,
+
+    #if not CLEAN22
+                      TableData "User Group Member" = rid, // Do not add m so the check UserGroupMember.WritePermission() would be false unless the user has direct access
+                      TableData "User Group Plan" = rimd,
+    #endif
+                      TableData "Aggregate Permission Set" = rimd
+  promoted: false
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssignDefaultPermissionsToUser(UserSecurityID: Guid): Boolean'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssignDefaultPermissionsToUser
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.AssignDefaultPermissionsToUser(Guid):Boolean
+- syntax:
+    content: 'procedure AssignDefaultPermissionsToUser(UserSecurityID: Guid, Company: Text[30]): Boolean'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: Company
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssignDefaultPermissionsToUser
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.AssignDefaultPermissionsToUser(Guid,Text[30]):Boolean
+- syntax:
+    content: 'procedure ResetUserToDefaultPermissions(UserSecurityID: Guid)'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ResetUserToDefaultPermissions
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.ResetUserToDefaultPermissions(Guid)
+- syntax:
+    signatures:
+    - '[Obsolete(User groups are replaced with security groups, where group membership is specified in M365 admin portal.,22.0)]'
+    content: 'procedure AddUserToUserGroup(UserSecurityID: Guid, UserGroupCode: Code[20], Company: Text[30])'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: UserGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Company
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: AddUserToUserGroup
+  obsoletion:
+    state: pending
+    reason: User groups are replaced with security groups, where group membership is specified in M365 admin portal.
+    version: "22.0"
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserToUserGroup(Guid,Code[20],Text[30])
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with the AssignDefaultPermissionsToUser procedure.,22.0)]'
+    content: 'procedure AddUserToDefaultUserGroups(UserSecurityID: Guid): Boolean'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AddUserToDefaultUserGroups
+  obsoletion:
+    state: pending
+    reason: Replaced with the AssignDefaultPermissionsToUser procedure.
+    version: "22.0"
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserToDefaultUserGroups(Guid):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with the AssignDefaultPermissionsToUser procedure.,22.0)]'
+    content: 'procedure AddUserToDefaultUserGroupsForCompany(UserSecurityID: Guid, Company: Text[30]): Boolean'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: Company
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AddUserToDefaultUserGroupsForCompany
+  obsoletion:
+    state: pending
+    reason: Replaced with the AssignDefaultPermissionsToUser procedure.
+    version: "22.0"
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserToDefaultUserGroupsForCompany(Guid,Text[30]):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with the ResetUserToDefaultPermissions procedure.,22.0)]'
+    content: 'procedure ResetUserToDefaultUserGroups(UserSecurityID: Guid)'
+    parameters:
+    - id: UserSecurityID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ResetUserToDefaultUserGroups
+  obsoletion:
+    state: pending
+    reason: Replaced with the ResetUserToDefaultPermissions procedure.
+    version: "22.0"
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.ResetUserToDefaultUserGroups(Guid)
+- syntax:
+    content: 'procedure GetOfficePortalUserAdminUrl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetOfficePortalUserAdminUrl
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.GetOfficePortalUserAdminUrl:Text
+- syntax:
+    content: 'procedure UpdateUserAccessForSaaS(UserSID: Guid): Boolean'
+    parameters:
+    - id: UserSID
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateUserAccessForSaaS
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.UpdateUserAccessForSaaS(Guid):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(User groups are replaced with security groups, use the method Add on the Security Group codeunit.,22.0)]'
+    content: 'procedure AddUserGroupFromExtension(UserGroupCode: Code[20], RoleID: Code[20], AppGuid: Guid)'
+    parameters:
+    - id: UserGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoleID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AppGuid
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: AddUserGroupFromExtension
+  obsoletion:
+    state: pending
+    reason: User groups are replaced with security groups, use the method Add on the Security Group codeunit.
+    version: "22.0"
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserGroupFromExtension(Code[20],Code[20],Guid)
+- syntax:
+    content: 'procedure CanCurrentUserManagePlansAndGroups(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanCurrentUserManagePlansAndGroups
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.CanCurrentUserManagePlansAndGroups:Boolean
+- syntax:
+    content: 'procedure GenerateHashForPermissionSet(PermissionSetId: Code[30]): Text[250]'
+    parameters:
+    - id: PermissionSetId
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GenerateHashForPermissionSet
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.GenerateHashForPermissionSet(Code[30]):Text[250]
+- syntax:
+    content: 'procedure IsFirstPermissionHigherThanSecond(First: Option, Second: Option): Boolean'
+    parameters:
+    - id: First
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Second
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsFirstPermissionHigherThanSecond
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.IsFirstPermissionHigherThanSecond(Option,Option):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Use the ResetUsersToIntelligentCloud procedure instead.,22.0)]'
+    content: procedure ResetUsersToIntelligentCloudUserGroup()
+  name: ResetUsersToIntelligentCloudUserGroup
+  obsoletion:
+    state: pending
+    reason: Use the ResetUsersToIntelligentCloud procedure instead.
+    version: "22.0"
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.ResetUsersToIntelligentCloudUserGroup
+- syntax:
+    content: procedure ResetUsersToIntelligentCloudPermissions()
+  name: ResetUsersToIntelligentCloudPermissions
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.ResetUsersToIntelligentCloudPermissions
+- syntax:
+    content: 'procedure IsIntelligentCloud(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsIntelligentCloud
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.IsIntelligentCloud:Boolean
+- syntax:
+    content: 'procedure SetTestabilityIntelligentCloud(EnableIntelligentCloudForTest: Boolean)'
+    parameters:
+    - id: EnableIntelligentCloudForTest
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetTestabilityIntelligentCloud
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.SetTestabilityIntelligentCloud(Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,2000000120,OnBeforeModifyEvent,,True,True)]'
+    content: 'procedure CheckCurrentUserCanModifyUser(Rec: __MissingTypeSymbol__, xRec: __MissingTypeSymbol__, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckCurrentUserCanModifyUser
+  uid: M:Codeunit::System#Security#AccessControl#Permission_Manager.CheckCurrentUserCanModifyUser(__MissingSymbol__@,__MissingSymbol__@,Boolean)
+commentId: O:Codeunit::System#Security#AccessControl#Permission Manager
+name: '"Permission Manager"'
+uid: O:Codeunit::System#Security#AccessControl#Permission_Manager

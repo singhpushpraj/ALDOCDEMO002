@@ -1,0 +1,278 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Journal."Gen. Jnl.-Check Line"
+alId: ID 11
+namespace: Microsoft.Finance.GeneralLedger.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "General Posting Setup" = rimd,
+                      tabledata "Cost Accounting Setup" = R,
+                      tabledata "Payment Terms" = R
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure RunCheck(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: RunCheck
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.RunCheck(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure GetErrors(var NewTempErrorMessage: Record "Error Message" temporary)'
+    parameters:
+    - id: NewTempErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+  name: GetErrors
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.GetErrors(Error_Message@)
+- syntax:
+    content: 'procedure DateNotAllowed(PostingDate: Date): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.DateNotAllowed(Date):Boolean
+- syntax:
+    content: 'procedure DeferralPostingDateNotAllowed(PostingDate: Date): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeferralPostingDateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.DeferralPostingDateNotAllowed(Date):Boolean
+- syntax:
+    content: 'procedure DateNotAllowed(PostingDate: Date, TemplateName: Code[20]): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TemplateName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.DateNotAllowed(Date,Code[20]):Boolean
+- syntax:
+    content: 'procedure IsDateNotAllowed(PostingDate: Date, var SetupRecordID: RecordId): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.IsDateNotAllowed(Date,RecordId@):Boolean
+- syntax:
+    content: 'procedure IsDeferralPostingDateNotAllowed(PostingDate: Date, var SetupRecordID: RecordId): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDeferralPostingDateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.IsDeferralPostingDateNotAllowed(Date,RecordId@):Boolean
+- syntax:
+    content: 'procedure IsDateNotAllowed(PostingDate: Date, var SetupRecordID: RecordId, TemplateName: Code[20]): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: TemplateName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.IsDateNotAllowed(Date,RecordId@,Code[20]):Boolean
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.SetGenJnlBatch(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure SetSkipFiscalYearCheck(NewValue: Boolean)'
+    parameters:
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipFiscalYearCheck
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.SetSkipFiscalYearCheck(Boolean)
+- syntax:
+    content: 'procedure ErrorIfPositiveAmt(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ErrorIfPositiveAmt
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.ErrorIfPositiveAmt(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure ErrorIfNegativeAmt(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ErrorIfNegativeAmt
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.ErrorIfNegativeAmt(Gen#_Journal_Line)
+- syntax:
+    content: procedure SetOverDimErr()
+  name: SetOverDimErr
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.SetOverDimErr
+- syntax:
+    content: 'procedure CheckSalesDocNoIsNotUsed(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckSalesDocNoIsNotUsed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.CheckSalesDocNoIsNotUsed(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure CheckPurchDocNoIsNotUsed(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckPurchDocNoIsNotUsed
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.CheckPurchDocNoIsNotUsed(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure CheckDocType(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckDocType
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.CheckDocType(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure IsVendorPaymentToCrMemo(GenJournalLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVendorPaymentToCrMemo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.IsVendorPaymentToCrMemo(Gen#_Journal_Line):Boolean
+- syntax:
+    content: 'procedure ThrowGenJnlLineError(GenJournalLine: Record "Gen. Journal Line", ErrorTemplate: Text, ErrorText: Text)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ErrorTemplate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ErrorText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ThrowGenJnlLineError
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.ThrowGenJnlLineError(Gen#_Journal_Line,Text,Text)
+- syntax:
+    content: 'procedure SetBatchMode(NewBatchMode: Boolean)'
+    parameters:
+    - id: NewBatchMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetBatchMode
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.SetBatchMode(Boolean)
+- syntax:
+    content: 'procedure CheckGenProdPostingGroupWhenAdjustForPmtDisc(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckGenProdPostingGroupWhenAdjustForPmtDisc
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.CheckGenProdPostingGroupWhenAdjustForPmtDisc(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure CheckBalGenProdPostingGroupWhenAdjustForPmtDisc(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckBalGenProdPostingGroupWhenAdjustForPmtDisc
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.CheckBalGenProdPostingGroupWhenAdjustForPmtDisc(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure SetLogErrorMode(NewLogErrorMode: Boolean)'
+    parameters:
+    - id: NewLogErrorMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetLogErrorMode
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line.SetLogErrorMode(Boolean)
+commentId: O:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen# Jnl#-Check Line
+name: '"Gen. Jnl.-Check Line"'
+uid: O:Codeunit::Microsoft#Finance#GeneralLedger#Journal#Gen#_Jnl#-Check_Line

@@ -1,0 +1,63 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Payroll."Payroll Management"
+alId: ID 1660
+namespace: Microsoft.Finance.Payroll
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Payroll
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData User = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ShowPayrollForTestInNonSaas(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowPayrollForTestInNonSaas
+  uid: M:Codeunit::Microsoft#Finance#Payroll#Payroll_Management.ShowPayrollForTestInNonSaas:Boolean
+- syntax:
+    content: 'procedure ImportPayroll(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ImportPayroll
+  uid: M:Codeunit::Microsoft#Finance#Payroll#Payroll_Management.ImportPayroll(Gen#_Journal_Line@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnRegisterPayrollService(var TempServiceConnection: Record "Service Connection" temporary)'
+    parameters:
+    - id: TempServiceConnection
+      parameterType:
+        name: Record "Service Connection" temporary
+        isExternal: true
+  name: OnRegisterPayrollService
+  uid: M:Codeunit::Microsoft#Finance#Payroll#Payroll_Management.OnRegisterPayrollService(Service_Connection@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnImportPayroll(var TempServiceConnection: Record "Service Connection" temporary, GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: TempServiceConnection
+      parameterType:
+        name: Record "Service Connection" temporary
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OnImportPayroll
+  uid: M:Codeunit::Microsoft#Finance#Payroll#Payroll_Management.OnImportPayroll(Service_Connection@,Gen#_Journal_Line)
+commentId: O:Codeunit::Microsoft#Finance#Payroll#Payroll Management
+name: '"Payroll Management"'
+uid: O:Codeunit::Microsoft#Finance#Payroll#Payroll_Management

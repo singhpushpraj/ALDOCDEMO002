@@ -1,0 +1,198 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Customer."Cust-Check Cr. Limit"
+alId: ID 312
+namespace: Microsoft.Sales.Customer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Customer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "My Notifications" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GenJnlLineCheck(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: GenJnlLineCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GenJnlLineCheck(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure SalesHeaderCheck(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesHeaderCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.SalesHeaderCheck(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure SalesLineCheck(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLineCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.SalesLineCheck(Sales_Line):Boolean
+- syntax:
+    content: 'procedure ServiceHeaderCheck(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceHeaderCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.ServiceHeaderCheck(Service_Header)
+- syntax:
+    content: 'procedure ServiceLineCheck(ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: ServiceLineCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.ServiceLineCheck(Service_Line)
+- syntax:
+    content: 'procedure ServiceContractHeaderCheck(ServiceContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: ServiceContractHeaderCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.ServiceContractHeaderCheck(Service_Contract_Header)
+- syntax:
+    content: 'procedure GetInstructionType(DocumentType: Code[30], DocumentNumber: Code[20]): Code[50]'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    - id: DocumentNumber
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[50]
+        isExternal: true
+  name: GetInstructionType
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GetInstructionType(Code[30],Code[20]):Code[50]
+- syntax:
+    content: 'procedure BlanketSalesOrderToOrderCheck(SalesOrderHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesOrderHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: BlanketSalesOrderToOrderCheck
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.BlanketSalesOrderToOrderCheck(Sales_Header)
+- syntax:
+    content: 'procedure ShowNotificationDetails(CreditLimitNotification: Notification)'
+    parameters:
+    - id: CreditLimitNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowNotificationDetails
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.ShowNotificationDetails(Notification)
+- syntax:
+    content: 'procedure GetCreditLimitNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetCreditLimitNotificationId
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GetCreditLimitNotificationId:Guid
+- syntax:
+    content: 'procedure GetOverdueBalanceNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetOverdueBalanceNotificationId
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GetOverdueBalanceNotificationId:Guid
+- syntax:
+    content: 'procedure GetBothNotificationsId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetBothNotificationsId
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GetBothNotificationsId:Guid
+- syntax:
+    content: 'procedure IsCreditLimitNotificationEnabled(Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCreditLimitNotificationEnabled
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.IsCreditLimitNotificationEnabled(Customer):Boolean
+- syntax:
+    content: 'procedure IsOverdueBalanceNotificationEnabled(Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOverdueBalanceNotificationEnabled
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.IsOverdueBalanceNotificationEnabled(Customer):Boolean
+- syntax:
+    content: 'procedure GetCreditLimitNotificationMsg(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCreditLimitNotificationMsg
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GetCreditLimitNotificationMsg:Text
+- syntax:
+    content: 'procedure GetOverdueBalanceNotificationMsg(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetOverdueBalanceNotificationMsg
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.GetOverdueBalanceNotificationMsg:Text
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnNewCheckRemoveCustomerNotifications(RecId: RecordId, RecallCreditOverdueNotif: Boolean)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: RecallCreditOverdueNotif
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnNewCheckRemoveCustomerNotifications
+  uid: M:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit.OnNewCheckRemoveCustomerNotifications(RecordId,Boolean)
+commentId: O:Codeunit::Microsoft#Sales#Customer#Cust-Check Cr# Limit
+name: '"Cust-Check Cr. Limit"'
+uid: O:Codeunit::Microsoft#Sales#Customer#Cust-Check_Cr#_Limit

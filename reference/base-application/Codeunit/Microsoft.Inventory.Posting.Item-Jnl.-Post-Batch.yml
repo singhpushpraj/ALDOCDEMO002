@@ -1,0 +1,74 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Posting."Item Jnl.-Post Batch"
+alId: ID 23
+namespace: Microsoft.Inventory.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Journal Batch" = rimd,
+                      TableData "Warehouse Register" = r
+  promoted: false
+- name: TableNo
+  value: Item Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Journal#Item_Journal_Line
+    name: Microsoft.Inventory.Journal."Item Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure PostWhseJnlLine(ItemJnlLine: Record "Item Journal Line", OriginalQuantity: Decimal, OriginalQuantityBase: Decimal, var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: OriginalQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OriginalQuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: PostWhseJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Batch.PostWhseJnlLine(Item_Journal_Line,Decimal,Decimal,Tracking_Specification@)
+- syntax:
+    content: 'procedure GetWhseRegNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetWhseRegNo
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Batch.GetWhseRegNo:Integer
+- syntax:
+    content: 'procedure GetItemRegNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetItemRegNo
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Batch.GetItemRegNo:Integer
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Batch.SetSuppressCommit(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Posting#Item Jnl#-Post Batch
+name: '"Item Jnl.-Post Batch"'
+uid: O:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Batch

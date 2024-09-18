@@ -1,0 +1,158 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.EServices.EDocument."OCR Service Mgt."
+alId: ID 1294
+namespace: Microsoft.EServices.EDocument
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.EServices.EDocument
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetURLsToDefaultRSO(var OCRServiceSetup: Record "OCR Service Setup")'
+    parameters:
+    - id: OCRServiceSetup
+      parameterType:
+        name: Record "OCR Service Setup"
+        isExternal: true
+  name: SetURLsToDefaultRSO
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.SetURLsToDefaultRSO(OCR_Service_Setup@)
+- syntax:
+    content: procedure CheckCredentials()
+  name: CheckCredentials
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.CheckCredentials
+- syntax:
+    content: 'procedure GetCredentialsErrText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCredentialsErrText
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.GetCredentialsErrText:Text
+- syntax:
+    content: 'procedure GetCredentialsQstText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCredentialsQstText
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.GetCredentialsQstText:Text
+- syntax:
+    content: 'procedure DateConvertYYYYMMDD2XML(YYYYMMDD: Text): Text'
+    parameters:
+    - id: YYYYMMDD
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: DateConvertYYYYMMDD2XML
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.DateConvertYYYYMMDD2XML(Text):Text
+- syntax:
+    content: 'procedure DateConvertXML2YYYYMMDD(XMLDate: Text): Text'
+    parameters:
+    - id: XMLDate
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: DateConvertXML2YYYYMMDD
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.DateConvertXML2YYYYMMDD(Text):Text
+- syntax:
+    content: 'procedure GetOcrServiceSetupExtended(var OCRServiceSetup: Record "OCR Service Setup", VerifyEnable: Boolean)'
+    parameters:
+    - id: OCRServiceSetup
+      parameterType:
+        name: Record "OCR Service Setup"
+        isExternal: true
+    - id: VerifyEnable
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetOcrServiceSetupExtended
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.GetOcrServiceSetupExtended(OCR_Service_Setup@,Boolean)
+- syntax:
+    content: 'procedure ValidateUpdatedOCRFields(IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: ValidateUpdatedOCRFields
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.ValidateUpdatedOCRFields(Incoming_Document)
+- syntax:
+    content: 'procedure GetOCRServiceDocumentReference(IncomingDocument: Record "Incoming Document"): Text[50]'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetOCRServiceDocumentReference
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.GetOCRServiceDocumentReference(Incoming_Document):Text[50]
+- syntax:
+    content: 'procedure LogActivitySucceeded(RelatedRecordID: RecordId, ActivityDescription: Text, ActivityMessage: Text)'
+    parameters:
+    - id: RelatedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActivityDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActivityMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LogActivitySucceeded
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.LogActivitySucceeded(RecordId,Text,Text)
+- syntax:
+    content: 'procedure LogActivityFailed(RelatedRecordID: RecordId, ActivityDescription: Text, ActivityMessage: Text)'
+    parameters:
+    - id: RelatedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActivityDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActivityMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LogActivityFailed
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.LogActivityFailed(RecordId,Text,Text)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,1400,OnRegisterServiceConnection,,False,False)]'
+    content: 'procedure HandleOCRRegisterServiceConnection(var ServiceConnection: Record "Service Connection" temporary)'
+    parameters:
+    - id: ServiceConnection
+      parameterType:
+        name: Record "Service Connection" temporary
+        isExternal: true
+  name: HandleOCRRegisterServiceConnection
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.HandleOCRRegisterServiceConnection(Service_Connection@)
+- syntax:
+    content: 'procedure OcrServiceIsEnable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OcrServiceIsEnable
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#.OcrServiceIsEnable:Boolean
+commentId: O:Codeunit::Microsoft#EServices#EDocument#OCR Service Mgt#
+name: '"OCR Service Mgt."'
+uid: O:Codeunit::Microsoft#EServices#EDocument#OCR_Service_Mgt#

@@ -1,0 +1,101 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Duplicates.DuplicateManagement
+alId: ID 5060
+namespace: Microsoft.CRM.Duplicates
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Duplicates
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Marketing Setup" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure MakeContIndex(Cont: Record Contact)'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: MakeContIndex
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.MakeContIndex(Contact)
+- syntax:
+    content: 'procedure RemoveContIndex(Cont: Record Contact, KeepAccepted: Boolean)'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: KeepAccepted
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveContIndex
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.RemoveContIndex(Contact,Boolean)
+- syntax:
+    content: 'procedure DuplicateExist(Cont: Record Contact): Boolean'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DuplicateExist
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.DuplicateExist(Contact):Boolean
+- syntax:
+    content: 'procedure LaunchDuplicateForm(Cont: Record Contact)'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: LaunchDuplicateForm
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.LaunchDuplicateForm(Contact)
+- syntax:
+    content: 'procedure ComposeIndexString(var RecRef: RecordRef, FieldNo: Integer, Part: Option, ChrToCopy: Integer): Text[10]'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Part
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ChrToCopy
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[10]
+        isExternal: true
+  name: ComposeIndexString
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.ComposeIndexString(RecordRef@,Integer,Option,Integer):Text[10]
+- syntax:
+    content: procedure Notify()
+  name: Notify
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.Notify
+- syntax:
+    content: 'procedure RunModalContactDuplicates(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: RunModalContactDuplicates
+  uid: M:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement.RunModalContactDuplicates(Notification)
+commentId: O:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement
+name: DuplicateManagement
+uid: O:Codeunit::Microsoft#CRM#Duplicates#DuplicateManagement

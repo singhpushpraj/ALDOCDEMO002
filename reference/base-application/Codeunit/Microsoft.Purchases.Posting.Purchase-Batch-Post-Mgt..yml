@@ -1,0 +1,133 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Posting."Purchase Batch Post Mgt."
+alId: ID 1372
+namespace: Microsoft.Purchases.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Batch Processing Parameter" = rimd,
+                      TableData "Batch Processing Session Map" = rimd
+  promoted: false
+- name: TableNo
+  value: Purchase Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+    name: Microsoft.Purchases.Document."Purchase Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure RunBatch(var PurchaseHeader: Record "Purchase Header", ReplacePostingDate: Boolean, PostingDate: Date, ReplaceDocumentDate: Boolean, CalcInvoiceDiscount: Boolean, Receive: Boolean, Invoice: Boolean)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ReplaceDocumentDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalcInvoiceDiscount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Receive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunBatch
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.RunBatch(Purchase_Header@,Boolean,Date,Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure RunWithUI(var PurchaseHeader: Record "Purchase Header", TotalCount: Integer, Question: Text)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Question
+      parameterType:
+        name: Text
+        isExternal: true
+  name: RunWithUI
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.RunWithUI(Purchase_Header@,Integer,Text)
+- syntax:
+    content: 'procedure GetBatchProcessor(var ResultBatchProcessingMgt: Codeunit "Batch Processing Mgt.")'
+    parameters:
+    - id: ResultBatchProcessingMgt
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#
+        name: Microsoft.Foundation.BatchProcessing."Batch Processing Mgt."
+        isExternal: false
+  name: GetBatchProcessor
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.GetBatchProcessor(Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#@)
+- syntax:
+    content: 'procedure SetBatchProcessor(NewBatchProcessingMgt: Codeunit "Batch Processing Mgt.")'
+    parameters:
+    - id: NewBatchProcessingMgt
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#
+        name: Microsoft.Foundation.BatchProcessing."Batch Processing Mgt."
+        isExternal: false
+  name: SetBatchProcessor
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.SetBatchProcessor(Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#)
+- syntax:
+    content: 'procedure Code(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: Code
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.Code(Purchase_Header@)
+- syntax:
+    content: 'procedure SetPostingCodeunitId(NewPostingCodeunitId: Integer)'
+    parameters:
+    - id: NewPostingCodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetPostingCodeunitId
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.SetPostingCodeunitId(Integer)
+- syntax:
+    content: 'procedure SetParameter(ParameterId: Enum "Batch Posting Parameter Type", ParameterValue: Variant)'
+    parameters:
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: ParameterValue
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetParameter
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#.SetParameter(Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Variant)
+commentId: O:Codeunit::Microsoft#Purchases#Posting#Purchase Batch Post Mgt#
+name: '"Purchase Batch Post Mgt."'
+uid: O:Codeunit::Microsoft#Purchases#Posting#Purchase_Batch_Post_Mgt#

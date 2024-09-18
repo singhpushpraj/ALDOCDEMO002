@@ -1,0 +1,762 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Analysis."Item Budget Management"
+alId: ID 7130
+namespace: Microsoft.Inventory.Analysis
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Analysis
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure BudgetNameSelection(CurrentAnalysisArea: Option, var CurrentItemBudgetName: Code[10], var ItemBudgetName: Record "Item Budget Name", var ItemStatisticsBuffer: Record "Item Statistics Buffer", var BudgetDim1Filter: Text, var BudgetDim2Filter: Text, var BudgetDim3Filter: Text)'
+    parameters:
+    - id: CurrentAnalysisArea
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrentItemBudgetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemStatisticsBuffer
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: BudgetNameSelection
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.BudgetNameSelection(Option,Code[10]@,Item_Budget_Name@,Item_Statistics_Buffer@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure CheckBudgetName(CurrentAnalysisType: Option, CurrentItemBudgetName: Code[10], var ItemBudgetName: Record "Item Budget Name")'
+    parameters:
+    - id: CurrentAnalysisType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrentItemBudgetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+  name: CheckBudgetName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.CheckBudgetName(Option,Code[10],Item_Budget_Name@)
+- syntax:
+    content: 'procedure SetItemBudgetName(CurrentItemBudgetName: Code[10], var ItemBudgetName: Record "Item Budget Name", var ItemStatisticsBuf: Record "Item Statistics Buffer", var BudgetDim1Filter: Text, var BudgetDim2Filter: Text, var BudgetDim3Filter: Text)'
+    parameters:
+    - id: CurrentItemBudgetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetItemBudgetName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.SetItemBudgetName(Code[10],Item_Budget_Name@,Item_Statistics_Buffer@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure LookupItemBudgetName(var CurrentItemBudgetName: Code[10], var ItemBudgetName: Record "Item Budget Name", var ItemStatisticsBuf: Record "Item Statistics Buffer", var BudgetDim1Filter: Text, var BudgetDim2Filter: Text, var BudgetDim3Filter: Text)'
+    parameters:
+    - id: CurrentItemBudgetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LookupItemBudgetName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.LookupItemBudgetName(Code[10]@,Item_Budget_Name@,Item_Statistics_Buffer@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure SetLineAndColumnDim(ItemBudgetName: Record "Item Budget Name", var LineDimCode: Text[30], var LineDimType: Enum "Item Budget Dimension Type", var ColumnDimCode: Text[30], var ColumnDimType: Enum "Item Budget Dimension Type")'
+    parameters:
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: LineDimCode
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: LineDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: ColumnDimCode
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ColumnDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+  name: SetLineAndColumnDim
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.SetLineAndColumnDim(Item_Budget_Name,Text[30]@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type@,Text[30]@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type@)
+- syntax:
+    content: 'procedure FindRecord(ItemBudgetName: Record "Item Budget Name", DimType: Enum "Item Budget Dimension Type", var DimCodeBuf: Record "Dimension Code Buffer", Which: Text[250], ItemFilter: Text, SourceNoFilter: Text, PeriodType: Enum "Analysis Period Type", DateFilter: Text, var PeriodInitialized: Boolean, InternalDateFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text): Boolean'
+    parameters:
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: DimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: DimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: Which
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PeriodInitialized
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: InternalDateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindRecord
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.FindRecord(Item_Budget_Name,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer@,Text[250],Text,Text,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Text,Boolean@,Text,Text,Text,Text,Text,Text):Boolean
+- syntax:
+    content: 'procedure NextRecord(ItemBudgetName: Record "Item Budget Name", DimType: Enum "Item Budget Dimension Type", var DimCodeBuf: Record "Dimension Code Buffer", Steps: Integer, ItemFilter: Text, SourceNoFilter: Text, PeriodType: Enum "Analysis Period Type", DateFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text): Integer'
+    parameters:
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: DimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: DimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: Steps
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NextRecord
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.NextRecord(Item_Budget_Name,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer@,Integer,Text,Text,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Text,Text,Text,Text,Text,Text):Integer
+- syntax:
+    content: 'procedure SetBufferFilters(var ItemStatisticsBuf: Record "Item Statistics Buffer", ItemBudgetName: Record "Item Budget Name", ItemFilter: Text, SourceTypeFilter: Enum "Analysis Source Type", SourceNoFilter: Text, DateFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text)'
+    parameters:
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceTypeFilter
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+        name: Microsoft.Foundation.Enums."Analysis Source Type"
+        isExternal: false
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetBufferFilters
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.SetBufferFilters(Item_Statistics_Buffer@,Item_Budget_Name,Text,Enum::Microsoft#Foundation#Enums#Analysis_Source_Type,Text,Text,Text,Text,Text,Text,Text)
+- syntax:
+    content: 'procedure SetDimensionFilters(var ItemStatisticsBuf: Record "Item Statistics Buffer", DimType: Enum "Item Budget Dimension Type", DimCodeBuf: Record "Dimension Code Buffer")'
+    parameters:
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: DimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: DimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+  name: SetDimensionFilters
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.SetDimensionFilters(Item_Statistics_Buffer@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer)
+- syntax:
+    content: 'procedure GetDimSelection(OldDimSelCode: Text[30], ItemBudgetName: Record "Item Budget Name"): Text[30]'
+    parameters:
+    - id: OldDimSelCode
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: GetDimSelection
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.GetDimSelection(Text[30],Item_Budget_Name):Text[30]
+- syntax:
+    content: 'procedure ValidateLineDimTypeAndCode(ItemBudgetName: Record "Item Budget Name", var LineDimCode: Text[30], var LineDimType: Enum "Item Budget Dimension Type", ColumnDimType: Enum "Item Budget Dimension Type", var InternalDateFilter: Text, var DateFilter: Text, var ItemStatisticsBuf: Record "Item Statistics Buffer", var PeriodInitialized: Boolean)'
+    parameters:
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: LineDimCode
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: LineDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: ColumnDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: InternalDateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: PeriodInitialized
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateLineDimTypeAndCode
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.ValidateLineDimTypeAndCode(Item_Budget_Name,Text[30]@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Text@,Text@,Item_Statistics_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure ValidateColumnDimTypeAndCode(ItemBudgetName: Record "Item Budget Name", var ColumnDimCode: Text[30], var ColumnDimType: Enum "Item Budget Dimension Type", LineDimType: Enum "Item Budget Dimension Type", var InternalDateFilter: Text, var DateFilter: Text, var ItemStatisticsBuf: Record "Item Statistics Buffer", var PeriodInitialized: Boolean)'
+    parameters:
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ColumnDimCode
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ColumnDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: LineDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: InternalDateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: PeriodInitialized
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateColumnDimTypeAndCode
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.ValidateColumnDimTypeAndCode(Item_Budget_Name,Text[30]@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type@,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Text@,Text@,Item_Statistics_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure DimCodeNotAllowed(DimCode: Text[30], ItemBudgetName: Record "Item Budget Name"): Boolean'
+    parameters:
+    - id: DimCode
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DimCodeNotAllowed
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.DimCodeNotAllowed(Text[30],Item_Budget_Name):Boolean
+- syntax:
+    content: 'procedure FormatToAmount(var AmountAsText: Text[250], RoundingFactor: Enum "Analysis Rounding Factor")'
+    parameters:
+    - id: AmountAsText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: RoundingFactor
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor
+        name: Microsoft.Foundation.Enums."Analysis Rounding Factor"
+        isExternal: false
+  name: FormatToAmount
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.FormatToAmount(Text[250]@,Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor)
+- syntax:
+    content: 'procedure DrillDownBudgetAmount(ItemBudgetName: Record "Item Budget Name", ItemFilter: Text, SourceTypeFilter: Enum "Analysis Source Type", SourceNoFilter: Text, DateFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text, RowDimType: Enum "Item Budget Dimension Type", RowDimCodeBuf: Record "Dimension Code Buffer", ColDimType: Enum "Item Budget Dimension Type", ColDimCodeBuf: Record "Dimension Code Buffer", ValueType: Enum "Item Analysis Value Type", LinesOnly: Boolean)'
+    parameters:
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceTypeFilter
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+        name: Microsoft.Foundation.Enums."Analysis Source Type"
+        isExternal: false
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RowDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: RowDimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: ColDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: ColDimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: ValueType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Analysis_Value_Type
+        name: Microsoft.Inventory.Analysis."Item Analysis Value Type"
+        isExternal: false
+    - id: LinesOnly
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DrillDownBudgetAmount
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.DrillDownBudgetAmount(Item_Budget_Name,Text,Enum::Microsoft#Foundation#Enums#Analysis_Source_Type,Text,Text,Text,Text,Text,Text,Text,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer,Enum::Microsoft#Inventory#Analysis#Item_Analysis_Value_Type,Boolean)
+- syntax:
+    content: 'procedure DeleteBudget(AnalysisArea: Integer, ItemBudgetName: Code[10], ItemFilter: Text, DateFilter: Text, SourceTypeFilter: Option, SourceNoFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text)'
+    parameters:
+    - id: AnalysisArea
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceTypeFilter
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: DeleteBudget
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.DeleteBudget(Integer,Code[10],Text,Text,Option,Text,Text,Text,Text,Text,Text)
+- syntax:
+    content: 'procedure CalculateAmount(ValueType: Enum "Item Analysis Value Type", SetColumnFilter: Boolean, var ItemStatisticsBuf: Record "Item Statistics Buffer", ItemBudgetName: Record "Item Budget Name", ItemFilter: Text, SourceTypeFilter: Enum "Analysis Source Type", SourceNoFilter: Text, DateFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text, RowDimType: Enum "Item Budget Dimension Type", RowDimCodeBuf: Record "Dimension Code Buffer", ColDimType: Enum "Item Budget Dimension Type", ColDimCodeBuf: Record "Dimension Code Buffer"): Decimal'
+    parameters:
+    - id: ValueType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Analysis_Value_Type
+        name: Microsoft.Inventory.Analysis."Item Analysis Value Type"
+        isExternal: false
+    - id: SetColumnFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceTypeFilter
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+        name: Microsoft.Foundation.Enums."Analysis Source Type"
+        isExternal: false
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RowDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: RowDimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: ColDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: ColDimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalculateAmount
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.CalculateAmount(Enum::Microsoft#Inventory#Analysis#Item_Analysis_Value_Type,Boolean,Item_Statistics_Buffer@,Item_Budget_Name,Text,Enum::Microsoft#Foundation#Enums#Analysis_Source_Type,Text,Text,Text,Text,Text,Text,Text,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer):Decimal
+- syntax:
+    content: 'procedure SetAmount(ValueType: Enum "Item Analysis Value Type", SetColumnFilter: Boolean, var ItemStatisticsBuf: Record "Item Statistics Buffer", ItemBudgetName: Record "Item Budget Name", ItemFilter: Text, SourceTypeFilter: Enum "Analysis Source Type", SourceNoFilter: Text, DateFilter: Text, GlobalDim1Filter: Text, GlobalDim2Filter: Text, BudgetDim1Filter: Text, BudgetDim2Filter: Text, BudgetDim3Filter: Text, RowDimType: Enum "Item Budget Dimension Type", RowDimCodeBuf: Record "Dimension Code Buffer", ColDimType: Enum "Item Budget Dimension Type", ColDimCodeBuf: Record "Dimension Code Buffer", NewAmount: Decimal)'
+    parameters:
+    - id: ValueType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Analysis_Value_Type
+        name: Microsoft.Inventory.Analysis."Item Analysis Value Type"
+        isExternal: false
+    - id: SetColumnFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: ItemBudgetName
+      parameterType:
+        name: Record "Item Budget Name"
+        isExternal: true
+    - id: ItemFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceTypeFilter
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+        name: Microsoft.Foundation.Enums."Analysis Source Type"
+        isExternal: false
+    - id: SourceNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GlobalDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim1Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim2Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BudgetDim3Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RowDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: RowDimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: ColDimType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type
+        name: Microsoft.Inventory.Analysis."Item Budget Dimension Type"
+        isExternal: false
+    - id: ColDimCodeBuf
+      parameterType:
+        name: Record "Dimension Code Buffer"
+        isExternal: true
+    - id: NewAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetAmount
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management.SetAmount(Enum::Microsoft#Inventory#Analysis#Item_Analysis_Value_Type,Boolean,Item_Statistics_Buffer@,Item_Budget_Name,Text,Enum::Microsoft#Foundation#Enums#Analysis_Source_Type,Text,Text,Text,Text,Text,Text,Text,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer,Enum::Microsoft#Inventory#Analysis#Item_Budget_Dimension_Type,Dimension_Code_Buffer,Decimal)
+commentId: O:Codeunit::Microsoft#Inventory#Analysis#Item Budget Management
+name: '"Item Budget Management"'
+uid: O:Codeunit::Microsoft#Inventory#Analysis#Item_Budget_Management

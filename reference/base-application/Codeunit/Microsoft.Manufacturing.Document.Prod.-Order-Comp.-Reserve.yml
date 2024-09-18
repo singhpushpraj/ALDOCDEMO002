@@ -1,0 +1,402 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Prod. Order Comp.-Reserve"
+alId: ID 99000838
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = rimd,
+                      TableData "Action Message Entry" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(ProdOrderComponent: Record "Prod. Order Component", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.CreateReservation(Prod#_Order_Component,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateBindingReservation(ProdOrderComponent: Record "Prod. Order Component", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal)'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateBindingReservation
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.CreateBindingReservation(Prod#_Order_Component,Text[100],Date,Decimal,Decimal)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure Caption(ProdOrderComponent: Record "Prod. Order Component"): Text'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.Caption(Prod#_Order_Component):Text
+- syntax:
+    content: 'procedure FindReservEntry(ProdOrderComponent: Record "Prod. Order Component", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.FindReservEntry(Prod#_Order_Component,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(ProdOrderComponent: Record "Prod. Order Component"): Decimal'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.GetReservedQtyFromInventory(Prod#_Order_Component):Decimal
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(ProductionOrder: Record "Production Order"): Decimal'
+    parameters:
+    - id: ProductionOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.GetReservedQtyFromInventory(Production_Order):Decimal
+- syntax:
+    content: 'procedure ReservEntryExist(ProdOrderComponent: Record "Prod. Order Component"): Boolean'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.ReservEntryExist(Prod#_Order_Component):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewProdOrderComponent: Record "Prod. Order Component", var OldProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: NewProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: OldProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.VerifyChange(Prod#_Order_Component@,Prod#_Order_Component@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewProdOrderComponent: Record "Prod. Order Component", var OldProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: NewProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: OldProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.VerifyQuantity(Prod#_Order_Component@,Prod#_Order_Component@)
+- syntax:
+    content: 'procedure TransferPOCompToPOComp(var OldProdOrderComponent: Record "Prod. Order Component", var NewProdOrderComponent: Record "Prod. Order Component", TransferQty: Decimal, TransferAll: Boolean)'
+    parameters:
+    - id: OldProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: NewProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransferAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferPOCompToPOComp
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.TransferPOCompToPOComp(Prod#_Order_Component@,Prod#_Order_Component@,Decimal,Boolean)
+- syntax:
+    content: 'procedure TransferPOCompToItemJnlLine(var OldProdOrderComponent: Record "Prod. Order Component", var NewItemJournalLine: Record "Item Journal Line", TransferQty: Decimal)'
+    parameters:
+    - id: OldProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: NewItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferPOCompToItemJnlLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.TransferPOCompToItemJnlLine(Prod#_Order_Component@,Item_Journal_Line@,Decimal)
+- syntax:
+    content: 'procedure TransferPOCompToItemJnlLineCheckILE(var OldProdOrderComponent: Record "Prod. Order Component", var NewItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, CheckApplFromItemEntry: Boolean)'
+    parameters:
+    - id: OldProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: NewItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferPOCompToItemJnlLineCheckILE
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.TransferPOCompToItemJnlLineCheckILE(Prod#_Order_Component@,Item_Journal_Line@,Decimal,Boolean)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var ProdOrderComponent: Record "Prod. Order Component"): Boolean'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.DeleteLineConfirm(Prod#_Order_Component@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var ProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.DeleteLine(Prod#_Order_Component@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var ProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.CallItemTracking(Prod#_Order_Component@)
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(ProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.UpdateItemTrackingAfterPosting(Prod#_Order_Component)
+- syntax:
+    content: 'procedure BindToPurchase(ProdOrderComponent: Record "Prod. Order Component", PurchaseLine: Record "Purchase Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToPurchase
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.BindToPurchase(Prod#_Order_Component,Purchase_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToProdOrder(ProdOrderComponent: Record "Prod. Order Component", ProdOrderLine: Record "Prod. Order Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToProdOrder
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.BindToProdOrder(Prod#_Order_Component,Prod#_Order_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToRequisition(ProdOrderComponent: Record "Prod. Order Component", RequisitionLine: Record "Requisition Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToRequisition
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.BindToRequisition(Prod#_Order_Component,Requisition_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToAssembly(ProdOrderComponent: Record "Prod. Order Component", AssemblyHeader: Record "Assembly Header", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToAssembly
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.BindToAssembly(Prod#_Order_Component,Assembly_Header,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToTransfer(ProdOrderComponent: Record "Prod. Order Component", TransferLine: Record "Transfer Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToTransfer
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve.BindToTransfer(Prod#_Order_Component,Transfer_Line,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Prod# Order Comp#-Reserve
+name: '"Prod. Order Comp.-Reserve"'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Comp#-Reserve

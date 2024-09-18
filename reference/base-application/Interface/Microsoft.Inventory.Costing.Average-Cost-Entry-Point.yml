@@ -1,0 +1,99 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Average Cost Entry Point"
+namespace: Microsoft.Inventory.Costing
+baseKind: Interface
+kind: Interface
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Interface](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-interfaces-in-al)'
+methods:
+- syntax:
+    content: 'procedure GetMaxValuationDate(ItemLedgerEntry: Record "Item Ledger Entry", ValueEntry: Record "Value Entry"): Date'
+    parameters:
+    - id: ItemLedgerEntry
+      description: Set Item Ledger Entry with data for search filters.
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ValueEntry
+      description: Set Value Entry record which provide original Valuation Date for the search.
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  summary: The method find latest valuation date.
+  name: GetMaxValuationDate
+  uid: M:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point.GetMaxValuationDate(Item_Ledger_Entry,Value_Entry):Date
+- syntax:
+    content: 'procedure GetValuationPeriod(CalendarPeriod: __MissingTypeSymbol__, PostingDate: Date)'
+    parameters:
+    - id: CalendarPeriod
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: GetValuationPeriod
+  uid: M:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point.GetValuationPeriod(__MissingSymbol__@,Date)
+- syntax:
+    content: 'procedure DeleteBuffer(ItemNo: Code[20], FromValuationDate: Date)'
+    parameters:
+    - id: ItemNo
+      description: Set Item No. fo filtering buffer records. Use blank value to skip this filter.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromValuationDate
+      description: Set the filter from Valuation Date. Use 0D to skip this filter.
+      parameterType:
+        name: Date
+        isExternal: true
+  summary: The method delete average cost adjustment buffer records for selected Item and from Valuation Date.
+  name: DeleteBuffer
+  uid: M:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point.DeleteBuffer(Code[20],Date)
+- syntax:
+    content: 'procedure IsEntriesAdjusted(ItemNo: Code[20], EndingDate: Date): Boolean'
+    parameters:
+    - id: ItemNo
+      description: Set Item No. fo filtering buffer records. Use blank value to skip this filter.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: EndingDate
+      description: Set the filter before Ending Date. Use 0D to skip this filter.
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: The method check is all ledger entries have been adjusted for selected item and before ending date.
+  name: IsEntriesAdjusted
+  uid: M:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point.IsEntriesAdjusted(Code[20],Date):Boolean
+- syntax:
+    content: procedure LockBuffer()
+  summary: The method lock average cost adjustment buffer table.
+  name: LockBuffer
+  uid: M:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point.LockBuffer
+- syntax:
+    content: 'procedure UpdateValuationDate(ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      description: Set parameter Value Entry with data for update.
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  summary: The method update average cost adjustment buffer table based on data in value entry.
+  name: UpdateValuationDate
+  uid: M:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point.UpdateValuationDate(Value_Entry)
+commentId: O:Interface::Microsoft#Inventory#Costing#Average Cost Entry Point
+name: '"Average Cost Entry Point"'
+uid: O:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point

@@ -1,0 +1,289 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Workflow Webhook Management"
+alId: ID 1543
+namespace: System.Automation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Workflow Webhook Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CanCancel(WorkflowWebhookEntry: Record "Workflow Webhook Entry"): Boolean'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanCancel
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.CanCancel(Workflow_Webhook_Entry):Boolean
+- syntax:
+    content: 'procedure CanRequestApproval(RecordId: RecordId): Boolean'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanRequestApproval
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.CanRequestApproval(RecordId):Boolean
+- syntax:
+    content: 'procedure GetCanRequestAndCanCancel(RecordId: RecordId, var CanRequestApprovalForFlow: Boolean, var CanCancelApprovalForFlow: Boolean)'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: CanRequestApprovalForFlow
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CanCancelApprovalForFlow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetCanRequestAndCanCancel
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.GetCanRequestAndCanCancel(RecordId,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetCanRequestAndCanCancelJournalBatch(GenJournalBatch: Record "Gen. Journal Batch", var CanRequestBatchApproval: Boolean, var CanCancelBatchApproval: Boolean, var CanRequestLineApprovals: Boolean)'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: CanRequestBatchApproval
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CanCancelBatchApproval
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CanRequestLineApprovals
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetCanRequestAndCanCancelJournalBatch
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.GetCanRequestAndCanCancelJournalBatch(Gen#_Journal_Batch,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure Cancel(var WorkflowWebhookEntry: Record "Workflow Webhook Entry")'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+  name: Cancel
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.Cancel(Workflow_Webhook_Entry@)
+- syntax:
+    content: 'procedure Cancel(var WorkflowWebhookEntry: Record "Workflow Webhook Entry", OnDeletion: Boolean)'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+    - id: OnDeletion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Cancel
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.Cancel(Workflow_Webhook_Entry@,Boolean)
+- syntax:
+    content: 'procedure CancelByStepInstanceId(Id: Guid)'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: CancelByStepInstanceId
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.CancelByStepInstanceId(Guid)
+- syntax:
+    content: 'procedure CanContinue(WorkflowWebhookEntry: Record "Workflow Webhook Entry"): Boolean'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanContinue
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.CanContinue(Workflow_Webhook_Entry):Boolean
+- syntax:
+    content: 'procedure CanReject(WorkflowWebhookEntry: Record "Workflow Webhook Entry"): Boolean'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanReject
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.CanReject(Workflow_Webhook_Entry):Boolean
+- syntax:
+    content: 'procedure Continue(var WorkflowWebhookEntry: Record "Workflow Webhook Entry")'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+  name: Continue
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.Continue(Workflow_Webhook_Entry@)
+- syntax:
+    content: 'procedure ContinueByStepInstanceId(Id: Guid)'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ContinueByStepInstanceId
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.ContinueByStepInstanceId(Guid)
+- syntax:
+    content: 'procedure GenerateRequest(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: GenerateRequest
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.GenerateRequest(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure Reject(var WorkflowWebhookEntry: Record "Workflow Webhook Entry")'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+  name: Reject
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.Reject(Workflow_Webhook_Entry@)
+- syntax:
+    content: 'procedure RejectByStepInstanceId(Id: Guid)'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: RejectByStepInstanceId
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.RejectByStepInstanceId(Guid)
+- syntax:
+    content: 'procedure SendWebhookNotificaton(WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: SendWebhookNotificaton
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.SendWebhookNotificaton(Workflow_Step_Instance)
+- syntax:
+    content: 'procedure FindWorkflowWebhookEntryByRecordIdAndResponse(var WorkflowWebhookEntry: Record "Workflow Webhook Entry", RecordId: RecordId, ResponseStatus: Option): Boolean'
+    parameters:
+    - id: WorkflowWebhookEntry
+      parameterType:
+        name: Record "Workflow Webhook Entry"
+        isExternal: true
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ResponseStatus
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindWorkflowWebhookEntryByRecordIdAndResponse
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.FindWorkflowWebhookEntryByRecordIdAndResponse(Workflow_Webhook_Entry@,RecordId,Option):Boolean
+- syntax:
+    content: 'procedure HasPendingWorkflowWebhookEntryByRecordId(RecordId: RecordId): Boolean'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasPendingWorkflowWebhookEntryByRecordId
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.HasPendingWorkflowWebhookEntryByRecordId(RecordId):Boolean
+- syntax:
+    content: 'procedure GetDirectApproverForRequestor(RequestorEmailAddress: Text): Text'
+    parameters:
+    - id: RequestorEmailAddress
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetDirectApproverForRequestor
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.GetDirectApproverForRequestor(Text):Text
+- syntax:
+    content: 'procedure FindAndCancel(RecordId: RecordId)'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: FindAndCancel
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.FindAndCancel(RecordId)
+- syntax:
+    content: 'procedure FindAndCancel(RecordId: RecordId, OnDeletion: Boolean)'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: OnDeletion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FindAndCancel
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.FindAndCancel(RecordId,Boolean)
+- syntax:
+    content: 'procedure DeleteWorkflowWebhookEntries(RecordId: RecordId)'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: DeleteWorkflowWebhookEntries
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.DeleteWorkflowWebhookEntries(RecordId)
+- syntax:
+    content: 'procedure RenameRecord(OldRecordId: RecordId, NewRecordId: RecordId)'
+    parameters:
+    - id: OldRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NewRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: RenameRecord
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Management.RenameRecord(RecordId,RecordId)
+commentId: O:Codeunit::System#Automation#Workflow Webhook Management
+name: '"Workflow Webhook Management"'
+uid: O:Codeunit::System#Automation#Workflow_Webhook_Management

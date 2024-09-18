@@ -1,0 +1,151 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.SyncEngine."Integration Record Synch."
+alId: ID 5336
+namespace: Microsoft.Integration.SyncEngine
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.SyncEngine
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetFieldMapping(var TempIntegrationFieldMapping: Record "Temp Integration Field Mapping" temporary)'
+    parameters:
+    - id: TempIntegrationFieldMapping
+      parameterType:
+        name: Record "Temp Integration Field Mapping" temporary
+        isExternal: true
+  name: SetFieldMapping
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.SetFieldMapping(Temp_Integration_Field_Mapping@)
+- syntax:
+    content: 'procedure SetParameters(var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, OnlyTransferModifiedFields: Boolean)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: OnlyTransferModifiedFields
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.SetParameters(RecordRef@,RecordRef@,Boolean)
+- syntax:
+    content: 'procedure GetWasModified(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetWasModified
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.GetWasModified:Boolean
+- syntax:
+    content: 'procedure GetIdFilterList(var IdDictionary: Dictionary of [Guid, Boolean], var IdFilterList: List of [Text])'
+    parameters:
+    - id: IdDictionary
+      parameterType:
+        name: Dictionary of [Guid, Boolean]
+        isExternal: true
+    - id: IdFilterList
+      parameterType:
+        name: List of [Text]
+        isExternal: true
+  name: GetIdFilterList
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.GetIdFilterList(Dictionary_of_[Guid,Boolean]@,List_of_[Text]@)
+- syntax:
+    content: 'procedure GetIdFilterList(var IdList: List of [Guid], var IdFilterList: List of [Text])'
+    parameters:
+    - id: IdList
+      parameterType:
+        name: List of [Guid]
+        isExternal: true
+    - id: IdFilterList
+      parameterType:
+        name: List of [Text]
+        isExternal: true
+  name: GetIdFilterList
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.GetIdFilterList(List_of_[Guid]@,List_of_[Text]@)
+- syntax:
+    content: 'procedure FindModifiedLocalRecords(var RecRef: RecordRef, TableFilter: Text, IntegrationTableMapping: Record "Integration Table Mapping"): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TableFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindModifiedLocalRecords
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.FindModifiedLocalRecords(RecordRef@,Text,Integration_Table_Mapping):Boolean
+- syntax:
+    content: 'procedure SplitTableFilter(TableId: Integer, FieldNo: Integer, TableFilter: Text, var TableFilterList: List of [Text]): Boolean'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TableFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TableFilterList
+      parameterType:
+        name: List of [Text]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SplitTableFilter
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.SplitTableFilter(Integer,Integer,Text,List_of_[Text]@):Boolean
+- syntax:
+    content: 'procedure GetTableViewForRecordID(RecordID: RecordId): Text'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTableViewForRecordID
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.GetTableViewForRecordID(RecordId):Text
+- syntax:
+    content: 'procedure JoinIDs(var IdList: List of [Guid], Delimiter: Text[1]): Text'
+    parameters:
+    - id: IdList
+      parameterType:
+        name: List of [Guid]
+        isExternal: true
+    - id: Delimiter
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: JoinIDs
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#.JoinIDs(List_of_[Guid]@,Text[1]):Text
+commentId: O:Codeunit::Microsoft#Integration#SyncEngine#Integration Record Synch#
+name: '"Integration Record Synch."'
+uid: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#

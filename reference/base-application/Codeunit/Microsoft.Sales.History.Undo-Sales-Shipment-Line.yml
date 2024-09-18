@@ -1,0 +1,87 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Undo Sales Shipment Line"
+alId: ID 5815
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Line" = rimd,
+                      TableData "Sales Shipment Line" = rimd,
+                      TableData "Item Application Entry" = rmd,
+                      TableData "Item Entry Relation" = ri
+  promoted: false
+- name: TableNo
+  value: Sales Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#History#Sales_Shipment_Line
+    name: Microsoft.Sales.History."Sales Shipment Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Sales_Shipment_Line.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure GetCorrectionLineNo(SalesShipmentLine2: Record "Sales Shipment Line"): Integer'
+    parameters:
+    - id: SalesShipmentLine2
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCorrectionLineNo
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Sales_Shipment_Line.GetCorrectionLineNo(Sales_Shipment_Line):Integer
+- syntax:
+    content: 'procedure UpdateOrderLine(SalesShipmentLine2: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesShipmentLine2
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: UpdateOrderLine
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Sales_Shipment_Line.UpdateOrderLine(Sales_Shipment_Line)
+- syntax:
+    content: 'procedure UpdateBlanketOrder(SalesShipmentLine2: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesShipmentLine2
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: UpdateBlanketOrder
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Sales_Shipment_Line.UpdateBlanketOrder(Sales_Shipment_Line)
+- syntax:
+    content: 'procedure GetInvoicedShptEntries(SalesShipmentLine2: Record "Sales Shipment Line", var ItemLedgerEntry: Record "Item Ledger Entry"): Boolean'
+    parameters:
+    - id: SalesShipmentLine2
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: ItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetInvoicedShptEntries
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Sales_Shipment_Line.GetInvoicedShptEntries(Sales_Shipment_Line,Item_Ledger_Entry@):Boolean
+commentId: O:Codeunit::Microsoft#Sales#History#Undo Sales Shipment Line
+name: '"Undo Sales Shipment Line"'
+uid: O:Codeunit::Microsoft#Sales#History#Undo_Sales_Shipment_Line

@@ -1,0 +1,61 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Payment."Pmt Export Mgt Vend Ledg Entry"
+alId: ID 1207
+namespace: Microsoft.Bank.Payment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Payment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Vendor Ledger Entry" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PreparePaymentExportDataVLE(var TempPaymentExportData: Record "Payment Export Data" temporary, VendorLedgerEntry: Record "Vendor Ledger Entry", DataExchEntryNo: Integer, LineNo: Integer)'
+    parameters:
+    - id: TempPaymentExportData
+      parameterType:
+        name: Record "Payment Export Data" temporary
+        isExternal: true
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: DataExchEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PreparePaymentExportDataVLE
+  uid: M:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Vend_Ledg_Entry.PreparePaymentExportDataVLE(Payment_Export_Data@,Vendor_Ledger_Entry,Integer,Integer)
+- syntax:
+    content: 'procedure EnableExportToServerTempFile(SilentServerMode: Boolean, ServerFileExtension: Text[3])'
+    parameters:
+    - id: SilentServerMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ServerFileExtension
+      parameterType:
+        name: Text[3]
+        isExternal: true
+  name: EnableExportToServerTempFile
+  uid: M:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Vend_Ledg_Entry.EnableExportToServerTempFile(Boolean,Text[3])
+- syntax:
+    content: 'procedure GetServerTempFileName(): Text[1024]'
+    return:
+      returnType:
+        name: Text[1024]
+        isExternal: true
+  name: GetServerTempFileName
+  uid: M:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Vend_Ledg_Entry.GetServerTempFileName:Text[1024]
+commentId: O:Codeunit::Microsoft#Bank#Payment#Pmt Export Mgt Vend Ledg Entry
+name: '"Pmt Export Mgt Vend Ledg Entry"'
+uid: O:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Vend_Ledg_Entry

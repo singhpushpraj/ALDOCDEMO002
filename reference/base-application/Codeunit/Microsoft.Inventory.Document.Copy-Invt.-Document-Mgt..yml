@@ -1,0 +1,147 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Document."Copy Invt. Document Mgt."
+alId: ID 5857
+namespace: Microsoft.Inventory.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetProperties(NewIncludeHeader: Boolean, NewRecalculateLines: Boolean, NewCreateToHeader: Boolean, NewHideDialog: Boolean, NewFillAppliesFields: Boolean)'
+    parameters:
+    - id: NewIncludeHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewRecalculateLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewCreateToHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewFillAppliesFields
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProperties
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.SetProperties(Boolean,Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetCopyItemTracking(NewCopyItemTracking: Boolean)'
+    parameters:
+    - id: NewCopyItemTracking
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCopyItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.SetCopyItemTracking(Boolean)
+- syntax:
+    content: 'procedure CopyAsCorrection(NewIsCorrection: Boolean)'
+    parameters:
+    - id: NewIsCorrection
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyAsCorrection
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.CopyAsCorrection(Boolean)
+- syntax:
+    content: 'procedure CopyItemDoc(FromDocType: Enum "Invt. Doc. Document Type From", FromDocNo: Code[20], var ToInvtDocHeader: Record "Invt. Document Header")'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Document#Invt#_Doc#_Document_Type_From
+        name: Microsoft.Inventory.Document."Invt. Doc. Document Type From"
+        isExternal: false
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToInvtDocHeader
+      parameterType:
+        name: Record "Invt. Document Header"
+        isExternal: true
+  name: CopyItemDoc
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.CopyItemDoc(Enum::Microsoft#Inventory#Document#Invt#_Doc#_Document_Type_From,Code[20],Invt#_Document_Header@)
+- syntax:
+    content: 'procedure CheckItemAvailable(var ToInvtDocHeader: Record "Invt. Document Header", var ToInvtDocLine: Record "Invt. Document Line")'
+    parameters:
+    - id: ToInvtDocHeader
+      parameterType:
+        name: Record "Invt. Document Header"
+        isExternal: true
+    - id: ToInvtDocLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: CheckItemAvailable
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.CheckItemAvailable(Invt#_Document_Header@,Invt#_Document_Line@)
+- syntax:
+    content: 'procedure GetItemDocLedgerEntryNo(DocNo: Code[20], DocType: Integer, DocLineNo: Integer): Integer'
+    parameters:
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetItemDocLedgerEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.GetItemDocLedgerEntryNo(Code[20],Integer,Integer):Integer
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCopyInvtDocLineOnBeforeCopyItemTrackingAndAppliesValues(var ToInvtDocumentHeader: Record "Invt. Document Header", var ToInvtDocumentLine: Record "Invt. Document Line", var FromInvtDocumentHeader: Record "Invt. Document Header", var FromInvtDocumentLine: Record "Invt. Document Line", FromInvtDocType: Enum "Invt. Doc. Document Type From", var CopyThisLine: Boolean, var IsHandled: Boolean)'
+    parameters:
+    - id: ToInvtDocumentHeader
+      parameterType:
+        name: Record "Invt. Document Header"
+        isExternal: true
+    - id: ToInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: FromInvtDocumentHeader
+      parameterType:
+        name: Record "Invt. Document Header"
+        isExternal: true
+    - id: FromInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: FromInvtDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Document#Invt#_Doc#_Document_Type_From
+        name: Microsoft.Inventory.Document."Invt. Doc. Document Type From"
+        isExternal: false
+    - id: CopyThisLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnCopyInvtDocLineOnBeforeCopyItemTrackingAndAppliesValues
+  uid: M:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#.OnCopyInvtDocLineOnBeforeCopyItemTrackingAndAppliesValues(Invt#_Document_Header@,Invt#_Document_Line@,Invt#_Document_Header@,Invt#_Document_Line@,Enum::Microsoft#Inventory#Document#Invt#_Doc#_Document_Type_From,Boolean@,Boolean@)
+commentId: O:Codeunit::Microsoft#Inventory#Document#Copy Invt# Document Mgt#
+name: '"Copy Invt. Document Mgt."'
+uid: O:Codeunit::Microsoft#Inventory#Document#Copy_Invt#_Document_Mgt#

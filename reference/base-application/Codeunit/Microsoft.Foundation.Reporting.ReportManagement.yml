@@ -1,0 +1,74 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Reporting.ReportManagement
+alId: ID 44
+namespace: Microsoft.Foundation.Reporting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Reporting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetPrinterName(ReportID: Integer, var PrinterName: Text[250])'
+    parameters:
+    - id: ReportID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PrinterName
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: GetPrinterName
+  uid: M:Codeunit::Microsoft#Foundation#Reporting#ReportManagement.GetPrinterName(Integer,Text[250]@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,2616,GetPrinterSelectionsPage,,False,False)]'
+    content: 'procedure GetPrinterSelectionsPage(var PageID: Integer, var IsHandled: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetPrinterSelectionsPage
+  uid: M:Codeunit::Microsoft#Foundation#Reporting#ReportManagement.GetPrinterSelectionsPage(Integer@,Boolean@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,2000000005,SetupPrinters,,True,True)]'
+    content: 'procedure SetupPrinters(var Printers: Dictionary of [Text[250], JsonObject])'
+    parameters:
+    - id: Printers
+      parameterType:
+        name: Dictionary of [Text[250], JsonObject]
+        isExternal: true
+  name: SetupPrinters
+  uid: M:Codeunit::Microsoft#Foundation#Reporting#ReportManagement.SetupPrinters(Dictionary_of_[Text,JsonObject]@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSelectReportLayout(ReportLayoutList: __MissingTypeSymbol__, var Handled: Boolean)'
+    parameters:
+    - id: ReportLayoutList
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: Handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnSelectReportLayout
+  uid: M:Codeunit::Microsoft#Foundation#Reporting#ReportManagement.OnSelectReportLayout(__MissingSymbol__@,Boolean@)
+commentId: O:Codeunit::Microsoft#Foundation#Reporting#ReportManagement
+name: ReportManagement
+uid: O:Codeunit::Microsoft#Foundation#Reporting#ReportManagement

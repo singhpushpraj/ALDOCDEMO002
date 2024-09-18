@@ -1,0 +1,309 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.AI."Time Series Management"
+alId: ID 2000
+namespace: System.AI
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.AI
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use Initialize(Uri: SecretText; "Key": SecretText; TimeOutSeconds: Integer; UseStdCredentials: Boolean) instead.,24.0)]'
+    - '[TryFunction]'
+    content: 'procedure Initialize(Uri: Text, "Key": Text, TimeOutSeconds: Integer, UseStdCredentials: Boolean): Boolean'
+    parameters:
+    - id: Uri
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Key
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TimeOutSeconds
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UseStdCredentials
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Initialize
+  obsoletion:
+    state: pending
+    reason: 'Use Initialize(Uri: SecretText; "Key": SecretText; TimeOutSeconds: Integer; UseStdCredentials: Boolean) instead.'
+    version: "24.0"
+  uid: M:Codeunit::System#AI#Time_Series_Management.Initialize(Text,Text,Integer,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure Initialize(Uri: Text, "Key": SecretText, TimeOutSeconds: Integer, UseStdCredentials: Boolean): Boolean'
+    parameters:
+    - id: Uri
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Key
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: TimeOutSeconds
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UseStdCredentials
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::System#AI#Time_Series_Management.Initialize(Text,SecretText,Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure InitializeFromCashFlowSetup(TimeSeriesLibState: Option): Boolean'
+    parameters:
+    - id: TimeSeriesLibState
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InitializeFromCashFlowSetup
+  uid: M:Codeunit::System#AI#Time_Series_Management.InitializeFromCashFlowSetup(Option):Boolean
+- syntax:
+    content: 'procedure PrepareData(RecordVariant: Variant, GroupIDFieldNo: Integer, DateFieldNo: Integer, ValueFieldNo: Integer, PeriodType: Option, ForecastingStartDate: Date, ObservationPeriods: Integer)'
+    parameters:
+    - id: RecordVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GroupIDFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DateFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ValueFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ForecastingStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ObservationPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PrepareData
+  uid: M:Codeunit::System#AI#Time_Series_Management.PrepareData(Variant,Integer,Integer,Integer,Option,Date,Integer)
+- syntax:
+    content: 'procedure SetPreparedData(var TempTimeSeriesBufferIn: Record "Time Series Buffer" temporary, PeriodType: Option, ForecastingStartDate: Date, ObservationPeriods: Integer)'
+    parameters:
+    - id: TempTimeSeriesBufferIn
+      parameterType:
+        name: Record "Time Series Buffer" temporary
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ForecastingStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ObservationPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetPreparedData
+  uid: M:Codeunit::System#AI#Time_Series_Management.SetPreparedData(Time_Series_Buffer@,Option,Date,Integer)
+- syntax:
+    content: 'procedure GetPreparedData(var TempTimeSeriesBufferOut: Record "Time Series Buffer" temporary)'
+    parameters:
+    - id: TempTimeSeriesBufferOut
+      parameterType:
+        name: Record "Time Series Buffer" temporary
+        isExternal: true
+  name: GetPreparedData
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetPreparedData(Time_Series_Buffer@)
+- syntax:
+    content: 'procedure Forecast(ForecastingPeriods: Integer, ConfidenceLevel: Integer, TimeSeriesModel: Option)'
+    parameters:
+    - id: ForecastingPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ConfidenceLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TimeSeriesModel
+      parameterType:
+        name: Option
+        isExternal: true
+  name: Forecast
+  uid: M:Codeunit::System#AI#Time_Series_Management.Forecast(Integer,Integer,Option)
+- syntax:
+    content: 'procedure GetForecast(var TempTimeSeriesForecastOut: Record "Time Series Forecast" temporary)'
+    parameters:
+    - id: TempTimeSeriesForecastOut
+      parameterType:
+        name: Record "Time Series Forecast" temporary
+        isExternal: true
+  name: GetForecast
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetForecast(Time_Series_Forecast@)
+- syntax:
+    content: 'procedure GetState(var State: Option)'
+    parameters:
+    - id: State
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetState
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetState(Option@)
+- syntax:
+    content: 'procedure GetOutput(LineNo: Integer, ColumnNo: Integer): Text'
+    parameters:
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ColumnNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetOutput
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetOutput(Integer,Integer):Text
+- syntax:
+    content: 'procedure GetOutputLength(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetOutputLength
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetOutputLength:Integer
+- syntax:
+    content: 'procedure GetInput(LineNo: Integer, ColumnNo: Integer): Text'
+    parameters:
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ColumnNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetInput
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetInput(Integer,Integer):Text
+- syntax:
+    content: 'procedure GetInputLength(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetInputLength
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetInputLength:Integer
+- syntax:
+    content: 'procedure GetParameter(Name: Text): Text'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetParameter
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetParameter(Text):Text
+- syntax:
+    content: 'procedure SetMinimumHistoricalPeriods(NumberOfPeriods: Integer)'
+    parameters:
+    - id: NumberOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetMinimumHistoricalPeriods
+  uid: M:Codeunit::System#AI#Time_Series_Management.SetMinimumHistoricalPeriods(Integer)
+- syntax:
+    content: 'procedure SetMaximumHistoricalPeriods(NumberOfPeriods: Integer)'
+    parameters:
+    - id: NumberOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetMaximumHistoricalPeriods
+  uid: M:Codeunit::System#AI#Time_Series_Management.SetMaximumHistoricalPeriods(Integer)
+- syntax:
+    content: 'procedure HasMinimumHistoricalData(var NumberOfPeriodsWithHistory: Integer, SourceRecord: Variant, PeriodFieldNo: Integer, PeriodType: Option, ForecastStartDate: Date): Boolean'
+    parameters:
+    - id: NumberOfPeriodsWithHistory
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRecord
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: PeriodFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ForecastStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasMinimumHistoricalData
+  uid: M:Codeunit::System#AI#Time_Series_Management.HasMinimumHistoricalData(Integer@,Variant,Integer,Option,Date):Boolean
+- syntax:
+    content: 'procedure GetTimeSeriesModelOption(TimeSeriesModel: Text): Integer'
+    parameters:
+    - id: TimeSeriesModel
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetTimeSeriesModelOption
+  uid: M:Codeunit::System#AI#Time_Series_Management.GetTimeSeriesModelOption(Text):Integer
+commentId: O:Codeunit::System#AI#Time Series Management
+name: '"Time Series Management"'
+uid: O:Codeunit::System#AI#Time_Series_Management

@@ -1,0 +1,210 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Serv-Documents Mgt."
+alId: ID 5988
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Service Header" = rimd,
+                      TableData "Service Item Line" = rimd,
+                      TableData "Service Line" = rimd,
+                      TableData "Service Ledger Entry" = rm,
+                      TableData "Warranty Ledger Entry" = rm,
+    #if not CLEAN23                  
+                      TableData "Invoice Post. Buffer" = rimd,
+    #endif                  
+                      TableData "Service Shipment Item Line" = rimd,
+                      TableData "Service Shipment Header" = rimd,
+                      TableData "Service Shipment Line" = rimd,
+                      TableData "Service Invoice Header" = rimd,
+                      TableData "Service Invoice Line" = rimd,
+                      TableData "Service Cr.Memo Header" = rimd,
+                      TableData "Service Cr.Memo Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Initialize(var PassedServiceHeader: Record "Service Header", var PassedServiceLine: Record "Service Line")'
+    parameters:
+    - id: PassedServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.Initialize(Service_Header@,Service_Line@)
+- syntax:
+    content: 'procedure CheckServiceDocument(var PassedServiceHeader: Record "Service Header", var PassedServiceLine: Record "Service Line")'
+    parameters:
+    - id: PassedServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CheckServiceDocument
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.CheckServiceDocument(Service_Header@,Service_Line@)
+- syntax:
+    content: procedure CalcInvDiscount()
+  name: CalcInvDiscount
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.CalcInvDiscount
+- syntax:
+    content: 'procedure PostDocumentLines(var Window: Dialog)'
+    parameters:
+    - id: Window
+      parameterType:
+        name: Dialog
+        isExternal: true
+  name: PostDocumentLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.PostDocumentLines(Dialog@)
+- syntax:
+    content: procedure UpdateDocumentLines()
+  name: UpdateDocumentLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.UpdateDocumentLines
+- syntax:
+    content: 'procedure PrepareShipmentHeader(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: PrepareShipmentHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.PrepareShipmentHeader:Code[20]
+- syntax:
+    content: 'procedure PrepareInvoiceHeader(var Window: Dialog): Code[20]'
+    parameters:
+    - id: Window
+      parameterType:
+        name: Dialog
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: PrepareInvoiceHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.PrepareInvoiceHeader(Dialog@):Code[20]
+- syntax:
+    content: 'procedure PrepareCrMemoHeader(var Window: Dialog): Code[20]'
+    parameters:
+    - id: Window
+      parameterType:
+        name: Dialog
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: PrepareCrMemoHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.PrepareCrMemoHeader(Dialog@):Code[20]
+- syntax:
+    content: 'procedure Finalize(var PassedServHeader: Record "Service Header")'
+    parameters:
+    - id: PassedServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: Finalize
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.Finalize(Service_Header@)
+- syntax:
+    content: procedure InsertValueEntryRelation()
+  name: InsertValueEntryRelation
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.InsertValueEntryRelation
+- syntax:
+    content: 'procedure CheckAndSetPostingConstants(var PassedShip: Boolean, var PassedConsume: Boolean, var PassedInvoice: Boolean)'
+    parameters:
+    - id: PassedShip
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedConsume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckAndSetPostingConstants
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.CheckAndSetPostingConstants(Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure CheckAndBlankQtys(ServDocType: Integer)'
+    parameters:
+    - id: ServDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckAndBlankQtys
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.CheckAndBlankQtys(Integer)
+- syntax:
+    content: procedure CheckAdjustedLines()
+  name: CheckAdjustedLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.CheckAdjustedLines
+- syntax:
+    content: 'procedure IsCloseConditionMet(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCloseConditionMet
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.IsCloseConditionMet:Boolean
+- syntax:
+    content: 'procedure SetNoSeries(var PServHeader: Record "Service Header"): Boolean'
+    parameters:
+    - id: PServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetNoSeries
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.SetNoSeries(Service_Header@):Boolean
+- syntax:
+    content: 'procedure SetLastNos(var PServHeader: Record "Service Header")'
+    parameters:
+    - id: PServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetLastNos
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.SetLastNos(Service_Header@)
+- syntax:
+    content: 'procedure SetPostingOptions(passedShip: Boolean, passedConsume: Boolean, passedInvoice: Boolean)'
+    parameters:
+    - id: passedShip
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: passedConsume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: passedInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPostingOptions
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.SetPostingOptions(Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure CollectTrackingSpecification(var TempTargetTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTargetTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: CollectTrackingSpecification
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#.CollectTrackingSpecification(Tracking_Specification@)
+commentId: O:Codeunit::Microsoft#Service#Posting#Serv-Documents Mgt#
+name: '"Serv-Documents Mgt."'
+uid: O:Codeunit::Microsoft#Service#Posting#Serv-Documents_Mgt#

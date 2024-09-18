@@ -1,0 +1,138 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Reverse Payment Rec. Journal"
+alId: ID 386
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    signatures:
+    - '[InherentPermissions(TableData,1295,M,Both)]'
+    content: 'procedure SetGLRegisterNo(BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: SetGLRegisterNo
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.SetGLRegisterNo(Bank_Acc#_Reconciliation)
+- syntax:
+    content: 'procedure RunReversalWizard(var PostedPaymentReconHdr: Record "Posted Payment Recon. Hdr")'
+    parameters:
+    - id: PostedPaymentReconHdr
+      parameterType:
+        name: Record "Posted Payment Recon. Hdr"
+        isExternal: true
+  name: RunReversalWizard
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.RunReversalWizard(Posted_Payment_Recon#_Hdr@)
+- syntax:
+    content: 'procedure UnapplyEntry(var PaymentRecRelatedEntry: Record "Payment Rec. Related Entry", ShowEntriesToPost: Boolean)'
+    parameters:
+    - id: PaymentRecRelatedEntry
+      parameterType:
+        name: Record "Payment Rec. Related Entry"
+        isExternal: true
+    - id: ShowEntriesToPost
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UnapplyEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.UnapplyEntry(Payment_Rec#_Related_Entry@,Boolean)
+- syntax:
+    content: 'procedure ReverseEntry(var PaymentRecRelatedEntry: Record "Payment Rec. Related Entry", ShowEntriesToPost: Boolean)'
+    parameters:
+    - id: PaymentRecRelatedEntry
+      parameterType:
+        name: Record "Payment Rec. Related Entry"
+        isExternal: true
+    - id: ShowEntriesToPost
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ReverseEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.ReverseEntry(Payment_Rec#_Related_Entry@,Boolean)
+- syntax:
+    content: 'procedure ErrorIfEntryIsNotReversable(CustLedgerEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: ErrorIfEntryIsNotReversable
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.ErrorIfEntryIsNotReversable(Cust#_Ledger_Entry)
+- syntax:
+    content: 'procedure ErrorIfEntryIsNotReversable(VendorLedgerEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: ErrorIfEntryIsNotReversable
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.ErrorIfEntryIsNotReversable(Vendor_Ledger_Entry)
+- syntax:
+    content: 'procedure ErrorIfEntryIsNotReversable(EmployeeLedgerEntry: Record "Employee Ledger Entry")'
+    parameters:
+    - id: EmployeeLedgerEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+  name: ErrorIfEntryIsNotReversable
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.ErrorIfEntryIsNotReversable(Employee_Ledger_Entry)
+- syntax:
+    content: 'procedure ErrorIfEntryIsNotReversable(Reversed: Boolean, TableCaption: Text, EntryNo: Integer, TransactionNo: Integer, JournalBatchName: Code[10], DocumentType: Enum "Gen. Journal Document Type", AmountToApply: Decimal, AppliesToDocNo: Code[20], AppliesToID: Code[50], SourceCode: Code[10])'
+    parameters:
+    - id: Reversed
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TableCaption
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: JournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: AmountToApply
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AppliesToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ErrorIfEntryIsNotReversable
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal.ErrorIfEntryIsNotReversable(Boolean,Text,Integer,Integer,Code[10],Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Decimal,Code[20],Code[50],Code[10])
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Reverse Payment Rec# Journal
+name: '"Reverse Payment Rec. Journal"'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Reverse_Payment_Rec#_Journal

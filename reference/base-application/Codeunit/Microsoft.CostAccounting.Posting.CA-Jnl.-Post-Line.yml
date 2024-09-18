@@ -1,0 +1,38 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CostAccounting.Posting."CA Jnl.-Post Line"
+alId: ID 1102
+namespace: Microsoft.CostAccounting.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CostAccounting.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cost Entry" = rimd,
+                      TableData "Cost Register" = rimd,
+                      tabledata "G/L Entry" = r
+  promoted: false
+- name: TableNo
+  value: Cost Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#CostAccounting#Journal#Cost_Journal_Line
+    name: Microsoft.CostAccounting.Journal."Cost Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure RunWithCheck(var CostJnlLine2: Record "Cost Journal Line")'
+    parameters:
+    - id: CostJnlLine2
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+  name: RunWithCheck
+  uid: M:Codeunit::Microsoft#CostAccounting#Posting#CA_Jnl#-Post_Line.RunWithCheck(Cost_Journal_Line@)
+commentId: O:Codeunit::Microsoft#CostAccounting#Posting#CA Jnl#-Post Line
+name: '"CA Jnl.-Post Line"'
+uid: O:Codeunit::Microsoft#CostAccounting#Posting#CA_Jnl#-Post_Line

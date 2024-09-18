@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Depreciation."Calculate Normal Depreciation"
+alId: ID 5611
+namespace: Microsoft.FixedAssets.Depreciation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Depreciation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = r,
+                      TableData "FA Posting Type Setup" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Calculate(var DeprAmount: Decimal, var NumberOfDays4: Integer, FANo: Code[20], DeprBookCode2: Code[10], UntilDate2: Date, EntryAmounts2: array[4] of Decimal, DateFromProjection2: Date, DaysInPeriod2: Integer)'
+    parameters:
+    - id: DeprAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NumberOfDays4
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UntilDate2
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EntryAmounts2
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: DateFromProjection2
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DaysInPeriod2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Calculate
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Calculate_Normal_Depreciation.Calculate(Decimal@,Integer@,Code[20],Code[10],Date,Decimal[],Date,Integer)
+- syntax:
+    content: 'procedure CalcDB1Amount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcDB1Amount
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Calculate_Normal_Depreciation.CalcDB1Amount:Decimal
+commentId: O:Codeunit::Microsoft#FixedAssets#Depreciation#Calculate Normal Depreciation
+name: '"Calculate Normal Depreciation"'
+uid: O:Codeunit::Microsoft#FixedAssets#Depreciation#Calculate_Normal_Depreciation

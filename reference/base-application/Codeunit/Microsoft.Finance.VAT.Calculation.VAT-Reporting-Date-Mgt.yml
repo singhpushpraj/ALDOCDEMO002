@@ -1,0 +1,101 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Calculation."VAT Reporting Date Mgt"
+alId: ID 799
+namespace: Microsoft.Finance.VAT.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                        TableData "Sales Cr.Memo Header" = rm,
+                        TableData "Service Invoice Header" = rm,
+                        TableData "Service Cr.Memo Header" = rm,
+                        TableData "Issued Reminder Header" = rm,
+                        TableData "Issued Fin. Charge Memo Header" = rm,
+                        TableData "Purch. Inv. Header" = rm,
+                        TableData "Purch. Cr. Memo Hdr." = rm,
+                        TableData "G/L Entry" = rm,
+                        TableData "VAT Entry" = rm,
+                        TableData "VAT Return Period" = r,
+                        TableData "General Ledger Setup" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure UpdateLinkedEntries(VATEntry: Record "VAT Entry")'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+  name: UpdateLinkedEntries
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.UpdateLinkedEntries(VAT_Entry)
+- syntax:
+    content: 'procedure IsVATDateModifiable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVATDateModifiable
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.IsVATDateModifiable:Boolean
+- syntax:
+    content: 'procedure IsVATDateUsageSetToPostingDate(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVATDateUsageSetToPostingDate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.IsVATDateUsageSetToPostingDate:Boolean
+- syntax:
+    content: 'procedure IsVATDateUsageSetToDocumentDate(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVATDateUsageSetToDocumentDate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.IsVATDateUsageSetToDocumentDate:Boolean
+- syntax:
+    content: 'procedure IsVATDateEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVATDateEnabled
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.IsVATDateEnabled:Boolean
+- syntax:
+    content: 'procedure IsValidVATDate(VATEntry: Record "VAT Entry"): Boolean'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsValidVATDate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.IsValidVATDate(VAT_Entry):Boolean
+- syntax:
+    content: 'procedure IsValidDate(VATDate: Date): Boolean'
+    parameters:
+    - id: VATDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsValidDate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt.IsValidDate(Date):Boolean
+commentId: O:Codeunit::Microsoft#Finance#VAT#Calculation#VAT Reporting Date Mgt
+name: '"VAT Reporting Date Mgt"'
+uid: O:Codeunit::Microsoft#Finance#VAT#Calculation#VAT_Reporting_Date_Mgt

@@ -1,0 +1,282 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reminder."Reminder Communication"
+alId: ID 1890
+namespace: Microsoft.Sales.Reminder
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reminder
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure FindDescriptionForLineFee(var ReminderLevel: Record "Reminder Level", var CustLedgerEntry: Record "Cust. Ledger Entry", var ReminderLine: Record "Reminder Line", var GLAccount: Record "G/L Account"): Text[100]'
+    parameters:
+    - id: ReminderLevel
+      parameterType:
+        name: Record "Reminder Level"
+        isExternal: true
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ReminderLine
+      parameterType:
+        name: Record "Reminder Line"
+        isExternal: true
+    - id: GLAccount
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: FindDescriptionForLineFee
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.FindDescriptionForLineFee(Reminder_Level@,Cust#_Ledger_Entry@,Reminder_Line@,G/L_Account@):Text[100]
+- syntax:
+    content: 'procedure InsertBeginningText(var ReminderHeader: Record "Reminder Header", var ReminderLevel: Record "Reminder Level", var ReminderLine: Record "Reminder Line")'
+    parameters:
+    - id: ReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: ReminderLevel
+      parameterType:
+        name: Record "Reminder Level"
+        isExternal: true
+    - id: ReminderLine
+      parameterType:
+        name: Record "Reminder Line"
+        isExternal: true
+  name: InsertBeginningText
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.InsertBeginningText(Reminder_Header@,Reminder_Level@,Reminder_Line@)
+- syntax:
+    content: 'procedure InsertEndingText(var ReminderHeader: Record "Reminder Header", var ReminderLevel: Record "Reminder Level", var ReminderLine: Record "Reminder Line")'
+    parameters:
+    - id: ReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: ReminderLevel
+      parameterType:
+        name: Record "Reminder Level"
+        isExternal: true
+    - id: ReminderLine
+      parameterType:
+        name: Record "Reminder Line"
+        isExternal: true
+  name: InsertEndingText
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.InsertEndingText(Reminder_Header@,Reminder_Level@,Reminder_Line@)
+- syntax:
+    content: 'procedure SubstituteInlineFeeDescription(FeeLineDescriptionText: Text[100], var ReminderLevel: Record "Reminder Level", var ReminderLine: Record "Reminder Line"): Text[100]'
+    parameters:
+    - id: FeeLineDescriptionText
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ReminderLevel
+      parameterType:
+        name: Record "Reminder Level"
+        isExternal: true
+    - id: ReminderLine
+      parameterType:
+        name: Record "Reminder Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: SubstituteInlineFeeDescription
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.SubstituteInlineFeeDescription(Text[100],Reminder_Level@,Reminder_Line@):Text[100]
+- syntax:
+    content: 'procedure SubstituteBeginningOrEndingDescription(SourceDescriptionText: Text[100], ReminderTotal: Decimal, MaxLength: Integer, var ReminderHeader: Record "Reminder Header", var FinanceChargeTerms: Record "Finance Charge Terms"): Text[100]'
+    parameters:
+    - id: SourceDescriptionText
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ReminderTotal
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MaxLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    - id: FinanceChargeTerms
+      parameterType:
+        name: Record "Finance Charge Terms"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: SubstituteBeginningOrEndingDescription
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.SubstituteBeginningOrEndingDescription(Text[100],Decimal,Integer,Reminder_Header@,Finance_Charge_Terms@):Text[100]
+- syntax:
+    content: 'procedure GetListOfAttachmentLanguagesFromIdWithSeparator(SelectedGuid: Guid, SeparatorText: Text): Text'
+    parameters:
+    - id: SelectedGuid
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: SeparatorText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetListOfAttachmentLanguagesFromIdWithSeparator
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.GetListOfAttachmentLanguagesFromIdWithSeparator(Guid,Text):Text
+- syntax:
+    content: 'procedure GetListOfEmailLanguagesFromIdWithSeparator(SelectedGuid: Guid, SeparatorText: Text): Text'
+    parameters:
+    - id: SelectedGuid
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: SeparatorText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetListOfEmailLanguagesFromIdWithSeparator
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.GetListOfEmailLanguagesFromIdWithSeparator(Guid,Text):Text
+- syntax:
+    content: 'procedure GetListOfAttachmentLanguagesFromId(SelectedGuid: Guid): List of [Code[10]]'
+    parameters:
+    - id: SelectedGuid
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: List of [Code[10]]
+        isExternal: true
+  name: GetListOfAttachmentLanguagesFromId
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.GetListOfAttachmentLanguagesFromId(Guid):List_of_[Code]
+- syntax:
+    content: 'procedure GetListOfEmailLanguagesFromId(SelectedGuid: Guid): List of [Code[10]]'
+    parameters:
+    - id: SelectedGuid
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: List of [Code[10]]
+        isExternal: true
+  name: GetListOfEmailLanguagesFromId
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.GetListOfEmailLanguagesFromId(Guid):List_of_[Code]
+- syntax:
+    content: 'procedure SetDefaultContentForNewLanguage(SelectedId: Guid, LanguageCode: Code[10], SourceType: Enum "Reminder Text Source Type", SelectedSystemId: Guid)'
+    parameters:
+    - id: SelectedId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: LanguageCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Reminder#Reminder_Text_Source_Type
+        name: Microsoft.Sales.Reminder."Reminder Text Source Type"
+        isExternal: false
+    - id: SelectedSystemId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: SetDefaultContentForNewLanguage
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.SetDefaultContentForNewLanguage(Guid,Code[10],Enum::Microsoft#Sales#Reminder#Reminder_Text_Source_Type,Guid)
+- syntax:
+    content: 'procedure ExtractAttachmentAndEmailLanguages(var ReminderTerms: Record "Reminder Terms"): Text'
+    parameters:
+    - id: ReminderTerms
+      parameterType:
+        name: Record "Reminder Terms"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ExtractAttachmentAndEmailLanguages
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.ExtractAttachmentAndEmailLanguages(Reminder_Terms@):Text
+- syntax:
+    content: 'procedure ExtractAttachmentAndEmailLanguages(var ReminderLevel: Record "Reminder Level"): Text'
+    parameters:
+    - id: ReminderLevel
+      parameterType:
+        name: Record "Reminder Level"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ExtractAttachmentAndEmailLanguages
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.ExtractAttachmentAndEmailLanguages(Reminder_Level@):Text
+- syntax:
+    content: 'procedure ExtractAttachmentAndEmailLanguages(SelectedId: Guid): Text'
+    parameters:
+    - id: SelectedId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ExtractAttachmentAndEmailLanguages
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.ExtractAttachmentAndEmailLanguages(Guid):Text
+- syntax:
+    content: 'procedure PopulateEmailText(var IssuedReminderHeader: Record "Issued Reminder Header", var CompanyInfo: Record "Company Information", var GreetingTxt: Text, var AmtDueTxt: Text, var BodyTxt: Text, var ClosingTxt: Text, var DescriptionTxt: Text, NNC_TotalInclVAT: Decimal)'
+    parameters:
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+    - id: CompanyInfo
+      parameterType:
+        name: Record "Company Information"
+        isExternal: true
+    - id: GreetingTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AmtDueTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BodyTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClosingTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DescriptionTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NNC_TotalInclVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PopulateEmailText
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication.PopulateEmailText(Issued_Reminder_Header@,Company_Information@,Text@,Text@,Text@,Text@,Text@,Decimal)
+commentId: O:Codeunit::Microsoft#Sales#Reminder#Reminder Communication
+name: '"Reminder Communication"'
+uid: O:Codeunit::Microsoft#Sales#Reminder#Reminder_Communication

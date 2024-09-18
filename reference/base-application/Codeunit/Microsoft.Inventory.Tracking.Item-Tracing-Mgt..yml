@@ -1,0 +1,356 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Item Tracing Mgt."
+alId: ID 6520
+namespace: Microsoft.Inventory.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure FindRecords(var TempTrackEntry: Record "Item Tracing Buffer", var TempTrackEntry2: Record "Item Tracing Buffer", SerialNoFilter: Text, LotNoFilter: Text, PackageNoFilter: Text, ItemNoFilter: Text, VariantFilter: Text, Direction: Option, ShowComponents: Option)'
+    parameters:
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry2
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: SerialNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LotNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PackageNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: VariantFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ShowComponents
+      parameterType:
+        name: Option
+        isExternal: true
+  name: FindRecords
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.FindRecords(Item_Tracing_Buffer@,Item_Tracing_Buffer@,Text,Text,Text,Text,Text,Option,Option)
+- syntax:
+    content: 'procedure NextLevel(var TempTrackEntry: Record "Item Tracing Buffer", TempTrackEntry2: Record "Item Tracing Buffer", Direction: Option, ShowComponents: Option, ParentID: Integer)'
+    parameters:
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry2
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ShowComponents
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ParentID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: NextLevel
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.NextLevel(Item_Tracing_Buffer@,Item_Tracing_Buffer,Option,Option,Integer)
+- syntax:
+    content: 'procedure FindComponents(var ItemLedgEntry2: Record "Item Ledger Entry", var TempItemTracingBuffer: Record "Item Tracing Buffer" temporary, Direction: Option, ShowComponents: Option, ParentID: Integer)'
+    parameters:
+    - id: ItemLedgEntry2
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TempItemTracingBuffer
+      parameterType:
+        name: Record "Item Tracing Buffer" temporary
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ShowComponents
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ParentID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindComponents
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.FindComponents(Item_Ledger_Entry@,Item_Tracing_Buffer@,Option,Option,Integer)
+- syntax:
+    content: 'procedure InsertRecord(var TempTrackEntry: Record "Item Tracing Buffer", ParentID: Integer): Boolean'
+    parameters:
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: ParentID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InsertRecord
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.InsertRecord(Item_Tracing_Buffer@,Integer):Boolean
+- syntax:
+    content: 'procedure InitTempTable(var TempTrackEntry: Record "Item Tracing Buffer", var TempTrackEntry2: Record "Item Tracing Buffer")'
+    parameters:
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry2
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+  name: InitTempTable
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.InitTempTable(Item_Tracing_Buffer@,Item_Tracing_Buffer@)
+- syntax:
+    content: 'procedure ExpandAll(var TempTrackEntry: Record "Item Tracing Buffer", var TempTrackEntry2: Record "Item Tracing Buffer")'
+    parameters:
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry2
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+  name: ExpandAll
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.ExpandAll(Item_Tracing_Buffer@,Item_Tracing_Buffer@)
+- syntax:
+    content: 'procedure TransferData(var ItemLedgEntry: Record "Item Ledger Entry", var TempTrackEntry: Record "Item Tracing Buffer")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+  name: TransferData
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.TransferData(Item_Ledger_Entry@,Item_Tracing_Buffer@)
+- syntax:
+    content: 'procedure InitSearchCriteria(SerialNoFilter: Text, LotNoFilter: Text, PackageNoFilter: Text, ItemNoFilter: Text)'
+    parameters:
+    - id: SerialNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LotNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PackageNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: InitSearchCriteria
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.InitSearchCriteria(Text,Text,Text,Text)
+- syntax:
+    content: 'procedure InitSearchParm(var ItemTracingBuffer: Record "Item Tracing Buffer", var SerialNoFilter: Text, var LotNoFilter: Text, var PackageNoFilter: Text, var ItemNoFilter: Text, var VariantFilter: Text)'
+    parameters:
+    - id: ItemTracingBuffer
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: SerialNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LotNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PackageNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: VariantFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: InitSearchParm
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.InitSearchParm(Item_Tracing_Buffer@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure SetRecordID(var TrackingEntry: Record "Item Tracing Buffer")'
+    parameters:
+    - id: TrackingEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+  name: SetRecordID
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.SetRecordID(Item_Tracing_Buffer@)
+- syntax:
+    content: 'procedure ShowDocument(RecID: RecordId)'
+    parameters:
+    - id: RecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowDocument
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.ShowDocument(RecordId)
+- syntax:
+    content: 'procedure SetExpansionStatus(Rec: Record "Item Tracing Buffer", var TempTrackEntry: Record "Item Tracing Buffer", var TempTrackEntry2: Record "Item Tracing Buffer", var ActualExpansionStatus: Option)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry2
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: ActualExpansionStatus
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetExpansionStatus
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.SetExpansionStatus(Item_Tracing_Buffer,Item_Tracing_Buffer@,Item_Tracing_Buffer@,Option@)
+- syntax:
+    content: 'procedure IsSpecificTracking(ItemNo: Code[20], ItemTrackingSetup: Record "Item Tracking Setup" temporary): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSpecificTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.IsSpecificTracking(Code[20],Item_Tracking_Setup):Boolean
+- syntax:
+    content: 'procedure RecallHistory(Steps: Integer, var TempTrackEntry: Record "Item Tracing Buffer", var TempTrackEntry2: Record "Item Tracing Buffer", var SerialNoFilter: Text, var LotNoFilter: Text, var PackageNoFilter: Text, var ItemNoFilter: Text, var VariantFilter: Text, var TraceMethod: Option, var ShowComponents: Option): Boolean'
+    parameters:
+    - id: Steps
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempTrackEntry
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: TempTrackEntry2
+      parameterType:
+        name: Record "Item Tracing Buffer"
+        isExternal: true
+    - id: SerialNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LotNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PackageNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: VariantFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TraceMethod
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ShowComponents
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RecallHistory
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.RecallHistory(Integer,Item_Tracing_Buffer@,Item_Tracing_Buffer@,Text@,Text@,Text@,Text@,Text@,Option@,Option@):Boolean
+- syntax:
+    content: 'procedure GetHistoryStatus(var PreviousExists: Boolean, var NextExists: Boolean)'
+    parameters:
+    - id: PreviousExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NextExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetHistoryStatus
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.GetHistoryStatus(Boolean@,Boolean@)
+- syntax:
+    content: 'procedure SetVariables(NewTempLineNo: Integer, NewCurrentLevel: Integer)'
+    parameters:
+    - id: NewTempLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCurrentLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetVariables
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.SetVariables(Integer,Integer)
+- syntax:
+    content: 'procedure GetVariables(var NewTempLineNo: Integer, var NewCurrentLevel: Integer)'
+    parameters:
+    - id: NewTempLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCurrentLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetVariables
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#.GetVariables(Integer@,Integer@)
+commentId: O:Codeunit::Microsoft#Inventory#Tracking#Item Tracing Mgt#
+name: '"Item Tracing Mgt."'
+uid: O:Codeunit::Microsoft#Inventory#Tracking#Item_Tracing_Mgt#

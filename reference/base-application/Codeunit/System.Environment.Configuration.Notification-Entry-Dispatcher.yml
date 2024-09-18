@@ -1,0 +1,43 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment.Configuration."Notification Entry Dispatcher"
+alId: ID 1509
+namespace: System.Environment.Configuration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment.Configuration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "User Setup" = r,
+                      TableData "Notification Entry" = rimd,
+                      TableData "Sent Notification Entry" = rimd,
+                      TableData "Email Item" = rimd
+  promoted: false
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetTargetRecRef(var NotificationEntry: Record "Notification Entry", var TargetRecRefOut: RecordRef)'
+    parameters:
+    - id: NotificationEntry
+      parameterType:
+        name: Record "Notification Entry"
+        isExternal: true
+    - id: TargetRecRefOut
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: GetTargetRecRef
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Entry_Dispatcher.GetTargetRecRef(Notification_Entry@,RecordRef@)
+commentId: O:Codeunit::System#Environment#Configuration#Notification Entry Dispatcher
+name: '"Notification Entry Dispatcher"'
+uid: O:Codeunit::System#Environment#Configuration#Notification_Entry_Dispatcher

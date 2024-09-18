@@ -1,0 +1,57 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Pmt. Rec. Undo Statement"
+alId: ID 1300
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Bank#Statement#Bank_Account_Statement
+  name: Microsoft.Bank.Statement."Bank Account Statement"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Reverse Payment Reconciliation Journal
+  promoted: false
+- name: PageType
+  value: NavigatePage
+  promoted: true
+- name: SourceTable
+  value: "275"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Statement#Bank_Account_Statement
+    name: Microsoft.Bank.Statement."Bank Account Statement"
+    isExternal: false
+- name: Editable
+  value: "False"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetBankAccountStatement(BankAccountNoToOpen: Code[20], StatementNoToOpen: Code[20])'
+    parameters:
+    - id: BankAccountNoToOpen
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StatementNoToOpen
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetBankAccountStatement
+  uid: M:Page::Microsoft#Bank#Reconciliation#Pmt#_Rec#_Undo_Statement.SetBankAccountStatement(Code[20],Code[20])
+- syntax:
+    content: 'procedure NextSelected(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: NextSelected
+  uid: M:Page::Microsoft#Bank#Reconciliation#Pmt#_Rec#_Undo_Statement.NextSelected:Boolean
+commentId: O:Page::Microsoft#Bank#Reconciliation#Pmt# Rec# Undo Statement
+name: '"Pmt. Rec. Undo Statement"'
+uid: O:Page::Microsoft#Bank#Reconciliation#Pmt#_Rec#_Undo_Statement

@@ -1,0 +1,667 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Deferral."Deferral Utilities"
+alId: ID 1720
+namespace: Microsoft.Finance.Deferral
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Deferral
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CreateRecurringDescription(PostingDate: Date, Description: Text[100]): Text[100]'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: CreateRecurringDescription
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.CreateRecurringDescription(Date,Text[100]):Text[100]
+- syntax:
+    content: 'procedure CreateDeferralSchedule(DeferralCode: Code[10], DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer, AmountToDefer: Decimal, CalcMethod: Enum "Deferral Calculation Method", StartDate: Date, NoOfPeriods: Integer, ApplyDeferralPercentage: Boolean, DeferralDescription: Text[100], AdjustStartDate: Boolean, CurrencyCode: Code[10])'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AmountToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CalcMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#Deferral#Deferral_Calculation_Method
+        name: Microsoft.Finance.Deferral."Deferral Calculation Method"
+        isExternal: false
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ApplyDeferralPercentage
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DeferralDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: AdjustStartDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CreateDeferralSchedule
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.CreateDeferralSchedule(Code[10],Integer,Code[10],Code[10],Integer,Code[20],Integer,Decimal,Enum::Microsoft#Finance#Deferral#Deferral_Calculation_Method,Date,Integer,Boolean,Text[100],Boolean,Code[10])
+- syntax:
+    content: 'procedure CalcDeferralNoOfPeriods(CalcMethod: Enum "Deferral Calculation Method", NoOfPeriods: Integer, StartDate: Date): Integer'
+    parameters:
+    - id: CalcMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#Deferral#Deferral_Calculation_Method
+        name: Microsoft.Finance.Deferral."Deferral Calculation Method"
+        isExternal: false
+    - id: NoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CalcDeferralNoOfPeriods
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.CalcDeferralNoOfPeriods(Enum::Microsoft#Finance#Deferral#Deferral_Calculation_Method,Integer,Date):Integer
+- syntax:
+    content: 'procedure FilterDeferralLines(var DeferralLine: Record "Deferral Line", DeferralDocType: Option, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer)'
+    parameters:
+    - id: DeferralLine
+      parameterType:
+        name: Record "Deferral Line"
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FilterDeferralLines
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.FilterDeferralLines(Deferral_Line@,Option,Code[10],Code[10],Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure IsDateNotAllowed(PostingDate: Date): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDateNotAllowed
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.IsDateNotAllowed(Date):Boolean
+- syntax:
+    content: 'procedure SetDeferralRecords(var DeferralHeader: Record "Deferral Header", DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer, CalcMethod: Enum "Deferral Calculation Method", NoOfPeriods: Integer, AdjustedDeferralAmount: Decimal, AdjustedStartDate: Date, DeferralCode: Code[10], DeferralDescription: Text[100], AmountToDefer: Decimal, AdjustStartDate: Boolean, CurrencyCode: Code[10])'
+    parameters:
+    - id: DeferralHeader
+      parameterType:
+        name: Record "Deferral Header"
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CalcMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#Deferral#Deferral_Calculation_Method
+        name: Microsoft.Finance.Deferral."Deferral Calculation Method"
+        isExternal: false
+    - id: NoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AdjustedDeferralAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AdjustedStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: AmountToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AdjustStartDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetDeferralRecords
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.SetDeferralRecords(Deferral_Header@,Integer,Code[10],Code[10],Integer,Code[20],Integer,Enum::Microsoft#Finance#Deferral#Deferral_Calculation_Method,Integer,Decimal,Date,Code[10],Text[100],Decimal,Boolean,Code[10])
+- syntax:
+    content: 'procedure RemoveOrSetDeferralSchedule(DeferralCode: Code[10], DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer, Amount: Decimal, PostingDate: Date, Description: Text[100], CurrencyCode: Code[10], AdjustStartDate: Boolean)'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AdjustStartDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveOrSetDeferralSchedule
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.RemoveOrSetDeferralSchedule(Code[10],Integer,Code[10],Code[10],Integer,Code[20],Integer,Decimal,Date,Text[100],Code[10],Boolean)
+- syntax:
+    content: 'procedure CreateScheduleFromGL(GenJournalLine: Record "Gen. Journal Line", FirstEntryNo: Integer)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: FirstEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateScheduleFromGL
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.CreateScheduleFromGL(Gen#_Journal_Line,Integer)
+- syntax:
+    content: 'procedure DeferralCodeOnValidate(DeferralCode: Code[10], DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer, Amount: Decimal, PostingDate: Date, Description: Text[100], CurrencyCode: Code[10])'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: DeferralCodeOnValidate
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.DeferralCodeOnValidate(Code[10],Integer,Code[10],Code[10],Integer,Code[20],Integer,Decimal,Date,Text[100],Code[10])
+- syntax:
+    content: 'procedure DeferralCodeOnDelete(DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer)'
+    parameters:
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeferralCodeOnDelete
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.DeferralCodeOnDelete(Integer,Code[10],Code[10],Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure OpenLineScheduleEdit(DeferralCode: Code[10], DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer, Amount: Decimal, PostingDate: Date, Description: Text[100], CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OpenLineScheduleEdit
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.OpenLineScheduleEdit(Code[10],Integer,Code[10],Code[10],Integer,Code[20],Integer,Decimal,Date,Text[100],Code[10]):Boolean
+- syntax:
+    content: 'procedure OpenLineScheduleView(DeferralCode: Code[10], DeferralDocType: Integer, GenJnlTemplateName: Code[10], GenJnlBatchName: Code[10], DocumentType: Integer, DocumentNo: Code[20], LineNo: Integer)'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: OpenLineScheduleView
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.OpenLineScheduleView(Code[10],Integer,Code[10],Code[10],Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure OpenLineScheduleArchive(DeferralCode: Code[10], DeferralDocType: Integer, DocumentType: Integer, DocumentNo: Code[20], DocNoOccurence: Integer, VersionNo: Integer, LineNo: Integer)'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocNoOccurence
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: VersionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: OpenLineScheduleArchive
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.OpenLineScheduleArchive(Code[10],Integer,Integer,Code[20],Integer,Integer,Integer)
+- syntax:
+    content: 'procedure RoundDeferralAmount(var DeferralHeader: Record "Deferral Header", CurrencyCode: Code[10], CurrencyFactor: Decimal, PostingDate: Date, var AmtToDefer: Decimal, var AmtToDeferLCY: Decimal)'
+    parameters:
+    - id: DeferralHeader
+      parameterType:
+        name: Record "Deferral Header"
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AmtToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmtToDeferLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: RoundDeferralAmount
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.RoundDeferralAmount(Deferral_Header@,Code[10],Decimal,Date,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure InitializeDeferralHeaderAndSetPostDate(var DeferralLine: Record "Deferral Line", DeferralHeader: Record "Deferral Header", PeriodicCount: Integer, var PostDate: Date)'
+    parameters:
+    - id: DeferralLine
+      parameterType:
+        name: Record "Deferral Line"
+        isExternal: true
+    - id: DeferralHeader
+      parameterType:
+        name: Record "Deferral Header"
+        isExternal: true
+    - id: PeriodicCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PostDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: InitializeDeferralHeaderAndSetPostDate
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.InitializeDeferralHeaderAndSetPostDate(Deferral_Line@,Deferral_Header,Integer,Date@)
+- syntax:
+    content: 'procedure GetDeferralStartDate(DeferralDocType: Integer, RecordDocumentType: Integer, RecordDocumentNo: Code[20], RecordLineNo: Integer, DeferralCode: Code[10], PostingDate: Date): Date'
+    parameters:
+    - id: DeferralDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordDocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RecordLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDeferralStartDate
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.GetDeferralStartDate(Integer,Integer,Code[20],Integer,Code[10],Date):Date
+- syntax:
+    content: 'procedure AdjustTotalAmountForDeferrals(DeferralCode: Code[10], var AmtToDefer: Decimal, var AmtToDeferACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal, var TotalVATBase: Decimal, var TotalVATBaseACY: Decimal)'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AmtToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmtToDeferACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBaseACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustTotalAmountForDeferrals
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.AdjustTotalAmountForDeferrals(Code[10],Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure AdjustTotalAmountForDeferralsNoBase(DeferralCode: Code[10], var AmtToDefer: Decimal, var AmtToDeferACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal)'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AmtToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmtToDeferACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustTotalAmountForDeferralsNoBase
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.AdjustTotalAmountForDeferralsNoBase(Code[10],Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CheckDeferralConditionForGenJournal(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckDeferralConditionForGenJournal
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.CheckDeferralConditionForGenJournal(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure ShowGenJournalTemplate(ErrorInfo: ErrorInfo)'
+    parameters:
+    - id: ErrorInfo
+      parameterType:
+        name: ErrorInfo
+        isExternal: true
+  name: ShowGenJournalTemplate
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.ShowGenJournalTemplate(ErrorInfo)
+- syntax:
+    content: 'procedure ShowSourceCodeSetup(ErrorInfo: ErrorInfo)'
+    parameters:
+    - id: ErrorInfo
+      parameterType:
+        name: ErrorInfo
+        isExternal: true
+  name: ShowSourceCodeSetup
+  uid: M:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities.ShowSourceCodeSetup(ErrorInfo)
+commentId: O:Codeunit::Microsoft#Finance#Deferral#Deferral Utilities
+name: '"Deferral Utilities"'
+uid: O:Codeunit::Microsoft#Finance#Deferral#Deferral_Utilities

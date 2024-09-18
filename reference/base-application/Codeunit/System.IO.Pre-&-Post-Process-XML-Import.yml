@@ -1,0 +1,184 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.IO."Pre & Post Process XML Import"
+alId: ID 1262
+namespace: System.IO
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.IO
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure PostProcessStatementDate(DataExch: Record "Data Exch.", var RecRef: RecordRef, FieldNo: Integer, StmtDatePathFilter: Text)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StmtDatePathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: PostProcessStatementDate
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.PostProcessStatementDate(Data_Exch#,RecordRef@,Integer,Text)
+- syntax:
+    content: 'procedure PostProcessStatementEndingBalance(DataExch: Record "Data Exch.", var RecRef: RecordRef, FieldNo: Integer, BalTypeDescriptor: Text, BalTypePathFilter: Text, BalAmtPathFilter: Text, CrdDbtIndPathFilter: Text, ParentNodeOffset: Integer)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BalTypeDescriptor
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BalTypePathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BalAmtPathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CrdDbtIndPathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ParentNodeOffset
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PostProcessStatementEndingBalance
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.PostProcessStatementEndingBalance(Data_Exch#,RecordRef@,Integer,Text,Text,Text,Text,Integer)
+- syntax:
+    content: 'procedure PreProcessBankAccount(DataExch: Record "Data Exch.", BankAccNo: Code[20], IBANPathFilter: Text, BankAccIDPathFilter: Text, CurrCodePathFilter: Text)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: BankAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IBANPathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BankAccIDPathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CurrCodePathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: PreProcessBankAccount
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.PreProcessBankAccount(Data_Exch#,Code[20],Text,Text,Text)
+- syntax:
+    content: 'procedure PreProcessGLAccount(DataExch: Record "Data Exch.", var GenJournalLineTemplate: Record "Gen. Journal Line", CurrencyCodePathFilter: Text)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: GenJournalLineTemplate
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: CurrencyCodePathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: PreProcessGLAccount
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.PreProcessGLAccount(Data_Exch#,Gen#_Journal_Line@,Text)
+- syntax:
+    content: 'procedure PreProcessFile(DataExch: Record "Data Exch.", StatementIdPathFilter: Text)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: StatementIdPathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: PreProcessFile
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.PreProcessFile(Data_Exch#,Text)
+- syntax:
+    content: 'procedure HasDataExchFieldValue(var DataExchFieldDetails: Query "Data Exch. Field Details", DataExchEntryNo: Integer, PathFilter: Text): Boolean'
+    parameters:
+    - id: DataExchFieldDetails
+      parameterType:
+        internalReference: O:Query::System#IO#Data_Exch#_Field_Details
+        name: System.IO."Data Exch. Field Details"
+        isExternal: false
+    - id: DataExchEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasDataExchFieldValue
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.HasDataExchFieldValue(Query::System#IO#Data_Exch#_Field_Details@,Integer,Text):Boolean
+- syntax:
+    content: 'procedure SetValueFromDataExchField(var DataExchFieldDetails: Query "Data Exch. Field Details", DataExch: Record "Data Exch.", PathFilter: Text, NotFoundMessage: Text, RecRef: RecordRef, FieldNo: Integer): Boolean'
+    parameters:
+    - id: DataExchFieldDetails
+      parameterType:
+        internalReference: O:Query::System#IO#Data_Exch#_Field_Details
+        name: System.IO."Data Exch. Field Details"
+        isExternal: false
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: PathFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NotFoundMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetValueFromDataExchField
+  uid: M:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import.SetValueFromDataExchField(Query::System#IO#Data_Exch#_Field_Details@,Data_Exch#,Text,Text,RecordRef,Integer):Boolean
+commentId: O:Codeunit::System#IO#Pre &amp; Post Process XML Import
+name: '"Pre & Post Process XML Import"'
+uid: O:Codeunit::System#IO#Pre_&amp;_Post_Process_XML_Import

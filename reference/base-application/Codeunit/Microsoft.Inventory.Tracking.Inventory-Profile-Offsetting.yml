@@ -1,0 +1,528 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Inventory Profile Offsetting"
+alId: ID 99000854
+namespace: Microsoft.Inventory.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = id,
+                      TableData "Prod. Order Capacity Need" = rmd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalculatePlanFromWorksheet(var Item: Record Item, ManufacturingSetup2: Record "Manufacturing Setup", TemplateName: Code[10], WorksheetName: Code[10], OrderDate: Date, ToDate: Date, MRPPlanning: Boolean, RespectPlanningParm: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: ManufacturingSetup2
+      parameterType:
+        name: Record "Manufacturing Setup"
+        isExternal: true
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WorksheetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: OrderDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: MRPPlanning
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RespectPlanningParm
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculatePlanFromWorksheet
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CalculatePlanFromWorksheet(Item@,Manufacturing_Setup,Code[10],Code[10],Date,Date,Boolean,Boolean)
+- syntax:
+    content: 'procedure CreateTempSKUForLocation(ItemNo: Code[20], LocationCode: Code[10])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CreateTempSKUForLocation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CreateTempSKUForLocation(Code[20],Code[10])
+- syntax:
+    content: 'procedure InsertSupplyInvtProfile(var InventoryProfile: Record "Inventory Profile", ToDate: Date)'
+    parameters:
+    - id: InventoryProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: InsertSupplyInvtProfile
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.InsertSupplyInvtProfile(Inventory_Profile@,Date)
+- syntax:
+    content: 'procedure CheckForecastExist(var ForecastEntry: Record "Production Forecast Entry", OrderDate: Date, ToDate: Date): Boolean'
+    parameters:
+    - id: ForecastEntry
+      parameterType:
+        name: Record "Production Forecast Entry"
+        isExternal: true
+    - id: OrderDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckForecastExist
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CheckForecastExist(Production_Forecast_Entry@,Date,Date):Boolean
+- syntax:
+    content: 'procedure FindReplishmentLocation(var ReplenishmentLocation: Code[10], var Item: Record Item): Boolean'
+    parameters:
+    - id: ReplenishmentLocation
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReplishmentLocation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.FindReplishmentLocation(Code[10]@,Item@):Boolean
+- syntax:
+    content: 'procedure ScheduleForward(var SupplyInvtProfile: Record "Inventory Profile", DemandInvtProfile: Record "Inventory Profile", StartingDate: Date)'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: DemandInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ScheduleForward
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.ScheduleForward(Inventory_Profile@,Inventory_Profile,Date)
+- syntax:
+    content: 'procedure DecreaseQty(var SupplyInvtProfile: Record "Inventory Profile", ReduceQty: Decimal, RespectPlanningParm: Boolean): Boolean'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: ReduceQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RespectPlanningParm
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DecreaseQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.DecreaseQty(Inventory_Profile@,Decimal,Boolean):Boolean
+- syntax:
+    content: 'procedure CanDecreaseSupply(InventoryProfileSupply: Record "Inventory Profile", var ReduceQty: Decimal): Boolean'
+    parameters:
+    - id: InventoryProfileSupply
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: ReduceQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanDecreaseSupply
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CanDecreaseSupply(Inventory_Profile,Decimal@):Boolean
+- syntax:
+    content: 'procedure CreateDemand(var DemandInvtProfile: Record "Inventory Profile", var SKU: Record "Stockkeeping Unit", NeededQuantity: Decimal, NeededDueDate: Date, OrderRelation: Option)'
+    parameters:
+    - id: DemandInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: SKU
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+    - id: NeededQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NeededDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OrderRelation
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CreateDemand
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CreateDemand(Inventory_Profile@,Stockkeeping_Unit@,Decimal,Date,Option)
+- syntax:
+    content: 'procedure MaintainPlanningLine(var SupplyInvtProfile: Record "Inventory Profile", DemandInvtProfile: Record "Inventory Profile", NewPhase: Option, Direction: Option)'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: DemandInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: NewPhase
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: MaintainPlanningLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.MaintainPlanningLine(Inventory_Profile@,Inventory_Profile,Option,Option)
+- syntax:
+    content: 'procedure AdjustReorderQty(OrderQty: Decimal, SKU: Record "Stockkeeping Unit", SupplyLineNo: Integer, MinQty: Decimal): Decimal'
+    parameters:
+    - id: OrderQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SKU
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MinQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AdjustReorderQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.AdjustReorderQty(Decimal,Stockkeeping_Unit,Integer,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcReorderQty(NeededQty: Decimal, ProjectedInventory: Decimal, SupplyLineNo: Integer): Decimal'
+    parameters:
+    - id: NeededQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProjectedInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReorderQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CalcReorderQty(Decimal,Decimal,Integer):Decimal
+- syntax:
+    content: procedure CalcMaximumReorderQty()
+  name: CalcMaximumReorderQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CalcMaximumReorderQty
+- syntax:
+    content: 'procedure CalcOrderQty(NeededQty: Decimal, ProjectedInventory: Decimal, SupplyLineNo: Integer): Decimal'
+    parameters:
+    - id: NeededQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProjectedInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SupplyLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOrderQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CalcOrderQty(Decimal,Decimal,Integer):Decimal
+- syntax:
+    content: 'procedure TransferReqLineToInvProfiles(var InventoryProfile: Record "Inventory Profile", var TransferReqLine: Record "Requisition Line")'
+    parameters:
+    - id: InventoryProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: TransferReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: TransferReqLineToInvProfiles
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.TransferReqLineToInvProfiles(Inventory_Profile@,Requisition_Line@)
+- syntax:
+    content: 'procedure CheckNewOverflow(var SupplyInvtProfile: Record "Inventory Profile", InventoryLevel: Decimal, QtyToDecreaseOverFlow: Decimal, LastDueDate: Date)'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: InventoryLevel
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToDecreaseOverFlow
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: LastDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CheckNewOverflow
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CheckNewOverflow(Inventory_Profile@,Decimal,Decimal,Date)
+- syntax:
+    content: 'procedure CreateSupplyForward(var SupplyInvtProfile: Record "Inventory Profile", DemandInvtProfile: Record "Inventory Profile", var TempReminderInvtProfile: Record "Inventory Profile" temporary, AtDate: Date, ProjectedInventory: Decimal, var NewSupplyHasTakenOver: Boolean, CurrDueDate: Date)'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: DemandInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: TempReminderInvtProfile
+      parameterType:
+        name: Record "Inventory Profile" temporary
+        isExternal: true
+    - id: AtDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ProjectedInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewSupplyHasTakenOver
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreateSupplyForward
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.CreateSupplyForward(Inventory_Profile@,Inventory_Profile,Inventory_Profile@,Date,Decimal,Boolean@,Date)
+- syntax:
+    content: 'procedure InitSupply(var SupplyInvtProfile: Record "Inventory Profile", OrderQty: Decimal, DueDate: Date, DueTime: Time)'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: OrderQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DueTime
+      parameterType:
+        name: Time
+        isExternal: true
+  name: InitSupply
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.InitSupply(Inventory_Profile@,Decimal,Date,Time)
+- syntax:
+    content: 'procedure SumUpProjectedSupply(var SupplyInvtProfile: Record "Inventory Profile", FromDate: Date, ToDate: Date): Decimal'
+    parameters:
+    - id: SupplyInvtProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: FromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: SumUpProjectedSupply
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.SumUpProjectedSupply(Inventory_Profile@,Date,Date):Decimal
+- syntax:
+    content: 'procedure GetRouting(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: GetRouting
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.GetRouting(Requisition_Line@)
+- syntax:
+    content: 'procedure GetComponents(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: GetComponents
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.GetComponents(Requisition_Line@)
+- syntax:
+    content: 'procedure Recalculate(var ReqLine: Record "Requisition Line", Direction: Option, RefreshRouting: Boolean)'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RefreshRouting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Recalculate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.Recalculate(Requisition_Line@,Option,Boolean)
+- syntax:
+    content: 'procedure GetPlanningCompList(var PlanningCompList: Record "Planning Component" temporary)'
+    parameters:
+    - id: PlanningCompList
+      parameterType:
+        name: Record "Planning Component" temporary
+        isExternal: true
+  name: GetPlanningCompList
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.GetPlanningCompList(Planning_Component@)
+- syntax:
+    content: 'procedure SetParm(Forecast: Code[10], ExclBefore: Date, WorksheetType: Option, PriceCalcMethod: Enum "Price Calculation Method")'
+    parameters:
+    - id: Forecast
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ExclBefore
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: WorksheetType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PriceCalcMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+        name: Microsoft.Pricing.Calculation."Price Calculation Method"
+        isExternal: false
+  name: SetParm
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.SetParm(Code[10],Date,Option,Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method)
+- syntax:
+    content: 'procedure SetParm(Forecast: Code[10], ExclBefore: Date, WorksheetType: Option)'
+    parameters:
+    - id: Forecast
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ExclBefore
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: WorksheetType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetParm
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.SetParm(Code[10],Date,Option)
+- syntax:
+    content: procedure SetResiliencyOn()
+  name: SetResiliencyOn
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.SetResiliencyOn
+- syntax:
+    content: 'procedure GetResiliencyError(var PlanningErrorLog: Record "Planning Error Log"): Boolean'
+    parameters:
+    - id: PlanningErrorLog
+      parameterType:
+        name: Record "Planning Error Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetResiliencyError
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.GetResiliencyError(Planning_Error_Log@):Boolean
+- syntax:
+    content: 'procedure ForecastInitDemand(var InventoryProfile: Record "Inventory Profile", ProductionForecastEntry: Record "Production Forecast Entry", ItemNo: Code[20], LocationCode: Code[10], TotalForecastQty: Decimal)'
+    parameters:
+    - id: InventoryProfile
+      parameterType:
+        name: Record "Inventory Profile"
+        isExternal: true
+    - id: ProductionForecastEntry
+      parameterType:
+        name: Record "Production Forecast Entry"
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TotalForecastQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ForecastInitDemand
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting.ForecastInitDemand(Inventory_Profile@,Production_Forecast_Entry,Code[20],Code[10],Decimal)
+commentId: O:Codeunit::Microsoft#Inventory#Tracking#Inventory Profile Offsetting
+name: '"Inventory Profile Offsetting"'
+uid: O:Codeunit::Microsoft#Inventory#Tracking#Inventory_Profile_Offsetting

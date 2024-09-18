@@ -1,0 +1,966 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.FinancialReports.AccSchedManagement
+alId: ID 8
+namespace: Microsoft.Finance.FinancialReports
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.FinancialReports
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Acc. Schedule Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#FinancialReports#Acc#_Schedule_Line
+    name: Microsoft.Finance.FinancialReports."Acc. Schedule Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure OpenSchedule(var CurrentSchedName: Code[10], var AccSchedLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: CurrentSchedName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: OpenSchedule
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.OpenSchedule(Code[10]@,Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure OpenAndCheckSchedule(var CurrentSchedName: Code[10], var AccSchedLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: CurrentSchedName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: OpenAndCheckSchedule
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.OpenAndCheckSchedule(Code[10]@,Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure CheckName(CurrentSchedName: Code[10])'
+    parameters:
+    - id: CurrentSchedName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CheckName(Code[10])
+- syntax:
+    content: 'procedure SetName(CurrentSchedName: Code[10], var AccSchedLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: CurrentSchedName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetName(Code[10],Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure LookupName(CurrentSchedName: Code[10], var EntrdSchedName: Text[10]): Boolean'
+    parameters:
+    - id: CurrentSchedName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntrdSchedName
+      parameterType:
+        name: Text[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.LookupName(Code[10],Text[10]@):Boolean
+- syntax:
+    content: 'procedure OpenColumns(var CurrentColumnName: Code[10], var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: OpenColumns
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.OpenColumns(Code[10]@,Column_Layout@)
+- syntax:
+    content: 'procedure CheckColumnName(CurrentColumnName: Code[10])'
+    parameters:
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckColumnName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CheckColumnName(Code[10])
+- syntax:
+    content: 'procedure SetColumnName(CurrentColumnName: Code[10], var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetColumnName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetColumnName(Code[10],Column_Layout@)
+- syntax:
+    content: 'procedure CopyColumnsToTemp(NewColumnName: Code[10], var TempColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: NewColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TempColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: CopyColumnsToTemp
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CopyColumnsToTemp(Code[10],Column_Layout@)
+- syntax:
+    content: 'procedure LookupColumnName(CurrentColumnName: Code[10], var EntrdColumnName: Text[10]): Boolean'
+    parameters:
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntrdColumnName
+      parameterType:
+        name: Text[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupColumnName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.LookupColumnName(Code[10],Text[10]@):Boolean
+- syntax:
+    content: 'procedure SetAnalysisViewRead(Value: Boolean)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetAnalysisViewRead
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetAnalysisViewRead(Boolean)
+- syntax:
+    content: 'procedure CheckAnalysisView(CurrentSchedName: Code[10], CurrentColumnName: Code[10], TestColumnName: Boolean)'
+    parameters:
+    - id: CurrentSchedName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TestColumnName
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckAnalysisView
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CheckAnalysisView(Code[10],Code[10],Boolean)
+- syntax:
+    content: 'procedure AccPeriodStartEnd(ColumnLayout: Record "Column Layout", Date: Date, var StartDate: Date, var EndDate: Date)'
+    parameters:
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AccPeriodStartEnd
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.AccPeriodStartEnd(Column_Layout,Date,Date@,Date@)
+- syntax:
+    content: 'procedure CalcCell(var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout", CalcAddCurr: Boolean): Decimal'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCell
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcCell(Acc#_Schedule_Line@,Column_Layout@,Boolean):Decimal
+- syntax:
+    content: 'procedure FormatCellResult(AccSchedLine: Record "Acc. Schedule Line", ColumnLayout: Record "Column Layout", CalcAddCurr: Boolean, var Result: Decimal)'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Result
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: FormatCellResult
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.FormatCellResult(Acc#_Schedule_Line,Column_Layout,Boolean,Decimal@)
+- syntax:
+    content: 'procedure CalcCellValue(AccSchedLine: Record "Acc. Schedule Line", ColumnLayout: Record "Column Layout", CalcAddCurr: Boolean): Decimal'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCellValue
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcCellValue(Acc#_Schedule_Line,Column_Layout,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcGLAcc(var GLAcc: Record "G/L Account", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout", CalcAddCurr: Boolean): Decimal'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcGLAcc
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcGLAcc(G/L_Account@,Acc#_Schedule_Line@,Column_Layout@,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcCFAccount(var CFAccount: Record "Cash Flow Account", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout"): Decimal'
+    parameters:
+    - id: CFAccount
+      parameterType:
+        name: Record "Cash Flow Account"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCFAccount
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcCFAccount(Cash_Flow_Account@,Acc#_Schedule_Line@,Column_Layout@):Decimal
+- syntax:
+    content: 'procedure SetGLAccRowFilters(var GLAcc: Record "G/L Account", var AccSchedLine2: Record "Acc. Schedule Line")'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: AccSchedLine2
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: SetGLAccRowFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetGLAccRowFilters(G/L_Account@,Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure SetGLAccGLEntryFilters(var GLAcc: Record "G/L Account", var GLEntry: Record "G/L Entry", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout", UseBusUnitFilter: Boolean, UseDimFilter: Boolean)'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: UseBusUnitFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: UseDimFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetGLAccGLEntryFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetGLAccGLEntryFilters(G/L_Account@,G/L_Entry@,Acc#_Schedule_Line@,Column_Layout@,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetGLAccGLBudgetEntryFilters(var GLAcc: Record "G/L Account", var GLBudgetEntry: Record "G/L Budget Entry", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout", UseBusUnitFilter: Boolean, UseDimFilter: Boolean)'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: GLBudgetEntry
+      parameterType:
+        name: Record "G/L Budget Entry"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: UseBusUnitFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: UseDimFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetGLAccGLBudgetEntryFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetGLAccGLBudgetEntryFilters(G/L_Account@,G/L_Budget_Entry@,Acc#_Schedule_Line@,Column_Layout@,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetGLAccAnalysisViewBudgetEntries(var GLAcc: Record "G/L Account", var AnalysisViewBudgetEntry: Record "Analysis View Budget Entry", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: AnalysisViewBudgetEntry
+      parameterType:
+        name: Record "Analysis View Budget Entry"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetGLAccAnalysisViewBudgetEntries
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetGLAccAnalysisViewBudgetEntries(G/L_Account@,Analysis_View_Budget_Entry@,Acc#_Schedule_Line@,Column_Layout@)
+- syntax:
+    content: 'procedure SetGLAccAnalysisViewEntryFilters(var GLAcc: Record "G/L Account", var AnalysisViewEntry: Record "Analysis View Entry", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: AnalysisViewEntry
+      parameterType:
+        name: Record "Analysis View Entry"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetGLAccAnalysisViewEntryFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetGLAccAnalysisViewEntryFilters(G/L_Account@,Analysis_View_Entry@,Acc#_Schedule_Line@,Column_Layout@)
+- syntax:
+    content: 'procedure SetCFAccRowFilter(var CFAccount: Record "Cash Flow Account", var AccSchedLine2: Record "Acc. Schedule Line")'
+    parameters:
+    - id: CFAccount
+      parameterType:
+        name: Record "Cash Flow Account"
+        isExternal: true
+    - id: AccSchedLine2
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: SetCFAccRowFilter
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetCFAccRowFilter(Cash_Flow_Account@,Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure SetGLAccColumnFilters(var GLAcc: Record "G/L Account", AccSchedLine2: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: AccSchedLine2
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetGLAccColumnFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetGLAccColumnFilters(G/L_Account@,Acc#_Schedule_Line,Column_Layout@)
+- syntax:
+    content: 'procedure SetCFAccColumnFilter(var CFAccount: Record "Cash Flow Account", AccSchedLine2: Record "Acc. Schedule Line", var ColumnLayout2: Record "Column Layout")'
+    parameters:
+    - id: CFAccount
+      parameterType:
+        name: Record "Cash Flow Account"
+        isExternal: true
+    - id: AccSchedLine2
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout2
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetCFAccColumnFilter
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetCFAccColumnFilter(Cash_Flow_Account@,Acc#_Schedule_Line,Column_Layout@)
+- syntax:
+    content: 'procedure ApplyOperator(LeftResult: Decimal, RightResult: Decimal, Operator: Char, var DivisionError: Boolean): Decimal'
+    parameters:
+    - id: LeftResult
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RightResult
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Operator
+      parameterType:
+        name: Char
+        isExternal: true
+    - id: DivisionError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ApplyOperator
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.ApplyOperator(Decimal,Decimal,Char,Boolean@):Decimal
+- syntax:
+    content: 'procedure ParseExpression(Expression: Text, var i: Integer): Boolean'
+    parameters:
+    - id: Expression
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: i
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ParseExpression
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.ParseExpression(Text,Integer@):Boolean
+- syntax:
+    content: 'procedure EvaluateExpression(IsAccSchedLineExpression: Boolean, Expression: Text, AccSchedLine: Record "Acc. Schedule Line", ColumnLayout: Record "Column Layout", CalcAddCurr: Boolean): Decimal'
+    parameters:
+    - id: IsAccSchedLineExpression
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Expression
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: EvaluateExpression
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.EvaluateExpression(Boolean,Text,Acc#_Schedule_Line,Column_Layout,Boolean):Decimal
+- syntax:
+    content: 'procedure FormatCellAsText(var ColumnLayout2: Record "Column Layout", Value: Decimal, CalcAddCurr: Boolean): Text[30]'
+    parameters:
+    - id: ColumnLayout2
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: FormatCellAsText
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.FormatCellAsText(Column_Layout@,Decimal,Boolean):Text[30]
+- syntax:
+    content: 'procedure GetDivisionError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDivisionError
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.GetDivisionError:Boolean
+- syntax:
+    content: 'procedure GetPeriodError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPeriodError
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.GetPeriodError:Boolean
+- syntax:
+    content: 'procedure ShowError(MessageLine: Text, var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: MessageLine
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: ShowError
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.ShowError(Text,Acc#_Schedule_Line@,Column_Layout@)
+- syntax:
+    content: 'procedure InsertGLAccounts(var AccSchedLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: InsertGLAccounts
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.InsertGLAccounts(Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure InsertCFAccounts(var AccSchedLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: InsertCFAccounts
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.InsertCFAccounts(Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure InsertCostTypes(var AccSchedLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: InsertCostTypes
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.InsertCostTypes(Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure IsExpressionFilter(Expression: Text): Boolean'
+    parameters:
+    - id: Expression
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExpressionFilter
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.IsExpressionFilter(Text):Boolean
+- syntax:
+    content: 'procedure SetAccSchedName(var NewAccSchedName: Record "Acc. Schedule Name")'
+    parameters:
+    - id: NewAccSchedName
+      parameterType:
+        name: Record "Acc. Schedule Name"
+        isExternal: true
+  name: SetAccSchedName
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetAccSchedName(Acc#_Schedule_Name@)
+- syntax:
+    content: 'procedure GetDimTotalingFilter(DimNo: Integer, DimTotaling: Text[250]): Text[1024]'
+    parameters:
+    - id: DimNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimTotaling
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[1024]
+        isExternal: true
+  name: GetDimTotalingFilter
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.GetDimTotalingFilter(Integer,Text[250]):Text[1024]
+- syntax:
+    content: 'procedure CalcCostType(var CostType: Record "Cost Type", var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout", CalcAddCurr: Boolean): Decimal'
+    parameters:
+    - id: CostType
+      parameterType:
+        name: Record "Cost Type"
+        isExternal: true
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: CalcAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCostType
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcCostType(Cost_Type@,Acc#_Schedule_Line@,Column_Layout@,Boolean):Decimal
+- syntax:
+    content: 'procedure SetCostTypeRowFilters(var CostType: Record "Cost Type", var AccSchedLine2: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: CostType
+      parameterType:
+        name: Record "Cost Type"
+        isExternal: true
+    - id: AccSchedLine2
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetCostTypeRowFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetCostTypeRowFilters(Cost_Type@,Acc#_Schedule_Line@,Column_Layout@)
+- syntax:
+    content: 'procedure SetCostTypeColumnFilters(var CostType: Record "Cost Type", AccSchedLine2: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout")'
+    parameters:
+    - id: CostType
+      parameterType:
+        name: Record "Cost Type"
+        isExternal: true
+    - id: AccSchedLine2
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+  name: SetCostTypeColumnFilters
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetCostTypeColumnFilters(Cost_Type@,Acc#_Schedule_Line,Column_Layout@)
+- syntax:
+    content: 'procedure HasDimFilter(var AccSchedLine: Record "Acc. Schedule Line", var ColumnLayout: Record "Column Layout"): Boolean'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasDimFilter
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.HasDimFilter(Acc#_Schedule_Line@,Column_Layout@):Boolean
+- syntax:
+    content: 'procedure CalcColumnDates(ColumnLayout: Record "Column Layout", var FromDate: Date, var ToDate: Date, var FiscalStartDate2: Date)'
+    parameters:
+    - id: ColumnLayout
+      parameterType:
+        name: Record "Column Layout"
+        isExternal: true
+    - id: FromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: FiscalStartDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CalcColumnDates
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcColumnDates(Column_Layout,Date@,Date@,Date@)
+- syntax:
+    content: 'procedure MoveAccSchedLines(var AccSchedLine: Record "Acc. Schedule Line", Place: Integer)'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: Place
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MoveAccSchedLines
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.MoveAccSchedLines(Acc#_Schedule_Line@,Integer)
+- syntax:
+    content: 'procedure SetStartDateEndDate(NewStartDate: Date, NewEndDate: Date)'
+    parameters:
+    - id: NewStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetStartDateEndDate
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetStartDateEndDate(Date,Date)
+- syntax:
+    content: 'procedure GetStartDateEndDate(var OutputStartDate: Date, var OutputEndDate: Date)'
+    parameters:
+    - id: OutputStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OutputEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: GetStartDateEndDate
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.GetStartDateEndDate(Date@,Date@)
+- syntax:
+    content: 'procedure ConflictAmountType(AccSchedLine: Record "Acc. Schedule Line", ColumnLayoutAmtType: Enum "Account Schedule Amount Type", var AmountType: Enum "Account Schedule Amount Type"): Boolean'
+    parameters:
+    - id: AccSchedLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: ColumnLayoutAmtType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type
+        name: Microsoft.Finance.FinancialReports."Account Schedule Amount Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type
+        name: Microsoft.Finance.FinancialReports."Account Schedule Amount Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConflictAmountType
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.ConflictAmountType(Acc#_Schedule_Line,Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type,Enum::Microsoft#Finance#FinancialReports#Account_Schedule_Amount_Type@):Boolean
+- syntax:
+    content: 'procedure DrillDown(TempColumnLayout: Record "Column Layout" temporary, var AccScheduleLine: Record "Acc. Schedule Line", PeriodLength: Option)'
+    parameters:
+    - id: TempColumnLayout
+      parameterType:
+        name: Record "Column Layout" temporary
+        isExternal: true
+    - id: AccScheduleLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Option
+        isExternal: true
+  name: DrillDown
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.DrillDown(Column_Layout,Acc#_Schedule_Line@,Option)
+- syntax:
+    content: 'procedure DrillDownFromOverviewPage(TempColumnLayout: Record "Column Layout" temporary, var AccScheduleLine: Record "Acc. Schedule Line", PeriodLength: Option)'
+    parameters:
+    - id: TempColumnLayout
+      parameterType:
+        name: Record "Column Layout" temporary
+        isExternal: true
+    - id: AccScheduleLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Option
+        isExternal: true
+  name: DrillDownFromOverviewPage
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.DrillDownFromOverviewPage(Column_Layout,Acc#_Schedule_Line@,Option)
+- syntax:
+    content: 'procedure GLAccCategoryText(AccScheduleLine: Record "Acc. Schedule Line"): Text[250]'
+    parameters:
+    - id: AccScheduleLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GLAccCategoryText
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.GLAccCategoryText(Acc#_Schedule_Line):Text[250]
+- syntax:
+    content: 'procedure DrillDownOnGLAccount(TempColumnLayout: Record "Column Layout" temporary, var AccScheduleLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: TempColumnLayout
+      parameterType:
+        name: Record "Column Layout" temporary
+        isExternal: true
+    - id: AccScheduleLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: DrillDownOnGLAccount
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.DrillDownOnGLAccount(Column_Layout,Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure DrillDownOnCFAccount(TempColumnLayout: Record "Column Layout" temporary, var AccScheduleLine: Record "Acc. Schedule Line")'
+    parameters:
+    - id: TempColumnLayout
+      parameterType:
+        name: Record "Column Layout" temporary
+        isExternal: true
+    - id: AccScheduleLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+  name: DrillDownOnCFAccount
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.DrillDownOnCFAccount(Column_Layout,Acc#_Schedule_Line@)
+- syntax:
+    content: 'procedure FindPeriod(var AccScheduleLine: Record "Acc. Schedule Line", SearchText: Text[3], PeriodType: Enum "Analysis Period Type")'
+    parameters:
+    - id: AccScheduleLine
+      parameterType:
+        name: Record "Acc. Schedule Line"
+        isExternal: true
+    - id: SearchText
+      parameterType:
+        name: Text[3]
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+  name: FindPeriod
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.FindPeriod(Acc#_Schedule_Line@,Text[3],Enum::Microsoft#Foundation#Enums#Analysis_Period_Type)
+- syntax:
+    content: 'procedure CalcFieldError(var ErrorType: Option, RowNo: Integer, ColumnNo: Integer)'
+    parameters:
+    - id: ErrorType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RowNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ColumnNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CalcFieldError
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcFieldError(Option@,Integer,Integer)
+- syntax:
+    content: 'procedure ForceRecalculate(NewRecalculate: Boolean)'
+    parameters:
+    - id: NewRecalculate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ForceRecalculate
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.ForceRecalculate(Boolean)
+- syntax:
+    content: 'procedure CalcLCYToACY(ColValue: Decimal): Decimal'
+    parameters:
+    - id: ColValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLCYToACY
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.CalcLCYToACY(Decimal):Decimal
+- syntax:
+    content: 'procedure SetFiscalStartDate(NewFiscalStartDate: Date)'
+    parameters:
+    - id: NewFiscalStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetFiscalStartDate
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.SetFiscalStartDate(Date)
+- syntax:
+    content: 'procedure GetFiscalStartDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetFiscalStartDate
+  uid: M:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement.GetFiscalStartDate:Date
+commentId: O:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement
+name: AccSchedManagement
+uid: O:Codeunit::Microsoft#Finance#FinancialReports#AccSchedManagement

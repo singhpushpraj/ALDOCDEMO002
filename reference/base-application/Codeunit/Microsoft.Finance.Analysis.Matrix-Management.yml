@@ -1,0 +1,388 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Analysis."Matrix Management"
+alId: ID 9200
+namespace: Microsoft.Finance.Analysis
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Analysis
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetPeriodColumnSet(DateFilter: Text, PeriodType: Enum "Analysis Period Type", Direction: Option, var FirstColumn: Date, var LastColumn: Date, NoOfColumns: Integer)'
+    parameters:
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FirstColumn
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: LastColumn
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NoOfColumns
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetPeriodColumnSet
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.SetPeriodColumnSet(Text,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Option,Date@,Date@,Integer)
+- syntax:
+    content: 'procedure SetDimColumnSet(DimensionCode: Code[20], DimFilter: Text, SetWanted: Option, var RecordPosition: Text, var FirstColumn: Text, var LastColumn: Text, NoOfColumns: Integer)'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SetWanted
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RecordPosition
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FirstColumn
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LastColumn
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NoOfColumns
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetDimColumnSet
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.SetDimColumnSet(Code[20],Text,Option,Text@,Text@,Text@,Integer)
+- syntax:
+    content: 'procedure DimToCaptions(var CaptionSet: array[32] of Text[80], var MatrixRecords: array[32] of Record "Dimension Code Buffer", DimensionCode: Code[20], FirstColumn: Text, LastColumn: Text, var NumberOfColumns: Integer, ShowColumnName: Boolean, var CaptionRange: Text, DimensionValueFilter: Text)'
+    parameters:
+    - id: CaptionSet
+      parameterType:
+        name: array[32] of Text[80]
+        isExternal: true
+    - id: MatrixRecords
+      parameterType:
+        name: array[32] of Record "Dimension Code Buffer"
+        isExternal: true
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FirstColumn
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LastColumn
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NumberOfColumns
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShowColumnName
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CaptionRange
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DimensionValueFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: DimToCaptions
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.DimToCaptions(Text[80][]@,Dimension_Code_Buffer[]@,Code[20],Text,Text,Integer@,Boolean,Text@,Text)
+- syntax:
+    content: 'procedure GenerateMatrixData(var RecRef: RecordRef, SetWanted: Option, MaximumSetLength: Integer, CaptionFieldNo: Integer, var RecordPosition: Text, var CaptionSet: array[32] of Text[80], var CaptionRange: Text, var CurrSetLength: Integer)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SetWanted
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MaximumSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CaptionFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordPosition
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CaptionSet
+      parameterType:
+        name: array[32] of Text[80]
+        isExternal: true
+    - id: CaptionRange
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CurrSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GenerateMatrixData
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.GenerateMatrixData(RecordRef@,Option,Integer,Integer,Text@,Text[80][]@,Text@,Integer@)
+- syntax:
+    content: 'procedure GenerateMatrixDataExtended(var RecRef: RecordRef, SetWanted: Option, MaximumSetLength: Integer, CaptionFieldNo: Integer, var RecordPosition: Text, var CaptionSet: array[32] of Text, var CaptionRange: Text, var CurrSetLength: Integer, MaxCaptionLength: Integer)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SetWanted
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MaximumSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CaptionFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordPosition
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CaptionSet
+      parameterType:
+        name: array[32] of Text
+        isExternal: true
+    - id: CaptionRange
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CurrSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MaxCaptionLength
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GenerateMatrixDataExtended
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.GenerateMatrixDataExtended(RecordRef@,Option,Integer,Integer,Text@,Text[]@,Text@,Integer@,Integer)
+- syntax:
+    content: 'procedure GeneratePeriodMatrixData(SetWanted: Option, MaximumSetLength: Integer, UseNameForCaption: Boolean, PeriodType: Enum "Analysis Period Type", DateFilter: Text, var RecordPosition: Text, var CaptionSet: array[32] of Text[80], var CaptionRange: Text, var CurrSetLength: Integer, PeriodRecords: __MissingTypeSymbol__)'
+    parameters:
+    - id: SetWanted
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MaximumSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UseNameForCaption
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RecordPosition
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CaptionSet
+      parameterType:
+        name: array[32] of Text[80]
+        isExternal: true
+    - id: CaptionRange
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CurrSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PeriodRecords
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GeneratePeriodMatrixData
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.GeneratePeriodMatrixData(Option,Integer,Boolean,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Text,Text@,Text[80][]@,Text@,Integer@,__MissingSymbol__@)
+- syntax:
+    content: 'procedure SetIndentation(var TextString: Text[1024], Indentation: Integer)'
+    parameters:
+    - id: TextString
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    - id: Indentation
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetIndentation
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.SetIndentation(Text[1024]@,Integer)
+- syntax:
+    content: 'procedure GetPKRange(var RecRef: RecordRef, KeyFieldNo: Integer, RecordPosition: Text, CurrSetLength: Integer): Text[100]'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: KeyFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordPosition
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CurrSetLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetPKRange
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.GetPKRange(RecordRef@,Integer,Text,Integer):Text[100]
+- syntax:
+    content: 'procedure GenerateDimColumnCaption(DimensionCode: Code[20], DimFilter: Text, SetWanted: Option, var RecordPosition: Text, FirstColumn: Text, LastColumn: Text, var CaptionSet: array[32] of Text[80], var DimensionCodeBuffer: array[32] of Record "Dimension Code Buffer", var NumberOfColumns: Integer, ShowColumnName: Boolean, var CaptionRange: Text)'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SetWanted
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RecordPosition
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FirstColumn
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LastColumn
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CaptionSet
+      parameterType:
+        name: array[32] of Text[80]
+        isExternal: true
+    - id: DimensionCodeBuffer
+      parameterType:
+        name: array[32] of Record "Dimension Code Buffer"
+        isExternal: true
+    - id: NumberOfColumns
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShowColumnName
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CaptionRange
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GenerateDimColumnCaption
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.GenerateDimColumnCaption(Code[20],Text,Option,Text@,Text,Text,Text[80][]@,Dimension_Code_Buffer[]@,Integer@,Boolean,Text@)
+- syntax:
+    content: 'procedure RoundAmount(Amount: Decimal, RoundingFactor: Enum "Analysis Rounding Factor"): Decimal'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RoundingFactor
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor
+        name: Microsoft.Foundation.Enums."Analysis Rounding Factor"
+        isExternal: false
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundAmount
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.RoundAmount(Decimal,Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor):Decimal
+- syntax:
+    content: 'procedure FormatAmount(Value: Decimal, RoundingFactor: Enum "Analysis Rounding Factor", AddCurrency: Boolean): Text[30]'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RoundingFactor
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor
+        name: Microsoft.Foundation.Enums."Analysis Rounding Factor"
+        isExternal: false
+    - id: AddCurrency
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: FormatAmount
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.FormatAmount(Decimal,Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor,Boolean):Text[30]
+- syntax:
+    content: 'procedure FormatRoundingFactor(RoundingFactor: Enum "Analysis Rounding Factor", AddCurrency: Boolean): Text'
+    parameters:
+    - id: RoundingFactor
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor
+        name: Microsoft.Foundation.Enums."Analysis Rounding Factor"
+        isExternal: false
+    - id: AddCurrency
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FormatRoundingFactor
+  uid: M:Codeunit::Microsoft#Finance#Analysis#Matrix_Management.FormatRoundingFactor(Enum::Microsoft#Foundation#Enums#Analysis_Rounding_Factor,Boolean):Text
+commentId: O:Codeunit::Microsoft#Finance#Analysis#Matrix Management
+name: '"Matrix Management"'
+uid: O:Codeunit::Microsoft#Finance#Analysis#Matrix_Management

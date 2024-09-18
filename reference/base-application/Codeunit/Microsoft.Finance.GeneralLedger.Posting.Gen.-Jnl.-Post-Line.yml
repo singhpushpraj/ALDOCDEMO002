@@ -1,0 +1,1144 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+alId: ID 12
+namespace: Microsoft.Finance.GeneralLedger.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Account" = r,
+                      TableData "G/L Entry" = rimd,
+                      TableData "Cust. Ledger Entry" = rimd,
+                      tabledata "Customer Posting Group" = R,
+                      TableData "Vendor Ledger Entry" = rimd,
+                      tabledata "Vendor Posting Group" = R,
+                      TableData "G/L Register" = Rimd,
+                      TableData "G/L Entry - VAT Entry Link" = rimd,
+                      TableData "VAT Entry" = Rimd,
+                      TableData "Bank Account Ledger Entry" = rimd,
+                      TableData "Check Ledger Entry" = rimd,
+                      TableData "Detailed Cust. Ledg. Entry" = Rimd,
+                      TableData "Detailed Vendor Ledg. Entry" = Rimd,
+                      TableData "Line Fee Note on Report Hist." = rim,
+                      TableData "Employee Ledger Entry" = Rimd,
+                      TableData "Detailed Employee Ledger Entry" = Rimd,
+                      tabledata "Source Code Setup" = R,
+                      tabledata "Sales & Receivables Setup" = R,
+                      tabledata "Purchases & Payables Setup" = R,
+                      TableData "FA Ledger Entry" = rimd,
+                      TableData "FA Register" = rimd,
+                      TableData "Maintenance Ledger Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetGLReg(var NewGLReg: Record "G/L Register")'
+    parameters:
+    - id: NewGLReg
+      parameterType:
+        name: Record "G/L Register"
+        isExternal: true
+  name: GetGLReg
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetGLReg(G/L_Register@)
+- syntax:
+    content: 'procedure RunWithCheck(var GenJnlLine2: Record "Gen. Journal Line"): Integer'
+    parameters:
+    - id: GenJnlLine2
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: RunWithCheck
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.RunWithCheck(Gen#_Journal_Line@):Integer
+- syntax:
+    content: 'procedure RunWithoutCheck(var GenJnlLine2: Record "Gen. Journal Line"): Integer'
+    parameters:
+    - id: GenJnlLine2
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: RunWithoutCheck
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.RunWithoutCheck(Gen#_Journal_Line@):Integer
+- syntax:
+    content: 'procedure IsGLEntryInconsistent(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsGLEntryInconsistent
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.IsGLEntryInconsistent:Boolean
+- syntax:
+    content: procedure ShowInconsistentEntries()
+  name: ShowInconsistentEntries
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ShowInconsistentEntries
+- syntax:
+    content: 'procedure InitLastDocDate(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: InitLastDocDate
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InitLastDocDate(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure InitVAT(var GenJnlLine: Record "Gen. Journal Line", var GLEntry: Record "G/L Entry", var VATPostingSetup: Record "VAT Posting Setup")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+  name: InitVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InitVAT(Gen#_Journal_Line@,G/L_Entry@,VAT_Posting_Setup@)
+- syntax:
+    content: 'procedure PostVAT(GenJnlLine: Record "Gen. Journal Line", var GLEntry: Record "G/L Entry", VATPostingSetup: Record "VAT Posting Setup")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+  name: PostVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostVAT(Gen#_Journal_Line,G/L_Entry@,VAT_Posting_Setup)
+- syntax:
+    content: 'procedure InsertVAT(GenJnlLine: Record "Gen. Journal Line", VATPostingSetup: Record "VAT Posting Setup", GLEntryAmount: Decimal, GLEntryVATAmount: Decimal, GLEntryBaseAmount: Decimal, SrcCurrCode: Code[10], SrcCurrGLEntryAmt: Decimal, SrcCurrGLEntryVATAmt: Decimal, SrcCurrGLEntryBaseAmt: Decimal)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+    - id: GLEntryAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLEntryVATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLEntryBaseAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcCurrCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SrcCurrGLEntryAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcCurrGLEntryVATAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcCurrGLEntryBaseAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InsertVAT(Gen#_Journal_Line,VAT_Posting_Setup,Decimal,Decimal,Decimal,Code[10],Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure SummarizeVAT(SummarizeGLEntries: Boolean, GLEntry: Record "G/L Entry")'
+    parameters:
+    - id: SummarizeGLEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+  name: SummarizeVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SummarizeVAT(Boolean,G/L_Entry)
+- syntax:
+    content: 'procedure InsertSummarizedVAT(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: InsertSummarizedVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InsertSummarizedVAT(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure RunPostFixedAsset(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: RunPostFixedAsset
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.RunPostFixedAsset(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure PostJob(GenJnlLine: Record "Gen. Journal Line", GLEntry: Record "G/L Entry")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+  name: PostJob
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostJob(Gen#_Journal_Line,G/L_Entry)
+- syntax:
+    content: 'procedure StartPosting(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: StartPosting
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.StartPosting(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure ContinuePosting(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ContinuePosting
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ContinuePosting(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure FinishPosting(GenJournalLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FinishPosting
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.FinishPosting(Gen#_Journal_Line):Boolean
+- syntax:
+    content: 'procedure InitGLEntry(GenJnlLine: Record "Gen. Journal Line", var GLEntry: Record "G/L Entry", GLAccNo: Code[20], Amount: Decimal, AmountAddCurr: Decimal, UseAmountAddCurr: Boolean, SystemCreatedEntry: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: GLAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseAmountAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SystemCreatedEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitGLEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InitGLEntry(Gen#_Journal_Line,G/L_Entry@,Code[20],Decimal,Decimal,Boolean,Boolean)
+- syntax:
+    content: 'procedure InitGLEntryVAT(GenJnlLine: Record "Gen. Journal Line", AccNo: Code[20], BalAccNo: Code[20], Amount: Decimal, AmountAddCurr: Decimal, UseAmtAddCurr: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BalAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseAmtAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitGLEntryVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InitGLEntryVAT(Gen#_Journal_Line,Code[20],Code[20],Decimal,Decimal,Boolean)
+- syntax:
+    content: 'procedure InsertGLEntry(GenJnlLine: Record "Gen. Journal Line", GLEntry: Record "G/L Entry", CalcAddCurrResiduals: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: CalcAddCurrResiduals
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertGLEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.InsertGLEntry(Gen#_Journal_Line,G/L_Entry,Boolean)
+- syntax:
+    content: 'procedure CreateGLEntry(GenJnlLine: Record "Gen. Journal Line", AccNo: Code[20], Amount: Decimal, AmountAddCurr: Decimal, UseAmountAddCurr: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseAmountAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateGLEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CreateGLEntry(Gen#_Journal_Line,Code[20],Decimal,Decimal,Boolean)
+- syntax:
+    content: 'procedure CreateGLEntryBalAcc(GenJnlLine: Record "Gen. Journal Line", AccNo: Code[20], Amount: Decimal, AmountAddCurr: Decimal, BalAccType: Enum "Gen. Journal Account Type", BalAccNo: Code[20])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BalAccType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: BalAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateGLEntryBalAcc
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CreateGLEntryBalAcc(Gen#_Journal_Line,Code[20],Decimal,Decimal,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Code[20])
+- syntax:
+    content: 'procedure CreateGLEntryVAT(GenJnlLine: Record "Gen. Journal Line", AccNo: Code[20], Amount: Decimal, AmountAddCurr: Decimal, VATAmount: Decimal, DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+  name: CreateGLEntryVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CreateGLEntryVAT(Gen#_Journal_Line,Code[20],Decimal,Decimal,Decimal,Detailed_CV_Ledg#_Entry_Buffer)
+- syntax:
+    content: 'procedure CreateGLEntryVATCollectAdj(GenJnlLine: Record "Gen. Journal Line", AccNo: Code[20], Amount: Decimal, AmountAddCurr: Decimal, VATAmount: Decimal, DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", var AdjAmount: array[4] of Decimal)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: AdjAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+  name: CreateGLEntryVATCollectAdj
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CreateGLEntryVATCollectAdj(Gen#_Journal_Line,Code[20],Decimal,Decimal,Decimal,Detailed_CV_Ledg#_Entry_Buffer,Decimal[]@)
+- syntax:
+    content: 'procedure CalcCurrencyUnrealizedGainLoss(var CVLedgEntryBuf: Record "CV Ledger Entry Buffer", var TempDtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer" temporary, GenJnlLine: Record "Gen. Journal Line", AppliedAmount: Decimal, RemainingAmountBeforeAppln: Decimal)'
+    parameters:
+    - id: CVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: TempDtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer" temporary
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AppliedAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingAmountBeforeAppln
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcCurrencyUnrealizedGainLoss
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CalcCurrencyUnrealizedGainLoss(CV_Ledger_Entry_Buffer@,Detailed_CV_Ledg#_Entry_Buffer@,Gen#_Journal_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure CalcAmtLCYAdjustment(var CVLedgEntryBuf: Record "CV Ledger Entry Buffer", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: CVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CalcAmtLCYAdjustment
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CalcAmtLCYAdjustment(CV_Ledger_Entry_Buffer@,Detailed_CV_Ledg#_Entry_Buffer@,Gen#_Journal_Line)
+- syntax:
+    content: 'procedure ApplyCustLedgEntry(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", GenJnlLine: Record "Gen. Journal Line", Cust: Record Customer)'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Cust
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: ApplyCustLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ApplyCustLedgEntry(CV_Ledger_Entry_Buffer@,Detailed_CV_Ledg#_Entry_Buffer@,Gen#_Journal_Line,Customer)
+- syntax:
+    content: 'procedure CustPostApplyCustLedgEntry(var GenJnlLinePostApply: Record "Gen. Journal Line", var CustLedgEntryPostApply: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: GenJnlLinePostApply
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: CustLedgEntryPostApply
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: CustPostApplyCustLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CustPostApplyCustLedgEntry(Gen#_Journal_Line@,Cust#_Ledger_Entry@)
+- syntax:
+    content: 'procedure PostDtldCustLedgEntries(GenJnlLine: Record "Gen. Journal Line", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", CustPostingGr: Record "Customer Posting Group", LedgEntryInserted: Boolean): Boolean'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: CustPostingGr
+      parameterType:
+        name: Record "Customer Posting Group"
+        isExternal: true
+    - id: LedgEntryInserted
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PostDtldCustLedgEntries
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostDtldCustLedgEntries(Gen#_Journal_Line,Detailed_CV_Ledg#_Entry_Buffer@,Customer_Posting_Group,Boolean):Boolean
+- syntax:
+    content: 'procedure ApplyVendLedgEntry(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", GenJnlLine: Record "Gen. Journal Line", Vend: Record Vendor)'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Vend
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: ApplyVendLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ApplyVendLedgEntry(CV_Ledger_Entry_Buffer@,Detailed_CV_Ledg#_Entry_Buffer@,Gen#_Journal_Line,Vendor)
+- syntax:
+    content: 'procedure ApplyEmplLedgEntry(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", GenJnlLine: Record "Gen. Journal Line", Employee: Record Employee)'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Employee
+      parameterType:
+        name: Record Employee
+        isExternal: true
+  name: ApplyEmplLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ApplyEmplLedgEntry(CV_Ledger_Entry_Buffer@,Detailed_CV_Ledg#_Entry_Buffer@,Gen#_Journal_Line,Employee)
+- syntax:
+    content: 'procedure VendPostApplyVendLedgEntry(var GenJnlLinePostApply: Record "Gen. Journal Line", var VendLedgEntryPostApply: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: GenJnlLinePostApply
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: VendLedgEntryPostApply
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: VendPostApplyVendLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.VendPostApplyVendLedgEntry(Gen#_Journal_Line@,Vendor_Ledger_Entry@)
+- syntax:
+    content: 'procedure EmplPostApplyEmplLedgEntry(var GenJnlLinePostApply: Record "Gen. Journal Line", var EmplLedgEntryPostApply: Record "Employee Ledger Entry")'
+    parameters:
+    - id: GenJnlLinePostApply
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: EmplLedgEntryPostApply
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+  name: EmplPostApplyEmplLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.EmplPostApplyEmplLedgEntry(Gen#_Journal_Line@,Employee_Ledger_Entry@)
+- syntax:
+    content: 'procedure PostDtldVendLedgEntries(GenJournalLine: Record "Gen. Journal Line", var DetailedCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer", VendPostingGr: Record "Vendor Posting Group", LedgEntryInserted: Boolean): Boolean'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DetailedCVLedgEntryBuffer
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: VendPostingGr
+      parameterType:
+        name: Record "Vendor Posting Group"
+        isExternal: true
+    - id: LedgEntryInserted
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PostDtldVendLedgEntries
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostDtldVendLedgEntries(Gen#_Journal_Line,Detailed_CV_Ledg#_Entry_Buffer@,Vendor_Posting_Group,Boolean):Boolean
+- syntax:
+    content: 'procedure PostDtldEmplLedgEntries(GenJnlLine: Record "Gen. Journal Line", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", EmplPostingGr: Record "Employee Posting Group", LedgEntryInserted: Boolean): Boolean'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: EmplPostingGr
+      parameterType:
+        name: Record "Employee Posting Group"
+        isExternal: true
+    - id: LedgEntryInserted
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PostDtldEmplLedgEntries
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostDtldEmplLedgEntries(Gen#_Journal_Line,Detailed_CV_Ledg#_Entry_Buffer@,Employee_Posting_Group,Boolean):Boolean
+- syntax:
+    content: 'procedure PostDtldCVLedgEntry(GenJournalLine: Record "Gen. Journal Line", DetailedCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer", AccNo: Code[20], var AdjAmount: array[4] of Decimal, Unapply: Boolean)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DetailedCVLedgEntryBuffer
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdjAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: Unapply
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostDtldCVLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostDtldCVLedgEntry(Gen#_Journal_Line,Detailed_CV_Ledg#_Entry_Buffer,Code[20],Decimal[]@,Boolean)
+- syntax:
+    content: 'procedure PostApply(var GenJnlLine: Record "Gen. Journal Line", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", var OldCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var NewCVLedgEntryBuf2: Record "CV Ledger Entry Buffer", BlockPaymentTolerance: Boolean, AllApplied: Boolean, var AppliedAmount: Decimal, var PmtTolAmtToBeApplied: Decimal)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: OldCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: NewCVLedgEntryBuf2
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: BlockPaymentTolerance
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AllApplied
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AppliedAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PmtTolAmtToBeApplied
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostApply
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.PostApply(Gen#_Journal_Line@,Detailed_CV_Ledg#_Entry_Buffer@,CV_Ledger_Entry_Buffer@,CV_Ledger_Entry_Buffer@,CV_Ledger_Entry_Buffer@,Boolean,Boolean,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure UnapplyCustLedgEntry(GenJournalLine: Record "Gen. Journal Line", DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DetailedCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+  name: UnapplyCustLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.UnapplyCustLedgEntry(Gen#_Journal_Line,Detailed_Cust#_Ledg#_Entry)
+- syntax:
+    content: 'procedure UnapplyVendLedgEntry(GenJournalLine: Record "Gen. Journal Line", DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DetailedVendorLedgEntry
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+  name: UnapplyVendLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.UnapplyVendLedgEntry(Gen#_Journal_Line,Detailed_Vendor_Ledg#_Entry)
+- syntax:
+    content: 'procedure UnapplyEmplLedgEntry(GenJournalLine: Record "Gen. Journal Line", DetailedEmployeeLedgerEntry: Record "Detailed Employee Ledger Entry")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DetailedEmployeeLedgerEntry
+      parameterType:
+        name: Record "Detailed Employee Ledger Entry"
+        isExternal: true
+  name: UnapplyEmplLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.UnapplyEmplLedgEntry(Gen#_Journal_Line,Detailed_Employee_Ledger_Entry)
+- syntax:
+    content: 'procedure GLCalcAddCurrency(Amount: Decimal, AddCurrAmount: Decimal, OldAddCurrAmount: Decimal, UseAddCurrAmount: Boolean, GenJnlLine: Record "Gen. Journal Line"): Decimal'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AddCurrAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OldAddCurrAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseAddCurrAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GLCalcAddCurrency
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GLCalcAddCurrency(Decimal,Decimal,Decimal,Boolean,Gen#_Journal_Line):Decimal
+- syntax:
+    content: 'procedure CalcLCYToAddCurr(AmountLCY: Decimal): Decimal'
+    parameters:
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLCYToAddCurr
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CalcLCYToAddCurr(Decimal):Decimal
+- syntax:
+    content: 'procedure ExchangeAmtLCYToFCY2(Amount: Decimal): Decimal'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ExchangeAmtLCYToFCY2
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ExchangeAmtLCYToFCY2(Decimal):Decimal
+- syntax:
+    content: 'procedure CheckNonAddCurrCodeOccurred(CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckNonAddCurrCodeOccurred
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CheckNonAddCurrCodeOccurred(Code[10]):Boolean
+- syntax:
+    content: 'procedure SetGLRegReverse(var ReverseGLReg: Record "G/L Register")'
+    parameters:
+    - id: ReverseGLReg
+      parameterType:
+        name: Record "G/L Register"
+        isExternal: true
+  name: SetGLRegReverse
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SetGLRegReverse(G/L_Register@)
+- syntax:
+    content: 'procedure ABSMin(Decimal1: Decimal, Decimal2: Decimal): Decimal'
+    parameters:
+    - id: Decimal1
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Decimal2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ABSMin
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.ABSMin(Decimal,Decimal):Decimal
+- syntax:
+    content: procedure GetGLSetup()
+  name: GetGLSetup
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetGLSetup
+- syntax:
+    content: 'procedure CheckDimValueForDisposal(GenJnlLine: Record "Gen. Journal Line", AccountNo: Code[20])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckDimValueForDisposal
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CheckDimValueForDisposal(Gen#_Journal_Line,Code[20])
+- syntax:
+    content: procedure SetOverDimErr()
+  name: SetOverDimErr
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SetOverDimErr
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure CheckGLAccDimError(GenJnlLine: Record "Gen. Journal Line", GLAccNo: Code[20])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckGLAccDimError
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CheckGLAccDimError(Gen#_Journal_Line,Code[20])
+- syntax:
+    content: 'procedure GetCurrency(var Currency: Record Currency, CurrencyCode: Code[10])'
+    parameters:
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrency
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetCurrency(Currency@,Code[10])
+- syntax:
+    content: 'procedure CollectAdjustment(var AdjAmount: array[4] of Decimal, Amount: Decimal, AmountAddCurr: Decimal)'
+    parameters:
+    - id: AdjAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CollectAdjustment
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CollectAdjustment(Decimal[]@,Decimal,Decimal)
+- syntax:
+    content: 'procedure HandleDtldAdjustment(GenJnlLine: Record "Gen. Journal Line", var GLEntry: Record "G/L Entry", AdjAmount: array[4] of Decimal, TotalAmountLCY: Decimal, TotalAmountAddCurr: Decimal, GLAccNo: Code[20])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: AdjAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: TotalAmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: HandleDtldAdjustment
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.HandleDtldAdjustment(Gen#_Journal_Line,G/L_Entry@,Decimal[],Decimal,Decimal,Code[20])
+- syntax:
+    content: 'procedure GetAdjAmountOffset(Amount: Decimal, AmountACY: Decimal): Integer'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetAdjAmountOffset
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetAdjAmountOffset(Decimal,Decimal):Integer
+- syntax:
+    content: 'procedure GetNextEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextEntryNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetNextEntryNo:Integer
+- syntax:
+    content: 'procedure GetNextTransactionNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextTransactionNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetNextTransactionNo:Integer
+- syntax:
+    content: 'procedure GetNextVATEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextVATEntryNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.GetNextVATEntryNo:Integer
+- syntax:
+    content: procedure IncrNextVATEntryNo()
+  name: IncrNextVATEntryNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.IncrNextVATEntryNo
+- syntax:
+    content: procedure IncrNextEntryNo()
+  name: IncrNextEntryNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.IncrNextEntryNo
+- syntax:
+    content: 'procedure IsTempGLEntryBufEmpty(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsTempGLEntryBufEmpty
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.IsTempGLEntryBufEmpty:Boolean
+- syntax:
+    content: 'procedure UpdateGLEntryNo(var GLEntryNo: Integer, var SavedEntryNo: Integer)'
+    parameters:
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SavedEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateGLEntryNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.UpdateGLEntryNo(Integer@,Integer@)
+- syntax:
+    content: 'procedure UpdateTotalAmounts(var TempDimPostingBuffer: Record "Dimension Posting Buffer" temporary, DimSetID: Integer, DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer")'
+    parameters:
+    - id: TempDimPostingBuffer
+      parameterType:
+        name: Record "Dimension Posting Buffer" temporary
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+  name: UpdateTotalAmounts
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.UpdateTotalAmounts(Dimension_Posting_Buffer@,Integer,Detailed_CV_Ledg#_Entry_Buffer)
+- syntax:
+    content: 'procedure SetAddCurrForUnapplication(var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer")'
+    parameters:
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+  name: SetAddCurrForUnapplication
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SetAddCurrForUnapplication(Detailed_CV_Ledg#_Entry_Buffer@)
+- syntax:
+    content: 'procedure CheckCustMultiplePostingGroups(var DetailedCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer"): Boolean'
+    parameters:
+    - id: DetailedCVLedgEntryBuffer
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCustMultiplePostingGroups
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CheckCustMultiplePostingGroups(Detailed_CV_Ledg#_Entry_Buffer@):Boolean
+- syntax:
+    content: 'procedure CheckVendMultiplePostingGroups(var DetailedCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer"): Boolean'
+    parameters:
+    - id: DetailedCVLedgEntryBuffer
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckVendMultiplePostingGroups
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.CheckVendMultiplePostingGroups(Detailed_CV_Ledg#_Entry_Buffer@):Boolean
+- syntax:
+    content: 'procedure RemoveDeferralSchedule(GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: RemoveDeferralSchedule
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.RemoveDeferralSchedule(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure DeferralPosting(DeferralCode: Code[10], SourceCode: Code[10], AccountNo: Code[20], var GenJournalLine: Record "Gen. Journal Line", Balancing: Boolean)'
+    parameters:
+    - id: DeferralCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Balancing
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeferralPosting
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.DeferralPosting(Code[10],Code[10],Code[20],Gen#_Journal_Line@,Boolean)
+- syntax:
+    content: 'procedure SetFADimAlreadyChecked(NewFADimAlreadyChecked: Boolean)'
+    parameters:
+    - id: NewFADimAlreadyChecked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetFADimAlreadyChecked
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SetFADimAlreadyChecked(Boolean)
+- syntax:
+    content: 'procedure SetTempGLEntryBufEntryNo(NewTempGLEntryBufEntryNo: Integer)'
+    parameters:
+    - id: NewTempGLEntryBufEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetTempGLEntryBufEntryNo
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line.SetTempGLEntryBufEntryNo(Integer)
+commentId: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen# Jnl#-Post Line
+name: '"Gen. Jnl.-Post Line"'
+uid: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line

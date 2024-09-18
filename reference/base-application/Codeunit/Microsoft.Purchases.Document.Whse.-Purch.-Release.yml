@@ -1,0 +1,55 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Whse.-Purch. Release"
+alId: ID 5772
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Warehouse Request" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Release(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: Release
+  uid: M:Codeunit::Microsoft#Purchases#Document#Whse#-Purch#_Release.Release(Purchase_Header)
+- syntax:
+    content: 'procedure Reopen(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: Reopen
+  uid: M:Codeunit::Microsoft#Purchases#Document#Whse#-Purch#_Release.Reopen(Purchase_Header)
+- syntax:
+    content: 'procedure CreateWarehouseRequest(var PurchaseHeader: Record "Purchase Header", var PurchaseLine: Record "Purchase Line", WhseType: Enum "Warehouse Request Type")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: WhseType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Request#Warehouse_Request_Type
+        name: Microsoft.Warehouse.Request."Warehouse Request Type"
+        isExternal: false
+  name: CreateWarehouseRequest
+  uid: M:Codeunit::Microsoft#Purchases#Document#Whse#-Purch#_Release.CreateWarehouseRequest(Purchase_Header@,Purchase_Line@,Enum::Microsoft#Warehouse#Request#Warehouse_Request_Type)
+commentId: O:Codeunit::Microsoft#Purchases#Document#Whse#-Purch# Release
+name: '"Whse.-Purch. Release"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Whse#-Purch#_Release

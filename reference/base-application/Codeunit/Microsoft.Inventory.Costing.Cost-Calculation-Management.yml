@@ -1,0 +1,1097 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Cost Calculation Management"
+alId: ID 5836
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Ledger Entry" = r,
+                      TableData "Prod. Order Capacity Need" = r,
+                      TableData "Value Entry" = r
+  promoted: false
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ResourceCostPerUnit(No: Code[20], var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal)'
+    parameters:
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DirUnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ResourceCostPerUnit
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.ResourceCostPerUnit(Code[20],Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure CalcRoutingCostPerUnit(),23.0)]'
+    content: 'procedure RoutingCostPerUnit(Type: Enum "Capacity Type", No: Code[20], var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal, var UnitCostCalculation: Option)'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DirUnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCostCalculation
+      parameterType:
+        name: Option
+        isExternal: true
+  name: RoutingCostPerUnit
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure CalcRoutingCostPerUnit()
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.RoutingCostPerUnit(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Decimal@,Decimal@,Decimal@,Decimal@,Option@)
+- syntax:
+    content: 'procedure CalcRoutingCostPerUnit(Type: Enum "Capacity Type", No: Code[20], var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal, var UnitCostCalculation: Enum "Unit Cost Calculation Type")'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DirUnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCostCalculation
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type
+        name: Microsoft.Foundation.Enums."Unit Cost Calculation Type"
+        isExternal: false
+  name: CalcRoutingCostPerUnit
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcRoutingCostPerUnit(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Decimal@,Decimal@,Decimal@,Decimal@,Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure CalcRoutingCostPerUnit(),23.0)]'
+    content: 'procedure RoutingCostPerUnit(Type: Enum "Capacity Type", var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal, var UnitCostCalculation: Option, WorkCenter: Record "Work Center", MachineCenter: Record "Machine Center")'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: DirUnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCostCalculation
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: WorkCenter
+      parameterType:
+        name: Record "Work Center"
+        isExternal: true
+    - id: MachineCenter
+      parameterType:
+        name: Record "Machine Center"
+        isExternal: true
+  name: RoutingCostPerUnit
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure CalcRoutingCostPerUnit()
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.RoutingCostPerUnit(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Decimal@,Decimal@,Decimal@,Decimal@,Option@,Work_Center,Machine_Center)
+- syntax:
+    content: 'procedure CalcRoutingCostPerUnit(Type: Enum "Capacity Type", var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal, var UnitCostCalculation: Enum "Unit Cost Calculation Type", WorkCenter: Record "Work Center", MachineCenter: Record "Machine Center")'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: DirUnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCostCalculation
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type
+        name: Microsoft.Foundation.Enums."Unit Cost Calculation Type"
+        isExternal: false
+    - id: WorkCenter
+      parameterType:
+        name: Record "Work Center"
+        isExternal: true
+    - id: MachineCenter
+      parameterType:
+        name: Record "Machine Center"
+        isExternal: true
+  name: CalcRoutingCostPerUnit
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcRoutingCostPerUnit(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Decimal@,Decimal@,Decimal@,Decimal@,Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type@,Work_Center,Machine_Center)
+- syntax:
+    content: 'procedure CalcShareOfTotalCapCost(ProdOrderLine: Record "Prod. Order Line", var ShareOfTotalCapCost: Decimal)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ShareOfTotalCapCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcShareOfTotalCapCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcShareOfTotalCapCost(Prod#_Order_Line,Decimal@)
+- syntax:
+    content: 'procedure CalcProdOrderLineStdCost(ProdOrderLine: Record "Prod. Order Line", CurrencyFactor: Decimal, RndgPrec: Decimal, var StdMatCost: Decimal, var StdCapDirCost: Decimal, var StdSubDirCost: Decimal, var StdCapOvhdCost: Decimal, var StdMfgOvhdCost: Decimal)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RndgPrec
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StdMatCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StdCapDirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StdSubDirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StdCapOvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StdMfgOvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcProdOrderLineStdCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcProdOrderLineStdCost(Prod#_Order_Line,Decimal,Decimal,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcProdOrderLineExpCost(ProdOrderLine: Record "Prod. Order Line", ShareOfTotalCapCost: Decimal, var ExpMatCost: Decimal, var ExpCapDirCost: Decimal, var ExpSubDirCost: Decimal, var ExpCapOvhdCost: Decimal, var ExpMfgOvhdCost: Decimal)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ShareOfTotalCapCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpMatCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpCapDirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpSubDirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpCapOvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpMfgOvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcProdOrderLineExpCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcProdOrderLineExpCost(Prod#_Order_Line,Decimal,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcProdOrderLineActCost(ProdOrderLine: Record "Prod. Order Line", var ActMatCost: Decimal, var ActCapDirCost: Decimal, var ActSubDirCost: Decimal, var ActCapOvhdCost: Decimal, var ActMfgOvhdCost: Decimal, var ActMatCostCostACY: Decimal, var ActCapDirCostACY: Decimal, var ActSubDirCostACY: Decimal, var ActCapOvhdCostACY: Decimal, var ActMfgOvhdCostACY: Decimal)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ActMatCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActCapDirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActSubDirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActCapOvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActMfgOvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActMatCostCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActCapDirCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActSubDirCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActCapOvhdCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActMfgOvhdCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcProdOrderLineActCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcProdOrderLineActCost(Prod#_Order_Line,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcProdOrderExpCapNeed(ProdOrder: Record "Production Order", DrillDown: Boolean): Decimal'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: DrillDown
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcProdOrderExpCapNeed
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcProdOrderExpCapNeed(Production_Order,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcProdOrderActTimeUsed(ProdOrder: Record "Production Order", DrillDown: Boolean): Decimal'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: DrillDown
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcProdOrderActTimeUsed
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcProdOrderActTimeUsed(Production_Order,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcOutputQtyBaseOnPurchOrder(ProdOrderLine: Record "Prod. Order Line", ProdOrderRtngLine: Record "Prod. Order Routing Line"): Decimal'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOutputQtyBaseOnPurchOrder
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcOutputQtyBaseOnPurchOrder(Prod#_Order_Line,Prod#_Order_Routing_Line):Decimal
+- syntax:
+    content: 'procedure CalcActOutputQtyBase(var ProdOrderLine: Record "Prod. Order Line", ProdOrderRtngLine: Record "Prod. Order Routing Line"): Decimal'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcActOutputQtyBase
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcActOutputQtyBase(Prod#_Order_Line@,Prod#_Order_Routing_Line):Decimal
+- syntax:
+    content: 'procedure CalcActualOutputQtyWithNoCapacity(ProdOrderLine: Record "Prod. Order Line", ProdOrderRtngLine: Record "Prod. Order Routing Line"): Decimal'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcActualOutputQtyWithNoCapacity
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcActualOutputQtyWithNoCapacity(Prod#_Order_Line,Prod#_Order_Routing_Line):Decimal
+- syntax:
+    content: 'procedure CalcActQtyBase(ProdOrderLine: Record "Prod. Order Line", ProdOrderRtngLine: Record "Prod. Order Routing Line"): Decimal'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcActQtyBase
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcActQtyBase(Prod#_Order_Line,Prod#_Order_Routing_Line):Decimal
+- syntax:
+    content: 'procedure CalcActOperOutputAndScrap(ProdOrderLine: Record "Prod. Order Line", ProdOrderRtngLine: Record "Prod. Order Routing Line"): Decimal'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcActOperOutputAndScrap
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcActOperOutputAndScrap(Prod#_Order_Line,Prod#_Order_Routing_Line):Decimal
+- syntax:
+    content: 'procedure CalcActNeededQtyBase(ProdOrderLine: Record "Prod. Order Line", ProdOrderComp: Record "Prod. Order Component", OutputQtyBase: Decimal): Decimal'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: OutputQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcActNeededQtyBase
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcActNeededQtyBase(Prod#_Order_Line,Prod#_Order_Component,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcActTimeAndQtyBase(ProdOrderLine: Record "Prod. Order Line", OperationNo: Code[10], var ActRunTime: Decimal, var ActSetupTime: Decimal, var ActOutputQty: Decimal, var ActScrapQty: Decimal)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: OperationNo
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ActRunTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActSetupTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActOutputQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActScrapQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcActTimeAndQtyBase
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcActTimeAndQtyBase(Prod#_Order_Line,Code[10],Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcCompItemQtyBase(ProdBOMComponent: Record "Production BOM Line", CalculationDate: Date, MfgItemQtyBase: Decimal, RtngNo: Code[20], AdjdForRtngScrap: Boolean): Decimal'
+    parameters:
+    - id: ProdBOMComponent
+      parameterType:
+        name: Record "Production BOM Line"
+        isExternal: true
+    - id: CalculationDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: MfgItemQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RtngNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdjdForRtngScrap
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCompItemQtyBase
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCompItemQtyBase(Production_BOM_Line,Date,Decimal,Code[20],Boolean):Decimal
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure CalculateCostTime(),23.0)]'
+    content: 'procedure CalcCostTime(MfgItemQtyBase: Decimal, SetupTime: Decimal, SetupTimeUOMCode: Code[10], RunTime: Decimal, RunTimeUOMCode: Code[10], RtngLotSize: Decimal, ScrapFactorPctAccum: Decimal, FixedScrapQtyAccum: Decimal, WorkCenterNo: Code[20], UnitCostCalculation: Option, CostInclSetup: Boolean, ConcurrentCapacities: Decimal): Decimal'
+    parameters:
+    - id: MfgItemQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SetupTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SetupTimeUOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RunTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RunTimeUOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RtngLotSize
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScrapFactorPctAccum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FixedScrapQtyAccum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: WorkCenterNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UnitCostCalculation
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CostInclSetup
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ConcurrentCapacities
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCostTime
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure CalculateCostTime()
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCostTime(Decimal,Decimal,Code[10],Decimal,Code[10],Decimal,Decimal,Decimal,Code[20],Option,Boolean,Decimal):Decimal
+- syntax:
+    content: 'procedure CalculateCostTime(MfgItemQtyBase: Decimal, SetupTime: Decimal, SetupTimeUOMCode: Code[10], RunTime: Decimal, RunTimeUOMCode: Code[10], RtngLotSize: Decimal, ScrapFactorPctAccum: Decimal, FixedScrapQtyAccum: Decimal, WorkCenterNo: Code[20], UnitCostCalculation: Enum "Unit Cost Calculation Type", CostInclSetup: Boolean, ConcurrentCapacities: Decimal): Decimal'
+    parameters:
+    - id: MfgItemQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SetupTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SetupTimeUOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RunTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RunTimeUOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RtngLotSize
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScrapFactorPctAccum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FixedScrapQtyAccum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: WorkCenterNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UnitCostCalculation
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type
+        name: Microsoft.Foundation.Enums."Unit Cost Calculation Type"
+        isExternal: false
+    - id: CostInclSetup
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ConcurrentCapacities
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalculateCostTime
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalculateCostTime(Decimal,Decimal,Code[10],Decimal,Code[10],Decimal,Decimal,Decimal,Code[20],Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type,Boolean,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcQtyAdjdForBOMScrap(Qty: Decimal, ScrapPct: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScrapPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAdjdForBOMScrap
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcQtyAdjdForBOMScrap(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcQtyAdjdForRoutingScrap(Qty: Decimal, ScrapFactorPctAccum: Decimal, FixedScrapQtyAccum: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScrapFactorPctAccum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FixedScrapQtyAccum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAdjdForRoutingScrap
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcQtyAdjdForRoutingScrap(Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcDirCost(Cost: Decimal, OvhdCost: Decimal, VarPurchCost: Decimal): Decimal'
+    parameters:
+    - id: Cost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VarPurchCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcDirCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcDirCost(Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcDirUnitCost(UnitCost: Decimal, OvhdRate: Decimal, IndirCostPct: Decimal): Decimal'
+    parameters:
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcDirUnitCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcDirUnitCost(Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcOvhdCost(DirCost: Decimal, IndirCostPct: Decimal, OvhdRate: Decimal, QtyBase: Decimal): Decimal'
+    parameters:
+    - id: DirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOvhdCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcOvhdCost(Decimal,Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcUnitCost(DirCost: Decimal, IndirCostPct: Decimal, OvhdRate: Decimal, RndgPrec: Decimal): Decimal'
+    parameters:
+    - id: DirCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OvhdRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RndgPrec
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcUnitCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcUnitCost(Decimal,Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure FindRountingLine(var RoutingLine: Record "Routing Line", ProdBOMLine: Record "Production BOM Line", CalculationDate: Date, RoutingNo: Code[20]): Boolean'
+    parameters:
+    - id: RoutingLine
+      parameterType:
+        name: Record "Routing Line"
+        isExternal: true
+    - id: ProdBOMLine
+      parameterType:
+        name: Record "Production BOM Line"
+        isExternal: true
+    - id: CalculationDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindRountingLine
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.FindRountingLine(Routing_Line@,Production_BOM_Line,Date,Code[20]):Boolean
+- syntax:
+    content: 'procedure GetRndgSetup(var GLSetup: Record "General Ledger Setup", var Currency: Record Currency, var RndgSetupRead: Boolean)'
+    parameters:
+    - id: GLSetup
+      parameterType:
+        name: Record "General Ledger Setup"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: RndgSetupRead
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetRndgSetup
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.GetRndgSetup(General_Ledger_Setup@,Currency@,Boolean@)
+- syntax:
+    content: 'procedure TransferCost(var Cost: Decimal, var UnitCost: Decimal, SrcCost: Decimal, Qty: Decimal, UnitAmtRndgPrec: Decimal)'
+    parameters:
+    - id: Cost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitAmtRndgPrec
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.TransferCost(Decimal@,Decimal@,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure SplitItemLedgerEntriesExist(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, QtyBase: Decimal, ItemLedgEntryNo: Integer): Boolean'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SplitItemLedgerEntriesExist
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.SplitItemLedgerEntriesExist(Item_Ledger_Entry@,Decimal,Integer):Boolean
+- syntax:
+    content: 'procedure CalcSalesLineCostLCY(SalesLine: Record "Sales Line", QtyType: Option): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcSalesLineCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcSalesLineCostLCY(Sales_Line,Option):Decimal
+- syntax:
+    content: 'procedure CalcSalesInvLineCostLCY(SalesInvLine: Record "Sales Invoice Line"): Decimal'
+    parameters:
+    - id: SalesInvLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcSalesInvLineCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcSalesInvLineCostLCY(Sales_Invoice_Line):Decimal
+- syntax:
+    content: 'procedure CalcSalesInvLineNonInvtblCostAmt(SalesInvoiceLine: Record "Sales Invoice Line"): Decimal'
+    parameters:
+    - id: SalesInvoiceLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcSalesInvLineNonInvtblCostAmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcSalesInvLineNonInvtblCostAmt(Sales_Invoice_Line):Decimal
+- syntax:
+    content: 'procedure CalcSalesCrMemoLineCostLCY(SalesCrMemoLine: Record "Sales Cr.Memo Line"): Decimal'
+    parameters:
+    - id: SalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcSalesCrMemoLineCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcSalesCrMemoLineCostLCY(Sales_Cr#Memo_Line):Decimal
+- syntax:
+    content: 'procedure CalcSalesCrMemoLineNonInvtblCostAmt(SalesCrMemoLine: Record "Sales Cr.Memo Line"): Decimal'
+    parameters:
+    - id: SalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcSalesCrMemoLineNonInvtblCostAmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcSalesCrMemoLineNonInvtblCostAmt(Sales_Cr#Memo_Line):Decimal
+- syntax:
+    content: 'procedure CalcServCrMemoLineCostLCY(ServCrMemoLine: Record "Service Cr.Memo Line"): Decimal'
+    parameters:
+    - id: ServCrMemoLine
+      parameterType:
+        name: Record "Service Cr.Memo Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcServCrMemoLineCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcServCrMemoLineCostLCY(Service_Cr#Memo_Line):Decimal
+- syntax:
+    content: 'procedure CalcCustLedgAdjmtCostLCY(CustLedgEntry: Record "Cust. Ledger Entry"): Decimal'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCustLedgAdjmtCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCustLedgAdjmtCostLCY(Cust#_Ledger_Entry):Decimal
+- syntax:
+    content: 'procedure CalcCustAdjmtCostLCY(var Customer: Record Customer): Decimal'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCustAdjmtCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCustAdjmtCostLCY(Customer@):Decimal
+- syntax:
+    content: 'procedure CalcCustLedgActualCostLCY(CustLedgEntry: Record "Cust. Ledger Entry"): Decimal'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCustLedgActualCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCustLedgActualCostLCY(Cust#_Ledger_Entry):Decimal
+- syntax:
+    content: 'procedure CalcCustActualCostLCY(var Customer: Record Customer): Decimal'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCustActualCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCustActualCostLCY(Customer@):Decimal
+- syntax:
+    content: 'procedure NonInvtblCostAmt(var Customer: Record Customer): Decimal'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: NonInvtblCostAmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.NonInvtblCostAmt(Customer@):Decimal
+- syntax:
+    content: 'procedure SumValueEntriesCostAmt(var ValueEntry: Record "Value Entry"): Decimal'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: SumValueEntriesCostAmt
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.SumValueEntriesCostAmt(Value_Entry@):Decimal
+- syntax:
+    content: 'procedure GetDocType(TableNo: Integer): Integer'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDocType
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.GetDocType(Integer):Integer
+- syntax:
+    content: 'procedure CalcServLineCostLCY(ServLine: Record "Service Line", QtyType: Option): Decimal'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcServLineCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcServLineCostLCY(Service_Line,Option):Decimal
+- syntax:
+    content: 'procedure CalcServInvLineCostLCY(ServInvLine: Record "Service Invoice Line"): Decimal'
+    parameters:
+    - id: ServInvLine
+      parameterType:
+        name: Record "Service Invoice Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcServInvLineCostLCY
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcServInvLineCostLCY(Service_Invoice_Line):Decimal
+- syntax:
+    content: 'procedure AdjustForRevNegCon(var ActMatCost: Decimal, var ActMatCostCostACY: Decimal, var ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ActMatCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActMatCostCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: AdjustForRevNegCon
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.AdjustForRevNegCon(Decimal@,Decimal@,Item_Ledger_Entry@)
+commentId: O:Codeunit::Microsoft#Inventory#Costing#Cost Calculation Management
+name: '"Cost Calculation Management"'
+uid: O:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management

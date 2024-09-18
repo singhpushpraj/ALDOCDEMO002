@@ -1,0 +1,41 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purch.-Get Drop Shpt."
+alId: ID 76
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Header" = rm,
+                      TableData "Sales Line" = rm
+  promoted: false
+- name: TableNo
+  value: Purchase Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+    name: Microsoft.Purchases.Document."Purchase Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetDescription(var PurchaseLine: Record "Purchase Line", SalesLine: Record "Sales Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetDescription
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Drop_Shpt#.GetDescription(Purchase_Line@,Sales_Line)
+commentId: O:Codeunit::Microsoft#Purchases#Document#Purch#-Get Drop Shpt#
+name: '"Purch.-Get Drop Shpt."'
+uid: O:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Drop_Shpt#

@@ -1,0 +1,116 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Reporting.VATStmtManagement
+alId: ID 340
+namespace: Microsoft.Finance.VAT.Reporting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Reporting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "VAT Statement Template" = rimd,
+                      TableData "VAT Statement Name" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, var VATStmtLine: Record "VAT Statement Line", var StmtSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: VATStmtLine
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+    - id: StmtSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.TemplateSelection(Integer,VAT_Statement_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var VATStmtName: Record "VAT Statement Name")'
+    parameters:
+    - id: VATStmtName
+      parameterType:
+        name: Record "VAT Statement Name"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.TemplateSelectionFromBatch(VAT_Statement_Name@)
+- syntax:
+    content: 'procedure OpenStmt(var CurrentStmtName: Code[10], var VATStmtLine: Record "VAT Statement Line")'
+    parameters:
+    - id: CurrentStmtName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VATStmtLine
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+  name: OpenStmt
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.OpenStmt(Code[10]@,VAT_Statement_Line@)
+- syntax:
+    content: 'procedure OpenStmtBatch(var VATStmtName: Record "VAT Statement Name")'
+    parameters:
+    - id: VATStmtName
+      parameterType:
+        name: Record "VAT Statement Name"
+        isExternal: true
+  name: OpenStmtBatch
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.OpenStmtBatch(VAT_Statement_Name@)
+- syntax:
+    content: 'procedure CheckName(CurrentStmtName: Code[10], var VATStmtLine: Record "VAT Statement Line")'
+    parameters:
+    - id: CurrentStmtName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VATStmtLine
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.CheckName(Code[10],VAT_Statement_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentStmtName: Code[10], var VATStmtLine: Record "VAT Statement Line")'
+    parameters:
+    - id: CurrentStmtName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VATStmtLine
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.SetName(Code[10],VAT_Statement_Line@)
+- syntax:
+    content: 'procedure LookupName(CurrentStmtTemplateName: Code[10], CurrentStmtName: Code[10], var EntrdStmtName: Text[10]): Boolean'
+    parameters:
+    - id: CurrentStmtTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentStmtName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntrdStmtName
+      parameterType:
+        name: Text[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement.LookupName(Code[10],Code[10],Text[10]@):Boolean
+commentId: O:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement
+name: VATStmtManagement
+uid: O:Codeunit::Microsoft#Finance#VAT#Reporting#VATStmtManagement

@@ -1,0 +1,39 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition."Get Unplanned Demand"
+alId: ID 5520
+namespace: Microsoft.Inventory.Requisition
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Production Order" = r,
+                      TableData "Prod. Order Component" = r,
+                      TableData "Prod. Order Capacity Need" = r,
+                      TableData "Service Header" = r
+  promoted: false
+- name: TableNo
+  value: Unplanned Demand
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Planning#Unplanned_Demand
+    name: Microsoft.Inventory.Planning."Unplanned Demand"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetIncludeMetDemandForSpecificSalesOrderNo(SalesOrderNo: Code[20])'
+    parameters:
+    - id: SalesOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetIncludeMetDemandForSpecificSalesOrderNo
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Get_Unplanned_Demand.SetIncludeMetDemandForSpecificSalesOrderNo(Code[20])
+commentId: O:Codeunit::Microsoft#Inventory#Requisition#Get Unplanned Demand
+name: '"Get Unplanned Demand"'
+uid: O:Codeunit::Microsoft#Inventory#Requisition#Get_Unplanned_Demand

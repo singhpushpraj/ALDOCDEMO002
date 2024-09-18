@@ -1,0 +1,785 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.IO."Config. Package Management"
+alId: ID 8611
+namespace: System.IO
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.IO
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Config. Package Record
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#IO#Config#_Package_Record
+    name: System.IO."Config. Package Record"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure InsertPackage(var ConfigPackage: Record "Config. Package", PackageCode: Code[20], PackageName: Text[50], ExcludeConfigTables: Boolean)'
+    parameters:
+    - id: ConfigPackage
+      parameterType:
+        name: Record "Config. Package"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PackageName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ExcludeConfigTables
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertPackage
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackage(Config#_Package@,Code[20],Text[50],Boolean)
+- syntax:
+    content: 'procedure InsertPackageTable(var ConfigPackageTable: Record "Config. Package Table", PackageCode: Code[20], TableID: Integer)'
+    parameters:
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertPackageTable
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackageTable(Config#_Package_Table@,Code[20],Integer)
+- syntax:
+    content: 'procedure InsertPackageTableWithoutValidation(var ConfigPackageTable: Record "Config. Package Table", PackageCode: Code[20], TableID: Integer)'
+    parameters:
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertPackageTableWithoutValidation
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackageTableWithoutValidation(Config#_Package_Table@,Code[20],Integer)
+- syntax:
+    content: 'procedure InsertPackageField(var ConfigPackageField: Record "Config. Package Field", PackageCode: Code[20], TableID: Integer, FieldID: Integer, FieldName: Text[30], FieldCaption: Text[250], SetInclude: Boolean, SetValidate: Boolean, SetLocalize: Boolean, SetDimension: Boolean)'
+    parameters:
+    - id: ConfigPackageField
+      parameterType:
+        name: Record "Config. Package Field"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: SetInclude
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SetValidate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SetLocalize
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SetDimension
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertPackageField
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackageField(Config#_Package_Field@,Code[20],Integer,Integer,Text[30],Text[250],Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure InsertPackageFilter(var ConfigPackageFilter: Record "Config. Package Filter", PackageCode: Code[20], TableID: Integer, ProcessingRuleNo: Integer, FieldID: Integer, FieldFilter: Text[250])'
+    parameters:
+    - id: ConfigPackageFilter
+      parameterType:
+        name: Record "Config. Package Filter"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ProcessingRuleNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldFilter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: InsertPackageFilter
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackageFilter(Config#_Package_Filter@,Code[20],Integer,Integer,Integer,Text[250])
+- syntax:
+    content: 'procedure InsertPackageRecord(ConfigPackageRecord: Record "Config. Package Record")'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+  name: InsertPackageRecord
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackageRecord(Config#_Package_Record)
+- syntax:
+    content: 'procedure InsertPackageData(var ConfigPackageData: Record "Config. Package Data", PackageCode: Code[20], TableID: Integer, No: Integer, FieldID: Integer, Value: Text[2048], Invalid: Boolean)'
+    parameters:
+    - id: ConfigPackageData
+      parameterType:
+        name: Record "Config. Package Data"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Text[2048]
+        isExternal: true
+    - id: Invalid
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertPackageData
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertPackageData(Config#_Package_Data@,Code[20],Integer,Integer,Integer,Text[2048],Boolean)
+- syntax:
+    content: 'procedure InsertProcessingRule(var ConfigTableProcessingRule: Record "Config. Table Processing Rule", ConfigPackageTable: Record "Config. Package Table", RuleNo: Integer, NewAction: Option)'
+    parameters:
+    - id: ConfigTableProcessingRule
+      parameterType:
+        name: Record "Config. Table Processing Rule"
+        isExternal: true
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: RuleNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewAction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: InsertProcessingRule
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertProcessingRule(Config#_Table_Processing_Rule@,Config#_Package_Table,Integer,Option)
+- syntax:
+    content: 'procedure InsertProcessingRuleCustom(var ConfigTableProcessingRule: Record "Config. Table Processing Rule", ConfigPackageTable: Record "Config. Package Table", RuleNo: Integer, CodeunitID: Integer)'
+    parameters:
+    - id: ConfigTableProcessingRule
+      parameterType:
+        name: Record "Config. Table Processing Rule"
+        isExternal: true
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: RuleNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertProcessingRuleCustom
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InsertProcessingRuleCustom(Config#_Table_Processing_Rule@,Config#_Package_Table,Integer,Integer)
+- syntax:
+    content: 'procedure SetSkipTableTriggers(var ConfigPackageTable: Record "Config. Package Table", PackageCode: Code[20], TableID: Integer, Skip: Boolean)'
+    parameters:
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipTableTriggers
+  uid: M:Codeunit::System#IO#Config#_Package_Management.SetSkipTableTriggers(Config#_Package_Table@,Code[20],Integer,Boolean)
+- syntax:
+    content: 'procedure GetNumberOfRecordsInserted(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNumberOfRecordsInserted
+  uid: M:Codeunit::System#IO#Config#_Package_Management.GetNumberOfRecordsInserted:Integer
+- syntax:
+    content: 'procedure GetNumberOfRecordsModified(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNumberOfRecordsModified
+  uid: M:Codeunit::System#IO#Config#_Package_Management.GetNumberOfRecordsModified:Integer
+- syntax:
+    content: 'procedure InitPackageRecord(var ConfigPackageRecord: Record "Config. Package Record", PackageCode: Code[20], TableID: Integer)'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitPackageRecord
+  uid: M:Codeunit::System#IO#Config#_Package_Management.InitPackageRecord(Config#_Package_Record@,Code[20],Integer)
+- syntax:
+    content: 'procedure RemoveRecordsWithObsoleteTableID(TableID: Integer, TableIDFieldNo: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TableIDFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RemoveRecordsWithObsoleteTableID
+  uid: M:Codeunit::System#IO#Config#_Package_Management.RemoveRecordsWithObsoleteTableID(Integer,Integer)
+- syntax:
+    content: 'procedure ValidatePackageRelations(var ConfigPackageTable: Record "Config. Package Table", var TempConfigPackageTable: Record "Config. Package Table" temporary, SetupProcessingOrderForTables: Boolean)'
+    parameters:
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: TempConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table" temporary
+        isExternal: true
+    - id: SetupProcessingOrderForTables
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidatePackageRelations
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ValidatePackageRelations(Config#_Package_Table@,Config#_Package_Table@,Boolean)
+- syntax:
+    content: 'procedure ValidateFieldRelationInRecord(ConfigPackageField: Record "Config. Package Field", var ValidatedConfigPackageTable: Record "Config. Package Table", ConfigPackageRecord: Record "Config. Package Record", RecRef: RecordRef): Boolean'
+    parameters:
+    - id: ConfigPackageField
+      parameterType:
+        name: Record "Config. Package Field"
+        isExternal: true
+    - id: ValidatedConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateFieldRelationInRecord
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ValidateFieldRelationInRecord(Config#_Package_Field,Config#_Package_Table@,Config#_Package_Record,RecordRef):Boolean
+- syntax:
+    content: 'procedure ValidateException(TableID: Integer, FieldID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateException
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ValidateException(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure IsDimSetIDField(TableId: Integer, FieldId: Integer): Boolean'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDimSetIDField
+  uid: M:Codeunit::System#IO#Config#_Package_Management.IsDimSetIDField(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure ValidateFieldRelationAgainstPackageData(ConfigPackageData: Record "Config. Package Data", var ValidatedConfigPackageTable: Record "Config. Package Table", RelationTableNo: Integer, RelationFieldNo: Integer): Boolean'
+    parameters:
+    - id: ConfigPackageData
+      parameterType:
+        name: Record "Config. Package Data"
+        isExternal: true
+    - id: ValidatedConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: RelationTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RelationFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateFieldRelationAgainstPackageData
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ValidateFieldRelationAgainstPackageData(Config#_Package_Data,Config#_Package_Table@,Integer,Integer):Boolean
+- syntax:
+    content: 'procedure RecordError(var ConfigPackageRecord: Record "Config. Package Record", ValidationFieldID: Integer, ErrorText: Text[250])'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+    - id: ValidationFieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: RecordError
+  uid: M:Codeunit::System#IO#Config#_Package_Management.RecordError(Config#_Package_Record@,Integer,Text[250])
+- syntax:
+    content: 'procedure FieldError(var ConfigPackageData: Record "Config. Package Data", ErrorText: Text[250], ErrorType: Option)'
+    parameters:
+    - id: ConfigPackageData
+      parameterType:
+        name: Record "Config. Package Data"
+        isExternal: true
+    - id: ErrorText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ErrorType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: FieldError
+  uid: M:Codeunit::System#IO#Config#_Package_Management.FieldError(Config#_Package_Data@,Text[250],Option)
+- syntax:
+    content: 'procedure CleanRecordError(var ConfigPackageRecord: Record "Config. Package Record")'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+  name: CleanRecordError
+  uid: M:Codeunit::System#IO#Config#_Package_Management.CleanRecordError(Config#_Package_Record@)
+- syntax:
+    content: 'procedure CleanFieldError(var ConfigPackageData: Record "Config. Package Data")'
+    parameters:
+    - id: ConfigPackageData
+      parameterType:
+        name: Record "Config. Package Data"
+        isExternal: true
+  name: CleanFieldError
+  uid: M:Codeunit::System#IO#Config#_Package_Management.CleanFieldError(Config#_Package_Data@)
+- syntax:
+    content: 'procedure CleanPackageErrors(PackageCode: Code[20], TableFilter: Text)'
+    parameters:
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CleanPackageErrors
+  uid: M:Codeunit::System#IO#Config#_Package_Management.CleanPackageErrors(Code[20],Text)
+- syntax:
+    content: 'procedure GetValidationFieldID(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetValidationFieldID
+  uid: M:Codeunit::System#IO#Config#_Package_Management.GetValidationFieldID:Integer
+- syntax:
+    content: 'procedure ApplyConfigLines(var ConfigLine: Record "Config. Line")'
+    parameters:
+    - id: ConfigLine
+      parameterType:
+        name: Record "Config. Line"
+        isExternal: true
+  name: ApplyConfigLines
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ApplyConfigLines(Config#_Line@)
+- syntax:
+    content: 'procedure ApplyPackage(ConfigPackage: Record "Config. Package", var ConfigPackageTable: Record "Config. Package Table", SetupProcessingOrderForTables: Boolean): Integer'
+    parameters:
+    - id: ConfigPackage
+      parameterType:
+        name: Record "Config. Package"
+        isExternal: true
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+    - id: SetupProcessingOrderForTables
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ApplyPackage
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ApplyPackage(Config#_Package,Config#_Package_Table@,Boolean):Integer
+- syntax:
+    content: 'procedure ApplySelectedPackageRecords(var ConfigPackageRecord: Record "Config. Package Record", PackageCode: Code[20], TableNo: Integer)'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ApplySelectedPackageRecords
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ApplySelectedPackageRecords(Config#_Package_Record@,Code[20],Integer)
+- syntax:
+    content: 'procedure ApplyConfigTables(ConfigPackage: Record "Config. Package")'
+    parameters:
+    - id: ConfigPackage
+      parameterType:
+        name: Record "Config. Package"
+        isExternal: true
+  name: ApplyConfigTables
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ApplyConfigTables(Config#_Package)
+- syntax:
+    content: 'procedure SetApplyMode(NewApplyMode: Option)'
+    parameters:
+    - id: NewApplyMode
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetApplyMode
+  uid: M:Codeunit::System#IO#Config#_Package_Management.SetApplyMode(Option)
+- syntax:
+    content: 'procedure SetFieldFilter(Field: __MissingTypeSymbol__, TableID: Integer, FieldID: Integer)'
+    parameters:
+    - id: Field
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetFieldFilter
+  uid: M:Codeunit::System#IO#Config#_Package_Management.SetFieldFilter(__MissingSymbol__@,Integer,Integer)
+- syntax:
+    content: 'procedure SelectAllPackageFields(var ConfigPackageField: Record "Config. Package Field", SetInclude: Boolean)'
+    parameters:
+    - id: ConfigPackageField
+      parameterType:
+        name: Record "Config. Package Field"
+        isExternal: true
+    - id: SetInclude
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SelectAllPackageFields
+  uid: M:Codeunit::System#IO#Config#_Package_Management.SelectAllPackageFields(Config#_Package_Field@,Boolean)
+- syntax:
+    content: 'procedure SetupProcessingOrder(var ConfigPackageTable: Record "Config. Package Table")'
+    parameters:
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+  name: SetupProcessingOrder
+  uid: M:Codeunit::System#IO#Config#_Package_Management.SetupProcessingOrder(Config#_Package_Table@)
+- syntax:
+    content: 'procedure GetDimSetIDForRecord(ConfigPackageRecord: Record "Config. Package Record"): Integer'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDimSetIDForRecord
+  uid: M:Codeunit::System#IO#Config#_Package_Management.GetDimSetIDForRecord(Config#_Package_Record):Integer
+- syntax:
+    content: 'procedure UpdateDefaultDimValues(ConfigPackageRecord: Record "Config. Package Record", MasterNo: Code[20])'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+    - id: MasterNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateDefaultDimValues
+  uid: M:Codeunit::System#IO#Config#_Package_Management.UpdateDefaultDimValues(Config#_Package_Record,Code[20])
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::System#IO#Config#_Package_Management.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure AddConfigTables(PackageCode: Code[20])'
+    parameters:
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddConfigTables
+  uid: M:Codeunit::System#IO#Config#_Package_Management.AddConfigTables(Code[20])
+- syntax:
+    content: 'procedure AssignPackage(var ConfigLine: Record "Config. Line", PackageCode: Code[20])'
+    parameters:
+    - id: ConfigLine
+      parameterType:
+        name: Record "Config. Line"
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AssignPackage
+  uid: M:Codeunit::System#IO#Config#_Package_Management.AssignPackage(Config#_Line@,Code[20])
+- syntax:
+    content: 'procedure CheckConfigLinesToAssign(var ConfigLine: Record "Config. Line")'
+    parameters:
+    - id: ConfigLine
+      parameterType:
+        name: Record "Config. Line"
+        isExternal: true
+  name: CheckConfigLinesToAssign
+  uid: M:Codeunit::System#IO#Config#_Package_Management.CheckConfigLinesToAssign(Config#_Line@)
+- syntax:
+    content: 'procedure GetRelatedTables(var ConfigPackageTable: Record "Config. Package Table")'
+    parameters:
+    - id: ConfigPackageTable
+      parameterType:
+        name: Record "Config. Package Table"
+        isExternal: true
+  name: GetRelatedTables
+  uid: M:Codeunit::System#IO#Config#_Package_Management.GetRelatedTables(Config#_Package_Table@)
+- syntax:
+    content: 'procedure GetFieldsOrder(RecRef: RecordRef, PackageCode: Code[20], var TempConfigPackageField: Record "Config. Package Field" temporary)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: PackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TempConfigPackageField
+      parameterType:
+        name: Record "Config. Package Field" temporary
+        isExternal: true
+  name: GetFieldsOrder
+  uid: M:Codeunit::System#IO#Config#_Package_Management.GetFieldsOrder(RecordRef,Code[20],Config#_Package_Field@)
+- syntax:
+    content: 'procedure UpdateConfigLinePackageData(ConfigPackageCode: Code[20])'
+    parameters:
+    - id: ConfigPackageCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateConfigLinePackageData
+  uid: M:Codeunit::System#IO#Config#_Package_Management.UpdateConfigLinePackageData(Code[20])
+- syntax:
+    content: 'procedure HandlePackageDataDimSetIDForRecord(ConfigPackageRecord: Record "Config. Package Record")'
+    parameters:
+    - id: ConfigPackageRecord
+      parameterType:
+        name: Record "Config. Package Record"
+        isExternal: true
+  name: HandlePackageDataDimSetIDForRecord
+  uid: M:Codeunit::System#IO#Config#_Package_Management.HandlePackageDataDimSetIDForRecord(Config#_Package_Record)
+- syntax:
+    content: 'procedure ShowFieldMapping(ConfigPackageField: Record "Config. Package Field")'
+    parameters:
+    - id: ConfigPackageField
+      parameterType:
+        name: Record "Config. Package Field"
+        isExternal: true
+  name: ShowFieldMapping
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ShowFieldMapping(Config#_Package_Field)
+- syntax:
+    content: 'procedure IsBLOBField(TableId: Integer, FieldId: Integer): Boolean'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBLOBField
+  uid: M:Codeunit::System#IO#Config#_Package_Management.IsBLOBField(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure IsMediaSetField(TableId: Integer, FieldId: Integer): Boolean'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsMediaSetField
+  uid: M:Codeunit::System#IO#Config#_Package_Management.IsMediaSetField(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure IsMediaField(TableId: Integer, FieldId: Integer): Boolean'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsMediaField
+  uid: M:Codeunit::System#IO#Config#_Package_Management.IsMediaField(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure IsFieldMultiRelation(TableID: Integer, FieldID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsFieldMultiRelation
+  uid: M:Codeunit::System#IO#Config#_Package_Management.IsFieldMultiRelation(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure ValidateFieldRefRelationAgainstCompanyData(FieldRef: FieldRef, var ConfigPackageFieldOrder: Record "Config. Package Field"): Text[250]'
+    parameters:
+    - id: FieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: ConfigPackageFieldOrder
+      parameterType:
+        name: Record "Config. Package Field"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: ValidateFieldRefRelationAgainstCompanyData
+  uid: M:Codeunit::System#IO#Config#_Package_Management.ValidateFieldRefRelationAgainstCompanyData(FieldRef,Config#_Package_Field@):Text[250]
+commentId: O:Codeunit::System#IO#Config# Package Management
+name: '"Config. Package Management"'
+uid: O:Codeunit::System#IO#Config#_Package_Management

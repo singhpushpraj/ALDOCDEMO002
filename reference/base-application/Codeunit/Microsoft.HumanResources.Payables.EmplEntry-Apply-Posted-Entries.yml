@@ -1,0 +1,171 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.HumanResources.Payables."EmplEntry-Apply Posted Entries"
+alId: ID 224
+namespace: Microsoft.HumanResources.Payables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.HumanResources.Payables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Employee Ledger Entry" = rimd,
+                      TableData "Detailed Employee Ledger Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Employee Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#HumanResources#Payables#Employee_Ledger_Entry
+    name: Microsoft.HumanResources.Payables."Employee Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Apply(EmplLedgEntry: Record "Employee Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: EmplLedgEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: Apply
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.Apply(Employee_Ledger_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure GetApplicationDate(EmplLedgEntry: Record "Employee Ledger Entry"): Date'
+    parameters:
+    - id: EmplLedgEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetApplicationDate
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.GetApplicationDate(Employee_Ledger_Entry):Date
+- syntax:
+    content: 'procedure FindLastApplEntry(EmplLedgEntryNo: Integer): Integer'
+    parameters:
+    - id: EmplLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindLastApplEntry
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.FindLastApplEntry(Integer):Integer
+- syntax:
+    content: 'procedure UnApplyDtldEmplLedgEntry(DtldEmplLedgEntry: Record "Detailed Employee Ledger Entry")'
+    parameters:
+    - id: DtldEmplLedgEntry
+      parameterType:
+        name: Record "Detailed Employee Ledger Entry"
+        isExternal: true
+  name: UnApplyDtldEmplLedgEntry
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.UnApplyDtldEmplLedgEntry(Detailed_Employee_Ledger_Entry)
+- syntax:
+    content: 'procedure UnApplyEmplLedgEntry(EmplLedgEntryNo: Integer)'
+    parameters:
+    - id: EmplLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UnApplyEmplLedgEntry
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.UnApplyEmplLedgEntry(Integer)
+- syntax:
+    content: 'procedure CheckEmployeeLedgerEntryToUnapply(EmployeeLedgerEntryNo: Integer, var DetailedEmployeeLedgerEntry: Record "Detailed Employee Ledger Entry")'
+    parameters:
+    - id: EmployeeLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DetailedEmployeeLedgerEntry
+      parameterType:
+        name: Record "Detailed Employee Ledger Entry"
+        isExternal: true
+  name: CheckEmployeeLedgerEntryToUnapply
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.CheckEmployeeLedgerEntryToUnapply(Integer,Detailed_Employee_Ledger_Entry@)
+- syntax:
+    content: 'procedure PostUnApplyEmployee(DtldEmplLedgEntry2: Record "Detailed Employee Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DtldEmplLedgEntry2
+      parameterType:
+        name: Record "Detailed Employee Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PostUnApplyEmployee
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.PostUnApplyEmployee(Detailed_Employee_Ledger_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure ApplyEmplEntryFormEntry(var ApplyingEmplLedgEntry: Record "Employee Ledger Entry")'
+    parameters:
+    - id: ApplyingEmplLedgEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+  name: ApplyEmplEntryFormEntry
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.ApplyEmplEntryFormEntry(Employee_Ledger_Entry@)
+- syntax:
+    content: 'procedure PreviewApply(EmployeeLedgerEntry: Record "Employee Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: EmployeeLedgerEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PreviewApply
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.PreviewApply(Employee_Ledger_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure PreviewUnapply(DetailedEmployeeLedgEntry: Record "Detailed Employee Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DetailedEmployeeLedgEntry
+      parameterType:
+        name: Record "Detailed Employee Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PreviewUnapply
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.PreviewUnapply(Detailed_Employee_Ledger_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure SetApplyContext(ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: SetApplyContext
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.SetApplyContext(Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure SetUnapplyContext(var DetailedEmployeeLedgEntry: Record "Detailed Employee Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DetailedEmployeeLedgEntry
+      parameterType:
+        name: Record "Detailed Employee Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: SetUnapplyContext
+  uid: M:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries.SetUnapplyContext(Detailed_Employee_Ledger_Entry@,Apply_Unapply_Parameters)
+commentId: O:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply Posted Entries
+name: '"EmplEntry-Apply Posted Entries"'
+uid: O:Codeunit::Microsoft#HumanResources#Payables#EmplEntry-Apply_Posted_Entries

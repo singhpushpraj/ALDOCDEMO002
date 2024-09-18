@@ -1,0 +1,416 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Analysis."Analysis Report Management"
+alId: ID 7110
+namespace: Microsoft.Inventory.Analysis
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Analysis
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Analysis Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Analysis#Analysis_Line
+    name: Microsoft.Inventory.Analysis."Analysis Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure LookupAnalysisReportName(CurrentAnalysisArea: Enum "Analysis Area Type", var CurrentReportName: Code[10]): Boolean'
+    parameters:
+    - id: CurrentAnalysisArea
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Analysis_Area_Type
+        name: Microsoft.Inventory.Analysis."Analysis Area Type"
+        isExternal: false
+    - id: CurrentReportName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupAnalysisReportName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.LookupAnalysisReportName(Enum::Microsoft#Inventory#Analysis#Analysis_Area_Type,Code[10]@):Boolean
+- syntax:
+    content: 'procedure CheckReportName(CurrentReportName: Code[10], var AnalysisLine: Record "Analysis Line")'
+    parameters:
+    - id: CurrentReportName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+  name: CheckReportName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.CheckReportName(Code[10],Analysis_Line@)
+- syntax:
+    content: 'procedure OpenAnalysisLines(var CurrentLineTemplate: Code[10], var AnalysisLine: Record "Analysis Line")'
+    parameters:
+    - id: CurrentLineTemplate
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+  name: OpenAnalysisLines
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.OpenAnalysisLines(Code[10]@,Analysis_Line@)
+- syntax:
+    content: 'procedure CheckAnalysisLineTemplName(CurrentAnalysisLineTempl: Code[10], var AnalysisLine: Record "Analysis Line")'
+    parameters:
+    - id: CurrentAnalysisLineTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+  name: CheckAnalysisLineTemplName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.CheckAnalysisLineTemplName(Code[10],Analysis_Line@)
+- syntax:
+    content: 'procedure SetAnalysisLineTemplName(CurrentAnalysisLineTempl: Code[10], var AnalysisLine: Record "Analysis Line")'
+    parameters:
+    - id: CurrentAnalysisLineTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+  name: SetAnalysisLineTemplName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetAnalysisLineTemplName(Code[10],Analysis_Line@)
+- syntax:
+    content: 'procedure LookupAnalysisLineTemplName(var CurrentAnalysisLineTempl: Code[10], var AnalysisLine: Record "Analysis Line"): Boolean'
+    parameters:
+    - id: CurrentAnalysisLineTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupAnalysisLineTemplName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.LookupAnalysisLineTemplName(Code[10]@,Analysis_Line@):Boolean
+- syntax:
+    content: 'procedure OpenAnalysisLinesForm(var AnalysisLine2: Record "Analysis Line", CurrentAnalysisLineTempl: Code[10])'
+    parameters:
+    - id: AnalysisLine2
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: CurrentAnalysisLineTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OpenAnalysisLinesForm
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.OpenAnalysisLinesForm(Analysis_Line@,Code[10])
+- syntax:
+    content: 'procedure OpenAnalysisColumnsForm(var AnalysisLine: Record "Analysis Line", CurrentColumnTempl: Code[10])'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: CurrentColumnTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OpenAnalysisColumnsForm
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.OpenAnalysisColumnsForm(Analysis_Line@,Code[10])
+- syntax:
+    content: 'procedure OpenColumns(var CurrentColumnTempl: Code[10], var AnalysisLine: Record "Analysis Line", var AnalysisColumn: Record "Analysis Column")'
+    parameters:
+    - id: CurrentColumnTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: AnalysisColumn
+      parameterType:
+        name: Record "Analysis Column"
+        isExternal: true
+  name: OpenColumns
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.OpenColumns(Code[10]@,Analysis_Line@,Analysis_Column@)
+- syntax:
+    content: 'procedure OpenColumns(var CurrentColumnTempl: Code[10], var AnalysisColumn: Record "Analysis Column")'
+    parameters:
+    - id: CurrentColumnTempl
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisColumn
+      parameterType:
+        name: Record "Analysis Column"
+        isExternal: true
+  name: OpenColumns
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.OpenColumns(Code[10]@,Analysis_Column@)
+- syntax:
+    content: 'procedure GetColumnTemplate(CurrentAnalysisArea: Option, CurrentColumnTemplate: Code[10])'
+    parameters:
+    - id: CurrentAnalysisArea
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrentColumnTemplate
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetColumnTemplate
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.GetColumnTemplate(Option,Code[10])
+- syntax:
+    content: 'procedure SetColumnName(CurrentAnalysisArea: Option, CurrentColumnName: Code[10], var AnalysisColumn: Record "Analysis Column")'
+    parameters:
+    - id: CurrentAnalysisArea
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AnalysisColumn
+      parameterType:
+        name: Record "Analysis Column"
+        isExternal: true
+  name: SetColumnName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetColumnName(Option,Code[10],Analysis_Column@)
+- syntax:
+    content: 'procedure CopyColumnsToTemp(var AnalysisLine: Record "Analysis Line", ColumnName: Code[10], var TempAnalysisColumn: Record "Analysis Column")'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: ColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TempAnalysisColumn
+      parameterType:
+        name: Record "Analysis Column"
+        isExternal: true
+  name: CopyColumnsToTemp
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.CopyColumnsToTemp(Analysis_Line@,Code[10],Analysis_Column@)
+- syntax:
+    content: 'procedure LookupAnalysisColumnName(CurrentAnalysisArea: Enum "Analysis Area Type", var CurrentColumnName: Code[10]): Boolean'
+    parameters:
+    - id: CurrentAnalysisArea
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Analysis#Analysis_Area_Type
+        name: Microsoft.Inventory.Analysis."Analysis Area Type"
+        isExternal: false
+    - id: CurrentColumnName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupAnalysisColumnName
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.LookupAnalysisColumnName(Enum::Microsoft#Inventory#Analysis#Analysis_Area_Type,Code[10]@):Boolean
+- syntax:
+    content: 'procedure SetSourceType(var AnalysisLine: Record "Analysis Line", CurrentSourceTypeFilter: Option)'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: CurrentSourceTypeFilter
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetSourceType
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetSourceType(Analysis_Line@,Option)
+- syntax:
+    content: 'procedure SetSourceNo(var AnalysisLine: Record "Analysis Line", CurrentSourceTypeNoFilter: Text)'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: CurrentSourceTypeNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetSourceNo
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetSourceNo(Analysis_Line@,Text)
+- syntax:
+    content: 'procedure DoLookupSourceNo(var AnalysisLine: Record "Analysis Line", CurrentSourceTypeFilter: Enum "Analysis Source Type", var CurrentSourceTypeNoFilter: Text)'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: CurrentSourceTypeFilter
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+        name: Microsoft.Foundation.Enums."Analysis Source Type"
+        isExternal: false
+    - id: CurrentSourceTypeNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: DoLookupSourceNo
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.DoLookupSourceNo(Analysis_Line@,Enum::Microsoft#Foundation#Enums#Analysis_Source_Type,Text@)
+- syntax:
+    signatures:
+    - '[Obsolete(Use "DoLookupSourceNo" with Enum parameter instead.,24.0)]'
+    content: 'procedure LookupSourceNo(var AnalysisLine: Record "Analysis Line", CurrentSourceTypeFilter: Option, var CurrentSourceTypeNoFilter: Text)'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: CurrentSourceTypeFilter
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrentSourceTypeNoFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LookupSourceNo
+  obsoletion:
+    state: pending
+    reason: Use "DoLookupSourceNo" with Enum parameter instead.
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.LookupSourceNo(Analysis_Line@,Option,Text@)
+- syntax:
+    content: 'procedure CalcCell(var AnalysisLine: Record "Analysis Line", var AnalysisColumn: Record "Analysis Column", DrillDown: Boolean): Decimal'
+    parameters:
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+    - id: AnalysisColumn
+      parameterType:
+        name: Record "Analysis Column"
+        isExternal: true
+    - id: DrillDown
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCell
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.CalcCell(Analysis_Line@,Analysis_Column@,Boolean):Decimal
+- syntax:
+    content: 'procedure SetItemRowFilters(var ItemStatisticsBuf: Record "Item Statistics Buffer", var AnalysisLine: Record "Analysis Line")'
+    parameters:
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: AnalysisLine
+      parameterType:
+        name: Record "Analysis Line"
+        isExternal: true
+  name: SetItemRowFilters
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetItemRowFilters(Item_Statistics_Buffer@,Analysis_Line@)
+- syntax:
+    content: 'procedure SetItemColumnFilters(var ItemStatisticsBuf: Record "Item Statistics Buffer", var AnalysisColumn: Record "Analysis Column")'
+    parameters:
+    - id: ItemStatisticsBuf
+      parameterType:
+        name: Record "Item Statistics Buffer"
+        isExternal: true
+    - id: AnalysisColumn
+      parameterType:
+        name: Record "Analysis Column"
+        isExternal: true
+  name: SetItemColumnFilters
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetItemColumnFilters(Item_Statistics_Buffer@,Analysis_Column@)
+- syntax:
+    content: 'procedure GetDivisionError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDivisionError
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.GetDivisionError:Boolean
+- syntax:
+    content: 'procedure GetPeriodError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPeriodError
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.GetPeriodError:Boolean
+- syntax:
+    content: 'procedure GetFormulaError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetFormulaError
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.GetFormulaError:Boolean
+- syntax:
+    content: 'procedure GetCyclicError(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCyclicError
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.GetCyclicError:Boolean
+- syntax:
+    content: 'procedure SetAnalysisLineTemplate(var NewAnalysisLineTemplate: Record "Analysis Line Template")'
+    parameters:
+    - id: NewAnalysisLineTemplate
+      parameterType:
+        name: Record "Analysis Line Template"
+        isExternal: true
+  name: SetAnalysisLineTemplate
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetAnalysisLineTemplate(Analysis_Line_Template@)
+- syntax:
+    content: 'procedure SetExpression(Expression: Text[250])'
+    parameters:
+    - id: Expression
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SetExpression
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.SetExpression(Text[250])
+- syntax:
+    content: 'procedure ValidateFilter(var Filter: Text, RecNo: Integer, FieldNumber: Integer, ConvertToNumbers: Boolean)'
+    parameters:
+    - id: Filter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RecNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ConvertToNumbers
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateFilter
+  uid: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.ValidateFilter(Text@,Integer,Integer,Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Analysis#Analysis Report Management
+name: '"Analysis Report Management"'
+uid: O:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management

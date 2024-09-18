@@ -1,0 +1,628 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Match Bank Payments"
+alId: ID 1255
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Vendor Ledger Entry" = rm
+  promoted: false
+- name: TableNo
+  value: Bank Acc. Reconciliation Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Line
+    name: Microsoft.Bank.Reconciliation."Bank Acc. Reconciliation Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure MatchNoOverwriteOfManualOrAccepted(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: MatchNoOverwriteOfManualOrAccepted
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.MatchNoOverwriteOfManualOrAccepted(Bank_Acc#_Reconciliation_Line@)
+- syntax:
+    content: 'procedure IsTextToAccountMappig(BankAccReconciliaitonLine: Record "Bank Acc. Reconciliation Line", var TempTextToAccMapping: Record "Text-to-Account Mapping" temporary): Boolean'
+    parameters:
+    - id: BankAccReconciliaitonLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempTextToAccMapping
+      parameterType:
+        name: Record "Text-to-Account Mapping" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsTextToAccountMappig
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.IsTextToAccountMappig(Bank_Acc#_Reconciliation_Line,Text-to-Account_Mapping@):Boolean
+- syntax:
+    content: 'procedure IsMatchedAutomatically(BankAccReconciliaitonLine: Record "Bank Acc. Reconciliation Line", var BankPmtApplRule: Record "Bank Pmt. Appl. Rule"): Boolean'
+    parameters:
+    - id: BankAccReconciliaitonLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsMatchedAutomatically
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.IsMatchedAutomatically(Bank_Acc#_Reconciliation_Line,Bank_Pmt#_Appl#_Rule@):Boolean
+- syntax:
+    content: 'procedure GetMatchPaymentDetailsInfo(BankAccReconciliaitonLine: Record "Bank Acc. Reconciliation Line", BankPmtApplRule: Record "Bank Pmt. Appl. Rule", MatchedAutomatically: Boolean, var RelatedPartyMatchedText: Text, var AmountMatchText: Text, var DocumentMatchedText: Text, var DirectDebitMatchedText: Text, var DirectDebitMatched: Boolean, var NoOfLedgerEntriesWithinAmountTolerance: Integer, var NoOfLedgerEntriesOutsideAmountTolerance: Integer, var RelatedEntryAdditionalMatchInfo: Text, var DocumentNoAdditionalMatchInfo: Text)'
+    parameters:
+    - id: BankAccReconciliaitonLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    - id: MatchedAutomatically
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RelatedPartyMatchedText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AmountMatchText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentMatchedText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DirectDebitMatchedText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DirectDebitMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NoOfLedgerEntriesWithinAmountTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesOutsideAmountTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RelatedEntryAdditionalMatchInfo
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentNoAdditionalMatchInfo
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetMatchPaymentDetailsInfo
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetMatchPaymentDetailsInfo(Bank_Acc#_Reconciliation_Line,Bank_Pmt#_Appl#_Rule,Boolean,Text@,Text@,Text@,Text@,Boolean@,Integer@,Integer@,Text@,Text@)
+- syntax:
+    content: 'procedure Code(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", Overwrite: Boolean)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: Overwrite
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Code
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.Code(Bank_Acc#_Reconciliation_Line@,Boolean)
+- syntax:
+    content: 'procedure Code(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: Code
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.Code(Bank_Acc#_Reconciliation_Line@)
+- syntax:
+    content: 'procedure OpenLinesForReviewPage(ReviewNotification: Notification)'
+    parameters:
+    - id: ReviewNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenLinesForReviewPage
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.OpenLinesForReviewPage(Notification)
+- syntax:
+    content: 'procedure OpenLinesWithDifferencePage(ReviewNotification: Notification)'
+    parameters:
+    - id: ReviewNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenLinesWithDifferencePage
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.OpenLinesWithDifferencePage(Notification)
+- syntax:
+    content: 'procedure GetLinesForReview(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", ReviewScoreFilter: Text)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: ReviewScoreFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLinesForReview
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetLinesForReview(Bank_Acc#_Reconciliation_Line@,Text)
+- syntax:
+    content: 'procedure GetLinesWithDifference(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: GetLinesWithDifference
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetLinesWithDifference(Bank_Acc#_Reconciliation_Line@)
+- syntax:
+    content: 'procedure RerunTextMapper(BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: RerunTextMapper
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.RerunTextMapper(Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure TransferDiffToAccount(BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempGenJournalLine: Record "Gen. Journal Line" temporary)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempGenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line" temporary
+        isExternal: true
+  name: TransferDiffToAccount
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.TransferDiffToAccount(Bank_Acc#_Reconciliation_Line,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure MatchSingleLineCustomer(var BankPmtApplRule: Record "Bank Pmt. Appl. Rule", BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", AppliesToEntryNo: Integer, var NoOfLedgerEntriesWithinTolerance: Integer, var NoOfLedgerEntriesOutsideTolerance: Integer)'
+    parameters:
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: AppliesToEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesWithinTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesOutsideTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MatchSingleLineCustomer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.MatchSingleLineCustomer(Bank_Pmt#_Appl#_Rule@,Bank_Acc#_Reconciliation_Line,Integer,Integer@,Integer@)
+- syntax:
+    content: 'procedure MatchSingleLineVendor(var BankPmtApplRule: Record "Bank Pmt. Appl. Rule", BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", AppliesToEntryNo: Integer, var NoOfLedgerEntriesWithinTolerance: Integer, var NoOfLedgerEntriesOutsideTolerance: Integer)'
+    parameters:
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: AppliesToEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesWithinTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesOutsideTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MatchSingleLineVendor
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.MatchSingleLineVendor(Bank_Pmt#_Appl#_Rule@,Bank_Acc#_Reconciliation_Line,Integer,Integer@,Integer@)
+- syntax:
+    content: 'procedure MatchSingleLineEmployee(var BankPmtApplRule: Record "Bank Pmt. Appl. Rule", BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", AppliesToEntryNo: Integer, var NoOfLedgerEntriesWithinTolerance: Integer, var NoOfLedgerEntriesOutsideTolerance: Integer)'
+    parameters:
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: AppliesToEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesWithinTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesOutsideTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MatchSingleLineEmployee
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.MatchSingleLineEmployee(Bank_Pmt#_Appl#_Rule@,Bank_Acc#_Reconciliation_Line,Integer,Integer@,Integer@)
+- syntax:
+    content: 'procedure MatchSingleLineBankAccountLedgerEntry(var BankPmtApplRule: Record "Bank Pmt. Appl. Rule", BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", AppliesToEntryNo: Integer, var NoOfLedgerEntriesWithinTolerance: Integer, var NoOfLedgerEntriesOutsideTolerance: Integer)'
+    parameters:
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: AppliesToEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesWithinTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfLedgerEntriesOutsideTolerance
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MatchSingleLineBankAccountLedgerEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.MatchSingleLineBankAccountLedgerEntry(Bank_Pmt#_Appl#_Rule@,Bank_Acc#_Reconciliation_Line,Integer,Integer@,Integer@)
+- syntax:
+    content: 'procedure InitializeCustomerLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+  name: InitializeCustomerLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeCustomerLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@)
+- syntax:
+    content: 'procedure InitializeCustomerLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary, ApplyEntries: Boolean)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+    - id: ApplyEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeCustomerLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeCustomerLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@,Boolean)
+- syntax:
+    content: 'procedure InitializeVendorLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+  name: InitializeVendorLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeVendorLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@)
+- syntax:
+    content: 'procedure InitializeVendorLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary, ApplyEntries: Boolean)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+    - id: ApplyEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeVendorLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeVendorLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@,Boolean)
+- syntax:
+    content: 'procedure InitializeEmployeeLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+  name: InitializeEmployeeLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeEmployeeLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@)
+- syntax:
+    content: 'procedure InitializeEmployeeLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary, ApplyEntries: Boolean)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+    - id: ApplyEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeEmployeeLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeEmployeeLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@,Boolean)
+- syntax:
+    content: 'procedure InitializeBankAccLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+  name: InitializeBankAccLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeBankAccLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@)
+- syntax:
+    content: 'procedure InitializeBankAccLedgerEntriesMatchingBuffer(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary, SkipReversed: Boolean)'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+    - id: SkipReversed
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeBankAccLedgerEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeBankAccLedgerEntriesMatchingBuffer(Bank_Acc#_Reconciliation_Line@,Ledger_Entry_Matching_Buffer@,Boolean)
+- syntax:
+    content: 'procedure InitializeDirectDebitCollectionEntriesMatchingBuffer(var TempDirectDebitCollectionEntryBuffer: Record "Direct Debit Collection Buffer" temporary)'
+    parameters:
+    - id: TempDirectDebitCollectionEntryBuffer
+      parameterType:
+        name: Record "Direct Debit Collection Buffer" temporary
+        isExternal: true
+  name: InitializeDirectDebitCollectionEntriesMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeDirectDebitCollectionEntriesMatchingBuffer(Direct_Debit_Collection_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Use the InitializeDirectDebitCollectionEntriesMatchingBuffer method above - it is using a dedicated buffer table,22.0)]'
+    content: 'procedure InitializeDirectDebitCollectionEntriesMatchingBuffer(var TempDirectDebitCollectionEntryBuffer: Record "Direct Debit Collection Entry" temporary)'
+    parameters:
+    - id: TempDirectDebitCollectionEntryBuffer
+      parameterType:
+        name: Record "Direct Debit Collection Entry" temporary
+        isExternal: true
+  name: InitializeDirectDebitCollectionEntriesMatchingBuffer
+  obsoletion:
+    state: pending
+    reason: Use the InitializeDirectDebitCollectionEntriesMatchingBuffer method above - it is using a dedicated buffer table
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeDirectDebitCollectionEntriesMatchingBuffer(Direct_Debit_Collection_Entry@)
+- syntax:
+    content: 'procedure FindApplicableTextMappings(var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var TempTextToAccMapping: Record "Text-to-Account Mapping" temporary): Boolean'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempTextToAccMapping
+      parameterType:
+        name: Record "Text-to-Account Mapping" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindApplicableTextMappings
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.FindApplicableTextMappings(Bank_Acc#_Reconciliation_Line@,Text-to-Account_Mapping@):Boolean
+- syntax:
+    content: 'procedure DocumentMatchingForBankLedgerEntry(var BankPmtApplRule: Record "Bank Pmt. Appl. Rule", BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary)'
+    parameters:
+    - id: BankPmtApplRule
+      parameterType:
+        name: Record "Bank Pmt. Appl. Rule"
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+  name: DocumentMatchingForBankLedgerEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.DocumentMatchingForBankLedgerEntry(Bank_Pmt#_Appl#_Rule@,Bank_Acc#_Reconciliation_Line,Ledger_Entry_Matching_Buffer)
+- syntax:
+    content: 'procedure DocNoMatching(SearchText: Text, DocNo: Code[35]): Boolean'
+    parameters:
+    - id: SearchText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DocNoMatching
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.DocNoMatching(Text,Code[35]):Boolean
+- syntax:
+    content: 'procedure GetExactMatchTreshold(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetExactMatchTreshold
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetExactMatchTreshold:Decimal
+- syntax:
+    content: 'procedure GetCloseMatchTreshold(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetCloseMatchTreshold
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetCloseMatchTreshold:Decimal
+- syntax:
+    content: 'procedure GetNormalizingFactor(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetNormalizingFactor
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetNormalizingFactor:Decimal
+- syntax:
+    content: 'procedure GetBankStatementMatchingBuffer(var TempBankStatementMatchingBuffer2: Record "Bank Statement Matching Buffer" temporary)'
+    parameters:
+    - id: TempBankStatementMatchingBuffer2
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+  name: GetBankStatementMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetBankStatementMatchingBuffer(Bank_Statement_Matching_Buffer@)
+- syntax:
+    content: 'procedure GetLedgerEntriesAsMatchingBuffer(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: GetLedgerEntriesAsMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetLedgerEntriesAsMatchingBuffer(Bank_Statement_Matching_Buffer@,Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure GetCustomerLedgerEntriesAsMatchingBuffer(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: GetCustomerLedgerEntriesAsMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetCustomerLedgerEntriesAsMatchingBuffer(Bank_Statement_Matching_Buffer@,Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure GetVendorLedgerEntriesAsMatchingBuffer(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: GetVendorLedgerEntriesAsMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetVendorLedgerEntriesAsMatchingBuffer(Bank_Statement_Matching_Buffer@,Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure GetEmployeeLedgerEntriesAsMatchingBuffer(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: GetEmployeeLedgerEntriesAsMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetEmployeeLedgerEntriesAsMatchingBuffer(Bank_Statement_Matching_Buffer@,Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure GetBankLedgerEntriesAsMatchingBuffer(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: GetBankLedgerEntriesAsMatchingBuffer
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.GetBankLedgerEntriesAsMatchingBuffer(Bank_Statement_Matching_Buffer@,Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure SetApplyEntries(NewApplyEntries: Boolean)'
+    parameters:
+    - id: NewApplyEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetApplyEntries
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.SetApplyEntries(Boolean)
+- syntax:
+    content: 'procedure SetApplicationDataInCVLedgEntry(AccountType: Enum "Gen. Journal Account Type", EntryNo: Integer, AppliesToID: Code[50])'
+    parameters:
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetApplicationDataInCVLedgEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.SetApplicationDataInCVLedgEntry(Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Integer,Code[50])
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Match Bank Payments
+name: '"Match Bank Payments"'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments

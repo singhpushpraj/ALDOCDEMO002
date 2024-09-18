@@ -1,0 +1,189 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition."Order Planning Mgt."
+alId: ID 5522
+namespace: Microsoft.Inventory.Requisition
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetOrdersToPlan(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: GetOrdersToPlan
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.GetOrdersToPlan(Requisition_Line@)
+- syntax:
+    content: 'procedure PlanSpecificSalesOrder(var ReqLine: Record "Requisition Line", SalesOrderNo: Code[20])'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: SalesOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PlanSpecificSalesOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.PlanSpecificSalesOrder(Requisition_Line@,Code[20])
+- syntax:
+    content: 'procedure PrepareRequisitionRecord(var RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: PrepareRequisitionRecord
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.PrepareRequisitionRecord(Requisition_Line@)
+- syntax:
+    content: 'procedure DeleteLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.DeleteLine:Boolean
+- syntax:
+    content: 'procedure CalcNeededQty(AvailableQty: Decimal, DemandQty: Decimal): Decimal'
+    parameters:
+    - id: AvailableQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DemandQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcNeededQty
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.CalcNeededQty(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcATPQty(ItemNo: Text[250], VariantFilter: Text[250], LocationFilter: Text[250], DemandDate: Date): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: VariantFilter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: LocationFilter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DemandDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcATPQty
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.CalcATPQty(Text[250],Text[250],Text[250],Date):Decimal
+- syntax:
+    content: 'procedure CalcATPEarliestDate(ItemNo: Text[250], VariantFilter: Text[250], LocationFilter: Text[250], DemandDate: Date, Quantity: Decimal): Date'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: VariantFilter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: LocationFilter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DemandDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcATPEarliestDate
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.CalcATPEarliestDate(Text[250],Text[250],Text[250],Date,Decimal):Date
+- syntax:
+    content: procedure SetSalesOrder()
+  name: SetSalesOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.SetSalesOrder
+- syntax:
+    content: procedure SetProdOrder()
+  name: SetProdOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.SetProdOrder
+- syntax:
+    content: procedure SetServOrder()
+  name: SetServOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.SetServOrder
+- syntax:
+    content: procedure SetJobOrder()
+  name: SetJobOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.SetJobOrder
+- syntax:
+    content: procedure SetAsmOrder()
+  name: SetAsmOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.SetAsmOrder
+- syntax:
+    content: 'procedure InsertAltSupplySubstitution(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: InsertAltSupplySubstitution
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.InsertAltSupplySubstitution(Requisition_Line@)
+- syntax:
+    content: 'procedure SubstitutionPossible(ReqLine: Record "Requisition Line"): Boolean'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SubstitutionPossible
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.SubstitutionPossible(Requisition_Line):Boolean
+- syntax:
+    content: 'procedure InsertAltSupplyLocation(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: InsertAltSupplyLocation
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.InsertAltSupplyLocation(Requisition_Line@)
+- syntax:
+    content: 'procedure AvailQtyOnOtherLocations(ReqLine: Record "Requisition Line"): Decimal'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AvailQtyOnOtherLocations
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#.AvailQtyOnOtherLocations(Requisition_Line):Decimal
+commentId: O:Codeunit::Microsoft#Inventory#Requisition#Order Planning Mgt#
+name: '"Order Planning Mgt."'
+uid: O:Codeunit::Microsoft#Inventory#Requisition#Order_Planning_Mgt#

@@ -1,0 +1,42 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.History."Undo Service Consumption Line"
+alId: ID 5819
+namespace: Microsoft.Service.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Ledger Entry" = rm,
+                      TableData "Item Application Entry" = rmd,
+                      TableData "Service Line" = rimd,
+                      TableData "Service Ledger Entry" = rimd,
+                      TableData "Warranty Ledger Entry" = rim,
+                      TableData "Service Shipment Line" = rimd,
+                      TableData "Item Entry Relation" = ri
+  promoted: false
+- name: TableNo
+  value: Service Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#History#Service_Shipment_Line
+    name: Microsoft.Service.History."Service Shipment Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Service#History#Undo_Service_Consumption_Line.SetHideDialog(Boolean)
+commentId: O:Codeunit::Microsoft#Service#History#Undo Service Consumption Line
+name: '"Undo Service Consumption Line"'
+uid: O:Codeunit::Microsoft#Service#History#Undo_Service_Consumption_Line

@@ -1,0 +1,121 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration."Data Migration Status Facade"
+alId: ID 6101
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure InitStatusLine(MigrationType: Text[250], DestinationTableId: Integer, TotalNumber: Integer, StagingTableId: Integer, MigrationCodeunitId: Integer)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StagingTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MigrationCodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitStatusLine
+  uid: M:Codeunit::System#Integration#Data_Migration_Status_Facade.InitStatusLine(Text[250],Integer,Integer,Integer,Integer)
+- syntax:
+    content: 'procedure IncrementMigratedRecordCount(MigrationType: Text[250], DestinationTableId: Integer, MigratedEntities: Integer)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MigratedEntities
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: IncrementMigratedRecordCount
+  uid: M:Codeunit::System#Integration#Data_Migration_Status_Facade.IncrementMigratedRecordCount(Text[250],Integer,Integer)
+- syntax:
+    content: 'procedure UpdateLineStatus(MigrationType: Text[250], DestinationTableId: Integer, Status: Option)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Status
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateLineStatus
+  uid: M:Codeunit::System#Integration#Data_Migration_Status_Facade.UpdateLineStatus(Text[250],Integer,Option)
+- syntax:
+    content: 'procedure IgnoreErrors(MigrationType: Text[250], DestinationTableId: Integer, ErrorCountToIgnore: Integer)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorCountToIgnore
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: IgnoreErrors
+  uid: M:Codeunit::System#Integration#Data_Migration_Status_Facade.IgnoreErrors(Text[250],Integer,Integer)
+- syntax:
+    content: 'procedure HasMigratedChartOfAccounts(DataMigrationParameters: Record "Data Migration Parameters"): Boolean'
+    parameters:
+    - id: DataMigrationParameters
+      parameterType:
+        name: Record "Data Migration Parameters"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasMigratedChartOfAccounts
+  uid: M:Codeunit::System#Integration#Data_Migration_Status_Facade.HasMigratedChartOfAccounts(Data_Migration_Parameters):Boolean
+- syntax:
+    content: 'procedure RegisterErrorNoStagingTablesCase(MigrationType: Text[250], DestinationTableId: Integer, ErrorMessage: Text[250])'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: RegisterErrorNoStagingTablesCase
+  uid: M:Codeunit::System#Integration#Data_Migration_Status_Facade.RegisterErrorNoStagingTablesCase(Text[250],Integer,Text[250])
+commentId: O:Codeunit::System#Integration#Data Migration Status Facade
+name: '"Data Migration Status Facade"'
+uid: O:Codeunit::System#Integration#Data_Migration_Status_Facade

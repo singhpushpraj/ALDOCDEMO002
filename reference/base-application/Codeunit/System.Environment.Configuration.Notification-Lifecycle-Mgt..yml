@@ -1,0 +1,176 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment.Configuration."Notification Lifecycle Mgt."
+alId: ID 1511
+namespace: System.Environment.Configuration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment.Configuration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SendNotification(NotificationToSend: Notification, RecId: RecordId)'
+    parameters:
+    - id: NotificationToSend
+      parameterType:
+        name: Notification
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: SendNotification
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.SendNotification(Notification,RecordId)
+- syntax:
+    content: 'procedure SendNotificationWithAdditionalContext(NotificationToSend: Notification, RecId: RecordId, AdditionalContextId: Guid)'
+    parameters:
+    - id: NotificationToSend
+      parameterType:
+        name: Notification
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: AdditionalContextId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: SendNotificationWithAdditionalContext
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.SendNotificationWithAdditionalContext(Notification,RecordId,Guid)
+- syntax:
+    content: 'procedure RecallNotificationsForRecord(RecId: RecordId, HandleDelayedInsert: Boolean)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: HandleDelayedInsert
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecallNotificationsForRecord
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.RecallNotificationsForRecord(RecordId,Boolean)
+- syntax:
+    content: 'procedure RecallNotificationsForRecordWithAdditionalContext(RecId: RecordId, AdditionalContextId: Guid, HandleDelayedInsert: Boolean)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: AdditionalContextId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: HandleDelayedInsert
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecallNotificationsForRecordWithAdditionalContext
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.RecallNotificationsForRecordWithAdditionalContext(RecordId,Guid,Boolean)
+- syntax:
+    content: procedure RecallAllNotifications()
+  name: RecallAllNotifications
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.RecallAllNotifications
+- syntax:
+    content: 'procedure GetTmpNotificationContext(var TempNotificationContextOut: Record "Notification Context" temporary)'
+    parameters:
+    - id: TempNotificationContextOut
+      parameterType:
+        name: Record "Notification Context" temporary
+        isExternal: true
+  name: GetTmpNotificationContext
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.GetTmpNotificationContext(Notification_Context@)
+- syntax:
+    content: 'procedure SetRecordID(RecId: RecordId)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: SetRecordID
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.SetRecordID(RecordId)
+- syntax:
+    content: 'procedure UpdateRecordID(CurrentRecId: RecordId, NewRecId: RecordId)'
+    parameters:
+    - id: CurrentRecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NewRecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: UpdateRecordID
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.UpdateRecordID(RecordId,RecordId)
+- syntax:
+    content: 'procedure GetNotificationsForRecord(RecId: RecordId, var TempNotificationContextOut: Record "Notification Context" temporary, HandleDelayedInsert: Boolean): Boolean'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: TempNotificationContextOut
+      parameterType:
+        name: Record "Notification Context" temporary
+        isExternal: true
+    - id: HandleDelayedInsert
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNotificationsForRecord
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.GetNotificationsForRecord(RecordId,Notification_Context@,Boolean):Boolean
+- syntax:
+    content: 'procedure GetNotificationsForRecordWithAdditionalContext(RecId: RecordId, AdditionalContextId: Guid, var TempNotificationContextOut: Record "Notification Context" temporary, HandleDelayedInsert: Boolean): Boolean'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: AdditionalContextId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: TempNotificationContextOut
+      parameterType:
+        name: Record "Notification Context" temporary
+        isExternal: true
+    - id: HandleDelayedInsert
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNotificationsForRecordWithAdditionalContext
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.GetNotificationsForRecordWithAdditionalContext(RecordId,Guid,Notification_Context@,Boolean):Boolean
+- syntax:
+    content: procedure EnableSubscribers()
+  name: EnableSubscribers
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.EnableSubscribers
+- syntax:
+    content: procedure DisableSubscribers()
+  name: DisableSubscribers
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.DisableSubscribers
+- syntax:
+    content: 'procedure AreSubscribersDisabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AreSubscribersDisabled
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#.AreSubscribersDisabled:Boolean
+commentId: O:Codeunit::System#Environment#Configuration#Notification Lifecycle Mgt#
+name: '"Notification Lifecycle Mgt."'
+uid: O:Codeunit::System#Environment#Configuration#Notification_Lifecycle_Mgt#

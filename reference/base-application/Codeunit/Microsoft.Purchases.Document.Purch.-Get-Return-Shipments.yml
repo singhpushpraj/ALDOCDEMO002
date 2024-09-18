@@ -1,0 +1,67 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purch.-Get Return Shipments"
+alId: ID 6648
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Purchase Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Line
+    name: Microsoft.Purchases.Document."Purchase Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateInvLines(var ReturnShptLine2: Record "Return Shipment Line")'
+    parameters:
+    - id: ReturnShptLine2
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+  name: CreateInvLines
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Return_Shipments.CreateInvLines(Return_Shipment_Line@)
+- syntax:
+    content: 'procedure SetPurchHeader(var PurchHeader2: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader2
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: SetPurchHeader
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Return_Shipments.SetPurchHeader(Purchase_Header@)
+- syntax:
+    content: 'procedure GetItemChargeAssgnt(var ReturnShptLine: Record "Return Shipment Line", QtyToInv: Decimal)'
+    parameters:
+    - id: ReturnShptLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+    - id: QtyToInv
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetItemChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Return_Shipments.GetItemChargeAssgnt(Return_Shipment_Line@,Decimal)
+- syntax:
+    content: 'procedure GetPurchRetOrderCrMemos(var TempPurchCrMemoHdr: Record "Purch. Cr. Memo Hdr." temporary, ReturnOrderNo: Code[20])'
+    parameters:
+    - id: TempPurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr." temporary
+        isExternal: true
+    - id: ReturnOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetPurchRetOrderCrMemos
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Return_Shipments.GetPurchRetOrderCrMemos(Purch#_Cr#_Memo_Hdr#@,Code[20])
+commentId: O:Codeunit::Microsoft#Purchases#Document#Purch#-Get Return Shipments
+name: '"Purch.-Get Return Shipments"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Purch#-Get_Return_Shipments

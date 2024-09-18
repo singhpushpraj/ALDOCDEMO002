@@ -1,0 +1,428 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Pricing."Purch. Price Calc. Mgt."
+alId: ID 7010
+namespace: Microsoft.Purchases.Pricing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Pricing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteReason
+  value: Replaced by the new implementation (V16) of price calculation.
+  promoted: false
+- name: ObsoleteTag
+  value: "16.0"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindPurchLinePrice(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindPurchLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindPurchLinePrice(Purchase_Header@,Purchase_Line@,Integer)
+- syntax:
+    content: 'procedure FindItemJnlLinePrice(var ItemJnlLine: Record "Item Journal Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindItemJnlLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindItemJnlLinePrice(Item_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure FindReqLinePrice(var ReqLine: Record "Requisition Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindReqLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindReqLinePrice(Requisition_Line@,Integer)
+- syntax:
+    content: 'procedure FindInvtDocLinePrice(var InvtDocLine: Record "Invt. Document Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: InvtDocLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindInvtDocLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindInvtDocLinePrice(Invt#_Document_Line@,Integer)
+- syntax:
+    content: 'procedure FindPurchLineLineDisc(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: FindPurchLineLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindPurchLineLineDisc(Purchase_Header@,Purchase_Line@)
+- syntax:
+    content: 'procedure FindStdItemJnlLinePrice(var StdItemJnlLine: Record "Standard Item Journal Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: StdItemJnlLine
+      parameterType:
+        name: Record "Standard Item Journal Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindStdItemJnlLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindStdItemJnlLinePrice(Standard_Item_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure FindReqLineDisc(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: FindReqLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindReqLineDisc(Requisition_Line@)
+- syntax:
+    content: 'procedure CalcBestDirectUnitCost(var PurchPrice: Record "Purchase Price")'
+    parameters:
+    - id: PurchPrice
+      parameterType:
+        name: Record "Purchase Price"
+        isExternal: true
+  name: CalcBestDirectUnitCost
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.CalcBestDirectUnitCost(Purchase_Price@)
+- syntax:
+    content: 'procedure CalcBestLineDisc(var PurchLineDisc: Record "Purchase Line Discount")'
+    parameters:
+    - id: PurchLineDisc
+      parameterType:
+        name: Record "Purchase Line Discount"
+        isExternal: true
+  name: CalcBestLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.CalcBestLineDisc(Purchase_Line_Discount@)
+- syntax:
+    content: 'procedure FindPurchPrice(var ToPurchPrice: Record "Purchase Price", VendorNo: Code[20], ItemNo: Code[20], VariantCode: Code[10], UOM: Code[10], CurrencyCode: Code[10], StartingDate: Date, ShowAll: Boolean)'
+    parameters:
+    - id: ToPurchPrice
+      parameterType:
+        name: Record "Purchase Price"
+        isExternal: true
+    - id: VendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOM
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FindPurchPrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindPurchPrice(Purchase_Price@,Code[20],Code[20],Code[10],Code[10],Code[10],Date,Boolean)
+- syntax:
+    content: 'procedure FindPurchLineDisc(var ToPurchLineDisc: Record "Purchase Line Discount", VendorNo: Code[20], ItemNo: Code[20], VariantCode: Code[10], UOM: Code[10], CurrencyCode: Code[10], StartingDate: Date, ShowAll: Boolean, QuantityPerUoM: Decimal, Quantity: Decimal)'
+    parameters:
+    - id: ToPurchLineDisc
+      parameterType:
+        name: Record "Purchase Line Discount"
+        isExternal: true
+    - id: VendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOM
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QuantityPerUoM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: FindPurchLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindPurchLineDisc(Purchase_Line_Discount@,Code[20],Code[20],Code[10],Code[10],Code[10],Date,Boolean,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetCurrency(CurrencyCode2: Code[10], CurrencyFactor2: Decimal, ExchRateDate2: Date)'
+    parameters:
+    - id: CurrencyCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyFactor2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExchRateDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetCurrency
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.SetCurrency(Code[10],Decimal,Date)
+- syntax:
+    content: 'procedure SetVAT(PriceInclVAT2: Boolean, VATPerCent2: Decimal, VATBusPostingGr2: Code[20])'
+    parameters:
+    - id: PriceInclVAT2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATPerCent2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATBusPostingGr2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetVAT
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.SetVAT(Boolean,Decimal,Code[20])
+- syntax:
+    content: 'procedure SetUoM(Qty2: Decimal, QtyPerUoM2: Decimal)'
+    parameters:
+    - id: Qty2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUoM2
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetUoM
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.SetUoM(Decimal,Decimal)
+- syntax:
+    content: 'procedure SetLineDisc(LineDiscPerCent2: Decimal)'
+    parameters:
+    - id: LineDiscPerCent2
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.SetLineDisc(Decimal)
+- syntax:
+    content: 'procedure ConvertPriceLCYToFCY(CurrencyCode: Code[10], var UnitPrice: Decimal)'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ConvertPriceLCYToFCY
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.ConvertPriceLCYToFCY(Code[10],Decimal@)
+- syntax:
+    content: 'procedure FindJobPlanningLinePrice(var JobPlanningLine: Record "Job Planning Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindJobPlanningLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindJobPlanningLinePrice(Job_Planning_Line@,Integer)
+- syntax:
+    content: 'procedure FindJobJnlLinePrice(var JobJnlLine: Record "Job Journal Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindJobJnlLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindJobJnlLinePrice(Job_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure NoOfPurchLinePrice(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", ShowAll: Boolean): Integer'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfPurchLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.NoOfPurchLinePrice(Purchase_Header@,Purchase_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure NoOfPurchLineLineDisc(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", ShowAll: Boolean): Integer'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfPurchLineLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.NoOfPurchLineLineDisc(Purchase_Header@,Purchase_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure GetPurchLinePrice(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: GetPurchLinePrice
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.GetPurchLinePrice(Purchase_Header@,Purchase_Line@)
+- syntax:
+    content: 'procedure GetPurchLineLineDisc(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: GetPurchLineLineDisc
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.GetPurchLineLineDisc(Purchase_Header@,Purchase_Line@)
+- syntax:
+    content: 'procedure SetItem(ItemNo: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetItem
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.SetItem(Code[20])
+- syntax:
+    content: 'procedure SetVendor(VendorNo: Code[20])'
+    parameters:
+    - id: VendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetVendor
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.SetVendor(Code[20])
+- syntax:
+    content: 'procedure FindResUnitCost(var ResJournalLine: Record "Res. Journal Line")'
+    parameters:
+    - id: ResJournalLine
+      parameterType:
+        name: Record "Res. Journal Line"
+        isExternal: true
+  name: FindResUnitCost
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindResUnitCost(Res#_Journal_Line@)
+- syntax:
+    content: 'procedure FindResUnitCost(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: FindResUnitCost
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindResUnitCost(Sales_Line@)
+- syntax:
+    content: 'procedure FindResUnitCost(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: FindResUnitCost
+  uid: M:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#.FindResUnitCost(Service_Line@)
+commentId: O:Codeunit::Microsoft#Purchases#Pricing#Purch# Price Calc# Mgt#
+name: '"Purch. Price Calc. Mgt."'
+obsoletion:
+  state: pending
+  reason: Replaced by the new implementation (V16) of price calculation.
+  version: "16.0"
+uid: O:Codeunit::Microsoft#Purchases#Pricing#Purch#_Price_Calc#_Mgt#

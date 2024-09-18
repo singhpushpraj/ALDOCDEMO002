@@ -1,0 +1,631 @@
+﻿### YamlMime:BusinessCentralObsoletionList
+tag: "24.0"
+groups:
+- groupName: "24.0"
+  symbols:
+  - kind: EnumValue
+    internalReference: E:EnumExtension::System#Environment#Configuration#Feature_To_Update_-_BaseApp.EnablePlatformBasedReportSelection
+    name: Enum Value EnablePlatformBasedReportSelection
+    reason: Feature EnablePlatformBasedReportSelection will be enabled by default in version 24.0.
+  - kind: EnumValue
+    internalReference: E:EnumExtension::System#Environment#Configuration#Feature_To_Update_-_BaseApp.PhysInvtOrderPackageTracking
+    name: Enum Value PhysInvtOrderPackageTracking
+    reason: Feature Phys. Invt. Orders Package Tracking will be enabled by default in version 27.0.
+  - kind: EnumValue
+    internalReference: E:EnumExtension::System#Environment#Configuration#Feature_To_Update_-_BaseApp.GLCurrencyRevaluation
+    name: Enum Value GLCurrencyRevaluation
+    reason: Feature G/L Currency REvaluation will be enabled by default in version 27.0.
+  - kind: Field
+    internalReference: F:Table::System#Integration#PowerBI#Power_BI_User_Configuration.Report_Visibility
+    name: '"Report Visibility": Boolean'
+    reason: The report part visibility is now handled by the standard personalization experience. Hide the page using Personalization instead of using this value.
+  - kind: Table
+    internalReference: O:Table::System#Integration#PowerBI#Power_BI_User_License
+    name: Table 6311 "Power BI User License"
+    reason: Caching the license state caused a degraded user experience. Power BI license will be checked just in time.
+  - kind: Method
+    internalReference: M:Codeunit::System#EMail#Setup_Email_Logging.GetClientCredentialsAccessToken(Text,Text@)
+    name: 'GetClientCredentialsAccessToken(TenantId: Text, var AccessToken: Text)'
+    reason: 'Use "GetClientCredentialsAccessToken(TenantId: SecretText; var AccessToken: SecretText)" instead.'
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Encryption#Certificate_Management.GetPublicKeyAsBase64String(Text,Text):Text
+    name: 'GetPublicKeyAsBase64String(FullCertificateBase64: Text, Password: Text): Text'
+    reason: Replaced by GetPublicKeyAsBase64String with SecretText data type for Password parameter.
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#Table_Permission_Buffer
+    name: Table 9800 "Table Permission Buffer"
+    reason: Replaced with using temporary table Tenant Permission.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.GetAuthorizationURL(OAuth_2#0_Setup,Text):Text
+    name: 'GetAuthorizationURL(OAuth20Setup: Record 1140 "OAuth 2.0 Setup", ClientID: Text): Text'
+    reason: Use procedure GetAuthorizationURLAsSecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessToken(OAuth_2#0_Setup@,Text@,Text,Text,Text,Text@,Text@):Boolean
+    name: 'RequestAccessToken(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", var MessageText: Text, AuthorizationCode: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    reason: Use RequestAccessToken procedure with parameters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessTokenWithGivenRequestJson(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text,Text@,Text@):Boolean
+    name: 'RequestAccessTokenWithGivenRequestJson(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, AuthorizationCode: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    reason: Use RequestAccessTokenWithGivenRequestJson with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessTokenWithContentType(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text,Text@,Text@,Boolean):Boolean
+    name: 'RequestAccessTokenWithContentType(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, AuthorizationCode: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text, UseUrlEncodedContentType: Boolean): Boolean'
+    reason: Use "RequestAccessTokenWithContentType with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessToken(OAuth_2#0_Setup@,Text@,Text,Text,Text@,Text@):Boolean
+    name: 'RefreshAccessToken(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", var MessageText: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    reason: Use RefreshAccessToken with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessTokenWithGivenRequestJson(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text@,Text@):Boolean
+    name: 'RefreshAccessTokenWithGivenRequestJson(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    reason: Use RefreshAccessTokenWithGivenRequestJson with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessTokenWithContentType(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text@,Text@,Boolean):Boolean
+    name: 'RefreshAccessTokenWithContentType(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text, UseUrlEncodedContentType: Boolean): Boolean'
+    reason: Use RefreshAccessTokenWithContentType with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.InvokeRequest(OAuth_2#0_Setup@,Text,Text@,Text@,Text,Boolean):Boolean
+    name: 'InvokeRequest(var OAuth20Setup: Record 1140 "OAuth 2.0 Setup", RequestJson: Text, var ResponseJson: Text, var HttpError: Text, AccessToken: Text, RetryOnCredentialsFailure: Boolean): Boolean'
+    reason: Use InvokeRequest with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Table::System#Security#Authentication#OAuth_2#0_Setup.SetToken(Guid@,Text)
+    name: 'SetToken(var TokenKey: Guid, TokenValue: Text)'
+    reason: Use SetToken with paramaters declared as SecretText instead.
+  - kind: Method
+    internalReference: M:Table::System#Security#Authentication#OAuth_2#0_Setup.GetToken(Guid):Text
+    name: 'GetToken(TokenKey: Guid): Text'
+    reason: Use GetToken with paramaters declared as SecretText instead.
+  - kind: Field
+    internalReference: F:Table::System#IO#Config#_Setup.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Method
+    internalReference: M:Codeunit::System#AI#Azure_ML_Connector.Initialize(Text,Text,Integer):Boolean
+    name: 'Initialize(ApiKey: Text, ApiUri: Text, TimeOutSeconds: Integer): Boolean'
+    reason: 'Use "Initialize(ApiKey: SecretText; ApiUri: SecretText; TimeOutSeconds: Integer)" instead.'
+  - kind: Method
+    internalReference: M:Codeunit::System#AI#ML_Prediction_Management.Initialize(Text[250],Text[200],Integer)
+    name: 'Initialize(Uri: Text[250], "Key": Text[200], TimeOutSeconds: Integer)'
+    reason: 'Use "Initialize(Uri: Text[250]; "Key": SecretText; TimeOutSeconds: Integer)" instead.'
+  - kind: Method
+    internalReference: M:Codeunit::System#AI#Time_Series_Management.Initialize(Text,Text,Integer,Boolean):Boolean
+    name: 'Initialize(Uri: Text, "Key": Text, TimeOutSeconds: Integer, UseStdCredentials: Boolean): Boolean'
+    reason: 'Use Initialize(Uri: SecretText; "Key": SecretText; TimeOutSeconds: Integer; UseStdCredentials: Boolean) instead.'
+  - kind: Method
+    internalReference: M:Codeunit::System#AI#Image_Analysis_Management.SetUriAndKey(Text,Text)
+    name: 'SetUriAndKey(UriValue: Text, KeyValue: Text)'
+    reason: Replaced by SetUriAndKey with SecretText data type for KeyValue parameter.
+  - kind: Method
+    internalReference: M:Table::System#Visualization#Business_Chart_Buffer.Update(DotNet)
+    name: 'Update(dotNetChartAddIn: DotNet)'
+    reason: Replaced with method UpdateChart that takes Business Chart control add-in as parameter.
+  - kind: Field
+    internalReference: F:Table::System#Azure#Identity#Azure_AD_Mgt#_Setup.PBI_Service_Mgt#_Codeunit_ID
+    name: '"PBI Service Mgt. Codeunit ID": Integer'
+    reason: Disabling the Power BI integration through AzureADMgtSetup has been discontinued.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyServContractLines(Service_Contract_Header,Option,Code[20],Service_Contract_Line@):Boolean
+    name: 'CopyServContractLines(ToServContractHeader: Record 5965 "Service Contract Header", FromDocType: Option, FromDocNo: Code[20], var FromServContractLine: Record 5964 "Service Contract Line"): Boolean'
+    reason: Replaced by same procedure in codeunit CopyServiceContractMgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ServContractHeaderDocType(Option):Integer
+    name: 'ServContractHeaderDocType(DocType: Option): Integer'
+    reason: Replaced by procedure GetServiceContractType() in codeunit CopyServiceContractMgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Utilities#DocumentNoVisibility.CheckNumberSeries(Variant,Code[20],Integer)
+    name: 'CheckNumberSeries(RecVariant: Variant, NoSeriesCode: Code[20], FieldNo: Integer)'
+    reason: This method is no longer used. Add specific logic for your table in the OnInsert trigger.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Analysis#Analysis_Report_Management.LookupSourceNo(Analysis_Line@,Option,Text@)
+    name: 'LookupSourceNo(var AnalysisLine: Record 7114 "Analysis Line", CurrentSourceTypeFilter: Option, var CurrentSourceTypeNoFilter: Text)'
+    reason: Use "DoLookupSourceNo" with Enum parameter instead.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Inventory#Costing#Cost_Element_Buffer.AddActualCost(Option,Option,Decimal,Decimal)
+    name: 'AddActualCost(NewType: Option, NewVarianceType: Option, NewActualCost: Decimal, NewActualCostACY: Decimal)'
+    reason: Unused
+  - kind: Method
+    internalReference: M:Table::Microsoft#Inventory#Costing#Cost_Element_Buffer.AddActualCostElement(Enum::Microsoft#Inventory#Costing#Cost_Entry_Type,Enum::Microsoft#Inventory#Costing#Cost_Variance_Type,Decimal,Decimal)
+    name: 'AddActualCostElement(NewEntryType: Enum 104 "Cost Entry Type", NewVarianceType: Enum 106 "Cost Variance Type", NewActualCost: Decimal, NewActualCostACY: Decimal)'
+    reason: 'Use AddActualCostElement(NewEntryType: Enum "Cost Entry Type"; NewActualCost: Decimal; NewActualCostACY: Decimal) instead.'
+  - kind: Method
+    internalReference: M:Table::Microsoft#Inventory#Costing#Cost_Element_Buffer.AddExpectedCostElement(Enum::Microsoft#Inventory#Costing#Cost_Entry_Type,Enum::Microsoft#Inventory#Costing#Cost_Variance_Type,Decimal,Decimal)
+    name: 'AddExpectedCostElement(NewEntryType: Enum 104 "Cost Entry Type", NewVarianceType: Enum 106 "Cost Variance Type", NewExpectedCost: Decimal, NewExpectedCostACY: Decimal)'
+    reason: 'Use AddExpectedCostElement(NewEntryType: Enum "Cost Entry Type"; NewActualCost: Decimal; NewActualCostACY: Decimal) instead.'
+  - kind: Method
+    internalReference: M:Table::Microsoft#Inventory#Costing#Cost_Element_Buffer.GetElement(Enum::Microsoft#Inventory#Costing#Cost_Entry_Type,Enum::Microsoft#Inventory#Costing#Cost_Variance_Type):Boolean
+    name: 'GetElement(NewEntryType: Enum 104 "Cost Entry Type", NewVarianceType: Enum 106 "Cost Variance Type"): Boolean'
+    reason: 'Use GetElement(NewEntryType: Enum "Cost Entry Type") instead.'
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Journal#Calc#_Inventory_Value-Check.SetProperties(Date,Option,Boolean,Boolean,Boolean,Boolean)
+    name: 'SetProperties(NewPostingDate: Date, NewCalculatePer: Option, NewByLocation: Boolean, NewByVariant: Boolean, NewShowDialog: Boolean, NewTestMode: Boolean)'
+    reason: Reolaced by procedure SetParameters()
+  - kind: Method
+    internalReference: M:Report::Microsoft#Inventory#Journal#Calculate_Inventory_Value.InitializeRequest(Date,Code[20],Boolean,Option,Boolean,Boolean,Boolean,Option,Boolean)
+    name: 'InitializeRequest(NewPostingDate: Date, NewDocNo: Code[20], NewHideDuplWarning: Boolean, NewCalculatePer: Option, NewByLocation: Boolean, NewByVariant: Boolean, NewUpdStdCost: Boolean, NewCalcBase: Option, NewShowDialog: Boolean)'
+    reason: Replaced by procedure SetParameters()
+  - kind: Method
+    internalReference: M:Table::Microsoft#Inventory#Ledger#Item_Ledger_Entry.AppliedEntryToAdjustExists(Code[20]):Boolean
+    name: 'AppliedEntryToAdjustExists(ItemNo: Code[20]): Boolean'
+    reason: Unused
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Location#Location.Home_Page[90]
+    name: '"Home Page": Text[90]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Location#Responsibility_Center.Home_Page[90]
+    name: '"Home Page": Text[90]'
+    reason: Field length will be increased to 255.
+  - kind: Method
+    internalReference: M:Report::Microsoft#Inventory#Location#Create_Stockkeeping_Unit.InitializeRequest(Option,Boolean,Boolean)
+    name: 'InitializeRequest(CreatePerOption: Option, NewItemInInventoryOnly: Boolean, NewReplacePreviousSKUs: Boolean)'
+    reason: Replaced by procedure SetParameters()
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#MarketingText#Edit_Marketing_Text
+    name: Page 5835 "Edit Marketing Text"
+    reason: This has been moved to use the new pagetype StandardDialog. Use page 5839 "Modify Marketing Text" instead.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#MarketingText#Marketing_Text_Attributes
+    name: Page 5834 "Marketing Text Attributes"
+    reason: Changed to ListPart type to integrate with Marketing Text Prompt Dialog page. Use page 5838 "Marketing Text Attributes Part" instead.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#MarketingText#Review_Marketing_Text
+    name: Page 5825 "Review Marketing Text"
+    reason: This has been moved to use the new pagetype PromptDialog. Use page 5836 "Copilot Marketing Text" instead.
+  - kind: Method
+    internalReference: M:Report::Microsoft#Inventory#Reports#Calc#_Inventory_Value_-_Test.InitializeRequest(Date,Option,Boolean,Boolean,Option)
+    name: 'InitializeRequest(NewPostingDate: Date, NewCalculatePer: Option, NewByLocation: Boolean, NewByVariant: Boolean, NewCalcBase: Option)'
+    reason: Replaced by procedure SetParameters()
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Setup#Inventory_Setup.Invt#_Orders_Package_Tracking
+    name: '"Invt. Orders Package Tracking": Boolean'
+    reason: Temporary setup to enable/disable package tracking in Phys. Inventory Orders
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Navigate_Mgt#.FindTrackingRecords(Text,Text,Text,Text)
+    name: 'FindTrackingRecords(SerialNoFilter: Text, LotNoFilter: Text, ItemNoFilter: Text, VariantFilter: Text)'
+    reason: Replaced by same procedure with PackageNoFilter parameter
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Tracking#Package_Management.IsEnabled:Boolean
+    name: 'IsEnabled(): Boolean'
+    reason: Package Tracking enabled by default.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Tracking#Package_Management.GetFeatureKey:Text[50]
+    name: 'GetFeatureKey(): Text[50]'
+    reason: Package Tracking enabled by default.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Inventory#Tracking#Enter_Customized_SN.SetFields(Code[20],Code[10],Integer,Boolean,Boolean)
+    name: 'SetFields(SetItemNo: Code[20], SetVariantCode: Code[10], SetQtyToCreate: Integer, SetCreateNewLotNo: Boolean, SetCreateSNInfo: Boolean)'
+    reason: Replaced by namesake procedure with additional parameter SetCreateNewPackageNo.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Inventory#Tracking#Enter_Customized_SN.GetFields(Integer@,Boolean@,Code[50]@,Integer@,Boolean@)
+    name: 'GetFields(var GetQtyToCreate: Integer, var GetCreateNewLotNo: Boolean, var GetCustomizedSN: Code[50], var GetIncrement: Integer, var GetCreateSNInfo: Boolean)'
+    reason: Replaced by namesake procedure with additional parameter GetCreateNewPackageNo.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Inventory#Tracking#Enter_Quantity_to_Create.SetFields(Code[20],Code[10],Integer,Boolean,Boolean)
+    name: 'SetFields(SetItemNo: Code[20], SetVariantCode: Code[10], SetQtyToCreate: Integer, SetCreateNewLotNo: Boolean, SetCreateSNInfo: Boolean)'
+    reason: Replaced by namesake procedure with additional parameter SetCreateNewPackageNo.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Inventory#Tracking#Enter_Quantity_to_Create.GetFields(Integer@,Boolean@,Boolean@)
+    name: 'GetFields(var GetQtyToCreate: Integer, var GetCreateNewLotNo: Boolean, var GetCreateSNInfo: Boolean)'
+    reason: Replaced by namesake procedure with additional parameter GetCreateNewPackageNo.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetVisibleSettings(Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@)
+    name: 'GetVisibleSettings(var Handle1Visible2: Boolean, var Handle2Visible2: Boolean, var Handle3Visible2: Boolean, var QtyToHandleBaseVisible2: Boolean, var Invoice1Visible2: Boolean, var Invoice2Visible2: Boolean, var Invoice3Visible2: Boolean, var QtyToInvoiceBaseVisible2: Boolean, var NewSerialNoVisible2: Boolean, var NewLotNoVisible2: Boolean, var NewExpirationDateVisible2: Boolean, var ButtonLineReclassVisible2: Boolean, var ButtonLineVisible2: Boolean, var FunctionsSupplyVisible2: Boolean, var FunctionsDemandVisible2: Boolean, var Inbound2: Boolean, var InboundIsSet2: Boolean)'
+    reason: Replaced by namesake procedure with additional parameter ExpirationDateVisible2.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order-Finish.CreateTrackingBufferLines(Code[20],Integer)
+    name: 'CreateTrackingBufferLines(DocNo: Code[20], LineNo: Integer)'
+    reason: Replaced by procedure CreateOrderTrackingBufferLines()
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order-Finish.CreateReservEntries(Code[20],Integer,Boolean,Decimal)
+    name: 'CreateReservEntries(DocNo: Code[20], LineNo: Integer, AllBufferLines: Boolean, MaxQtyToTransfer: Decimal)'
+    reason: Replaced by procedure CreateReservationEntries()
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order_Line.Qty#_Exp#_Item_Tracking_(Base)
+    name: '"Qty. Exp. Item Tracking (Base)": Decimal'
+    reason: Replaced by field "Qty. Exp. Tracking (Base)".
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Counting#History#Pstd#_Phys#_Invt#_Order_Line.Qty#_Exp#_Item_Tracking_(Base)
+    name: '"Qty. Exp. Item Tracking (Base)": Decimal'
+    reason: replaced by field "Qty. Exp. Tracking (Base)"
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#.IsPackageTrackingEnabled:Boolean
+    name: 'IsPackageTrackingEnabled(): Boolean'
+    reason: Temporary wrapper procedure to enable test automation
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Counting#Tracking#Exp#_Phys#_Invt#_Tracking
+    name: Table 5886 "Exp. Phys. Invt. Tracking"
+    reason: Replaced by table Exp.Invt.Order.Tracking.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking
+    name: Table 5885 "Phys. Invt. Tracking"
+    reason: Replaced by table Invt.Order.Tracking.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Counting#Tracking#Pstd#_Exp#_Phys#_Invt#_Track
+    name: Table 5887 "Pstd. Exp. Phys. Invt. Track"
+    reason: Replaced by table Posted.Exp.Invt.Order.Tracking.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Counting#Tracking#Exp#_Phys#_Invt#_Tracking
+    name: Page 5895 "Exp. Phys. Invt. Tracking"
+    reason: Replaced by page Exp.Invt.Order.Tracking
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Lines
+    name: Page 5899 "Phys. Invt. Tracking Lines"
+    reason: Replaced by page 6029 "Invt.Order.Tracking.Lines"
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Counting#Tracking#Posted_Exp#_Phys#_Invt#_Track
+    name: Page 5896 "Posted Exp. Phys. Invt. Track"
+    reason: Replaced by page Posted.Exp.Invt.Order.Tracking
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.OnAfterCopyAmountsFromVATEntry(VAT_Entry@,Boolean)
+    name: 'OnAfterCopyAmountsFromVATEntry(var VATEntry: Record 254 "VAT Entry", WithOppositeSign: Boolean)'
+    reason: Use the OnAfterOnCopyAmountsFromVATEntry method instead
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ObsoleteCheckDocNoBasedOnNoSeries(Code[20],Code[20],__MissingSymbol__@)
+    name: 'ObsoleteCheckDocNoBasedOnNoSeries(PrevDocNo: Code[20], NoSeriesCode: Code[20], NoSeriesMgtInstance: __MissingTypeSymbol__)'
+    reason: Do not use this procedure. It is for compatibility only.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckDocNoBasedOnNoSeries(Code[20],Code[20],__MissingSymbol__@)
+    name: 'CheckDocNoBasedOnNoSeries(PrevDocNo: Code[20], NoSeriesCode: Code[20], NoSeriesMgtInstance: __MissingTypeSymbol__)'
+    reason: This method is no longer used. Do the check directly in code instead.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IncrementDocumentNo(Gen#_Journal_Batch,Code[20]@)
+    name: 'IncrementDocumentNo(LocGenJnlBatch: Record 232 "Gen. Journal Batch", var LastDocNumber: Code[20])'
+    reason: Use SimulateGetNextNo from "No. Series - Batch" instead
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Ledger#G/L_Register.Creation_Date
+    name: '"Creation Date": Date'
+    reason: Use the system audit field "System Created at" instead.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Ledger#G/L_Register.Creation_Time
+    name: '"Creation Time": Time'
+    reason: Use the system audit field "System Created at" instead.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Setup#General_Ledger_Setup.Adapt_Main_Menu_to_Permissions
+    name: '"Adapt Main Menu to Permissions": Boolean'
+    reason: Replaced with UI Elements Removal feature.
+  - kind: Method
+    internalReference: M:Report::Microsoft#Service#Document#Copy_Service_Document.InitializeRequest(Option,Code[20])
+    name: 'InitializeRequest(DocumentType: Option, DocumentNo: Code[20])'
+    reason: Replaced by procedure SetParameters()
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#BankAccount#Bank_Account.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#BankAccount#Payment_Method.Use_for_Invoicing
+    name: '"Use for Invoicing": Boolean'
+    reason: Microsoft Invoicing is not supported on Business Central
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Record_ID_to_Print
+    name: '"Record ID to Print": RecordId'
+    reason: Replaced by Print Gen Jnl Line SystemId field
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Bank#Deposit#Deposits_Page_Mgt#
+    name: Codeunit 1504 "Deposits Page Mgt."
+    reason: Pages used are the ones from the Bank Deposits extension. No other pages are provided, this codeunit was needed when NA had it's own pages. Open directly the required pages or run the required reports in the Bank Deposits extension.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Bank#Deposit#Deposits_Page_Setup
+    name: Table 500 "Deposits Page Setup"
+    reason: Pages used are the ones from the Bank Deposits extension. No other pages are provided, this table was needed when NA had it's own pages. Open directly the required pages or run the required reports in the Bank Deposits extension.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Applied_Amount_Payments
+    name: '"Total Applied Amount Payments": Decimal'
+    reason: Type is not used to determine if the bank rec. line is associated to a CLE, instead find explicitly CLEs with their corresponding BLE No. . See BankAccReconTest codeunit TotalOutstandingPayments for an example
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Positive_Difference
+    name: '"Total Positive Difference": Decimal'
+    reason: Difference is now tracked manually instead. Type field was redundant and error prone.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Negative_Difference
+    name: '"Total Negative Difference": Decimal'
+    reason: Difference is now tracked manually instead. Type field was redundant and error prone.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Line.Type
+    name: 'Type: Option'
+    reason: This field is prone to confusion and is redundant. A type Difference can be manually tracked and a type Check Ledger Entry has a related Bank Account Ledger Entry
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Contact#Contact.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Contact#Contact_Alt#_Address.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Authority_Url_Key
+    name: '"Authority Url Key": Guid'
+    reason: Usage of authority url is moved to token endpoint.
+  - kind: Field
+    internalReference: F:Table::Microsoft#FixedAssets#Ledger#FA_Register.Creation_Date
+    name: '"Creation Date": Date'
+    reason: Use the system audit field "System Created at" instead.
+  - kind: Field
+    internalReference: F:Table::Microsoft#FixedAssets#Ledger#FA_Register.Creation_Time
+    name: '"Creation Time": Time'
+    reason: Use the system audit field "System Created at" instead.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.IsDuplicateFile(Integer,Code[20],Option,Integer,Text,Text):Boolean
+    name: 'IsDuplicateFile(TableID: Integer, DocumentNo: Code[20], RecDocType: Option, RecLineNo: Integer, FileName: Text, FileExtension: Text): Boolean'
+    reason: Replaced with the same procedure with enum instead of option.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Foundation#Navigate#Document_Line_Tracking.SetDoc(Option,Code[20],Integer,Code[20],Integer,Code[20],Integer)
+    name: 'SetDoc(NewSourceDocType: Option, NewDocNo: Code[20], NewSourceDocLineNo: Integer, NewDocBlanketOrderNo: Code[20], NewDocBlanketOrderLineNo: Integer, NewDocOrderNo: Code[20], NewDocOrderLineNo: Integer)'
+    reason: Replaced by procedure SetSourceDoc() with enum parameter
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Foundation#NoSeries#No#_Series_Check
+    name: Codeunit 4143 "No. Series Check"
+    reason: Please use the PeekNextNo procedure from the  "No. Series" codeunit instead
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Shipping#Shipping_Agent.GetTrackingInternetAddr(Text[30]):Text
+    name: 'GetTrackingInternetAddr(PackageTrackingNo: Text[30]): Text'
+    reason: Field length for PackageTrackingNo will be increased to 50.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#UOM#Unit_Group.Code[50]
+    name: 'Code: Code[50]'
+    reason: This field is not used. Please use GetCode procedure instead.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#UOM#Unit_Group.Source_Name[100]
+    name: '"Source Name": Text[100]'
+    reason: This field is not used. Please use GetSourceName procedure instead.
+  - kind: Field
+    internalReference: F:Table::Microsoft#HumanResources#Setup#Union.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Account.AccountStatiticsName[100]
+    name: 'AccountStatiticsName: Text[100]'
+    reason: This field is obsolete. Get CRMAccountStatistics via AccountStatiticsId, then use its name.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CDS_Integration_Impl#.MultipleCompanyNotificationHelpLink
+    name: MultipleCompanyNotificationHelpLink()
+    reason: 'Use MultipleCompanyNotificationHelpLink(Notification: Notification) instead'
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#SyncEngine#Man#_Integration_Field_Mapping
+    name: Table 5381 "Man. Integration Field Mapping"
+    reason: This table is obsolete. Start using the temporary table Man. Integration Field Mapping.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Graph#Graph_Mail_Setup
+    name: Table 407 "Graph Mail Setup"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Graph#O365_C2Graph_Event_Settings
+    name: Table 2162 "O365 C2Graph Event Settings"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Graph#O365_Sales_Graph
+    name: Table 2190 "O365 Sales Graph"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Projects#Project#Job#Job_Task_Lines_Subform.SetRefreshCustomerControl(Boolean)
+    name: 'SetRefreshCustomerControl(Refresh: Boolean)'
+    reason: Procedure is not used.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Remittance#Remit_Address.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Order_Address.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Vendor.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Vendor_Bank_Account.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Vendor_Templ#.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Header_Archive.Package_Tracking_No#[30]
+    name: '"Package Tracking No.": Text[30]'
+    reason: Field length will be increased to 50.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Sales#Customer#Customer_Mgt#.CalculateShipToBillToOptions(Option@,Option@,Sales_Header@)
+    name: 'CalculateShipToBillToOptions(var ShipToOptions: Option, var BillToOptions: Option, var SalesHeader: Record 36 "Sales Header")'
+    reason: Replaced by procedure CalculateShipToBillToEnums()
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Customer#Customer.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Customer#Customer_Bank_Account.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Customer#Customer_Templ#.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Customer#Ship-to_Address.Home_Page[80]
+    name: '"Home Page": Text[80]'
+    reason: Field length will be increased to 255.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Header.Package_Tracking_No#[30]
+    name: '"Package Tracking No.": Text[30]'
+    reason: Field length will be increased to 50.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Return_Receipt_Header.Package_Tracking_No#[30]
+    name: '"Package Tracking No.": Text[30]'
+    reason: Field length will be increased to 50.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Header.Package_Tracking_No#[30]
+    name: '"Package Tracking No.": Text[30]'
+    reason: Field length will be increased to 50.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Header.Package_Tracking_No#[30]
+    name: '"Package Tracking No.": Text[30]'
+    reason: Field length will be increased to 50.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Shipment_Header.Package_Tracking_No#[30]
+    name: '"Package Tracking No.": Text[30]'
+    reason: Field length will be increased to 50.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetMessage(Text[80]@)
+    name: 'GetMessage(var ErrText000: Text[80])'
+    reason: Replaced with GetMessageText that is without Text length limit
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckBinTypeCode(Integer,Text[30],Code[10],Code[20],Option)
+    name: 'CheckBinTypeCode(SourceTable: Integer, BinCodeFieldCaption: Text[30], LocationCode: Code[10], BinCode: Code[20], AdditionalIdentifier: Option)'
+    reason: Replaced by procedure CheckBinTypeAndCode()
+  - kind: Method
+    internalReference: M:Table::Microsoft#Warehouse#Structure#Bin_Type.CreateBinTypeFilter(Text[250]@,Option)
+    name: 'CreateBinTypeFilter(var BinTypeFilter: Text[250], Type: Option)'
+    reason: 'Replaced by procedure CreateBinTypeFilter(var BinTypeFilter: Text; BinTypeFieldNo: Integer)'
+  - kind: Codeunit
+    internalReference: O:Codeunit::Calendar_Event_Execution
+    name: Codeunit 2161 "Calendar Event Execution"
+    reason: Invoicing
+  - kind: Codeunit
+    internalReference: O:Codeunit::Calendar_Event_Mangement
+    name: Codeunit 2160 "Calendar Event Mangement"
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.CreateCalendarEvent(Date,Text[100],Integer,RecordId,Boolean):Integer
+    name: 'CreateCalendarEvent(ScheduledDate: Date, Description: Text[100], CodeunitNo: Integer, RecId: RecordId, QueueEvent: Boolean): Integer'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.CreateCalendarEventForCodeunit(Date,Text[100],Integer):Integer
+    name: 'CreateCalendarEventForCodeunit(ScheduledDate: Date, Description: Text[100], CodeunitNo: Integer): Integer'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.QueueBackgroundSystemEvent(Text[100],Integer,RecordId):Integer
+    name: 'QueueBackgroundSystemEvent(Description: Text[100], CodeunitNo: Integer, RecId: RecordId): Integer'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.CreateOrUpdateJobQueueEntry(Calendar_Event)
+    name: 'CreateOrUpdateJobQueueEntry(CalendarEvent: Record 2160 "Calendar Event")'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.DescheduleCalendarEvent(Calendar_Event@)
+    name: 'DescheduleCalendarEvent(var CalendarEvent: Record 2160 "Calendar Event")'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.DescheduleCalendarEventForCodeunit(Integer)
+    name: 'DescheduleCalendarEventForCodeunit(CodeunitID: Integer)'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.FindJobQueue(Job_Queue_Entry@):Boolean
+    name: 'FindJobQueue(var JobQueueEntry: Record 472 "Job Queue Entry"): Boolean'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.SetJobQueueOnHold(Job_Queue_Entry@)
+    name: 'SetJobQueueOnHold(var JobQueueEntry: Record 472 "Job Queue Entry")'
+    reason: Invoicing
+  - kind: Method
+    internalReference: M:Codeunit::Calendar_Event_Mangement.UpdateJobQueue(Job_Queue_Entry@)
+    name: 'UpdateJobQueue(var JobQueueEntry: Record 472 "Job Queue Entry")'
+    reason: Invoicing
+  - kind: Codeunit
+    internalReference: O:Codeunit::QBD_Sync_Proxy
+    name: Codeunit 1062 "QBD Sync Proxy"
+    reason: Quickbooks integration to Invoicing is discontinued.
+  - kind: Table
+    internalReference: O:Table::Calendar_Event
+    name: Table 2160 "Calendar Event"
+    reason: Invoicing
+  - kind: Table
+    internalReference: O:Table::O365_Country/Region
+    name: Table 2152 "O365 Country/Region"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Coupon_Claim
+    name: Table 2115 "O365 Coupon Claim"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Coupon_Claim_Doc#_Link
+    name: Table 2116 "O365 Coupon Claim Doc. Link"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Cust#_Invoice_Discount
+    name: Table 2113 "O365 Cust. Invoice Discount"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Customer
+    name: Table 2107 "O365 Customer"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Default_Email_Message
+    name: Table 2170 "O365 Default Email Message"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Document_Sent_History
+    name: Table 2158 "O365 Document Sent History"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Email_Setup
+    name: Table 2118 "O365 Email Setup"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Field_Excel_Mapping
+    name: Table 2112 "O365 Field Excel Mapping"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Item_Basket_Entry
+    name: Table 2101 "O365 Item Basket Entry"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Payment_History_Buffer
+    name: Table 2105 "O365 Payment History Buffer"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Payment_Instr#_Transl#
+    name: Table 2156 "O365 Payment Instr. Transl."
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Payment_Instructions
+    name: Table 2155 "O365 Payment Instructions"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Payment_Method
+    name: Table 2154 "O365 Payment Method"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Payment_Terms
+    name: Table 2153 "O365 Payment Terms"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Posted_Coupon_Claim
+    name: Table 2117 "O365 Posted Coupon Claim"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Sales_Cue
+    name: Table 9069 "O365 Sales Cue"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Sales_Document
+    name: Table 2103 "O365 Sales Document"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Field
+    internalReference: F:Table::O365_Sales_Document.Document_Icon
+    name: '"Document Icon": MediaSet'
+    reason: We no longer show a document icon.
+  - kind: Table
+    internalReference: O:Table::O365_Sales_Event
+    name: Table 2163 "O365 Sales Event"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Sales_Initial_Setup
+    name: Table 2110 "O365 Sales Initial Setup"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Sales_Invoice_Document
+    name: Table 2200 "O365 Sales Invoice Document"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Settings_Menu
+    name: Table 2132 "O365 Settings Menu"
+    reason: Microsoft Invoicing has been discontinued.
+  - kind: Table
+    internalReference: O:Table::O365_Social_Network
+    name: Table 2122 "O365 Social Network"
+    reason: Microsoft Invoicing has been discontinued.
+  uid: N:Module::Base_Application_obsolete_by_24.0#24.0
+uid: N:Module::Base_Application_obsolete_by_24.0

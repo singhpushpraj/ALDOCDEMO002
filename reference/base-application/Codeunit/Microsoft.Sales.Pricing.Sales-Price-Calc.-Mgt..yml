@@ -1,0 +1,705 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Pricing."Sales Price Calc. Mgt."
+alId: ID 7000
+namespace: Microsoft.Sales.Pricing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Pricing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteReason
+  value: Replaced by the new implementation (V16) of price calculation.
+  promoted: false
+- name: ObsoleteTag
+  value: "16.0"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindSalesLinePrice(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindSalesLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindSalesLinePrice(Sales_Header,Sales_Line@,Integer)
+- syntax:
+    content: 'procedure FindItemJnlLinePrice(var ItemJnlLine: Record "Item Journal Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindItemJnlLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindItemJnlLinePrice(Item_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure FindServLinePrice(ServHeader: Record "Service Header", var ServLine: Record "Service Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindServLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindServLinePrice(Service_Header,Service_Line@,Integer)
+- syntax:
+    content: 'procedure FindSalesLineLineDisc(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: FindSalesLineLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindSalesLineLineDisc(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure FindServLineDisc(ServHeader: Record "Service Header", var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: FindServLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindServLineDisc(Service_Header,Service_Line@)
+- syntax:
+    content: 'procedure FindStdItemJnlLinePrice(var StdItemJnlLine: Record "Standard Item Journal Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: StdItemJnlLine
+      parameterType:
+        name: Record "Standard Item Journal Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindStdItemJnlLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindStdItemJnlLinePrice(Standard_Item_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure FindAnalysisReportPrice(ItemNo: Code[20], Date: Date): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: FindAnalysisReportPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindAnalysisReportPrice(Code[20],Date):Decimal
+- syntax:
+    content: 'procedure CalcBestUnitPrice(var SalesPrice: Record "Sales Price")'
+    parameters:
+    - id: SalesPrice
+      parameterType:
+        name: Record "Sales Price"
+        isExternal: true
+  name: CalcBestUnitPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.CalcBestUnitPrice(Sales_Price@)
+- syntax:
+    content: 'procedure CalcBestLineDisc(var SalesLineDisc: Record "Sales Line Discount")'
+    parameters:
+    - id: SalesLineDisc
+      parameterType:
+        name: Record "Sales Line Discount"
+        isExternal: true
+  name: CalcBestLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.CalcBestLineDisc(Sales_Line_Discount@)
+- syntax:
+    content: 'procedure FindSalesPrice(var ToSalesPrice: Record "Sales Price", CustNo: Code[20], ContNo: Code[20], CustPriceGrCode: Code[10], CampaignNo: Code[20], ItemNo: Code[20], VariantCode: Code[10], UOM: Code[10], CurrencyCode: Code[10], StartingDate: Date, ShowAll: Boolean)'
+    parameters:
+    - id: ToSalesPrice
+      parameterType:
+        name: Record "Sales Price"
+        isExternal: true
+    - id: CustNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CustPriceGrCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CampaignNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOM
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FindSalesPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindSalesPrice(Sales_Price@,Code[20],Code[20],Code[10],Code[20],Code[20],Code[10],Code[10],Code[10],Date,Boolean)
+- syntax:
+    content: 'procedure FindSalesLineDisc(var ToSalesLineDisc: Record "Sales Line Discount", CustNo: Code[20], ContNo: Code[20], CustDiscGrCode: Code[20], CampaignNo: Code[20], ItemNo: Code[20], ItemDiscGrCode: Code[20], VariantCode: Code[10], UOM: Code[10], CurrencyCode: Code[10], StartingDate: Date, ShowAll: Boolean)'
+    parameters:
+    - id: ToSalesLineDisc
+      parameterType:
+        name: Record "Sales Line Discount"
+        isExternal: true
+    - id: CustNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CustDiscGrCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CampaignNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemDiscGrCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOM
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FindSalesLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindSalesLineDisc(Sales_Line_Discount@,Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[10],Code[10],Code[10],Date,Boolean)
+- syntax:
+    content: 'procedure CopySalesPrice(var SalesPrice: Record "Sales Price")'
+    parameters:
+    - id: SalesPrice
+      parameterType:
+        name: Record "Sales Price"
+        isExternal: true
+  name: CopySalesPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.CopySalesPrice(Sales_Price@)
+- syntax:
+    content: 'procedure SetItem(ItemNo: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetItem
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SetItem(Code[20])
+- syntax:
+    content: 'procedure SetResPrice(Code2: Code[20], WorkTypeCode: Code[10], CurrencyCode: Code[10])'
+    parameters:
+    - id: Code2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WorkTypeCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetResPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SetResPrice(Code[20],Code[10],Code[10])
+- syntax:
+    content: 'procedure SetCurrency(CurrencyCode2: Code[10], CurrencyFactor2: Decimal, ExchRateDate2: Date)'
+    parameters:
+    - id: CurrencyCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyFactor2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExchRateDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetCurrency
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SetCurrency(Code[10],Decimal,Date)
+- syntax:
+    content: 'procedure SetVAT(PriceInclVAT2: Boolean, VATPerCent2: Decimal, VATCalcType2: Option, VATBusPostingGr2: Code[20])'
+    parameters:
+    - id: PriceInclVAT2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATPerCent2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATCalcType2
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: VATBusPostingGr2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetVAT
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SetVAT(Boolean,Decimal,Option,Code[20])
+- syntax:
+    content: 'procedure SetUoM(Qty2: Decimal, QtyPerUoM2: Decimal)'
+    parameters:
+    - id: Qty2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUoM2
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetUoM
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SetUoM(Decimal,Decimal)
+- syntax:
+    content: 'procedure SetLineDisc(LineDiscPerCent2: Decimal, AllowLineDisc2: Boolean, AllowInvDisc2: Boolean)'
+    parameters:
+    - id: LineDiscPerCent2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AllowLineDisc2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AllowInvDisc2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SetLineDisc(Decimal,Boolean,Boolean)
+- syntax:
+    content: 'procedure ConvertPriceToVAT(FromPricesInclVAT: Boolean, FromVATProdPostingGr: Code[20], FromVATBusPostingGr: Code[20], var UnitPrice: Decimal)'
+    parameters:
+    - id: FromPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromVATProdPostingGr
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromVATBusPostingGr
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UnitPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ConvertPriceToVAT
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.ConvertPriceToVAT(Boolean,Code[20],Code[20],Decimal@)
+- syntax:
+    content: 'procedure ConvertPriceLCYToFCY(CurrencyCode: Code[10], var UnitPrice: Decimal)'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ConvertPriceLCYToFCY
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.ConvertPriceLCYToFCY(Code[10],Decimal@)
+- syntax:
+    content: 'procedure GetSalesLinePrice(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetSalesLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.GetSalesLinePrice(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure GetSalesLineLineDisc(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetSalesLineLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.GetSalesLineLineDisc(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure SalesLinePriceExists(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLinePriceExists
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SalesLinePriceExists(Sales_Header@,Sales_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure SalesLineLineDiscExists(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLineLineDiscExists
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SalesLineLineDiscExists(Sales_Header@,Sales_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure GetServLinePrice(ServHeader: Record "Service Header", var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: GetServLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.GetServLinePrice(Service_Header,Service_Line@)
+- syntax:
+    content: 'procedure GetServLineLineDisc(ServHeader: Record "Service Header", var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: GetServLineLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.GetServLineLineDisc(Service_Header,Service_Line@)
+- syntax:
+    content: 'procedure ActivatedCampaignExists(var ToCampaignTargetGr: Record "Campaign Target Group", CustNo: Code[20], ContNo: Code[20], CampaignNo: Code[20]): Boolean'
+    parameters:
+    - id: ToCampaignTargetGr
+      parameterType:
+        name: Record "Campaign Target Group"
+        isExternal: true
+    - id: CustNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CampaignNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ActivatedCampaignExists
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.ActivatedCampaignExists(Campaign_Target_Group@,Code[20],Code[20],Code[20]):Boolean
+- syntax:
+    content: 'procedure SalesHeaderExchDate(SalesHeader: Record "Sales Header"): Date'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: SalesHeaderExchDate
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SalesHeaderExchDate(Sales_Header):Date
+- syntax:
+    content: 'procedure SalesHeaderStartDate(var SalesHeader: Record "Sales Header", var DateCaption: Text[30]): Date'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DateCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: SalesHeaderStartDate
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.SalesHeaderStartDate(Sales_Header@,Text[30]@):Date
+- syntax:
+    content: 'procedure ServHeaderExchDate(ServHeader: Record "Service Header"): Date'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ServHeaderExchDate
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.ServHeaderExchDate(Service_Header):Date
+- syntax:
+    content: 'procedure ServHeaderStartDate(ServHeader: Record "Service Header", var DateCaption: Text[30]): Date'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: DateCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ServHeaderStartDate
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.ServHeaderStartDate(Service_Header,Text[30]@):Date
+- syntax:
+    content: 'procedure NoOfSalesLinePrice(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", ShowAll: Boolean): Integer'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfSalesLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.NoOfSalesLinePrice(Sales_Header@,Sales_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure NoOfSalesLineLineDisc(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", ShowAll: Boolean): Integer'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfSalesLineLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.NoOfSalesLineLineDisc(Sales_Header@,Sales_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure NoOfServLinePrice(ServHeader: Record "Service Header", var ServLine: Record "Service Line", ShowAll: Boolean): Integer'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfServLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.NoOfServLinePrice(Service_Header,Service_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure NoOfServLineLineDisc(ServHeader: Record "Service Header", var ServLine: Record "Service Line", ShowAll: Boolean): Integer'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfServLineLineDisc
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.NoOfServLineLineDisc(Service_Header,Service_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure FindJobPlanningLinePrice(var JobPlanningLine: Record "Job Planning Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindJobPlanningLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindJobPlanningLinePrice(Job_Planning_Line@,Integer)
+- syntax:
+    content: 'procedure JobPlanningLineFindJTPrice(var JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: JobPlanningLineFindJTPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.JobPlanningLineFindJTPrice(Job_Planning_Line@)
+- syntax:
+    content: 'procedure FindJobJnlLinePrice(var JobJnlLine: Record "Job Journal Line", CalledByFieldNo: Integer)'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindJobJnlLinePrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindJobJnlLinePrice(Job_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure JobJnlLineFindJTPrice(var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: JobJnlLineFindJTPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.JobJnlLineFindJTPrice(Job_Journal_Line@)
+- syntax:
+    content: 'procedure FindResPrice(var ResJournalLine: Record "Res. Journal Line")'
+    parameters:
+    - id: ResJournalLine
+      parameterType:
+        name: Record "Res. Journal Line"
+        isExternal: true
+  name: FindResPrice
+  uid: M:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#.FindResPrice(Res#_Journal_Line@)
+commentId: O:Codeunit::Microsoft#Sales#Pricing#Sales Price Calc# Mgt#
+name: '"Sales Price Calc. Mgt."'
+obsoletion:
+  state: pending
+  reason: Replaced by the new implementation (V16) of price calculation.
+  version: "16.0"
+uid: O:Codeunit::Microsoft#Sales#Pricing#Sales_Price_Calc#_Mgt#

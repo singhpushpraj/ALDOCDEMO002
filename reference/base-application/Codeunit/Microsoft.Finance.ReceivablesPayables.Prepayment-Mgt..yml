@@ -1,0 +1,175 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Prepayment Mgt."
+alId: ID 441
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure AssertPrepmtAmountNotMoreThanDocAmount(DocumentTotalInclVAT: Decimal, PrepmtTotalInclVAT: Decimal, CurrencyCode: Code[10], InvoiceRoundingSetup: Boolean)'
+    parameters:
+    - id: DocumentTotalInclVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PrepmtTotalInclVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InvoiceRoundingSetup
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: AssertPrepmtAmountNotMoreThanDocAmount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.AssertPrepmtAmountNotMoreThanDocAmount(Decimal,Decimal,Code[10],Boolean)
+- syntax:
+    content: 'procedure SetSalesPrepaymentPct(var SalesLine: Record "Sales Line", Date: Date)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetSalesPrepaymentPct
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.SetSalesPrepaymentPct(Sales_Line@,Date)
+- syntax:
+    content: 'procedure SetPurchPrepaymentPct(var PurchLine: Record "Purchase Line", Date: Date)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetPurchPrepaymentPct
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.SetPurchPrepaymentPct(Purchase_Line@,Date)
+- syntax:
+    content: 'procedure TestSalesPrepayment(SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestSalesPrepayment
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.TestSalesPrepayment(Sales_Header):Boolean
+- syntax:
+    content: 'procedure TestPurchasePrepayment(PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestPurchasePrepayment
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.TestPurchasePrepayment(Purchase_Header):Boolean
+- syntax:
+    content: 'procedure TestSalesOrderLineForGetShptLines(SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: TestSalesOrderLineForGetShptLines
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.TestSalesOrderLineForGetShptLines(Sales_Line)
+- syntax:
+    content: 'procedure TestPurchaseOrderLineForGetRcptLines(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: TestPurchaseOrderLineForGetRcptLines
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.TestPurchaseOrderLineForGetRcptLines(Purchase_Line)
+- syntax:
+    content: 'procedure TestSalesPayment(SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestSalesPayment
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.TestSalesPayment(Sales_Header):Boolean
+- syntax:
+    content: 'procedure TestPurchasePayment(PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestPurchasePayment
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.TestPurchasePayment(Purchase_Header):Boolean
+- syntax:
+    content: procedure UpdatePendingPrepaymentSales()
+  name: UpdatePendingPrepaymentSales
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.UpdatePendingPrepaymentSales
+- syntax:
+    content: procedure UpdatePendingPrepaymentPurchase()
+  name: UpdatePendingPrepaymentPurchase
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.UpdatePendingPrepaymentPurchase
+- syntax:
+    content: 'procedure CreateAndStartJobQueueEntrySales(UpdateFrequency: Option)'
+    parameters:
+    - id: UpdateFrequency
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CreateAndStartJobQueueEntrySales
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.CreateAndStartJobQueueEntrySales(Option)
+- syntax:
+    content: 'procedure CreateAndStartJobQueueEntryPurchase(UpdateFrequency: Option)'
+    parameters:
+    - id: UpdateFrequency
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CreateAndStartJobQueueEntryPurchase
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.CreateAndStartJobQueueEntryPurchase(Option)
+- syntax:
+    content: 'procedure CreateAndStartJobQueueEntry(CodeunitID: Integer, UpdateFrequency: Option, Category: Text)'
+    parameters:
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UpdateFrequency
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Category
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CreateAndStartJobQueueEntry
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#.CreateAndStartJobQueueEntry(Integer,Option,Text)
+commentId: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment Mgt#
+name: '"Prepayment Mgt."'
+uid: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Prepayment_Mgt#

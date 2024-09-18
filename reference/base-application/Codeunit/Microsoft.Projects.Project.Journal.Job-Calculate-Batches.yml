@@ -1,0 +1,213 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Journal."Job Calculate Batches"
+alId: ID 1005
+namespace: Microsoft.Projects.Project.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SplitLines(var JT2: Record "Job Task"): Integer'
+    parameters:
+    - id: JT2
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SplitLines
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.SplitLines(Job_Task@):Integer
+- syntax:
+    content: 'procedure TransferToPlanningLine(var JobLedgEntry: Record "Job Ledger Entry", LineType: Integer)'
+    parameters:
+    - id: JobLedgEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+    - id: LineType
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: TransferToPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.TransferToPlanningLine(Job_Ledger_Entry@,Integer)
+- syntax:
+    content: 'procedure ChangePlanningDates(JT: Record "Job Task", ScheduleLine: Boolean, ContractLine: Boolean, PeriodLength: DateFormula, FixedDate: Date, StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: JT
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: ScheduleLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ContractLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: FixedDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ChangePlanningDates
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.ChangePlanningDates(Job_Task,Boolean,Boolean,DateFormula,Date,Date,Date)
+- syntax:
+    content: 'procedure ChangeCurrencyDates(JT: Record "Job Task", scheduleLine: Boolean, ContractLine: Boolean, PeriodLength: DateFormula, FixedDate: Date, StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: JT
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: scheduleLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ContractLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: FixedDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ChangeCurrencyDates
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.ChangeCurrencyDates(Job_Task,Boolean,Boolean,DateFormula,Date,Date,Date)
+- syntax:
+    content: procedure ChangeDatesEnd()
+  name: ChangeDatesEnd
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.ChangeDatesEnd
+- syntax:
+    content: 'procedure CreateJT(JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: CreateJT
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.CreateJT(Job_Planning_Line)
+- syntax:
+    content: procedure InitDiffBuffer()
+  name: InitDiffBuffer
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.InitDiffBuffer
+- syntax:
+    content: 'procedure PostDiffBuffer(DocNo: Code[20], PostingDate: Date, TemplateName: Code[10], BatchName: Code[10])'
+    parameters:
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: PostDiffBuffer
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.PostDiffBuffer(Code[20],Date,Code[10],Code[10])
+- syntax:
+    content: 'procedure BatchError(PostingDate: Date, DocNo: Code[20])'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: BatchError
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.BatchError(Date,Code[20])
+- syntax:
+    content: 'procedure EndCreateInvoice(NoOfInvoices: Integer)'
+    parameters:
+    - id: NoOfInvoices
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: EndCreateInvoice
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.EndCreateInvoice(Integer)
+- syntax:
+    content: 'procedure CalculateActualToBudget(var Job: Record Job, JT: Record "Job Task", var JobDiffBuffer2: Record "Job Difference Buffer", var JobDiffBuffer3: Record "Job Difference Buffer", CurrencyType: Option)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: JT
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: JobDiffBuffer2
+      parameterType:
+        name: Record "Job Difference Buffer"
+        isExternal: true
+    - id: JobDiffBuffer3
+      parameterType:
+        name: Record "Job Difference Buffer"
+        isExternal: true
+    - id: CurrencyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CalculateActualToBudget
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.CalculateActualToBudget(Job@,Job_Task,Job_Difference_Buffer@,Job_Difference_Buffer@,Option)
+- syntax:
+    content: 'procedure GetCurrencyCode(var Job: Record Job, Type: Option, CurrencyType: Option): Text[50]'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrencyType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetCurrencyCode
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches.GetCurrencyCode(Job@,Option,Option):Text[50]
+commentId: O:Codeunit::Microsoft#Projects#Project#Journal#Job Calculate Batches
+name: '"Job Calculate Batches"'
+uid: O:Codeunit::Microsoft#Projects#Project#Journal#Job_Calculate_Batches

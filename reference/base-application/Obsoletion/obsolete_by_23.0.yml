@@ -1,0 +1,663 @@
+﻿### YamlMime:BusinessCentralObsoletionList
+tag: "23.0"
+groups:
+- groupName: "23.0"
+  symbols:
+  - kind: Field
+    internalReference: F:Table::System#Environment#Configuration#Application_Area_Setup.XBRL
+    name: 'XBRL: Boolean'
+    reason: XBRL feature will be discontinued
+  - kind: Method
+    internalReference: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetUnauthorizedErrorText:Text
+    name: 'GetUnauthorizedErrorText(): Text'
+    reason: Error texts should be defined per extension. In other words, define your own text constants.
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Integration#PowerBI#Power_BI_Embed_Helper
+    name: Codeunit 6299 "Power BI Embed Helper"
+    reason: This functionality has been replaced by the Power BI javascript library
+  - kind: Field
+    internalReference: F:Table::System#Integration#PowerBI#Power_BI_Report_Uploads.Is_Selection_Done
+    name: '"Is Selection Done": Boolean'
+    reason: Use Report Upload Status instead to track the upload status.
+  - kind: Field
+    internalReference: F:Table::System#Integration#PowerBI#Power_BI_Report_Uploads.Should_Retry
+    name: '"Should Retry": Boolean'
+    reason: Use Report Upload Status instead to track the upload status.
+  - kind: Field
+    internalReference: F:Table::System#Integration#PowerBI#Power_BI_Report_Uploads.Needs_Deletion
+    name: '"Needs Deletion": Boolean'
+    reason: Use Report Upload Status instead to track the upload status.
+  - kind: Table
+    internalReference: O:Table::System#Integration#PowerBI#Power_BI_Report_Configuration
+    name: Table 6301 "Power BI Report Configuration"
+    reason: Use table Power BI Selected Elements instead. The new table supports multiple types of embedded elements.
+  - kind: Table
+    internalReference: O:Table::System#Integration#PowerBI#Power_BI_User_Configuration
+    name: Table 6304 "Power BI User Configuration"
+    reason: Use table Power BI Context Settings instead. The new table does not require Profile ID, and supports multiple types of embedded elements.
+  - kind: Table
+    internalReference: O:Table::System#Integration#PowerBI#Power_BI_User_Status
+    name: Table 6325 "Power BI User Status"
+    reason: Check if the user has a pending job queue entry for codeunit "Power BI Report Synchronizer" instead and use the status from the job queue.
+  - kind: Page
+    internalReference: O:Page::System#Integration#PowerBI#Power_BI_Embedded_Report_Part
+    name: Page 6325 "Power BI Embedded Report Part"
+    reason: The SourceTable of this page will be changed to Power BI Displayed Element. Only filtering on the Context field is supported; that field will maintain the same field name.
+  - kind: Page
+    internalReference: O:Page::System#Integration#PowerBI#Content_Pack_Setup_Part
+    name: Page 6317 "Content Pack Setup Part"
+    reason: Instead, follow the Business Central documentation page "Building Power BI Reports to Display Dynamics 365 Business Central Data" available at https://learn.microsoft.com/en-gb/dynamics365/business-central/across-how-use-financials-data-source-powerbi
+  - kind: Page
+    internalReference: O:Page::System#Integration#PowerBI#Content_Pack_Setup_Wizard
+    name: Page 6316 "Content Pack Setup Wizard"
+    reason: Instead, follow the Business Central documentation page "Building Power BI Reports to Display Dynamics 365 Business Central Data" available at https://learn.microsoft.com/en-gb/dynamics365/business-central/across-how-use-financials-data-source-powerbi
+  - kind: Page
+    internalReference: O:Page::System#Integration#PowerBI#Power_BI_Management
+    name: Page 6319 "Power BI Management"
+    reason: This page has been replaced by page 6323 "Power BI Element Card"
+  - kind: Page
+    internalReference: O:Page::System#Integration#PowerBI#Power_BI_Report_Dialog
+    name: Page 6305 "Power BI Report Dialog"
+    reason: This page has been replaced by page 6323 "Power BI Element Card"
+  - kind: Method
+    internalReference: M:Codeunit::System#Integration#ODataUtility.EditWorksheetInExcel(Text[240],Text,Text)
+    name: 'EditWorksheetInExcel(PageCaption: Text[240], PageId: Text, Filter: Text)'
+    reason: 'Replaced by EditinExcelHandler.EditPageInExcel(PageCaption: Text[240]; ObjectId: Integer; CodeUnit "Filters")'
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#Permission_Buffer
+    name: Table 9852 "Permission Buffer"
+    reason: Table will be moved to temporary
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#Plan_Permission_Set
+    name: Table 9006 "Plan Permission Set"
+    reason: No longer used.
+  - kind: PermissionSet
+    internalReference: O:PermissionSet::System#Security#AccessControl#M365_COLLABORATION
+    name: PermissionSet 4785 "M365 COLLABORATION"
+    reason: No longer used.
+  - kind: Field
+    internalReference: F:Table::System#IO#Record_Export_Buffer.ServerFilePath[250]
+    name: 'ServerFilePath: Text[250]'
+    reason: Replaced by usage of the File Content field.
+  - kind: Field
+    internalReference: F:Table::System#IO#Data_Exch#_Field_Mapping.Target_Field_Caption[80]
+    name: '"Target Field Caption": Text[80]'
+    reason: Redesigned to a new field "Target Table Field Calcucation"
+  - kind: Field
+    internalReference: F:Table::System#Threading#Job_Queue_Entry.Recovery_Task_Id
+    name: '"Recovery Task Id": Guid'
+    reason: The recovery job is no longer needed.
+  - kind: Field
+    internalReference: F:Table::System#Threading#Job_Queue_Log_Entry.Processed_by_User_ID[65]
+    name: '"Processed by User ID": Text[65]'
+    reason: The Processed by User ID is the same as User ID
+  - kind: Field
+    internalReference: F:Table::System#Visualization#Business_Chart_Buffer.XML
+    name: 'XML: Blob'
+    reason: Use codeunit Temp Blob instead.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.RoutingCostPerUnit(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Decimal@,Decimal@,Decimal@,Decimal@,Option@)
+    name: 'RoutingCostPerUnit(Type: Enum 5871 "Capacity Type", No: Code[20], var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal, var UnitCostCalculation: Option)'
+    reason: Replaced by procedure CalcRoutingCostPerUnit()
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.RoutingCostPerUnit(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Decimal@,Decimal@,Decimal@,Decimal@,Option@,Work_Center,Machine_Center)
+    name: 'RoutingCostPerUnit(Type: Enum 5871 "Capacity Type", var DirUnitCost: Decimal, var IndirCostPct: Decimal, var OvhdRate: Decimal, var UnitCost: Decimal, var UnitCostCalculation: Option, WorkCenter: Record 99000754 "Work Center", MachineCenter: Record 99000758 "Machine Center")'
+    reason: Replaced by procedure CalcRoutingCostPerUnit()
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Costing#Cost_Calculation_Management.CalcCostTime(Decimal,Decimal,Code[10],Decimal,Code[10],Decimal,Decimal,Decimal,Code[20],Option,Boolean,Decimal):Decimal
+    name: 'CalcCostTime(MfgItemQtyBase: Decimal, SetupTime: Decimal, SetupTimeUOMCode: Code[10], RunTime: Decimal, RunTimeUOMCode: Code[10], RtngLotSize: Decimal, ScrapFactorPctAccum: Decimal, FixedScrapQtyAccum: Decimal, WorkCenterNo: Code[20], UnitCostCalculation: Option, CostInclSetup: Boolean, ConcurrentCapacities: Decimal): Decimal'
+    reason: Replaced by procedure CalculateCostTime()
+  - kind: Method
+    internalReference: M:Table::Microsoft#Inventory#Item#Catalog#Item_Reference.FindItemDescription(Text[100]@,Text[50]@,Code[20],Code[10],Code[10],Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type,Code[20]):Boolean
+    name: 'FindItemDescription(var ItemDescription: Text[100], var ItemDescription2: Text[50], ItemNo: Code[20], VariantCode: Code[10], UnitOfMeasureCode: Code[10], ReferenceType: Enum 5726 "Item Reference Type", ReferenceTypeNo: Code[20]): Boolean'
+    reason: Use another implementation of FindItemDescription.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Item#Copy_Item_Buffer.Item_Cross_References
+    name: '"Item Cross References": Boolean'
+    reason: Replaced with parameter Item References
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Item#Copy_Item_Parameters.Item_Cross_References
+    name: '"Item Cross References": Boolean'
+    reason: Replaced with parameter Item References
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Item#Item.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#Currency#Currency.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: EnumValue
+    internalReference: E:Enum::Microsoft#Finance#FinancialReports#Column_Layout_Type.Subsidiary
+    name: Enum Value Subsidiary
+    reason: Value Subsidiary is unused.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDeductibleVAT(Invoice_Post#_Buffer@,Decimal,Decimal,Decimal,Decimal,Decimal)
+    name: 'SetNonDeductibleVAT(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, TotalNonDedVATBase: Decimal, TotalNonDedVATAmount: Decimal, TotalNonDedVATBaseACY: Decimal, TotalNonDedVATAmountACY: Decimal, TotalNonDedVATDiff: Decimal)'
+    reason: Replaced with SetNonDeductibleVAT
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Invoice_Post#_Buffer)
+    name: 'Update(var TotalNonDedVATBase: Decimal, var TotalNonDedVATAmount: Decimal, var TotalNonDedVATBaseACY: Decimal, var TotalNonDedVATAmountACY: Decimal, var TotalNonDedVATDiff: Decimal, InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with UpdateNonDeductibleAmountsInInvoicePostingBuffer
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Invoice_Post#_Buffer@,Invoice_Post#_Buffer@,Decimal)
+    name: 'Update(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, var RemainderInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, AmountRoundingPrecision: Decimal)'
+    reason: Replaced with UpdateAmount
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Reverse(Invoice_Post#_Buffer@)
+    name: 'Reverse(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with Reverse
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Increment(Invoice_Post#_Buffer@,Invoice_Post#_Buffer)
+    name: 'Increment(var TotalInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with Increment
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ClearNonDeductibleVAT(Invoice_Post#_Buffer@)
+    name: 'ClearNonDeductibleVAT(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with ClearNonDedVATInInvoicePostingBuffer
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Calculate(Invoice_Post#_Buffer@)
+    name: 'Calculate(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with Calculate
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(Invoice_Post#_Buffer@,Purchase_Line)
+    name: 'Copy(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, PurchaseLine: Record 39 "Purchase Line")'
+    reason: Replaced with Copy
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(Gen#_Journal_Line@,Invoice_Post#_Buffer)
+    name: 'Copy(var GenJournalLine: Record 81 "Gen. Journal Line", InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with Copy
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.AdjustRoundingForInvoicePostBufferUpdate(Invoice_Post#_Buffer@,Invoice_Post#_Buffer@)
+    name: 'AdjustRoundingForInvoicePostBufferUpdate(var RoundingInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, var CurrInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with AdjustRoundingForInvoicePostingBufferUpdate
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ApplyRoundingForFinalPostingFromInvoicePostBuffer(Invoice_Post#_Buffer@,Invoice_Post#_Buffer@)
+    name: 'ApplyRoundingForFinalPostingFromInvoicePostBuffer(var RoundingInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, var CurrInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced with ApplyRoundingForFinalPostingFromInvoicePostingBuffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.InsertNewLine(Code[20],Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type,Code[20],Boolean,Decimal,Boolean,Boolean)
+    name: 'InsertNewLine(VATIdentifier: Code[20], VATCalcType: Enum 254 "Tax Calculation Type", TaxGroupCode: Code[20], UseTax: Boolean, TaxRate: Decimal, IsPositive: Boolean, IsPrepayment: Boolean)'
+    reason: Replaced with InsertNewLine with NonDeductibleVATPct parameter
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Comment_Line
+    name: Table 396 "XBRL Comment Line"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_G/L_Map_Line
+    name: Table 397 "XBRL G/L Map Line"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Line_Constant
+    name: Table 408 "XBRL Line Constant"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Linkbase
+    name: Table 400 "XBRL Linkbase"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Rollup_Line
+    name: Table 398 "XBRL Rollup Line"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Schema
+    name: Table 399 "XBRL Schema"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Taxonomy
+    name: Table 394 "XBRL Taxonomy"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Taxonomy_Label
+    name: Table 401 "XBRL Taxonomy Label"
+    reason: XBRL feature will be discontinued
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#XBRL#XBRL_Taxonomy_Line
+    name: Table 395 "XBRL Taxonomy Line"
+    reason: XBRL feature will be discontinued
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Batch.Background_Error_Check
+    name: '"Background Error Check": Boolean'
+    reason: Replaced with GLSetup.Enable Data Check
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#RoleCenters#Role_Center_Notification_Mgt#.ShowWSDeprecationNotication:Boolean
+    name: 'ShowWSDeprecationNotication(): Boolean'
+    reason: This deprecation warning should no longer be shown with from 23.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#Service#Setup#Service_Mgt#_Setup.Invoice_Posting_Setup
+    name: '"Invoice Posting Setup": Enum 817 "Service Invoice Posting"'
+    reason: Replaced by direct selection of posting interface in codeunits.
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Contact#Contact.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#CRM#Interaction#AttachmentManagement.InteractionFax(Interaction_Log_Entry@):Text[30]
+    name: 'InteractionFax(var InteractLogEntry: Record 5065 "Interaction Log Entry"): Text[30]'
+    reason: Fax is not supported anymore.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#CRM#Interaction#AttachmentManagement.ConvertCorrespondenceType(Option):Enum::Microsoft#CRM#Interaction#Correspondence_Type
+    name: 'ConvertCorrespondenceType(CorrespondenceType: Option): Enum 5076 "Correspondence Type"'
+    reason: Correspondence Type Fax is obsolete and will be removed.
+  - kind: Method
+    internalReference: M:Table::Microsoft#CRM#Interaction#Attachment.CheckCorrespondenceType(Enum::Microsoft#CRM#Interaction#Correspondence_Type):Text[80]
+    name: 'CheckCorrespondenceType(CorrespondenceType: Enum 5076 "Correspondence Type"): Text[80]'
+    reason: Correspondence Type Fax is no longer supported. This procedure only checked for Fax.
+  - kind: EnumValue
+    internalReference: E:Enum::Microsoft#CRM#Interaction#Correspondence_Type.Fax
+    name: Enum Value Fax
+    reason: Not supported since moving to WebClient.
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Opportunity#Opportunity.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Outlook#Exchange_Object.VendorNo[50]
+    name: 'VendorNo: Code[50]'
+    reason: Use the field RecId instead
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Team#Salesperson/Purchaser.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Table
+    internalReference: O:Table::Microsoft#EServices#EDocument#Document_Service_Cache
+    name: Table 9551 "Document Service Cache"
+    reason: No longer required
+  - kind: Enum
+    internalReference: O:Enum::Microsoft#EServices#EDocument#Doc#_Service_Conflict_Behavior
+    name: Enum 9550 "Doc. Service Conflict Behavior"
+    reason: Replaced with "Doc. Sharing Conflict Behavior" in System Application.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetItemFromItemRef(Code[50],Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type,Code[20]):Code[20]
+    name: 'GetItemFromItemRef(RefNo: Code[50], RefType: Enum 5726 "Item Reference Type", RefTypeNo: Code[20]): Code[20]'
+    reason: Use another implementation of GetItemFromItemRef.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Company#Company_Information.GetLegalOffice:Text
+    name: 'GetLegalOffice(): Text'
+    reason: The procedure is not used and will be obsoleted
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Company#Company_Information.GetLegalOfficeLbl:Text
+    name: 'GetLegalOfficeLbl(): Text'
+    reason: The procedure is not used and will be obsoleted
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Company#Company_Information.GetCustomGiro:Text
+    name: 'GetCustomGiro(): Text'
+    reason: The procedure is not used and will be obsoleted
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Company#Company_Information.GetCustomGiroLbl:Text
+    name: 'GetCustomGiroLbl(): Text'
+    reason: The procedure is not used and will be obsoleted
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.IC_Partner_Code[20]
+    name: '"IC Partner Code": Code[20]'
+    reason: Replaced by the same field from "IC Setup" table.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.IC_Inbox_Type
+    name: '"IC Inbox Type": Option'
+    reason: Replaced by the same field from "IC Setup" table.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.IC_Inbox_Details[250]
+    name: '"IC Inbox Details": Text[250]'
+    reason: Replaced by the same field from "IC Setup" table.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.Auto#_Send_Transactions
+    name: '"Auto. Send Transactions": Boolean'
+    reason: Replaced by the same field from "IC Setup" table.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#PaymentTerms#Payment_Terms.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by page control Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Shipping#Shipment_Method.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by page control Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Shipping#Shipping_Agent.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by page control Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#UOM#Unit_of_Measure.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Connection_Setup.Dynamics_NAV_OData_URL[250]
+    name: '"Dynamics NAV OData URL": Text[250]'
+    reason: This functionality is replaced with new item availability job queue entry.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Connection_Setup.Dynamics_NAV_OData_Username[250]
+    name: '"Dynamics NAV OData Username": Text[250]'
+    reason: This functionality is replaced with new item availability job queue entry.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Connection_Setup.Dynamics_NAV_OData_Accesskey[250]
+    name: '"Dynamics NAV OData Accesskey": Text[250]'
+    reason: This functionality is replaced with new item availability job queue entry.
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Integration#Dataverse#CDS_Set_Coupled_Flag
+    name: Codeunit 5363 "CDS Set Coupled Flag"
+    reason: Replaced by flow fields Coupled to Dataverse
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Integration#Dataverse#CDS_Set_Coupled_Flags
+    name: Codeunit 7207 "CDS Set Coupled Flags"
+    reason: Replaced by flow fields Coupled to Dataverse
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCoupledFlag(CRM_Integration_Record,Boolean):Boolean
+    name: 'SetCoupledFlag(CRMIntegrationRecord: Record 5331 "CRM Integration Record", NewValue: Boolean): Boolean'
+    reason: This functionality is replaced with flow fields Coupled to Dataverse.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCoupledFlag(CRM_Integration_Record,Boolean,Boolean):Boolean
+    name: 'SetCoupledFlag(CRMIntegrationRecord: Record 5331 "CRM Integration Record", NewValue: Boolean, ScheduleTask: Boolean): Boolean'
+    reason: This functionality is replaced with flow fields Coupled to Dataverse.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.SetCoupledFlag(CRM_Option_Mapping,Boolean):Boolean
+    name: 'SetCoupledFlag(CRMOptionMapping: Record 5334 "CRM Option Mapping", NewValue: Boolean): Boolean'
+    reason: This functionality is replaced with flow fields Coupled to Dataverse.
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Integration#Dataverse#Rebuild_Dataverse_Coupling_Tbl
+    name: Codeunit 5362 "Rebuild Dataverse Coupling Tbl"
+    reason: After the deprecation of Integration Record table, this codeunit can no longer be used. To rebuild the coupling table, install the extension that is uploaded here https://go.microsoft.com/fwlink/?linkid=2245902
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Graph#Graph_Business_Setting
+    name: Table 5460 "Graph Business Setting"
+    reason: This functionality is out of support
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Graph#Graph_Subscription
+    name: Table 5455 "Graph Subscription"
+    reason: This functionality is out of support
+  - kind: Field
+    internalReference: F:Table::Microsoft#Manufacturing#Setup#Manufacturing_Setup.Optimize_low-level_code_calc#
+    name: '"Optimize low-level code calc.": Boolean'
+    reason: Codeunit Calc. Low-level code is obsolete. Use Codeunit Low-Level Code Calculator instead.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Project#Job#Job.IsJobSimplificationAvailable:Boolean
+    name: 'IsJobSimplificationAvailable(): Boolean'
+    reason: This method always returns true. Remove this method.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Projects#Project#Planning#Job_Create-Invoice.CreateSalesInvoiceLines(Code[20],Job_Planning_Line@,Code[20],Boolean,Date,Boolean)
+    name: 'CreateSalesInvoiceLines(JobNo: Code[20], var JobPlanningLineSource: Record 1003 "Job Planning Line", InvoiceNo: Code[20], NewInvoice: Boolean, PostingDate: Date, CreditMemo: Boolean)'
+    reason: 'Replaced by CreateSalesInvoiceLines(JobNo: Code[20]; var JobPlanningLineSource: Record "Job Planning Line"; InvoiceNo: Code[20]; NewInvoice: Boolean; PostingDate: Date; DocumentDate: Date; CreditMemo: Boolean)'
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Projects#Project#Planning#Job_Create-Invoice.CreateSalesInvoiceJobTask(Job_Task@,Date,Boolean,Integer@,Code[20]@,Code[20]@,Boolean)
+    name: 'CreateSalesInvoiceJobTask(var JobTask2: Record 1001 "Job Task", PostingDate: Date, InvoicePerTask: Boolean, var NoOfInvoices: Integer, var OldJobNo: Code[20], var OldJobTaskNo: Code[20], LastJobTask: Boolean)'
+    reason: 'Replaced by CreateSalesInvoiceJobTask(var JobTask2: Record "Job Task"; PostingDate: Date; DocumentDate: Date; InvoicePerTask: Boolean; var NoOfInvoices: Integer; var OldJobNo: Code[20]; var OldJobTaskNo: Code[20]; LastJobTask: Boolean)'
+  - kind: Method
+    internalReference: M:Report::Microsoft#Projects#Project#Planning#Job_Transfer_to_Credit_Memo.GetCreditMemoNo(Boolean@,Boolean@,Date@,Code[20]@)
+    name: 'GetCreditMemoNo(var Done2: Boolean, var NewCreditMemo2: Boolean, var PostingDate2: Date, var CreditMemoNo2: Code[20])'
+    reason: 'Replaced by GetCreditMemoNo(var Done2: Boolean; var NewCreditMemo2: Boolean; var PostingDate2: Date; var DocumentDate2: Date; var CreditMemoNo2: Code[20])'
+  - kind: Method
+    internalReference: M:Report::Microsoft#Projects#Project#Planning#Job_Transfer_to_Sales_Invoice.GetInvoiceNo(Boolean@,Boolean@,Date@,Code[20]@)
+    name: 'GetInvoiceNo(var Done2: Boolean, var NewInvoice2: Boolean, var PostingDate2: Date, var InvoiceNo2: Code[20])'
+    reason: 'Replaced by GetInvoiceNo(var Done2: Boolean; var NewInvoice2: Boolean; var PostingDate2: Date; var DocumentDate2: Date; var InvoiceNo2: Code[20])'
+  - kind: Field
+    internalReference: F:Table::Microsoft#Projects#Resources#Resource#Resource.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Method
+    internalReference: M:Table::Microsoft#Purchases#Document#Purchase_Line.OnAfterValidateType(Purchase_Line@,Purchase_Line@,Purchase_Line@)
+    name: 'OnAfterValidateType(var PurchaseLine: Record 39 "Purchase Line", var xPurchaseLine: Record 39 "Purchase Line", var TempPurchaseLine: Record 39 "Purchase Line" temporary)'
+    reason: Pending removal use "OnAfterValidateTypePurchaseLine" instead
+  - kind: Method
+    internalReference: M:Table::Microsoft#Purchases#Document#Purchase_Line.OnAfterValidateNo(Purchase_Line@,Purchase_Line@,Purchase_Line@)
+    name: 'OnAfterValidateNo(var PurchaseLine: Record 39 "Purchase Line", var xPurchaseLine: Record 39 "Purchase Line", var TempPurchaseLine: Record 39 "Purchase Line" temporary)'
+    reason: Pending removal use "OnAfterValidateNoPurchaseLine" instead
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Invoice_Posting_Setup
+    name: '"Invoice Posting Setup": Enum 816 "Purchase Invoice Posting"'
+    reason: Replaced by direct selection of posting interface in codeunits.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Vendor.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Header_Archive.Rcvd-from_Country/Region_Code[10]
+    name: '"Rcvd-from Country/Region Code": Code[10]'
+    reason: Use new field on range 181
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Customer#Customer.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Table
+    internalReference: O:Table::Microsoft#Sales#Customer#Customer_Template
+    name: Table 5105 "Customer Template"
+    reason: Deprecate mini and customer templates. Use table "Customer Templ." instead and for extensions.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Header.Rcvd-from_Country/Region_Code[10]
+    name: '"Rcvd-from Country/Region Code": Code[10]'
+    reason: Use new field on range 181
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Header.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Batch_Archiving_Quotes
+    name: '"Batch Archiving Quotes": Boolean'
+    reason: The field is part of the removed functionality.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Invoice_Posting_Setup
+    name: '"Invoice Posting Setup": Enum 815 "Sales Invoice Posting"'
+    reason: Replaced by direct selection of posting interface in codeunits.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Return_Receipt_Header.Rcvd-from_Country/Region_Code[10]
+    name: '"Rcvd-from Country/Region Code": Code[10]'
+    reason: Use new field on range 181
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Header.Rcvd-from_Country/Region_Code[10]
+    name: '"Rcvd-from Country/Region Code": Code[10]'
+    reason: Use new field on range 181
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Header.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAdditionalDocRefInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@)
+    name: 'GetAdditionalDocRefInfo(Salesheader: Record 36 "Sales Header", var AdditionalDocumentReferenceID: Text, var AdditionalDocRefDocumentType: Text, var URI: Text, var MimeCode: Text, var EmbeddedDocumentBinaryObject: Text)'
+    reason: Replaced by same procedure with additional parameter ProcessedDocType
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLegalMonetaryInfo(Sales_Header,VAT_Amount_Line@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+    name: 'GetLegalMonetaryInfo(SalesHeader: Record 36 "Sales Header", var VATAmtLine: Record 290 "VAT Amount Line", var LineExtensionAmount: Text, var LegalMonetaryTotalCurrencyID: Text, var TaxExclusiveAmount: Text, var TaxExclusiveAmountCurrencyID: Text, var TaxInclusiveAmount: Text, var TaxInclusiveAmountCurrencyID: Text, var AllowanceTotalAmount: Text, var AllowanceTotalAmountCurrencyID: Text, var ChargeTotalAmount: Text, var ChargeTotalAmountCurrencyID: Text, var PrepaidAmount: Text, var PrepaidCurrencyID: Text, var PayableRoundingAmount: Text, var PayableRndingAmountCurrencyID: Text, var PayableAmount: Text, var PayableAmountCurrencyID: Text)'
+    reason: Replaced by GetLegalMonetaryInfo with TempSalesLine parameter for invoice rounding.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Pricing#Customer_Price_Group.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Pricing#Sales_Price.Coupled_to_CRM
+    name: '"Coupled to CRM": Boolean'
+    reason: Replaced by flow field Coupled to Dataverse
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.FindReservationEntry(Integer,Integer,Code[20],Integer,Item_Tracking_Setup):Boolean
+    name: 'FindReservationEntry(SourceType: Integer, DocType: Integer, DocNo: Code[20], DocLineNo: Integer, NewWhseItemTrackingSetup: Record 6565 "Item Tracking Setup" temporary): Boolean'
+    reason: WhseItemTrackingSetup is a global variable, so there is no need to pass it as an argument
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.InsertWhseActivLine(Warehouse_Activity_Line@,Decimal,Item_Tracking_Setup)
+    name: 'InsertWhseActivLine(var NewWarehouseActivityLine: Record 5767 "Warehouse Activity Line", PutAwayQty: Decimal, NewWhseItemTrackingSetup: Record 6565 "Item Tracking Setup" temporary)'
+    reason: WhseItemTrackingSetup is a global variable, so there is no need to pass it as an argument
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CreateWhseJnlLineFromOutputJnl(Item_Journal_Line,Warehouse_Journal_Line@):Boolean
+    name: 'CreateWhseJnlLineFromOutputJnl(ItemJnlLine: Record 83 "Item Journal Line", var WhseJnlLine: Record 7311 "Warehouse Journal Line"): Boolean'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CreateWhseJnlLineFromConsumJnl(Item_Journal_Line,Warehouse_Journal_Line@):Boolean
+    name: 'CreateWhseJnlLineFromConsumJnl(ItemJnlLine: Record 83 "Item Journal Line", var WhseJnlLine: Record 7311 "Warehouse Journal Line"): Boolean'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowProdOrderLine(Code[20],Integer)
+    name: 'ShowProdOrderLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowAssemblyLine(Code[20],Integer)
+    name: 'ShowAssemblyLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    reason: Replaced by same procedure in codeunit "Assembly Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetLastOperationLocationCode(Code[20],Code[20]):Code[10]
+    name: 'GetLastOperationLocationCode(RoutingNo: Code[20], RoutingVersionCode: Code[20]): Code[10]'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetLastOperationFromBinCode(Code[20],Code[20],Code[10],Boolean,Option):Code[20]
+    name: 'GetLastOperationFromBinCode(RoutingNo: Code[20], RoutingVersionCode: Code[20], LocationCode: Code[10], UseFlushingMethod: Boolean, FlushingMethod: Option): Code[20]'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetProdRoutingLastOperationFromBinCode(Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Code[20],Integer,Code[20],Code[10]):Code[20]
+    name: 'GetProdRoutingLastOperationFromBinCode(ProdOrderStatus: Enum 5405 "Production Order Status", ProdOrderNo: Code[20], RoutingRefNo: Integer, RoutingNo: Code[20], LocationCode: Code[10]): Code[20]'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetPlanningRtngLastOperationFromBinCode(Code[10],Code[10],Integer,Code[10]):Code[20]
+    name: 'GetPlanningRtngLastOperationFromBinCode(WkshTemplateName: Code[10], WkshBatchName: Code[10], WkshLineNo: Integer, LocationCode: Code[10]): Code[20]'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetProdCenterLocationCode(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20]):Code[10]
+    name: 'GetProdCenterLocationCode(Type: Enum 5871 "Capacity Type", No: Code[20]): Code[10]'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetProdCenterBinCode(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Code[10],Boolean,Option):Code[20]
+    name: 'GetProdCenterBinCode(Type: Enum 5871 "Capacity Type", No: Code[20], LocationCode: Code[10], UseFlushingMethod: Boolean, FlushingMethod: Option): Code[20]'
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.FromSalesLine2ShptLine(Warehouse_Shipment_Header,Sales_Line):Boolean
+    name: 'FromSalesLine2ShptLine(WarehouseShipmentHeader: Record 7320 "Warehouse Shipment Header", SalesLine: Record 37 "Sales Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.SalesLine2ReceiptLine(Warehouse_Receipt_Header,Sales_Line):Boolean
+    name: 'SalesLine2ReceiptLine(WarehouseReceiptHeader: Record 7316 "Warehouse Receipt Header", SalesLine: Record 37 "Sales Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.FromServiceLine2ShptLine(Warehouse_Shipment_Header,Service_Line):Boolean
+    name: 'FromServiceLine2ShptLine(WarehouseShipmentHeader: Record 7320 "Warehouse Shipment Header", ServiceLine: Record 5902 "Service Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Service Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.FromPurchLine2ShptLine(Warehouse_Shipment_Header,Purchase_Line):Boolean
+    name: 'FromPurchLine2ShptLine(WarehouseShipmentHeader: Record 7320 "Warehouse Shipment Header", PurchaseLine: Record 39 "Purchase Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Purchases Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.PurchLine2ReceiptLine(Warehouse_Receipt_Header,Purchase_Line):Boolean
+    name: 'PurchLine2ReceiptLine(WarehouseReceiptHeader: Record 7316 "Warehouse Receipt Header", PurchaseLine: Record 39 "Purchase Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Purchases Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.FromTransLine2ShptLine(Warehouse_Shipment_Header,Transfer_Line):Boolean
+    name: 'FromTransLine2ShptLine(WarehouseShipmentHeader: Record 7320 "Warehouse Shipment Header", TransferLine: Record 5741 "Transfer Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Transfer Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.TransLine2ReceiptLine(Warehouse_Receipt_Header,Transfer_Line):Boolean
+    name: 'TransLine2ReceiptLine(WarehouseReceiptHeader: Record 7316 "Warehouse Receipt Header", TransferLine: Record 5741 "Transfer Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Transfer Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfFromSalesLine2ShptLine(Sales_Line):Boolean
+    name: 'CheckIfFromSalesLine2ShptLine(SalesLine: Record 37 "Sales Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfFromServiceLine2ShptLin(Service_Line):Boolean
+    name: 'CheckIfFromServiceLine2ShptLin(ServiceLine: Record 5902 "Service Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Service Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfSalesLine2ReceiptLine(Sales_Line):Boolean
+    name: 'CheckIfSalesLine2ReceiptLine(SalesLine: Record 37 "Sales Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfFromPurchLine2ShptLine(Purchase_Line):Boolean
+    name: 'CheckIfFromPurchLine2ShptLine(PurchaseLine: Record 39 "Purchase Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Purchases Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfPurchLine2ReceiptLine(Purchase_Line):Boolean
+    name: 'CheckIfPurchLine2ReceiptLine(PurchaseLine: Record 39 "Purchase Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Purchases Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfFromTransLine2ShptLine(Transfer_Line):Boolean
+    name: 'CheckIfFromTransLine2ShptLine(TransferLine: Record 5741 "Transfer Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Transfer Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#-Create_Source_Document.CheckIfTransLine2ReceiptLine(Transfer_Line):Boolean
+    name: 'CheckIfTransLine2ReceiptLine(TransferLine: Record 5741 "Transfer Line"): Boolean'
+    reason: Replaced by same procedure in codeunit Transfer Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Header.SalesHeaderVerifyChange(Sales_Header@,Sales_Header@)
+    name: 'SalesHeaderVerifyChange(var NewSalesHeader: Record 36 "Sales Header", var OldSalesHeader: Record 36 "Sales Header")'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Header.ServiceHeaderVerifyChange(Service_Header@,Service_Header@)
+    name: 'ServiceHeaderVerifyChange(var NewServiceHeader: Record 5900 "Service Header", var OldServiceHeader: Record 5900 "Service Header")'
+    reason: Replaced by same procedure in codeunit Service Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Header.TransHeaderVerifyChange(Transfer_Header@,Transfer_Header@)
+    name: 'TransHeaderVerifyChange(var NewTransferHeader: Record 5740 "Transfer Header", var OldTransferHeader: Record 5740 "Transfer Header")'
+    reason: Replaced by same procedure in codeunit Service Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.SalesLineVerifyChange(Sales_Line@,Sales_Line@)
+    name: 'SalesLineVerifyChange(var NewSalesLine: Record 37 "Sales Line", var OldSalesLine: Record 37 "Sales Line")'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.SalesLineDelete(Sales_Line@)
+    name: 'SalesLineDelete(var SalesLine: Record 37 "Sales Line")'
+    reason: Replaced by same procedure in codeunit Sales Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.ServiceLineVerifyChange(Service_Line@,Service_Line@)
+    name: 'ServiceLineVerifyChange(var NewServiceLine: Record 5902 "Service Line", var OldServiceLine: Record 5902 "Service Line")'
+    reason: Replaced by same procedure in codeunit Service Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.ServiceLineDelete(Service_Line@)
+    name: 'ServiceLineDelete(var ServiceLine: Record 5902 "Service Line")'
+    reason: Replaced by same procedure in codeunit Service Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.PurchaseLineVerifyChange(Purchase_Line@,Purchase_Line@)
+    name: 'PurchaseLineVerifyChange(var NewPurchLine: Record 39 "Purchase Line", var OldPurchLine: Record 39 "Purchase Line")'
+    reason: Replaced by same procedure in codeunit Purchases Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.PurchaseLineDelete(Purchase_Line@)
+    name: 'PurchaseLineDelete(var PurchLine: Record 39 "Purchase Line")'
+    reason: Replaced by same procedure in codeunit Purchases Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.ProdComponentVerifyChange(Prod#_Order_Component@,Prod#_Order_Component@)
+    name: 'ProdComponentVerifyChange(var NewProdOrderComp: Record 5407 "Prod. Order Component", var OldProdOrderComp: Record 5407 "Prod. Order Component")'
+    reason: Replaced by same procedure in codeunit Prod. Order Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.ProdComponentDelete(Prod#_Order_Component@)
+    name: 'ProdComponentDelete(var ProdOrderComp: Record 5407 "Prod. Order Component")'
+    reason: Replaced by same procedure in codeunit Prod. Order Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.JobPlanningLineVerifyChange(Job_Planning_Line@,Job_Planning_Line@,Integer)
+    name: 'JobPlanningLineVerifyChange(var NewJobPlanningLine: Record 1003 "Job Planning Line", var OldJobPlanningLine: Record 1003 "Job Planning Line", FieldNo: Integer)'
+    reason: Replaced by same procedure in codeunit Job Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.JobPlanningLineDelete(Job_Planning_Line@)
+    name: 'JobPlanningLineDelete(var JobPlanningLine: Record 1003 "Job Planning Line")'
+    reason: Replaced by same procedure in codeunit Job Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.ProdOrderLineVerifyChange(Prod#_Order_Line@,Prod#_Order_Line@)
+    name: 'ProdOrderLineVerifyChange(var NewProdOrderLine: Record 5406 "Prod. Order Line", var OldProdOrderLine: Record 5406 "Prod. Order Line")'
+    reason: Replaced by same procedure in codeunit Prod. Order Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.ProdOrderLineDelete(Prod#_Order_Line@)
+    name: 'ProdOrderLineDelete(var ProdOrderLine: Record 5406 "Prod. Order Line")'
+    reason: Replaced by same procedure in codeunit Prod. Order Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.AssemblyLineVerifyChange(Assembly_Line@,Assembly_Line@)
+    name: 'AssemblyLineVerifyChange(var NewAssemblyLine: Record 901 "Assembly Line", var OldAssemblyLine: Record 901 "Assembly Line")'
+    reason: Replaced by same procedure in codeunit Assembly Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Warehouse#Request#Whse#_Validate_Source_Line.AssemblyLineDelete(Assembly_Line@)
+    name: 'AssemblyLineDelete(var AssemblyLine: Record 901 "Assembly Line")'
+    reason: Replaced by same procedure in codeunit Assembly Warehouse Mgt.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CheckWhseEmployee
+    name: CheckWhseEmployee()
+    reason: Replaced by CheckUserIsWhseEmployee procedure in WMS Management codeunit
+  - kind: Method
+    internalReference: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.AvailableQtyToPickExcludingQCBins:Decimal
+    name: 'AvailableQtyToPickExcludingQCBins(): Decimal'
+    reason: Replaced by procedure AvailableQtyToPick
+  - kind: Table
+    internalReference: O:Table::Native_-_API_Tax_Setup
+    name: Table 2850 "Native - API Tax Setup"
+    reason: These objects will be removed
+  - kind: Table
+    internalReference: O:Table::Native_-_Export_Invoices
+    name: Table 2822 "Native - Export Invoices"
+    reason: These objects will be removed
+  - kind: Table
+    internalReference: O:Table::Native_-_Gen#_Settings_Buffer
+    name: Table 2840 "Native - Gen. Settings Buffer"
+    reason: These objects will be removed
+  - kind: Table
+    internalReference: O:Table::Native_-_Payment
+    name: Table 2831 "Native - Payment"
+    reason: These objects will be removed
+  uid: N:Module::Base_Application_obsolete_by_23.0#23.0
+uid: N:Module::Base_Application_obsolete_by_23.0

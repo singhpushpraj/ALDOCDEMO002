@@ -1,0 +1,51 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Receivables."Cust. Entry-Edit"
+alId: ID 103
+namespace: Microsoft.Sales.Receivables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Receivables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = m,
+                      TableData "Detailed Cust. Ledg. Entry" = m,
+                      tabledata "Sales Invoice Header" = m
+  promoted: false
+- name: TableNo
+  value: Cust. Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Receivables#Cust#_Ledger_Entry
+    name: Microsoft.Sales.Receivables."Cust. Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetOnHold(var OnHoldCustLedgEntry: Record "Cust. Ledger Entry", NewOnHold: Code[3])'
+    parameters:
+    - id: OnHoldCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: NewOnHold
+      parameterType:
+        name: Code[3]
+        isExternal: true
+  name: SetOnHold
+  uid: M:Codeunit::Microsoft#Sales#Receivables#Cust#_Entry-Edit.SetOnHold(Cust#_Ledger_Entry@,Code[3])
+- syntax:
+    content: 'procedure SetCalledFromSalesInvoice(CalledFromSalesInvEditSet: Boolean)'
+    parameters:
+    - id: CalledFromSalesInvEditSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromSalesInvoice
+  uid: M:Codeunit::Microsoft#Sales#Receivables#Cust#_Entry-Edit.SetCalledFromSalesInvoice(Boolean)
+commentId: O:Codeunit::Microsoft#Sales#Receivables#Cust# Entry-Edit
+name: '"Cust. Entry-Edit"'
+uid: O:Codeunit::Microsoft#Sales#Receivables#Cust#_Entry-Edit

@@ -1,0 +1,74 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."TransferOrder-Post (Yes/No)"
+alId: ID 5706
+namespace: Microsoft.Inventory.Transfer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Transfer Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Transfer#Transfer_Header
+    name: Microsoft.Inventory.Transfer."Transfer Header"
+    isExternal: false
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PostTransferOrder(PostShipment: Boolean, PostReceipt: Boolean, PostTransfer: Boolean)'
+    parameters:
+    - id: PostShipment
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostReceipt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostTransferOrder
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_(Yes/No).PostTransferOrder(Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure Preview(var TransferHeader: Record "Transfer Header")'
+    parameters:
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_(Yes/No).Preview(Transfer_Header@)
+- syntax:
+    content: 'procedure MessageIfPostingPreviewMultipleDocuments(var TransferHeaderToPreview: Record "Transfer Header", DocumentNo: Code[20])'
+    parameters:
+    - id: TransferHeaderToPreview
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MessageIfPostingPreviewMultipleDocuments
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_(Yes/No).MessageIfPostingPreviewMultipleDocuments(Transfer_Header@,Code[20])
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_(Yes/No).SetPreviewMode(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post (Yes/No)
+name: '"TransferOrder-Post (Yes/No)"'
+uid: O:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_(Yes/No)

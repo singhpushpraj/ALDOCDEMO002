@@ -1,0 +1,258 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Attachment."Document Attachment Mgmt"
+alId: ID 1173
+namespace: Microsoft.Foundation.Attachment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Attachment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure DeleteAttachedDocuments(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: DeleteAttachedDocuments
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.DeleteAttachedDocuments(RecordRef)
+- syntax:
+    content: 'procedure DeleteAttachedDocumentsWithConfirm(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: DeleteAttachedDocumentsWithConfirm
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.DeleteAttachedDocumentsWithConfirm(RecordRef)
+- syntax:
+    content: 'procedure AttachedDocumentsExist(RecRef: RecordRef): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AttachedDocumentsExist
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.AttachedDocumentsExist(RecordRef):Boolean
+- syntax:
+    content: 'procedure SetDocumentAttachmentRelatedFiltersForRecRef(var DocumentAttachment: Record "Document Attachment", RecRef: RecordRef)'
+    parameters:
+    - id: DocumentAttachment
+      parameterType:
+        name: Record "Document Attachment"
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: SetDocumentAttachmentRelatedFiltersForRecRef
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.SetDocumentAttachmentRelatedFiltersForRecRef(Document_Attachment@,RecordRef)
+- syntax:
+    content: 'procedure SetDocumentAttachmentFiltersForRecRef(var DocumentAttachment: Record "Document Attachment", RecRef: RecordRef)'
+    parameters:
+    - id: DocumentAttachment
+      parameterType:
+        name: Record "Document Attachment"
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: SetDocumentAttachmentFiltersForRecRef
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.SetDocumentAttachmentFiltersForRecRef(Document_Attachment@,RecordRef)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with the same procedure with enum instead of option.,24.0)]'
+    content: 'procedure IsDuplicateFile(TableID: Integer, DocumentNo: Code[20], RecDocType: Option, RecLineNo: Integer, FileName: Text, FileExtension: Text): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RecDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RecLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDuplicateFile
+  obsoletion:
+    state: pending
+    reason: Replaced with the same procedure with enum instead of option.
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.IsDuplicateFile(Integer,Code[20],Option,Integer,Text,Text):Boolean
+- syntax:
+    content: 'procedure IsDuplicateFile(TableID: Integer, DocumentNo: Code[20], AttachmentDocumentType: Enum "Attachment Document Type", RecLineNo: Integer, FileName: Text, FileExtension: Text): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AttachmentDocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Attachment#Attachment_Document_Type
+        name: Microsoft.Foundation.Attachment."Attachment Document Type"
+        isExternal: false
+    - id: RecLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDuplicateFile
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.IsDuplicateFile(Integer,Code[20],Enum::Microsoft#Foundation#Attachment#Attachment_Document_Type,Integer,Text,Text):Boolean
+- syntax:
+    content: 'procedure CopyAttachments(FromRec: Variant, ToRec: Variant)'
+    parameters:
+    - id: FromRec
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ToRec
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CopyAttachments
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.CopyAttachments(Variant,Variant)
+- syntax:
+    content: 'procedure CopyAttachments(var FromRecRef: RecordRef, var ToRecRef: RecordRef)'
+    parameters:
+    - id: FromRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ToRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: CopyAttachments
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.CopyAttachments(RecordRef@,RecordRef@)
+- syntax:
+    content: 'procedure CopyAttachmentsForPostedDocs(var FromRecRef: RecordRef, var ToRecRef: RecordRef)'
+    parameters:
+    - id: FromRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ToRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: CopyAttachmentsForPostedDocs
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.CopyAttachmentsForPostedDocs(RecordRef@,RecordRef@)
+- syntax:
+    content: 'procedure CopyAttachmentsForPostedDocsLines(var FromRecRef: RecordRef, var ToRecRef: RecordRef)'
+    parameters:
+    - id: FromRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ToRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: CopyAttachmentsForPostedDocsLines
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.CopyAttachmentsForPostedDocsLines(RecordRef@,RecordRef@)
+- syntax:
+    content: 'procedure MoveAttachmentsWithinSameRecordType(var MoveFromRecRef: RecordRef, var MoveToRecRef: RecordRef)'
+    parameters:
+    - id: MoveFromRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: MoveToRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: MoveAttachmentsWithinSameRecordType
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.MoveAttachmentsWithinSameRecordType(RecordRef@,RecordRef@)
+- syntax:
+    content: 'procedure ShowNotification(Variant: Variant, NumberOfReportsAttached: Integer, ShowAction: Boolean)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: NumberOfReportsAttached
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShowAction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowNotification
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.ShowNotification(Variant,Integer,Boolean)
+- syntax:
+    content: 'procedure ShowDocPrintedToAttachmentNotification(Variant: Variant, ShowAction: Boolean)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ShowAction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowDocPrintedToAttachmentNotification
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.ShowDocPrintedToAttachmentNotification(Variant,Boolean)
+- syntax:
+    content: 'procedure ShowNotFoundPrintableReportsNotification(Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: ShowNotFoundPrintableReportsNotification
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.ShowNotFoundPrintableReportsNotification(Variant)
+- syntax:
+    content: 'procedure ShowDocumentAttachments(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowDocumentAttachments
+  uid: M:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt.ShowDocumentAttachments(Notification)
+commentId: O:Codeunit::Microsoft#Foundation#Attachment#Document Attachment Mgmt
+name: '"Document Attachment Mgmt"'
+uid: O:Codeunit::Microsoft#Foundation#Attachment#Document_Attachment_Mgmt

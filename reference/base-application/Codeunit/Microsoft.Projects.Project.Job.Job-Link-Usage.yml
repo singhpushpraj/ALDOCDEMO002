@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Job."Job Link Usage"
+alId: ID 1026
+namespace: Microsoft.Projects.Project.Job
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Job
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Job Usage Link" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ApplyUsage(JobLedgerEntry: Record "Job Ledger Entry", JobJournalLine: Record "Job Journal Line")'
+    parameters:
+    - id: JobLedgerEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+    - id: JobJournalLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: ApplyUsage
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Link_Usage.ApplyUsage(Job_Ledger_Entry,Job_Journal_Line)
+- syntax:
+    content: 'procedure HandleMatchUsageSpecifiedJobPlanningLine(var JobPlanningLine: Record "Job Planning Line", JobJournalLine: Record "Job Journal Line", JobLedgerEntry: Record "Job Ledger Entry")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: JobJournalLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: JobLedgerEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+  name: HandleMatchUsageSpecifiedJobPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Link_Usage.HandleMatchUsageSpecifiedJobPlanningLine(Job_Planning_Line@,Job_Journal_Line,Job_Ledger_Entry)
+- syntax:
+    content: 'procedure FindMatchingJobPlanningLine(var JobPlanningLine: Record "Job Planning Line", JobLedgerEntry: Record "Job Ledger Entry"): Boolean'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: JobLedgerEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindMatchingJobPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Link_Usage.FindMatchingJobPlanningLine(Job_Planning_Line@,Job_Ledger_Entry):Boolean
+commentId: O:Codeunit::Microsoft#Projects#Project#Job#Job Link Usage
+name: '"Job Link Usage"'
+uid: O:Codeunit::Microsoft#Projects#Project#Job#Job_Link_Usage

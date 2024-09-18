@@ -1,0 +1,53 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Payroll."Import Payroll Transaction"
+alId: ID 1202
+namespace: Microsoft.Finance.Payroll
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Payroll
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Data Exch." = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SelectAndImportPayrollDataToGL(var GenJournalLine: Record "Gen. Journal Line", DataExchDefCode: Code[20])'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DataExchDefCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SelectAndImportPayrollDataToGL
+  uid: M:Codeunit::Microsoft#Finance#Payroll#Import_Payroll_Transaction.SelectAndImportPayrollDataToGL(Gen#_Journal_Line@,Code[20])
+- syntax:
+    content: 'procedure ImportPayrollDataToGL(GenJournalLine: Record "Gen. Journal Line", FileName: Text, TempBlob: __MissingTypeSymbol__, DataExchDefCode: Code[20])'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: DataExchDefCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ImportPayrollDataToGL
+  uid: M:Codeunit::Microsoft#Finance#Payroll#Import_Payroll_Transaction.ImportPayrollDataToGL(Gen#_Journal_Line,Text,__MissingSymbol__,Code[20])
+commentId: O:Codeunit::Microsoft#Finance#Payroll#Import Payroll Transaction
+name: '"Import Payroll Transaction"'
+uid: O:Codeunit::Microsoft#Finance#Payroll#Import_Payroll_Transaction

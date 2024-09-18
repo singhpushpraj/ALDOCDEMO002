@@ -1,0 +1,128 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Bank Acc. Reconciliation Post"
+alId: ID 370
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Bank Account Ledger Entry" = rm,
+                      TableData "Check Ledger Entry" = rm,
+                      TableData "Bank Account" = rm,
+                      TableData "Bank Account Statement" = ri,
+                      TableData "Bank Account Statement Line" = ri,
+                      TableData "Posted Payment Recon. Hdr" = ri
+  promoted: false
+- name: TableNo
+  value: Bank Acc. Reconciliation
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation
+    name: Microsoft.Bank.Reconciliation."Bank Acc. Reconciliation"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ApplyCustLedgEntry(AppliedPmtEntry: Record "Applied Payment Entry", AppliesToID: Code[50], PostingDate: Date, PmtDiscDueDate: Date, PmtDiscToleranceDate: Date, RemPmtDiscPossible: Decimal)'
+    parameters:
+    - id: AppliedPmtEntry
+      parameterType:
+        name: Record "Applied Payment Entry"
+        isExternal: true
+    - id: AppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PmtDiscDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PmtDiscToleranceDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: RemPmtDiscPossible
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ApplyCustLedgEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Post.ApplyCustLedgEntry(Applied_Payment_Entry,Code[50],Date,Date,Date,Decimal)
+- syntax:
+    content: 'procedure ApplyVendLedgEntry(AppliedPmtEntry: Record "Applied Payment Entry", AppliesToID: Code[50], PostingDate: Date, PmtDiscDueDate: Date, PmtDiscToleranceDate: Date, RemPmtDiscPossible: Decimal)'
+    parameters:
+    - id: AppliedPmtEntry
+      parameterType:
+        name: Record "Applied Payment Entry"
+        isExternal: true
+    - id: AppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PmtDiscDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PmtDiscToleranceDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: RemPmtDiscPossible
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ApplyVendLedgEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Post.ApplyVendLedgEntry(Applied_Payment_Entry,Code[50],Date,Date,Date,Decimal)
+- syntax:
+    content: 'procedure ApplyEmployeeLedgEntry(AppliedPmtEntry: Record "Applied Payment Entry", AppliesToID: Code[50], PostingDate: Date, PmtDiscDueDate: Date, PmtDiscToleranceDate: Date, RemPmtDiscPossible: Decimal)'
+    parameters:
+    - id: AppliedPmtEntry
+      parameterType:
+        name: Record "Applied Payment Entry"
+        isExternal: true
+    - id: AppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PmtDiscDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PmtDiscToleranceDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: RemPmtDiscPossible
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ApplyEmployeeLedgEntry
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Post.ApplyEmployeeLedgEntry(Applied_Payment_Entry,Code[50],Date,Date,Date,Decimal)
+- syntax:
+    content: 'procedure Preview(var BankAccReconciliationSource: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliationSource
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Post.Preview(Bank_Acc#_Reconciliation@)
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Bank Acc# Reconciliation Post
+name: '"Bank Acc. Reconciliation Post"'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Post

@@ -1,0 +1,229 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Item.ServItemManagement
+alId: ID 5920
+namespace: Microsoft.Service.Item
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Item
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure AddOrReplaceSIComponent(var ServLine: Record "Service Line", ServHeader: Record "Service Header", ServShptDocNo: Code[20], ServShptLineNo: Integer, var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServShptDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServShptLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: AddOrReplaceSIComponent
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.AddOrReplaceSIComponent(Service_Line@,Service_Header,Code[20],Integer,Tracking_Specification@)
+- syntax:
+    content: 'procedure InsertServiceItemComponent(var ServiceItemComponent: Record "Service Item Component", BOMComponent: Record "BOM Component", BOMComponent2: Record "BOM Component", SalesHeader: Record "Sales Header", SalesShipmentLine: Record "Sales Shipment Line")'
+    parameters:
+    - id: ServiceItemComponent
+      parameterType:
+        name: Record "Service Item Component"
+        isExternal: true
+    - id: BOMComponent
+      parameterType:
+        name: Record "BOM Component"
+        isExternal: true
+    - id: BOMComponent2
+      parameterType:
+        name: Record "BOM Component"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesShipmentLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: InsertServiceItemComponent
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.InsertServiceItemComponent(Service_Item_Component@,BOM_Component,BOM_Component,Sales_Header,Sales_Shipment_Line)
+- syntax:
+    content: 'procedure CreateServItemOnSalesLineShpt(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", SalesShipmentLine: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesShipmentLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: CreateServItemOnSalesLineShpt
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CreateServItemOnSalesLineShpt(Sales_Header,Sales_Line,Sales_Shipment_Line)
+- syntax:
+    content: 'procedure CalcServiceWarrantyDates(var ServiceItem: Record "Service Item", StartingWarrantyDate: Date, ItemTrackingWarrantyDateFormula: DateFormula, ServMgtSetupDefaultWarrantyDuration: DateFormula)'
+    parameters:
+    - id: ServiceItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+    - id: StartingWarrantyDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ItemTrackingWarrantyDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: ServMgtSetupDefaultWarrantyDuration
+      parameterType:
+        name: DateFormula
+        isExternal: true
+  name: CalcServiceWarrantyDates
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CalcServiceWarrantyDates(Service_Item@,Date,DateFormula,DateFormula)
+- syntax:
+    content: 'procedure CreateServItemOnServItemLine(var ServItemLine: Record "Service Item Line")'
+    parameters:
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: CreateServItemOnServItemLine
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CreateServItemOnServItemLine(Service_Item_Line@)
+- syntax:
+    content: 'procedure CalcAmountLCY(FCAmount: Decimal, CurrencyFactor: Decimal, CurrencyCode: Code[10], CurrencyDate: Date): Decimal'
+    parameters:
+    - id: FCAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAmountLCY
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CalcAmountLCY(Decimal,Decimal,Code[10],Date):Decimal
+- syntax:
+    content: 'procedure CopyReservationEntry(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyReservationEntry
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CopyReservationEntry(Sales_Header)
+- syntax:
+    content: 'procedure CopyReservationEntryService(ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CopyReservationEntryService
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CopyReservationEntryService(Service_Header)
+- syntax:
+    content: 'procedure CreateServItemOnSalesInvoice(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CreateServItemOnSalesInvoice
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CreateServItemOnSalesInvoice(Sales_Header@)
+- syntax:
+    content: 'procedure ReturnServItemComp(var TempServItem: Record "Service Item" temporary, var TempServItemComp: Record "Service Item Component" temporary)'
+    parameters:
+    - id: TempServItem
+      parameterType:
+        name: Record "Service Item" temporary
+        isExternal: true
+    - id: TempServItemComp
+      parameterType:
+        name: Record "Service Item Component" temporary
+        isExternal: true
+  name: ReturnServItemComp
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.ReturnServItemComp(Service_Item@,Service_Item_Component@)
+- syntax:
+    content: 'procedure DeleteServItemOnSaleCreditMemo(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: DeleteServItemOnSaleCreditMemo
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.DeleteServItemOnSaleCreditMemo(Sales_Header)
+- syntax:
+    content: 'procedure CopyReservation(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyReservation
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.CopyReservation(Purchase_Header)
+- syntax:
+    content: 'procedure DoesSalesLineNeedServiceItemCreation(SalesLine: Record "Sales Line", var Item: Record Item, var ServItemGr: Record "Service Item Group"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: ServItemGr
+      parameterType:
+        name: Record "Service Item Group"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesSalesLineNeedServiceItemCreation
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.DoesSalesLineNeedServiceItemCreation(Sales_Line,Item@,Service_Item_Group@):Boolean
+- syntax:
+    content: 'procedure DoesPurchaseLineNeedServiceItemCreation(PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesPurchaseLineNeedServiceItemCreation
+  uid: M:Codeunit::Microsoft#Service#Item#ServItemManagement.DoesPurchaseLineNeedServiceItemCreation(Purchase_Line):Boolean
+commentId: O:Codeunit::Microsoft#Service#Item#ServItemManagement
+name: ServItemManagement
+uid: O:Codeunit::Microsoft#Service#Item#ServItemManagement

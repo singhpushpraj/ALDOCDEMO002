@@ -1,0 +1,137 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Dataverse."CRM Integration Table Synch."
+alId: ID 5340
+namespace: Microsoft.Integration.Dataverse
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Dataverse
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Integration Table Mapping
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Integration#SyncEngine#Integration_Table_Mapping
+    name: Microsoft.Integration.SyncEngine."Integration Table Mapping"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetOutOfMapFilter(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetOutOfMapFilter
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#.GetOutOfMapFilter:Boolean
+- syntax:
+    content: 'procedure SynchOption(var IntegrationTableMapping: Record "Integration Table Mapping")'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+  name: SynchOption
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#.SynchOption(Integration_Table_Mapping@)
+- syntax:
+    content: 'procedure SynchRecord(IntegrationTableMapping: Record "Integration Table Mapping", SourceID: Variant, ForceModify: Boolean, IgnoreSynchOnlyCoupledRecords: Boolean): Guid'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ForceModify
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IgnoreSynchOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: SynchRecord
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#.SynchRecord(Integration_Table_Mapping,Variant,Boolean,Boolean):Guid
+- syntax:
+    content: 'procedure SynchRecordsToIntegrationTable(var RecordsToSynchRecordRef: RecordRef, IgnoreChanges: Boolean, IgnoreSynchOnlyCoupledRecords: Boolean): Guid'
+    parameters:
+    - id: RecordsToSynchRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IgnoreChanges
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IgnoreSynchOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: SynchRecordsToIntegrationTable
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#.SynchRecordsToIntegrationTable(RecordRef@,Boolean,Boolean):Guid
+- syntax:
+    content: 'procedure SynchRecordsFromIntegrationTable(var RecordsToSynchRecordRef: RecordRef, SourceTableNo: Integer, IgnoreChanges: Boolean, IgnoreSynchOnlyCoupledRecords: Boolean): Guid'
+    parameters:
+    - id: RecordsToSynchRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SourceTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IgnoreChanges
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IgnoreSynchOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: SynchRecordsFromIntegrationTable
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#.SynchRecordsFromIntegrationTable(RecordRef@,Integer,Boolean,Boolean):Guid
+- syntax:
+    content: 'procedure SyncNAVRecordToCRM(var SourceRecordRef: RecordRef, IntegrationTableMapping: Record "Integration Table Mapping", var IntegrationTableSynch: Codeunit "Integration Table Synch.", var TempCRMIntegrationRecord: Record "CRM Integration Record" temporary, var LatestLocalModifiedOn: DateTime)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: IntegrationTableSynch
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#
+        name: Microsoft.Integration.SyncEngine."Integration Table Synch."
+        isExternal: false
+    - id: TempCRMIntegrationRecord
+      parameterType:
+        name: Record "CRM Integration Record" temporary
+        isExternal: true
+    - id: LatestLocalModifiedOn
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SyncNAVRecordToCRM
+  uid: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#.SyncNAVRecordToCRM(RecordRef@,Integration_Table_Mapping,Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#@,CRM_Integration_Record@,DateTime@)
+commentId: O:Codeunit::Microsoft#Integration#Dataverse#CRM Integration Table Synch#
+name: '"CRM Integration Table Synch."'
+uid: O:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Table_Synch#

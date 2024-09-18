@@ -1,0 +1,408 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service Line-Reserve"
+alId: ID 99000842
+namespace: Microsoft.Service.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(ServiceLine: Record "Service Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.CreateReservation(Service_Line,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateBindingReservation(ServiceLine: Record "Service Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateBindingReservation
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.CreateBindingReservation(Service_Line,Text[100],Date,Decimal,Decimal)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure Caption(ServiceLine: Record "Service Line"): Text'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.Caption(Service_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(ServiceLine: Record "Service Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.FindReservEntry(Service_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure ReservQuantity(ServiceLine: Record "Service Line", var QtyToReserve: Decimal, var QtyToReserveBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ReservQuantity
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.ReservQuantity(Service_Line,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(ServiceLine: Record "Service Line"): Decimal'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.GetReservedQtyFromInventory(Service_Line):Decimal
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(ServiceHeader: Record "Service Header"): Decimal'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.GetReservedQtyFromInventory(Service_Header):Decimal
+- syntax:
+    content: 'procedure VerifyChange(var NewServiceLine: Record "Service Line", var OldServiceLine: Record "Service Line")'
+    parameters:
+    - id: NewServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: OldServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.VerifyChange(Service_Line@,Service_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewServiceLine: Record "Service Line", var OldServiceLine: Record "Service Line")'
+    parameters:
+    - id: NewServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: OldServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.VerifyQuantity(Service_Line@,Service_Line@)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var ServiceLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.DeleteLineConfirm(Service_Line@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.DeleteLine(Service_Line@)
+- syntax:
+    content: 'procedure CallItemTracking(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.CallItemTracking(Service_Line@)
+- syntax:
+    content: 'procedure TransServLineToServLine(var OldServiceLine: Record "Service Line", var NewServiceLine: Record "Service Line", TransferQty: Decimal)'
+    parameters:
+    - id: OldServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: NewServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransServLineToServLine
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.TransServLineToServLine(Service_Line@,Service_Line@,Decimal)
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification(var ServiceLine: Record "Service Line", var TempTrackingSpecification: Record "Tracking Specification" temporary, Consume: Boolean): Boolean'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: Consume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.RetrieveInvoiceSpecification(Service_Line@,Tracking_Specification@,Boolean):Boolean
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromHeader(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: DeleteInvoiceSpecFromHeader
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.DeleteInvoiceSpecFromHeader(Service_Header)
+- syntax:
+    content: 'procedure TransServLineToItemJnlLine(var ServiceLine: Record "Service Line", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, var CheckApplFromItemEntry: Boolean): Decimal'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TransServLineToItemJnlLine
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.TransServLineToItemJnlLine(Service_Line@,Item_Journal_Line@,Decimal,Boolean@):Decimal
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.UpdateItemTrackingAfterPosting(Service_Header)
+- syntax:
+    content: 'procedure BindToPurchase(ServiceLine: Record "Service Line", PurchaseLine: Record "Purchase Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToPurchase
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.BindToPurchase(Service_Line,Purchase_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToRequisition(ServiceLine: Record "Service Line", RequisitionLine: Record "Requisition Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToRequisition
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.BindToRequisition(Service_Line,Requisition_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToTransfer(ServiceLine: Record "Service Line", TransferLine: Record "Transfer Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToTransfer
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.BindToTransfer(Service_Line,Transfer_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToProdOrder(ServiceLine: Record "Service Line", ProdOrderLine: Record "Prod. Order Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToProdOrder
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.BindToProdOrder(Service_Line,Prod#_Order_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToAssembly(ServiceLine: Record "Service Line", AssemblyHeader: Record "Assembly Header", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToAssembly
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Line-Reserve.BindToAssembly(Service_Line,Assembly_Header,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Service#Document#Service Line-Reserve
+name: '"Service Line-Reserve"'
+uid: O:Codeunit::Microsoft#Service#Document#Service_Line-Reserve

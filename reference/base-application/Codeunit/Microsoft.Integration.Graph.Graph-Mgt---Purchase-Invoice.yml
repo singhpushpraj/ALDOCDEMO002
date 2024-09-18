@@ -1,0 +1,110 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - Purchase Invoice"
+alId: ID 5527
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Purch. Inv. Header" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ProcessComplexTypes(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate", BuyFromAddressJSON: Text)'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+    - id: BuyFromAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ProcessComplexTypes
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.ProcessComplexTypes(Purch#_Inv#_Entity_Aggregate@,Text)
+- syntax:
+    content: 'procedure ParseBuyFromVendorAddressFromJSON(BuyFromAddressJSON: Text, var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate")'
+    parameters:
+    - id: BuyFromAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+  name: ParseBuyFromVendorAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.ParseBuyFromVendorAddressFromJSON(Text,Purch#_Inv#_Entity_Aggregate@)
+- syntax:
+    content: 'procedure ParsePayToVendorAddressFromJSON(PayToAddressJSON: Text, var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate")'
+    parameters:
+    - id: PayToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+  name: ParsePayToVendorAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.ParsePayToVendorAddressFromJSON(Text,Purch#_Inv#_Entity_Aggregate@)
+- syntax:
+    content: 'procedure ParseShipToVendorAddressFromJSON(ShipToAddressJSON: Text, var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate")'
+    parameters:
+    - id: ShipToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+  name: ParseShipToVendorAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.ParseShipToVendorAddressFromJSON(Text,Purch#_Inv#_Entity_Aggregate@)
+- syntax:
+    content: 'procedure BuyFromVendorAddressToJSON(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate"): Text'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: BuyFromVendorAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.BuyFromVendorAddressToJSON(Purch#_Inv#_Entity_Aggregate@):Text
+- syntax:
+    content: 'procedure PayToVendorAddressToJSON(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate"): Text'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: PayToVendorAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.PayToVendorAddressToJSON(Purch#_Inv#_Entity_Aggregate@):Text
+- syntax:
+    content: 'procedure ShipToVendorAddressToJSON(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate"): Text'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ShipToVendorAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice.ShipToVendorAddressToJSON(Purch#_Inv#_Entity_Aggregate@):Text
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - Purchase Invoice
+name: '"Graph Mgt - Purchase Invoice"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Purchase_Invoice

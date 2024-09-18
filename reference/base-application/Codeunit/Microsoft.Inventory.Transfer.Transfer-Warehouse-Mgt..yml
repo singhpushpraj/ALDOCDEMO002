@@ -1,0 +1,106 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."Transfer Warehouse Mgt."
+alId: ID 5993
+namespace: Microsoft.Inventory.Transfer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure TransHeaderVerifyChange(var NewTransferHeader: Record "Transfer Header", var OldTransferHeader: Record "Transfer Header")'
+    parameters:
+    - id: NewTransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+    - id: OldTransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: TransHeaderVerifyChange
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#.TransHeaderVerifyChange(Transfer_Header@,Transfer_Header@)
+- syntax:
+    content: 'procedure FromTransLine2ShptLine(WarehouseShipmentHeader: Record "Warehouse Shipment Header", TransferLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: WarehouseShipmentHeader
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FromTransLine2ShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#.FromTransLine2ShptLine(Warehouse_Shipment_Header,Transfer_Line):Boolean
+- syntax:
+    content: 'procedure TransLine2ReceiptLine(WarehouseReceiptHeader: Record "Warehouse Receipt Header", TransferLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: WarehouseReceiptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransLine2ReceiptLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#.TransLine2ReceiptLine(Warehouse_Receipt_Header,Transfer_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromTransLine2ShptLine(TransferLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromTransLine2ShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#.CheckIfFromTransLine2ShptLine(Transfer_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromTransLine2ShptLine(TransferLine: Record "Transfer Line", ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromTransLine2ShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#.CheckIfFromTransLine2ShptLine(Transfer_Line,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+- syntax:
+    content: 'procedure CheckIfTransLine2ReceiptLine(TransferLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfTransLine2ReceiptLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#.CheckIfTransLine2ReceiptLine(Transfer_Line):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Transfer#Transfer Warehouse Mgt#
+name: '"Transfer Warehouse Mgt."'
+uid: O:Codeunit::Microsoft#Inventory#Transfer#Transfer_Warehouse_Mgt#

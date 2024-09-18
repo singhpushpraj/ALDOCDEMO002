@@ -1,0 +1,85 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.BusinessRelation."CustVendBank-Update"
+alId: ID 5055
+namespace: Microsoft.CRM.BusinessRelation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.BusinessRelation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Bank Account" = rm,
+                      TableData Customer = rm,
+                      TableData Employee = rm,
+                      TableData Vendor = rm,
+                      tabledata "Contact Business Relation" = r
+  promoted: false
+- name: TableNo
+  value: Contact
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#CRM#Contact#Contact
+    name: Microsoft.CRM.Contact.Contact
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure UpdateCustomer(var Cont: Record Contact, var ContBusRel: Record "Contact Business Relation")'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: ContBusRel
+      parameterType:
+        name: Record "Contact Business Relation"
+        isExternal: true
+  name: UpdateCustomer
+  uid: M:Codeunit::Microsoft#CRM#BusinessRelation#CustVendBank-Update.UpdateCustomer(Contact@,Contact_Business_Relation@)
+- syntax:
+    content: 'procedure UpdateVendor(var Cont: Record Contact, var ContBusRel: Record "Contact Business Relation")'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: ContBusRel
+      parameterType:
+        name: Record "Contact Business Relation"
+        isExternal: true
+  name: UpdateVendor
+  uid: M:Codeunit::Microsoft#CRM#BusinessRelation#CustVendBank-Update.UpdateVendor(Contact@,Contact_Business_Relation@)
+- syntax:
+    content: 'procedure UpdateBankAccount(var Cont: Record Contact, var ContBusRel: Record "Contact Business Relation")'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: ContBusRel
+      parameterType:
+        name: Record "Contact Business Relation"
+        isExternal: true
+  name: UpdateBankAccount
+  uid: M:Codeunit::Microsoft#CRM#BusinessRelation#CustVendBank-Update.UpdateBankAccount(Contact@,Contact_Business_Relation@)
+- syntax:
+    signatures:
+    - '[Scope(Onprem)]'
+    content: 'procedure UpdateEmployee(Contact: Record Contact, ContBusRel: Record "Contact Business Relation")'
+    parameters:
+    - id: Contact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: ContBusRel
+      parameterType:
+        name: Record "Contact Business Relation"
+        isExternal: true
+  name: UpdateEmployee
+  uid: M:Codeunit::Microsoft#CRM#BusinessRelation#CustVendBank-Update.UpdateEmployee(Contact,Contact_Business_Relation)
+commentId: O:Codeunit::Microsoft#CRM#BusinessRelation#CustVendBank-Update
+name: '"CustVendBank-Update"'
+uid: O:Codeunit::Microsoft#CRM#BusinessRelation#CustVendBank-Update

@@ -1,0 +1,249 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Planning."Plng. Component-Reserve"
+alId: ID 99000840
+namespace: Microsoft.Inventory.Planning
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Planning
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = rimd,
+                      TableData "Action Message Entry" = rd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(PlanningComponent: Record "Planning Component", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.CreateReservation(Planning_Component,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateBindingReservation(PlanningComponent: Record "Planning Component", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal)'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateBindingReservation
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.CreateBindingReservation(Planning_Component,Text[100],Date,Decimal,Decimal)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure Caption(PlanningComponent: Record "Planning Component"): Text'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.Caption(Planning_Component):Text
+- syntax:
+    content: 'procedure FindReservEntry(PlanningComponent: Record "Planning Component", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.FindReservEntry(Planning_Component,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewPlanningComponent: Record "Planning Component", var OldPlanningComponent: Record "Planning Component")'
+    parameters:
+    - id: NewPlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: OldPlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.VerifyChange(Planning_Component@,Planning_Component@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewPlanningComponent: Record "Planning Component", var OldPlanningComponent: Record "Planning Component")'
+    parameters:
+    - id: NewPlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: OldPlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.VerifyQuantity(Planning_Component@,Planning_Component@)
+- syntax:
+    content: 'procedure TransferPlanningCompToPOComp(var OldPlanningComponent: Record "Planning Component", var NewProdOrderComponent: Record "Prod. Order Component", TransferQty: Decimal, TransferAll: Boolean)'
+    parameters:
+    - id: OldPlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: NewProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransferAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferPlanningCompToPOComp
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.TransferPlanningCompToPOComp(Planning_Component@,Prod#_Order_Component@,Decimal,Boolean)
+- syntax:
+    content: 'procedure TransferPlanningCompToAsmLine(var OldPlanningComponent: Record "Planning Component", var NewAssemblyLine: Record "Assembly Line", TransferQty: Decimal, TransferAll: Boolean)'
+    parameters:
+    - id: OldPlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: NewAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransferAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferPlanningCompToAsmLine
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.TransferPlanningCompToAsmLine(Planning_Component@,Assembly_Line@,Decimal,Boolean)
+- syntax:
+    content: 'procedure DeleteLine(var PlanningComponent: Record "Planning Component")'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.DeleteLine(Planning_Component@)
+- syntax:
+    content: 'procedure UpdateDerivedTracking(var PlanningComponent: Record "Planning Component")'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+  name: UpdateDerivedTracking
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.UpdateDerivedTracking(Planning_Component@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var PlanningComponent: Record "Planning Component")'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.CallItemTracking(Planning_Component@)
+- syntax:
+    content: 'procedure BindToRequisition(PlanningComponent: Record "Planning Component", RequisitionLine: Record "Requisition Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: PlanningComponent
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToRequisition
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve.BindToRequisition(Planning_Component,Requisition_Line,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Inventory#Planning#Plng# Component-Reserve
+name: '"Plng. Component-Reserve"'
+uid: O:Codeunit::Microsoft#Inventory#Planning#Plng#_Component-Reserve

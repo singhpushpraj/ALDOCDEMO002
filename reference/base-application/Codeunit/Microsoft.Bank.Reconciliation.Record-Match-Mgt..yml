@@ -1,0 +1,127 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Record Match Mgt."
+alId: ID 1251
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetLongestCommonSubstring(FirstString: Text, SecondString: Text): Text'
+    parameters:
+    - id: FirstString
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SecondString
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetLongestCommonSubstring
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#.GetLongestCommonSubstring(Text,Text):Text
+- syntax:
+    content: 'procedure CalculateStringNearness(FirstString: Text, SecondString: Text, Threshold: Integer, NormalizingFactor: Integer): Integer'
+    parameters:
+    - id: FirstString
+      description: First string to match
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SecondString
+      description: Second string to match
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Threshold
+      description: Substring matches below Threshold are not considered
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NormalizingFactor
+      description: Max value returned by this procedure
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      description: A number between 0 and NormalizingFactor, representing how much of the strings was matched
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: >-
+    Computes a nearness score between strings. Nearness is based on repeatedly finding longest common substrings.
+
+    Substring matches below Threshold are not considered.
+
+    Normalizing factor is the max value returned by this procedure.
+  name: CalculateStringNearness
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#.CalculateStringNearness(Text,Text,Integer,Integer):Integer
+- syntax:
+    content: 'procedure CalculateExactStringNearness(ComparingString: Text, BaseString: Text, NormalizingFactor: Integer): Integer'
+    parameters:
+    - id: ComparingString
+      description: ""
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BaseString
+      description: ""
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NormalizingFactor
+      description: Max value returned by this procedure
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      description: A number between 0 and NormalizingFactor representing how much of BaseString was found in ComparingString
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: >-
+    Like CalculateStringNearness, however it doesn't repeatedly takes substrings, only once.
+
+    The result is normalized with respect to the length of the BaseString, in contrast with 
+
+    CalculateStringNearness where it was normalized with respect ot the shorter one.
+  name: CalculateExactStringNearness
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#.CalculateExactStringNearness(Text,Text,Integer):Integer
+- syntax:
+    content: 'procedure Trim(InputString: Text): Text'
+    parameters:
+    - id: InputString
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Trim
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#.Trim(Text):Text
+- syntax:
+    signatures:
+    - '[Obsolete(Numeric matches are not considered below the Lower limit threshold. This procedure is unused,22.0)]'
+    content: 'procedure SetRespectThresholdForNumbers(NewValue: Boolean)'
+    parameters:
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetRespectThresholdForNumbers
+  obsoletion:
+    state: pending
+    reason: Numeric matches are not considered below the Lower limit threshold. This procedure is unused
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#.SetRespectThresholdForNumbers(Boolean)
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Record Match Mgt#
+name: '"Record Match Mgt."'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#

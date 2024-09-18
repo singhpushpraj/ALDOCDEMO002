@@ -1,0 +1,532 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Availability."Warehouse Availability Mgt."
+alId: ID 7314
+namespace: Microsoft.Warehouse.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CalcLineReservedQtyOnInvt(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer, HandleResPickAndShipQty: Boolean, var WarehouseActivityLine: Record "Warehouse Activity Line"): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HandleResPickAndShipQty
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineReservedQtyOnInvt
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcLineReservedQtyOnInvt(Integer,Option,Code[20],Integer,Integer,Boolean,Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CalcLineReservedQtyOnInvt(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer, HandleResPickAndShipQty: Boolean, WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, var WarehouseActivityLine: Record "Warehouse Activity Line"): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HandleResPickAndShipQty
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineReservedQtyOnInvt
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcLineReservedQtyOnInvt(Integer,Option,Code[20],Integer,Integer,Boolean,Item_Tracking_Setup,Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CalcReservQtyOnPicksShips(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], var WarehouseActivityLine: Record "Warehouse Activity Line"): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservQtyOnPicksShips
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcReservQtyOnPicksShips(Code[10],Code[20],Code[10],Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CalcReservQtyOnPicksShipsWithItemTracking(var WarehouseActivityLine: Record "Warehouse Activity Line", var TrackingSpecification: Record "Tracking Specification", LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10]): Decimal'
+    parameters:
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservQtyOnPicksShipsWithItemTracking
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcReservQtyOnPicksShipsWithItemTracking(Warehouse_Activity_Line@,Tracking_Specification@,Code[10],Code[20],Code[10]):Decimal
+- syntax:
+    content: 'procedure CalcLineReservQtyOnPicksShips(SourceType: Integer, SourceSubType: Option, SourceID: Code[20], SourceRefNo: Integer, SourceProdOrderLine: Integer, ReservedQtyBase: Decimal, var WarehouseActivityLine: Record "Warehouse Activity Line"): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ReservedQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineReservQtyOnPicksShips
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcLineReservQtyOnPicksShips(Integer,Option,Code[20],Integer,Integer,Decimal,Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CalcInvtAvailQty(Item: Record Item, Location: Record Location, VariantCode: Code[10], var WarehouseActivityLine: Record "Warehouse Activity Line"): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcInvtAvailQty
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcInvtAvailQty(Item,Location,Code[10],Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CalcQtyAssgndtoPick(Location: Record Location, ItemNo: Code[20], VariantCode: Code[10], BinTypeFilter: Text[250]): Decimal'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinTypeFilter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAssgndtoPick
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyAssgndtoPick(Location,Code[20],Code[10],Text[250]):Decimal
+- syntax:
+    content: 'procedure CalcQtyAssignedToMove(WhseWorksheetLine: Record "Whse. Worksheet Line", WhseItemTrackingLine: Record "Whse. Item Tracking Line"): Decimal'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: WhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAssignedToMove
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyAssignedToMove(Whse#_Worksheet_Line,Whse#_Item_Tracking_Line):Decimal
+- syntax:
+    content: 'procedure CalcQtyAssgndOnWksh(DefWhseWkshLine: Record "Whse. Worksheet Line", RespectUOMCode: Boolean, ExcludeLine: Boolean): Decimal'
+    parameters:
+    - id: DefWhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: RespectUOMCode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExcludeLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAssgndOnWksh
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyAssgndOnWksh(Whse#_Worksheet_Line,Boolean,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcQtyOnDedicatedBins(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10]): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnDedicatedBins
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnDedicatedBins(Code[10],Code[20],Code[10]):Decimal
+- syntax:
+    content: 'procedure CalcQtyOnDedicatedBins(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnDedicatedBins
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnDedicatedBins(Code[10],Code[20],Code[10],Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure CalcQtyOnBin(LocationCode: Code[10], BinCode: Code[20], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnBin
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnBin(Code[10],Code[20],Code[20],Code[10],Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure CalcQtyOnBlockedITOrOnBlockedOutbndBins(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnBlockedITOrOnBlockedOutbndBins
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnBlockedITOrOnBlockedOutbndBins(Code[10],Code[20],Code[10],Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure CalcQtyOnOutboundBins(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, ExcludeDedicatedBinContent: Boolean): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: ExcludeDedicatedBinContent
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnOutboundBins
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnOutboundBins(Code[10],Code[20],Code[10],Item_Tracking_Setup,Boolean):Decimal
+- syntax:
+    content: 'procedure GetOutboundBinsOnBasicWarehouseLocation(var TempBinContentBuffer: Record "Bin Content Buffer" temporary, LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: TempBinContentBuffer
+      parameterType:
+        name: Record "Bin Content Buffer" temporary
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: GetOutboundBinsOnBasicWarehouseLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.GetOutboundBinsOnBasicWarehouseLocation(Bin_Content_Buffer@,Code[10],Code[20],Code[10],Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CalcQtyOnSpecialBinsOnLocation(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, var TempBinContentBufferExcluded: Record "Bin Content Buffer" temporary): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: TempBinContentBufferExcluded
+      parameterType:
+        name: Record "Bin Content Buffer" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnSpecialBinsOnLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnSpecialBinsOnLocation(Code[10],Code[20],Code[10],Item_Tracking_Setup,Bin_Content_Buffer@):Decimal
+- syntax:
+    content: 'procedure CalcResidualPickedQty(var WhseEntry: Record "Warehouse Entry"): Decimal'
+    parameters:
+    - id: WhseEntry
+      parameterType:
+        name: Record "Warehouse Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcResidualPickedQty
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcResidualPickedQty(Warehouse_Entry@):Decimal
+- syntax:
+    content: 'procedure CalcQtyOnBlockedItemTracking(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10]): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyOnBlockedItemTracking
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyOnBlockedItemTracking(Code[10],Code[20],Code[10]):Decimal
+- syntax:
+    content: 'procedure CalcRegisteredAndOutstandingPickQty(ReservationEntry: Record "Reservation Entry", var WarehouseActivityLine: Record "Warehouse Activity Line"): Decimal'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcRegisteredAndOutstandingPickQty
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcRegisteredAndOutstandingPickQty(Reservation_Entry,Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CalcQtyRegisteredPick(ReservationEntry: Record "Reservation Entry"): Decimal'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyRegisteredPick
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyRegisteredPick(Reservation_Entry):Decimal
+- syntax:
+    content: 'procedure CalcQtyAvailToTakeOnWhseWorksheetLine(WhseWorksheetLine: Record "Whse. Worksheet Line"): Decimal'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAvailToTakeOnWhseWorksheetLine
+  uid: M:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#.CalcQtyAvailToTakeOnWhseWorksheetLine(Whse#_Worksheet_Line):Decimal
+commentId: O:Codeunit::Microsoft#Warehouse#Availability#Warehouse Availability Mgt#
+name: '"Warehouse Availability Mgt."'
+uid: O:Codeunit::Microsoft#Warehouse#Availability#Warehouse_Availability_Mgt#

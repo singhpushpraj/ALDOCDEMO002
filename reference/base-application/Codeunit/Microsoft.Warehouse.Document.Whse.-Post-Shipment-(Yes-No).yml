@@ -1,0 +1,48 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Document."Whse.-Post Shipment (Yes/No)"
+alId: ID 5764
+namespace: Microsoft.Warehouse.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Warehouse Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Document#Warehouse_Shipment_Line
+    name: Microsoft.Warehouse.Document."Warehouse Shipment Line"
+    isExternal: false
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Preview(var WarehouseShipmentLine: Record "Warehouse Shipment Line")'
+    parameters:
+    - id: WarehouseShipmentLine
+      parameterType:
+        name: Record "Warehouse Shipment Line"
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment_(Yes/No).Preview(Warehouse_Shipment_Line@)
+- syntax:
+    content: 'procedure MessageIfPostingPreviewMultipleDocuments(var WarehouseShipmentHeaderToPreview: Record "Warehouse Shipment Header", DocumentNo: Code[20])'
+    parameters:
+    - id: WarehouseShipmentHeaderToPreview
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MessageIfPostingPreviewMultipleDocuments
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment_(Yes/No).MessageIfPostingPreviewMultipleDocuments(Warehouse_Shipment_Header@,Code[20])
+commentId: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post Shipment (Yes/No)
+name: '"Whse.-Post Shipment (Yes/No)"'
+uid: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Shipment_(Yes/No)

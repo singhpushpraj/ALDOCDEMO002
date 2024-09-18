@@ -1,0 +1,58 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.FixedAsset."FA MoveEntries"
+alId: ID 5623
+namespace: Microsoft.FixedAssets.FixedAsset
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.FixedAsset
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = rm,
+                      TableData "Maintenance Ledger Entry" = rm,
+                      TableData "Ins. Coverage Ledger Entry" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure MoveFAEntries(FADeprBook: Record "FA Depreciation Book")'
+    parameters:
+    - id: FADeprBook
+      parameterType:
+        name: Record "FA Depreciation Book"
+        isExternal: true
+  name: MoveFAEntries
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_MoveEntries.MoveFAEntries(FA_Depreciation_Book)
+- syntax:
+    content: 'procedure MoveInsuranceEntries(Insurance: Record Insurance)'
+    parameters:
+    - id: Insurance
+      parameterType:
+        name: Record Insurance
+        isExternal: true
+  name: MoveInsuranceEntries
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_MoveEntries.MoveInsuranceEntries(Insurance)
+- syntax:
+    content: 'procedure MoveFAInsuranceEntries(FANo: Code[20])'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MoveFAInsuranceEntries
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_MoveEntries.MoveFAInsuranceEntries(Code[20])
+- syntax:
+    content: 'procedure ChangeBudget(FA: Record "Fixed Asset")'
+    parameters:
+    - id: FA
+      parameterType:
+        name: Record "Fixed Asset"
+        isExternal: true
+  name: ChangeBudget
+  uid: M:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_MoveEntries.ChangeBudget(Fixed_Asset)
+commentId: O:Codeunit::Microsoft#FixedAssets#FixedAsset#FA MoveEntries
+name: '"FA MoveEntries"'
+uid: O:Codeunit::Microsoft#FixedAssets#FixedAsset#FA_MoveEntries

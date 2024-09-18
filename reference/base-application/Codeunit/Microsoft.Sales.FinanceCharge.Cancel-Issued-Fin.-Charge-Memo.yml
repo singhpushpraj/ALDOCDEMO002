@@ -1,0 +1,90 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.FinanceCharge."Cancel Issued Fin. Charge Memo"
+alId: ID 1395
+namespace: Microsoft.Sales.FinanceCharge
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.FinanceCharge
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Reminder/Fin. Charge Entry" = rm,
+                      TableData "Issued Fin. Charge Memo Header" = rm,
+                      TableData "Issued Fin. Charge Memo Line" = rm
+  promoted: false
+- name: TableNo
+  value: Issued Fin. Charge Memo Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#FinanceCharge#Issued_Fin#_Charge_Memo_Header
+    name: Microsoft.Sales.FinanceCharge."Issued Fin. Charge Memo Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetAppliedCustomerLedgerEntryNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetAppliedCustomerLedgerEntryNotificationId
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#Cancel_Issued_Fin#_Charge_Memo.GetAppliedCustomerLedgerEntryNotificationId:Guid
+- syntax:
+    content: 'procedure GetErrorMessages(var TempErrorMessageResult: Record "Error Message" temporary): Boolean'
+    parameters:
+    - id: TempErrorMessageResult
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetErrorMessages
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#Cancel_Issued_Fin#_Charge_Memo.GetErrorMessages(Error_Message@):Boolean
+- syntax:
+    content: 'procedure SetParameters(NewUseSameDocumentNo: Boolean, NewUseSamePostingDate: Boolean, PostingDate: Date, NewSkipShowNotification: Boolean)'
+    parameters:
+    - id: NewUseSameDocumentNo
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewUseSamePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewSkipShowNotification
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#Cancel_Issued_Fin#_Charge_Memo.SetParameters(Boolean,Boolean,Date,Boolean)
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#Cancel_Issued_Fin#_Charge_Memo.SetGenJnlBatch(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure ShowCustomerLedgerEntry(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowCustomerLedgerEntry
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#Cancel_Issued_Fin#_Charge_Memo.ShowCustomerLedgerEntry(Notification)
+commentId: O:Codeunit::Microsoft#Sales#FinanceCharge#Cancel Issued Fin# Charge Memo
+name: '"Cancel Issued Fin. Charge Memo"'
+uid: O:Codeunit::Microsoft#Sales#FinanceCharge#Cancel_Issued_Fin#_Charge_Memo

@@ -1,0 +1,312 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition."Req. Wksh.-Make Order"
+alId: ID 333
+namespace: Microsoft.Inventory.Requisition
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Sales Line" = m
+  promoted: false
+- name: TableNo
+  value: Requisition Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Requisition#Requisition_Line
+    name: Microsoft.Inventory.Requisition."Requisition Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CarryOutBatchAction(var ReqLine2: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: CarryOutBatchAction
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.CarryOutBatchAction(Requisition_Line@)
+- syntax:
+    content: 'procedure Set(NewPurchOrderHeader: Record "Purchase Header", NewEndingOrderDate: Date, NewPrintPurchOrder: Boolean)'
+    parameters:
+    - id: NewPurchOrderHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: NewEndingOrderDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPrintPurchOrder
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Set
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.Set(Purchase_Header,Date,Boolean)
+- syntax:
+    content: 'procedure SetCreatedDocumentBuffer(var TempDocumentEntryNew: Record "Document Entry" temporary)'
+    parameters:
+    - id: TempDocumentEntryNew
+      parameterType:
+        name: Record "Document Entry" temporary
+        isExternal: true
+  name: SetCreatedDocumentBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.SetCreatedDocumentBuffer(Document_Entry@)
+- syntax:
+    content: 'procedure CheckRequisitionLine(var ReqLine2: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: CheckRequisitionLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.CheckRequisitionLine(Requisition_Line@)
+- syntax:
+    content: 'procedure InitPurchOrderLine(var PurchOrderLine: Record "Purchase Line", PurchOrderHeader: Record "Purchase Header", RequisitionLine: Record "Requisition Line")'
+    parameters:
+    - id: PurchOrderLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchOrderHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: InitPurchOrderLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.InitPurchOrderLine(Purchase_Line@,Purchase_Header,Requisition_Line)
+- syntax:
+    content: 'procedure InsertPurchOrderLine(var ReqLine2: Record "Requisition Line", var PurchOrderHeader: Record "Purchase Header")'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: PurchOrderHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: InsertPurchOrderLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.InsertPurchOrderLine(Requisition_Line@,Purchase_Header@)
+- syntax:
+    content: 'procedure RunFinalizeOrderHeader(PurchOrderHeader: Record "Purchase Header", var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: PurchOrderHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: RunFinalizeOrderHeader
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.RunFinalizeOrderHeader(Purchase_Header,Requisition_Line@)
+- syntax:
+    content: 'procedure FinalizeOrderHeader(PurchOrderHeader: Record "Purchase Header", var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: PurchOrderHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: FinalizeOrderHeader
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.FinalizeOrderHeader(Purchase_Header,Requisition_Line@)
+- syntax:
+    content: 'procedure CheckRecurringReqLine(var ReqLine2: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: CheckRecurringReqLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.CheckRecurringReqLine(Requisition_Line@)
+- syntax:
+    content: 'procedure ReserveBindingOrderToPurch(var PurchLine: Record "Purchase Line", var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ReserveBindingOrderToPurch
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.ReserveBindingOrderToPurch(Purchase_Line@,Requisition_Line@)
+- syntax:
+    content: 'procedure SetTryParam(TryReqTemplate: Record "Req. Wksh. Template", TryLineCount: Integer, TryNextLineNo: Integer, TryPrevPurchCode: Code[10], TryPrevShipToCode: Code[10], TryPrevLocationCode: Code[10], TryOrderCounter: Integer, TryOrderLineCounter: Integer, var TryFailedReqLine: Record "Requisition Line", var TempDocumentEntryNew: Record "Document Entry" temporary)'
+    parameters:
+    - id: TryReqTemplate
+      parameterType:
+        name: Record "Req. Wksh. Template"
+        isExternal: true
+    - id: TryLineCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryNextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryPrevPurchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TryPrevShipToCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TryPrevLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TryOrderCounter
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryOrderLineCounter
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryFailedReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: TempDocumentEntryNew
+      parameterType:
+        name: Record "Document Entry" temporary
+        isExternal: true
+  name: SetTryParam
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.SetTryParam(Req#_Wksh#_Template,Integer,Integer,Code[10],Code[10],Code[10],Integer,Integer,Requisition_Line@,Document_Entry@)
+- syntax:
+    content: 'procedure GetTryParam(var TryPurchOrderHeader: Record "Purchase Header", var TryLineCount: Integer, var TryNextLineNo: Integer, var TryPrevPurchCode: Code[10], var TryPrevShipToCode: Code[10], var TryPrevLocationCode: Code[10], var TryOrderCounter: Integer, var TryOrderLineCounter: Integer)'
+    parameters:
+    - id: TryPurchOrderHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TryLineCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryNextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryPrevPurchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TryPrevShipToCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TryPrevLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TryOrderCounter
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TryOrderLineCounter
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetTryParam
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.GetTryParam(Purchase_Header@,Integer@,Integer@,Code[10]@,Code[10]@,Code[10]@,Integer@,Integer@)
+- syntax:
+    content: 'procedure SetFailedReqLine(var TryFailedReqLine: Record "Requisition Line")'
+    parameters:
+    - id: TryFailedReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: SetFailedReqLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.SetFailedReqLine(Requisition_Line@)
+- syntax:
+    content: procedure SetPlanningResiliency()
+  name: SetPlanningResiliency
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.SetPlanningResiliency
+- syntax:
+    content: 'procedure GetFailedCounter(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetFailedCounter
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.GetFailedCounter:Integer
+- syntax:
+    content: 'procedure PrintPurchOrder(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PrintPurchOrder
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.PrintPurchOrder(Purchase_Header)
+- syntax:
+    content: 'procedure CheckAddressDetails(SalesOrderNo: Code[20], SalesLineNo: Integer, UpdateAddressDetails: Boolean): Boolean'
+    parameters:
+    - id: SalesOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UpdateAddressDetails
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckAddressDetails
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.CheckAddressDetails(Code[20],Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure PurchaseOrderLineMatchReqLine(ReqLine: Record "Requisition Line"): Boolean'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchaseOrderLineMatchReqLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.PurchaseOrderLineMatchReqLine(Requisition_Line):Boolean
+- syntax:
+    content: 'procedure GetCreatedDocumentBuffer(var TempDocumentEntry2: Record "Document Entry" temporary)'
+    parameters:
+    - id: TempDocumentEntry2
+      parameterType:
+        name: Record "Document Entry" temporary
+        isExternal: true
+  name: GetCreatedDocumentBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order.GetCreatedDocumentBuffer(Document_Entry@)
+commentId: O:Codeunit::Microsoft#Inventory#Requisition#Req# Wksh#-Make Order
+name: '"Req. Wksh.-Make Order"'
+uid: O:Codeunit::Microsoft#Inventory#Requisition#Req#_Wksh#-Make_Order

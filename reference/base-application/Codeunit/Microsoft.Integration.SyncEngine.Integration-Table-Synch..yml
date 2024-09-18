@@ -1,0 +1,368 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.SyncEngine."Integration Table Synch."
+alId: ID 5335
+namespace: Microsoft.Integration.SyncEngine
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.SyncEngine
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure BeginIntegrationSynchJob(ConnectionType: TableConnectionType, var IntegrationTableMapping: Record "Integration Table Mapping", SourceTableID: Integer): Guid'
+    parameters:
+    - id: ConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: BeginIntegrationSynchJob
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.BeginIntegrationSynchJob(TableConnectionType,Integration_Table_Mapping@,Integer):Guid
+- syntax:
+    content: 'procedure BeginIntegrationUncoupleJob(ConnectionType: TableConnectionType, var IntegrationTableMapping: Record "Integration Table Mapping", SourceTableID: Integer): Guid'
+    parameters:
+    - id: ConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: BeginIntegrationUncoupleJob
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.BeginIntegrationUncoupleJob(TableConnectionType,Integration_Table_Mapping@,Integer):Guid
+- syntax:
+    content: 'procedure BeginIntegrationCoupleJob(ConnectionType: TableConnectionType, var IntegrationTableMapping: Record "Integration Table Mapping", SourceTableID: Integer): Guid'
+    parameters:
+    - id: ConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: BeginIntegrationCoupleJob
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.BeginIntegrationCoupleJob(TableConnectionType,Integration_Table_Mapping@,Integer):Guid
+- syntax:
+    content: 'procedure BeginIntegrationSynchJobLoging(ConnectionType: TableConnectionType, CodeunitID: Integer, JobLogEntryNo: Integer, TableID: Integer): Guid'
+    parameters:
+    - id: ConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: JobLogEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: BeginIntegrationSynchJobLoging
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.BeginIntegrationSynchJobLoging(TableConnectionType,Integer,Integer,Integer):Guid
+- syntax:
+    content: 'procedure CheckTransferFields(var IntegrationTableMapping: Record "Integration Table Mapping", var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, var FieldsModified: Boolean, var BidirectionalFieldsModified: Boolean)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldsModified
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BidirectionalFieldsModified
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckTransferFields
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.CheckTransferFields(Integration_Table_Mapping@,RecordRef@,RecordRef@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure Synchronize(var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, ForceModify: Boolean, IgnoreSynchOnlyCoupledRecords: Boolean): Boolean'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ForceModify
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IgnoreSynchOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Synchronize
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.Synchronize(RecordRef@,RecordRef@,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure Uncouple(var LocalRecordRef: RecordRef, var IntegrationRecordRef: RecordRef): Boolean'
+    parameters:
+    - id: LocalRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IntegrationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Uncouple
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.Uncouple(RecordRef@,RecordRef@):Boolean
+- syntax:
+    content: 'procedure Couple(var LocalRecordRef: RecordRef, var IntegrationRecordRef: RecordRef): Boolean'
+    parameters:
+    - id: LocalRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IntegrationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Couple
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.Couple(RecordRef@,RecordRef@):Boolean
+- syntax:
+    content: 'procedure LogMatchBasedCouplingError(var LocalRecordRef: RecordRef, ErrorMessage: Text)'
+    parameters:
+    - id: LocalRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LogMatchBasedCouplingError
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.LogMatchBasedCouplingError(RecordRef@,Text)
+- syntax:
+    content: 'procedure Delete(RecRef: RecordRef): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Delete
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.Delete(RecordRef):Boolean
+- syntax:
+    content: 'procedure EndIntegrationSynchJob(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: EndIntegrationSynchJob
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.EndIntegrationSynchJob:Guid
+- syntax:
+    content: 'procedure EndIntegrationSynchJobWithMsg(FinalMessage: Text): Guid'
+    parameters:
+    - id: FinalMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: EndIntegrationSynchJobWithMsg
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.EndIntegrationSynchJobWithMsg(Text):Guid
+- syntax:
+    content: 'procedure GetRowLastModifiedOn(IntegrationTableMapping: Record "Integration Table Mapping", FromRecordRef: RecordRef): DateTime'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: FromRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: GetRowLastModifiedOn
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.GetRowLastModifiedOn(Integration_Table_Mapping,RecordRef):DateTime
+- syntax:
+    content: 'procedure LogSynchError(var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, ErrorMessage: Text): Guid'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: LogSynchError
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.LogSynchError(RecordRef@,RecordRef@,Text):Guid
+- syntax:
+    content: 'procedure LogSynchError(var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, ErrorMessage: Text, UpdateCounter: Boolean): Guid'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: UpdateCounter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: LogSynchError
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.LogSynchError(RecordRef@,RecordRef@,Text,Boolean):Guid
+- syntax:
+    content: 'procedure IncrementSynchJobCounters(SynchAction: Option)'
+    parameters:
+    - id: SynchAction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: IncrementSynchJobCounters
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.IncrementSynchJobCounters(Option)
+- syntax:
+    content: 'procedure UpdateSynchJobCounters(SynchAction: Option, Counter: Integer)'
+    parameters:
+    - id: SynchAction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Counter
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateSynchJobCounters
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.UpdateSynchJobCounters(Option,Integer)
+- syntax:
+    content: 'procedure SynchronizeOption(var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, ForceModify: Boolean, IgnoreSynchOnlyCoupledRecords: Boolean): Boolean'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ForceModify
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IgnoreSynchOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SynchronizeOption
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.SynchronizeOption(RecordRef@,RecordRef@,Boolean,Boolean):Boolean
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnDetermineSynchDirection(var CurrentIntegrationTableMapping: Record "Integration Table Mapping", var TableID: Integer, var ErrorMessage: Text, var IsHandled: Boolean)'
+    parameters:
+    - id: CurrentIntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnDetermineSynchDirection
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#.OnDetermineSynchDirection(Integration_Table_Mapping@,Integer@,Text@,Boolean@)
+commentId: O:Codeunit::Microsoft#Integration#SyncEngine#Integration Table Synch#
+name: '"Integration Table Synch."'
+uid: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Table_Synch#

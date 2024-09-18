@@ -1,0 +1,121 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Capacity."Shop Calendar Management"
+alId: ID 99000755
+namespace: Microsoft.Manufacturing.Capacity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Capacity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure QtyperTimeUnitofMeasure(WorkCenterNo: Code[20], UnitOfMeasureCode: Code[10]): Decimal'
+    parameters:
+    - id: WorkCenterNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: QtyperTimeUnitofMeasure
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.QtyperTimeUnitofMeasure(Code[20],Code[10]):Decimal
+- syntax:
+    content: 'procedure TimeFactor(UnitOfMeasureCode: Code[10]): Decimal'
+    parameters:
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TimeFactor
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.TimeFactor(Code[10]):Decimal
+- syntax:
+    content: 'procedure CalculateSchedule(CapacityType: Enum "Capacity Type", No: Code[20], WorkCenterNo: Code[20], StartingDate: Date, EndingDate: Date)'
+    parameters:
+    - id: CapacityType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WorkCenterNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CalculateSchedule
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.CalculateSchedule(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Code[20],Date,Date)
+- syntax:
+    content: procedure ClearInternals()
+  name: ClearInternals
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.ClearInternals
+- syntax:
+    content: 'procedure CalcTimeDelta(EndingTime: Time, StartingTime: Time): Integer'
+    parameters:
+    - id: EndingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: StartingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CalcTimeDelta
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.CalcTimeDelta(Time,Time):Integer
+- syntax:
+    content: 'procedure CalcTimeSubtract(Time: Time, Value: Integer): Time'
+    parameters:
+    - id: Time
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Time
+        isExternal: true
+  name: CalcTimeSubtract
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.CalcTimeSubtract(Time,Integer):Time
+- syntax:
+    content: 'procedure GetMaxDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetMaxDate
+  uid: M:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management.GetMaxDate:Date
+commentId: O:Codeunit::Microsoft#Manufacturing#Capacity#Shop Calendar Management
+name: '"Shop Calendar Management"'
+uid: O:Codeunit::Microsoft#Manufacturing#Capacity#Shop_Calendar_Management

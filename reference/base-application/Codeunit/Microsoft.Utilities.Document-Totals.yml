@@ -1,0 +1,729 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities."Document Totals"
+alId: ID 57
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CalculateSalesPageTotals(var TotalSalesLine: Record "Sales Line", var VATAmount: Decimal, var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: TotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CalculateSalesPageTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculateSalesPageTotals(Sales_Line@,Decimal@,Sales_Line@)
+- syntax:
+    content: 'procedure CalculateSalesTotals(var TotalSalesLine: Record "Sales Line", var VATAmount: Decimal, var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: TotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CalculateSalesTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculateSalesTotals(Sales_Line@,Decimal@,Sales_Line@)
+- syntax:
+    content: 'procedure CalculateSalesSubPageTotals(var TotalSalesHeader: Record "Sales Header", var TotalSalesLine: Record "Sales Line", var VATAmount: Decimal, var InvoiceDiscountAmount: Decimal, var InvoiceDiscountPct: Decimal)'
+    parameters:
+    - id: TotalSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculateSalesSubPageTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculateSalesSubPageTotals(Sales_Header@,Sales_Line@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalculatePostedSalesInvoiceTotals(var SalesInvoiceHeader: Record "Sales Invoice Header", var VATAmount: Decimal, SalesInvoiceLine: Record "Sales Invoice Line")'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesInvoiceLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+  name: CalculatePostedSalesInvoiceTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePostedSalesInvoiceTotals(Sales_Invoice_Header@,Decimal@,Sales_Invoice_Line)
+- syntax:
+    content: 'procedure CalculatePostedSalesCreditMemoTotals(var SalesCrMemoHeader: Record "Sales Cr.Memo Header", var VATAmount: Decimal, SalesCrMemoLine: Record "Sales Cr.Memo Line")'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+  name: CalculatePostedSalesCreditMemoTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePostedSalesCreditMemoTotals(Sales_Cr#Memo_Header@,Decimal@,Sales_Cr#Memo_Line)
+- syntax:
+    content: 'procedure CalcTotalPurchAmountOnlyDiscountAllowed(PurchLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcTotalPurchAmountOnlyDiscountAllowed
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalcTotalPurchAmountOnlyDiscountAllowed(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure CalcTotalSalesAmountOnlyDiscountAllowed(SalesLine: Record "Sales Line"): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcTotalSalesAmountOnlyDiscountAllowed
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalcTotalSalesAmountOnlyDiscountAllowed(Sales_Line):Decimal
+- syntax:
+    content: 'procedure RefreshSalesLine(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: RefreshSalesLine
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.RefreshSalesLine(Sales_Line@)
+- syntax:
+    content: 'procedure RefreshPurchaseLine(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: RefreshPurchaseLine
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.RefreshPurchaseLine(Purchase_Line@)
+- syntax:
+    content: 'procedure SalesUpdateTotalsControls(CurrentSalesLine: Record "Sales Line", var TotalSalesHeader: Record "Sales Header", var TotalsSalesLine: Record "Sales Line", var RefreshMessageEnabled: Boolean, var ControlStyle: Text, var RefreshMessageText: Text, var InvDiscAmountEditable: Boolean, CurrPageEditable: Boolean, var VATAmount: Decimal)'
+    parameters:
+    - id: CurrentSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TotalsSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: RefreshMessageEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ControlStyle
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshMessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvDiscAmountEditable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrPageEditable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SalesUpdateTotalsControls
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesUpdateTotalsControls(Sales_Line,Sales_Header@,Sales_Line@,Boolean@,Text@,Text@,Boolean@,Boolean,Decimal@)
+- syntax:
+    content: 'procedure SalesRedistributeInvoiceDiscountAmounts(var TempSalesLine: Record "Sales Line" temporary, var VATAmount: Decimal, var TempTotalSalesLine: Record "Sales Line" temporary)'
+    parameters:
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempTotalSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: SalesRedistributeInvoiceDiscountAmounts
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesRedistributeInvoiceDiscountAmounts(Sales_Line@,Decimal@,Sales_Line@)
+- syntax:
+    content: 'procedure SalesRedistributeInvoiceDiscountAmountsOnDocument(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SalesRedistributeInvoiceDiscountAmountsOnDocument
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesRedistributeInvoiceDiscountAmountsOnDocument(Sales_Header)
+- syntax:
+    content: procedure SalesDocTotalsNotUpToDate()
+  name: SalesDocTotalsNotUpToDate
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesDocTotalsNotUpToDate
+- syntax:
+    content: 'procedure SalesCheckIfDocumentChanged(var SalesLine: Record "Sales Line", var xSalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: xSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SalesCheckIfDocumentChanged
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesCheckIfDocumentChanged(Sales_Line@,Sales_Line@)
+- syntax:
+    content: 'procedure SalesCheckAndClearTotals(var SalesLine: Record "Sales Line", var xSalesLine: Record "Sales Line", var TotalSalesLine: Record "Sales Line", var VATAmount: Decimal, var InvoiceDiscountAmount: Decimal, var InvoiceDiscountPct: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: xSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SalesCheckAndClearTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesCheckAndClearTotals(Sales_Line@,Sales_Line@,Sales_Line@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure SalesDeltaUpdateTotals(var SalesLine: Record "Sales Line", var xSalesLine: Record "Sales Line", var TotalSalesLine: Record "Sales Line", var VATAmount: Decimal, var InvoiceDiscountAmount: Decimal, var InvoiceDiscountPct: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: xSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SalesDeltaUpdateTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesDeltaUpdateTotals(Sales_Line@,Sales_Line@,Sales_Line@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure PurchaseUpdateTotalsControls(CurrentPurchaseLine: Record "Purchase Line", var TotalPurchaseHeader: Record "Purchase Header", var TotalsPurchaseLine: Record "Purchase Line", var RefreshMessageEnabled: Boolean, var ControlStyle: Text, var RefreshMessageText: Text, var InvDiscAmountEditable: Boolean, var VATAmount: Decimal)'
+    parameters:
+    - id: CurrentPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalsPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: RefreshMessageEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ControlStyle
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshMessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvDiscAmountEditable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PurchaseUpdateTotalsControls
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseUpdateTotalsControls(Purchase_Line,Purchase_Header@,Purchase_Line@,Boolean@,Text@,Text@,Boolean@,Decimal@)
+- syntax:
+    content: 'procedure PurchaseUpdateTotalsControlsForceable(CurrentPurchaseLine: Record "Purchase Line", var TotalPurchaseHeader: Record "Purchase Header", var TotalsPurchaseLine: Record "Purchase Line", var RefreshMessageEnabled: Boolean, var ControlStyle: Text, var RefreshMessageText: Text, var InvDiscAmountEditable: Boolean, var VATAmount: Decimal, Force: Boolean)'
+    parameters:
+    - id: CurrentPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalsPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: RefreshMessageEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ControlStyle
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshMessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvDiscAmountEditable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Force
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PurchaseUpdateTotalsControlsForceable
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseUpdateTotalsControlsForceable(Purchase_Line,Purchase_Header@,Purchase_Line@,Boolean@,Text@,Text@,Boolean@,Decimal@,Boolean)
+- syntax:
+    content: 'procedure PurchaseCalculateTotalsWithInvoiceRounding(var TempCurrentPurchaseLine: Record "Purchase Line" temporary, var VATAmount: Decimal, var TempTotalPurchaseLine: Record "Purchase Line" temporary)'
+    parameters:
+    - id: TempCurrentPurchaseLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempTotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+  name: PurchaseCalculateTotalsWithInvoiceRounding
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseCalculateTotalsWithInvoiceRounding(Purchase_Line@,Decimal@,Purchase_Line@)
+- syntax:
+    content: 'procedure PurchaseRedistributeInvoiceDiscountAmounts(var TempPurchaseLine: Record "Purchase Line" temporary, var VATAmount: Decimal, var TempTotalPurchaseLine: Record "Purchase Line" temporary)'
+    parameters:
+    - id: TempPurchaseLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempTotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+  name: PurchaseRedistributeInvoiceDiscountAmounts
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseRedistributeInvoiceDiscountAmounts(Purchase_Line@,Decimal@,Purchase_Line@)
+- syntax:
+    content: 'procedure PurchaseRedistributeInvoiceDiscountAmountsOnDocument(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PurchaseRedistributeInvoiceDiscountAmountsOnDocument
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseRedistributeInvoiceDiscountAmountsOnDocument(Purchase_Header)
+- syntax:
+    content: procedure PurchaseDocTotalsNotUpToDate()
+  name: PurchaseDocTotalsNotUpToDate
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseDocTotalsNotUpToDate
+- syntax:
+    content: 'procedure PurchaseCheckIfDocumentChanged(var PurchaseLine: Record "Purchase Line", var xPurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: xPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: PurchaseCheckIfDocumentChanged
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseCheckIfDocumentChanged(Purchase_Line@,Purchase_Line@)
+- syntax:
+    content: 'procedure PurchaseCheckAndClearTotals(var PurchaseLine: Record "Purchase Line", var xPurchaseLine: Record "Purchase Line", var TotalPurchaseLine: Record "Purchase Line", var VATAmount: Decimal, var InvoiceDiscountAmount: Decimal, var InvoiceDiscountPct: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: xPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PurchaseCheckAndClearTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseCheckAndClearTotals(Purchase_Line@,Purchase_Line@,Purchase_Line@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure PurchaseDeltaUpdateTotals(var PurchaseLine: Record "Purchase Line", var xPurchaseLine: Record "Purchase Line", var TotalPurchaseLine: Record "Purchase Line", var VATAmount: Decimal, var InvoiceDiscountAmount: Decimal, var InvoiceDiscountPct: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: xPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PurchaseDeltaUpdateTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseDeltaUpdateTotals(Purchase_Line@,Purchase_Line@,Purchase_Line@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalculatePurchasePageTotals(var TotalPurchaseLine: Record "Purchase Line", var VATAmount: Decimal, var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: TotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CalculatePurchasePageTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePurchasePageTotals(Purchase_Line@,Decimal@,Purchase_Line@)
+- syntax:
+    content: 'procedure CalculatePurchaseTotals(var TotalPurchaseLine: Record "Purchase Line", var VATAmount: Decimal, var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: TotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CalculatePurchaseTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePurchaseTotals(Purchase_Line@,Decimal@,Purchase_Line@)
+- syntax:
+    content: 'procedure CalculatePurchaseSubPageTotals(var TotalPurchaseHeader: Record "Purchase Header", var TotalPurchaseLine: Record "Purchase Line", var VATAmount: Decimal, var InvoiceDiscountAmount: Decimal, var InvoiceDiscountPct: Decimal)'
+    parameters:
+    - id: TotalPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculatePurchaseSubPageTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePurchaseSubPageTotals(Purchase_Header@,Purchase_Line@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalculatePostedPurchInvoiceTotals(var PurchInvHeader: Record "Purch. Inv. Header", var VATAmount: Decimal, PurchInvLine: Record "Purch. Inv. Line")'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchInvLine
+      parameterType:
+        name: Record "Purch. Inv. Line"
+        isExternal: true
+  name: CalculatePostedPurchInvoiceTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePostedPurchInvoiceTotals(Purch#_Inv#_Header@,Decimal@,Purch#_Inv#_Line)
+- syntax:
+    content: 'procedure CalculatePostedPurchCreditMemoTotals(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.", var VATAmount: Decimal, PurchCrMemoLine: Record "Purch. Cr. Memo Line")'
+    parameters:
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchCrMemoLine
+      parameterType:
+        name: Record "Purch. Cr. Memo Line"
+        isExternal: true
+  name: CalculatePostedPurchCreditMemoTotals
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.CalculatePostedPurchCreditMemoTotals(Purch#_Cr#_Memo_Hdr#@,Decimal@,Purch#_Cr#_Memo_Line)
+- syntax:
+    content: 'procedure GetTotalVATCaption(CurrencyCode: Code[10]): Text'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTotalVATCaption
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetTotalVATCaption(Code[10]):Text
+- syntax:
+    content: 'procedure GetTotalInclVATCaption(CurrencyCode: Code[10]): Text'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTotalInclVATCaption
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetTotalInclVATCaption(Code[10]):Text
+- syntax:
+    content: 'procedure GetTotalExclVATCaption(CurrencyCode: Code[10]): Text'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTotalExclVATCaption
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetTotalExclVATCaption(Code[10]):Text
+- syntax:
+    content: 'procedure GetTotalSalesHeaderAndCurrency(var SalesLine: Record "Sales Line", var TotalSalesHeader: Record "Sales Header", var Currency: Record Currency)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  name: GetTotalSalesHeaderAndCurrency
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetTotalSalesHeaderAndCurrency(Sales_Line@,Sales_Header@,Currency@)
+- syntax:
+    content: 'procedure GetTotalPurchaseHeaderAndCurrency(var PurchaseLine: Record "Purchase Line", var TotalPurchaseHeader: Record "Purchase Header", var Currency: Record Currency)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  name: GetTotalPurchaseHeaderAndCurrency
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetTotalPurchaseHeaderAndCurrency(Purchase_Line@,Purchase_Header@,Currency@)
+- syntax:
+    content: 'procedure GetInvoiceDiscAmountWithVATCaption(IncludesVAT: Boolean): Text'
+    parameters:
+    - id: IncludesVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetInvoiceDiscAmountWithVATCaption
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetInvoiceDiscAmountWithVATCaption(Boolean):Text
+- syntax:
+    content: 'procedure GetInvoiceDiscAmountWithVATAndCurrencyCaption(InvDiscAmountCaptionClassWithVAT: Text, CurrencyCode: Code[10]): Text'
+    parameters:
+    - id: InvDiscAmountCaptionClassWithVAT
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetInvoiceDiscAmountWithVATAndCurrencyCaption
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetInvoiceDiscAmountWithVATAndCurrencyCaption(Text,Code[10]):Text
+- syntax:
+    content: 'procedure GetTotalLineAmountWithVATAndCurrencyCaption(CurrencyCode: Code[10], IncludesVAT: Boolean): Text'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: IncludesVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTotalLineAmountWithVATAndCurrencyCaption
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.GetTotalLineAmountWithVATAndCurrencyCaption(Code[10],Boolean):Text
+- syntax:
+    content: 'procedure SalesCheckNumberOfLinesLimit(SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesCheckNumberOfLinesLimit
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.SalesCheckNumberOfLinesLimit(Sales_Header):Boolean
+- syntax:
+    content: 'procedure PurchaseCheckNumberOfLinesLimit(PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchaseCheckNumberOfLinesLimit
+  uid: M:Codeunit::Microsoft#Utilities#Document_Totals.PurchaseCheckNumberOfLinesLimit(Purchase_Header):Boolean
+commentId: O:Codeunit::Microsoft#Utilities#Document Totals
+name: '"Document Totals"'
+uid: O:Codeunit::Microsoft#Utilities#Document_Totals

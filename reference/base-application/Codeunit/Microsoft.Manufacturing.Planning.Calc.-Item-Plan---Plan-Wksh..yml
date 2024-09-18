@@ -1,0 +1,107 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Planning."Calc. Item Plan - Plan Wksh."
+alId: ID 5431
+namespace: Microsoft.Manufacturing.Planning
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Planning
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Item
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Item#Item
+    name: Microsoft.Inventory.Item.Item
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Initialize(NewFromDate: Date, NewToDate: Date, NewMPS: Boolean, NewMRP: Boolean, NewRespectPlanningParm: Boolean)'
+    parameters:
+    - id: NewFromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewMPS
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewMRP
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewRespectPlanningParm
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.Initialize(Date,Date,Boolean,Boolean,Boolean)
+- syntax:
+    content: procedure Finalize()
+  name: Finalize
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.Finalize
+- syntax:
+    content: 'procedure SetTemplAndWorksheet(TemplateName: Code[10], WorksheetName: Code[10], NetChange2: Boolean)'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WorksheetName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NetChange2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetTemplAndWorksheet
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.SetTemplAndWorksheet(Code[10],Code[10],Boolean)
+- syntax:
+    content: 'procedure SetParm(Forecast: Code[10], ExclBefore: Date, var Item2: Record Item)'
+    parameters:
+    - id: Forecast
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ExclBefore
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Item2
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: SetParm
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.SetParm(Code[10],Date,Item@)
+- syntax:
+    content: procedure SetResiliencyOn()
+  name: SetResiliencyOn
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.SetResiliencyOn
+- syntax:
+    content: 'procedure GetResiliencyError(var PlanningErrorLogEntry: Record "Planning Error Log"): Boolean'
+    parameters:
+    - id: PlanningErrorLogEntry
+      parameterType:
+        name: Record "Planning Error Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetResiliencyError
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.GetResiliencyError(Planning_Error_Log@):Boolean
+- syntax:
+    content: procedure ClearInvtProfileOffsetting()
+  name: ClearInvtProfileOffsetting
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#.ClearInvtProfileOffsetting
+commentId: O:Codeunit::Microsoft#Manufacturing#Planning#Calc# Item Plan - Plan Wksh#
+name: '"Calc. Item Plan - Plan Wksh."'
+uid: O:Codeunit::Microsoft#Manufacturing#Planning#Calc#_Item_Plan_-_Plan_Wksh#

@@ -1,0 +1,160 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Routing."Calculate Routing Line"
+alId: ID 99000774
+namespace: Microsoft.Manufacturing.Routing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Routing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Production Order" = r,
+                      TableData "Prod. Order Line" = r,
+                      TableData "Prod. Order Routing Line" = rim,
+                      TableData "Prod. Order Capacity Need" = rimd,
+                      TableData "Work Center" = r,
+                      TableData "Calendar Entry" = r,
+                      TableData "Machine Center" = r,
+                      TableData "Manufacturing Setup" = r,
+                      TableData "Capacity Constrained Resource" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure LoadCapForward(CapType: Enum "Capacity Type", CapNo: Code[20], TimeType: Enum "Routing Time Type", Write: Boolean)'
+    parameters:
+    - id: CapType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: CapNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Routing#Routing_Time_Type
+        name: Microsoft.Manufacturing.Routing."Routing Time Type"
+        isExternal: false
+    - id: Write
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: LoadCapForward
+  uid: M:Codeunit::Microsoft#Manufacturing#Routing#Calculate_Routing_Line.LoadCapForward(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Enum::Microsoft#Manufacturing#Routing#Routing_Time_Type,Boolean)
+- syntax:
+    content: 'procedure CalculateRoutingLine(var ProdOrderRoutingLine2: Record "Prod. Order Routing Line", Direction: Option, CalcStartEndDate: Boolean)'
+    parameters:
+    - id: ProdOrderRoutingLine2
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CalcStartEndDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateRoutingLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Routing#Calculate_Routing_Line.CalculateRoutingLine(Prod#_Order_Routing_Line@,Option,Boolean)
+- syntax:
+    content: 'procedure ReturnNextCalendarEntry(var CalendarEntry2: Record "Calendar Entry", OldCalendarEntry: Record "Calendar Entry", Direction: Option)'
+    parameters:
+    - id: CalendarEntry2
+      parameterType:
+        name: Record "Calendar Entry"
+        isExternal: true
+    - id: OldCalendarEntry
+      parameterType:
+        name: Record "Calendar Entry"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ReturnNextCalendarEntry
+  uid: M:Codeunit::Microsoft#Manufacturing#Routing#Calculate_Routing_Line.ReturnNextCalendarEntry(Calendar_Entry@,Calendar_Entry,Option)
+- syntax:
+    content: 'procedure CalcAvailCapBaseAndDampTime(CapacityConstrainedResource: Record "Capacity Constrained Resource", var AvailCap: Decimal, var DampTime: Decimal, CapEffectiveBase: Decimal, LoadBase: Decimal, TimeFactor: Decimal, Rounding: Decimal)'
+    parameters:
+    - id: CapacityConstrainedResource
+      parameterType:
+        name: Record "Capacity Constrained Resource"
+        isExternal: true
+    - id: AvailCap
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DampTime
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CapEffectiveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: LoadBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TimeFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Rounding
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailCapBaseAndDampTime
+  uid: M:Codeunit::Microsoft#Manufacturing#Routing#Calculate_Routing_Line.CalcAvailCapBaseAndDampTime(Capacity_Constrained_Resource,Decimal@,Decimal@,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure CalcAvailQtyBase(var CalendarEntry: Record "Calendar Entry", ProdStartDate: Date, ProdStartTime: Time, TimeType: Enum "Routing Time Type", ConCurrCap: Decimal, IsForward: Boolean, TimeFactor: Decimal, Rounding: Decimal): Decimal'
+    parameters:
+    - id: CalendarEntry
+      parameterType:
+        name: Record "Calendar Entry"
+        isExternal: true
+    - id: ProdStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ProdStartTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: TimeType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Routing#Routing_Time_Type
+        name: Microsoft.Manufacturing.Routing."Routing Time Type"
+        isExternal: false
+    - id: ConCurrCap
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsForward
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TimeFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Rounding
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailQtyBase
+  uid: M:Codeunit::Microsoft#Manufacturing#Routing#Calculate_Routing_Line.CalcAvailQtyBase(Calendar_Entry@,Date,Time,Enum::Microsoft#Manufacturing#Routing#Routing_Time_Type,Decimal,Boolean,Decimal,Decimal):Decimal
+commentId: O:Codeunit::Microsoft#Manufacturing#Routing#Calculate Routing Line
+name: '"Calculate Routing Line"'
+uid: O:Codeunit::Microsoft#Manufacturing#Routing#Calculate_Routing_Line

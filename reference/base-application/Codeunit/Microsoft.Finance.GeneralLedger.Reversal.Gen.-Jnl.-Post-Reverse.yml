@@ -1,0 +1,123 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Reversal."Gen. Jnl.-Post Reverse"
+alId: ID 17
+namespace: Microsoft.Finance.GeneralLedger.Reversal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Reversal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rm,
+                      TableData "Cust. Ledger Entry" = rimd,
+                      TableData "Vendor Ledger Entry" = rimd,
+                      TableData "G/L Register" = rm,
+                      TableData "G/L Entry - VAT Entry Link" = rimd,
+                      TableData "VAT Entry" = rimd,
+                      TableData "Bank Account Ledger Entry" = rimd,
+                      TableData "Check Ledger Entry" = rimd,
+                      TableData "Detailed Cust. Ledg. Entry" = rimd,
+                      TableData "Detailed Vendor Ledg. Entry" = rimd,
+                      TableData "Employee Ledger Entry" = rimd,
+                      TableData "Detailed Employee Ledger Entry" = ri
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Reverse(var ReversalEntry: Record "Reversal Entry", var ReversalEntry2: Record "Reversal Entry")'
+    parameters:
+    - id: ReversalEntry
+      parameterType:
+        name: Record "Reversal Entry"
+        isExternal: true
+    - id: ReversalEntry2
+      parameterType:
+        name: Record "Reversal Entry"
+        isExternal: true
+  name: Reverse
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen#_Jnl#-Post_Reverse.Reverse(Reversal_Entry@,Reversal_Entry@)
+- syntax:
+    content: 'procedure ReverseBankAccLedgEntry(BankAccountLedgerEntry: Record "Bank Account Ledger Entry", NewEntryNo: Integer, SourceCode: Code[10])'
+    parameters:
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: NewEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ReverseBankAccLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen#_Jnl#-Post_Reverse.ReverseBankAccLedgEntry(Bank_Account_Ledger_Entry,Integer,Code[10])
+- syntax:
+    content: 'procedure ReverseVAT(GLEntry: Record "G/L Entry", SourceCode: Code[10])'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ReverseVAT
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen#_Jnl#-Post_Reverse.ReverseVAT(G/L_Entry,Code[10])
+- syntax:
+    content: 'procedure CheckDimComb(EntryNo: Integer, DimSetID: Integer, TableID1: Integer, AccNo1: Code[20], TableID2: Integer, AccNo2: Code[20])'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TableID1
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AccNo1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID2
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AccNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckDimComb
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen#_Jnl#-Post_Reverse.CheckDimComb(Integer,Integer,Integer,Code[20],Integer,Code[20])
+- syntax:
+    content: 'procedure SetReversalDescription(RecVariant: Variant, var Description: Text[100])'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: SetReversalDescription
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen#_Jnl#-Post_Reverse.SetReversalDescription(Variant,Text[100]@)
+commentId: O:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen# Jnl#-Post Reverse
+name: '"Gen. Jnl.-Post Reverse"'
+uid: O:Codeunit::Microsoft#Finance#GeneralLedger#Reversal#Gen#_Jnl#-Post_Reverse

@@ -1,0 +1,47 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.DirectDebit."SEPA CT-Export File"
+alId: ID 1220
+namespace: Microsoft.Bank.DirectDebit
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.DirectDebit
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Data Exch. Field" = rimd
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Export(var GenJnlLine: Record "Gen. Journal Line", XMLPortID: Integer): Boolean'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: XMLPortID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Export
+  uid: M:Codeunit::Microsoft#Bank#DirectDebit#SEPA_CT-Export_File.Export(Gen#_Journal_Line@,Integer):Boolean
+- syntax:
+    content: procedure EnableExportToServerFile()
+  name: EnableExportToServerFile
+  uid: M:Codeunit::Microsoft#Bank#DirectDebit#SEPA_CT-Export_File.EnableExportToServerFile
+commentId: O:Codeunit::Microsoft#Bank#DirectDebit#SEPA CT-Export File
+name: '"SEPA CT-Export File"'
+uid: O:Codeunit::Microsoft#Bank#DirectDebit#SEPA_CT-Export_File

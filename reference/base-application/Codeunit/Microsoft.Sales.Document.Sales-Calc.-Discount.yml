@@ -1,0 +1,81 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales-Calc. Discount"
+alId: ID 60
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "Sales Header" = rm,
+                      tabledata "Sales Line" = rm
+  promoted: false
+- name: TableNo
+  value: Sales Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Line
+    name: Microsoft.Sales.Document."Sales Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CustInvDiscRecExists(InvDiscCode: Code[20]): Boolean'
+    parameters:
+    - id: InvDiscCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CustInvDiscRecExists
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Calc#_Discount.CustInvDiscRecExists(Code[20]):Boolean
+- syntax:
+    content: 'procedure CalculateWithSalesHeader(var TempSalesHeader: Record "Sales Header", var TempSalesLine: Record "Sales Line")'
+    parameters:
+    - id: TempSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CalculateWithSalesHeader
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Calc#_Discount.CalculateWithSalesHeader(Sales_Header@,Sales_Line@)
+- syntax:
+    content: 'procedure CalculateInvoiceDiscountOnLine(var SalesLineToUpdate: Record "Sales Line")'
+    parameters:
+    - id: SalesLineToUpdate
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CalculateInvoiceDiscountOnLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Calc#_Discount.CalculateInvoiceDiscountOnLine(Sales_Line@)
+- syntax:
+    content: 'procedure CalculateIncDiscForHeader(var TempSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: TempSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CalculateIncDiscForHeader
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Calc#_Discount.CalculateIncDiscForHeader(Sales_Header@)
+- syntax:
+    content: 'procedure UpdatePrepmtLineAmount(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: UpdatePrepmtLineAmount
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Calc#_Discount.UpdatePrepmtLineAmount(Sales_Header)
+commentId: O:Codeunit::Microsoft#Sales#Document#Sales-Calc# Discount
+name: '"Sales-Calc. Discount"'
+uid: O:Codeunit::Microsoft#Sales#Document#Sales-Calc#_Discount

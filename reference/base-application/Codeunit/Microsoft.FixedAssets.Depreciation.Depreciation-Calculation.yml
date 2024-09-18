@@ -1,0 +1,528 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Depreciation."Depreciation Calculation"
+alId: ID 5616
+namespace: Microsoft.FixedAssets.Depreciation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Depreciation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = r,
+                      TableData "FA Posting Type Setup" = r,
+                      TableData "Maintenance Ledger Entry" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure DeprDays(StartingDate: Date, EndingDate: Date, Year365Days: Boolean): Integer'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Year365Days
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: DeprDays
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.DeprDays(Date,Date,Boolean):Integer
+- syntax:
+    content: 'procedure ToMorrow(ThisDate: Date, Year365Days: Boolean): Date'
+    parameters:
+    - id: ThisDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Year365Days
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ToMorrow
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.ToMorrow(Date,Boolean):Date
+- syntax:
+    content: 'procedure Yesterday(ThisDate: Date, Year365Days: Boolean): Date'
+    parameters:
+    - id: ThisDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Year365Days
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: Yesterday
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.Yesterday(Date,Boolean):Date
+- syntax:
+    content: 'procedure SetFAFilter(var FALedgEntry: Record "FA Ledger Entry", FANo: Code[20], DeprBookCode: Code[10], FAPostingTypeOrder: Boolean)'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FAPostingTypeOrder
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetFAFilter
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.SetFAFilter(FA_Ledger_Entry@,Code[20],Code[10],Boolean)
+- syntax:
+    content: 'procedure CalcEntryAmounts(FANo: Code[20], DeprBookCode: Code[10], StartingDate: Date, EndingDate: Date, var EntryAmounts: array[4] of Decimal)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EntryAmounts
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+  name: CalcEntryAmounts
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.CalcEntryAmounts(Code[20],Code[10],Date,Date,Decimal[]@)
+- syntax:
+    content: 'procedure UseDeprStartingDate(FANo: Code[20], DeprBookCode: Code[10]): Boolean'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UseDeprStartingDate
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.UseDeprStartingDate(Code[20],Code[10]):Boolean
+- syntax:
+    content: 'procedure GetFirstDeprDate(FANo: Code[20], DeprBookCode: Code[10], Year365Days: Boolean): Date'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Year365Days
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetFirstDeprDate
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetFirstDeprDate(Code[20],Code[10],Boolean):Date
+- syntax:
+    content: 'procedure GetMinusBookValue(FANo: Code[20], DeprBookCode: Code[10], StartingDate: Date, EndingDate: Date): Decimal'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetMinusBookValue
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetMinusBookValue(Code[20],Code[10],Date,Date):Decimal
+- syntax:
+    content: 'procedure AdjustDepr(DeprBookCode: Code[10], var Depreciation: Decimal, BookValue: Decimal, SalvageValue: Decimal, EndingBookValue: Decimal, FinalRoundingAmount: Decimal)'
+    parameters:
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Depreciation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: EndingBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FinalRoundingAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustDepr
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.AdjustDepr(Code[10],Decimal@,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure AdjustCustom1(DeprBookCode: Code[10], var DeprAmount: Decimal, var Custom1Amount: Decimal, BookValue: Decimal, SalvageValue: Decimal, EndingBookValue: Decimal, FinalRoundingAmount: Decimal)'
+    parameters:
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeprAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Custom1Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: EndingBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FinalRoundingAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustCustom1
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.AdjustCustom1(Code[10],Decimal@,Decimal@,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure GetSign(BookValue: Decimal, DeprBasis: Decimal, SalvageValue: Decimal, MinusBookValue: Decimal): Integer'
+    parameters:
+    - id: BookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DeprBasis
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MinusBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetSign
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetSign(Decimal,Decimal,Decimal,Decimal):Integer
+- syntax:
+    content: 'procedure GetCustom1Sign(BookValue: Decimal, AcquisitionCost: Decimal, Custom1: Decimal, SalvageValue: Decimal, MinusBookValue: Decimal): Integer'
+    parameters:
+    - id: BookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AcquisitionCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Custom1
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MinusBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCustom1Sign
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetCustom1Sign(Decimal,Decimal,Decimal,Decimal,Decimal):Integer
+- syntax:
+    content: 'procedure GetNewSigns(var BookValue: Decimal, var DeprBasis: Decimal, var SalvageValue: Decimal, var MinusBookValue: Decimal)'
+    parameters:
+    - id: BookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DeprBasis
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MinusBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetNewSigns
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetNewSigns(Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetNewCustom1Signs(var BookValue: Decimal, var AcquisitionCost: Decimal, var Custom1: Decimal, var SalvageValue: Decimal, var MinusBookValue: Decimal)'
+    parameters:
+    - id: BookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AcquisitionCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Custom1
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MinusBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetNewCustom1Signs
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetNewCustom1Signs(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcRounding(DeprBookCode: Code[10], DeprAmount: Decimal): Decimal'
+    parameters:
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeprAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcRounding
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.CalcRounding(Code[10],Decimal):Decimal
+- syntax:
+    content: 'procedure CalculateDeprInPeriod(FANo: Code[20], DeprBookCode: Code[10], EndingDate: Date, CalculatedDepr: Decimal, Sign: Integer, var NewBookValue: Decimal, var DeprBasis: Decimal, var SalvageValue: Decimal, var MinusBookValue: Decimal)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CalculatedDepr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Sign
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DeprBasis
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalvageValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MinusBookValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculateDeprInPeriod
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.CalculateDeprInPeriod(Code[20],Code[10],Date,Decimal,Integer,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetDeprPeriod(FANo: Code[20], DeprBookCode: Code[10], UntilDate: Date, var StartingDate: Date, var EndingDate: Date, var NumberOfDays: Integer, Year365Days: Boolean)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UntilDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NumberOfDays
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Year365Days
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetDeprPeriod
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetDeprPeriod(Code[20],Code[10],Date,Date@,Date@,Integer@,Boolean)
+- syntax:
+    content: 'procedure DeprInFiscalYear(FANo: Code[20], DeprBookCode: Code[10], StartingDate: Date): Decimal'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: DeprInFiscalYear
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.DeprInFiscalYear(Code[20],Code[10],Date):Decimal
+- syntax:
+    content: 'procedure GetPartOfCalculation(Type: Option, PostingType: Option, DeprBookCode: Code[10]): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PostingType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPartOfCalculation
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.GetPartOfCalculation(Option,Option,Code[10]):Boolean
+- syntax:
+    content: 'procedure FAName(var FA: Record "Fixed Asset", DeprBookCode: Code[10]): Text[200]'
+    parameters:
+    - id: FA
+      parameterType:
+        name: Record "Fixed Asset"
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[200]
+        isExternal: true
+  name: FAName
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.FAName(Fixed_Asset@,Code[10]):Text[200]
+- syntax:
+    content: 'procedure FADeprBookName(DeprBookCode: Code[10]): Text[200]'
+    parameters:
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[200]
+        isExternal: true
+  name: FADeprBookName
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.FADeprBookName(Code[10]):Text[200]
+- syntax:
+    content: 'procedure DeprDays365(StartingDate: Date, EndingDate: Date): Integer'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: DeprDays365
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation.DeprDays365(Date,Date):Integer
+commentId: O:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation Calculation
+name: '"Depreciation Calculation"'
+uid: O:Codeunit::Microsoft#FixedAssets#Depreciation#Depreciation_Calculation

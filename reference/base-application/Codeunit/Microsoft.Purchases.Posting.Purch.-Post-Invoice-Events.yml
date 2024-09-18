@@ -1,0 +1,1283 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Posting."Purch. Post Invoice Events"
+alId: ID 826
+namespace: Microsoft.Purchases.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure RunOnAfterCalcInvoiceDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnAfterCalcInvoiceDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterCalcInvoiceDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnAfterCalcLineDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnAfterCalcLineDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterCalcLineDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnBeforeCreatePostedDeferralSchedule(PurchLine: Record "Purchase Line", var IsHandled: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCreatePostedDeferralSchedule
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeCreatePostedDeferralSchedule(Purchase_Line,Boolean@)
+- syntax:
+    content: 'procedure RunOnAfterCreatePostedDeferralSchedule(PurchLine: Record "Purchase Line", var PostedDeferralHeader: Record "Posted Deferral Header")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PostedDeferralHeader
+      parameterType:
+        name: Record "Posted Deferral Header"
+        isExternal: true
+  name: RunOnAfterCreatePostedDeferralSchedule
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterCreatePostedDeferralSchedule(Purchase_Line,Posted_Deferral_Header@)
+- syntax:
+    content: 'procedure RunOnAfterGetPurchAccount(PurchLine: Record "Purchase Line", GenPostingSetup: Record "General Posting Setup", var PurchAccountNo: Code[20])'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: PurchAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RunOnAfterGetPurchAccount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterGetPurchAccount(Purchase_Line,General_Posting_Setup,Code[20]@)
+- syntax:
+    content: 'procedure RunOnAfterInitTotalAmounts(PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var TotalVAT: Decimal, var TotalVATACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal, var TotalVATBase: Decimal, var TotalVATBaseACY: Decimal)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBaseACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: RunOnAfterInitTotalAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterInitTotalAmounts(Purchase_Line,Purchase_Line,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure RunOnAfterPrepareGenJnlLine(var GenJnlLine: Record "Gen. Journal Line", PurchHeader: Record "Purchase Header", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnAfterPrepareGenJnlLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterPrepareGenJnlLine(Gen#_Journal_Line@,Purchase_Header,Invoice_Posting_Buffer)
+- syntax:
+    content: 'procedure RunOnAfterSetApplyToDocNo(var GenJournalLine: Record "Gen. Journal Line", PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: RunOnAfterSetApplyToDocNo
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterSetApplyToDocNo(Gen#_Journal_Line@,Purchase_Header)
+- syntax:
+    content: 'procedure RunOnAfterSetJobLineFilters(var JobPurchLine: Record "Purchase Line", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: JobPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnAfterSetJobLineFilters
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnAfterSetJobLineFilters(Purchase_Line@,Invoice_Posting_Buffer)
+- syntax:
+    content: 'procedure RunOnBeforeCalcInvoiceDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var IsHandled: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCalcInvoiceDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeCalcInvoiceDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Posting_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeCalcLineDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var IsHandled: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCalcLineDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeCalcLineDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Posting_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeInitGenJnlLine(var GenJnlLine: Record "Gen. Journal Line", PurchHeader: Record "Purchase Header", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var IsHandled: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeInitGenJnlLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeInitGenJnlLine(Gen#_Journal_Line@,Purchase_Header,Invoice_Posting_Buffer,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeInitGenJnlLineAmountFieldsFromTotalLines(var GenJnlLine: Record "Gen. Journal Line", var PurchHeader: Record "Purchase Header", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", var IsHandled: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeInitGenJnlLineAmountFieldsFromTotalLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeInitGenJnlLineAmountFieldsFromTotalLines(Gen#_Journal_Line@,Purchase_Header@,Purchase_Line@,Purchase_Line@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeSetAmountsForBalancingEntry(var VendLedgEntry: Record "Vendor Ledger Entry", var GenJnlLine: Record "Gen. Journal Line", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", var IsHandled: Boolean)'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeSetAmountsForBalancingEntry
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeSetAmountsForBalancingEntry(Vendor_Ledger_Entry@,Gen#_Journal_Line@,Purchase_Line@,Purchase_Line@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforePostLines(PurchHeader: Record "Purchase Header", var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnBeforePostLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforePostLines(Purchase_Header,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnBeforePostLedgerEntry(var PurchHeader: Record "Purchase Header", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", PreviewMode: Boolean, SuppressCommit: Boolean, InvoicePostingParameters: Record "Invoice Posting Parameters" temporary, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", var IsHandled: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: InvoicePostingParameters
+      parameterType:
+        name: Record "Invoice Posting Parameters" temporary
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforePostLedgerEntry
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforePostLedgerEntry(Purchase_Header@,Purchase_Line@,Purchase_Line@,Boolean,Boolean,Invoice_Posting_Parameters,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforePrepareLine(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var IsHandled: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforePrepareLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforePrepareLine(Purchase_Header,Purchase_Line,Purchase_Line,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeTempDeferralLineInsert(var TempDeferralLine: Record "Deferral Line" temporary, DeferralLine: Record "Deferral Line", PurchLine: Record "Purchase Line", var DeferralCount: Integer, var TotalDeferralCount: Integer)'
+    parameters:
+    - id: TempDeferralLine
+      parameterType:
+        name: Record "Deferral Line" temporary
+        isExternal: true
+    - id: DeferralLine
+      parameterType:
+        name: Record "Deferral Line"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: DeferralCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalDeferralCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RunOnBeforeTempDeferralLineInsert
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeTempDeferralLineInsert(Deferral_Line@,Deferral_Line,Purchase_Line,Integer@,Integer@)
+- syntax:
+    content: 'procedure RunOnBeforePrepareLineFADiscount(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, GenPostingSetup: Record "General Posting Setup", var IsHandled: Boolean)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforePrepareLineFADiscount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforePrepareLineFADiscount(Invoice_Posting_Buffer@,General_Posting_Setup,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeCalculateVATAmounts(PurchHeader: Record "Purchase Header", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var IsHandled: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCalculateVATAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeCalculateVATAmounts(Purchase_Header,Invoice_Posting_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure RunOnCalculateVATAmountsOnReverseChargeVATOnBeforeModify(PurchHeader: Record "Purchase Header", Currency: Record Currency, VATPostingSetup: Record "VAT Posting Setup", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnCalculateVATAmountsOnReverseChargeVATOnBeforeModify
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnCalculateVATAmountsOnReverseChargeVATOnBeforeModify(Purchase_Header,Currency,VAT_Posting_Setup,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnCalculateVATAmountInBufferOnBeforeTempInvoicePostingBufferAssign(var VATAmount: Decimal, var VATAmountACY: Decimal, var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnCalculateVATAmountInBufferOnBeforeTempInvoicePostingBufferAssign
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnCalculateVATAmountInBufferOnBeforeTempInvoicePostingBufferAssign(Decimal@,Decimal@,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnBeforeRunGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line", var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnBeforeRunGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeRunGenJnlPostLine(Gen#_Journal_Line@,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnCalculateVATAmountsOnAfterGetReverseChargeVATPostingSetup(var VATPostingSetup: Record "VAT Posting Setup")'
+    parameters:
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+  name: RunOnCalculateVATAmountsOnAfterGetReverseChargeVATPostingSetup
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnCalculateVATAmountsOnAfterGetReverseChargeVATPostingSetup(VAT_Posting_Setup@)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnBeforeFindVendLedgEntry(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", InvoicePostingParameters: Record "Invoice Posting Parameters" temporary, var VendLedgerEntry: Record "Vendor Ledger Entry", var EntryFound: Boolean, var IsHandled: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingParameters
+      parameterType:
+        name: Record "Invoice Posting Parameters" temporary
+        isExternal: true
+    - id: VendLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: EntryFound
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPostBalancingEntryOnBeforeFindVendLedgEntry
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostBalancingEntryOnBeforeFindVendLedgEntry(Purchase_Header,Purchase_Line,Invoice_Posting_Parameters,Vendor_Ledger_Entry@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnAfterInitNewLine(var GenJnlLine: Record "Gen. Journal Line", var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: RunOnPostBalancingEntryOnAfterInitNewLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostBalancingEntryOnAfterInitNewLine(Gen#_Journal_Line@,Purchase_Header@)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnAfterGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line", var PurchHeader: Record "Purchase Header", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostBalancingEntryOnAfterGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostBalancingEntryOnAfterGenJnlPostLine(Gen#_Journal_Line@,Purchase_Header@,Purchase_Line@,Purchase_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnBeforeGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line", var PurchHeader: Record "Purchase Header", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostBalancingEntryOnBeforeGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostBalancingEntryOnBeforeGenJnlPostLine(Gen#_Journal_Line@,Purchase_Header@,Purchase_Line@,Purchase_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnAfterFindVendLedgEntry(var VendLedgEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: RunOnPostBalancingEntryOnAfterFindVendLedgEntry
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostBalancingEntryOnAfterFindVendLedgEntry(Vendor_Ledger_Entry@)
+- syntax:
+    content: 'procedure RunOnPostLedgerEntryOnAfterGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line", var PurchHeader: Record "Purchase Header", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostLedgerEntryOnAfterGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostLedgerEntryOnAfterGenJnlPostLine(Gen#_Journal_Line@,Purchase_Header@,Purchase_Line@,Purchase_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostLedgerEntryOnBeforeGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line", var PurchHeader: Record "Purchase Header", var TotalPurchLine: Record "Purchase Line", var TotalPurchLineLCY: Record "Purchase Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostLedgerEntryOnBeforeGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostLedgerEntryOnBeforeGenJnlPostLine(Gen#_Journal_Line@,Purchase_Header@,Purchase_Line@,Purchase_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterAssignAmounts(PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var TotalAmount: Decimal, var TotalAmountACY: Decimal)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: RunOnPrepareLineOnAfterAssignAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterAssignAmounts(Purchase_Line,Purchase_Line,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterSetAmounts(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: RunOnPrepareLineOnAfterSetAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterSetAmounts(Invoice_Posting_Buffer@,Purchase_Line)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterFillInvoicePostingBuffer(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: RunOnPrepareLineOnAfterFillInvoicePostingBuffer
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterFillInvoicePostingBuffer(Invoice_Posting_Buffer@,Purchase_Line)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeAdjustTotalAmounts(PurchLine: Record "Purchase Line", var TotalAmount: Decimal, var TotalAmountACY: Decimal, UseDate: Date)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeAdjustTotalAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeAdjustTotalAmounts(Purchase_Line,Decimal@,Decimal@,Date)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeSetAccount(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var PurchAccount: Code[20])'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeSetAccount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeSetAccount(Purchase_Header,Purchase_Line,Code[20]@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeSetAmounts(PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var TotalVAT: Decimal, var TotalVATACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal, var TotalVATBase: Decimal, var TotalVATBaseACY: Decimal, var IsHandled: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBaseACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeSetAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeSetAmounts(Purchase_Line,Purchase_Line,Invoice_Posting_Buffer@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterSetInvoiceDiscAccount(PurchLine: Record "Purchase Line", GenPostingSetup: Record "General Posting Setup", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnPrepareLineOnAfterSetInvoiceDiscAccount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterSetInvoiceDiscAccount(Purchase_Line,General_Posting_Setup,Invoice_Posting_Buffer@,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterSetLineDiscAccount(PurchLine: Record "Purchase Line", GenPostingSetup: Record "General Posting Setup", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnPrepareLineOnAfterSetLineDiscAccount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterSetLineDiscAccount(Purchase_Line,General_Posting_Setup,Invoice_Posting_Buffer@,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeCalcInvoiceDiscountPosting(var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", TotalVAT: Decimal, TotalVATACY: Decimal, TotalAmount: Decimal, TotalAmountACY: Decimal, var IsHandled: Boolean)'
+    parameters:
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeCalcInvoiceDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeCalcInvoiceDiscountPosting(Invoice_Posting_Buffer@,Invoice_Posting_Buffer@,Purchase_Header,Purchase_Line,Decimal,Decimal,Decimal,Decimal,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeCalcLineDiscountPosting(var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", TotalVAT: Decimal, TotalVATACY: Decimal, TotalAmount: Decimal, TotalAmountACY: Decimal, var IsHandled: Boolean)'
+    parameters:
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeCalcLineDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeCalcLineDiscountPosting(Invoice_Posting_Buffer@,Invoice_Posting_Buffer@,Purchase_Header,Purchase_Line,Decimal,Decimal,Decimal,Decimal,Boolean@)
+- syntax:
+    content: 'procedure RunOnPostLinesOnAfterGenJnlLinePost(var GenJnlLine: Record "Gen. Journal Line", PurchHeader: Record "Purchase Header", TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", PreviewMode: Boolean, SuppressCommit: Boolean, GLEntryNo: Integer)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RunOnPostLinesOnAfterGenJnlLinePost
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostLinesOnAfterGenJnlLinePost(Gen#_Journal_Line@,Purchase_Header,Invoice_Posting_Buffer,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Boolean,Boolean,Integer)
+- syntax:
+    content: 'procedure RunOnPostLinesOnBeforeGenJnlLinePost(var GenJnlLine: Record "Gen. Journal Line", PurchHeader: Record "Purchase Header", TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", PreviewMode: Boolean, SuppressCommit: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPostLinesOnBeforeGenJnlLinePost
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPostLinesOnBeforeGenJnlLinePost(Gen#_Journal_Line@,Purchase_Header,Invoice_Posting_Buffer,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Boolean,Boolean)
+- syntax:
+    content: 'procedure RunOnPrepareGenJnlLineOnAfterCopyToGenJnlLine(var GenJnlLine: Record "Gen. Journal Line", PurchHeader: Record "Purchase Header", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnPrepareGenJnlLineOnAfterCopyToGenJnlLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareGenJnlLineOnAfterCopyToGenJnlLine(Gen#_Journal_Line@,Purchase_Header,Invoice_Posting_Buffer)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterSetInvoiceDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var InvoiceDiscountPosting: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoiceDiscountPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnAfterSetInvoiceDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterSetInvoiceDiscountPosting(Purchase_Header,Purchase_Line,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterSetLineDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var LineDiscountPosting: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: LineDiscountPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnAfterSetLineDiscountPosting
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterSetLineDiscountPosting(Purchase_Header,Purchase_Line,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterPrepareDeferralLine(PurchLine: Record "Purchase Line", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, UseDate: Date, InvDefLineNo: Integer, DeferralLineNo: Integer, SuppressCommit: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: UseDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvDefLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DeferralLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnAfterPrepareDeferralLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterPrepareDeferralLine(Purchase_Line,Invoice_Posting_Buffer,Date,Integer,Integer,Boolean)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterUpdateInvoicePostingBuffer(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnPrepareLineOnAfterUpdateInvoicePostingBuffer
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnAfterUpdateInvoicePostingBuffer(Purchase_Header,Purchase_Line,Invoice_Posting_Buffer,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforePrepareDeferralLine(PurchLine: Record "Purchase Line", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, UseDate: Date, InvDefLineNo: Integer, DeferralLineNo: Integer, SuppressCommit: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: UseDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvDefLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DeferralLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforePrepareDeferralLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforePrepareDeferralLine(Purchase_Line,Invoice_Posting_Buffer,Date,Integer,Integer,Boolean)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforePreparePurchase(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var GeneralPostingSetup: Record "General Posting Setup")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: GeneralPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+  name: RunOnPrepareLineOnBeforePreparePurchase
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforePreparePurchase(Purchase_Header,Purchase_Line,General_Posting_Setup@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeSetInvoiceDiscAccount(PurchLine: Record "Purchase Line", GenPostingSetup: Record "General Posting Setup", var InvDiscAccount: Code[20], var IsHandled: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: InvDiscAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeSetInvoiceDiscAccount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeSetInvoiceDiscAccount(Purchase_Line,General_Posting_Setup,Code[20]@,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeSetLineDiscAccount(PurchLine: Record "Purchase Line", GenPostingSetup: Record "General Posting Setup", var InvDiscAccount: Code[20], var IsHandled: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: InvDiscAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeSetLineDiscAccount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareLineOnBeforeSetLineDiscAccount(Purchase_Line,General_Posting_Setup,Code[20]@,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareDeferralLineOnBeforePrepareInitialAmounts(var DeferralPostBuffer: Record "Deferral Posting Buffer", PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", AmountLCY: Decimal, AmountACY: Decimal, RemainAmtToDefer: Decimal, RemainAmtToDeferACY: Decimal, DeferralAccount: Code[20], PurchAccount: Code[20])'
+    parameters:
+    - id: DeferralPostBuffer
+      parameterType:
+        name: Record "Deferral Posting Buffer"
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainAmtToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainAmtToDeferACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DeferralAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RunOnPrepareDeferralLineOnBeforePrepareInitialAmounts
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareDeferralLineOnBeforePrepareInitialAmounts(Deferral_Posting_Buffer@,Purchase_Header,Purchase_Line,Decimal,Decimal,Decimal,Decimal,Code[20],Code[20])
+- syntax:
+    content: 'procedure RunOnPrepareDeferralLineOnAfterInitFromDeferralLine(var DeferralPostingBuffer: Record "Deferral Posting Buffer", DeferralLine: Record "Deferral Line", PurchaseLine: Record "Purchase Line", DeferralTemplate: Record "Deferral Template")'
+    parameters:
+    - id: DeferralPostingBuffer
+      parameterType:
+        name: Record "Deferral Posting Buffer"
+        isExternal: true
+    - id: DeferralLine
+      parameterType:
+        name: Record "Deferral Line"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: DeferralTemplate
+      parameterType:
+        name: Record "Deferral Template"
+        isExternal: true
+  name: RunOnPrepareDeferralLineOnAfterInitFromDeferralLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnPrepareDeferralLineOnAfterInitFromDeferralLine(Deferral_Posting_Buffer@,Deferral_Line,Purchase_Line,Deferral_Template)
+- syntax:
+    content: 'procedure RunOnCalcDeferralAmountsOnBeforeTempDeferralHeaderInsert(var TempDeferralHeader: Record "Deferral Header" temporary, DeferralHeader: Record "Deferral Header", PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: TempDeferralHeader
+      parameterType:
+        name: Record "Deferral Header" temporary
+        isExternal: true
+    - id: DeferralHeader
+      parameterType:
+        name: Record "Deferral Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: RunOnCalcDeferralAmountsOnBeforeTempDeferralHeaderInsert
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnCalcDeferralAmountsOnBeforeTempDeferralHeaderInsert(Deferral_Header@,Deferral_Header,Purchase_Line)
+- syntax:
+    content: 'procedure RunOnBeforeCheckItemQuantityPurchCredit(var PurchaseHeader: Record "Purchase Header", var PurchaseLine: Record "Purchase Line", var IsHandled: Boolean)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCheckItemQuantityPurchCredit
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events.RunOnBeforeCheckItemQuantityPurchCredit(Purchase_Header@,Purchase_Line@,Boolean@)
+commentId: O:Codeunit::Microsoft#Purchases#Posting#Purch# Post Invoice Events
+name: '"Purch. Post Invoice Events"'
+uid: O:Codeunit::Microsoft#Purchases#Posting#Purch#_Post_Invoice_Events

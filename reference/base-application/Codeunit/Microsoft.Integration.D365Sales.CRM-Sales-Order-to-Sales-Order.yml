@@ -1,0 +1,155 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.D365Sales."CRM Sales Order to Sales Order"
+alId: ID 5343
+namespace: Microsoft.Integration.D365Sales
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.D365Sales
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: CRM Salesorder
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Integration#D365Sales#CRM_Salesorder
+    name: Microsoft.Integration.D365Sales."CRM Salesorder"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateInNAV(CRMSalesorder: Record "CRM Salesorder", var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateInNAV
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.CreateInNAV(CRM_Salesorder,Sales_Header@):Boolean
+- syntax:
+    content: 'procedure CreateExtendedDescriptionOrderLines(SalesHeader: Record "Sales Header", FullDescription: Text, SalesLineNo: Integer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FullDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateExtendedDescriptionOrderLines
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.CreateExtendedDescriptionOrderLines(Sales_Header,Text,Integer)
+- syntax:
+    content: 'procedure GetCRMSalesOrder(var CRMSalesorder: Record "CRM Salesorder", YourReference: Text[35]): Boolean'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: YourReference
+      parameterType:
+        name: Text[35]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCRMSalesOrder
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.GetCRMSalesOrder(CRM_Salesorder@,Text[35]):Boolean
+- syntax:
+    content: 'procedure GetCoupledCRMSalesorder(SalesHeader: Record "Sales Header", var CRMSalesorder: Record "CRM Salesorder")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+  name: GetCoupledCRMSalesorder
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.GetCoupledCRMSalesorder(Sales_Header,CRM_Salesorder@)
+- syntax:
+    content: 'procedure GetCoupledCustomer(CRMSalesorder: Record "CRM Salesorder", var Customer: Record Customer): Boolean'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCoupledCustomer
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.GetCoupledCustomer(CRM_Salesorder,Customer@):Boolean
+- syntax:
+    content: 'procedure GetCoupledSalesHeader(CRMSalesorder: Record "CRM Salesorder", var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCoupledSalesHeader
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.GetCoupledSalesHeader(CRM_Salesorder,Sales_Header@):Boolean
+- syntax:
+    content: 'procedure GetCRMAccountOfCRMSalesOrder(CRMSalesorder: Record "CRM Salesorder", var CRMAccount: Record "CRM Account"): Boolean'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: CRMAccount
+      parameterType:
+        name: Record "CRM Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCRMAccountOfCRMSalesOrder
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.GetCRMAccountOfCRMSalesOrder(CRM_Salesorder,CRM_Account@):Boolean
+- syntax:
+    content: 'procedure GetCRMContactOfCRMSalesOrder(CRMSalesorder: Record "CRM Salesorder", var CRMContact: Record "CRM Contact"): Boolean'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: CRMContact
+      parameterType:
+        name: Record "CRM Contact"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCRMContactOfCRMSalesOrder
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order.GetCRMContactOfCRMSalesOrder(CRM_Salesorder,CRM_Contact@):Boolean
+commentId: O:Codeunit::Microsoft#Integration#D365Sales#CRM Sales Order to Sales Order
+name: '"CRM Sales Order to Sales Order"'
+uid: O:Codeunit::Microsoft#Integration#D365Sales#CRM_Sales_Order_to_Sales_Order

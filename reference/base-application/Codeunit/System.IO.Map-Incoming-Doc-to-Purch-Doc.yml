@@ -1,0 +1,89 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.IO."Map Incoming Doc to Purch Doc"
+alId: ID 1218
+namespace: System.IO
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.IO
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Data Exch. Field" = d
+  promoted: false
+- name: TableNo
+  value: Data Exch.
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#IO#Data_Exch#
+    name: System.IO."Data Exch."
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetValueFromIntermediate(var IntermediateDataImport: Record "Intermediate Data Import", RecRef: RecordRef, FieldID: Integer, FieldName: Text): Text[250]'
+    parameters:
+    - id: IntermediateDataImport
+      parameterType:
+        name: Record "Intermediate Data Import"
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetValueFromIntermediate
+  uid: M:Codeunit::System#IO#Map_Incoming_Doc_to_Purch_Doc.GetValueFromIntermediate(Intermediate_Data_Import@,RecordRef,Integer,Text):Text[250]
+- syntax:
+    content: 'procedure ProcessField(TempInt: __MissingTypeSymbol__, RecRef: RecordRef, FieldNo: Integer, Value: Text[250])'
+    parameters:
+    - id: TempInt
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: ProcessField
+  uid: M:Codeunit::System#IO#Map_Incoming_Doc_to_Purch_Doc.ProcessField(__MissingSymbol__@,RecordRef,Integer,Text[250])
+- syntax:
+    content: 'procedure IsFieldProcessed(TempInt: __MissingTypeSymbol__, FieldID: Integer): Boolean'
+    parameters:
+    - id: TempInt
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsFieldProcessed
+  uid: M:Codeunit::System#IO#Map_Incoming_Doc_to_Purch_Doc.IsFieldProcessed(__MissingSymbol__@,Integer):Boolean
+commentId: O:Codeunit::System#IO#Map Incoming Doc to Purch Doc
+name: '"Map Incoming Doc to Purch Doc"'
+uid: O:Codeunit::System#IO#Map_Incoming_Doc_to_Purch_Doc

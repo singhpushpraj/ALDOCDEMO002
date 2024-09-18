@@ -1,0 +1,191 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Job."Job Calculate Statistics"
+alId: ID 1008
+namespace: Microsoft.Projects.Project.Job
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Job
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ReportAnalysis(var Job2: Record Job, var JT: Record "Job Task", var Amt: array[8] of Decimal, AmountField: array[8] of Option, CurrencyField: array[8] of Option, JobLevel: Boolean)'
+    parameters:
+    - id: Job2
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: JT
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: Amt
+      parameterType:
+        name: array[8] of Decimal
+        isExternal: true
+    - id: AmountField
+      parameterType:
+        name: array[8] of Option
+        isExternal: true
+    - id: CurrencyField
+      parameterType:
+        name: array[8] of Option
+        isExternal: true
+    - id: JobLevel
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ReportAnalysis
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.ReportAnalysis(Job@,Job_Task@,Decimal[]@,Option[],Option[],Boolean)
+- syntax:
+    content: 'procedure ReportSuggBilling(var Job2: Record Job, var JT: Record "Job Task", var Amt: array[8] of Decimal, CurrencyField: array[8] of Option)'
+    parameters:
+    - id: Job2
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: JT
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: Amt
+      parameterType:
+        name: array[8] of Decimal
+        isExternal: true
+    - id: CurrencyField
+      parameterType:
+        name: array[8] of Option
+        isExternal: true
+  name: ReportSuggBilling
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.ReportSuggBilling(Job@,Job_Task@,Decimal[]@,Option[])
+- syntax:
+    content: 'procedure RepJobCustomer(var Job2: Record Job, var Amt: array[8] of Decimal)'
+    parameters:
+    - id: Job2
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: Amt
+      parameterType:
+        name: array[8] of Decimal
+        isExternal: true
+  name: RepJobCustomer
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.RepJobCustomer(Job@,Decimal[]@)
+- syntax:
+    content: 'procedure JobCalculateCommonFilters(var Job: Record Job)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: JobCalculateCommonFilters
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.JobCalculateCommonFilters(Job@)
+- syntax:
+    content: 'procedure JTCalculateCommonFilters(var JT2: Record "Job Task", var Job2: Record Job, UseJobFilter: Boolean)'
+    parameters:
+    - id: JT2
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: Job2
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: UseJobFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: JTCalculateCommonFilters
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.JTCalculateCommonFilters(Job_Task@,Job@,Boolean)
+- syntax:
+    content: procedure CalculateAmounts()
+  name: CalculateAmounts
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.CalculateAmounts
+- syntax:
+    content: 'procedure GetLCYCostAmounts(var Amt: array[16] of Decimal)'
+    parameters:
+    - id: Amt
+      parameterType:
+        name: array[16] of Decimal
+        isExternal: true
+  name: GetLCYCostAmounts
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.GetLCYCostAmounts(Decimal[]@)
+- syntax:
+    content: 'procedure GetCostAmounts(var Amt: array[16] of Decimal)'
+    parameters:
+    - id: Amt
+      parameterType:
+        name: array[16] of Decimal
+        isExternal: true
+  name: GetCostAmounts
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.GetCostAmounts(Decimal[]@)
+- syntax:
+    content: 'procedure GetLCYPriceAmounts(var Amt: array[16] of Decimal)'
+    parameters:
+    - id: Amt
+      parameterType:
+        name: array[16] of Decimal
+        isExternal: true
+  name: GetLCYPriceAmounts
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.GetLCYPriceAmounts(Decimal[]@)
+- syntax:
+    content: 'procedure GetPriceAmounts(var Amt: array[16] of Decimal)'
+    parameters:
+    - id: Amt
+      parameterType:
+        name: array[16] of Decimal
+        isExternal: true
+  name: GetPriceAmounts
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.GetPriceAmounts(Decimal[]@)
+- syntax:
+    content: 'procedure ShowPlanningLine(JobType: Option, Schedule: Boolean)'
+    parameters:
+    - id: JobType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Schedule
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.ShowPlanningLine(Option,Boolean)
+- syntax:
+    content: 'procedure ShowLedgEntry(JobType: Option, Usage: Boolean)'
+    parameters:
+    - id: JobType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Usage
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowLedgEntry
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.ShowLedgEntry(Option,Boolean)
+- syntax:
+    content: 'procedure GetHeadLineText(AmountField: array[8] of Option, CurrencyField: array[8] of Option, var HeadLineText: array[8] of Text[50], Job: Record Job)'
+    parameters:
+    - id: AmountField
+      parameterType:
+        name: array[8] of Option
+        isExternal: true
+    - id: CurrencyField
+      parameterType:
+        name: array[8] of Option
+        isExternal: true
+    - id: HeadLineText
+      parameterType:
+        name: array[8] of Text[50]
+        isExternal: true
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: GetHeadLineText
+  uid: M:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics.GetHeadLineText(Option[],Option[],Text[50][]@,Job)
+commentId: O:Codeunit::Microsoft#Projects#Project#Job#Job Calculate Statistics
+name: '"Job Calculate Statistics"'
+uid: O:Codeunit::Microsoft#Projects#Project#Job#Job_Calculate_Statistics

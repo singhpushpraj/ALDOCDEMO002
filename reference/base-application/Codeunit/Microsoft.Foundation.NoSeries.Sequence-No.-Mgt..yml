@@ -1,0 +1,60 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.NoSeries."Sequence No. Mgt."
+alId: ID 9500
+namespace: Microsoft.Foundation.NoSeries
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.NoSeries
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: TableData "Interaction Log Entry" = r, Tabledata Attachment = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetNextSeqNo(TableNo: Integer): Integer'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextSeqNo
+  uid: M:Codeunit::Microsoft#Foundation#NoSeries#Sequence_No#_Mgt#.GetNextSeqNo(Integer):Integer
+- syntax:
+    content: 'procedure RebaseSeqNo(TableNo: Integer)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RebaseSeqNo
+  uid: M:Codeunit::Microsoft#Foundation#NoSeries#Sequence_No#_Mgt#.RebaseSeqNo(Integer)
+- syntax:
+    content: 'procedure GetTableSequenceName(TableNo: Integer): Text'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTableSequenceName
+  uid: M:Codeunit::Microsoft#Foundation#NoSeries#Sequence_No#_Mgt#.GetTableSequenceName(Integer):Text
+commentId: O:Codeunit::Microsoft#Foundation#NoSeries#Sequence No# Mgt#
+name: '"Sequence No. Mgt."'
+uid: O:Codeunit::Microsoft#Foundation#NoSeries#Sequence_No#_Mgt#

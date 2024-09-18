@@ -1,0 +1,93 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Currency."Update Currency Exchange Rates"
+alId: ID 1281
+namespace: Microsoft.Finance.Currency
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Currency
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Data Exch." = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GenerateTempDataFromService(var TempCurrencyExchangeRate: Record "Currency Exchange Rate" temporary, CurrExchRateUpdateSetup: Record "Curr. Exch. Rate Update Setup")'
+    parameters:
+    - id: TempCurrencyExchangeRate
+      parameterType:
+        name: Record "Currency Exchange Rate" temporary
+        isExternal: true
+    - id: CurrExchRateUpdateSetup
+      parameterType:
+        name: Record "Curr. Exch. Rate Update Setup"
+        isExternal: true
+  name: GenerateTempDataFromService
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.GenerateTempDataFromService(Currency_Exchange_Rate@,Curr#_Exch#_Rate_Update_Setup)
+- syntax:
+    content: 'procedure OpenCurrencyExchangeRatesPageFromNotification(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenCurrencyExchangeRatesPageFromNotification
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.OpenCurrencyExchangeRatesPageFromNotification(Notification)
+- syntax:
+    content: 'procedure DisableMissingExchangeRatesNotification(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DisableMissingExchangeRatesNotification
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.DisableMissingExchangeRatesNotification(Notification)
+- syntax:
+    content: 'procedure ShowMissingExchangeRatesNotification(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ShowMissingExchangeRatesNotification
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.ShowMissingExchangeRatesNotification(Code[10])
+- syntax:
+    content: 'procedure ExchangeRatesForCurrencyExist(Date: Date, CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ExchangeRatesForCurrencyExist
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.ExchangeRatesForCurrencyExist(Date,Code[10]):Boolean
+- syntax:
+    content: 'procedure OpenExchangeRatesPage(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OpenExchangeRatesPage
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.OpenExchangeRatesPage(Code[10])
+- syntax:
+    content: 'procedure GetMissingExchangeRatesNotificationID(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetMissingExchangeRatesNotificationID
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates.GetMissingExchangeRatesNotificationID:Guid
+commentId: O:Codeunit::Microsoft#Finance#Currency#Update Currency Exchange Rates
+name: '"Update Currency Exchange Rates"'
+uid: O:Codeunit::Microsoft#Finance#Currency#Update_Currency_Exchange_Rates

@@ -1,0 +1,327 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Posting."Purchase-Post Prepayments"
+alId: ID 444
+namespace: Microsoft.Purchases.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purchase Line" = rimd,
+                      TableData "G/L Register" = rimd,
+    #if not CLEAN23
+                      TableData "Invoice Post. Buffer" = rimd,
+    #endif
+                      TableData "Vendor Posting Group" = rimd,
+                      TableData "Inventory Posting Group" = rimd,
+                      TableData "Purch. Inv. Header" = rimd,
+                      TableData "Purch. Inv. Line" = rimd,
+                      TableData "Purch. Cr. Memo Hdr." = rimd,
+                      TableData "Purch. Cr. Memo Line" = rimd
+  promoted: false
+- name: TableNo
+  value: Purchase Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+    name: Microsoft.Purchases.Document."Purchase Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetDocumentType(DocumentType: Option)'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetDocumentType
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.SetDocumentType(Option)
+- syntax:
+    content: 'procedure Invoice(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: Invoice
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.Invoice(Purchase_Header@)
+- syntax:
+    content: 'procedure CreditMemo(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CreditMemo
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.CreditMemo(Purchase_Header@)
+- syntax:
+    content: 'procedure CheckPrepmtDoc(PurchHeader: Record "Purchase Header", DocumentType: Option)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CheckPrepmtDoc
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.CheckPrepmtDoc(Purchase_Header,Option)
+- syntax:
+    content: 'procedure CheckOpenPrepaymentLines(PurchHeader: Record "Purchase Header", DocumentType: Option): Boolean'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckOpenPrepaymentLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.CheckOpenPrepaymentLines(Purchase_Header,Option):Boolean
+- syntax:
+    content: 'procedure GetCorrBalAccNo(PurchHeader: Record "Purchase Header", PositiveAmount: Boolean): Code[20]'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PositiveAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCorrBalAccNo
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.GetCorrBalAccNo(Purchase_Header,Boolean):Code[20]
+- syntax:
+    content: 'procedure GetInvRoundingAccNo(VendorPostingGroup: Code[20]): Code[20]'
+    parameters:
+    - id: VendorPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetInvRoundingAccNo
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.GetInvRoundingAccNo(Code[20]):Code[20]
+- syntax:
+    content: 'procedure UpdateVATOnLines(PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", var VATAmountLine: Record "VAT Amount Line", DocumentType: Option)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateVATOnLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.UpdateVATOnLines(Purchase_Header,Purchase_Line@,VAT_Amount_Line@,Option)
+- syntax:
+    content: 'procedure CalcVATAmountLines(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", var VATAmountLine: Record "VAT Amount Line", DocumentType: Option)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.CalcVATAmountLines(Purchase_Header@,Purchase_Line@,VAT_Amount_Line@,Option)
+- syntax:
+    content: 'procedure SumPrepmt(PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", var VATAmountLine: Record "VAT Amount Line", var TotalAmount: Decimal, var TotalVATAmount: Decimal, var VATAmountText: Text[30])'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SumPrepmt
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.SumPrepmt(Purchase_Header,Purchase_Line@,VAT_Amount_Line@,Decimal@,Decimal@,Text[30]@)
+- syntax:
+    content: 'procedure GetPurchLines(PurchHeader: Record "Purchase Header", DocumentType: Option, var ToPurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: GetPurchLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.GetPurchLines(Purchase_Header,Option,Purchase_Line@)
+- syntax:
+    content: 'procedure BuildInvLineBuffer(PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", DocumentType: Option, var PrepmtInvLineBuf: Record "Prepayment Inv. Line Buffer")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PrepmtInvLineBuf
+      parameterType:
+        name: Record "Prepayment Inv. Line Buffer"
+        isExternal: true
+  name: BuildInvLineBuffer
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.BuildInvLineBuffer(Purchase_Header,Purchase_Line@,Option,Prepayment_Inv#_Line_Buffer@)
+- syntax:
+    content: 'procedure FillInvLineBuffer(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var PrepmtInvLineBuf: Record "Prepayment Inv. Line Buffer")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PrepmtInvLineBuf
+      parameterType:
+        name: Record "Prepayment Inv. Line Buffer"
+        isExternal: true
+  name: FillInvLineBuffer
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.FillInvLineBuffer(Purchase_Header,Purchase_Line,Prepayment_Inv#_Line_Buffer@)
+- syntax:
+    content: 'procedure PrepmtAmount(PurchLine: Record "Purchase Line", DocumentType: Option): Decimal'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: PrepmtAmount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.PrepmtAmount(Purchase_Line,Option):Decimal
+- syntax:
+    content: 'procedure UpdatePrepmtAmountOnPurchLines(PurchHeader: Record "Purchase Header", NewTotalPrepmtAmount: Decimal)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: NewTotalPrepmtAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdatePrepmtAmountOnPurchLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.UpdatePrepmtAmountOnPurchLines(Purchase_Header,Decimal)
+- syntax:
+    content: 'procedure GetPurchLinesToDeduct(PurchHeader: Record "Purchase Header", var PurchLines: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLines
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: GetPurchLinesToDeduct
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.GetPurchLinesToDeduct(Purchase_Header,Purchase_Line@)
+- syntax:
+    content: 'procedure GetPreviewMode(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPreviewMode
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.GetPreviewMode:Boolean
+- syntax:
+    content: 'procedure GetSuppressCommit(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSuppressCommit
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.GetSuppressCommit:Boolean
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments.SetPreviewMode(Boolean)
+commentId: O:Codeunit::Microsoft#Purchases#Posting#Purchase-Post Prepayments
+name: '"Purchase-Post Prepayments"'
+uid: O:Codeunit::Microsoft#Purchases#Posting#Purchase-Post_Prepayments

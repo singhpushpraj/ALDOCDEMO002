@@ -1,0 +1,120 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Payment."Payment Export Mgt"
+alId: ID 1210
+namespace: Microsoft.Bank.Payment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Payment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Gen. Journal Line" = rm,
+                      TableData "Data Exch." = rimd,
+                      TableData "Data Exch. Field" = rimd,
+                      TableData "Payment Export Data" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateDataExch(var DataExch: Record "Data Exch.", BankAccountCode: Code[20])'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: BankAccountCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateDataExch
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt.CreateDataExch(Data_Exch#@,Code[20])
+- syntax:
+    content: 'procedure CreatePaymentLines(var PaymentExportData: Record "Payment Export Data")'
+    parameters:
+    - id: PaymentExportData
+      parameterType:
+        name: Record "Payment Export Data"
+        isExternal: true
+  name: CreatePaymentLines
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt.CreatePaymentLines(Payment_Export_Data@)
+- syntax:
+    content: 'procedure ProcessColumnMapping(DataExch: Record "Data Exch.", RecRef: RecordRef, LineNo: Integer, DataExchLineDefCode: Code[20], TableID: Integer)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DataExchLineDefCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ProcessColumnMapping
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt.ProcessColumnMapping(Data_Exch#,RecordRef,Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure ProcessColumnMapping(var DataExch: Record "Data Exch.", RecRef: RecordRef, var DataExchFlowFieldGrBuff: Record "Data Exch. FlowField Gr. Buff." temporary, LineNo: Integer, DataExchLineDefCode: Code[20], TableID: Integer)'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DataExchFlowFieldGrBuff
+      parameterType:
+        name: Record "Data Exch. FlowField Gr. Buff." temporary
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DataExchLineDefCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ProcessColumnMapping
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt.ProcessColumnMapping(Data_Exch#@,RecordRef,Data_Exch#_FlowField_Gr#_Buff#@,Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure EnableExportToServerTempFile(NewMode: Boolean, NewExtension: Text[3])'
+    parameters:
+    - id: NewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewExtension
+      parameterType:
+        name: Text[3]
+        isExternal: true
+  name: EnableExportToServerTempFile
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt.EnableExportToServerTempFile(Boolean,Text[3])
+- syntax:
+    content: 'procedure GetServerTempFileName(): Text[1024]'
+    return:
+      returnType:
+        name: Text[1024]
+        isExternal: true
+  name: GetServerTempFileName
+  uid: M:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt.GetServerTempFileName:Text[1024]
+commentId: O:Codeunit::Microsoft#Bank#Payment#Payment Export Mgt
+name: '"Payment Export Mgt"'
+uid: O:Codeunit::Microsoft#Bank#Payment#Payment_Export_Mgt

@@ -1,0 +1,165 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities.MoveEntries
+alId: ID 361
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rm,
+                      TableData "Cust. Ledger Entry" = rm,
+                      tabledata "Detailed Cust. Ledg. Entry" = rm,
+                      TableData "Vendor Ledger Entry" = rm,
+                      tabledata "Detailed Vendor Ledg. Entry" = rm,
+                      TableData "Item Ledger Entry" = rm,
+                      TableData "Job Ledger Entry" = rm,
+                      TableData "Res. Ledger Entry" = rm,
+                      TableData "Bank Account Ledger Entry" = rm,
+                      TableData "Check Ledger Entry" = rm,
+                      TableData "Reminder/Fin. Charge Entry" = rm,
+                      TableData "Value Entry" = rm,
+                      TableData "Avg. Cost Adjmt. Entry Point" = rd,
+                      TableData "Inventory Adjmt. Entry (Order)" = rm,
+                      TableData "Service Ledger Entry" = rm,
+                      TableData "Warranty Ledger Entry" = rm,
+                      TableData "Service Contract Header" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure MoveGLEntries(GLAcc: Record "G/L Account")'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+  name: MoveGLEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveGLEntries(G/L_Account)
+- syntax:
+    content: 'procedure MoveCustEntries(Cust: Record Customer)'
+    parameters:
+    - id: Cust
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: MoveCustEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveCustEntries(Customer)
+- syntax:
+    content: 'procedure MoveVendorEntries(Vend: Record Vendor)'
+    parameters:
+    - id: Vend
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: MoveVendorEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveVendorEntries(Vendor)
+- syntax:
+    content: 'procedure MoveBankAccEntries(BankAcc: Record "Bank Account")'
+    parameters:
+    - id: BankAcc
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+  name: MoveBankAccEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveBankAccEntries(Bank_Account)
+- syntax:
+    content: 'procedure MoveItemEntries(Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: MoveItemEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveItemEntries(Item)
+- syntax:
+    content: 'procedure MoveResEntries(Res: Record Resource)'
+    parameters:
+    - id: Res
+      parameterType:
+        name: Record Resource
+        isExternal: true
+  name: MoveResEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveResEntries(Resource)
+- syntax:
+    content: 'procedure MoveJobEntries(Job: Record Job)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: MoveJobEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveJobEntries(Job)
+- syntax:
+    content: 'procedure MoveServiceItemLedgerEntries(ServiceItem: Record "Service Item")'
+    parameters:
+    - id: ServiceItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+  name: MoveServiceItemLedgerEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveServiceItemLedgerEntries(Service_Item)
+- syntax:
+    content: 'procedure MoveServContractLedgerEntries(ServiceContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: MoveServContractLedgerEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveServContractLedgerEntries(Service_Contract_Header)
+- syntax:
+    content: 'procedure MoveServiceCostLedgerEntries(ServiceCost: Record "Service Cost")'
+    parameters:
+    - id: ServiceCost
+      parameterType:
+        name: Record "Service Cost"
+        isExternal: true
+  name: MoveServiceCostLedgerEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveServiceCostLedgerEntries(Service_Cost)
+- syntax:
+    content: 'procedure MoveCashFlowEntries(CashFlowAccount: Record "Cash Flow Account")'
+    parameters:
+    - id: CashFlowAccount
+      parameterType:
+        name: Record "Cash Flow Account"
+        isExternal: true
+  name: MoveCashFlowEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveCashFlowEntries(Cash_Flow_Account)
+- syntax:
+    content: 'procedure MoveDocRelatedEntries(TableNo: Integer, DocNo: Code[20])'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MoveDocRelatedEntries
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.MoveDocRelatedEntries(Integer,Code[20])
+- syntax:
+    content: 'procedure CheckIfServiceItemCanBeDeleted(var ServiceLedgerEntry: Record "Service Ledger Entry", ServiceItemNo: Code[20]): Text'
+    parameters:
+    - id: ServiceLedgerEntry
+      parameterType:
+        name: Record "Service Ledger Entry"
+        isExternal: true
+    - id: ServiceItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: CheckIfServiceItemCanBeDeleted
+  uid: M:Codeunit::Microsoft#Utilities#MoveEntries.CheckIfServiceItemCanBeDeleted(Service_Ledger_Entry@,Code[20]):Text
+commentId: O:Codeunit::Microsoft#Utilities#MoveEntries
+name: MoveEntries
+uid: O:Codeunit::Microsoft#Utilities#MoveEntries

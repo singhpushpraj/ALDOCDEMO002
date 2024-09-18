@@ -1,0 +1,239 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration."Data Migration Mgt."
+alId: ID 1798
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure RunStagingTableMigrationCodeunit(CodeunitToRun: Integer, StagingTableEntityVariant: Variant): Boolean'
+    parameters:
+    - id: CodeunitToRun
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StagingTableEntityVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RunStagingTableMigrationCodeunit
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.RunStagingTableMigrationCodeunit(Integer,Variant):Boolean
+- syntax:
+    content: 'procedure SetStartTime(Value: DateTime)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SetStartTime
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.SetStartTime(DateTime)
+- syntax:
+    content: 'procedure SetAbortStatus(var DataMigrationStatus: Record "Data Migration Status")'
+    parameters:
+    - id: DataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+  name: SetAbortStatus
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.SetAbortStatus(Data_Migration_Status@)
+- syntax:
+    content: 'procedure StartMigration(MigrationType: Text[250], Retry: Boolean)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: Retry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: StartMigration
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.StartMigration(Text[250],Boolean)
+- syntax:
+    content: 'procedure CheckMigrationInProgress(Retry: Boolean)'
+    parameters:
+    - id: Retry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckMigrationInProgress
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.CheckMigrationInProgress(Boolean)
+- syntax:
+    content: 'procedure GetMigrationStatus(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetMigrationStatus
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.GetMigrationStatus:Integer
+- syntax:
+    content: 'procedure StartDataMigrationWizardFromNotification(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: StartDataMigrationWizardFromNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.StartDataMigrationWizardFromNotification(Notification)
+- syntax:
+    content: procedure ShowDataMigrationRelatedGlobalNotifications()
+  name: ShowDataMigrationRelatedGlobalNotifications
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.ShowDataMigrationRelatedGlobalNotifications
+- syntax:
+    content: 'procedure ShowDataMigrationOverviewFromNotification(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowDataMigrationOverviewFromNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.ShowDataMigrationOverviewFromNotification(Notification)
+- syntax:
+    content: 'procedure IsMigrationInProgress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsMigrationInProgress
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.IsMigrationInProgress:Boolean
+- syntax:
+    content: 'procedure ShowMoreInfoPage(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowMoreInfoPage
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.ShowMoreInfoPage(Notification)
+- syntax:
+    content: 'procedure CheckForEntitiesToBePosted(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckForEntitiesToBePosted
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.CheckForEntitiesToBePosted:Boolean
+- syntax:
+    content: 'procedure DestTableHasAnyTransactions(var DataMigrationStatus: Record "Data Migration Status", var JournalBatchName: Code[10]): Boolean'
+    parameters:
+    - id: DataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+    - id: JournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DestTableHasAnyTransactions
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.DestTableHasAnyTransactions(Data_Migration_Status@,Code[10]@):Boolean
+- syntax:
+    content: 'procedure GetDataMigrationHelpTopicURL(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetDataMigrationHelpTopicURL
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.GetDataMigrationHelpTopicURL:Text
+- syntax:
+    content: 'procedure InsertDefaultCustomerContactNotification(Enabled: Boolean)'
+    parameters:
+    - id: Enabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertDefaultCustomerContactNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.InsertDefaultCustomerContactNotification(Boolean)
+- syntax:
+    content: 'procedure InsertDefaultVendorContactNotification(Enabled: Boolean)'
+    parameters:
+    - id: Enabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertDefaultVendorContactNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.InsertDefaultVendorContactNotification(Boolean)
+- syntax:
+    content: 'procedure InsertDefaultCustomerListEmptyNotification(Enabled: Boolean)'
+    parameters:
+    - id: Enabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertDefaultCustomerListEmptyNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.InsertDefaultCustomerListEmptyNotification(Boolean)
+- syntax:
+    content: 'procedure InsertDefaultVendorListEmptyNotification(Enabled: Boolean)'
+    parameters:
+    - id: Enabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertDefaultVendorListEmptyNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.InsertDefaultVendorListEmptyNotification(Boolean)
+- syntax:
+    content: 'procedure InsertDefaultItemListEmptyNotification(Enabled: Boolean)'
+    parameters:
+    - id: Enabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertDefaultItemListEmptyNotification
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.InsertDefaultItemListEmptyNotification(Boolean)
+- syntax:
+    content: 'procedure UpdateMigrationStatus(var DataMigrationStatus: Record "Data Migration Status")'
+    parameters:
+    - id: DataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+  name: UpdateMigrationStatus
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.UpdateMigrationStatus(Data_Migration_Status@)
+- syntax:
+    content: 'procedure CheckIfMigrationIsCompleted(CurrentDataMigrationStatus: Record "Data Migration Status")'
+    parameters:
+    - id: CurrentDataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+  name: CheckIfMigrationIsCompleted
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.CheckIfMigrationIsCompleted(Data_Migration_Status)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCreatePostMigrationData(var DataMigrationStatus: Record "Data Migration Status", var DataCreationFailed: Boolean)'
+    parameters:
+    - id: DataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+    - id: DataCreationFailed
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnCreatePostMigrationData
+  uid: M:Codeunit::System#Integration#Data_Migration_Mgt#.OnCreatePostMigrationData(Data_Migration_Status@,Boolean@)
+commentId: O:Codeunit::System#Integration#Data Migration Mgt#
+name: '"Data Migration Mgt."'
+uid: O:Codeunit::System#Integration#Data_Migration_Mgt#

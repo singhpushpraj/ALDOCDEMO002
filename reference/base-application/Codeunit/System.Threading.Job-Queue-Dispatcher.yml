@@ -1,0 +1,103 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Threading."Job Queue Dispatcher"
+alId: ID 448
+namespace: System.Threading
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Threading
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Job Queue Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure WaitForOthersWithSameCategory(var CurrJobQueueEntry: Record "Job Queue Entry"): Boolean'
+    parameters:
+    - id: CurrJobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WaitForOthersWithSameCategory
+  uid: M:Codeunit::System#Threading#Job_Queue_Dispatcher.WaitForOthersWithSameCategory(Job_Queue_Entry@):Boolean
+- syntax:
+    content: 'procedure CalcNextRunTimeForRecurringJob(var JobQueueEntry: Record "Job Queue Entry", StartingDateTime: DateTime): DateTime'
+    parameters:
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+    - id: StartingDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: CalcNextRunTimeForRecurringJob
+  uid: M:Codeunit::System#Threading#Job_Queue_Dispatcher.CalcNextRunTimeForRecurringJob(Job_Queue_Entry@,DateTime):DateTime
+- syntax:
+    content: 'procedure CalcNextRunTimeHoldDuetoInactivityJob(var JobQueueEntry: Record "Job Queue Entry", StartingDateTime: DateTime): DateTime'
+    parameters:
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+    - id: StartingDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: CalcNextRunTimeHoldDuetoInactivityJob
+  uid: M:Codeunit::System#Threading#Job_Queue_Dispatcher.CalcNextRunTimeHoldDuetoInactivityJob(Job_Queue_Entry@,DateTime):DateTime
+- syntax:
+    content: 'procedure CalcNextReadyStateMoment(JobQueueEntry: Record "Job Queue Entry"): DateTime'
+    parameters:
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: CalcNextReadyStateMoment
+  uid: M:Codeunit::System#Threading#Job_Queue_Dispatcher.CalcNextReadyStateMoment(Job_Queue_Entry):DateTime
+- syntax:
+    content: 'procedure CalcInitialRunTime(var JobQueueEntry: Record "Job Queue Entry", StartingDateTime: DateTime): DateTime'
+    parameters:
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+    - id: StartingDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: CalcInitialRunTime
+  uid: M:Codeunit::System#Threading#Job_Queue_Dispatcher.CalcInitialRunTime(Job_Queue_Entry@,DateTime):DateTime
+commentId: O:Codeunit::System#Threading#Job Queue Dispatcher
+name: '"Job Queue Dispatcher"'
+uid: O:Codeunit::System#Threading#Job_Queue_Dispatcher

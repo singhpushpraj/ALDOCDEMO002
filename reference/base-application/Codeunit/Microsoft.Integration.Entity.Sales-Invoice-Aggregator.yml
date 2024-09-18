@@ -1,0 +1,250 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Entity."Sales Invoice Aggregator"
+alId: ID 5477
+namespace: Microsoft.Integration.Entity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Entity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "Sales Invoice Header" = rimd,
+                      tabledata "Sales Invoice Entity Aggregate" = RM
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PropagateOnInsert(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate", var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateOnInsert
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateOnInsert(Sales_Invoice_Entity_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateOnModify(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate", var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateOnModify
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateOnModify(Sales_Invoice_Entity_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateOnDelete(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate")'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+  name: PropagateOnDelete
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateOnDelete(Sales_Invoice_Entity_Aggregate@)
+- syntax:
+    content: procedure UpdateAggregateTableRecords()
+  name: UpdateAggregateTableRecords
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.UpdateAggregateTableRecords
+- syntax:
+    content: 'procedure GetSalesInvoiceHeaderId(var SalesInvoiceHeader: Record "Sales Invoice Header"): Guid'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetSalesInvoiceHeaderId
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.GetSalesInvoiceHeaderId(Sales_Invoice_Header@):Guid
+- syntax:
+    content: 'procedure GetSalesInvoiceHeaderFromId(Id: Text, var SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSalesInvoiceHeaderFromId
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.GetSalesInvoiceHeaderFromId(Text,Sales_Invoice_Header@):Boolean
+- syntax:
+    content: 'procedure SetTaxGroupIdAndCode(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary, TaxGroupCode: Code[20], VATProductPostingGroupCode: Code[20], VATIdentifier: Code[20])'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProductPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATIdentifier
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetTaxGroupIdAndCode
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.SetTaxGroupIdAndCode(Sales_Invoice_Line_Aggregate@,Code[20],Code[20],Code[20])
+- syntax:
+    content: 'procedure SetItemVariantId(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary, ItemNo: Code[20], VariantCode: Code[20])'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetItemVariantId
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.SetItemVariantId(Sales_Invoice_Line_Aggregate@,Code[20],Code[20])
+- syntax:
+    content: 'procedure UpdateUnitOfMeasure(var Item: Record Item, JSONUnitOfMeasureTxt: Text)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: JSONUnitOfMeasureTxt
+      parameterType:
+        name: Text
+        isExternal: true
+  name: UpdateUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.UpdateUnitOfMeasure(Item@,Text)
+- syntax:
+    content: 'procedure RedistributeInvoiceDiscounts(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate")'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+  name: RedistributeInvoiceDiscounts
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.RedistributeInvoiceDiscounts(Sales_Invoice_Entity_Aggregate@)
+- syntax:
+    content: 'procedure LoadLines(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary, DocumentIdFilter: Text)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+    - id: DocumentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LoadLines
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.LoadLines(Sales_Invoice_Line_Aggregate@,Text)
+- syntax:
+    content: 'procedure TransferFromSalesLineToAggregateLine(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary, var SalesLine: Record "Sales Line", DocumentId: Guid, PricesIncludingVAT: Boolean)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: DocumentId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: PricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferFromSalesLineToAggregateLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.TransferFromSalesLineToAggregateLine(Sales_Invoice_Line_Aggregate@,Sales_Line@,Guid,Boolean)
+- syntax:
+    content: 'procedure PropagateInsertLine(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateInsertLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateInsertLine(Sales_Invoice_Line_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateModifyLine(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateModifyLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateModifyLine(Sales_Invoice_Line_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateDeleteLine(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+  name: PropagateDeleteLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateDeleteLine(Sales_Invoice_Line_Aggregate@)
+- syntax:
+    content: 'procedure PropagateMultipleLinesUpdate(var TempNewSalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary)'
+    parameters:
+    - id: TempNewSalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+  name: PropagateMultipleLinesUpdate
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.PropagateMultipleLinesUpdate(Sales_Invoice_Line_Aggregate@)
+- syntax:
+    content: 'procedure UpdateInvoiceDiscountAmount(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+  name: UpdateInvoiceDiscountAmount
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.UpdateInvoiceDiscountAmount(Sales_Invoice_Line_Aggregate@)
+- syntax:
+    content: 'procedure VerifyCanUpdateUOM(var SalesInvoiceLineAggregate: Record "Sales Invoice Line Aggregate" temporary)'
+    parameters:
+    - id: SalesInvoiceLineAggregate
+      parameterType:
+        name: Record "Sales Invoice Line Aggregate" temporary
+        isExternal: true
+  name: VerifyCanUpdateUOM
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.VerifyCanUpdateUOM(Sales_Invoice_Line_Aggregate@)
+- syntax:
+    content: procedure FixInvoicesCreatedFromOrders()
+  name: FixInvoicesCreatedFromOrders
+  uid: M:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator.FixInvoicesCreatedFromOrders
+commentId: O:Codeunit::Microsoft#Integration#Entity#Sales Invoice Aggregator
+name: '"Sales Invoice Aggregator"'
+uid: O:Codeunit::Microsoft#Integration#Entity#Sales_Invoice_Aggregator

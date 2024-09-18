@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment.Configuration."Profile Helper"
+alId: ID 9173
+namespace: System.Environment.Configuration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment.Configuration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ImportProfileConfigurationPackage(ServerFileName: Text)'
+    parameters:
+    - id: ServerFileName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ImportProfileConfigurationPackage
+  uid: M:Codeunit::System#Environment#Configuration#Profile_Helper.ImportProfileConfigurationPackage(Text)
+- syntax:
+    content: 'procedure ReadProfilesFromPackage(var TempProfileImport: Record "Profile Import" temporary, var ImportID: Guid): Boolean'
+    parameters:
+    - id: TempProfileImport
+      parameterType:
+        name: Record "Profile Import" temporary
+        isExternal: true
+    - id: ImportID
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReadProfilesFromPackage
+  uid: M:Codeunit::System#Environment#Configuration#Profile_Helper.ReadProfilesFromPackage(Profile_Import@,Guid@):Boolean
+- syntax:
+    content: 'procedure ImportProfiles(var TempProfileImport: Record "Profile Import" temporary): Guid'
+    parameters:
+    - id: TempProfileImport
+      description: ""
+      parameterType:
+        name: Record "Profile Import" temporary
+        isExternal: true
+    return:
+      description: Guid representing the import diagnostics ID
+      returnType:
+        name: Guid
+        isExternal: true
+  summary: Given a read profile package, this function will import the profiles specified from that package
+  name: ImportProfiles
+  uid: M:Codeunit::System#Environment#Configuration#Profile_Helper.ImportProfiles(Profile_Import@):Guid
+- syntax:
+    content: 'procedure ShowProfileDiagnostics(DiagnosticsNotification: Notification)'
+    parameters:
+    - id: DiagnosticsNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowProfileDiagnostics
+  uid: M:Codeunit::System#Environment#Configuration#Profile_Helper.ShowProfileDiagnostics(Notification)
+commentId: O:Codeunit::System#Environment#Configuration#Profile Helper
+name: '"Profile Helper"'
+uid: O:Codeunit::System#Environment#Configuration#Profile_Helper

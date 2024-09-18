@@ -1,0 +1,91 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.D365Sales."CRM Quote to Sales Quote"
+alId: ID 5348
+namespace: Microsoft.Integration.D365Sales
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.D365Sales
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: CRM Quote
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Integration#D365Sales#CRM_Quote
+    name: Microsoft.Integration.D365Sales."CRM Quote"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ProcessInNAV(CRMQuote: Record "CRM Quote", var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: CRMQuote
+      parameterType:
+        name: Record "CRM Quote"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ProcessInNAV
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Quote_to_Sales_Quote.ProcessInNAV(CRM_Quote,Sales_Header@):Boolean
+- syntax:
+    content: 'procedure GetCoupledCustomer(CRMQuote: Record "CRM Quote", var Customer: Record Customer): Boolean'
+    parameters:
+    - id: CRMQuote
+      parameterType:
+        name: Record "CRM Quote"
+        isExternal: true
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCoupledCustomer
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Quote_to_Sales_Quote.GetCoupledCustomer(CRM_Quote,Customer@):Boolean
+- syntax:
+    content: 'procedure GetCRMAccountOfCRMQuote(CRMQuote: Record "CRM Quote", var CRMAccount: Record "CRM Account"): Boolean'
+    parameters:
+    - id: CRMQuote
+      parameterType:
+        name: Record "CRM Quote"
+        isExternal: true
+    - id: CRMAccount
+      parameterType:
+        name: Record "CRM Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCRMAccountOfCRMQuote
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Quote_to_Sales_Quote.GetCRMAccountOfCRMQuote(CRM_Quote,CRM_Account@):Boolean
+- syntax:
+    content: 'procedure CreateExtendedDescriptionQuoteLines(SalesHeader: Record "Sales Header", FullDescription: Text, QuoteLineNo: Integer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FullDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: QuoteLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateExtendedDescriptionQuoteLines
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Quote_to_Sales_Quote.CreateExtendedDescriptionQuoteLines(Sales_Header,Text,Integer)
+commentId: O:Codeunit::Microsoft#Integration#D365Sales#CRM Quote to Sales Quote
+name: '"CRM Quote to Sales Quote"'
+uid: O:Codeunit::Microsoft#Integration#D365Sales#CRM_Quote_to_Sales_Quote

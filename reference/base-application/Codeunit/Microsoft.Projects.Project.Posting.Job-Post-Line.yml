@@ -1,0 +1,224 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Posting."Job Post-Line"
+alId: ID 1001
+namespace: Microsoft.Projects.Project.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Job Ledger Entry" = rm,
+                      TableData "Job Planning Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertPlLineFromLedgEntry(var JobLedgEntry: Record "Job Ledger Entry")'
+    parameters:
+    - id: JobLedgEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+  name: InsertPlLineFromLedgEntry
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.InsertPlLineFromLedgEntry(Job_Ledger_Entry@)
+- syntax:
+    content: 'procedure PostPlanningLine(var JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: PostPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostPlanningLine(Job_Planning_Line@)
+- syntax:
+    content: 'procedure PostInvoiceContractLine(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: PostInvoiceContractLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostInvoiceContractLine(Sales_Header,Sales_Line)
+- syntax:
+    content: 'procedure PostJobOnSalesLine(JobPlanningLine: Record "Job Planning Line", SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", EntryType: Enum "Job Journal Line Entry Type")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Projects#Project#Journal#Job_Journal_Line_Entry_Type
+        name: Microsoft.Projects.Project.Journal."Job Journal Line Entry Type"
+        isExternal: false
+  name: PostJobOnSalesLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostJobOnSalesLine(Job_Planning_Line,Sales_Header,Sales_Line,Enum::Microsoft#Projects#Project#Journal#Job_Journal_Line_Entry_Type)
+- syntax:
+    content: 'procedure CalcLineAmountLCY(JobPlanningLine: Record "Job Planning Line", Qty: Decimal): Decimal'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineAmountLCY
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.CalcLineAmountLCY(Job_Planning_Line,Decimal):Decimal
+- syntax:
+    content: 'procedure PostGenJnlLine(GenJnlLine: Record "Gen. Journal Line", GLEntry: Record "G/L Entry")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+  name: PostGenJnlLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostGenJnlLine(Gen#_Journal_Line,G/L_Entry)
+- syntax:
+    content: 'procedure PostJobOnPurchaseLine(var PurchHeader: Record "Purchase Header", var PurchInvHeader: Record "Purch. Inv. Header", var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.", PurchLine: Record "Purchase Line", SourceCode: Code[10])'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: PostJobOnPurchaseLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostJobOnPurchaseLine(Purchase_Header@,Purch#_Inv#_Header@,Purch#_Cr#_Memo_Hdr#@,Purchase_Line,Code[10])
+- syntax:
+    content: 'procedure TestSalesLine(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: TestSalesLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.TestSalesLine(Sales_Line@)
+- syntax:
+    content: 'procedure ChangeGLAccNo(var JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: ChangeGLAccNo
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.ChangeGLAccNo(Job_Planning_Line@)
+- syntax:
+    content: 'procedure CheckItemQuantityPurchCredit(var PurchaseHeader: Record "Purchase Header", var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CheckItemQuantityPurchCredit
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.CheckItemQuantityPurchCredit(Purchase_Header@,Purchase_Line@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by PostJobPurchaseLines().,19.0)]'
+    content: 'procedure PostPurchaseGLAccounts(TempInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, GLEntryNo: Integer)'
+    parameters:
+    - id: TempInvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PostPurchaseGLAccounts
+  obsoletion:
+    state: pending
+    reason: Replaced by PostJobPurchaseLines().
+    version: "19.0"
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostPurchaseGLAccounts(Invoice_Post#_Buffer,Integer)
+- syntax:
+    content: 'procedure PostJobPurchaseLines(JobLineFilters: Text, GLEntryNo: Integer)'
+    parameters:
+    - id: JobLineFilters
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PostJobPurchaseLines
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostJobPurchaseLines(Text,Integer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by PostJobSalesLines().,19.0)]'
+    content: 'procedure PostSalesGLAccounts(TempInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, GLEntryNo: Integer)'
+    parameters:
+    - id: TempInvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PostSalesGLAccounts
+  obsoletion:
+    state: pending
+    reason: Replaced by PostJobSalesLines().
+    version: "19.0"
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostSalesGLAccounts(Invoice_Post#_Buffer,Integer)
+- syntax:
+    content: 'procedure PostJobSalesLines(JobLineFilters: Text, GLEntryNo: Integer)'
+    parameters:
+    - id: JobLineFilters
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PostJobSalesLines
+  uid: M:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line.PostJobSalesLines(Text,Integer)
+commentId: O:Codeunit::Microsoft#Projects#Project#Posting#Job Post-Line
+name: '"Job Post-Line"'
+uid: O:Codeunit::Microsoft#Projects#Project#Posting#Job_Post-Line

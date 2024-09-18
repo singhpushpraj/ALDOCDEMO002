@@ -1,0 +1,78 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.ProductionBOM.VersionManagement
+alId: ID 99000756
+namespace: Microsoft.Manufacturing.ProductionBOM
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.ProductionBOM
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Production BOM Header" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetBOMVersion(BOMHeaderNo: Code[20], Date: Date, OnlyCertified: Boolean): Code[20]'
+    parameters:
+    - id: BOMHeaderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OnlyCertified
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetBOMVersion
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#VersionManagement.GetBOMVersion(Code[20],Date,Boolean):Code[20]
+- syntax:
+    content: 'procedure GetBOMUnitOfMeasure(BOMHeaderNo: Code[20], VersionCode: Code[20]): Code[10]'
+    parameters:
+    - id: BOMHeaderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetBOMUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#VersionManagement.GetBOMUnitOfMeasure(Code[20],Code[20]):Code[10]
+- syntax:
+    content: 'procedure GetRtngVersion(RoutingNo: Code[20], Date: Date, OnlyCertified: Boolean): Code[20]'
+    parameters:
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OnlyCertified
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetRtngVersion
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#VersionManagement.GetRtngVersion(Code[20],Date,Boolean):Code[20]
+commentId: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#VersionManagement
+name: VersionManagement
+uid: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#VersionManagement

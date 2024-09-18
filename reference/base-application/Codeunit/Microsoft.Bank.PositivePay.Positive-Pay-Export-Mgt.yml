@@ -1,0 +1,53 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.PositivePay."Positive Pay Export Mgt"
+alId: ID 1711
+namespace: Microsoft.Bank.PositivePay
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.PositivePay
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Data Exch." = rimd,
+                      TableData "Data Exch. Field" = rimd,
+                      TableData "Positive Pay Header" = rimd,
+                      TableData "Positive Pay Footer" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PreparePosPayHeader(DataExch: Record "Data Exch.", BankAccountNo: Text[30])'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: BankAccountNo
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: PreparePosPayHeader
+  uid: M:Codeunit::Microsoft#Bank#PositivePay#Positive_Pay_Export_Mgt.PreparePosPayHeader(Data_Exch#,Text[30])
+- syntax:
+    content: 'procedure PreparePosPayFooter(DataExch: Record "Data Exch.", DataExchDetalEntryNo: Integer, BankAccountNo: Text[30])'
+    parameters:
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    - id: DataExchDetalEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BankAccountNo
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: PreparePosPayFooter
+  uid: M:Codeunit::Microsoft#Bank#PositivePay#Positive_Pay_Export_Mgt.PreparePosPayFooter(Data_Exch#,Integer,Text[30])
+commentId: O:Codeunit::Microsoft#Bank#PositivePay#Positive Pay Export Mgt
+name: '"Positive Pay Export Mgt"'
+uid: O:Codeunit::Microsoft#Bank#PositivePay#Positive_Pay_Export_Mgt

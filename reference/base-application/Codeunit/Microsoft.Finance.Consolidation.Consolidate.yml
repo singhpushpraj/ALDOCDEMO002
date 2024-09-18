@@ -1,0 +1,287 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Consolidation.Consolidate
+alId: ID 432
+namespace: Microsoft.Finance.Consolidation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Consolidation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rimd,
+                        tabledata "Analysis View" = r
+  promoted: false
+- name: TableNo
+  value: Business Unit
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#Consolidation#Business_Unit
+    name: Microsoft.Finance.Consolidation."Business Unit"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetDocNo(NewDocNo: Code[20])'
+    parameters:
+    - id: NewDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetDocNo
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.SetDocNo(Code[20])
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.SetGenJnlBatch(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure SetSelectedDim(var SelectedDim: Record "Selected Dimension")'
+    parameters:
+    - id: SelectedDim
+      parameterType:
+        name: Record "Selected Dimension"
+        isExternal: true
+  name: SetSelectedDim
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.SetSelectedDim(Selected_Dimension@)
+- syntax:
+    content: 'procedure SetGlobals(NewProductVersion: Code[10], NewFormatVersion: Code[10], NewCompanyName: Text[30], NewCurrencyLCY: Code[10], NewCurrencyACY: Code[10], NewCurrencyPCY: Code[10], NewCheckSum: Decimal, NewStartingDate: Date, NewEndingDate: Date)'
+    parameters:
+    - id: NewProductVersion
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewFormatVersion
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewCompanyName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: NewCurrencyLCY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewCurrencyACY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewCurrencyPCY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewCheckSum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewStartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetGlobals
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.SetGlobals(Code[10],Code[10],Text[30],Code[10],Code[10],Code[10],Decimal,Date,Date)
+- syntax:
+    content: 'procedure InsertGLAccount(NewGLAccount: Record "G/L Account")'
+    parameters:
+    - id: NewGLAccount
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+  name: InsertGLAccount
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.InsertGLAccount(G/L_Account)
+- syntax:
+    content: 'procedure InsertGLEntry(NewGLEntry: Record "G/L Entry"): Integer'
+    parameters:
+    - id: NewGLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertGLEntry
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.InsertGLEntry(G/L_Entry):Integer
+- syntax:
+    content: 'procedure InsertEntryDim(NewDimBuf: Record "Dimension Buffer", GLEntryNo: Integer)'
+    parameters:
+    - id: NewDimBuf
+      parameterType:
+        name: Record "Dimension Buffer"
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertEntryDim
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.InsertEntryDim(Dimension_Buffer,Integer)
+- syntax:
+    content: 'procedure InsertExchRate(NewCurrExchRate: Record "Currency Exchange Rate")'
+    parameters:
+    - id: NewCurrExchRate
+      parameterType:
+        name: Record "Currency Exchange Rate"
+        isExternal: true
+  name: InsertExchRate
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.InsertExchRate(Currency_Exchange_Rate)
+- syntax:
+    content: procedure UpdateGLEntryDimSetID()
+  name: UpdateGLEntryDimSetID
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.UpdateGLEntryDimSetID
+- syntax:
+    content: 'procedure CalcCheckSum(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCheckSum
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.CalcCheckSum:Decimal
+- syntax:
+    content: 'procedure GetGlobals(var ImpProductVersion: Code[10], var ImpFormatVersion: Code[10], var ImpCompanyName: Text[30], var ImpCurrencyLCY: Code[10], var ImpCurrencyACY: Code[10], var ImpCurrencyPCY: Code[10], var ImpCheckSum: Decimal, var ImpStartingDate: Date, var ImpEndingDate: Date)'
+    parameters:
+    - id: ImpProductVersion
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ImpFormatVersion
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ImpCompanyName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ImpCurrencyLCY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ImpCurrencyACY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ImpCurrencyPCY
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ImpCheckSum
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ImpStartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ImpEndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: GetGlobals
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.GetGlobals(Code[10]@,Code[10]@,Text[30]@,Code[10]@,Code[10]@,Code[10]@,Decimal@,Date@,Date@)
+- syntax:
+    content: 'procedure SetTestMode(NewTestMode: Boolean)'
+    parameters:
+    - id: NewTestMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetTestMode
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.SetTestMode(Boolean)
+- syntax:
+    content: 'procedure GetAccumulatedErrors(var NumErrors: Integer, var Errors: array[100] of Text)'
+    parameters:
+    - id: NumErrors
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Errors
+      parameterType:
+        name: array[100] of Text
+        isExternal: true
+  name: GetAccumulatedErrors
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.GetAccumulatedErrors(Integer@,Text[]@)
+- syntax:
+    content: procedure SelectAllImportedDimensions()
+  name: SelectAllImportedDimensions
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.SelectAllImportedDimensions
+- syntax:
+    content: 'procedure GetNumSubsidGLAcc(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNumSubsidGLAcc
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.GetNumSubsidGLAcc:Integer
+- syntax:
+    content: 'procedure Get1stSubsidGLAcc(var GlAccount: Record "G/L Account"): Boolean'
+    parameters:
+    - id: GlAccount
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Get1stSubsidGLAcc
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.Get1stSubsidGLAcc(G/L_Account@):Boolean
+- syntax:
+    content: 'procedure GetNxtSubsidGLAcc(var GLAccount: Record "G/L Account"): Boolean'
+    parameters:
+    - id: GLAccount
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNxtSubsidGLAcc
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.GetNxtSubsidGLAcc(G/L_Account@):Boolean
+- syntax:
+    content: 'procedure GetNumSubsidGLEntry(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNumSubsidGLEntry
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.GetNumSubsidGLEntry:Integer
+- syntax:
+    content: 'procedure Get1stSubsidGLEntry(var GLEntry: Record "G/L Entry"): Boolean'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Get1stSubsidGLEntry
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.Get1stSubsidGLEntry(G/L_Entry@):Boolean
+- syntax:
+    content: 'procedure GetNxtSubsidGLEntry(var GLEntry: Record "G/L Entry"): Boolean'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNxtSubsidGLEntry
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Consolidate.GetNxtSubsidGLEntry(G/L_Entry@):Boolean
+commentId: O:Codeunit::Microsoft#Finance#Consolidation#Consolidate
+name: Consolidate
+uid: O:Codeunit::Microsoft#Finance#Consolidation#Consolidate

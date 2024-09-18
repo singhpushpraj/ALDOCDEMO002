@@ -1,0 +1,94 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Depreciation."Budget Depreciation"
+alId: ID 5615
+namespace: Microsoft.FixedAssets.Depreciation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Depreciation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure Calculate(FANo: Code[20], EndingDate1: Date, EndingDate2: Date, DeprBookCode: Code[10], var DeprAmount1: Decimal, var DeprAmount2: Decimal)'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: EndingDate1
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DeprAmount1
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DeprAmount2
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: Calculate
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Budget_Depreciation.Calculate(Code[20],Date,Date,Code[10],Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CopyProjectedValueToBudget(FADeprBook: Record "FA Depreciation Book", BudgetNameCode: Code[10], PostingDate: Date, DeprAmount: Decimal, Custom1Amount: Decimal, BalAccount: Boolean)'
+    parameters:
+    - id: FADeprBook
+      parameterType:
+        name: Record "FA Depreciation Book"
+        isExternal: true
+    - id: BudgetNameCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DeprAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Custom1Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BalAccount
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyProjectedValueToBudget
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Budget_Depreciation.CopyProjectedValueToBudget(FA_Depreciation_Book,Code[10],Date,Decimal,Decimal,Boolean)
+- syntax:
+    content: 'procedure CopyFAToBudget(FALedgEntry: Record "FA Ledger Entry", BudgetNameCode: Code[10], BalAccount: Boolean, BudgetText: Text[150])'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+    - id: BudgetNameCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BalAccount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BudgetText
+      parameterType:
+        name: Text[150]
+        isExternal: true
+  name: CopyFAToBudget
+  uid: M:Codeunit::Microsoft#FixedAssets#Depreciation#Budget_Depreciation.CopyFAToBudget(FA_Ledger_Entry,Code[10],Boolean,Text[150])
+commentId: O:Codeunit::Microsoft#FixedAssets#Depreciation#Budget Depreciation
+name: '"Budget Depreciation"'
+uid: O:Codeunit::Microsoft#FixedAssets#Depreciation#Budget_Depreciation

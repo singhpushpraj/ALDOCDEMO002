@@ -1,0 +1,184 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.SyncEngine."Integration Rec. Synch. Invoke"
+alId: ID 5345
+namespace: Microsoft.Integration.SyncEngine
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.SyncEngine
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetContext(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, DestinationRecordRef: RecordRef, IntegrationRecordSynch: Codeunit "Integration Record Synch.", SynchAction: Option, IgnoreSynchOnlyCoupledRecords: Boolean, JobId: Guid, IntegrationTableConnectionType: TableConnectionType)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IntegrationRecordSynch
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#
+        name: Microsoft.Integration.SyncEngine."Integration Record Synch."
+        isExternal: false
+    - id: SynchAction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: IgnoreSynchOnlyCoupledRecords
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: JobId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+  name: SetContext
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.SetContext(Integration_Table_Mapping,RecordRef,RecordRef,Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#,Option,Boolean,Guid,TableConnectionType)
+- syntax:
+    content: 'procedure GetContext(var IntegrationTableMapping: Record "Integration Table Mapping", var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, var IntegrationRecordSynch: Codeunit "Integration Record Synch.", var SynchAction: Option)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IntegrationRecordSynch
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#
+        name: Microsoft.Integration.SyncEngine."Integration Record Synch."
+        isExternal: false
+    - id: SynchAction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetContext
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.GetContext(Integration_Table_Mapping@,RecordRef@,RecordRef@,Codeunit::Microsoft#Integration#SyncEngine#Integration_Record_Synch#@,Option@)
+- syntax:
+    content: 'procedure WasModifiedAfterLastSynch(IntegrationTableMapping: Record "Integration Table Mapping", RecordRef: RecordRef): Boolean'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: RecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WasModifiedAfterLastSynch
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.WasModifiedAfterLastSynch(Integration_Table_Mapping,RecordRef):Boolean
+- syntax:
+    content: 'procedure GetRowLastModifiedOn(IntegrationTableMapping: Record "Integration Table Mapping", FromRecordRef: RecordRef): DateTime'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: FromRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: GetRowLastModifiedOn
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.GetRowLastModifiedOn(Integration_Table_Mapping,RecordRef):DateTime
+- syntax:
+    content: 'procedure MarkIntegrationRecordAsFailed(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, JobId: Guid, IntegrationTableConnectionType: TableConnectionType)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: JobId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+  name: MarkIntegrationRecordAsFailed
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.MarkIntegrationRecordAsFailed(Integration_Table_Mapping,RecordRef,Guid,TableConnectionType)
+- syntax:
+    content: 'procedure MarkIntegrationRecordAsFailed(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, JobId: Guid, IntegrationTableConnectionType: TableConnectionType, ForceMarkAsSkipped: Boolean)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: JobId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: ForceMarkAsSkipped
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: MarkIntegrationRecordAsFailed
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.MarkIntegrationRecordAsFailed(Integration_Table_Mapping,RecordRef,Guid,TableConnectionType,Boolean)
+- syntax:
+    content: 'procedure MarkIntegrationRecordAsFailed(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, JobId: Guid, IntegrationTableConnectionType: TableConnectionType, var SyncAction: Option)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: JobId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: IntegrationTableConnectionType
+      parameterType:
+        name: TableConnectionType
+        isExternal: true
+    - id: SyncAction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: MarkIntegrationRecordAsFailed
+  uid: M:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke.MarkIntegrationRecordAsFailed(Integration_Table_Mapping,RecordRef,Guid,TableConnectionType,Option@)
+commentId: O:Codeunit::Microsoft#Integration#SyncEngine#Integration Rec# Synch# Invoke
+name: '"Integration Rec. Synch. Invoke"'
+uid: O:Codeunit::Microsoft#Integration#SyncEngine#Integration_Rec#_Synch#_Invoke

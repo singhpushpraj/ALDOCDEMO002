@@ -1,0 +1,131 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Posting."FA Jnl.-Post Line"
+alId: ID 5632
+namespace: Microsoft.FixedAssets.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = r,
+                      TableData "FA Register" = rm,
+                      TableData "Maintenance Ledger Entry" = r,
+                      TableData "Ins. Coverage Ledger Entry" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FAJnlPostLine(FAJnlLine: Record "FA Journal Line", CheckLine: Boolean)'
+    parameters:
+    - id: FAJnlLine
+      parameterType:
+        name: Record "FA Journal Line"
+        isExternal: true
+    - id: CheckLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FAJnlPostLine
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.FAJnlPostLine(FA_Journal_Line,Boolean)
+- syntax:
+    content: 'procedure GenJnlPostLine(GenJnlLine: Record "Gen. Journal Line", FAAmount: Decimal, VATAmount: Decimal, NextTransactionNo: Integer, NextGLEntryNo: Integer, GLRegisterNo: Integer)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: FAAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NextTransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextGLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GLRegisterNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GenJnlPostLine
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.GenJnlPostLine(Gen#_Journal_Line,Decimal,Decimal,Integer,Integer,Integer)
+- syntax:
+    content: 'procedure PostReverseType(FALedgEntry: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: PostReverseType
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.PostReverseType(FA_Ledger_Entry)
+- syntax:
+    content: 'procedure PostGLBalAcc(FALedgEntry: Record "FA Ledger Entry", AllocatedPct: Decimal)'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+    - id: AllocatedPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostGLBalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.PostGLBalAcc(FA_Ledger_Entry,Decimal)
+- syntax:
+    content: 'procedure FindFirstGLAcc(var FAGLPostBuf: Record "FA G/L Posting Buffer"): Boolean'
+    parameters:
+    - id: FAGLPostBuf
+      parameterType:
+        name: Record "FA G/L Posting Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.FindFirstGLAcc(FA_G/L_Posting_Buffer@):Boolean
+- syntax:
+    content: 'procedure GetNextGLAcc(var FAGLPostBuf: Record "FA G/L Posting Buffer"): Integer'
+    parameters:
+    - id: FAGLPostBuf
+      parameterType:
+        name: Record "FA G/L Posting Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.GetNextGLAcc(FA_G/L_Posting_Buffer@):Integer
+- syntax:
+    content: 'procedure SetResultOnDisposal(var FALedgEntry: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: SetResultOnDisposal
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.SetResultOnDisposal(FA_Ledger_Entry@)
+- syntax:
+    content: 'procedure UpdateRegNo(GLRegNo: Integer)'
+    parameters:
+    - id: GLRegNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateRegNo
+  uid: M:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line.UpdateRegNo(Integer)
+commentId: O:Codeunit::Microsoft#FixedAssets#Posting#FA Jnl#-Post Line
+name: '"FA Jnl.-Post Line"'
+uid: O:Codeunit::Microsoft#FixedAssets#Posting#FA_Jnl#-Post_Line

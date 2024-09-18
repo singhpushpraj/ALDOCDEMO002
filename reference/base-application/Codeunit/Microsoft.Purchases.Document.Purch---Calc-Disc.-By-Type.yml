@@ -1,0 +1,97 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purch - Calc Disc. By Type"
+alId: ID 66
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Purchase Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Line
+    name: Microsoft.Purchases.Document."Purchase Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ApplyDefaultInvoiceDiscount(InvoiceDiscountAmount: Decimal, var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ApplyDefaultInvoiceDiscount
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type.ApplyDefaultInvoiceDiscount(Decimal,Purchase_Header@)
+- syntax:
+    content: 'procedure ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount: Decimal, var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ApplyInvDiscBasedOnAmt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type.ApplyInvDiscBasedOnAmt(Decimal,Purchase_Header@)
+- syntax:
+    content: 'procedure GetVendInvoiceDiscountPct(PurchLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetVendInvoiceDiscountPct
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type.GetVendInvoiceDiscountPct(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure ShouldRedistributeInvoiceDiscountAmount(PurchHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShouldRedistributeInvoiceDiscountAmount
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type.ShouldRedistributeInvoiceDiscountAmount(Purchase_Header):Boolean
+- syntax:
+    content: 'procedure ResetRecalculateInvoiceDisc(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ResetRecalculateInvoiceDisc
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type.ResetRecalculateInvoiceDisc(Purchase_Header)
+- syntax:
+    content: 'procedure InvoiceDiscIsAllowed(InvDiscCode: Code[20]): Boolean'
+    parameters:
+    - id: InvDiscCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvoiceDiscIsAllowed
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type.InvoiceDiscIsAllowed(Code[20]):Boolean
+commentId: O:Codeunit::Microsoft#Purchases#Document#Purch - Calc Disc# By Type
+name: '"Purch - Calc Disc. By Type"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Purch_-_Calc_Disc#_By_Type

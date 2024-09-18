@@ -1,0 +1,254 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Assembly.Document."Assembly Line Management"
+alId: ID 905
+namespace: Microsoft.Assembly.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Assembly.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Assembly Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetNextAsmLineNo(var AsmLine: Record "Assembly Line", AsmLineRecordIsTemporary: Boolean): Integer'
+    parameters:
+    - id: AsmLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: AsmLineRecordIsTemporary
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextAsmLineNo
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.GetNextAsmLineNo(Assembly_Line@,Boolean):Integer
+- syntax:
+    content: 'procedure InsertAsmLine(AsmHeader: Record "Assembly Header", var AssemblyLine: Record "Assembly Line", AsmLineRecordIsTemporary: Boolean)'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: AsmLineRecordIsTemporary
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertAsmLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.InsertAsmLine(Assembly_Header,Assembly_Line@,Boolean)
+- syntax:
+    content: 'procedure AddBOMLine(AssemblyHeader: Record "Assembly Header", var AssemblyLine: Record "Assembly Line", AsmLineRecordIsTemporary: Boolean, BOMComponent: Record "BOM Component", ShowDueDateBeforeWorkDateMessage: Boolean, QtyPerUoM: Decimal)'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: AsmLineRecordIsTemporary
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BOMComponent
+      parameterType:
+        name: Record "BOM Component"
+        isExternal: true
+    - id: ShowDueDateBeforeWorkDateMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyPerUoM
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddBOMLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.AddBOMLine(Assembly_Header,Assembly_Line@,Boolean,BOM_Component,Boolean,Decimal)
+- syntax:
+    content: 'procedure AddBOMLine(AsmHeader: Record "Assembly Header", var AssemblyLine: Record "Assembly Line", BOMComponent: Record "BOM Component")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: BOMComponent
+      parameterType:
+        name: Record "BOM Component"
+        isExternal: true
+  name: AddBOMLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.AddBOMLine(Assembly_Header,Assembly_Line@,BOM_Component)
+- syntax:
+    content: 'procedure ExplodeAsmList(var AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: ExplodeAsmList
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.ExplodeAsmList(Assembly_Line@)
+- syntax:
+    content: 'procedure UpdateWarningOnLines(AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: UpdateWarningOnLines
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.UpdateWarningOnLines(Assembly_Header)
+- syntax:
+    content: 'procedure UpdateAssemblyLines(var AsmHeader: Record "Assembly Header", OldAsmHeader: Record "Assembly Header", FieldNum: Integer, ReplaceLinesFromBOM: Boolean, CurrFieldNo: Integer, CurrentFieldNum: Integer)'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: OldAsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: FieldNum
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ReplaceLinesFromBOM
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CurrentFieldNum
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateAssemblyLines
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.UpdateAssemblyLines(Assembly_Header@,Assembly_Header,Integer,Boolean,Integer,Integer)
+- syntax:
+    content: 'procedure ShowDueDateBeforeWorkDateMsg(ActualLineDueDate: Date)'
+    parameters:
+    - id: ActualLineDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ShowDueDateBeforeWorkDateMsg
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.ShowDueDateBeforeWorkDateMsg(Date)
+- syntax:
+    content: 'procedure CopyAssemblyData(FromAssemblyHeader: Record "Assembly Header", var ToAssemblyHeader: Record "Assembly Header", var ToAssemblyLine: Record "Assembly Line"): Integer'
+    parameters:
+    - id: FromAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ToAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ToAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CopyAssemblyData
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.CopyAssemblyData(Assembly_Header,Assembly_Header@,Assembly_Line@):Integer
+- syntax:
+    content: 'procedure ShowAvailability(ShowPageEvenIfEnoughComponentsAvailable: Boolean, var TempAssemblyHeader: Record "Assembly Header" temporary, var TempAssemblyLine: Record "Assembly Line" temporary): Boolean'
+    parameters:
+    - id: ShowPageEvenIfEnoughComponentsAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TempAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header" temporary
+        isExternal: true
+    - id: TempAssemblyLine
+      parameterType:
+        name: Record "Assembly Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowAvailability
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.ShowAvailability(Boolean,Assembly_Header@,Assembly_Line@):Boolean
+- syntax:
+    content: 'procedure ShowNotificationDetails(AvailabilityCheckNotification: Notification)'
+    parameters:
+    - id: AvailabilityCheckNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowNotificationDetails
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.ShowNotificationDetails(Notification)
+- syntax:
+    content: 'procedure DeactivateNotification(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DeactivateNotification
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.DeactivateNotification(Notification)
+- syntax:
+    content: 'procedure CompletelyPicked(AsmHeader: Record "Assembly Header"): Boolean'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CompletelyPicked
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.CompletelyPicked(Assembly_Header):Boolean
+- syntax:
+    content: procedure SetWarningsOff()
+  name: SetWarningsOff
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.SetWarningsOff
+- syntax:
+    content: procedure SetWarningsOn()
+  name: SetWarningsOn
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.SetWarningsOn
+- syntax:
+    content: 'procedure CreateWhseItemTrkgForAsmLines(AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: CreateWhseItemTrkgForAsmLines
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.CreateWhseItemTrkgForAsmLines(Assembly_Header)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management.SetHideValidationDialog(Boolean)
+commentId: O:Codeunit::Microsoft#Assembly#Document#Assembly Line Management
+name: '"Assembly Line Management"'
+uid: O:Codeunit::Microsoft#Assembly#Document#Assembly_Line_Management

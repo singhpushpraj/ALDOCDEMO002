@@ -1,0 +1,377 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Posting."Sales-Post Prepayments"
+alId: ID 442
+namespace: Microsoft.Sales.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Line" = rimd,
+
+    #if not CLEAN23
+                      TableData "Invoice Post. Buffer" = rimd,
+    #endif
+                      TableData "Sales Invoice Header" = rimd,
+                      TableData "Sales Invoice Line" = rimd,
+                      TableData "Sales Cr.Memo Header" = rimd,
+                      TableData "Sales Cr.Memo Line" = rimd,
+                      TableData "General Posting Setup" = rimd
+  promoted: false
+- name: TableNo
+  value: Sales Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetDocumentType(DocumentType: Option)'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetDocumentType
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.SetDocumentType(Option)
+- syntax:
+    content: 'procedure Invoice(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: Invoice
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.Invoice(Sales_Header@)
+- syntax:
+    content: 'procedure CreditMemo(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CreditMemo
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.CreditMemo(Sales_Header@)
+- syntax:
+    content: 'procedure CheckPrepmtDoc(SalesHeader: Record "Sales Header", DocumentType: Option)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CheckPrepmtDoc
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.CheckPrepmtDoc(Sales_Header,Option)
+- syntax:
+    content: 'procedure CheckOpenPrepaymentLines(SalesHeader: Record "Sales Header", DocumentType: Option): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckOpenPrepaymentLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.CheckOpenPrepaymentLines(Sales_Header,Option):Boolean
+- syntax:
+    content: 'procedure BuildInvLineBuffer(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", DocumentType: Option, var PrepmtInvLineBuf: Record "Prepayment Inv. Line Buffer")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PrepmtInvLineBuf
+      parameterType:
+        name: Record "Prepayment Inv. Line Buffer"
+        isExternal: true
+  name: BuildInvLineBuffer
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.BuildInvLineBuffer(Sales_Header,Sales_Line@,Option,Prepayment_Inv#_Line_Buffer@)
+- syntax:
+    content: 'procedure GetCorrBalAccNo(SalesHeader: Record "Sales Header", PositiveAmount: Boolean): Code[20]'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: PositiveAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCorrBalAccNo
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.GetCorrBalAccNo(Sales_Header,Boolean):Code[20]
+- syntax:
+    content: 'procedure GetInvRoundingAccNo(CustomerPostingGroup: Code[20]): Code[20]'
+    parameters:
+    - id: CustomerPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetInvRoundingAccNo
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.GetInvRoundingAccNo(Code[20]):Code[20]
+- syntax:
+    content: 'procedure FillInvLineBuffer(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", var PrepmtInvLineBuf: Record "Prepayment Inv. Line Buffer")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: PrepmtInvLineBuf
+      parameterType:
+        name: Record "Prepayment Inv. Line Buffer"
+        isExternal: true
+  name: FillInvLineBuffer
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.FillInvLineBuffer(Sales_Header,Sales_Line,Prepayment_Inv#_Line_Buffer@)
+- syntax:
+    content: 'procedure InitInvoiceRoundingLine(SalesHeader: Record "Sales Header", TotalAmount: Decimal, var SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InitInvoiceRoundingLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.InitInvoiceRoundingLine(Sales_Header,Decimal,Sales_Line@):Boolean
+- syntax:
+    content: 'procedure UpdateVATOnLines(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var VATAmountLine: Record "VAT Amount Line", DocumentType: Option)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateVATOnLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.UpdateVATOnLines(Sales_Header,Sales_Line@,VAT_Amount_Line@,Option)
+- syntax:
+    content: 'procedure CalcVATAmountLines(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var VATAmountLine: Record "VAT Amount Line", DocumentType: Option)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.CalcVATAmountLines(Sales_Header@,Sales_Line@,VAT_Amount_Line@,Option)
+- syntax:
+    content: 'procedure SumPrepmt(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var VATAmountLine: Record "VAT Amount Line", var TotalAmount: Decimal, var TotalVATAmount: Decimal, var VATAmountText: Text[30])'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SumPrepmt
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.SumPrepmt(Sales_Header,Sales_Line@,VAT_Amount_Line@,Decimal@,Decimal@,Text[30]@)
+- syntax:
+    content: 'procedure GetSalesLines(SalesHeader: Record "Sales Header", DocumentType: Option, var ToSalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetSalesLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.GetSalesLines(Sales_Header,Option,Sales_Line@)
+- syntax:
+    content: 'procedure ApplyFilter(SalesHeader: Record "Sales Header", DocumentType: Option, var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: ApplyFilter
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.ApplyFilter(Sales_Header,Option,Sales_Line@)
+- syntax:
+    content: 'procedure PrepmtAmount(SalesLine: Record "Sales Line", DocumentType: Option): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: PrepmtAmount
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.PrepmtAmount(Sales_Line,Option):Decimal
+- syntax:
+    content: 'procedure UpdatePrepmtAmountOnSaleslines(SalesHeader: Record "Sales Header", NewTotalPrepmtAmount: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: NewTotalPrepmtAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdatePrepmtAmountOnSaleslines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.UpdatePrepmtAmountOnSaleslines(Sales_Header,Decimal)
+- syntax:
+    content: 'procedure PrepmtDocTypeToDocType(DocumentType: Option): Integer'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PrepmtDocTypeToDocType
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.PrepmtDocTypeToDocType(Option):Integer
+- syntax:
+    content: 'procedure GetSalesLinesToDeduct(SalesHeader: Record "Sales Header", var SalesLines: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLines
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetSalesLinesToDeduct
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.GetSalesLinesToDeduct(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure GetPreviewMode(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPreviewMode
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.GetPreviewMode:Boolean
+- syntax:
+    content: 'procedure GetSuppressCommit(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSuppressCommit
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.GetSuppressCommit:Boolean
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments.SetPreviewMode(Boolean)
+commentId: O:Codeunit::Microsoft#Sales#Posting#Sales-Post Prepayments
+name: '"Sales-Post Prepayments"'
+uid: O:Codeunit::Microsoft#Sales#Posting#Sales-Post_Prepayments

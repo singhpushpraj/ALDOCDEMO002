@@ -1,0 +1,124 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability."Available Management"
+alId: ID 5400
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ExpectedQtyOnHand(var Item: Record Item, CalcAvailable: Boolean, ExtraNetNeed: Decimal, var Available: Decimal, PlannedOrderReceiptDate: Date): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: CalcAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExtraNetNeed
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Available
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ExpectedQtyOnHand
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_Management.ExpectedQtyOnHand(Item@,Boolean,Decimal,Decimal@,Date):Decimal
+- syntax:
+    content: 'procedure GetItemReorderQty(Item: Record Item, QtyAvailable: Decimal): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: QtyAvailable
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetItemReorderQty
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_Management.GetItemReorderQty(Item,Decimal):Decimal
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeCalcExpectedQtyOnHand(var Item: Record Item, CalcAvailable: Boolean, ExtraNetNeed: Decimal, var Available: Decimal, PlannedOrderReceiptDate: Date, var ExpectedQty: Decimal, var IsHandled: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: CalcAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExtraNetNeed
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Available
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ExpectedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnBeforeCalcExpectedQtyOnHand
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_Management.OnBeforeCalcExpectedQtyOnHand(Item@,Boolean,Decimal,Decimal@,Date,Decimal@,Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeCalcAvailableQty(var Item: Record Item, CalcAvailable: Boolean, PlannedOrderReceiptDate: Date, var AvailableQty: Decimal, var IsHandled: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: CalcAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PlannedOrderReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AvailableQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnBeforeCalcAvailableQty
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_Management.OnBeforeCalcAvailableQty(Item@,Boolean,Date,Decimal@,Boolean@)
+commentId: O:Codeunit::Microsoft#Inventory#Availability#Available Management
+name: '"Available Management"'
+uid: O:Codeunit::Microsoft#Inventory#Availability#Available_Management

@@ -1,0 +1,386 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Serv-Amounts Mgt."
+alId: ID 5986
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "General Posting Setup" = rimd,
+
+    #if not CLEAN23
+                      TableData "Invoice Post. Buffer" = rimd,
+    #endif
+                      TableData "VAT Amount Line" = rimd,
+                      TableData "Dimension Buffer" = rimd,
+                      TableData "Service Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Initialize(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.Initialize(Code[10])
+- syntax:
+    content: 'procedure GetDimensions(DimensionEntryNo: Integer, var TempDimBuf: Record "Dimension Buffer")'
+    parameters:
+    - id: DimensionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempDimBuf
+      parameterType:
+        name: Record "Dimension Buffer"
+        isExternal: true
+  name: GetDimensions
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.GetDimensions(Integer,Dimension_Buffer@)
+- syntax:
+    content: procedure Finalize()
+  name: Finalize
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.Finalize
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by FillInvoicePostBuffer().,19.0)]'
+    content: 'procedure FillInvPostingBuffer(var InvPostingBuffer: array[2] of Record "Invoice Post. Buffer" temporary, var ServiceLine: Record "Service Line", var ServiceLineACY: Record "Service Line", ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: InvPostingBuffer
+      parameterType:
+        name: array[2] of Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: FillInvPostingBuffer
+  obsoletion:
+    state: pending
+    reason: Replaced by FillInvoicePostBuffer().
+    version: "19.0"
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.FillInvPostingBuffer(Invoice_Post#_Buffer[]@,Service_Line@,Service_Line@,Service_Header)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by new implementation in ServicePostInvoice codeunit,20.0)]'
+    content: 'procedure FillInvoicePostBuffer(var TempInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, var ServiceLine: Record "Service Line", var ServiceLineACY: Record "Service Line", ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: TempInvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: FillInvoicePostBuffer
+  obsoletion:
+    state: pending
+    reason: Replaced by new implementation in ServicePostInvoice codeunit
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.FillInvoicePostBuffer(Invoice_Post#_Buffer@,Service_Line@,Service_Line@,Service_Header)
+- syntax:
+    content: 'procedure DivideAmount(QtyType: Option, ServLineQty: Decimal, var ServiceHeader: Record "Service Header", var ServiceLine: Record "Service Line", var TempVATAmountLine: Record "VAT Amount Line", var TempVATAmountLineRemainder: Record "VAT Amount Line")'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ServLineQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TempVATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: TempVATAmountLineRemainder
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: DivideAmount
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.DivideAmount(Option,Decimal,Service_Header@,Service_Line@,VAT_Amount_Line@,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure RoundAmount(ServLineQty: Decimal, var ServiceHeader: Record "Service Header", var ServiceLine: Record "Service Line", var TempServiceLine: Record "Service Line", var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", var ServiceLineACY: Record "Service Line")'
+    parameters:
+    - id: ServLineQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TempServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: RoundAmount
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.RoundAmount(Decimal,Service_Header@,Service_Line@,Service_Line@,Service_Line@,Service_Line@,Service_Line@)
+- syntax:
+    content: 'procedure ReverseAmount(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: ReverseAmount
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.ReverseAmount(Service_Line@)
+- syntax:
+    content: 'procedure InvoiceRounding(var ServiceHeader: Record "Service Header", var ServiceLine: Record "Service Line", var TotalServiceLine: Record "Service Line", var LastLineRetrieved: Boolean, UseTempData: Boolean, BiggestLineNo: Integer)'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: LastLineRetrieved
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: UseTempData
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BiggestLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InvoiceRounding
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.InvoiceRounding(Service_Header@,Service_Line@,Service_Line@,Boolean@,Boolean,Integer)
+- syntax:
+    content: 'procedure RoundingLineInserted(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RoundingLineInserted
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.RoundingLineInserted:Boolean
+- syntax:
+    content: 'procedure GetRoundingLineNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetRoundingLineNo
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.GetRoundingLineNo:Integer
+- syntax:
+    content: 'procedure SumServiceLines(var NewServHeader: Record "Service Header", QtyType: Option, var NewTotalServLine: Record "Service Line", var NewTotalServLineLCY: Record "Service Line", var VATAmount: Decimal, var VATAmountText: Text[30], var ProfitLCY: Decimal, var ProfitPct: Decimal, var TotalAdjCostLCY: Decimal)'
+    parameters:
+    - id: NewServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: NewTotalServLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ProfitLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProfitPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAdjCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SumServiceLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.SumServiceLines(Service_Header@,Option,Service_Line@,Service_Line@,Decimal@,Text[30]@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure SumServiceLinesTemp(var NewServHeader: Record "Service Header", var OldServLine: Record "Service Line", QtyType: Option, var NewTotalServLine: Record "Service Line", var NewTotalServLineLCY: Record "Service Line", var VATAmount: Decimal, var VATAmountText: Text[30], var ProfitLCY: Decimal, var ProfitPct: Decimal, var TotalAdjCostLCY: Decimal)'
+    parameters:
+    - id: NewServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: OldServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: NewTotalServLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ProfitLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProfitPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAdjCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SumServiceLinesTemp
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.SumServiceLinesTemp(Service_Header@,Service_Line@,Option,Service_Line@,Service_Line@,Decimal@,Text[30]@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetServiceLines(var NewServiceHeader: Record "Service Header", var NewServiceLine: Record "Service Line", QtyType: Option)'
+    parameters:
+    - id: NewServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: NewServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetServiceLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.GetServiceLines(Service_Header@,Service_Line@,Option)
+- syntax:
+    content: 'procedure MAX(number1: Integer, number2: Integer): Integer'
+    parameters:
+    - id: number1
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: number2
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: MAX
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.MAX(Integer,Integer):Integer
+- syntax:
+    content: 'procedure GetLastLineNo(ServLine: Record "Service Line"): Integer'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastLineNo
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.GetLastLineNo(Service_Line):Integer
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure AmountsDifferByMoreThanRoundingPrecision(Amount1: Decimal, Amount2: Decimal, RoundingPrecision: Decimal): Boolean'
+    parameters:
+    - id: Amount1
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Amount2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AmountsDifferByMoreThanRoundingPrecision
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.AmountsDifferByMoreThanRoundingPrecision(Decimal,Decimal,Decimal):Boolean
+commentId: O:Codeunit::Microsoft#Service#Posting#Serv-Amounts Mgt#
+name: '"Serv-Amounts Mgt."'
+uid: O:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#

@@ -1,0 +1,96 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Avg. Cost Entry Point Mgt."
+alId: ID 5848
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Avg. Cost Adjmt. Entry Point" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetMaxValuationDate(ItemLedgEntry: Record "Item Ledger Entry", ValueEntry: Record "Value Entry"): Date'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetMaxValuationDate
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#.GetMaxValuationDate(Item_Ledger_Entry,Value_Entry):Date
+- syntax:
+    content: procedure LockBuffer()
+  name: LockBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#.LockBuffer
+- syntax:
+    content: 'procedure UpdateValuationDate(ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: UpdateValuationDate
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#.UpdateValuationDate(Value_Entry)
+- syntax:
+    content: 'procedure IsEntriesAdjusted(ItemNo: Code[20], EndingDate: Date): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsEntriesAdjusted
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#.IsEntriesAdjusted(Code[20],Date):Boolean
+- syntax:
+    content: 'procedure GetValuationPeriod(CalendarPeriod: __MissingTypeSymbol__, PostingDate: Date)'
+    parameters:
+    - id: CalendarPeriod
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: GetValuationPeriod
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#.GetValuationPeriod(__MissingSymbol__@,Date)
+- syntax:
+    content: 'procedure DeleteBuffer(ItemNo: Code[20], FromValuationDate: Date)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromValuationDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: DeleteBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#.DeleteBuffer(Code[20],Date)
+implements:
+- internalReference: O:Interface::Microsoft#Inventory#Costing#Average_Cost_Entry_Point
+  name: Microsoft.Inventory.Costing."Average Cost Entry Point"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Inventory#Costing#Avg# Cost Entry Point Mgt#
+name: '"Avg. Cost Entry Point Mgt."'
+uid: O:Codeunit::Microsoft#Inventory#Costing#Avg#_Cost_Entry_Point_Mgt#

@@ -1,0 +1,1083 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Create Pick"
+alId: ID 7312
+namespace: Microsoft.Warehouse.Activity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Whse. Item Tracking Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateTempLine(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], UnitofMeasureCode: Code[10], FromBinCode: Code[20], ToBinCode: Code[20], QtyPerUnitofMeasure: Decimal, var TotalQtytoPick: Decimal, var TotalQtytoPickBase: Decimal)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitofMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FromBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: QtyPerUnitofMeasure
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtytoPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtytoPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateTempLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CreateTempLine(Code[10],Code[20],Code[10],Code[10],Code[20],Code[20],Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CreateTempLine(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], UnitofMeasureCode: Code[10], FromBinCode: Code[20], ToBinCode: Code[20], QtyPerUnitofMeasure: Decimal, QtyRoundingPrecision: Decimal, QtyRoundingPrecisionBase: Decimal, var TotalQtytoPick: Decimal, var TotalQtytoPickBase: Decimal)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitofMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FromBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: QtyPerUnitofMeasure
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRoundingPrecisionBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtytoPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtytoPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateTempLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CreateTempLine(Code[10],Code[20],Code[10],Code[10],Code[20],Code[20],Decimal,Decimal,Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure FindBreakBulkBin(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], ToUOMCode: Code[10], ToBinCode: Code[20], ToQtyPerUOM: Decimal, var TempWarehouseActivityLine2: Record "Warehouse Activity Line" temporary, var TotalQtytoPick: Decimal, var TempWhseItemTrackingLine2: Record "Whse. Item Tracking Line" temporary, IsCrossDock: Boolean, var TotalQtytoPickBase: Decimal, WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, QtyRndPrec: Decimal, QtyRndPrecBase: Decimal)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ToUOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ToBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempWarehouseActivityLine2
+      parameterType:
+        name: Record "Warehouse Activity Line" temporary
+        isExternal: true
+    - id: TotalQtytoPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempWhseItemTrackingLine2
+      parameterType:
+        name: Record "Whse. Item Tracking Line" temporary
+        isExternal: true
+    - id: IsCrossDock
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TotalQtytoPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: QtyRndPrec
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRndPrecBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: FindBreakBulkBin
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.FindBreakBulkBin(Code[10],Code[20],Code[10],Code[10],Code[20],Decimal,Warehouse_Activity_Line@,Decimal@,Whse#_Item_Tracking_Line@,Boolean,Decimal@,Item_Tracking_Setup,Decimal,Decimal)
+- syntax:
+    content: 'procedure CalcBinAvailQtyToPick(var QtyToPickBase: Decimal, var BinContent: Record "Bin Content", var TempWarehouseActivityLine2: Record "Warehouse Activity Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: QtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BinContent
+      parameterType:
+        name: Record "Bin Content"
+        isExternal: true
+    - id: TempWarehouseActivityLine2
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CalcBinAvailQtyToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcBinAvailQtyToPick(Decimal@,Bin_Content@,Warehouse_Activity_Line@,Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CreateWhseDocument(var FirstWhseDocNo: Code[20], var LastWhseDocNo: Code[20], ShowError: Boolean)'
+    parameters:
+    - id: FirstWhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LastWhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShowError
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateWhseDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CreateWhseDocument(Code[20]@,Code[20]@,Boolean)
+- syntax:
+    content: 'procedure SetParameters(NewCreatePickParameters: Record "Create Pick Parameters" temporary)'
+    parameters:
+    - id: NewCreatePickParameters
+      parameterType:
+        name: Record "Create Pick Parameters" temporary
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetParameters(Create_Pick_Parameters)
+- syntax:
+    content: 'procedure SetWhseWkshLine(WhseWorksheetLine2: Record "Whse. Worksheet Line", TempNo2: Integer)'
+    parameters:
+    - id: WhseWorksheetLine2
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: TempNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetWhseWkshLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetWhseWkshLine(Whse#_Worksheet_Line,Integer)
+- syntax:
+    content: 'procedure SetWhseShipment(WarehouseShipmentLine2: Record "Warehouse Shipment Line", TempNo2: Integer, ShippingAgentCode2: Code[10], ShippingAgentServiceCode2: Code[10], ShipmentMethodCode2: Code[10])'
+    parameters:
+    - id: WarehouseShipmentLine2
+      parameterType:
+        name: Record "Warehouse Shipment Line"
+        isExternal: true
+    - id: TempNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShippingAgentCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ShippingAgentServiceCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ShipmentMethodCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetWhseShipment
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetWhseShipment(Warehouse_Shipment_Line,Integer,Code[10],Code[10],Code[10])
+- syntax:
+    content: 'procedure SetWhseInternalPickLine(WhseInternalPickLine2: Record "Whse. Internal Pick Line", TempNo2: Integer)'
+    parameters:
+    - id: WhseInternalPickLine2
+      parameterType:
+        name: Record "Whse. Internal Pick Line"
+        isExternal: true
+    - id: TempNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetWhseInternalPickLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetWhseInternalPickLine(Whse#_Internal_Pick_Line,Integer)
+- syntax:
+    content: 'procedure SetProdOrderCompLine(ProdOrderComponentLine2: Record "Prod. Order Component", TempNo2: Integer)'
+    parameters:
+    - id: ProdOrderComponentLine2
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: TempNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetProdOrderCompLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetProdOrderCompLine(Prod#_Order_Component,Integer)
+- syntax:
+    content: 'procedure SetAssemblyLine(AssemblyLine2: Record "Assembly Line", TempNo2: Integer)'
+    parameters:
+    - id: AssemblyLine2
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: TempNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetAssemblyLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetAssemblyLine(Assembly_Line,Integer)
+- syntax:
+    content: 'procedure SetJobPlanningLine(JobPlanningLine2: Record "Job Planning Line")'
+    parameters:
+    - id: JobPlanningLine2
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: SetJobPlanningLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetJobPlanningLine(Job_Planning_Line)
+- syntax:
+    content: 'procedure SetTempWhseItemTrkgLine(SourceID: Code[20], SrcType: Integer, SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, LocationCode: Code[10])'
+    parameters:
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SrcType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetTempWhseItemTrkgLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetTempWhseItemTrkgLine(Code[20],Integer,Code[10],Integer,Integer,Code[10])
+- syntax:
+    content: 'procedure SetTempWhseItemTrkgLineFromBuffer(var TempWhseItemTrackingLineBuffer: Record "Whse. Item Tracking Line" temporary, SourceID: Code[20], SrcType: Integer, SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, LocationCode: Code[10])'
+    parameters:
+    - id: TempWhseItemTrackingLineBuffer
+      parameterType:
+        name: Record "Whse. Item Tracking Line" temporary
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SrcType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetTempWhseItemTrkgLineFromBuffer
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetTempWhseItemTrkgLineFromBuffer(Whse#_Item_Tracking_Line@,Code[20],Integer,Code[10],Integer,Integer,Code[10])
+- syntax:
+    content: procedure SaveTempItemTrkgLines()
+  name: SaveTempItemTrkgLines
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SaveTempItemTrkgLines
+- syntax:
+    content: 'procedure ReturnTempItemTrkgLines(var TempWhseItemTrackingLine2: Record "Whse. Item Tracking Line" temporary)'
+    parameters:
+    - id: TempWhseItemTrackingLine2
+      parameterType:
+        name: Record "Whse. Item Tracking Line" temporary
+        isExternal: true
+  name: ReturnTempItemTrkgLines
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.ReturnTempItemTrkgLines(Whse#_Item_Tracking_Line@)
+- syntax:
+    content: 'procedure ItemTrackedQuantity(WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ItemTrackedQuantity
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.ItemTrackedQuantity(Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure InsertTempItemTrkgLine(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], EntrySummary: Record "Entry Summary" temporary, QuantityBase: Decimal)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntrySummary
+      parameterType:
+        name: Record "Entry Summary" temporary
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertTempItemTrkgLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.InsertTempItemTrkgLine(Code[10],Code[20],Code[10],Entry_Summary,Decimal)
+- syntax:
+    content: 'procedure SetSource(SourceType2: Integer, SourceSubType2: Option, SourceNo2: Code[20], SourceLineNo2: Integer, SourceSubLineNo2: Integer)'
+    parameters:
+    - id: SourceType2
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType2
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetSource
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetSource(Integer,Option,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure CheckReservation(QtyBaseAvailToPick: Decimal, SrcType: Integer, SrcSubType: Option, SrcNo: Code[20], SrcLineNo: Integer, SrcSubLineNo: Integer, AlwaysCreatePickLine: Boolean, QtyPerUnitOfMeasure: Decimal, var Quantity: Decimal, var QuantityBase: Decimal)'
+    parameters:
+    - id: QtyBaseAvailToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SrcSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SrcNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SrcLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SrcSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AlwaysCreatePickLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyPerUnitOfMeasure
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CheckReservation
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CheckReservation(Decimal,Integer,Option,Code[20],Integer,Integer,Boolean,Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcTotalAvailQtyToPick(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], SrcType: Integer, SrcSubType: Option, SrcNo: Code[20], SrcLineNo: Integer, SrcSubLineNo: Integer, NeededQtyBase: Decimal, RespectLocationBins: Boolean): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SrcType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SrcSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SrcNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SrcLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SrcSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NeededQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RespectLocationBins
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcTotalAvailQtyToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcTotalAvailQtyToPick(Code[10],Code[20],Code[10],Integer,Option,Code[20],Integer,Integer,Decimal,Boolean):Decimal
+- syntax:
+    content: 'procedure CalcTotalAvailQtyToPick(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], WhseItemTrackingLine: Record "Whse. Item Tracking Line", SrcType: Integer, SrcSubType: Option, SrcNo: Code[20], SrcLineNo: Integer, SrcSubLineNo: Integer, NeededQtyBase: Decimal, RespectLocationBins: Boolean): Decimal'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+    - id: SrcType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SrcSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SrcNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SrcLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SrcSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NeededQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RespectLocationBins
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcTotalAvailQtyToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcTotalAvailQtyToPick(Code[10],Code[20],Code[10],Whse#_Item_Tracking_Line,Integer,Option,Code[20],Integer,Integer,Decimal,Boolean):Decimal
+- syntax:
+    content: 'procedure GetBinTypeFilter(Type: Option): Text[1024]'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[1024]
+        isExternal: true
+  name: GetBinTypeFilter
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.GetBinTypeFilter(Option):Text[1024]
+- syntax:
+    content: 'procedure CheckOutBound(SourceType: Integer, SourceSubType: Integer, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CheckOutBound
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CheckOutBound(Integer,Integer,Code[20],Integer,Integer):Decimal
+- syntax:
+    content: 'procedure SetCrossDock(CrossDock2: Boolean)'
+    parameters:
+    - id: CrossDock2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCrossDock
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetCrossDock(Boolean)
+- syntax:
+    content: 'procedure GetReservationStatus(var ReservationExists2: Boolean, var ReservedForItemLedgEntry2: Boolean)'
+    parameters:
+    - id: ReservationExists2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ReservedForItemLedgEntry2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetReservationStatus
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.GetReservationStatus(Boolean@,Boolean@)
+- syntax:
+    content: 'procedure SetCalledFromPickWksh(CalledFromPickWksh2: Boolean)'
+    parameters:
+    - id: CalledFromPickWksh2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromPickWksh
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetCalledFromPickWksh(Boolean)
+- syntax:
+    content: 'procedure SetCalledFromMoveWksh(CalledFromMoveWksh2: Boolean)'
+    parameters:
+    - id: CalledFromMoveWksh2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromMoveWksh
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetCalledFromMoveWksh(Boolean)
+- syntax:
+    content: 'procedure CalcQtyToPickBaseExt(var BinContent: Record "Bin Content", var TempWhseActivLine: Record "Warehouse Activity Line" temporary): Decimal'
+    parameters:
+    - id: BinContent
+      parameterType:
+        name: Record "Bin Content"
+        isExternal: true
+    - id: TempWhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyToPickBaseExt
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcQtyToPickBaseExt(Bin_Content@,Warehouse_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure SetCalledFromWksh(NewCalledFromWksh: Boolean)'
+    parameters:
+    - id: NewCalledFromWksh
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromWksh
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetCalledFromWksh(Boolean)
+- syntax:
+    content: 'procedure CreateTempActivityLine(LocationCode: Code[10], BinCode: Code[20], UOMCode: Code[10], QtyPerUOM: Decimal, QtyToPick: Decimal, QtyToPickBase: Decimal, ActionType: Integer, BreakBulkNo: Integer)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActionType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BreakBulkNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateTempActivityLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CreateTempActivityLine(Code[10],Code[20],Code[10],Decimal,Decimal,Decimal,Integer,Integer)
+- syntax:
+    content: 'procedure CreateTempActivityLine(LocationCode: Code[10], BinCode: Code[20], UOMCode: Code[10], QtyPerUOM: Decimal, QtyToPick: Decimal, QtyToPickBase: Decimal, ActionType: Integer, BreakBulkNo: Integer, QtyRndPrec: Decimal, QtyRndPrecBase: Decimal)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ActionType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BreakBulkNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyRndPrec
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRndPrecBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateTempActivityLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CreateTempActivityLine(Code[10],Code[20],Code[10],Decimal,Decimal,Decimal,Integer,Integer,Decimal,Decimal)
+- syntax:
+    content: 'procedure UpdateQuantitiesToPick(QtyAvailableBase: Decimal, FromQtyPerUOM: Decimal, var FromQtyToPick: Decimal, var FromQtyToPickBase: Decimal, ToQtyPerUOM: Decimal, var ToQtyToPick: Decimal, var ToQtyToPickBase: Decimal, var TotalQtyToPick: Decimal, var TotalQtyToPickBase: Decimal)'
+    parameters:
+    - id: QtyAvailableBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateQuantitiesToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.UpdateQuantitiesToPick(Decimal,Decimal,Decimal@,Decimal@,Decimal,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure UpdateFromQtyToPick(QtyAvailableBase: Decimal, FromQtyPerUOM: Decimal, var FromQtyToPick: Decimal, var FromQtyToPickBase: Decimal, ToQtyPerUOM: Decimal, ToQtyToPick: Decimal, ToQtyToPickBase: Decimal)'
+    parameters:
+    - id: QtyAvailableBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateFromQtyToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.UpdateFromQtyToPick(Decimal,Decimal,Decimal@,Decimal@,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure UpdateTotalQtyToPick(ToQtyToPick: Decimal, ToQtyToPickBase: Decimal, var TotalQtyToPick: Decimal, var TotalQtyToPickBase: Decimal)'
+    parameters:
+    - id: ToQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateTotalQtyToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.UpdateTotalQtyToPick(Decimal,Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcTotalQtyOnBinType(BinTypeFilter: Text[1024], LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10]): Decimal'
+    parameters:
+    - id: BinTypeFilter
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcTotalQtyOnBinType
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcTotalQtyOnBinType(Text[1024],Code[10],Code[20],Code[10]):Decimal
+- syntax:
+    content: 'procedure CalcBreakbulkOutstdQty(var WhseActivLine: Record "Warehouse Activity Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBreakbulkOutstdQty
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcBreakbulkOutstdQty(Warehouse_Activity_Line@,Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure GetCannotBeHandledReason(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCannotBeHandledReason
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.GetCannotBeHandledReason:Text
+- syntax:
+    content: 'procedure AddToFilterText(var TextVar: Text[250], Separator: Code[1], Comparator: Code[2], Addendum: Code[20])'
+    parameters:
+    - id: TextVar
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: Separator
+      parameterType:
+        name: Code[1]
+        isExternal: true
+    - id: Comparator
+      parameterType:
+        name: Code[2]
+        isExternal: true
+    - id: Addendum
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddToFilterText
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.AddToFilterText(Text[250]@,Code[1],Code[2],Code[20])
+- syntax:
+    content: 'procedure CreateAssemblyPickLine(AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: CreateAssemblyPickLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CreateAssemblyPickLine(Assembly_Line)
+- syntax:
+    content: 'procedure IsShipZone(LocationCode: Code[10], ZoneCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsShipZone
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.IsShipZone(Code[10],Code[10]):Boolean
+- syntax:
+    content: 'procedure CalcQtyResvdNotOnILE(ReservEntryNo: Integer, ReservEntryPositive: Boolean): Decimal'
+    parameters:
+    - id: ReservEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ReservEntryPositive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyResvdNotOnILE
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcQtyResvdNotOnILE(Integer,Boolean):Decimal
+- syntax:
+    content: 'procedure SetFiltersOnReservEntry(var ReservationEntry: Record "Reservation Entry", SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetFiltersOnReservEntry
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.SetFiltersOnReservEntry(Reservation_Entry@,Integer,Option,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure GetActualQtyPickedBase(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetActualQtyPickedBase
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.GetActualQtyPickedBase:Decimal
+- syntax:
+    content: 'procedure CalcReservedQtyOnInventory(ItemNo: Code[20], LocationCode: Code[10], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservedQtyOnInventory
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.CalcReservedQtyOnInventory(Code[20],Code[10],Code[10],Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure FilterWhsePickLinesWithUndefinedBin(var WarehouseActivityLine: Record "Warehouse Activity Line", ItemNo: Code[20], LocationCode: Code[10], VariantCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: FilterWhsePickLinesWithUndefinedBin
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.FilterWhsePickLinesWithUndefinedBin(Warehouse_Activity_Line@,Code[20],Code[10],Code[10],Item_Tracking_Setup)
+- syntax:
+    content: 'procedure EnqueueCannotBeHandledReason(CannotBeHandledReason: Text)'
+    parameters:
+    - id: CannotBeHandledReason
+      parameterType:
+        name: Text
+        isExternal: true
+  name: EnqueueCannotBeHandledReason
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Pick.EnqueueCannotBeHandledReason(Text)
+commentId: O:Codeunit::Microsoft#Warehouse#Activity#Create Pick
+name: '"Create Pick"'
+uid: O:Codeunit::Microsoft#Warehouse#Activity#Create_Pick

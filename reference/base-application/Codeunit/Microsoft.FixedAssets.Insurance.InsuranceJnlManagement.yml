@@ -1,0 +1,125 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Insurance.InsuranceJnlManagement
+alId: ID 5656
+namespace: Microsoft.FixedAssets.Insurance
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Insurance
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Insurance Journal Template" = rimd,
+                      TableData "Insurance Journal Batch" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, var InsuranceJnlLine: Record "Insurance Journal Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InsuranceJnlLine
+      parameterType:
+        name: Record "Insurance Journal Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.TemplateSelection(Integer,Insurance_Journal_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var InsuranceJnlBatch: Record "Insurance Journal Batch")'
+    parameters:
+    - id: InsuranceJnlBatch
+      parameterType:
+        name: Record "Insurance Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.TemplateSelectionFromBatch(Insurance_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJournal(var CurrentJnlBatchName: Code[10], var InsuranceJnlLine: Record "Insurance Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InsuranceJnlLine
+      parameterType:
+        name: Record "Insurance Journal Line"
+        isExternal: true
+  name: OpenJournal
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.OpenJournal(Code[10]@,Insurance_Journal_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var InsuranceJnlBatch: Record "Insurance Journal Batch")'
+    parameters:
+    - id: InsuranceJnlBatch
+      parameterType:
+        name: Record "Insurance Journal Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.OpenJnlBatch(Insurance_Journal_Batch@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var InsuranceJnlLine: Record "Insurance Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InsuranceJnlLine
+      parameterType:
+        name: Record "Insurance Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.CheckName(Code[10],Insurance_Journal_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var InsuranceJnlLine: Record "Insurance Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InsuranceJnlLine
+      parameterType:
+        name: Record "Insurance Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.SetName(Code[10],Insurance_Journal_Line@)
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var InsuranceJnlLine: Record "Insurance Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InsuranceJnlLine
+      parameterType:
+        name: Record "Insurance Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.LookupName(Code[10]@,Insurance_Journal_Line@)
+- syntax:
+    content: 'procedure GetDescriptions(InsuranceJnlLine: Record "Insurance Journal Line", var InsuranceDescription: Text[100], var FADescription: Text[100])'
+    parameters:
+    - id: InsuranceJnlLine
+      parameterType:
+        name: Record "Insurance Journal Line"
+        isExternal: true
+    - id: InsuranceDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: FADescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetDescriptions
+  uid: M:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement.GetDescriptions(Insurance_Journal_Line,Text[100]@,Text[100]@)
+commentId: O:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement
+name: InsuranceJnlManagement
+uid: O:Codeunit::Microsoft#FixedAssets#Insurance#InsuranceJnlManagement

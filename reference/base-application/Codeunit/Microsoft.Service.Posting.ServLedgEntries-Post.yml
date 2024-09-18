@@ -1,0 +1,229 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."ServLedgEntries-Post"
+alId: ID 5912
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Service Ledger Entry" = rimd,
+                      TableData "Warranty Ledger Entry" = rimd,
+                      TableData "Service Register" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitServiceRegister(var PassedServEntryNo: Integer, var PassedWarrantyEntryNo: Integer)'
+    parameters:
+    - id: PassedServEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PassedWarrantyEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitServiceRegister
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.InitServiceRegister(Integer@,Integer@)
+- syntax:
+    content: 'procedure FinishServiceRegister(var PassedServEntryNo: Integer, var PassedWarrantyEntryNo: Integer)'
+    parameters:
+    - id: PassedServEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PassedWarrantyEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FinishServiceRegister
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.FinishServiceRegister(Integer@,Integer@)
+- syntax:
+    content: 'procedure InsertServLedgerEntry(var NextEntryNo: Integer, var ServHeader: Record "Service Header", var TempServLine: Record "Service Line", var ServItemLine: Record "Service Item Line", Qty: Decimal, DocNo: Code[20]): Integer'
+    parameters:
+    - id: NextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TempServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertServLedgerEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.InsertServLedgerEntry(Integer@,Service_Header@,Service_Line@,Service_Item_Line@,Decimal,Code[20]):Integer
+- syntax:
+    content: 'procedure InsertServLedgerEntrySale(var PassedNextEntryNo: Integer, var ServHeader: Record "Service Header", var ServLine: Record "Service Line", var ServItemLine: Record "Service Item Line", Qty: Decimal, QtyToCharge: Decimal, GenJnlLineDocNo: Code[20], DocLineNo: Integer)'
+    parameters:
+    - id: PassedNextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToCharge
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GenJnlLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertServLedgerEntrySale
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.InsertServLedgerEntrySale(Integer@,Service_Header@,Service_Line@,Service_Item_Line@,Decimal,Decimal,Code[20],Integer)
+- syntax:
+    content: 'procedure InsertWarrantyLedgerEntry(var PassedWarrantyEntryNo: Integer, var ServHeader: Record "Service Header", var ServLine: Record "Service Line", var ServItemLine: Record "Service Item Line", Qty: Decimal, GenJnlLineDocNo: Code[20]): Integer'
+    parameters:
+    - id: PassedWarrantyEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GenJnlLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertWarrantyLedgerEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.InsertWarrantyLedgerEntry(Integer@,Service_Header@,Service_Line@,Service_Item_Line@,Decimal,Code[20]):Integer
+- syntax:
+    content: 'procedure ReverseCnsmServLedgEntries(ServShptLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: ReverseCnsmServLedgEntries
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.ReverseCnsmServLedgEntries(Service_Shipment_Line)
+- syntax:
+    content: 'procedure UnapplyOpenServiceLines(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: UnapplyOpenServiceLines
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.UnapplyOpenServiceLines(Service_Line@)
+- syntax:
+    content: 'procedure ReverseServLedgEntry(var ServShptLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: ReverseServLedgEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.ReverseServLedgEntry(Service_Shipment_Line@)
+- syntax:
+    content: 'procedure ReverseWarrantyEntry(var ServShptLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: ReverseWarrantyEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.ReverseWarrantyEntry(Service_Shipment_Line@)
+- syntax:
+    content: 'procedure CreateCreditEntry(var PassedNextEntryNo: Integer, var ServHeader: Record "Service Header", var ServLine: Record "Service Line", GenJnlLineDocNo: Code[20])'
+    parameters:
+    - id: PassedNextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: GenJnlLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateCreditEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.CreateCreditEntry(Integer@,Service_Header@,Service_Line@,Code[20])
+- syntax:
+    content: 'procedure CalcDivideAmount(Qty: Decimal, var PassedServHeader: Record "Service Header", var PassedTempServLine: Record "Service Line", var PassedVATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PassedServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedTempServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PassedVATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: CalcDivideAmount
+  uid: M:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post.CalcDivideAmount(Decimal,Service_Header@,Service_Line@,VAT_Amount_Line@)
+commentId: O:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post
+name: '"ServLedgEntries-Post"'
+uid: O:Codeunit::Microsoft#Service#Posting#ServLedgEntries-Post

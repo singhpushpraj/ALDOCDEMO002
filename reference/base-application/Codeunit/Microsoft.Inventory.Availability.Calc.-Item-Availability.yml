@@ -1,0 +1,130 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability."Calc. Item Availability"
+alId: ID 5530
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CalcNewInvtEventBuf(var Item: Record Item, ForecastName: Code[10], IncludeBlanketOrders: Boolean, ExcludeForecastBefore: Date, IncludePlan: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: ForecastName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: IncludeBlanketOrders
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExcludeForecastBefore
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: IncludePlan
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcNewInvtEventBuf
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.CalcNewInvtEventBuf(Item@,Code[10],Boolean,Date,Boolean)
+- syntax:
+    content: 'procedure GetInvEventBuffer(var RequestInvtEventBuf: Record "Inventory Event Buffer")'
+    parameters:
+    - id: RequestInvtEventBuf
+      parameterType:
+        name: Record "Inventory Event Buffer"
+        isExternal: true
+  name: GetInvEventBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.GetInvEventBuffer(Inventory_Event_Buffer@)
+- syntax:
+    content: 'procedure GetDocumentEntries(var InvtEventBuf: Record "Inventory Event Buffer", var Item: Record Item)'
+    parameters:
+    - id: InvtEventBuf
+      parameterType:
+        name: Record "Inventory Event Buffer"
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: GetDocumentEntries
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.GetDocumentEntries(Inventory_Event_Buffer@,Item@)
+- syntax:
+    content: 'procedure InsertEntry(var NewInvtEventBuffer: Record "Inventory Event Buffer")'
+    parameters:
+    - id: NewInvtEventBuffer
+      parameterType:
+        name: Record "Inventory Event Buffer"
+        isExternal: true
+  name: InsertEntry
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.InsertEntry(Inventory_Event_Buffer@)
+- syntax:
+    content: 'procedure NextEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NextEntryNo
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.NextEntryNo:Integer
+- syntax:
+    content: 'procedure GetSourceReferences(FromRecordID: RecordId, TransferDirection: Enum "Transfer Direction", var SourceType: Integer, var SourceSubtype: Integer, var SourceID: Code[20], var SourceBatchName: Code[10], var SourceProdOrderLine: Integer, var SourceRefNo: Integer): Boolean'
+    parameters:
+    - id: FromRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: TransferDirection
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSourceReferences
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.GetSourceReferences(RecordId,Enum::Microsoft#Foundation#Enums#Transfer_Direction,Integer@,Integer@,Code[20]@,Code[10]@,Integer@,Integer@):Boolean
+- syntax:
+    content: 'procedure ShowDocument(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowDocument
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability.ShowDocument(RecordId)
+commentId: O:Codeunit::Microsoft#Inventory#Availability#Calc# Item Availability
+name: '"Calc. Item Availability"'
+uid: O:Codeunit::Microsoft#Inventory#Availability#Calc#_Item_Availability

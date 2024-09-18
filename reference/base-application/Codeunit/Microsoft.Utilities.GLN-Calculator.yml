@@ -1,0 +1,61 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities."GLN Calculator"
+alId: ID 1607
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure AssertValidCheckDigit13(GLNValue: Code[20])'
+    parameters:
+    - id: GLNValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AssertValidCheckDigit13
+  uid: M:Codeunit::Microsoft#Utilities#GLN_Calculator.AssertValidCheckDigit13(Code[20])
+- syntax:
+    content: 'procedure IsValidCheckDigit13(GLNValue: Code[20]): Boolean'
+    parameters:
+    - id: GLNValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsValidCheckDigit13
+  uid: M:Codeunit::Microsoft#Utilities#GLN_Calculator.IsValidCheckDigit13(Code[20]):Boolean
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeIsValidCheckDigit(GLNValue: Code[20], ExpectedSize: Integer, var IsValid: Boolean, var IsHandled: Boolean)'
+    parameters:
+    - id: GLNValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExpectedSize
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IsValid
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnBeforeIsValidCheckDigit
+  uid: M:Codeunit::Microsoft#Utilities#GLN_Calculator.OnBeforeIsValidCheckDigit(Code[20],Integer,Boolean@,Boolean@)
+commentId: O:Codeunit::Microsoft#Utilities#GLN Calculator
+name: '"GLN Calculator"'
+uid: O:Codeunit::Microsoft#Utilities#GLN_Calculator

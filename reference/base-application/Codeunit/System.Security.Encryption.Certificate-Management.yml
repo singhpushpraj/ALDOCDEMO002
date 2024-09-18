@@ -1,0 +1,118 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Security.Encryption."Certificate Management"
+alId: ID 1259
+namespace: System.Security.Encryption
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Security.Encryption
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure GetRawCertDataAsBase64String(IsolatedCertificate: Record "Isolated Certificate"): Text'
+    parameters:
+    - id: IsolatedCertificate
+      parameterType:
+        name: Record "Isolated Certificate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetRawCertDataAsBase64String
+  uid: M:Codeunit::System#Security#Encryption#Certificate_Management.GetRawCertDataAsBase64String(Isolated_Certificate):Text
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure VerifyCertFromBase64(Base64String: Text): Boolean'
+    parameters:
+    - id: Base64String
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: VerifyCertFromBase64
+  uid: M:Codeunit::System#Security#Encryption#Certificate_Management.VerifyCertFromBase64(Text):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure GetCertSimpleName(IsolatedCertificate: Record "Isolated Certificate"): Text'
+    parameters:
+    - id: IsolatedCertificate
+      parameterType:
+        name: Record "Isolated Certificate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCertSimpleName
+  uid: M:Codeunit::System#Security#Encryption#Certificate_Management.GetCertSimpleName(Isolated_Certificate):Text
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure GetCertPrivateKey(IsolatedCertificate: Record "Isolated Certificate", SignatureKey: __MissingTypeSymbol__)'
+    parameters:
+    - id: IsolatedCertificate
+      parameterType:
+        name: Record "Isolated Certificate"
+        isExternal: true
+    - id: SignatureKey
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GetCertPrivateKey
+  uid: M:Codeunit::System#Security#Encryption#Certificate_Management.GetCertPrivateKey(Isolated_Certificate,__MissingSymbol__@)
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Replaced by GetPublicKeyAsBase64String with SecretText data type for Password parameter.,24.0)]'
+    content: 'procedure GetPublicKeyAsBase64String(FullCertificateBase64: Text, Password: Text): Text'
+    parameters:
+    - id: FullCertificateBase64
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Password
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetPublicKeyAsBase64String
+  obsoletion:
+    state: pending
+    reason: Replaced by GetPublicKeyAsBase64String with SecretText data type for Password parameter.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Encryption#Certificate_Management.GetPublicKeyAsBase64String(Text,Text):Text
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure GetPublicKeyAsBase64String(FullCertificateBase64: Text, Password: SecretText): Text'
+    parameters:
+    - id: FullCertificateBase64
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Password
+      parameterType:
+        name: SecretText
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetPublicKeyAsBase64String
+  uid: M:Codeunit::System#Security#Encryption#Certificate_Management.GetPublicKeyAsBase64String(Text,SecretText):Text
+commentId: O:Codeunit::System#Security#Encryption#Certificate Management
+name: '"Certificate Management"'
+uid: O:Codeunit::System#Security#Encryption#Certificate_Management

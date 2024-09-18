@@ -1,0 +1,99 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability."Capable to Promise"
+alId: ID 99000886
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CalcCapableToPromiseDate(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], NeededDate: Date, NeededQty: Decimal, UnitOfMeasure: Code[10], var LocOrderPromisingID: Code[20], LocSourceLineNo: Integer, var LastValidLine: Integer, PeriodType: Enum "Analysis Line Type", PeriodLengthFormula: DateFormula): Date'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NeededDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NeededQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitOfMeasure
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocOrderPromisingID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocSourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LastValidLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Line_Type
+        name: Microsoft.Foundation.Enums."Analysis Line Type"
+        isExternal: false
+    - id: PeriodLengthFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcCapableToPromiseDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Capable_to_Promise.CalcCapableToPromiseDate(Code[20],Code[10],Code[10],Date,Decimal,Code[10],Code[20]@,Integer,Integer@,Enum::Microsoft#Foundation#Enums#Analysis_Line_Type,DateFormula):Date
+- syntax:
+    content: 'procedure RemoveReqLines(OrderPromisingID: Code[20], SourceLineNo: Integer, LastGoodLineNo: Integer, FilterOnNonAccepted: Boolean)'
+    parameters:
+    - id: OrderPromisingID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LastGoodLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FilterOnNonAccepted
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveReqLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Capable_to_Promise.RemoveReqLines(Code[20],Integer,Integer,Boolean)
+- syntax:
+    content: 'procedure ReassignRefOrderNos(OrderPromisingID: Code[20])'
+    parameters:
+    - id: OrderPromisingID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ReassignRefOrderNos
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Capable_to_Promise.ReassignRefOrderNos(Code[20])
+commentId: O:Codeunit::Microsoft#Inventory#Availability#Capable to Promise
+name: '"Capable to Promise"'
+uid: O:Codeunit::Microsoft#Inventory#Availability#Capable_to_Promise

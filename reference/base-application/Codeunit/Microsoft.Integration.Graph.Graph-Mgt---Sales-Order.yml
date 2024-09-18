@@ -1,0 +1,110 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - Sales Order"
+alId: ID 5495
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Sales Invoice Header" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ProcessComplexTypes(var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer", SellToAddressJSON: Text)'
+    parameters:
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+    - id: SellToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ProcessComplexTypes
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.ProcessComplexTypes(Sales_Order_Entity_Buffer@,Text)
+- syntax:
+    content: 'procedure ParseSellToCustomerAddressFromJSON(SellToAddressJSON: Text, var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer")'
+    parameters:
+    - id: SellToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+  name: ParseSellToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.ParseSellToCustomerAddressFromJSON(Text,Sales_Order_Entity_Buffer@)
+- syntax:
+    content: 'procedure ParseBillToCustomerAddressFromJSON(BillToAddressJSON: Text, var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer")'
+    parameters:
+    - id: BillToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+  name: ParseBillToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.ParseBillToCustomerAddressFromJSON(Text,Sales_Order_Entity_Buffer@)
+- syntax:
+    content: 'procedure ParseShipToCustomerAddressFromJSON(ShipToAddressJSON: Text, var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer")'
+    parameters:
+    - id: ShipToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+  name: ParseShipToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.ParseShipToCustomerAddressFromJSON(Text,Sales_Order_Entity_Buffer@)
+- syntax:
+    content: 'procedure SellToCustomerAddressToJSON(var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer"): Text'
+    parameters:
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SellToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.SellToCustomerAddressToJSON(Sales_Order_Entity_Buffer@):Text
+- syntax:
+    content: 'procedure BillToCustomerAddressToJSON(var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer"): Text'
+    parameters:
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: BillToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.BillToCustomerAddressToJSON(Sales_Order_Entity_Buffer@):Text
+- syntax:
+    content: 'procedure ShipToCustomerAddressToJSON(var SalesOrderEntityBuffer: Record "Sales Order Entity Buffer"): Text'
+    parameters:
+    - id: SalesOrderEntityBuffer
+      parameterType:
+        name: Record "Sales Order Entity Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ShipToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order.ShipToCustomerAddressToJSON(Sales_Order_Entity_Buffer@):Text
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - Sales Order
+name: '"Graph Mgt - Sales Order"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Order

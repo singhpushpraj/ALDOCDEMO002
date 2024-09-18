@@ -1,0 +1,63 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.History."Cancel Posted Purch. Cr. Memo"
+alId: ID 1402
+namespace: Microsoft.Purchases.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purch. Inv. Header" = rm,
+                      TableData "Purch. Cr. Memo Hdr." = rm
+  promoted: false
+- name: TableNo
+  value: Purch. Cr. Memo Hdr.
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#History#Purch#_Cr#_Memo_Hdr#
+    name: Microsoft.Purchases.History."Purch. Cr. Memo Hdr."
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CancelPostedCrMemo(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."): Boolean'
+    parameters:
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CancelPostedCrMemo
+  uid: M:Codeunit::Microsoft#Purchases#History#Cancel_Posted_Purch#_Cr#_Memo.CancelPostedCrMemo(Purch#_Cr#_Memo_Hdr#@):Boolean
+- syntax:
+    content: 'procedure TestCorrectCrMemoIsAllowed(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.")'
+    parameters:
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+  name: TestCorrectCrMemoIsAllowed
+  uid: M:Codeunit::Microsoft#Purchases#History#Cancel_Posted_Purch#_Cr#_Memo.TestCorrectCrMemoIsAllowed(Purch#_Cr#_Memo_Hdr#@)
+- syntax:
+    content: 'procedure CheckGLAccount(AccountNo: Code[20], PurchCrMemoLine: Record "Purch. Cr. Memo Line")'
+    parameters:
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchCrMemoLine
+      parameterType:
+        name: Record "Purch. Cr. Memo Line"
+        isExternal: true
+  name: CheckGLAccount
+  uid: M:Codeunit::Microsoft#Purchases#History#Cancel_Posted_Purch#_Cr#_Memo.CheckGLAccount(Code[20],Purch#_Cr#_Memo_Line)
+commentId: O:Codeunit::Microsoft#Purchases#History#Cancel Posted Purch# Cr# Memo
+name: '"Cancel Posted Purch. Cr. Memo"'
+uid: O:Codeunit::Microsoft#Purchases#History#Cancel_Posted_Purch#_Cr#_Memo

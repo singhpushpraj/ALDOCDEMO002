@@ -1,0 +1,139 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Late Binding Management"
+alId: ID 6502
+namespace: Microsoft.Inventory.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ReallocateTrkgSpecification(var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: ReallocateTrkgSpecification
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.ReallocateTrkgSpecification(Tracking_Specification@)
+- syntax:
+    content: 'procedure NonspecificReservedQty(var ItemLedgEntry: Record "Item Ledger Entry"): Decimal'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: NonspecificReservedQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.NonspecificReservedQty(Item_Ledger_Entry@):Decimal
+- syntax:
+    content: 'procedure NonSpecificReservedQtyExceptForSource(ItemLedgerEntryNo: Integer, TempTrackingSpecification: Record "Tracking Specification" temporary): Decimal'
+    parameters:
+    - id: ItemLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: NonSpecificReservedQtyExceptForSource
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.NonSpecificReservedQtyExceptForSource(Integer,Tracking_Specification):Decimal
+- syntax:
+    content: 'procedure ReleaseForReservation(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], ItemTrackingSetup: Record "Item Tracking Setup" temporary, QtyToRelease: Decimal): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: QtyToRelease
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReleaseForReservation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.ReleaseForReservation(Code[20],Code[10],Code[10],Item_Tracking_Setup,Decimal):Boolean
+- syntax:
+    content: 'procedure ReleaseForReservation(var CalcItemLedgEntry: Record "Item Ledger Entry", CalcReservEntry: Record "Reservation Entry", RemainingQtyToReserve: Decimal): Boolean'
+    parameters:
+    - id: CalcItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: CalcReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: RemainingQtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReleaseForReservation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.ReleaseForReservation(Item_Ledger_Entry@,Reservation_Entry,Decimal):Boolean
+- syntax:
+    content: 'procedure ReserveItemTrackingLine(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: ReserveItemTrackingLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.ReserveItemTrackingLine(Tracking_Specification)
+- syntax:
+    content: 'procedure ReserveItemTrackingLine(TrackingSpecification: Record "Tracking Specification", QtyToReserve: Decimal, QtyToReserveBase: Decimal)'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ReserveItemTrackingLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.ReserveItemTrackingLine(Tracking_Specification,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetOrderTrackingSurplusEntries(var TempReservEntry: Record "Reservation Entry" temporary)'
+    parameters:
+    - id: TempReservEntry
+      parameterType:
+        name: Record "Reservation Entry" temporary
+        isExternal: true
+  name: SetOrderTrackingSurplusEntries
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management.SetOrderTrackingSurplusEntries(Reservation_Entry@)
+commentId: O:Codeunit::Microsoft#Inventory#Tracking#Late Binding Management
+name: '"Late Binding Management"'
+uid: O:Codeunit::Microsoft#Inventory#Tracking#Late_Binding_Management

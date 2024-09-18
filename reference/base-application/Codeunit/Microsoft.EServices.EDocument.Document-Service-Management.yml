@@ -1,0 +1,237 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.EServices.EDocument."Document Service Management"
+alId: ID 9510
+namespace: Microsoft.EServices.EDocument
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.EServices.EDocument
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Tenant Media" = rimd
+  promoted: false
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure RunDocumentServiceSetup(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: RunDocumentServiceSetup
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.RunDocumentServiceSetup(Notification)
+- syntax:
+    content: 'procedure GetOneDriveScenario(DocumentServiceScenario: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: DocumentServiceScenario
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetOneDriveScenario
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.GetOneDriveScenario(__MissingSymbol__@):Boolean
+- syntax:
+    content: 'procedure IsConfiguredLegacy(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsConfiguredLegacy
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.IsConfiguredLegacy:Boolean
+- syntax:
+    content: 'procedure IsConfigured(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsConfigured
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.IsConfigured:Boolean
+- syntax:
+    content: 'procedure GetServiceType(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetServiceType
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.GetServiceType:Text
+- syntax:
+    content: 'procedure GetDefaultFolderName(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDefaultFolderName
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.GetDefaultFolderName:Text[250]
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure TryGetDefaultLocation(var Location: Text[250]): Boolean'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TryGetDefaultLocation
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.TryGetDefaultLocation(Text[250]@):Boolean
+- syntax:
+    content: 'procedure GetMyBusinessCentralFilesLink(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetMyBusinessCentralFilesLink
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.GetMyBusinessCentralFilesLink:Text
+- syntax:
+    content: 'procedure OpenInOneDrive(FileName: Text, FileExtension: Text, InStream: InStream)'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InStream
+      parameterType:
+        name: InStream
+        isExternal: true
+  name: OpenInOneDrive
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.OpenInOneDrive(Text,Text,InStream)
+- syntax:
+    content: 'procedure EditInOneDrive(FileName: Text, FileExtension: Text, TempBlob: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EditInOneDrive
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.EditInOneDrive(Text,Text,__MissingSymbol__@):Boolean
+- syntax:
+    content: 'procedure EditInOneDrive(FileName: Text, FileExtension: Text, DocSharingConflictBehavior: __MissingTypeSymbol__, TempBlob: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocSharingConflictBehavior
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EditInOneDrive
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.EditInOneDrive(Text,Text,__MissingSymbol__,__MissingSymbol__@):Boolean
+- syntax:
+    content: 'procedure OpenInOneDriveFromMedia(FileName: Text, FileExtension: Text, MediaId: Guid)'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MediaId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: OpenInOneDriveFromMedia
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.OpenInOneDriveFromMedia(Text,Text,Guid)
+- syntax:
+    content: 'procedure EditInOneDriveFromMedia(FileName: Text, FileExtension: Text, MediaId: Guid): Boolean'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MediaId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EditInOneDriveFromMedia
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.EditInOneDriveFromMedia(Text,Text,Guid):Boolean
+- syntax:
+    content: 'procedure ShareWithOneDrive(FileName: Text, FileExtension: Text, InStream: InStream)'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InStream
+      parameterType:
+        name: InStream
+        isExternal: true
+  name: ShareWithOneDrive
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.ShareWithOneDrive(Text,Text,InStream)
+- syntax:
+    content: 'procedure ShareWithOneDriveFromMedia(FileName: Text, FileExtension: Text, MediaId: Guid)'
+    parameters:
+    - id: FileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FileExtension
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MediaId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ShareWithOneDriveFromMedia
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management.ShareWithOneDriveFromMedia(Text,Text,Guid)
+commentId: O:Codeunit::Microsoft#EServices#EDocument#Document Service Management
+name: '"Document Service Management"'
+uid: O:Codeunit::Microsoft#EServices#EDocument#Document_Service_Management

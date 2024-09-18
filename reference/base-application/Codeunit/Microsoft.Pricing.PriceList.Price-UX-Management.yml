@@ -1,0 +1,455 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.PriceList."Price UX Management"
+alId: ID 7018
+namespace: Microsoft.Pricing.PriceList
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.PriceList
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetFirstSourceFromFilter(var PriceListHeader: Record "Price List Header", var PriceSource: Record "Price Source" temporary, DefaultSourceType: Enum "Price Source Type")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: DefaultSourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+  name: GetFirstSourceFromFilter
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.GetFirstSourceFromFilter(Price_List_Header@,Price_Source@,Enum::Microsoft#Pricing#Source#Price_Source_Type)
+- syntax:
+    content: 'procedure IsAmountTypeFiltered(var PriceListHeader: Record "Price List Header"): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAmountTypeFiltered
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.IsAmountTypeFiltered(Price_List_Header@):Boolean
+- syntax:
+    content: 'procedure IsAmountTypeFiltered(var PriceListHeader: Record "Price List Header", var FirstFilterValue: Enum "Price Amount Type"): Boolean'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: FirstFilterValue
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAmountTypeFiltered
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.IsAmountTypeFiltered(Price_List_Header@,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type@):Boolean
+- syntax:
+    content: 'procedure GetSupportedMethods(var TempPriceCalculationSetup: Record "Price Calculation Setup" temporary, var ImplementationsPerMethod: Dictionary of [Integer, Integer])'
+    parameters:
+    - id: TempPriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup" temporary
+        isExternal: true
+    - id: ImplementationsPerMethod
+      parameterType:
+        name: Dictionary of [Integer, Integer]
+        isExternal: true
+  name: GetSupportedMethods
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.GetSupportedMethods(Price_Calculation_Setup@,Dictionary_of_[Integer,Integer]@)
+- syntax:
+    content: 'procedure PickImplementation(var CurrPriceCalculationSetup: Record "Price Calculation Setup")'
+    parameters:
+    - id: CurrPriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+  name: PickImplementation
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.PickImplementation(Price_Calculation_Setup@)
+- syntax:
+    content: 'procedure LookupPriceLists(SourceGroup: Enum "Price Source Group", PriceType: Enum "Price Type", var PriceListCode: Code[20]): Boolean'
+    parameters:
+    - id: SourceGroup
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Group
+        name: Microsoft.Pricing.Source."Price Source Group"
+        isExternal: false
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: PriceListCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.LookupPriceLists(Enum::Microsoft#Pricing#Source#Price_Source_Group,Enum::Microsoft#Pricing#PriceList#Price_Type,Code[20]@):Boolean
+- syntax:
+    content: 'procedure EditPriceList(PriceListCode: Code[20])'
+    parameters:
+    - id: PriceListCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: EditPriceList
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.EditPriceList(Code[20])
+- syntax:
+    content: 'procedure ShowExceptions(CurrPriceCalculationSetup: Record "Price Calculation Setup")'
+    parameters:
+    - id: CurrPriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+  name: ShowExceptions
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowExceptions(Price_Calculation_Setup)
+- syntax:
+    content: 'procedure ShowPriceLists(Campaign: Record Campaign, PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: Campaign
+      parameterType:
+        name: Record Campaign
+        isExternal: true
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Campaign,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceLists(Contact: Record Contact, PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: Contact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Contact,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceLists(Customer: Record Customer, AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Customer,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceLists(CustomerDiscountGroup: Record "Customer Discount Group")'
+    parameters:
+    - id: CustomerDiscountGroup
+      parameterType:
+        name: Record "Customer Discount Group"
+        isExternal: true
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Customer_Discount_Group)
+- syntax:
+    content: 'procedure ShowPriceLists(CustomerPriceGroup: Record "Customer Price Group")'
+    parameters:
+    - id: CustomerPriceGroup
+      parameterType:
+        name: Record "Customer Price Group"
+        isExternal: true
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Customer_Price_Group)
+- syntax:
+    content: 'procedure ShowPriceLists(Vendor: Record Vendor, AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Vendor,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceLists(Job: Record Job, PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Job,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceListLines(PriceAsset: Record "Price Asset" temporary, PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceListLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceListLines(Price_Asset,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceListLines(PriceSource: Record "Price Source" temporary, PriceAsset: Record "Price Asset" temporary, AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceListLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceListLines(Price_Source,Price_Asset,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceListLines(PriceSource: Record "Price Source" temporary, AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceListLines
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceListLines(Price_Source,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure ShowPriceLists(PriceSourceList: Codeunit "Price Source List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceLists
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.ShowPriceLists(Codeunit::Microsoft#Pricing#Source#Price_Source_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListsFilters(var PriceListHeader: Record "Price List Header", PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListsFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.SetPriceListsFilters(Price_List_Header@,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListsFilters(var PriceListHeader: Record "Price List Header", PriceSourceList: Codeunit "Price Source List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListsFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.SetPriceListsFilters(Price_List_Header@,Codeunit::Microsoft#Pricing#Source#Price_Source_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListLineFilters(var PriceListLine: Record "Price List Line", PriceSourceList: Codeunit "Price Source List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListLineFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.SetPriceListLineFilters(Price_List_Line@,Codeunit::Microsoft#Pricing#Source#Price_Source_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListLineFilters(PriceAssetList: Codeunit "Price Asset List", PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type"): Boolean'
+    parameters:
+    - id: PriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetPriceListLineFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.SetPriceListLineFilters(Codeunit::Microsoft#Pricing#Asset#Price_Asset_List,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type):Boolean
+- syntax:
+    content: 'procedure SetPriceListLineFilters(var PriceListLine: Record "Price List Line", PriceAssetList: Codeunit "Price Asset List", PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListLineFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.SetPriceListLineFilters(Price_List_Line@,Codeunit::Microsoft#Pricing#Asset#Price_Asset_List,Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetPriceListLineFilters(var PriceListLine: Record "Price List Line", PriceSource: Record "Price Source" temporary, PriceAssetList: Codeunit "Price Asset List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: PriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetPriceListLineFilters
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.SetPriceListLineFilters(Price_List_Line@,Price_Source,Codeunit::Microsoft#Pricing#Asset#Price_Asset_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure GetFirstAlternateSetupCode(CurrPriceCalculationSetup: Record "Price Calculation Setup"): Code[100]'
+    parameters:
+    - id: CurrPriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[100]
+        isExternal: true
+  name: GetFirstAlternateSetupCode
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.GetFirstAlternateSetupCode(Price_Calculation_Setup):Code[100]
+- syntax:
+    content: 'procedure PickAlternateImplementation(var DtldPriceCalculationSetup: Record "Dtld. Price Calculation Setup")'
+    parameters:
+    - id: DtldPriceCalculationSetup
+      parameterType:
+        name: Record "Dtld. Price Calculation Setup"
+        isExternal: true
+  name: PickAlternateImplementation
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.PickAlternateImplementation(Dtld#_Price_Calculation_Setup@)
+- syntax:
+    content: 'procedure TestAlternateImplementation(CurrPriceCalculationSetup: Record "Price Calculation Setup")'
+    parameters:
+    - id: CurrPriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+  name: TestAlternateImplementation
+  uid: M:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management.TestAlternateImplementation(Price_Calculation_Setup)
+commentId: O:Codeunit::Microsoft#Pricing#PriceList#Price UX Management
+name: '"Price UX Management"'
+uid: O:Codeunit::Microsoft#Pricing#PriceList#Price_UX_Management

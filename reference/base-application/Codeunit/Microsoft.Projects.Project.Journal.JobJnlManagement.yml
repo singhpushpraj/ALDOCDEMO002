@@ -1,0 +1,138 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Journal.JobJnlManagement
+alId: ID 1020
+namespace: Microsoft.Projects.Project.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Job Journal Template" = rimd,
+                      TableData "Job Journal Batch" = rimd,
+                      TableData "Job Entry No." = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, RecurringJnl: Boolean, var JobJnlLine: Record "Job Journal Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecurringJnl
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.TemplateSelection(Integer,Boolean,Job_Journal_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var JobJnlBatch: Record "Job Journal Batch")'
+    parameters:
+    - id: JobJnlBatch
+      parameterType:
+        name: Record "Job Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.TemplateSelectionFromBatch(Job_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJnl(var CurrentJnlBatchName: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.OpenJnl(Code[10]@,Job_Journal_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var JobJnlBatch: Record "Job Journal Batch")'
+    parameters:
+    - id: JobJnlBatch
+      parameterType:
+        name: Record "Job Journal Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.OpenJnlBatch(Job_Journal_Batch@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.CheckName(Code[10],Job_Journal_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.SetName(Code[10],Job_Journal_Line@)
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.LookupName(Code[10]@,Job_Journal_Line@)
+- syntax:
+    content: 'procedure GetNames(var JobJnlLine: Record "Job Journal Line", var JobDescription: Text[100], var AccName: Text[100])'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: JobDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: AccName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetNames
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.GetNames(Job_Journal_Line@,Text[100]@,Text[100]@)
+- syntax:
+    content: 'procedure GetNextEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextEntryNo
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement.GetNextEntryNo:Integer
+commentId: O:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement
+name: JobJnlManagement
+uid: O:Codeunit::Microsoft#Projects#Project#Journal#JobJnlManagement

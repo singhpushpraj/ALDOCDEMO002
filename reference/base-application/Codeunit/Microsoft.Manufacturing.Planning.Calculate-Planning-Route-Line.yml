@@ -1,0 +1,101 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Planning."Calculate Planning Route Line"
+alId: ID 99000810
+namespace: Microsoft.Manufacturing.Planning
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Planning
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = r,
+                      TableData "Prod. Order Capacity Need" = rimd,
+                      TableData "Work Center" = r,
+                      TableData "Calendar Entry" = r,
+                      TableData "Machine Center" = r,
+                      TableData "Manufacturing Setup" = rm,
+                      TableData "Planning Routing Line" = rimd,
+                      TableData "Capacity Constrained Resource" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure LoadCapForward(CapType: Enum "Capacity Type", CapNo: Code[20], TimeType: Enum "Routing Time Type", Write: Boolean)'
+    parameters:
+    - id: CapType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: CapNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Routing#Routing_Time_Type
+        name: Microsoft.Manufacturing.Routing."Routing Time Type"
+        isExternal: false
+    - id: Write
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: LoadCapForward
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calculate_Planning_Route_Line.LoadCapForward(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Enum::Microsoft#Manufacturing#Routing#Routing_Time_Type,Boolean)
+- syntax:
+    content: 'procedure CalculateRouteLine(var PlanningRoutingLine2: Record "Planning Routing Line", Direction: Option, CalcStartEndDate: Boolean, ReqLine2: Record "Requisition Line")'
+    parameters:
+    - id: PlanningRoutingLine2
+      parameterType:
+        name: Record "Planning Routing Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CalcStartEndDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: CalculateRouteLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calculate_Planning_Route_Line.CalculateRouteLine(Planning_Routing_Line@,Option,Boolean,Requisition_Line)
+- syntax:
+    content: 'procedure SetResiliencyOn(WkshTemplName: Code[10], JnlBatchName: Code[10], ItemNo: Code[20])'
+    parameters:
+    - id: WkshTemplName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetResiliencyOn
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calculate_Planning_Route_Line.SetResiliencyOn(Code[10],Code[10],Code[20])
+- syntax:
+    content: 'procedure GetResiliencyError(var PlanningErrorLog: Record "Planning Error Log"): Boolean'
+    parameters:
+    - id: PlanningErrorLog
+      parameterType:
+        name: Record "Planning Error Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetResiliencyError
+  uid: M:Codeunit::Microsoft#Manufacturing#Planning#Calculate_Planning_Route_Line.GetResiliencyError(Planning_Error_Log@):Boolean
+commentId: O:Codeunit::Microsoft#Manufacturing#Planning#Calculate Planning Route Line
+name: '"Calculate Planning Route Line"'
+uid: O:Codeunit::Microsoft#Manufacturing#Planning#Calculate_Planning_Route_Line

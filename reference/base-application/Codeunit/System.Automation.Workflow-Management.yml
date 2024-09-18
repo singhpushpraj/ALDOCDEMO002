@@ -1,0 +1,405 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Workflow Management"
+alId: ID 1501
+namespace: System.Automation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Workflow = R,
+                      TableData "Workflow Step" = R,
+                      TableData "Workflow Step Instance" = Rimd,
+                      TableData "Workflow Table Relation Value" = rimd,
+                      tabledata "Workflow Event" = r,
+                      TableData "Workflow Event Queue" = rimd,
+                      TableData "Workflow Step Argument" = rd,
+                      TableData "Workflow - Record Change" = rimd,
+                      TableData "Workflow Record Change Archive" = rimd,
+                      TableData "Workflow Step Instance Archive" = rimd,
+                      TableData "Workflow Step Argument Archive" = rimd,
+                      tabledata "Workflow - Table Relation" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TrackWorkflow(Variant: Variant, var WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: TrackWorkflow
+  uid: M:Codeunit::System#Automation#Workflow_Management.TrackWorkflow(Variant,Workflow_Step_Instance@)
+- syntax:
+    content: 'procedure FindWorkflowStepInstance(Variant: Variant, xVariant: Variant, var WorkflowStepInstance: Record "Workflow Step Instance", FunctionName: Code[128]): Boolean'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindWorkflowStepInstance
+  uid: M:Codeunit::System#Automation#Workflow_Management.FindWorkflowStepInstance(Variant,Variant,Workflow_Step_Instance@,Code[128]):Boolean
+- syntax:
+    content: 'procedure CanExecuteWorkflow(Variant: Variant, FunctionName: Code[128]): Boolean'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanExecuteWorkflow
+  uid: M:Codeunit::System#Automation#Workflow_Management.CanExecuteWorkflow(Variant,Code[128]):Boolean
+- syntax:
+    content: 'procedure MarkChildrenStatus(WorkflowStepInstance: Record "Workflow Step Instance", NewStatus: Option)'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        name: Option
+        isExternal: true
+  name: MarkChildrenStatus
+  uid: M:Codeunit::System#Automation#Workflow_Management.MarkChildrenStatus(Workflow_Step_Instance,Option)
+- syntax:
+    content: 'procedure MarkSiblingStatus(WorkflowStepInstance: Record "Workflow Step Instance", NewStatus: Option)'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        name: Option
+        isExternal: true
+  name: MarkSiblingStatus
+  uid: M:Codeunit::System#Automation#Workflow_Management.MarkSiblingStatus(Workflow_Step_Instance,Option)
+- syntax:
+    content: 'procedure UpdateStatus(var WorkflowStepInstance: Record "Workflow Step Instance", NewStatus: Option, ChildrenStatus: Option, SiblingsStatus: Option)'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ChildrenStatus
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SiblingsStatus
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateStatus
+  uid: M:Codeunit::System#Automation#Workflow_Management.UpdateStatus(Workflow_Step_Instance@,Option,Option,Option)
+- syntax:
+    content: 'procedure FindWorkflow(RecRef: RecordRef, xRecRef: RecordRef, FunctionName: Code[128], var Workflow: Record Workflow): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: xRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: Workflow
+      parameterType:
+        name: Record Workflow
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindWorkflow
+  uid: M:Codeunit::System#Automation#Workflow_Management.FindWorkflow(RecordRef,RecordRef,Code[128],Workflow@):Boolean
+- syntax:
+    content: 'procedure WorkflowExists(Variant: Variant, xVariant: Variant, FunctionName: Code[128]): Boolean'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WorkflowExists
+  uid: M:Codeunit::System#Automation#Workflow_Management.WorkflowExists(Variant,Variant,Code[128]):Boolean
+- syntax:
+    content: 'procedure ArchiveWorkflowInstance(WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: ArchiveWorkflowInstance
+  uid: M:Codeunit::System#Automation#Workflow_Management.ArchiveWorkflowInstance(Workflow_Step_Instance)
+- syntax:
+    content: 'procedure FindResponse(var ResponseWorkflowStepInstance: Record "Workflow Step Instance", PreviousWorkflowStepInstance: Record "Workflow Step Instance"): Boolean'
+    parameters:
+    - id: ResponseWorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: PreviousWorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindResponse
+  uid: M:Codeunit::System#Automation#Workflow_Management.FindResponse(Workflow_Step_Instance@,Workflow_Step_Instance):Boolean
+- syntax:
+    content: 'procedure FindEventWorkflowStepInstance(var WorkflowStepInstance: Record "Workflow Step Instance", FunctionName: Code[128], Variant: Variant, xVariant: Variant): Boolean'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindEventWorkflowStepInstance
+  uid: M:Codeunit::System#Automation#Workflow_Management.FindEventWorkflowStepInstance(Workflow_Step_Instance@,Code[128],Variant,Variant):Boolean
+- syntax:
+    content: 'procedure HandleEvent(FunctionName: Code[128], Variant: Variant)'
+    parameters:
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: HandleEvent
+  uid: M:Codeunit::System#Automation#Workflow_Management.HandleEvent(Code[128],Variant)
+- syntax:
+    content: 'procedure HandleEventWithxRec(FunctionName: Code[128], Variant: Variant, xVariant: Variant)'
+    parameters:
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: HandleEventWithxRec
+  uid: M:Codeunit::System#Automation#Workflow_Management.HandleEventWithxRec(Code[128],Variant,Variant)
+- syntax:
+    content: 'procedure HandleEventOnKnownWorkflowInstance(FunctionName: Code[128], Variant: Variant, WorkflowStepInstanceID: Guid)'
+    parameters:
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: WorkflowStepInstanceID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: HandleEventOnKnownWorkflowInstance
+  uid: M:Codeunit::System#Automation#Workflow_Management.HandleEventOnKnownWorkflowInstance(Code[128],Variant,Guid)
+- syntax:
+    content: 'procedure HandleEventWithxRecOnKnownWorkflowInstance(FunctionName: Code[128], Variant: Variant, xVariant: Variant, WorkflowStepInstanceID: Guid)'
+    parameters:
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: WorkflowStepInstanceID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: HandleEventWithxRecOnKnownWorkflowInstance
+  uid: M:Codeunit::System#Automation#Workflow_Management.HandleEventWithxRecOnKnownWorkflowInstance(Code[128],Variant,Variant,Guid)
+- syntax:
+    content: 'procedure ExecuteResponses(Variant: Variant, xVariant: Variant, ActionableWorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ActionableWorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: ExecuteResponses
+  uid: M:Codeunit::System#Automation#Workflow_Management.ExecuteResponses(Variant,Variant,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure ChangeStatusForResponsesAndEvents(WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: ChangeStatusForResponsesAndEvents
+  uid: M:Codeunit::System#Automation#Workflow_Management.ChangeStatusForResponsesAndEvents(Workflow_Step_Instance)
+- syntax:
+    content: 'procedure EnabledWorkflowExist(TableNo: Integer, EventFilter: Text): Boolean'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EventFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EnabledWorkflowExist
+  uid: M:Codeunit::System#Automation#Workflow_Management.EnabledWorkflowExist(Integer,Text):Boolean
+- syntax:
+    content: 'procedure NavigateToWorkflows(TableNo: Integer, EventFilter: Text)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EventFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: NavigateToWorkflows
+  uid: M:Codeunit::System#Automation#Workflow_Management.NavigateToWorkflows(Integer,Text)
+- syntax:
+    content: 'procedure BuildConditionDisplay(WorkflowStep: Record "Workflow Step"): Text[100]'
+    parameters:
+    - id: WorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: BuildConditionDisplay
+  uid: M:Codeunit::System#Automation#Workflow_Management.BuildConditionDisplay(Workflow_Step):Text[100]
+- syntax:
+    content: 'procedure ClearSupportedCombinations(FunctionName: Code[128], WFEventResponseCombinationType: Option)'
+    parameters:
+    - id: FunctionName
+      parameterType:
+        name: Code[128]
+        isExternal: true
+    - id: WFEventResponseCombinationType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ClearSupportedCombinations
+  uid: M:Codeunit::System#Automation#Workflow_Management.ClearSupportedCombinations(Code[128],Option)
+- syntax:
+    content: 'procedure GetWebhookClientLink(ClientId: Guid, ClientType: Text): Text'
+    parameters:
+    - id: ClientId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: ClientType
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetWebhookClientLink
+  uid: M:Codeunit::System#Automation#Workflow_Management.GetWebhookClientLink(Guid,Text):Text
+- syntax:
+    content: 'procedure AnyWorkflowExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AnyWorkflowExists
+  uid: M:Codeunit::System#Automation#Workflow_Management.AnyWorkflowExists:Boolean
+commentId: O:Codeunit::System#Automation#Workflow Management
+name: '"Workflow Management"'
+uid: O:Codeunit::System#Automation#Workflow_Management

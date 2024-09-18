@@ -1,0 +1,61 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Setup."Documents - Retention Period"
+namespace: Microsoft.Finance.GeneralLedger.Setup
+baseKind: Interface
+kind: Interface
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Setup
+langs:
+- al
+seeAlso:
+- '[Interface](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-interfaces-in-al)'
+methods:
+- syntax:
+    content: 'procedure GetDeletionBlockedAfterDate(): Date'
+    return:
+      description: Law enforced date after which is not possible to delete posted documents.
+      returnType:
+        name: Date
+        isExternal: true
+  summary: Returns the date - Documents with a Posting Date after this date cannot be deleted.
+  name: GetDeletionBlockedAfterDate
+  uid: M:Interface::Microsoft#Finance#GeneralLedger#Setup#Documents_-_Retention_Period.GetDeletionBlockedAfterDate:Date
+- syntax:
+    content: 'procedure GetDeletionBlockedBeforeDate(): Date'
+    return:
+      description: Law enforced date which prevents deletion of documents posted prior to that date.
+      returnType:
+        name: Date
+        isExternal: true
+  summary: Returns the date - Documents with a Posting Date before this date cannot be deleted.
+  name: GetDeletionBlockedBeforeDate
+  uid: M:Interface::Microsoft#Finance#GeneralLedger#Setup#Documents_-_Retention_Period.GetDeletionBlockedBeforeDate:Date
+- syntax:
+    content: 'procedure IsDocumentDeletionAllowedByLaw(PostingDate: Date): Boolean'
+    parameters:
+    - id: PostingDate
+      description: Posting Date of the document
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      description: True if Posting Date is out of date range defined by law.
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns whether document deletion is allowed by law condiering the Posting Date.
+  name: IsDocumentDeletionAllowedByLaw
+  uid: M:Interface::Microsoft#Finance#GeneralLedger#Setup#Documents_-_Retention_Period.IsDocumentDeletionAllowedByLaw(Date):Boolean
+- syntax:
+    content: 'procedure CheckDocumentDeletionAllowedByLaw(PostingDate: Date)'
+    parameters:
+    - id: PostingDate
+      description: Posting Date of the document
+      parameterType:
+        name: Date
+        isExternal: true
+  summary: Use it to run check on posted documents and block deletion if needed.
+  name: CheckDocumentDeletionAllowedByLaw
+  uid: M:Interface::Microsoft#Finance#GeneralLedger#Setup#Documents_-_Retention_Period.CheckDocumentDeletionAllowedByLaw(Date)
+commentId: O:Interface::Microsoft#Finance#GeneralLedger#Setup#Documents - Retention Period
+name: '"Documents - Retention Period"'
+uid: O:Interface::Microsoft#Finance#GeneralLedger#Setup#Documents_-_Retention_Period

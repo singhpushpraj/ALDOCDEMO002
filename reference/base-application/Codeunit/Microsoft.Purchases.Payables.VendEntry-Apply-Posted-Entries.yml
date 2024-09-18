@@ -1,0 +1,212 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Payables."VendEntry-Apply Posted Entries"
+alId: ID 227
+namespace: Microsoft.Purchases.Payables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Payables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: Permissions
+  value: TableData "Vendor Ledger Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Vendor Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Payables#Vendor_Ledger_Entry
+    name: Microsoft.Purchases.Payables."Vendor Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Apply(VendLedgEntry: Record "Vendor Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary): Boolean'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Apply
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.Apply(Vendor_Ledger_Entry,Apply_Unapply_Parameters):Boolean
+- syntax:
+    content: 'procedure GetApplicationDate(VendLedgEntry: Record "Vendor Ledger Entry"): Date'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetApplicationDate
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.GetApplicationDate(Vendor_Ledger_Entry):Date
+- syntax:
+    content: 'procedure FindLastApplEntry(VendLedgEntryNo: Integer): Integer'
+    parameters:
+    - id: VendLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindLastApplEntry
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.FindLastApplEntry(Integer):Integer
+- syntax:
+    content: 'procedure UnApplyDtldVendLedgEntry(DtldVendLedgEntry: Record "Detailed Vendor Ledg. Entry")'
+    parameters:
+    - id: DtldVendLedgEntry
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+  name: UnApplyDtldVendLedgEntry
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.UnApplyDtldVendLedgEntry(Detailed_Vendor_Ledg#_Entry)
+- syntax:
+    content: 'procedure UnApplyVendLedgEntry(VendLedgEntryNo: Integer)'
+    parameters:
+    - id: VendLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UnApplyVendLedgEntry
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.UnApplyVendLedgEntry(Integer)
+- syntax:
+    content: 'procedure CheckVendorLedgerEntryToUnapply(VendorLedgerEntryNo: Integer, var DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry")'
+    parameters:
+    - id: VendorLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DetailedVendorLedgEntry
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+  name: CheckVendorLedgerEntryToUnapply
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.CheckVendorLedgerEntryToUnapply(Integer,Detailed_Vendor_Ledg#_Entry@)
+- syntax:
+    content: 'procedure PostUnApplyVendor(DtldVendLedgEntry2: Record "Detailed Vendor Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DtldVendLedgEntry2
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PostUnApplyVendor
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.PostUnApplyVendor(Detailed_Vendor_Ledg#_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure PostUnApplyVendorCommit(DtldVendLedgEntry2: Record "Detailed Vendor Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary, CommitChanges: Boolean)'
+    parameters:
+    - id: DtldVendLedgEntry2
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+    - id: CommitChanges
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostUnApplyVendorCommit
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.PostUnApplyVendorCommit(Detailed_Vendor_Ledg#_Entry,Apply_Unapply_Parameters,Boolean)
+- syntax:
+    content: 'procedure CheckReversal(VendLedgEntryNo: Integer)'
+    parameters:
+    - id: VendLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckReversal
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.CheckReversal(Integer)
+- syntax:
+    content: 'procedure ApplyVendEntryFormEntry(var ApplyingVendLedgEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: ApplyingVendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: ApplyVendEntryFormEntry
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.ApplyVendEntryFormEntry(Vendor_Ledger_Entry@)
+- syntax:
+    content: 'procedure PreviewApply(VendorLedgerEntry: Record "Vendor Ledger Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PreviewApply
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.PreviewApply(Vendor_Ledger_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure PreviewUnapply(DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DetailedVendorLedgEntry
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: PreviewUnapply
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.PreviewUnapply(Detailed_Vendor_Ledg#_Entry,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure SetApplyContext(ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: SetApplyContext
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.SetApplyContext(Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure SetUnapplyContext(var DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry", ApplyUnapplyParameters: Record "Apply Unapply Parameters" temporary)'
+    parameters:
+    - id: DetailedVendorLedgEntry
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+    - id: ApplyUnapplyParameters
+      parameterType:
+        name: Record "Apply Unapply Parameters" temporary
+        isExternal: true
+  name: SetUnapplyContext
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.SetUnapplyContext(Detailed_Vendor_Ledg#_Entry@,Apply_Unapply_Parameters)
+- syntax:
+    content: 'procedure GetAppliedVendLedgerEntries(var TempAppliedVendLedgerEntry: Record "Vendor Ledger Entry" temporary, VendLedgerEntryNo: Integer)'
+    parameters:
+    - id: TempAppliedVendLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry" temporary
+        isExternal: true
+    - id: VendLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetAppliedVendLedgerEntries
+  uid: M:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries.GetAppliedVendLedgerEntries(Vendor_Ledger_Entry@,Integer)
+commentId: O:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply Posted Entries
+name: '"VendEntry-Apply Posted Entries"'
+uid: O:Codeunit::Microsoft#Purchases#Payables#VendEntry-Apply_Posted_Entries

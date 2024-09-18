@@ -1,0 +1,71 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CashFlow.Forecast."Cash Flow Forecast Handler"
+alId: ID 850
+namespace: Microsoft.CashFlow.Forecast
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CashFlow.Forecast
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Cash Flow Azure AI Buffer" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalculateForecast(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalculateForecast
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_Handler.CalculateForecast:Boolean
+- syntax:
+    content: 'procedure PrepareForecast(var TimeSeriesBuffer: Record "Time Series Buffer"): Boolean'
+    parameters:
+    - id: TimeSeriesBuffer
+      parameterType:
+        name: Record "Time Series Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PrepareForecast
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_Handler.PrepareForecast(Time_Series_Buffer@):Boolean
+- syntax:
+    content: 'procedure CashFlowAzureAIBufferFill(var TimeSeriesBuffer: Record "Time Series Buffer", var TimeSeriesForecast: Record "Time Series Forecast")'
+    parameters:
+    - id: TimeSeriesBuffer
+      parameterType:
+        name: Record "Time Series Buffer"
+        isExternal: true
+    - id: TimeSeriesForecast
+      parameterType:
+        name: Record "Time Series Forecast"
+        isExternal: true
+  name: CashFlowAzureAIBufferFill
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_Handler.CashFlowAzureAIBufferFill(Time_Series_Buffer@,Time_Series_Forecast@)
+- syntax:
+    content: 'procedure DeactivateNotification(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DeactivateNotification
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_Handler.DeactivateNotification(Notification)
+- syntax:
+    content: 'procedure SetupAzureAI(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: SetupAzureAI
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_Handler.SetupAzureAI(Notification)
+commentId: O:Codeunit::Microsoft#CashFlow#Forecast#Cash Flow Forecast Handler
+name: '"Cash Flow Forecast Handler"'
+uid: O:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_Handler

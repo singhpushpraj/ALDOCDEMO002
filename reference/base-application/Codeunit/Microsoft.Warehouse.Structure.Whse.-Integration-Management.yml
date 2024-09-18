@@ -1,0 +1,174 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Structure."Whse. Integration Management"
+alId: ID 7317
+namespace: Microsoft.Warehouse.Structure
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Structure
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure CheckBinTypeAndCode(),24.0)]'
+    content: 'procedure CheckBinTypeCode(SourceTable: Integer, BinCodeFieldCaption: Text[30], LocationCode: Code[10], BinCode: Code[20], AdditionalIdentifier: Option)'
+    parameters:
+    - id: SourceTable
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BinCodeFieldCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdditionalIdentifier
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CheckBinTypeCode
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure CheckBinTypeAndCode()
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckBinTypeCode(Integer,Text[30],Code[10],Code[20],Option)
+- syntax:
+    content: 'procedure CheckBinTypeAndCode(SourceTable: Integer, BinCodeFieldCaption: Text, LocationCode: Code[10], BinCode: Code[20], AdditionalIdentifier: Option)'
+    parameters:
+    - id: SourceTable
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BinCodeFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdditionalIdentifier
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CheckBinTypeAndCode
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckBinTypeAndCode(Integer,Text,Code[10],Code[20],Option)
+- syntax:
+    content: 'procedure AllowPutawayOrQCBinsOnly(var BinType: Record "Bin Type")'
+    parameters:
+    - id: BinType
+      parameterType:
+        name: Record "Bin Type"
+        isExternal: true
+  name: AllowPutawayOrQCBinsOnly
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.AllowPutawayOrQCBinsOnly(Bin_Type@)
+- syntax:
+    content: 'procedure AllowPutawayPickOrQCBinsOnly(var BinType: Record "Bin Type")'
+    parameters:
+    - id: BinType
+      parameterType:
+        name: Record "Bin Type"
+        isExternal: true
+  name: AllowPutawayPickOrQCBinsOnly
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.AllowPutawayPickOrQCBinsOnly(Bin_Type@)
+- syntax:
+    content: 'procedure CheckIfBinDedicatedOnSrcDoc(LocationCode: Code[10], var BinCode: Code[20], IssueWarning: Boolean)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IssueWarning
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfBinDedicatedOnSrcDoc
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckIfBinDedicatedOnSrcDoc(Code[10],Code[20]@,Boolean)
+- syntax:
+    content: 'procedure CheckBinCode(LocationCode: Code[10], BinCode: Code[20], BinCaption: Text[30], SourceTable: Integer, Number: Code[20])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BinCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: SourceTable
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Number
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckBinCode
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckBinCode(Code[10],Code[20],Text[30],Integer,Code[20])
+- syntax:
+    content: 'procedure CheckLocationCode(Location: Record Location, SourceTable: Integer, Number: Code[20])'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: SourceTable
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Number
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckLocationCode
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckLocationCode(Location,Integer,Code[20])
+- syntax:
+    content: 'procedure IsOpenShopFloorBin(LocationCode: Code[10], BinCode: Code[20]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOpenShopFloorBin
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.IsOpenShopFloorBin(Code[10],Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckLocationOnManufBins(Location: Record Location)'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+  name: CheckLocationOnManufBins
+  uid: M:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management.CheckLocationOnManufBins(Location)
+commentId: O:Codeunit::Microsoft#Warehouse#Structure#Whse# Integration Management
+name: '"Whse. Integration Management"'
+uid: O:Codeunit::Microsoft#Warehouse#Structure#Whse#_Integration_Management

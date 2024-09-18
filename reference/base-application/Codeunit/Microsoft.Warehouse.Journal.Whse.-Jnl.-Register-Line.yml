@@ -1,0 +1,128 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Journal."Whse. Jnl.-Register Line"
+alId: ID 7301
+namespace: Microsoft.Warehouse.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Warehouse Entry" = rimd,
+                      TableData "Warehouse Register" = rimd,
+                      TableData "Bin Content" = rimd
+  promoted: false
+- name: TableNo
+  value: Warehouse Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line
+    name: Microsoft.Warehouse.Journal."Warehouse Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: procedure LockTables()
+  name: LockTables
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.LockTables
+- syntax:
+    content: 'procedure InitWhseEntry(var WhseEntry: Record "Warehouse Entry", ZoneCode: Code[10], BinCode: Code[20], Sign: Integer)'
+    parameters:
+    - id: WhseEntry
+      parameterType:
+        name: Record "Warehouse Entry"
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Sign
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitWhseEntry
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.InitWhseEntry(Warehouse_Entry@,Code[10],Code[20],Integer)
+- syntax:
+    content: 'procedure InsertToBinContent(WhseEntry: Record "Warehouse Entry")'
+    parameters:
+    - id: WhseEntry
+      parameterType:
+        name: Record "Warehouse Entry"
+        isExternal: true
+  name: InsertToBinContent
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.InsertToBinContent(Warehouse_Entry)
+- syntax:
+    content: 'procedure UpdateDefaultBinContent(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], BinCode: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateDefaultBinContent
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.UpdateDefaultBinContent(Code[20],Code[10],Code[10],Code[20])
+- syntax:
+    content: 'procedure SetWhseRegister(WhseRegDef: Record "Warehouse Register")'
+    parameters:
+    - id: WhseRegDef
+      parameterType:
+        name: Record "Warehouse Register"
+        isExternal: true
+  name: SetWhseRegister
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.SetWhseRegister(Warehouse_Register)
+- syntax:
+    content: 'procedure GetWhseRegister(var WhseRegDef: Record "Warehouse Register")'
+    parameters:
+    - id: WhseRegDef
+      parameterType:
+        name: Record "Warehouse Register"
+        isExternal: true
+  name: GetWhseRegister
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.GetWhseRegister(Warehouse_Register@)
+- syntax:
+    content: 'procedure RegisterWhseJnlLine(var WarehouseJournalLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: WarehouseJournalLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: RegisterWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.RegisterWhseJnlLine(Warehouse_Journal_Line@)
+- syntax:
+    content: 'procedure SetWhseEntryNo(NewWhseEntryNo: Integer)'
+    parameters:
+    - id: NewWhseEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetWhseEntryNo
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.SetWhseEntryNo(Integer)
+- syntax:
+    content: 'procedure GetWhseEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetWhseEntryNo
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line.GetWhseEntryNo:Integer
+commentId: O:Codeunit::Microsoft#Warehouse#Journal#Whse# Jnl#-Register Line
+name: '"Whse. Jnl.-Register Line"'
+uid: O:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line

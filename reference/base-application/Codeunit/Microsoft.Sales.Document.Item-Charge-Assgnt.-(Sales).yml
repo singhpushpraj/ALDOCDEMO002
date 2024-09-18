@@ -1,0 +1,390 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Item Charge Assgnt. (Sales)"
+alId: ID 5807
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Header" = r,
+                      TableData "Sales Line" = r,
+                      TableData "Sales Shipment Line" = r,
+                      TableData "Item Charge Assignment (Sales)" = rimd,
+                      TableData "Return Receipt Line" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertItemChargeAssignment(ItemChargeAssgntSales: Record "Item Charge Assignment (Sales)", ApplToDocType: Enum "Sales Applies-to Document Type", ApplToDocNo: Code[20], ApplToDocLineNo: Integer, ItemNo: Code[20], Description: Text[100], var NextLineNo: Integer)'
+    parameters:
+    - id: ItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: ApplToDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Applies-to_Document_Type
+        name: Microsoft.Sales.Document."Sales Applies-to Document Type"
+        isExternal: false
+    - id: ApplToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ApplToDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertItemChargeAssignment
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).InsertItemChargeAssignment(Item_Charge_Assignment_(Sales),Enum::Microsoft#Sales#Document#Sales_Applies-to_Document_Type,Code[20],Integer,Code[20],Text[100],Integer@)
+- syntax:
+    content: 'procedure InsertItemChargeAssignmentWithValues(FromItemChargeAssgntSales: Record "Item Charge Assignment (Sales)", ApplToDocType: Enum "Sales Applies-to Document Type", FromApplToDocNo: Code[20], FromApplToDocLineNo: Integer, FromItemNo: Code[20], FromDescription: Text[100], QtyToAssign: Decimal, AmountToAssign: Decimal, var NextLineNo: Integer)'
+    parameters:
+    - id: FromItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: ApplToDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Applies-to_Document_Type
+        name: Microsoft.Sales.Document."Sales Applies-to Document Type"
+        isExternal: false
+    - id: FromApplToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromApplToDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: QtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertItemChargeAssignmentWithValues
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).InsertItemChargeAssignmentWithValues(Item_Charge_Assignment_(Sales),Enum::Microsoft#Sales#Document#Sales_Applies-to_Document_Type,Code[20],Integer,Code[20],Text[100],Decimal,Decimal,Integer@)
+- syntax:
+    content: 'procedure InsertItemChargeAssignmentWithValuesTo(FromItemChargeAssgntSales: Record "Item Charge Assignment (Sales)", ApplToDocType: Enum "Sales Applies-to Document Type", FromApplToDocNo: Code[20], FromApplToDocLineNo: Integer, FromItemNo: Code[20], FromDescription: Text[100], QtyToAssign: Decimal, AmountToAssign: Decimal, var NextLineNo: Integer, var ItemChargeAssgntSales: Record "Item Charge Assignment (Sales)")'
+    parameters:
+    - id: FromItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: ApplToDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Applies-to_Document_Type
+        name: Microsoft.Sales.Document."Sales Applies-to Document Type"
+        isExternal: false
+    - id: FromApplToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromApplToDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: QtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+  name: InsertItemChargeAssignmentWithValuesTo
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).InsertItemChargeAssignmentWithValuesTo(Item_Charge_Assignment_(Sales),Enum::Microsoft#Sales#Document#Sales_Applies-to_Document_Type,Code[20],Integer,Code[20],Text[100],Decimal,Decimal,Integer@,Item_Charge_Assignment_(Sales)@)
+- syntax:
+    content: 'procedure Summarize(var TempToItemChargeAssignmentSales: Record "Item Charge Assignment (Sales)" temporary, var ToItemChargeAssignmentSales: Record "Item Charge Assignment (Sales)")'
+    parameters:
+    - id: TempToItemChargeAssignmentSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)" temporary
+        isExternal: true
+    - id: ToItemChargeAssignmentSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+  name: Summarize
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).Summarize(Item_Charge_Assignment_(Sales)@,Item_Charge_Assignment_(Sales)@)
+- syntax:
+    content: 'procedure CreateDocChargeAssgn(LastItemChargeAssgntSales: Record "Item Charge Assignment (Sales)", ShipmentNo: Code[20])'
+    parameters:
+    - id: LastItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: ShipmentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateDocChargeAssgn
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).CreateDocChargeAssgn(Item_Charge_Assignment_(Sales),Code[20])
+- syntax:
+    content: 'procedure CreateShptChargeAssgnt(var FromSalesShptLine: Record "Sales Shipment Line", ItemChargeAssgntSales: Record "Item Charge Assignment (Sales)")'
+    parameters:
+    - id: FromSalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: ItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+  name: CreateShptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).CreateShptChargeAssgnt(Sales_Shipment_Line@,Item_Charge_Assignment_(Sales))
+- syntax:
+    content: 'procedure CreateRcptChargeAssgnt(var FromReturnRcptLine: Record "Return Receipt Line", ItemChargeAssgntSales: Record "Item Charge Assignment (Sales)")'
+    parameters:
+    - id: FromReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+    - id: ItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+  name: CreateRcptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).CreateRcptChargeAssgnt(Return_Receipt_Line@,Item_Charge_Assignment_(Sales))
+- syntax:
+    content: 'procedure SuggestAssignment(SalesLine: Record "Sales Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SuggestAssignment
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).SuggestAssignment(Sales_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure SuggestAssignment(SalesLine: Record "Sales Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, TotalQtyToHandle: Decimal, TotalAmtToHandle: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SuggestAssignment
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).SuggestAssignment(Sales_Line,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure AssignItemCharges(SalesLine: Record "Sales Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, SelectedOptionValue: Integer)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SelectedOptionValue
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: AssignItemCharges
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignItemCharges(Sales_Line,Decimal,Decimal,Integer)
+- syntax:
+    content: 'procedure AssignItemCharges(SalesLine: Record "Sales Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, SelectionTxt: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SelectionTxt
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AssignItemCharges
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignItemCharges(Sales_Line,Decimal,Decimal,Text)
+- syntax:
+    content: 'procedure AssignItemCharges(SalesLine: Record "Sales Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, TotalQtyToHandle: Decimal, TotalAmtToHandle: Decimal, SelectionTxt: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SelectionTxt
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AssignItemCharges
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignItemCharges(Sales_Line,Decimal,Decimal,Decimal,Decimal,Text)
+- syntax:
+    content: 'procedure AssignEquallyMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignEquallyMenuText
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignEquallyMenuText:Text
+- syntax:
+    content: 'procedure AssignByAmountMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignByAmountMenuText
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignByAmountMenuText:Text
+- syntax:
+    content: 'procedure AssignByWeightMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignByWeightMenuText
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignByWeightMenuText:Text
+- syntax:
+    content: 'procedure AssignByVolumeMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignByVolumeMenuText
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignByVolumeMenuText:Text
+- syntax:
+    content: 'procedure AssignSalesItemCharge(var ItemChargeAssignmentSales: Record "Item Charge Assignment (Sales)", ItemChargeAssignmentSales2: Record "Item Charge Assignment (Sales)", Currency: Record Currency, var QtyRemaining: Decimal, var AmountRemaining: Decimal)'
+    parameters:
+    - id: ItemChargeAssignmentSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: ItemChargeAssignmentSales2
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: QtyRemaining
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountRemaining
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AssignSalesItemCharge
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).AssignSalesItemCharge(Item_Charge_Assignment_(Sales)@,Item_Charge_Assignment_(Sales),Currency,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetItemValues(TempItemChargeAssgntSales: Record "Item Charge Assignment (Sales)" temporary, var DecimalArray: array[3] of Decimal)'
+    parameters:
+    - id: TempItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)" temporary
+        isExternal: true
+    - id: DecimalArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: GetItemValues
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).GetItemValues(Item_Charge_Assignment_(Sales),Decimal[]@)
+- syntax:
+    content: 'procedure SuggestAssignmentFromLine(var FromItemChargeAssignmentSales: Record "Item Charge Assignment (Sales)")'
+    parameters:
+    - id: FromItemChargeAssignmentSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+  name: SuggestAssignmentFromLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales).SuggestAssignmentFromLine(Item_Charge_Assignment_(Sales)@)
+commentId: O:Codeunit::Microsoft#Sales#Document#Item Charge Assgnt# (Sales)
+name: '"Item Charge Assgnt. (Sales)"'
+uid: O:Codeunit::Microsoft#Sales#Document#Item_Charge_Assgnt#_(Sales)

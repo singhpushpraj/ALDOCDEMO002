@@ -1,0 +1,102 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.FinanceCharge."FinChrgMemo-Issue"
+alId: ID 395
+namespace: Microsoft.Sales.FinanceCharge
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.FinanceCharge
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Reminder/Fin. Charge Entry" = rimd,
+                      TableData "Issued Fin. Charge Memo Header" = rimd,
+                      TableData "Issued Fin. Charge Memo Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Set(var NewFinChrgMemoHeader: Record "Finance Charge Memo Header", NewReplacePostingDate: Boolean, NewPostingDate: Date)'
+    parameters:
+    - id: NewFinChrgMemoHeader
+      parameterType:
+        name: Record "Finance Charge Memo Header"
+        isExternal: true
+    - id: NewReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: Set
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.Set(Finance_Charge_Memo_Header@,Boolean,Date)
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.SetGenJnlBatch(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure GetIssuedFinChrgMemo(var NewIssuedFinChrgMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: NewIssuedFinChrgMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: GetIssuedFinChrgMemo
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.GetIssuedFinChrgMemo(Issued_Fin#_Charge_Memo_Header@)
+- syntax:
+    content: 'procedure DeleteIssuedFinChrgLines(IssuedFinChrgMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: IssuedFinChrgMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: DeleteIssuedFinChrgLines
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.DeleteIssuedFinChrgLines(Issued_Fin#_Charge_Memo_Header)
+- syntax:
+    content: 'procedure IncrNoPrinted(var IssuedFinChrgMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: IssuedFinChrgMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: IncrNoPrinted
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.IncrNoPrinted(Issued_Fin#_Charge_Memo_Header@)
+- syntax:
+    content: 'procedure TestDeleteHeader(FinChrgMemoHeader: Record "Finance Charge Memo Header", var IssuedFinChrgMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: FinChrgMemoHeader
+      parameterType:
+        name: Record "Finance Charge Memo Header"
+        isExternal: true
+    - id: IssuedFinChrgMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: TestDeleteHeader
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.TestDeleteHeader(Finance_Charge_Memo_Header,Issued_Fin#_Charge_Memo_Header@)
+- syntax:
+    content: 'procedure DeleteHeader(FinChrgMemoHeader: Record "Finance Charge Memo Header", var IssuedFinChrgMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: FinChrgMemoHeader
+      parameterType:
+        name: Record "Finance Charge Memo Header"
+        isExternal: true
+    - id: IssuedFinChrgMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: DeleteHeader
+  uid: M:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue.DeleteHeader(Finance_Charge_Memo_Header,Issued_Fin#_Charge_Memo_Header@)
+commentId: O:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue
+name: '"FinChrgMemo-Issue"'
+uid: O:Codeunit::Microsoft#Sales#FinanceCharge#FinChrgMemo-Issue

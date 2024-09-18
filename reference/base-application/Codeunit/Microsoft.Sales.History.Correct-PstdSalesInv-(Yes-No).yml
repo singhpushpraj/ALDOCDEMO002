@@ -1,0 +1,41 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Correct PstdSalesInv (Yes/No)"
+alId: ID 1322
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                      TableData "Sales Cr.Memo Header" = rm
+  promoted: false
+- name: TableNo
+  value: Sales Invoice Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#History#Sales_Invoice_Header
+    name: Microsoft.Sales.History."Sales Invoice Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CorrectInvoice(var SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CorrectInvoice
+  uid: M:Codeunit::Microsoft#Sales#History#Correct_PstdSalesInv_(Yes/No).CorrectInvoice(Sales_Invoice_Header@):Boolean
+commentId: O:Codeunit::Microsoft#Sales#History#Correct PstdSalesInv (Yes/No)
+name: '"Correct PstdSalesInv (Yes/No)"'
+uid: O:Codeunit::Microsoft#Sales#History#Correct_PstdSalesInv_(Yes/No)

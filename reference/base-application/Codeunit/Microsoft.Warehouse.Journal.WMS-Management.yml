@@ -1,0 +1,1238 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Journal."WMS Management"
+alId: ID 7302
+namespace: Microsoft.Warehouse.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CreateWhseJnlLine(ItemJnlLine: Record "Item Journal Line", ItemJnlTemplateType: Option, var WhseJnlLine: Record "Warehouse Journal Line", ToTransfer: Boolean): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ItemJnlTemplateType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: ToTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CreateWhseJnlLine(Item_Journal_Line,Option,Warehouse_Journal_Line@,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure CreateWhseJnlLineFromOutputJnl(ItemJnlLine: Record "Item Journal Line", var WhseJnlLine: Record "Warehouse Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateWhseJnlLineFromOutputJnl
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CreateWhseJnlLineFromOutputJnl(Item_Journal_Line,Warehouse_Journal_Line@):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure CreateWhseJnlLineFromConsumJnl(ItemJnlLine: Record "Item Journal Line", var WhseJnlLine: Record "Warehouse Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateWhseJnlLineFromConsumJnl
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CreateWhseJnlLineFromConsumJnl(Item_Journal_Line,Warehouse_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure CheckWhseJnlLine(var WarehouseJournalLine: Record "Warehouse Journal Line", SourceJnl: Option, DecreaseQtyBase: Decimal, ToTransfer: Boolean)'
+    parameters:
+    - id: WarehouseJournalLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: SourceJnl
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DecreaseQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ToTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckWhseJnlLine(Warehouse_Journal_Line@,Option,Decimal,Boolean)
+- syntax:
+    content: 'procedure CheckItemJnlLineFieldChange(ItemJnlLine: Record "Item Journal Line", xItemJnlLine: Record "Item Journal Line", CurrFieldCaption: Text[30])'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: xItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: CurrFieldCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CheckItemJnlLineFieldChange
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckItemJnlLineFieldChange(Item_Journal_Line,Item_Journal_Line,Text[30])
+- syntax:
+    content: 'procedure CheckItemJnlLineLocation(var ItemJournalLine: Record "Item Journal Line", xItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: xItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: CheckItemJnlLineLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckItemJnlLineLocation(Item_Journal_Line@,Item_Journal_Line)
+- syntax:
+    content: 'procedure CheckItemTrackingChange(TrackingSpecification: Record "Tracking Specification", xTrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: xTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CheckItemTrackingChange
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckItemTrackingChange(Tracking_Specification,Tracking_Specification)
+- syntax:
+    content: 'procedure CheckAdjmtBin(Location2: Record Location, Quantity: Decimal, PosEntryType: Boolean)'
+    parameters:
+    - id: Location2
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PosEntryType
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckAdjmtBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckAdjmtBin(Location,Decimal,Boolean)
+- syntax:
+    content: 'procedure CheckInbOutbBin(LocationCode: Code[10], BinCode: Code[20], CheckInbound: Boolean)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CheckInbound
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckInbOutbBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckInbOutbBin(Code[10],Code[20],Boolean)
+- syntax:
+    content: procedure CheckUserIsWhseEmployee()
+  name: CheckUserIsWhseEmployee
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckUserIsWhseEmployee
+- syntax:
+    content: 'procedure CalcCubageAndWeight(ItemNo: Code[20], UOMCode: Code[10], Qty: Decimal, var Cubage: Decimal, var Weight: Decimal)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Cubage
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Weight
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcCubageAndWeight
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CalcCubageAndWeight(Code[20],Code[10],Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetDefaultLocation(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetDefaultLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetDefaultLocation:Code[10]
+- syntax:
+    content: 'procedure GetWMSLocation(var CurrentLocationCode: Code[10])'
+    parameters:
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetWMSLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetWMSLocation(Code[10]@)
+- syntax:
+    content: 'procedure GetDefaultDirectedPutawayAndPickLocation(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetDefaultDirectedPutawayAndPickLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetDefaultDirectedPutawayAndPickLocation:Code[10]
+- syntax:
+    content: 'procedure GetDefaultBin(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], var BinCode: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDefaultBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetDefaultBin(Code[20],Code[10],Code[10],Code[20]@):Boolean
+- syntax:
+    content: 'procedure CheckDefaultBin(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], BinCode: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDefaultBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckDefaultBin(Code[20],Code[10],Code[10],Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckBalanceQtyToHandle(var WarehouseActivityLine2: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WarehouseActivityLine2
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: CheckBalanceQtyToHandle
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckBalanceQtyToHandle(Warehouse_Activity_Line@)
+- syntax:
+    content: 'procedure CheckPutAwayAvailability(BinCode: Code[20], CheckFieldCaption: Text[100], CheckTableCaption: Text[100], ValueToPutAway: Decimal, ValueAvailable: Decimal, Prohibit: Boolean)'
+    parameters:
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CheckTableCaption
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ValueToPutAway
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ValueAvailable
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Prohibit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckPutAwayAvailability
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckPutAwayAvailability(Code[20],Text[100],Text[100],Decimal,Decimal,Boolean)
+- syntax:
+    content: procedure InitErrorLog()
+  name: InitErrorLog
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.InitErrorLog
+- syntax:
+    content: 'procedure GetWarehouseEmployeeLocationFilter(UserName: Code[50]): Text'
+    parameters:
+    - id: UserName
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetWarehouseEmployeeLocationFilter
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetWarehouseEmployeeLocationFilter(Code[50]):Text
+- syntax:
+    content: 'procedure GetAllowedLocation(LocationCode: Code[10]): Code[10]'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetAllowedLocation
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetAllowedLocation(Code[10]):Code[10]
+- syntax:
+    content: 'procedure LocationIsAllowed(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LocationIsAllowed
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.LocationIsAllowed(Code[10]):Boolean
+- syntax:
+    content: 'procedure LocationIsAllowedToView(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LocationIsAllowedToView
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.LocationIsAllowedToView(Code[10]):Boolean
+- syntax:
+    content: 'procedure GetBaseUOM(ItemNo: Code[20]): Code[10]'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetBaseUOM
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetBaseUOM(Code[20]):Code[10]
+- syntax:
+    content: 'procedure ShowWhseRcptLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowWhseRcptLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowWhseRcptLine(Code[20],Integer)
+- syntax:
+    content: 'procedure ShowPostedWhseRcptLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowPostedWhseRcptLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowPostedWhseRcptLine(Code[20],Integer)
+- syntax:
+    content: 'procedure ShowWhseShptLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowWhseShptLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowWhseShptLine(Code[20],Integer)
+- syntax:
+    content: 'procedure ShowPostedWhseShptLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowPostedWhseShptLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowPostedWhseShptLine(Code[20],Integer)
+- syntax:
+    content: 'procedure ShowWhseInternalPutawayLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowWhseInternalPutawayLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowWhseInternalPutawayLine(Code[20],Integer)
+- syntax:
+    content: 'procedure ShowWhseInternalPickLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowWhseInternalPickLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowWhseInternalPickLine(Code[20],Integer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure ShowProdOrderLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowProdOrderLine
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowProdOrderLine(Code[20],Integer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Assembly Warehouse Mgt.",23.0)]'
+    content: 'procedure ShowAssemblyLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowAssemblyLine
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Assembly Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowAssemblyLine(Code[20],Integer)
+- syntax:
+    content: 'procedure ShowWhseActivityDocLine(WhseActivityDocType: Enum "Warehouse Activity Document Type", WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseActivityDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Document_Type
+        name: Microsoft.Warehouse.Activity."Warehouse Activity Document Type"
+        isExternal: false
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowWhseActivityDocLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowWhseActivityDocLine(Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Document_Type,Code[20],Integer)
+- syntax:
+    content: 'procedure ShowSourceDocLine(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowSourceDocLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowSourceDocLine(Integer,Option,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure ShowSourceDocAttachedLines(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowSourceDocAttachedLines
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowSourceDocAttachedLines(Integer,Option,Code[20],Integer)
+- syntax:
+    content: 'procedure ShowPostedSourceDocument(PostedSourceDoc: Enum "Warehouse Shipment Posted Source Document", PostedSourceNo: Code[20])'
+    parameters:
+    - id: PostedSourceDoc
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Document#Warehouse_Shipment_Posted_Source_Document
+        name: Microsoft.Warehouse.Document."Warehouse Shipment Posted Source Document"
+        isExternal: false
+    - id: PostedSourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ShowPostedSourceDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowPostedSourceDocument(Enum::Microsoft#Warehouse#Document#Warehouse_Shipment_Posted_Source_Document,Code[20])
+- syntax:
+    content: 'procedure ShowSourceDocCard(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ShowSourceDocCard
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ShowSourceDocCard(Integer,Option,Code[20])
+- syntax:
+    content: 'procedure TransferWhseItemTracking(var WarehouseJournalLine: Record "Warehouse Journal Line", ItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: WarehouseJournalLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: TransferWhseItemTracking
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.TransferWhseItemTracking(Warehouse_Journal_Line@,Item_Journal_Line)
+- syntax:
+    content: 'procedure SetTransferLine(TransferLine: Record "Transfer Line", var WarehouseJournalLine: Record "Warehouse Journal Line", PostingType: Option, PostedDocNo: Code[20])'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: WarehouseJournalLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: PostingType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PostedDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetTransferLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.SetTransferLine(Transfer_Line,Warehouse_Journal_Line@,Option,Code[20])
+- syntax:
+    content: 'procedure SerialNoOnInventory(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], SerialNo: Code[50]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SerialNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SerialNoOnInventory
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.SerialNoOnInventory(Code[10],Code[20],Code[10],Code[50]):Boolean
+- syntax:
+    content: 'procedure BinLookUp(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], ZoneCode: Code[10]): Code[20]'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: BinLookUp
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.BinLookUp(Code[10],Code[20],Code[10],Code[10]):Code[20]
+- syntax:
+    content: 'procedure BinContentLookUp(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], ZoneCode: Code[10], CurrBinCode: Code[20]): Code[20]'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: BinContentLookUp
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.BinContentLookUp(Code[10],Code[20],Code[10],Code[10],Code[20]):Code[20]
+- syntax:
+    content: 'procedure BinContentLookUp(LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], ZoneCode: Code[10], WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, CurrBinCode: Code[20]): Code[20]'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: CurrBinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: BinContentLookUp
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.BinContentLookUp(Code[10],Code[20],Code[10],Code[10],Item_Tracking_Setup,Code[20]):Code[20]
+- syntax:
+    content: 'procedure FindBin(LocationCode: Code[10], BinCode: Code[20], ZoneCode: Code[10])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: FindBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.FindBin(Code[10],Code[20],Code[10])
+- syntax:
+    content: 'procedure FindBinContent(LocationCode: Code[10], BinCode: Code[20], ItemNo: Code[20], VariantCode: Code[10], ZoneCode: Code[10])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ZoneCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: FindBinContent
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.FindBinContent(Code[10],Code[20],Code[20],Code[10],Code[10])
+- syntax:
+    content: 'procedure CalcLineReservedQtyNotonInvt(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer, SourceSubLineNo: Integer): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineReservedQtyNotonInvt
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CalcLineReservedQtyNotonInvt(Integer,Option,Code[20],Integer,Integer):Decimal
+- syntax:
+    content: 'procedure GetCaption(DestType: Option, SourceDoc: Option, Selection: Integer): Text[50]'
+    parameters:
+    - id: DestType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceDoc
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Selection
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetCaption
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetCaption(Option,Option,Integer):Text[50]
+- syntax:
+    content: 'procedure GetCaptionClass(DestType: Enum "Warehouse Destination Type", SourceDoc: Enum "Warehouse Activity Source Document", Selection: Integer): Text[50]'
+    parameters:
+    - id: DestType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Request#Warehouse_Destination_Type
+        name: Microsoft.Warehouse.Request."Warehouse Destination Type"
+        isExternal: false
+    - id: SourceDoc
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Source_Document
+        name: Microsoft.Warehouse.Activity."Warehouse Activity Source Document"
+        isExternal: false
+    - id: Selection
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetCaptionClass(Enum::Microsoft#Warehouse#Request#Warehouse_Destination_Type,Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Source_Document,Integer):Text[50]
+- syntax:
+    content: 'procedure GetDestinationEntityName(DestinationType: Enum "Warehouse Destination Type", DestNo: Code[20]): Text[100]'
+    parameters:
+    - id: DestinationType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Request#Warehouse_Destination_Type
+        name: Microsoft.Warehouse.Request."Warehouse Destination Type"
+        isExternal: false
+    - id: DestNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetDestinationEntityName
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetDestinationEntityName(Enum::Microsoft#Warehouse#Request#Warehouse_Destination_Type,Code[20]):Text[100]
+- syntax:
+    content: 'procedure GetATOSalesLine(SourceType: Integer, SourceSubtype: Option, SourceID: Code[20], SourceRefNo: Integer, var SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetATOSalesLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetATOSalesLine(Integer,Option,Code[20],Integer,Sales_Line@):Boolean
+- syntax:
+    content: 'procedure GetATOJobPlanningLine(SourceType: Integer, SourceID: Code[20], SourceRefNo: Integer, SourceLineNo: Integer, var JobPlanningLine: Record "Job Planning Line"): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetATOJobPlanningLine
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetATOJobPlanningLine(Integer,Code[20],Integer,Integer,Job_Planning_Line@):Boolean
+- syntax:
+    content: 'procedure ATOInvtPickExists(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ATOInvtPickExists
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ATOInvtPickExists(Sales_Line):Boolean
+- syntax:
+    content: 'procedure CalcQtyBaseOnATOInvtPick(SalesLine: Record "Sales Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyBaseOnATOInvtPick
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CalcQtyBaseOnATOInvtPick(Sales_Line,Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure CalcQtyBaseOnATOInvtPick(JobPlanningLine: Record "Job Planning Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyBaseOnATOInvtPick
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CalcQtyBaseOnATOInvtPick(Job_Planning_Line,Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure CheckOutboundBlockedBin(LocationCode: Code[10], BinCode: Code[20], ItemNo: Code[20], VariantCode: Code[10], UnitOfMeasureCode: Code[10])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckOutboundBlockedBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckOutboundBlockedBin(Code[10],Code[20],Code[20],Code[10],Code[10])
+- syntax:
+    content: 'procedure CheckInboundBlockedBin(LocationCode: Code[10], BinCode: Code[20], ItemNo: Code[20], VariantCode: Code[10], UnitOfMeasureCode: Code[10])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckInboundBlockedBin
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.CheckInboundBlockedBin(Code[10],Code[20],Code[20],Code[10],Code[10])
+- syntax:
+    content: 'procedure ATOWhseShptExists(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ATOWhseShptExists
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.ATOWhseShptExists(Sales_Line):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure GetLastOperationLocationCode(RoutingNo: Code[20], RoutingVersionCode: Code[20]): Code[10]'
+    parameters:
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingVersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetLastOperationLocationCode
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetLastOperationLocationCode(Code[20],Code[20]):Code[10]
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure GetLastOperationFromBinCode(RoutingNo: Code[20], RoutingVersionCode: Code[20], LocationCode: Code[10], UseFlushingMethod: Boolean, FlushingMethod: Option): Code[20]'
+    parameters:
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingVersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UseFlushingMethod
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FlushingMethod
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetLastOperationFromBinCode
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetLastOperationFromBinCode(Code[20],Code[20],Code[10],Boolean,Option):Code[20]
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure GetProdRoutingLastOperationFromBinCode(ProdOrderStatus: Enum "Production Order Status", ProdOrderNo: Code[20], RoutingRefNo: Integer, RoutingNo: Code[20], LocationCode: Code[10]): Code[20]'
+    parameters:
+    - id: ProdOrderStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: ProdOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetProdRoutingLastOperationFromBinCode
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetProdRoutingLastOperationFromBinCode(Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Code[20],Integer,Code[20],Code[10]):Code[20]
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure GetPlanningRtngLastOperationFromBinCode(WkshTemplateName: Code[10], WkshBatchName: Code[10], WkshLineNo: Integer, LocationCode: Code[10]): Code[20]'
+    parameters:
+    - id: WkshTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WkshBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WkshLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetPlanningRtngLastOperationFromBinCode
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetPlanningRtngLastOperationFromBinCode(Code[10],Code[10],Integer,Code[10]):Code[20]
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure GetProdCenterLocationCode(Type: Enum "Capacity Type", No: Code[20]): Code[10]'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetProdCenterLocationCode
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetProdCenterLocationCode(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20]):Code[10]
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt.",23.0)]'
+    content: 'procedure GetProdCenterBinCode(Type: Enum "Capacity Type", No: Code[20], LocationCode: Code[10], UseFlushingMethod: Boolean, FlushingMethod: Option): Code[20]'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UseFlushingMethod
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FlushingMethod
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetProdCenterBinCode
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit "Prod. Order Warehouse Mgt."
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Journal#WMS_Management.GetProdCenterBinCode(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Code[10],Boolean,Option):Code[20]
+commentId: O:Codeunit::Microsoft#Warehouse#Journal#WMS Management
+name: '"WMS Management"'
+uid: O:Codeunit::Microsoft#Warehouse#Journal#WMS_Management

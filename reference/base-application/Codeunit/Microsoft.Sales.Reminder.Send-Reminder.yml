@@ -1,0 +1,70 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reminder."Send Reminder"
+alId: ID 545
+namespace: Microsoft.Sales.Reminder
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reminder
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "Issued Reminder Header" = rmid,
+                      tabledata "Email Outbox" = rmid
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure UpdateReminderSentFromUI(var IssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: UpdateReminderSentFromUI
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Send_Reminder.UpdateReminderSentFromUI(Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure UpdateSentEmailFields(var IssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: UpdateSentEmailFields
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Send_Reminder.UpdateSentEmailFields(Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure UpdateSentForCurrentLevelWithoutEmail(var IssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: UpdateSentForCurrentLevelWithoutEmail
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Send_Reminder.UpdateSentForCurrentLevelWithoutEmail(Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure SetFailedOutboxMessageID(MessageID: BigInteger, IssuedReminderNo: Code[20])'
+    parameters:
+    - id: MessageID
+      parameterType:
+        name: BigInteger
+        isExternal: true
+    - id: IssuedReminderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetFailedOutboxMessageID
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Send_Reminder.SetFailedOutboxMessageID(BigInteger,Code[20])
+- syntax:
+    content: 'procedure DeleteFailedOutboxMessageIfExists(IssuedReminderNo: Code[20])'
+    parameters:
+    - id: IssuedReminderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DeleteFailedOutboxMessageIfExists
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Send_Reminder.DeleteFailedOutboxMessageIfExists(Code[20])
+commentId: O:Codeunit::Microsoft#Sales#Reminder#Send Reminder
+name: '"Send Reminder"'
+uid: O:Codeunit::Microsoft#Sales#Reminder#Send_Reminder

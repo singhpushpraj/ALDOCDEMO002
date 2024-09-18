@@ -1,0 +1,58 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Counting.Document."Phys. Invt. Order-Post"
+alId: ID 5884
+namespace: Microsoft.Inventory.Counting.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Counting.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Entry Relation" = ri,
+                      TableData "Pstd. Phys. Invt. Order Hdr" = rimd,
+                      TableData "Pstd. Phys. Invt. Order Line" = rimd,
+                      TableData "Pstd. Phys. Invt. Record Hdr" = rimd,
+                      TableData "Pstd. Phys. Invt. Record Line" = rimd,
+                      TableData "Pstd. Phys. Invt. Tracking" = rimd,
+    #if not CLEAN24
+                      TableData "Pstd. Exp. Phys. Invt. Track" = rimd,
+    #endif
+                      TableData "Pstd.Exp.Invt.Order.Tracking" = rimd
+  promoted: false
+- name: TableNo
+  value: Phys. Invt. Order Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order_Header
+    name: Microsoft.Inventory.Counting.Document."Phys. Invt. Order Header"
+    isExternal: false
+methods:
+- syntax:
+    content: procedure Code()
+  name: Code
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order-Post.Code
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order-Post.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetHideProgressWindow(NewHideProgressWindow: Boolean)'
+    parameters:
+    - id: NewHideProgressWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideProgressWindow
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order-Post.SetHideProgressWindow(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Counting#Document#Phys# Invt# Order-Post
+name: '"Phys. Invt. Order-Post"'
+uid: O:Codeunit::Microsoft#Inventory#Counting#Document#Phys#_Invt#_Order-Post

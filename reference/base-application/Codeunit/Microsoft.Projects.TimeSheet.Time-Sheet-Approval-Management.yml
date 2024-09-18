@@ -1,0 +1,341 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.TimeSheet."Time Sheet Approval Management"
+alId: ID 951
+namespace: Microsoft.Projects.TimeSheet
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.TimeSheet
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData Employee = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ProcessAction(var TimeSheetLine: Record "Time Sheet Line", ActionType: Option)'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ProcessAction
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ProcessAction(Time_Sheet_Line@,Option)
+- syntax:
+    content: 'procedure Submit(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: Submit
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.Submit(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure SubmitIfConfirmed(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: SubmitIfConfirmed
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.SubmitIfConfirmed(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure ReopenSubmitted(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: ReopenSubmitted
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ReopenSubmitted(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure ReopenSubmittedIfConfirmed(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: ReopenSubmittedIfConfirmed
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ReopenSubmittedIfConfirmed(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure ReopenApproved(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: ReopenApproved
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ReopenApproved(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure ReopenApprovedIfConfirmed(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: ReopenApprovedIfConfirmed
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ReopenApprovedIfConfirmed(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure Reject(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: Reject
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.Reject(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure RejectIfConfirmed(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: RejectIfConfirmed
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.RejectIfConfirmed(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure Approve(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: Approve
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.Approve(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure ApproveIfConfirmed(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: ApproveIfConfirmed
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ApproveIfConfirmed(Time_Sheet_Line@)
+- syntax:
+    content: 'procedure PostAbsence(var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: PostAbsence
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.PostAbsence(Time_Sheet_Line@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with GetTimeSheetActionDialogText to remove 100 characters limitation.,25.0)]'
+    content: 'procedure GetTimeSheetDialogText(ActionType: Option, LinesQty: Integer): Text[100]'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetTimeSheetDialogText
+  obsoletion:
+    state: pending
+    reason: Replaced with GetTimeSheetActionDialogText to remove 100 characters limitation.
+    version: "25.0"
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetTimeSheetDialogText(Option,Integer):Text[100]
+- syntax:
+    content: 'procedure GetTimeSheetActionDialogText(ActionType: Option, LinesQty: Integer): Text'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTimeSheetActionDialogText
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetTimeSheetActionDialogText(Option,Integer):Text
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with GetManagerTimeSheetActionDialogText to remove 100 characters limitation.,25.0)]'
+    content: 'procedure GetManagerTimeSheetDialogText(ActionType: Option, LinesQty: Integer): Text[100]'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetManagerTimeSheetDialogText
+  obsoletion:
+    state: pending
+    reason: Replaced with GetManagerTimeSheetActionDialogText to remove 100 characters limitation.
+    version: "25.0"
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetManagerTimeSheetDialogText(Option,Integer):Text[100]
+- syntax:
+    content: 'procedure GetManagerTimeSheetActionDialogText(ActionType: Option, LinesQty: Integer): Text'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetManagerTimeSheetActionDialogText
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetManagerTimeSheetActionDialogText(Option,Integer):Text
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with GetCommonTimeSheetActionDialogText to remove 100 characters limitation.,25.0)]'
+    content: 'procedure GetCommonTimeSheetDialogText(ActionType: Option, LinesQty: Integer): Text[100]'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetCommonTimeSheetDialogText
+  obsoletion:
+    state: pending
+    reason: Replaced with GetCommonTimeSheetActionDialogText to remove 100 characters limitation.
+    version: "25.0"
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetCommonTimeSheetDialogText(Option,Integer):Text[100]
+- syntax:
+    content: 'procedure GetCommonTimeSheetActionDialogText(ActionType: Option, LinesQty: Integer): Text'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCommonTimeSheetActionDialogText
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetCommonTimeSheetActionDialogText(Option,Integer):Text
+- syntax:
+    content: 'procedure ConfirmAction(ActionType: Option): Boolean'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmAction
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.ConfirmAction(Option):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with GetTimeSheetActionDialogInstruction to remove 100 characters limitation.,25.0)]'
+    content: 'procedure GetTimeSheetDialogInstruction(ActionType: Option): Text[100]'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetTimeSheetDialogInstruction
+  obsoletion:
+    state: pending
+    reason: Replaced with GetTimeSheetActionDialogInstruction to remove 100 characters limitation.
+    version: "25.0"
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetTimeSheetDialogInstruction(Option):Text[100]
+- syntax:
+    content: 'procedure GetTimeSheetActionDialogInstruction(ActionType: Option): Text'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTimeSheetActionDialogInstruction
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetTimeSheetActionDialogInstruction(Option):Text
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with GetManagerTimeSheetActionDialogInstruction to remove 100 characters limitation.,25.0)]'
+    content: 'procedure GetManagerTimeSheetDialogInstruction(ActionType: Option): Text[100]'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetManagerTimeSheetDialogInstruction
+  obsoletion:
+    state: pending
+    reason: Replaced with GetManagerTimeSheetActionDialogInstruction to remove 100 characters limitation.
+    version: "25.0"
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetManagerTimeSheetDialogInstruction(Option):Text[100]
+- syntax:
+    content: 'procedure GetManagerTimeSheetActionDialogInstruction(ActionType: Option): Text'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetManagerTimeSheetActionDialogInstruction
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetManagerTimeSheetActionDialogInstruction(Option):Text
+- syntax:
+    content: 'procedure GetCommonTimeSheetDialogInstruction(ActionType: Option): Text'
+    parameters:
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCommonTimeSheetDialogInstruction
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management.GetCommonTimeSheetDialogInstruction(Option):Text
+commentId: O:Codeunit::Microsoft#Projects#TimeSheet#Time Sheet Approval Management
+name: '"Time Sheet Approval Management"'
+uid: O:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Approval_Management

@@ -1,0 +1,764 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Contract.ServContractManagement
+alId: ID 5940
+namespace: Microsoft.Service.Contract
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Contract
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Service Ledger Entry" = rimd,
+                      TableData "Warranty Ledger Entry" = rimd,
+                      TableData "Service Register" = rimd,
+                      TableData "Contract Change Log" = rimd,
+                      TableData "Contract Gain/Loss Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Service Contract Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#Contract#Service_Contract_Header
+    name: Microsoft.Service.Contract."Service Contract Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateInvoice(ServiceContractHeader: Record "Service Contract Header"): Code[20]'
+    parameters:
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateInvoice
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateInvoice(Service_Contract_Header):Code[20]
+- syntax:
+    content: 'procedure CreateServiceLedgEntry(ServHeader2: Record "Service Header", ContractType: Enum "Service Contract Type", ContractNo: Code[20], InvFromDate: Date, InvToDate: Date, SigningContract: Boolean, AddingNewLines: Boolean, LineNo: Integer): Integer'
+    parameters:
+    - id: ServHeader2
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InvFromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SigningContract
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AddingNewLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateServiceLedgEntry
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateServiceLedgEntry(Service_Header,Enum::Microsoft#Service#Contract#Service_Contract_Type,Code[20],Date,Date,Boolean,Boolean,Integer):Integer
+- syntax:
+    content: 'procedure UpdateServLedgEntryAmounts(var ServContractLine: Record "Service Contract Line", var Currency: Record Currency, var InvRoundedAmount: array[4] of Decimal, LineInvFrom: Date, InvTo: Date)'
+    parameters:
+    - id: ServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: InvRoundedAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: LineInvFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvTo
+      parameterType:
+        name: Date
+        isExternal: true
+  name: UpdateServLedgEntryAmounts
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.UpdateServLedgEntryAmounts(Service_Contract_Line@,Currency@,Decimal[]@,Date,Date)
+- syntax:
+    content: 'procedure CalcServLedgEntryDiscountPct(var ServiceLedgerEntry: Record "Service Ledger Entry")'
+    parameters:
+    - id: ServiceLedgerEntry
+      parameterType:
+        name: Record "Service Ledger Entry"
+        isExternal: true
+  name: CalcServLedgEntryDiscountPct
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CalcServLedgEntryDiscountPct(Service_Ledger_Entry@)
+- syntax:
+    content: 'procedure CreateServHeader(ServContract2: Record "Service Contract Header", PostDate: Date, ContractExists: Boolean): Code[20]'
+    parameters:
+    - id: ServContract2
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: PostDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ContractExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateServHeader
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateServHeader(Service_Contract_Header,Date,Boolean):Code[20]
+- syntax:
+    content: 'procedure CreateServiceLine(ServHeader: Record "Service Header", ContractType: Enum "Service Contract Type", ContractNo: Code[20], InvFromDate: Date, InvToDate: Date, ServiceApplyEntry: Integer, SignningContract: Boolean)'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InvFromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ServiceApplyEntry
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SignningContract
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateServiceLine
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateServiceLine(Service_Header,Enum::Microsoft#Service#Contract#Service_Contract_Type,Code[20],Date,Date,Integer,Boolean)
+- syntax:
+    content: 'procedure CreateDetailedServiceLine(ServHeader: Record "Service Header", ServContractLine: Record "Service Contract Line", ContractType: Enum "Service Contract Type", ContractNo: Code[20])'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateDetailedServiceLine
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateDetailedServiceLine(Service_Header,Service_Contract_Line,Enum::Microsoft#Service#Contract#Service_Contract_Type,Code[20])
+- syntax:
+    content: 'procedure CreateLastServiceLines(ServHeader: Record "Service Header", ContractType: Enum "Service Contract Type", ContractNo: Code[20])'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateLastServiceLines
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateLastServiceLines(Service_Header,Enum::Microsoft#Service#Contract#Service_Contract_Type,Code[20])
+- syntax:
+    content: 'procedure CreateContractLineCreditMemo(var FromServiceContractLine: Record "Service Contract Line", Deleting: Boolean): Code[20]'
+    parameters:
+    - id: FromServiceContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: Deleting
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateContractLineCreditMemo
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateContractLineCreditMemo(Service_Contract_Line@,Boolean):Code[20]
+- syntax:
+    content: 'procedure CheckContractGroupAccounts(ServContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: ServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: CheckContractGroupAccounts
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CheckContractGroupAccounts(Service_Contract_Header)
+- syntax:
+    content: 'procedure FindFirstPrepaidTransaction(ContractNo: Code[20]): Date'
+    parameters:
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: FindFirstPrepaidTransaction
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.FindFirstPrepaidTransaction(Code[20]):Date
+- syntax:
+    content: 'procedure GetNextInvoicePeriod(InvoicedServContractHeader: Record "Service Contract Header", var InvFrom: Date, var InvTo: Date)'
+    parameters:
+    - id: InvoicedServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: InvFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvTo
+      parameterType:
+        name: Date
+        isExternal: true
+  name: GetNextInvoicePeriod
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.GetNextInvoicePeriod(Service_Contract_Header,Date@,Date@)
+- syntax:
+    content: 'procedure NoOfDayInYear(InputDate: Date): Integer'
+    parameters:
+    - id: InputDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NoOfDayInYear
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.NoOfDayInYear(Date):Integer
+- syntax:
+    content: 'procedure NoOfMonthsAndDaysInPeriod(Day1: Date, Day2: Date, var NoOfMonthsInPeriod: Integer, var NoOfDaysInPeriod: Integer)'
+    parameters:
+    - id: Day1
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Day2
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NoOfMonthsInPeriod
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoOfDaysInPeriod
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: NoOfMonthsAndDaysInPeriod
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.NoOfMonthsAndDaysInPeriod(Date,Date,Integer@,Integer@)
+- syntax:
+    content: 'procedure NoOfMonthsAndMPartsInPeriod(Day1: Date, Day2: Date): Decimal'
+    parameters:
+    - id: Day1
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Day2
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: NoOfMonthsAndMPartsInPeriod
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.NoOfMonthsAndMPartsInPeriod(Date,Date):Decimal
+- syntax:
+    content: 'procedure CalcContractAmount(ServContractHeader: Record "Service Contract Header", PeriodStarts: Date, PeriodEnds: Date): Decimal'
+    parameters:
+    - id: ServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: PeriodStarts
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodEnds
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcContractAmount
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CalcContractAmount(Service_Contract_Header,Date,Date):Decimal
+- syntax:
+    content: 'procedure CalcContractLineAmount(AnnualAmount: Decimal, PeriodStarts: Date, PeriodEnds: Date): Decimal'
+    parameters:
+    - id: AnnualAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PeriodStarts
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodEnds
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcContractLineAmount
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CalcContractLineAmount(Decimal,Date,Date):Decimal
+- syntax:
+    content: 'procedure CreateRemainingPeriodInvoice(var CurrServContract: Record "Service Contract Header"): Code[20]'
+    parameters:
+    - id: CurrServContract
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateRemainingPeriodInvoice
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateRemainingPeriodInvoice(Service_Contract_Header@):Code[20]
+- syntax:
+    content: procedure InitCodeUnit()
+  name: InitCodeUnit
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.InitCodeUnit
+- syntax:
+    content: procedure FinishCodeunit()
+  name: FinishCodeunit
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.FinishCodeunit
+- syntax:
+    content: 'procedure CopyCheckSCDimToTempSCDim(ServContract: Record "Service Contract Header")'
+    parameters:
+    - id: ServContract
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: CopyCheckSCDimToTempSCDim
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CopyCheckSCDimToTempSCDim(Service_Contract_Header)
+- syntax:
+    content: 'procedure CreateAllServLines(InvNo: Code[20], ServContractToInvoice: Record "Service Contract Header")'
+    parameters:
+    - id: InvNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServContractToInvoice
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: CreateAllServLines
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateAllServLines(Code[20],Service_Contract_Header)
+- syntax:
+    content: 'procedure CheckIfServiceExist(ServContractHeader: Record "Service Contract Header"): Boolean'
+    parameters:
+    - id: ServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfServiceExist
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CheckIfServiceExist(Service_Contract_Header):Boolean
+- syntax:
+    content: 'procedure GetAffectedItemsOnContractChange(ContractNoToBeChanged: Code[20], var TempServContract: Record "Service Contract Header", var TempServItem: Record "Service Item", Recursive: Boolean, ContractTypeToBeChanged: Enum "Service Contract Type")'
+    parameters:
+    - id: ContractNoToBeChanged
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TempServContract
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: TempServItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+    - id: Recursive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ContractTypeToBeChanged
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+  name: GetAffectedItemsOnContractChange
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.GetAffectedItemsOnContractChange(Code[20],Service_Contract_Header@,Service_Item@,Boolean,Enum::Microsoft#Service#Contract#Service_Contract_Type)
+- syntax:
+    content: 'procedure ChangeCustNoOnServContract(NewCustomertNo: Code[20], NewShipToCode: Code[10], ServContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: NewCustomertNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewShipToCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: ChangeCustNoOnServContract
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.ChangeCustNoOnServContract(Code[20],Code[10],Service_Contract_Header)
+- syntax:
+    content: 'procedure ChangeCustNoOnServItem(NewCustomertNo: Code[20], NewShipToCode: Code[10], ServItem: Record "Service Item")'
+    parameters:
+    - id: NewCustomertNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewShipToCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ServItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+  name: ChangeCustNoOnServItem
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.ChangeCustNoOnServItem(Code[20],Code[10],Service_Item)
+- syntax:
+    content: 'procedure CreateHeadingServiceLine(ServHeader: Record "Service Header", ContractType: Enum "Service Contract Type", ContractNo: Code[20])'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateHeadingServiceLine
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CreateHeadingServiceLine(Service_Header,Enum::Microsoft#Service#Contract#Service_Contract_Type,Code[20])
+- syntax:
+    content: 'procedure LookupServItemNo(var ServiceContractLine: Record "Service Contract Line")'
+    parameters:
+    - id: ServiceContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+  name: LookupServItemNo
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.LookupServItemNo(Service_Contract_Line@)
+- syntax:
+    content: 'procedure AmountToFCY(AmountLCY: Decimal, var ServHeader3: Record "Service Header"): Decimal'
+    parameters:
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ServHeader3
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AmountToFCY
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.AmountToFCY(Decimal,Service_Header@):Decimal
+- syntax:
+    content: 'procedure IsYearContract(ContractType: Enum "Service Contract Type", ContrNo: Code[20]): Boolean'
+    parameters:
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: ContrNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsYearContract
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.IsYearContract(Enum::Microsoft#Service#Contract#Service_Contract_Type,Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckServiceContractHeaderAmts(ServiceContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: CheckServiceContractHeaderAmts
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CheckServiceContractHeaderAmts(Service_Contract_Header)
+- syntax:
+    content: 'procedure SetServiceLedgerEntryUnitCost(var ServiceLedgerEntry: Record "Service Ledger Entry")'
+    parameters:
+    - id: ServiceLedgerEntry
+      parameterType:
+        name: Record "Service Ledger Entry"
+        isExternal: true
+  name: SetServiceLedgerEntryUnitCost
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.SetServiceLedgerEntryUnitCost(Service_Ledger_Entry@)
+- syntax:
+    content: 'procedure CheckMultipleCurrenciesForCustomers(var ServiceContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: CheckMultipleCurrenciesForCustomers
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CheckMultipleCurrenciesForCustomers(Service_Contract_Header@)
+- syntax:
+    content: 'procedure CheckCustomerCurrencyCombination(var ServiceContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: CheckCustomerCurrencyCombination
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CheckCustomerCurrencyCombination(Service_Contract_Header@)
+- syntax:
+    content: 'procedure InitServLedgEntry(var ServLedgEntry: Record "Service Ledger Entry", ServContractHeader: Record "Service Contract Header", DocNo: Code[20])'
+    parameters:
+    - id: ServLedgEntry
+      parameterType:
+        name: Record "Service Ledger Entry"
+        isExternal: true
+    - id: ServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InitServLedgEntry
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.InitServLedgEntry(Service_Ledger_Entry@,Service_Contract_Header,Code[20])
+- syntax:
+    content: 'procedure GetInvoicePeriodText(InvoicePeriod: Enum "Service Contract Header Invoice Period"): Text[4]'
+    parameters:
+    - id: InvoicePeriod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Header_Invoice_Period
+        name: Microsoft.Service.Contract."Service Contract Header Invoice Period"
+        isExternal: false
+    return:
+      returnType:
+        name: Text[4]
+        isExternal: true
+  name: GetInvoicePeriodText
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.GetInvoicePeriodText(Enum::Microsoft#Service#Contract#Service_Contract_Header_Invoice_Period):Text[4]
+- syntax:
+    content: 'procedure FilterServiceContractLine(var ServContractLine: Record "Service Contract Line", ContractNo: Code[20], ContractType: Enum "Service Contract Type", LineNo: Integer)'
+    parameters:
+    - id: ServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FilterServiceContractLine
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.FilterServiceContractLine(Service_Contract_Line@,Code[20],Enum::Microsoft#Service#Contract#Service_Contract_Type,Integer)
+- syntax:
+    content: 'procedure UpdateServLedgEntryAmount(var ServLedgEntry: Record "Service Ledger Entry", var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServLedgEntry
+      parameterType:
+        name: Record "Service Ledger Entry"
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: UpdateServLedgEntryAmount
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.UpdateServLedgEntryAmount(Service_Ledger_Entry@,Service_Header@)
+- syntax:
+    content: 'procedure CalcInvoicedToDate(var ServContractLine: Record "Service Contract Line", InvFrom: Date, InvTo: Date)'
+    parameters:
+    - id: ServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: InvFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvTo
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CalcInvoicedToDate
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CalcInvoicedToDate(Service_Contract_Line@,Date,Date)
+- syntax:
+    content: 'procedure SetServLedgEntryAmounts(var ServLedgEntry: Record "Service Ledger Entry", var EntryAmount: array[4] of Decimal, Amount: Decimal, UnitPrice: Decimal, CostAmount: Decimal, DiscAmount: Decimal, AmtRoundingPrecision: Decimal)'
+    parameters:
+    - id: ServLedgEntry
+      parameterType:
+        name: Record "Service Ledger Entry"
+        isExternal: true
+    - id: EntryAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CostAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DiscAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmtRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetServLedgEntryAmounts
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.SetServLedgEntryAmounts(Service_Ledger_Entry@,Decimal[]@,Decimal,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure CalcInvAmounts(var InvAmount: array[4] of Decimal, ServContractLine: Record "Service Contract Line", InvFrom: Date, InvTo: Date)'
+    parameters:
+    - id: InvAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: ServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: InvFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: InvTo
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CalcInvAmounts
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.CalcInvAmounts(Decimal[]@,Service_Contract_Line,Date,Date)
+- syntax:
+    content: 'procedure InsertMultipleServLedgEntries(var NoOfPayments: Integer, var DueDate: Date, var NonDistrAmount: array[4] of Decimal, var InvRoundedAmount: array[4] of Decimal, var ServHeader: Record "Service Header", InvFrom: Date, NextInvDate: Date, AddingNewLines: Boolean, CountOfEntryLoop: Integer, ServContractLine: Record "Service Contract Line", AmountRoundingPrecision: Decimal)'
+    parameters:
+    - id: NoOfPayments
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NonDistrAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: InvRoundedAmount
+      parameterType:
+        name: array[4] of Decimal
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: InvFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NextInvDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AddingNewLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CountOfEntryLoop
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    - id: AmountRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertMultipleServLedgEntries
+  uid: M:Codeunit::Microsoft#Service#Contract#ServContractManagement.InsertMultipleServLedgEntries(Integer@,Date@,Decimal[]@,Decimal[]@,Service_Header@,Date,Date,Boolean,Integer,Service_Contract_Line,Decimal)
+commentId: O:Codeunit::Microsoft#Service#Contract#ServContractManagement
+name: ServContractManagement
+uid: O:Codeunit::Microsoft#Service#Contract#ServContractManagement

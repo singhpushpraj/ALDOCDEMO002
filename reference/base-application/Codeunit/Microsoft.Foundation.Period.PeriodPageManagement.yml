@@ -1,0 +1,207 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Period.PeriodPageManagement
+alId: ID 362
+namespace: Microsoft.Foundation.Period
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Period
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure FindDate(SearchString: Text[3], Calendar: __MissingTypeSymbol__, PeriodType: Enum "Analysis Period Type"): Boolean'
+    parameters:
+    - id: SearchString
+      parameterType:
+        name: Text[3]
+        isExternal: true
+    - id: Calendar
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDate
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.FindDate(Text[3],__MissingSymbol__@,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type):Boolean
+- syntax:
+    content: 'procedure NextDate(NextStep: Integer, Calendar: __MissingTypeSymbol__, PeriodType: Enum "Analysis Period Type"): Integer'
+    parameters:
+    - id: NextStep
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Calendar
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NextDate
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.NextDate(Integer,__MissingSymbol__@,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type):Integer
+- syntax:
+    content: 'procedure CreatePeriodFormat(PeriodType: Enum "Analysis Period Type", Date: Date): Text[10]'
+    parameters:
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Text[10]
+        isExternal: true
+  name: CreatePeriodFormat
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.CreatePeriodFormat(Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Date):Text[10]
+- syntax:
+    content: 'procedure MoveDateByPeriod(Date: Date, PeriodType: Option, MoveByNoOfPeriods: Integer): Date'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MoveByNoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: MoveDateByPeriod
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.MoveDateByPeriod(Date,Option,Integer):Date
+- syntax:
+    content: 'procedure MoveDateByPeriodToEndOfPeriod(Date: Date, PeriodType: Option, MoveByNoOfPeriods: Integer): Date'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: MoveByNoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: MoveDateByPeriodToEndOfPeriod
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.MoveDateByPeriodToEndOfPeriod(Date,Option,Integer):Date
+- syntax:
+    content: 'procedure GetPeriodTypeSymbol(PeriodType: Option): Text[1]'
+    parameters:
+    - id: PeriodType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[1]
+        isExternal: true
+  name: GetPeriodTypeSymbol
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.GetPeriodTypeSymbol(Option):Text[1]
+- syntax:
+    content: 'procedure EndOfPeriod(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: EndOfPeriod
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.EndOfPeriod:Date
+- syntax:
+    content: 'procedure GetFullPeriodDateFilter(PeriodType: Enum "Analysis Period Type", DateFilter: Text): Text'
+    parameters:
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetFullPeriodDateFilter
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.GetFullPeriodDateFilter(Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Text):Text
+- syntax:
+    content: 'procedure FindPeriod(var Item: Record Item, SearchText: Text[3], PeriodType: Enum "Analysis Period Type", AmountType: Enum "Analysis Amount Type")'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: SearchText
+      parameterType:
+        name: Text[3]
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Amount_Type
+        name: Microsoft.Foundation.Enums."Analysis Amount Type"
+        isExternal: false
+  name: FindPeriod
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.FindPeriod(Item@,Text[3],Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Enum::Microsoft#Foundation#Enums#Analysis_Amount_Type)
+- syntax:
+    content: 'procedure FindPeriodOnMatrixPage(var DateFilter: Text, var InternalDateFilter: Text, SearchText: Text[3], PeriodType: Enum "Analysis Period Type", UpdateDateFilter: Boolean)'
+    parameters:
+    - id: DateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InternalDateFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SearchText
+      parameterType:
+        name: Text[3]
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: UpdateDateFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FindPeriodOnMatrixPage
+  uid: M:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement.FindPeriodOnMatrixPage(Text@,Text@,Text[3],Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Boolean)
+commentId: O:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement
+name: PeriodPageManagement
+uid: O:Codeunit::Microsoft#Foundation#Period#PeriodPageManagement

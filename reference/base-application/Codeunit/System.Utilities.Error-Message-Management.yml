@@ -1,0 +1,702 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Utilities."Error Message Management"
+alId: ID 28
+namespace: System.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure Activate(var ErrorMessageHandler: Codeunit "Error Message Handler"): Boolean'
+    parameters:
+    - id: ErrorMessageHandler
+      parameterType:
+        internalReference: O:Codeunit::System#Utilities#Error_Message_Handler
+        name: System.Utilities."Error Message Handler"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Activate
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.Activate(Codeunit::System#Utilities#Error_Message_Handler@):Boolean
+- syntax:
+    content: 'procedure IsActive(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsActive
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.IsActive:Boolean
+- syntax:
+    content: 'procedure Finish(ContextVariant: Variant)'
+    parameters:
+    - id: ContextVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: Finish
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.Finish(Variant)
+- syntax:
+    content: procedure FinishTopContext()
+  name: FinishTopContext
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.FinishTopContext
+- syntax:
+    content: 'procedure IsTransactionStopped(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsTransactionStopped
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.IsTransactionStopped:Boolean
+- syntax:
+    content: 'procedure GetCurrCallStack(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCurrCallStack
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetCurrCallStack:Text
+- syntax:
+    content: 'procedure ShowErrors(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.ShowErrors(Notification)
+- syntax:
+    content: 'procedure ShowErrors(RegisterID: Guid)'
+    parameters:
+    - id: RegisterID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ShowErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.ShowErrors(Guid)
+- syntax:
+    content: 'procedure ThrowError(ContextErrorMessage: Text, DetailedErrorMessage: Text)'
+    parameters:
+    - id: ContextErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DetailedErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ThrowError
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.ThrowError(Text,Text)
+- syntax:
+    content: 'procedure GetFieldNo(TableNo: Integer, FieldName: Text): Integer'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetFieldNo
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetFieldNo(Integer,Text):Integer
+- syntax:
+    content: 'procedure FindFirstErrorMessage(var ErrorMessage: Text[250]): Boolean'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstErrorMessage
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.FindFirstErrorMessage(Text[250]@):Boolean
+- syntax:
+    content: 'procedure GetErrors(var TempErrorMessage: Record "Error Message" temporary): Boolean'
+    parameters:
+    - id: TempErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetErrors(Error_Message@):Boolean
+- syntax:
+    content: 'procedure GetErrorsInContext(ContextVariant: Variant, var TempErrorMessage: Record "Error Message" temporary): Boolean'
+    parameters:
+    - id: ContextVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: TempErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetErrorsInContext
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetErrorsInContext(Variant,Error_Message@):Boolean
+- syntax:
+    content: 'procedure GetLastError(var ErrorMessage: Text[250]): Integer'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastError
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetLastError(Text[250]@):Integer
+- syntax:
+    content: 'procedure GetLastErrorID(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastErrorID
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetLastErrorID:Integer
+- syntax:
+    content: 'procedure GetCachedLastErrorID(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCachedLastErrorID
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetCachedLastErrorID:Integer
+- syntax:
+    content: 'procedure LogError(SourceVariant: Variant, ErrorMessage: Text, HelpArticleCode: Code[30])'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+  name: LogError
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogError(Variant,Text,Code[30])
+- syntax:
+    content: 'procedure LogContextFieldError(ContextFieldNo: Integer, ErrorMessage: Text, SourceVariant: Variant, SourceFieldNo: Integer, HelpArticleCode: Code[30])'
+    parameters:
+    - id: ContextFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+  name: LogContextFieldError
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogContextFieldError(Integer,Text,Variant,Integer,Code[30])
+- syntax:
+    content: 'procedure LogMessage(NewMessageType: Option, ContextFieldNo: Integer, InformationMessage: Text, SourceVariant: Variant, SourceFieldNo: Integer, HelpArticleCode: Code[30]): Boolean'
+    parameters:
+    - id: NewMessageType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ContextFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InformationMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogMessage
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogMessage(Option,Integer,Text,Variant,Integer,Code[30]):Boolean
+- syntax:
+    content: 'procedure LogErrorMessage(ContextFieldNo: Integer, ErrorMessage: Text, SourceVariant: Variant, SourceFieldNo: Integer, HelpArticleCode: Code[30]): Boolean'
+    parameters:
+    - id: ContextFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogErrorMessage
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogErrorMessage(Integer,Text,Variant,Integer,Code[30]):Boolean
+- syntax:
+    content: 'procedure LogSimpleErrorMessage(ErrorMessage: Text): Boolean'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogSimpleErrorMessage
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogSimpleErrorMessage(Text):Boolean
+- syntax:
+    content: 'procedure LogTestField(SourceVariant: Variant, SourceFieldNo: Integer): Boolean'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogTestField
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogTestField(Variant,Integer):Boolean
+- syntax:
+    content: 'procedure LogTestField(SourceVariant: Variant, SourceFieldNo: Integer, ExpectedValue: Variant): Boolean'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ExpectedValue
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogTestField
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogTestField(Variant,Integer,Variant):Boolean
+- syntax:
+    content: 'procedure LogFieldError(SourceVariant: Variant, SourceFieldNo: Integer, ErrorMessage: Text): Boolean'
+    parameters:
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogFieldError
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogFieldError(Variant,Integer,Text):Boolean
+- syntax:
+    content: 'procedure InsertTempLineErrorMessage(var TempLineErrorMessage: Record "Error Message" temporary, RecordId: RecordId, TableNo: Integer, FieldNo: Integer, Description: Text, CallStack: Text)'
+    parameters:
+    - id: TempLineErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CallStack
+      parameterType:
+        name: Text
+        isExternal: true
+  name: InsertTempLineErrorMessage
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.InsertTempLineErrorMessage(Error_Message@,RecordId,Integer,Integer,Text,Text)
+- syntax:
+    content: 'procedure CollectErrors(var TempLineErrorMessage: Record "Error Message" temporary)'
+    parameters:
+    - id: TempLineErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+  name: CollectErrors
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.CollectErrors(Error_Message@)
+- syntax:
+    content: procedure LogLastError()
+  name: LogLastError
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogLastError
+- syntax:
+    content: 'procedure FldRefHasValue(FldRef: FieldRef): Boolean'
+    parameters:
+    - id: FldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FldRefHasValue
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.FldRefHasValue(FieldRef):Boolean
+- syntax:
+    content: 'procedure GetErrorsFromResultValues(Values: List of [Text], var TempErrorMessage: Record "Error Message" temporary)'
+    parameters:
+    - id: Values
+      parameterType:
+        name: List of [Text]
+        isExternal: true
+    - id: TempErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+  name: GetErrorsFromResultValues
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetErrorsFromResultValues(List_of_[Text],Error_Message@)
+- syntax:
+    content: 'procedure AddSubContextToLastErrorMessage(Tag: Text, VariantRec: Variant)'
+    parameters:
+    - id: Tag
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: VariantRec
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: AddSubContextToLastErrorMessage
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.AddSubContextToLastErrorMessage(Text,Variant)
+- syntax:
+    content: 'procedure ParseErrorText(JSON: Text, var TempErrorMessage: Record "Error Message" temporary)'
+    parameters:
+    - id: JSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+  name: ParseErrorText
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.ParseErrorText(Text,Error_Message@)
+- syntax:
+    content: 'procedure ErrorMessage2JSON(var ErrorMessage: Record "Error Message"): Text'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Record "Error Message"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ErrorMessage2JSON
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.ErrorMessage2JSON(Error_Message@):Text
+- syntax:
+    content: 'procedure PackErrorMessagesToResults(var TempErrorMessage: Record "Error Message" temporary, var Results: Dictionary of [Text, Text])'
+    parameters:
+    - id: TempErrorMessage
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    - id: Results
+      parameterType:
+        name: Dictionary of [Text, Text]
+        isExternal: true
+  name: PackErrorMessagesToResults
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.PackErrorMessagesToResults(Error_Message@,Dictionary_of_[Text,Text]@)
+- syntax:
+    content: 'procedure LogWarning(ContextFieldNo: Integer, WarningMessage: Text, SourceVariant: Variant, SourceFieldNo: Integer, HelpArticleCode: Code[30]): Boolean'
+    parameters:
+    - id: ContextFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: WarningMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogWarning
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogWarning(Integer,Text,Variant,Integer,Code[30]):Boolean
+- syntax:
+    content: 'procedure LogWarning(WarningMessage: Text): Boolean'
+    parameters:
+    - id: WarningMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogWarning
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogWarning(Text):Boolean
+- syntax:
+    content: 'procedure LogInformation(ContextFieldNo: Integer, InformationMessage: Text, SourceVariant: Variant, SourceFieldNo: Integer, HelpArticleCode: Code[30]): Boolean'
+    parameters:
+    - id: ContextFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InformationMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogInformation
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogInformation(Integer,Text,Variant,Integer,Code[30]):Boolean
+- syntax:
+    content: 'procedure LogInformation(InformationMessage: Text): Boolean'
+    parameters:
+    - id: InformationMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogInformation
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.LogInformation(Text):Boolean
+- syntax:
+    content: 'procedure PopContext(var ErrorContextElement: Codeunit "Error Context Element"): Integer'
+    parameters:
+    - id: ErrorContextElement
+      parameterType:
+        internalReference: O:Codeunit::System#Utilities#Error_Context_Element
+        name: System.Utilities."Error Context Element"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PopContext
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.PopContext(Codeunit::System#Utilities#Error_Context_Element@):Integer
+- syntax:
+    content: 'procedure PushContext(var ErrorContextElement: Codeunit "Error Context Element", ContextVariant: Variant, ContextFieldNo: Integer, AdditionalInfo: Text[250]): Integer'
+    parameters:
+    - id: ErrorContextElement
+      parameterType:
+        internalReference: O:Codeunit::System#Utilities#Error_Context_Element
+        name: System.Utilities."Error Context Element"
+        isExternal: false
+    - id: ContextVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ContextFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AdditionalInfo
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PushContext
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.PushContext(Codeunit::System#Utilities#Error_Context_Element@,Variant,Integer,Text[250]):Integer
+- syntax:
+    content: 'procedure GetLastContext(var ErrorMessage: Record "Error Message"): Boolean'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Record "Error Message"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetLastContext
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetLastContext(Error_Message@):Boolean
+- syntax:
+    content: 'procedure BuildActionableErrorInfo(ErrorTitle: Text, ErrorMessage: Text, RecId: RecordId, ActionMessage: Text, ActionCodeunuitId: Integer, ActionName: Text): ErrorInfo'
+    parameters:
+    - id: ErrorTitle
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActionMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActionCodeunuitId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ActionName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: ErrorInfo
+        isExternal: true
+  name: BuildActionableErrorInfo
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.BuildActionableErrorInfo(Text,Text,RecordId,Text,Integer,Text):ErrorInfo
+- syntax:
+    content: 'procedure BuildActionableErrorInfo(ErrorTitle: Text, ErrorMessage: Text, RecId: RecordId, ActionMessage: Text, ActionCodeunuitId: Integer, ActionName: Text, ActionDescription: Text): ErrorInfo'
+    parameters:
+    - id: ErrorTitle
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActionMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActionCodeunuitId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ActionName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActionDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: ErrorInfo
+        isExternal: true
+  name: BuildActionableErrorInfo
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.BuildActionableErrorInfo(Text,Text,RecordId,Text,Integer,Text,Text):ErrorInfo
+- syntax:
+    content: 'procedure GetTopContext(var ErrorMessage: Record "Error Message"): Boolean'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Record "Error Message"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetTopContext
+  uid: M:Codeunit::System#Utilities#Error_Message_Management.GetTopContext(Error_Message@):Boolean
+commentId: O:Codeunit::System#Utilities#Error Message Management
+name: '"Error Message Management"'
+uid: O:Codeunit::System#Utilities#Error_Message_Management

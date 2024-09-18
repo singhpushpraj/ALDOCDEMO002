@@ -1,0 +1,1459 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Approvals Mgmt."
+alId: ID 1535
+namespace: System.Automation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Approval Entry" = Rimd,
+                      TableData "Approval Comment Line" = rimd,
+                      TableData "Posted Approval Entry" = rimd,
+                      TableData "Posted Approval Comment Line" = rimd,
+                      TableData "Overdue Approval Entry" = rimd,
+                      TableData "Notification Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ApproveRecordApprovalRequest(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ApproveRecordApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ApproveRecordApprovalRequest(RecordId)
+- syntax:
+    content: 'procedure ApproveGenJournalLineRequest(GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ApproveGenJournalLineRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ApproveGenJournalLineRequest(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure RejectRecordApprovalRequest(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: RejectRecordApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RejectRecordApprovalRequest(RecordId)
+- syntax:
+    content: 'procedure RejectGenJournalLineRequest(GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: RejectGenJournalLineRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RejectGenJournalLineRequest(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure DelegateRecordApprovalRequest(RecordID: RecordId)'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: DelegateRecordApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DelegateRecordApprovalRequest(RecordId)
+- syntax:
+    content: 'procedure DelegateGenJournalLineRequest(GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: DelegateGenJournalLineRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DelegateGenJournalLineRequest(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure ApproveApprovalRequests(var ApprovalEntry: Record "Approval Entry")'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: ApproveApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ApproveApprovalRequests(Approval_Entry@)
+- syntax:
+    content: 'procedure RejectApprovalRequests(var ApprovalEntry: Record "Approval Entry")'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: RejectApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RejectApprovalRequests(Approval_Entry@)
+- syntax:
+    content: 'procedure DelegateApprovalRequests(var ApprovalEntry: Record "Approval Entry")'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: DelegateApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DelegateApprovalRequests(Approval_Entry@)
+- syntax:
+    content: 'procedure DelegateSelectedApprovalRequest(var ApprovalEntry: Record "Approval Entry", CheckCurrentUser: Boolean)'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: CheckCurrentUser
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DelegateSelectedApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DelegateSelectedApprovalRequest(Approval_Entry@,Boolean)
+- syntax:
+    content: 'procedure FindOpenApprovalEntryForCurrUser(var ApprovalEntry: Record "Approval Entry", RecordID: RecordId): Boolean'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindOpenApprovalEntryForCurrUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.FindOpenApprovalEntryForCurrUser(Approval_Entry@,RecordId):Boolean
+- syntax:
+    content: 'procedure FindApprovalEntryForCurrUser(var ApprovalEntry: Record "Approval Entry", RecordID: RecordId): Boolean'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindApprovalEntryForCurrUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.FindApprovalEntryForCurrUser(Approval_Entry@,RecordId):Boolean
+- syntax:
+    content: 'procedure FindApprovalEntryByRecordId(var ApprovalEntry: Record "Approval Entry", RecordID: RecordId): Boolean'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindApprovalEntryByRecordId
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.FindApprovalEntryByRecordId(Approval_Entry@,RecordId):Boolean
+- syntax:
+    content: 'procedure ApproveApprovalRequestsForRecord(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: ApproveApprovalRequestsForRecord
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ApproveApprovalRequestsForRecord(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure CancelApprovalRequestsForRecord(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: CancelApprovalRequestsForRecord
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CancelApprovalRequestsForRecord(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure RejectApprovalRequestsForRecord(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: RejectApprovalRequestsForRecord
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RejectApprovalRequestsForRecord(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure SendApprovalRequestFromRecord(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: SendApprovalRequestFromRecord
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.SendApprovalRequestFromRecord(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure SendApprovalRequestFromApprovalEntry(ApprovalEntry: Record "Approval Entry", WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: SendApprovalRequestFromApprovalEntry
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.SendApprovalRequestFromApprovalEntry(Approval_Entry,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure CreateApprovalRequests(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: CreateApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateApprovalRequests(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure CreateAndAutomaticallyApproveRequest(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: CreateAndAutomaticallyApproveRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateAndAutomaticallyApproveRequest(RecordRef,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure CreateApprovalRequestForChainOfApprovers(WorkflowStepArgument: Record "Workflow Step Argument", ApprovalEntryArgument: Record "Approval Entry")'
+    parameters:
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: CreateApprovalRequestForChainOfApprovers
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateApprovalRequestForChainOfApprovers(Workflow_Step_Argument,Approval_Entry)
+- syntax:
+    content: 'procedure CreateApprovalRequestForApproverWithSufficientLimit(WorkflowStepArgument: Record "Workflow Step Argument", ApprovalEntryArgument: Record "Approval Entry")'
+    parameters:
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: CreateApprovalRequestForApproverWithSufficientLimit
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateApprovalRequestForApproverWithSufficientLimit(Workflow_Step_Argument,Approval_Entry)
+- syntax:
+    content: 'procedure CreateApprovalRequestForUser(WorkflowStepArgument: Record "Workflow Step Argument", ApprovalEntryArgument: Record "Approval Entry")'
+    parameters:
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: CreateApprovalRequestForUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateApprovalRequestForUser(Workflow_Step_Argument,Approval_Entry)
+- syntax:
+    content: 'procedure CreateApprovalRequestForSpecificUser(WorkflowStepArgument: Record "Workflow Step Argument", ApprovalEntryArgument: Record "Approval Entry")'
+    parameters:
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: CreateApprovalRequestForSpecificUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateApprovalRequestForSpecificUser(Workflow_Step_Argument,Approval_Entry)
+- syntax:
+    content: 'procedure MakeApprovalEntry(ApprovalEntryArgument: Record "Approval Entry", SequenceNo: Integer, ApproverId: Code[50], WorkflowStepArgument: Record "Workflow Step Argument")'
+    parameters:
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: SequenceNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ApproverId
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+  name: MakeApprovalEntry
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.MakeApprovalEntry(Approval_Entry,Integer,Code[50],Workflow_Step_Argument)
+- syntax:
+    content: 'procedure CalcPurchaseDocAmount(PurchaseHeader: Record "Purchase Header", var ApprovalAmount: Decimal, var ApprovalAmountLCY: Decimal)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ApprovalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ApprovalAmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcPurchaseDocAmount
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CalcPurchaseDocAmount(Purchase_Header,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcSalesDocAmount(SalesHeader: Record "Sales Header", var ApprovalAmount: Decimal, var ApprovalAmountLCY: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ApprovalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ApprovalAmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcSalesDocAmount
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CalcSalesDocAmount(Sales_Header,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure PopulateApprovalEntryArgument(RecRef: RecordRef, WorkflowStepInstance: Record "Workflow Step Instance", var ApprovalEntryArgument: Record "Approval Entry")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+  name: PopulateApprovalEntryArgument
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PopulateApprovalEntryArgument(RecordRef,Workflow_Step_Instance,Approval_Entry@)
+- syntax:
+    content: 'procedure CreateApprovalEntryNotification(ApprovalEntry: Record "Approval Entry", WorkflowStepInstance: Record "Workflow Step Instance")'
+    parameters:
+    - id: ApprovalEntry
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+  name: CreateApprovalEntryNotification
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CreateApprovalEntryNotification(Approval_Entry,Workflow_Step_Instance)
+- syntax:
+    content: 'procedure IsSufficientApprover(UserSetup: Record "User Setup", ApprovalEntryArgument: Record "Approval Entry"): Boolean'
+    parameters:
+    - id: UserSetup
+      parameterType:
+        name: Record "User Setup"
+        isExternal: true
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSufficientApprover
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsSufficientApprover(User_Setup,Approval_Entry):Boolean
+- syntax:
+    content: 'procedure PrePostApprovalCheckSales(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PrePostApprovalCheckSales
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PrePostApprovalCheckSales(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure PrePostApprovalCheckPurch(var PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PrePostApprovalCheckPurch
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PrePostApprovalCheckPurch(Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure IsIncomingDocApprovalsWorkflowEnabled(var IncomingDocument: Record "Incoming Document"): Boolean'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsIncomingDocApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsIncomingDocApprovalsWorkflowEnabled(Incoming_Document@):Boolean
+- syntax:
+    content: 'procedure IsPurchaseApprovalsWorkflowEnabled(var PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPurchaseApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsPurchaseApprovalsWorkflowEnabled(Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure IsPurchaseHeaderPendingApproval(var PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPurchaseHeaderPendingApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsPurchaseHeaderPendingApproval(Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure IsSalesApprovalsWorkflowEnabled(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSalesApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsSalesApprovalsWorkflowEnabled(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure IsSalesHeaderPendingApproval(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSalesHeaderPendingApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsSalesHeaderPendingApproval(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure IsOverdueNotificationsWorkflowEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOverdueNotificationsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsOverdueNotificationsWorkflowEnabled:Boolean
+- syntax:
+    content: 'procedure IsGeneralJournalBatchApprovalsWorkflowEnabled(var GenJournalBatch: Record "Gen. Journal Batch"): Boolean'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsGeneralJournalBatchApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsGeneralJournalBatchApprovalsWorkflowEnabled(Gen#_Journal_Batch@):Boolean
+- syntax:
+    content: 'procedure IsGeneralJournalLineApprovalsWorkflowEnabled(var GenJournalLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsGeneralJournalLineApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.IsGeneralJournalLineApprovalsWorkflowEnabled(Gen#_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure CheckPurchaseApprovalPossible(var PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckPurchaseApprovalPossible
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckPurchaseApprovalPossible(Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure CheckIncomingDocApprovalsWorkflowEnabled(var IncomingDocument: Record "Incoming Document"): Boolean'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIncomingDocApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckIncomingDocApprovalsWorkflowEnabled(Incoming_Document@):Boolean
+- syntax:
+    content: 'procedure CheckSalesApprovalPossible(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckSalesApprovalPossible
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckSalesApprovalPossible(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure CheckCustomerApprovalsWorkflowEnabled(var Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCustomerApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckCustomerApprovalsWorkflowEnabled(Customer@):Boolean
+- syntax:
+    content: 'procedure CheckVendorApprovalsWorkflowEnabled(var Vendor: Record Vendor): Boolean'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckVendorApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckVendorApprovalsWorkflowEnabled(Vendor@):Boolean
+- syntax:
+    content: 'procedure CheckItemApprovalsWorkflowEnabled(var Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckItemApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckItemApprovalsWorkflowEnabled(Item@):Boolean
+- syntax:
+    content: 'procedure CheckGeneralJournalBatchApprovalsWorkflowEnabled(var GenJournalBatch: Record "Gen. Journal Batch"): Boolean'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckGeneralJournalBatchApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckGeneralJournalBatchApprovalsWorkflowEnabled(Gen#_Journal_Batch@):Boolean
+- syntax:
+    content: 'procedure CheckGeneralJournalLineApprovalsWorkflowEnabled(var GenJournalLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckGeneralJournalLineApprovalsWorkflowEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckGeneralJournalLineApprovalsWorkflowEnabled(Gen#_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure CheckJobQueueEntryApprovalEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckJobQueueEntryApprovalEnabled
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CheckJobQueueEntryApprovalEnabled:Boolean
+- syntax:
+    content: 'procedure DeleteApprovalEntry(Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: DeleteApprovalEntry
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntry(Variant)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,12,OnMoveGenJournalLine,,False,False)]'
+    content: 'procedure PostApprovalEntriesMoveGenJournalLine(var GenJournalLine: Record "Gen. Journal Line", ToRecordID: RecordId)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ToRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: PostApprovalEntriesMoveGenJournalLine
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PostApprovalEntriesMoveGenJournalLine(Gen#_Journal_Line@,RecordId)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnAfterDeleteEvent,,False,False)]'
+    content: 'procedure DeleteApprovalEntriesAfterDeleteGenJournalLine(var Rec: Record "Gen. Journal Line", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteApprovalEntriesAfterDeleteGenJournalLine
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntriesAfterDeleteGenJournalLine(Gen#_Journal_Line@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,232,OnMoveGenJournalBatch,,False,False)]'
+    content: 'procedure PostApprovalEntriesMoveGenJournalBatch(var Sender: Record "Gen. Journal Batch", ToRecordID: RecordId)'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: ToRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: PostApprovalEntriesMoveGenJournalBatch
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PostApprovalEntriesMoveGenJournalBatch(Gen#_Journal_Batch@,RecordId)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,232,OnAfterDeleteEvent,,False,False)]'
+    content: 'procedure DeleteApprovalEntriesAfterDeleteGenJournalBatch(var Rec: Record "Gen. Journal Batch", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteApprovalEntriesAfterDeleteGenJournalBatch
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntriesAfterDeleteGenJournalBatch(Gen#_Journal_Batch@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,18,OnAfterDeleteEvent,,False,False)]'
+    content: 'procedure DeleteApprovalEntriesAfterDeleteCustomer(var Rec: Record Customer, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteApprovalEntriesAfterDeleteCustomer
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntriesAfterDeleteCustomer(Customer@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,23,OnAfterDeleteEvent,,False,False)]'
+    content: 'procedure DeleteApprovalEntriesAfterDeleteVendor(var Rec: Record Vendor, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteApprovalEntriesAfterDeleteVendor
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntriesAfterDeleteVendor(Vendor@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,27,OnAfterDeleteEvent,,False,False)]'
+    content: 'procedure DeleteApprovalEntriesAfterDeleteItem(var Rec: Record Item, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteApprovalEntriesAfterDeleteItem
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntriesAfterDeleteItem(Item@,Boolean)
+- syntax:
+    content: 'procedure PostApprovalEntries(ApprovedRecordID: RecordId, PostedRecordID: RecordId, PostedDocNo: Code[20]): Boolean'
+    parameters:
+    - id: ApprovedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: PostedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: PostedDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PostApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PostApprovalEntries(RecordId,RecordId,Code[20]):Boolean
+- syntax:
+    content: 'procedure ShowPostedApprovalEntries(PostedRecordID: RecordId)'
+    parameters:
+    - id: PostedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ShowPostedApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ShowPostedApprovalEntries(RecordId)
+- syntax:
+    content: 'procedure DeletePostedApprovalEntries(PostedRecordID: RecordId)'
+    parameters:
+    - id: PostedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: DeletePostedApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeletePostedApprovalEntries(RecordId)
+- syntax:
+    content: 'procedure SetStatusToPendingApproval(var Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetStatusToPendingApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.SetStatusToPendingApproval(Variant@)
+- syntax:
+    content: 'procedure InformUserOnStatusChange(Variant: Variant, WorkflowInstanceId: Guid)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: WorkflowInstanceId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: InformUserOnStatusChange
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.InformUserOnStatusChange(Variant,Guid)
+- syntax:
+    content: 'procedure GetApprovalComment(Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetApprovalComment
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.GetApprovalComment(Variant)
+- syntax:
+    content: 'procedure GetApprovalCommentForWorkflowStepInstanceID(Variant: Variant, WorkflowStepInstanceID: Guid)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: WorkflowStepInstanceID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: GetApprovalCommentForWorkflowStepInstanceID
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.GetApprovalCommentForWorkflowStepInstanceID(Variant,Guid)
+- syntax:
+    content: 'procedure HasOpenApprovalEntriesForCurrentUser(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasOpenApprovalEntriesForCurrentUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasOpenApprovalEntriesForCurrentUser(RecordId):Boolean
+- syntax:
+    content: 'procedure HasOpenApprovalEntries(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasOpenApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasOpenApprovalEntries(RecordId):Boolean
+- syntax:
+    content: 'procedure HasOpenOrPendingApprovalEntries(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasOpenOrPendingApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasOpenOrPendingApprovalEntries(RecordId):Boolean
+- syntax:
+    content: 'procedure HasOpenOrPendingApprovalEntriesForCurrentUser(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasOpenOrPendingApprovalEntriesForCurrentUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasOpenOrPendingApprovalEntriesForCurrentUser(RecordId):Boolean
+- syntax:
+    content: 'procedure HasApprovedApprovalEntries(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasApprovedApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasApprovedApprovalEntries(RecordId):Boolean
+- syntax:
+    content: 'procedure HasApprovalEntries(RecordID: RecordId): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasApprovalEntries(RecordId):Boolean
+- syntax:
+    content: 'procedure HasAnyOpenJournalLineApprovalEntries(JournalTemplateName: Code[20], JournalBatchName: Code[20]): Boolean'
+    parameters:
+    - id: JournalTemplateName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JournalBatchName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasAnyOpenJournalLineApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasAnyOpenJournalLineApprovalEntries(Code[20],Code[20]):Boolean
+- syntax:
+    content: 'procedure TrySendJournalBatchApprovalRequest(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: TrySendJournalBatchApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.TrySendJournalBatchApprovalRequest(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure TrySendJournalLineApprovalRequests(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: TrySendJournalLineApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.TrySendJournalLineApprovalRequests(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure TryCancelJournalBatchApprovalRequest(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: TryCancelJournalBatchApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.TryCancelJournalBatchApprovalRequest(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure TryCancelJournalLineApprovalRequests(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: TryCancelJournalLineApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.TryCancelJournalLineApprovalRequests(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure ShowJournalApprovalEntries(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ShowJournalApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ShowJournalApprovalEntries(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,1535,OnRenameRecordInApprovalRequest,,False,False)]'
+    content: 'procedure RenameApprovalEntries(OldRecordId: RecordId, NewRecordId: RecordId)'
+    parameters:
+    - id: OldRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NewRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: RenameApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RenameApprovalEntries(RecordId,RecordId)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,1535,OnDeleteRecordInApprovalRequest,,False,False)]'
+    content: 'procedure DeleteApprovalEntries(RecordIDToApprove: RecordId)'
+    parameters:
+    - id: RecordIDToApprove
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: DeleteApprovalEntries
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalEntries(RecordId)
+- syntax:
+    content: 'procedure DeleteApprovalCommentLines(RecordIDToApprove: RecordId)'
+    parameters:
+    - id: RecordIDToApprove
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: DeleteApprovalCommentLines
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.DeleteApprovalCommentLines(RecordId)
+- syntax:
+    content: 'procedure CopyApprovalEntryQuoteToOrder(FromRecID: RecordId, ToDocNo: Code[20], ToRecID: RecordId)'
+    parameters:
+    - id: FromRecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToRecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: CopyApprovalEntryQuoteToOrder
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CopyApprovalEntryQuoteToOrder(RecordId,Code[20],RecordId)
+- syntax:
+    content: 'procedure GetLastSequenceNo(ApprovalEntryArgument: Record "Approval Entry"): Integer'
+    parameters:
+    - id: ApprovalEntryArgument
+      parameterType:
+        name: Record "Approval Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastSequenceNo
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.GetLastSequenceNo(Approval_Entry):Integer
+- syntax:
+    content: 'procedure OpenApprovalEntriesPage(RecId: RecordId)'
+    parameters:
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: OpenApprovalEntriesPage
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OpenApprovalEntriesPage(RecordId)
+- syntax:
+    content: 'procedure OpenApprovalsSales(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: OpenApprovalsSales
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OpenApprovalsSales(Sales_Header)
+- syntax:
+    content: 'procedure OpenApprovalsPurchase(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: OpenApprovalsPurchase
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OpenApprovalsPurchase(Purchase_Header)
+- syntax:
+    content: 'procedure RunWorkflowEntriesPage(RecordIDInput: RecordId, TableId: Integer, DocumentType: Enum "Approval Document Type", DocumentNo: Code[20])'
+    parameters:
+    - id: RecordIDInput
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::System#Automation#Approval_Document_Type
+        name: System.Automation."Approval Document Type"
+        isExternal: false
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RunWorkflowEntriesPage
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RunWorkflowEntriesPage(RecordId,Integer,Enum::System#Automation#Approval_Document_Type,Code[20])
+- syntax:
+    content: 'procedure CanCancelApprovalForRecord(RecID: RecordId): Boolean'
+    parameters:
+    - id: RecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanCancelApprovalForRecord
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CanCancelApprovalForRecord(RecordId):Boolean
+- syntax:
+    content: 'procedure HasApprovalEntriesSentByCurrentUser(RecordId: RecordId): Boolean'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasApprovalEntriesSentByCurrentUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.HasApprovalEntriesSentByCurrentUser(RecordId):Boolean
+- syntax:
+    content: 'procedure PreventDeletingRecordWithOpenApprovalEntry(Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: PreventDeletingRecordWithOpenApprovalEntry
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PreventDeletingRecordWithOpenApprovalEntry(Variant)
+- syntax:
+    content: 'procedure PreventInsertRecIfOpenApprovalEntryExist(Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: PreventInsertRecIfOpenApprovalEntryExist
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PreventInsertRecIfOpenApprovalEntryExist(Variant)
+- syntax:
+    content: 'procedure PreventModifyRecIfOpenApprovalEntryExistForCurrentUser(Variant: Variant)'
+    parameters:
+    - id: Variant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: PreventModifyRecIfOpenApprovalEntryExistForCurrentUser
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.PreventModifyRecIfOpenApprovalEntryExistForCurrentUser(Variant)
+- syntax:
+    content: 'procedure ShowApprovalCommentLinesForJournal(ErrInfo: ErrorInfo)'
+    parameters:
+    - id: ErrInfo
+      parameterType:
+        name: ErrorInfo
+        isExternal: true
+  name: ShowApprovalCommentLinesForJournal
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.ShowApprovalCommentLinesForJournal(ErrorInfo)
+- syntax:
+    content: 'procedure RejectApprovalRequest(ErrInfo: ErrorInfo)'
+    parameters:
+    - id: ErrInfo
+      parameterType:
+        name: ErrorInfo
+        isExternal: true
+  name: RejectApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.RejectApprovalRequest(ErrorInfo)
+- syntax:
+    content: 'procedure SendJournalLinesApprovalRequests(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: SendJournalLinesApprovalRequests
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.SendJournalLinesApprovalRequests(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure GetGenJnlBatchApprovalStatus(GenJournalLine: Record "Gen. Journal Line", var GenJnlBatchApprovalStatus: Text[20], EnabledGenJnlBatchWorkflowsExist: Boolean)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GenJnlBatchApprovalStatus
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: EnabledGenJnlBatchWorkflowsExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetGenJnlBatchApprovalStatus
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.GetGenJnlBatchApprovalStatus(Gen#_Journal_Line,Text[20]@,Boolean)
+- syntax:
+    content: 'procedure GetGenJnlLineApprovalStatus(GenJournalLine: Record "Gen. Journal Line", var GenJnlLineApprovalStatus: Text[20], EnabledGenJnlLineWorkflowsExist: Boolean)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GenJnlLineApprovalStatus
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: EnabledGenJnlLineWorkflowsExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetGenJnlLineApprovalStatus
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.GetGenJnlLineApprovalStatus(Gen#_Journal_Line,Text[20]@,Boolean)
+- syntax:
+    content: 'procedure CleanGenJournalApprovalStatus(GenJournalLine: Record "Gen. Journal Line", var GenJnlBatchApprovalStatus: Text[20], var GenJnlLineApprovalStatus: Text[20])'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: GenJnlBatchApprovalStatus
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: GenJnlLineApprovalStatus
+      parameterType:
+        name: Text[20]
+        isExternal: true
+  name: CleanGenJournalApprovalStatus
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.CleanGenJournalApprovalStatus(Gen#_Journal_Line,Text[20]@,Text[20]@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendPurchaseDocForApproval(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: OnSendPurchaseDocForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendPurchaseDocForApproval(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendSalesDocForApproval(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: OnSendSalesDocForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendSalesDocForApproval(Sales_Header@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendIncomingDocForApproval(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: OnSendIncomingDocForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendIncomingDocForApproval(Incoming_Document@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelPurchaseApprovalRequest(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: OnCancelPurchaseApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelPurchaseApprovalRequest(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelSalesApprovalRequest(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: OnCancelSalesApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelSalesApprovalRequest(Sales_Header@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelIncomingDocApprovalRequest(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: OnCancelIncomingDocApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelIncomingDocApprovalRequest(Incoming_Document@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendCustomerForApproval(var Customer: Record Customer)'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: OnSendCustomerForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendCustomerForApproval(Customer@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendVendorForApproval(var Vendor: Record Vendor)'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: OnSendVendorForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendVendorForApproval(Vendor@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendItemForApproval(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: OnSendItemForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendItemForApproval(Item@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelCustomerApprovalRequest(var Customer: Record Customer)'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: OnCancelCustomerApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelCustomerApprovalRequest(Customer@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelVendorApprovalRequest(var Vendor: Record Vendor)'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: OnCancelVendorApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelVendorApprovalRequest(Vendor@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelItemApprovalRequest(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: OnCancelItemApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelItemApprovalRequest(Item@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendGeneralJournalBatchForApproval(var GenJournalBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: OnSendGeneralJournalBatchForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendGeneralJournalBatchForApproval(Gen#_Journal_Batch@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelGeneralJournalBatchApprovalRequest(var GenJournalBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: OnCancelGeneralJournalBatchApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelGeneralJournalBatchApprovalRequest(Gen#_Journal_Batch@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendGeneralJournalLineForApproval(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OnSendGeneralJournalLineForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendGeneralJournalLineForApproval(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelGeneralJournalLineApprovalRequest(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OnCancelGeneralJournalLineApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelGeneralJournalLineApprovalRequest(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnRenameRecordInApprovalRequest(OldRecordId: RecordId, NewRecordId: RecordId)'
+    parameters:
+    - id: OldRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NewRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: OnRenameRecordInApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnRenameRecordInApprovalRequest(RecordId,RecordId)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnDeleteRecordInApprovalRequest(RecordIDToApprove: RecordId)'
+    parameters:
+    - id: RecordIDToApprove
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: OnDeleteRecordInApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnDeleteRecordInApprovalRequest(RecordId)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSendJobQueueEntryForApproval(var JobQueueEntry: Record "Job Queue Entry")'
+    parameters:
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+  name: OnSendJobQueueEntryForApproval
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnSendJobQueueEntryForApproval(Job_Queue_Entry@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCancelJobQueueEntryApprovalRequest(var JobQueueEntry: Record "Job Queue Entry")'
+    parameters:
+    - id: JobQueueEntry
+      parameterType:
+        name: Record "Job Queue Entry"
+        isExternal: true
+  name: OnCancelJobQueueEntryApprovalRequest
+  uid: M:Codeunit::System#Automation#Approvals_Mgmt#.OnCancelJobQueueEntryApprovalRequest(Job_Queue_Entry@)
+commentId: O:Codeunit::System#Automation#Approvals Mgmt#
+name: '"Approvals Mgmt."'
+uid: O:Codeunit::System#Automation#Approvals_Mgmt#

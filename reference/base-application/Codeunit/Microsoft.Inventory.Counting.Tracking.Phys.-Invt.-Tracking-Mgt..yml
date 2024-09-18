@@ -1,0 +1,95 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Counting.Tracking."Phys. Invt. Tracking Mgt."
+alId: ID 5889
+namespace: Microsoft.Inventory.Counting.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Counting.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = rimd,
+                      TableData "Pstd. Phys. Invt. Tracking" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SuggestUseTrackingLines(Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SuggestUseTrackingLines
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#.SuggestUseTrackingLines(Item):Boolean
+- syntax:
+    content: 'procedure GetTrackingNosFromWhse(Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetTrackingNosFromWhse
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#.GetTrackingNosFromWhse(Item):Boolean
+- syntax:
+    content: 'procedure LocationIsBinMandatory(LocationCode: Code[20]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LocationIsBinMandatory
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#.LocationIsBinMandatory(Code[20]):Boolean
+- syntax:
+    content: 'procedure TransferResEntryToItemJnlLine(var PhysInvtOrderLine: Record "Phys. Invt. Order Line", var ItemJnlLine: Record "Item Journal Line", Qty: Decimal, Positive: Boolean)'
+    parameters:
+    - id: PhysInvtOrderLine
+      parameterType:
+        name: Record "Phys. Invt. Order Line"
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferResEntryToItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#.TransferResEntryToItemJnlLine(Phys#_Invt#_Order_Line@,Item_Journal_Line@,Decimal,Boolean)
+- syntax:
+    signatures:
+    - '[Obsolete(Temporary wrapper procedure to enable test automation,24.0)]'
+    content: 'procedure IsPackageTrackingEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPackageTrackingEnabled
+  obsoletion:
+    state: pending
+    reason: Temporary wrapper procedure to enable test automation
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#.IsPackageTrackingEnabled:Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys# Invt# Tracking Mgt#
+name: '"Phys. Invt. Tracking Mgt."'
+uid: O:Codeunit::Microsoft#Inventory#Counting#Tracking#Phys#_Invt#_Tracking_Mgt#

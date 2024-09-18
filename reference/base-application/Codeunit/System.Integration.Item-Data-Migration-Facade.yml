@@ -1,0 +1,819 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration."Item Data Migration Facade"
+alId: ID 6113
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Data Migration Parameters
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Integration#Data_Migration_Parameters
+    name: System.Integration."Data Migration Parameters"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateItemIfNeeded(ItemNoToSet: Code[20], ItemDescriptionToSet: Text[50], ItemDescription2ToSet: Text[50], ItemTypeToSet: Option): Boolean'
+    parameters:
+    - id: ItemNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemDescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ItemDescription2ToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ItemTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateItemIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateItemIfNeeded(Code[20],Text[50],Text[50],Option):Boolean
+- syntax:
+    content: 'procedure CreateLocationIfNeeded(LocationCode: Code[10], LocationName: Text[50]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateLocationIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateLocationIfNeeded(Code[10],Text[50]):Boolean
+- syntax:
+    content: 'procedure DoesItemExist(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesItemExist
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.DoesItemExist(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetGlobalItem(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetGlobalItem
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetGlobalItem(Code[20]):Boolean
+- syntax:
+    content: 'procedure ModifyItem(RunTrigger: Boolean)'
+    parameters:
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ModifyItem
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.ModifyItem(Boolean)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the CreateSalesLineDiscountIfNeeded(SourceType: Enum "Price Source Type"; ...),17.0)]'
+    content: 'procedure CreateSalesLineDiscountIfNeeded(SalesTypeToSet: Option, SalesCodeToSet: Code[20], TypeToSet: Option, CodeToSet: Code[20], LineDiscountPercentToSet: Decimal): Boolean'
+    parameters:
+    - id: SalesTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineDiscountPercentToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateSalesLineDiscountIfNeeded
+  obsoletion:
+    state: pending
+    reason: 'Replaced by the CreateSalesLineDiscountIfNeeded(SourceType: Enum "Price Source Type"; ...)'
+    version: "17.0"
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateSalesLineDiscountIfNeeded(Option,Code[20],Option,Code[20],Decimal):Boolean
+- syntax:
+    content: 'procedure CreateSalesLineDiscountIfNeeded(SourceType: Enum "Price Source Type", SourceNo: Code[20], AssetType: Enum "Price Asset Type", AssetNo: Code[20], MinimumQuantity: Decimal, LineDiscountPercent: Decimal): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    - id: AssetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: MinimumQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: LineDiscountPercent
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateSalesLineDiscountIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateSalesLineDiscountIfNeeded(Enum::Microsoft#Pricing#Source#Price_Source_Type,Code[20],Enum::Microsoft#Pricing#Asset#Price_Asset_Type,Code[20],Decimal,Decimal):Boolean
+- syntax:
+    content: 'procedure CreateCustDiscGroupIfNeeded(CustDiscGroupCodeToSet: Code[20], DescriptionToSet: Text[50]): Boolean'
+    parameters:
+    - id: CustDiscGroupCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateCustDiscGroupIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateCustDiscGroupIfNeeded(Code[20],Text[50]):Boolean
+- syntax:
+    content: 'procedure CreateItemDiscGroupIfNeeded(DiscGroupCodeToSet: Code[20], DescriptionToSet: Text[50]): Boolean'
+    parameters:
+    - id: DiscGroupCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateItemDiscGroupIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateItemDiscGroupIfNeeded(Code[20],Text[50]):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the CreateSalesPriceIfNeeded(SourceType: Enum "Price Source Type"; ...),16.0)]'
+    content: 'procedure CreateSalesPriceIfNeeded(SalesTypeToSet: Option, SalesCodeToSet: Code[20], ItemNoToSet: Code[20], UnitPriceToSet: Decimal, CurrencyCodeToSet: Code[10], StartingDateToSet: Date, UnitOfMeasureToSet: Code[10], MinimumQuantityToSet: Decimal, VariantCodeToSet: Code[10]): Boolean'
+    parameters:
+    - id: SalesTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UnitPriceToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrencyCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDateToSet
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UnitOfMeasureToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: MinimumQuantityToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VariantCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateSalesPriceIfNeeded
+  obsoletion:
+    state: pending
+    reason: 'Replaced by the CreateSalesPriceIfNeeded(SourceType: Enum "Price Source Type"; ...)'
+    version: "16.0"
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateSalesPriceIfNeeded(Option,Code[20],Code[20],Decimal,Code[10],Date,Code[10],Decimal,Code[10]):Boolean
+- syntax:
+    content: 'procedure CreateSalesPriceIfNeeded(SourceType: Enum "Price Source Type", SourceNo: Code[20], CurrencyCode: Code[10], StartingDate: Date, AssetNo: Code[20], VariantCode: Code[10], UnitOfMeasure: Code[10], MinimumQuantity: Decimal, UnitPrice: Decimal): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AssetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitOfMeasure
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: MinimumQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateSalesPriceIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateSalesPriceIfNeeded(Enum::Microsoft#Pricing#Source#Price_Source_Type,Code[20],Code[10],Date,Code[20],Code[10],Code[10],Decimal,Decimal):Boolean
+- syntax:
+    content: 'procedure CreateTariffNumberIfNeeded(NoToSet: Code[20], DescriptionToSet: Text[50], SupplementaryUnitToSet: Boolean): Boolean'
+    parameters:
+    - id: NoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: SupplementaryUnitToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateTariffNumberIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateTariffNumberIfNeeded(Code[20],Text[50],Boolean):Boolean
+- syntax:
+    content: 'procedure CreateUnitOfMeasureIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[10]): Boolean'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateUnitOfMeasureIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateUnitOfMeasureIfNeeded(Code[10],Text[10]):Boolean
+- syntax:
+    content: 'procedure CreateItemTrackingCodeIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[50], LotSpecificTrackingToSet: Boolean, SNSpecificTrackingToSet: Boolean): Boolean'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: LotSpecificTrackingToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SNSpecificTrackingToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateItemTrackingCodeIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateItemTrackingCodeIfNeeded(Code[10],Text[50],Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CreateInventoryPostingSetupIfNeeded(InventoryPostingGroupCode: Code[20], InventoryPostingGroupDescription: Text[50], LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: InventoryPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InventoryPostingGroupDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateInventoryPostingSetupIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateInventoryPostingSetupIfNeeded(Code[20],Text[50],Code[10]):Boolean
+- syntax:
+    content: 'procedure CreateGeneralProductPostingSetupIfNeeded(GeneralProdPostingGroupCode: Code[20], GeneralProdPostingGroupDescription: Text[50], GeneralBusPostingGroupCode: Code[20]): Boolean'
+    parameters:
+    - id: GeneralProdPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GeneralProdPostingGroupDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: GeneralBusPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateGeneralProductPostingSetupIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateGeneralProductPostingSetupIfNeeded(Code[20],Text[50],Code[20]):Boolean
+- syntax:
+    content: 'procedure CreateItemJournalBatchIfNeeded(ItemJournalBatchCode: Code[10], NoSeriesCode: Code[20], PostingNoSeriesCode: Code[20])'
+    parameters:
+    - id: ItemJournalBatchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingNoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateItemJournalBatchIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateItemJournalBatchIfNeeded(Code[10],Code[20],Code[20])
+- syntax:
+    content: 'procedure CreateItemJournalLine(ItemJournalBatchCode: Code[10], DocumentNo: Code[20], Description: Text[50], PostingDate: Date, Qty: Decimal, Amount: Decimal, LocationCode: Code[10], GenProdPostingGroupGode: Code[20])'
+    parameters:
+    - id: ItemJournalBatchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenProdPostingGroupGode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateItemJournalLine
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateItemJournalLine(Code[10],Code[20],Text[50],Date,Decimal,Decimal,Code[10],Code[20])
+- syntax:
+    content: 'procedure SetItemJournalLineItemTracking(SerialNo: Code[50], LotNo: Code[50])'
+    parameters:
+    - id: SerialNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: LotNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetItemJournalLineItemTracking
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetItemJournalLineItemTracking(Code[50],Code[50])
+- syntax:
+    content: 'procedure SetItemJournalLineDimension(DimensionCode: Code[20], DimensionDescription: Text[50], DimensionValueCode: Code[20], DimensionValueName: Text[50])'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DimensionValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: SetItemJournalLineDimension
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetItemJournalLineDimension(Code[20],Text[50],Code[20],Text[50])
+- syntax:
+    content: 'procedure CreateDefaultDimensionAndRequirementsIfNeeded(DimensionCode: Text[20], DimensionDescription: Text[50], DimensionValueCode: Code[20], DimensionValueName: Text[30])'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: DimensionDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DimensionValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CreateDefaultDimensionAndRequirementsIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateDefaultDimensionAndRequirementsIfNeeded(Text[20],Text[50],Code[20],Text[30])
+- syntax:
+    content: 'procedure CreateBOMComponent(ComponentItemNo: Code[20], Quantity: Decimal, Position: Code[10], BOMType: Option)'
+    parameters:
+    - id: ComponentItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BOMType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CreateBOMComponent
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateBOMComponent(Code[20],Decimal,Code[10],Option)
+- syntax:
+    content: 'procedure SetItemTrackingCode(TrackingCodeToSet: Code[10])'
+    parameters:
+    - id: TrackingCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetItemTrackingCode
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetItemTrackingCode(Code[10])
+- syntax:
+    content: 'procedure SetBaseUnitOfMeasure(BaseUnitOfMeasureToSet: Code[10])'
+    parameters:
+    - id: BaseUnitOfMeasureToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetBaseUnitOfMeasure
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetBaseUnitOfMeasure(Code[10])
+- syntax:
+    content: 'procedure SetPurchUnitOfMeasure(PurchUnitOfMeasureToSet: Code[10])'
+    parameters:
+    - id: PurchUnitOfMeasureToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetPurchUnitOfMeasure
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetPurchUnitOfMeasure(Code[10])
+- syntax:
+    content: 'procedure SetItemDiscGroup(ItemDiscGroupToSet: Code[20])'
+    parameters:
+    - id: ItemDiscGroupToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetItemDiscGroup
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetItemDiscGroup(Code[20])
+- syntax:
+    content: 'procedure SetTariffNo(TariffNoToSet: Code[20])'
+    parameters:
+    - id: TariffNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetTariffNo
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetTariffNo(Code[20])
+- syntax:
+    content: 'procedure SetCostingMethod(CostingMethodToSet: Option)'
+    parameters:
+    - id: CostingMethodToSet
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetCostingMethod
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetCostingMethod(Option)
+- syntax:
+    content: 'procedure SetUnitCost(UnitCostToSet: Decimal)'
+    parameters:
+    - id: UnitCostToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetUnitCost
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetUnitCost(Decimal)
+- syntax:
+    content: 'procedure SetStandardCost(StandardCostToSet: Decimal)'
+    parameters:
+    - id: StandardCostToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetStandardCost
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetStandardCost(Decimal)
+- syntax:
+    content: 'procedure SetVendorItemNo(VendorItemNoToSet: Text[20])'
+    parameters:
+    - id: VendorItemNoToSet
+      parameterType:
+        name: Text[20]
+        isExternal: true
+  name: SetVendorItemNo
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetVendorItemNo(Text[20])
+- syntax:
+    content: 'procedure SetNetWeight(NetWeightToSet: Decimal)'
+    parameters:
+    - id: NetWeightToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetNetWeight
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetNetWeight(Decimal)
+- syntax:
+    content: 'procedure SetUnitVolume(UnitVolumeToSet: Decimal)'
+    parameters:
+    - id: UnitVolumeToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetUnitVolume
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetUnitVolume(Decimal)
+- syntax:
+    content: 'procedure SetBlocked(BlockedToSet: Boolean)'
+    parameters:
+    - id: BlockedToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetBlocked
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetBlocked(Boolean)
+- syntax:
+    content: 'procedure SetStockoutWarning(IsStockoutWarning: Boolean)'
+    parameters:
+    - id: IsStockoutWarning
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetStockoutWarning
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetStockoutWarning(Boolean)
+- syntax:
+    content: 'procedure SetPreventNegativeInventory(IsPreventNegativeInventory: Boolean)'
+    parameters:
+    - id: IsPreventNegativeInventory
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreventNegativeInventory
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetPreventNegativeInventory(Boolean)
+- syntax:
+    content: 'procedure SetReorderQuantity(ReorderQuantityToSet: Decimal)'
+    parameters:
+    - id: ReorderQuantityToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetReorderQuantity
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetReorderQuantity(Decimal)
+- syntax:
+    content: 'procedure SetAlternativeItemNo(AlternativeItemNoToSet: Code[20])'
+    parameters:
+    - id: AlternativeItemNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetAlternativeItemNo
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetAlternativeItemNo(Code[20])
+- syntax:
+    content: 'procedure SetVendorNo(VendorNoToSet: Code[20]): Boolean'
+    parameters:
+    - id: VendorNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetVendorNo
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetVendorNo(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetUnitPrice(UnitPriceToSet: Decimal)'
+    parameters:
+    - id: UnitPriceToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetUnitPrice
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetUnitPrice(Decimal)
+- syntax:
+    content: 'procedure SetUnitListPrice(UnitListPriceToSet: Decimal)'
+    parameters:
+    - id: UnitListPriceToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetUnitListPrice
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetUnitListPrice(Decimal)
+- syntax:
+    content: 'procedure SetLastDateModified(LastDateModifiedToSet: Date)'
+    parameters:
+    - id: LastDateModifiedToSet
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetLastDateModified
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetLastDateModified(Date)
+- syntax:
+    content: 'procedure SetLastModifiedDateTime(LastModifiedDateTimeToSet: DateTime)'
+    parameters:
+    - id: LastModifiedDateTimeToSet
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SetLastModifiedDateTime
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetLastModifiedDateTime(DateTime)
+- syntax:
+    content: 'procedure CreateCustomerPriceGroupIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[50], PriceIncludesVatToSet: Boolean): Code[10]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PriceIncludesVatToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreateCustomerPriceGroupIfNeeded
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateCustomerPriceGroupIfNeeded(Code[10],Text[50],Boolean):Code[10]
+- syntax:
+    content: 'procedure SetInventoryPostingSetupInventoryAccount(InventoryPostingGroupCode: Code[20], LocationCode: Code[10], InventoryAccountCode: Code[20])'
+    parameters:
+    - id: InventoryPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InventoryAccountCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetInventoryPostingSetupInventoryAccount
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetInventoryPostingSetupInventoryAccount(Code[20],Code[10],Code[20])
+- syntax:
+    content: 'procedure SetGeneralPostingSetupInventoryAdjmntAccount(GeneralProdPostingGroupCode: Code[20], GeneralBusPostingGroupCode: Code[10], InventoryAdjmntAccountCode: Code[20])'
+    parameters:
+    - id: GeneralProdPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GeneralBusPostingGroupCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InventoryAdjmntAccountCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralPostingSetupInventoryAdjmntAccount
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetGeneralPostingSetupInventoryAdjmntAccount(Code[20],Code[10],Code[20])
+- syntax:
+    content: 'procedure SetInventoryPostingGroup(InventoryPostingGroupCode: Code[20]): Boolean'
+    parameters:
+    - id: InventoryPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetInventoryPostingGroup
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetInventoryPostingGroup(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetGeneralProductPostingGroup(GenProductPostingGroupCode: Code[20]): Boolean'
+    parameters:
+    - id: GenProductPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetGeneralProductPostingGroup
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetGeneralProductPostingGroup(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetSearchDescription(SearchDescriptionToSet: Code[50])'
+    parameters:
+    - id: SearchDescriptionToSet
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetSearchDescription
+  uid: M:Codeunit::System#Integration#Item_Data_Migration_Facade.SetSearchDescription(Code[50])
+commentId: O:Codeunit::System#Integration#Item Data Migration Facade
+name: '"Item Data Migration Facade"'
+uid: O:Codeunit::System#Integration#Item_Data_Migration_Facade

@@ -1,0 +1,218 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Document."Invt. Doc. Line-Reserve"
+alId: ID 5854
+namespace: Microsoft.Inventory.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(var InvtDocumentLine: Record "Invt. Document Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.CreateReservation(Invt#_Document_Line@,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure FilterReservFor(var FilterReservationEntry: Record "Reservation Entry", InvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: FilterReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: FilterReservFor
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.FilterReservFor(Reservation_Entry@,Invt#_Document_Line)
+- syntax:
+    content: 'procedure Caption(InvtDocumentLine: Record "Invt. Document Line"): Text'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.Caption(Invt#_Document_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(InvtDocumentLine: Record "Invt. Document Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.FindReservEntry(Invt#_Document_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewInvtDocumentLine: Record "Invt. Document Line", var OldInvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: NewInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: OldInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.VerifyChange(Invt#_Document_Line@,Invt#_Document_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewInvtDocumentLine: Record "Invt. Document Line", var OldInvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: NewInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: OldInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.VerifyQuantity(Invt#_Document_Line@,Invt#_Document_Line@)
+- syntax:
+    content: 'procedure TransferInvtDocToItemJnlLine(var InvtDocumentLine: Record "Invt. Document Line", var ItemJournalLine: Record "Item Journal Line", ReceiptQty: Decimal)'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ReceiptQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferInvtDocToItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.TransferInvtDocToItemJnlLine(Invt#_Document_Line@,Item_Journal_Line@,Decimal)
+- syntax:
+    content: 'procedure RenameLine(var NewInvtDocumentLine: Record "Invt. Document Line", var OldInvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: NewInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: OldInvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: RenameLine
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.RenameLine(Invt#_Document_Line@,Invt#_Document_Line@)
+- syntax:
+    content: 'procedure DeleteLine(var InvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.DeleteLine(Invt#_Document_Line@)
+- syntax:
+    content: 'procedure AssignForPlanning(var InvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: AssignForPlanning
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.AssignForPlanning(Invt#_Document_Line@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var InvtDocumentLine: Record "Invt. Document Line")'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.CallItemTracking(Invt#_Document_Line@)
+- syntax:
+    content: 'procedure CallItemTracking2(var InvtDocumentLine: Record "Invt. Document Line", var SecondSourceQuantityArray: array[3] of Decimal)'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: SecondSourceQuantityArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: CallItemTracking2
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.CallItemTracking2(Invt#_Document_Line@,Decimal[]@)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var InvtDocumentLine: Record "Invt. Document Line"): Boolean'
+    parameters:
+    - id: InvtDocumentLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve.DeleteLineConfirm(Invt#_Document_Line@):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Document#Invt# Doc# Line-Reserve
+name: '"Invt. Doc. Line-Reserve"'
+uid: O:Codeunit::Microsoft#Inventory#Document#Invt#_Doc#_Line-Reserve

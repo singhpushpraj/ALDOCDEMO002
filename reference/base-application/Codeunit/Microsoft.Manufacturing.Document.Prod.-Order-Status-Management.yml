@@ -1,0 +1,174 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Prod. Order Status Management"
+alId: ID 5407
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Source Code Setup" = r,
+                      TableData "Production Order" = rimd,
+                      TableData "Prod. Order Capacity Need" = rid,
+                      TableData "Inventory Adjmt. Entry (Order)" = rim
+  promoted: false
+- name: TableNo
+  value: Production Order
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Manufacturing#Document#Production_Order
+    name: Microsoft.Manufacturing.Document."Production Order"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ChangeProdOrderStatus(ProdOrder: Record "Production Order", NewStatus: Enum "Production Order Status", NewPostingDate: Date, NewUpdateUnitCost: Boolean)'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewUpdateUnitCost
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ChangeProdOrderStatus
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.ChangeProdOrderStatus(Production_Order,Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Date,Boolean)
+- syntax:
+    content: 'procedure TransProdOrder(var FromProdOrder: Record "Production Order")'
+    parameters:
+    - id: FromProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+  name: TransProdOrder
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.TransProdOrder(Production_Order@)
+- syntax:
+    content: 'procedure FlushProdOrder(ProdOrder: Record "Production Order", NewStatus: Enum "Production Order Status", PostingDate: Date)'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: FlushProdOrder
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.FlushProdOrder(Production_Order,Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Date)
+- syntax:
+    content: 'procedure SetPostingInfo(Status: Enum "Production Order Status", PostingDate: Date, UpdateUnitCost: Boolean)'
+    parameters:
+    - id: Status
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UpdateUnitCost
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPostingInfo
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.SetPostingInfo(Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Date,Boolean)
+- syntax:
+    content: 'procedure OutputExists(ProdOrderLine: Record "Prod. Order Line"): Boolean'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OutputExists
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.OutputExists(Prod#_Order_Line):Boolean
+- syntax:
+    content: 'procedure MatrOrCapConsumpExists(ProdOrderLine: Record "Prod. Order Line"): Boolean'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: MatrOrCapConsumpExists
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.MatrOrCapConsumpExists(Prod#_Order_Line):Boolean
+- syntax:
+    content: 'procedure SetTimeAndQuantityOmItemJnlLine(var ItemJnlLine: Record "Item Journal Line", ProdOrderRtngLine: Record "Prod. Order Routing Line", OutputQtyBase: Decimal, OutputQty: Decimal, PutawayQtyBaseToCalc: Decimal)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: OutputQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OutputQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PutawayQtyBaseToCalc
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetTimeAndQuantityOmItemJnlLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.SetTimeAndQuantityOmItemJnlLine(Item_Journal_Line@,Prod#_Order_Routing_Line,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure ChangeProdOrderStatus(ProdOrder: Record "Production Order", var NewProdOrder: Record "Production Order", NewStatus: Enum "Production Order Status", NewPostingDate: Date, NewUpdateUnitCost: Boolean)'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: NewProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewUpdateUnitCost
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ChangeProdOrderStatus
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management.ChangeProdOrderStatus(Production_Order,Production_Order@,Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Date,Boolean)
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Prod# Order Status Management
+name: '"Prod. Order Status Management"'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Status_Management

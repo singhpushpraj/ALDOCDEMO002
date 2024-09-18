@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."TransferOrder-Post Shipment"
+alId: ID 5704
+namespace: Microsoft.Inventory.Transfer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "G/L Entry" = r,
+                    tabledata "Item Entry Relation" = i,
+                    tabledata "Transfer Shipment Header" = ri,
+                    tabledata "Transfer Shipment Line" = rim
+  promoted: false
+- name: TableNo
+  value: Transfer Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Transfer#Transfer_Header
+    name: Microsoft.Inventory.Transfer."Transfer Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Shipment.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure SetWhseShptHeader(var WhseShptHeader2: Record "Warehouse Shipment Header")'
+    parameters:
+    - id: WhseShptHeader2
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+  name: SetWhseShptHeader
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Shipment.SetWhseShptHeader(Warehouse_Shipment_Header@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Shipment.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Shipment.SetPreviewMode(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post Shipment
+name: '"TransferOrder-Post Shipment"'
+uid: O:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Shipment

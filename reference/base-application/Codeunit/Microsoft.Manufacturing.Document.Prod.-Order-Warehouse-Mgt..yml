@@ -1,0 +1,282 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Prod. Order Warehouse Mgt."
+alId: ID 5996
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ShowProdOrderLine(WhseDocNo: Code[20], WhseDocLineNo: Integer)'
+    parameters:
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowProdOrderLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.ShowProdOrderLine(Code[20],Integer)
+- syntax:
+    content: 'procedure CreateWhseJnlLineFromConsumptionJournal(ItemJournalLine: Record "Item Journal Line", var WarehouseJournalLine: Record "Warehouse Journal Line"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: WarehouseJournalLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateWhseJnlLineFromConsumptionJournal
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.CreateWhseJnlLineFromConsumptionJournal(Item_Journal_Line,Warehouse_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure CreateWhseJnlLineFromOutputJournal(ItemJournalLine: Record "Item Journal Line", var WarehouseJournalLine: Record "Warehouse Journal Line"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: WarehouseJournalLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateWhseJnlLineFromOutputJournal
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.CreateWhseJnlLineFromOutputJournal(Item_Journal_Line,Warehouse_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure GetPlanningRtngLastOperationFromBinCode(WkshTemplateName: Code[10], WkshBatchName: Code[10], WkshLineNo: Integer, LocationCode: Code[10]): Code[20]'
+    parameters:
+    - id: WkshTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WkshBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WkshLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetPlanningRtngLastOperationFromBinCode
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetPlanningRtngLastOperationFromBinCode(Code[10],Code[10],Integer,Code[10]):Code[20]
+- syntax:
+    content: 'procedure GetProdCenterLocationCode(Type: Enum "Capacity Type", No: Code[20]): Code[10]'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetProdCenterLocationCode
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetProdCenterLocationCode(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20]):Code[10]
+- syntax:
+    content: 'procedure GetProdCenterBinCode(Type: Enum "Capacity Type", No: Code[20], LocationCode: Code[10], UseFlushingMethod: Boolean, FlushingMethod: Enum "Flushing Method"): Code[20]'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UseFlushingMethod
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FlushingMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Setup#Flushing_Method
+        name: Microsoft.Manufacturing.Setup."Flushing Method"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetProdCenterBinCode
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetProdCenterBinCode(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Code[10],Boolean,Enum::Microsoft#Manufacturing#Setup#Flushing_Method):Code[20]
+- syntax:
+    content: 'procedure GetDefaultBin(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], var BinCode: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDefaultBin
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetDefaultBin(Code[20],Code[10],Code[10],Code[20]@):Boolean
+- syntax:
+    content: 'procedure GetLastOperationFromBinCode(RoutingNo: Code[20], RoutingVersionCode: Code[20], LocationCode: Code[10], UseFlushingMethod: Boolean, FlushingMethod: Enum "Flushing Method"): Code[20]'
+    parameters:
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingVersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UseFlushingMethod
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FlushingMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Setup#Flushing_Method
+        name: Microsoft.Manufacturing.Setup."Flushing Method"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetLastOperationFromBinCode
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetLastOperationFromBinCode(Code[20],Code[20],Code[10],Boolean,Enum::Microsoft#Manufacturing#Setup#Flushing_Method):Code[20]
+- syntax:
+    content: 'procedure GetLastOperationLocationCode(RoutingNo: Code[20], RoutingVersionCode: Code[20]): Code[10]'
+    parameters:
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingVersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetLastOperationLocationCode
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetLastOperationLocationCode(Code[20],Code[20]):Code[10]
+- syntax:
+    content: 'procedure GetProdRoutingLastOperationFromBinCode(ProdOrderStatus: Enum "Production Order Status", ProdOrderNo: Code[20], RoutingRefNo: Integer, RoutingNo: Code[20], LocationCode: Code[10]): Code[20]'
+    parameters:
+    - id: ProdOrderStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: ProdOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetProdRoutingLastOperationFromBinCode
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.GetProdRoutingLastOperationFromBinCode(Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Code[20],Integer,Code[20],Code[10]):Code[20]
+- syntax:
+    content: 'procedure ProdComponentVerifyChange(var NewProdOrderComponent: Record "Prod. Order Component", var OldProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: NewProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: OldProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: ProdComponentVerifyChange
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.ProdComponentVerifyChange(Prod#_Order_Component@,Prod#_Order_Component@)
+- syntax:
+    content: 'procedure ProdComponentDelete(var ProdOrderComponent: Record "Prod. Order Component")'
+    parameters:
+    - id: ProdOrderComponent
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: ProdComponentDelete
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.ProdComponentDelete(Prod#_Order_Component@)
+- syntax:
+    content: 'procedure ProdOrderLineVerifyChange(var NewProdOrderLine: Record "Prod. Order Line", var OldProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: NewProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: OldProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: ProdOrderLineVerifyChange
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.ProdOrderLineVerifyChange(Prod#_Order_Line@,Prod#_Order_Line@)
+- syntax:
+    content: 'procedure ProdOrderLineDelete(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: ProdOrderLineDelete
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#.ProdOrderLineDelete(Prod#_Order_Line@)
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Prod# Order Warehouse Mgt#
+name: '"Prod. Order Warehouse Mgt."'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Warehouse_Mgt#

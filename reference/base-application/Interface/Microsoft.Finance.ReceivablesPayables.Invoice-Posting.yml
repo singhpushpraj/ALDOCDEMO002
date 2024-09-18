@@ -1,0 +1,230 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Invoice Posting"
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Interface
+kind: Interface
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Interface](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-interfaces-in-al)'
+methods:
+- syntax:
+    content: 'procedure Check(TableID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  summary: Check if implementation codeunit designed for source document type posting
+  name: Check
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.Check(Integer)
+- syntax:
+    content: procedure ClearBuffers()
+  summary: Clear temporary posting buffers in invoice posting codeunit
+  name: ClearBuffers
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.ClearBuffers
+- syntax:
+    content: 'procedure CheckCreditLine(DocumentHeaderVar: Variant, DocumentLineVar: Variant)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  summary: Check credit limit for document customer
+  name: CheckCreditLine
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.CheckCreditLine(Variant,Variant)
+- syntax:
+    content: 'procedure SetHideProgressWindow(NewHideProgressWindow: Boolean)'
+    parameters:
+    - id: NewHideProgressWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: Set HideProgressWindow variable inside the invoice posting codeunit
+  name: SetHideProgressWindow
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.SetHideProgressWindow(Boolean)
+- syntax:
+    content: 'procedure SetParameters(InvoicePostingParameters: Record "Invoice Posting Parameters" temporary)'
+    parameters:
+    - id: InvoicePostingParameters
+      parameterType:
+        name: Record "Invoice Posting Parameters" temporary
+        isExternal: true
+  summary: Set posting related parameters using temporary table
+  name: SetParameters
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.SetParameters(Invoice_Posting_Parameters)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: Set PreviewMode variable inside the invoice posting codeunit
+  name: SetPreviewMode
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: Set SupressCommit variable inside the invoice posting codeunit
+  name: SetSuppressCommit
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetTotalLines(TotalDocumentLine: Variant, TotalDocumentLineLCY: Variant)'
+    parameters:
+    - id: TotalDocumentLine
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: TotalDocumentLineLCY
+      parameterType:
+        name: Variant
+        isExternal: true
+  summary: Set SupressCommit variable inside the invoice posting codeunit
+  name: SetTotalLines
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.SetTotalLines(Variant,Variant)
+- syntax:
+    content: 'procedure PrepareLine(DocumentHeaderVar: Variant, DocumentLineVar: Variant, DocumentLineACYVar: Variant)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineACYVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  summary: Prepare invoice posting buffer line from source document line
+  name: PrepareLine
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.PrepareLine(Variant,Variant,Variant)
+- syntax:
+    content: 'procedure PrepareJobLine(DocumentHeaderVar: Variant, DocumentLineVar: Variant, DocumentLineACYVar: Variant)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineACYVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  summary: Prepare invoice posting buffer line from source document job line
+  name: PrepareJobLine
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.PrepareJobLine(Variant,Variant,Variant)
+- syntax:
+    content: 'procedure PostLedgerEntry(DocumentHeaderVar: Variant, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  summary: Process customer or vendor ledger entry.
+  name: PostLedgerEntry
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.PostLedgerEntry(Variant,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure PostBalancingEntry(DocumentHeaderVar: Variant, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  summary: Process customer or vendor ledger entry.
+  name: PostBalancingEntry
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.PostBalancingEntry(Variant,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure PostLines(DocumentHeaderVar: Variant, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", var Window: Dialog, var TotalAmount: Decimal)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: Window
+      parameterType:
+        name: Dialog
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Process invoice posting buffer and post ledger entries for each record.
+  name: PostLines
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.PostLines(Variant,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Dialog@,Decimal@)
+- syntax:
+    content: 'procedure CalcDeferralAmounts(DocumentHeaderVar: Variant, DocumentLineVar: Variant, OriginalDeferralAmount: Decimal)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: OriginalDeferralAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Calculate deferral amounts for invoice posting buffer
+  name: CalcDeferralAmounts
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.CalcDeferralAmounts(Variant,Variant,Decimal)
+- syntax:
+    content: 'procedure CreatePostedDeferralSchedule(DocumentLineVar: Variant, NewDocumentType: Integer, NewDocumentNo: Code[20], NewLineNo: Integer, PostingDate: Date)'
+    parameters:
+    - id: DocumentLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: NewDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewDocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  summary: Create deferral schedule for posted documents
+  name: CreatePostedDeferralSchedule
+  uid: M:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting.CreatePostedDeferralSchedule(Variant,Integer,Code[20],Integer,Date)
+commentId: O:Interface::Microsoft#Finance#ReceivablesPayables#Invoice Posting
+name: '"Invoice Posting"'
+uid: O:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting

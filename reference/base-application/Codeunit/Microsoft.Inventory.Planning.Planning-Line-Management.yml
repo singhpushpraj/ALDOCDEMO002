@@ -1,0 +1,176 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Planning."Planning Line Management"
+alId: ID 99000809
+namespace: Microsoft.Inventory.Planning
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Planning
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Manufacturing Setup" = rm,
+                      TableData "Routing Header" = r,
+                      TableData "Production BOM Header" = r,
+                      TableData "Production BOM Line" = r,
+                      TableData "Prod. Order Capacity Need" = rd,
+                      TableData "Planning Component" = rimd,
+                      TableData "Planning Routing Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalculateRoutingFromActual(PlanningRtngLine: Record "Planning Routing Line", Direction: Option, CalcStartEndDate: Boolean)'
+    parameters:
+    - id: PlanningRtngLine
+      parameterType:
+        name: Record "Planning Routing Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CalcStartEndDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateRoutingFromActual
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.CalculateRoutingFromActual(Planning_Routing_Line,Option,Boolean)
+- syntax:
+    content: 'procedure CalculatePlanningLineDates(var ReqLine2: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: CalculatePlanningLineDates
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.CalculatePlanningLineDates(Requisition_Line@)
+- syntax:
+    content: 'procedure Calculate(var ReqLine2: Record "Requisition Line", Direction: Option, CalcRouting: Boolean, CalcComponents: Boolean, PlanningLevel: Integer)'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CalcRouting
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalcComponents
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PlanningLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.Calculate(Requisition_Line@,Option,Boolean,Boolean,Integer)
+- syntax:
+    content: 'procedure Recalculate(var ReqLine2: Record "Requisition Line", Direction: Option)'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: Recalculate
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.Recalculate(Requisition_Line@,Option)
+- syntax:
+    content: 'procedure RecalculateWithOptionalModify(var ReqLine2: Record "Requisition Line", Direction: Option, ModifyRec: Boolean)'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ModifyRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecalculateWithOptionalModify
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.RecalculateWithOptionalModify(Requisition_Line@,Option,Boolean)
+- syntax:
+    content: 'procedure CheckMultiLevelStructure(ReqLine2: Record "Requisition Line", CalcRouting: Boolean, CalcComponents: Boolean, PlanningLevel: Integer)'
+    parameters:
+    - id: ReqLine2
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: CalcRouting
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalcComponents
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PlanningLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckMultiLevelStructure
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.CheckMultiLevelStructure(Requisition_Line,Boolean,Boolean,Integer)
+- syntax:
+    content: 'procedure BlockDynamicTracking(SetBlock: Boolean)'
+    parameters:
+    - id: SetBlock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: BlockDynamicTracking
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.BlockDynamicTracking(Boolean)
+- syntax:
+    content: 'procedure GetPlanningCompList(var PlanningCompList: Record "Planning Component" temporary)'
+    parameters:
+    - id: PlanningCompList
+      parameterType:
+        name: Record "Planning Component" temporary
+        isExternal: true
+  name: GetPlanningCompList
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.GetPlanningCompList(Planning_Component@)
+- syntax:
+    content: 'procedure SetResiliencyOn(WkshTemplName: Code[10], JnlBatchName: Code[10], ItemNo: Code[20])'
+    parameters:
+    - id: WkshTemplName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetResiliencyOn
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.SetResiliencyOn(Code[10],Code[10],Code[20])
+- syntax:
+    content: 'procedure GetResiliencyError(var PlanningErrorLog: Record "Planning Error Log"): Boolean'
+    parameters:
+    - id: PlanningErrorLog
+      parameterType:
+        name: Record "Planning Error Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetResiliencyError
+  uid: M:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management.GetResiliencyError(Planning_Error_Log@):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Planning#Planning Line Management
+name: '"Planning Line Management"'
+uid: O:Codeunit::Microsoft#Inventory#Planning#Planning_Line_Management

@@ -1,0 +1,227 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Entity."Purch. Inv. Aggregator"
+alId: ID 5529
+namespace: Microsoft.Integration.Entity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Entity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Purch. Inv. Header" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PropagateOnInsert(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate", var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateOnInsert
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.PropagateOnInsert(Purch#_Inv#_Entity_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateOnModify(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate", var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateOnModify
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.PropagateOnModify(Purch#_Inv#_Entity_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateOnDelete(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate")'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+  name: PropagateOnDelete
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.PropagateOnDelete(Purch#_Inv#_Entity_Aggregate@)
+- syntax:
+    content: procedure UpdateAggregateTableRecords()
+  name: UpdateAggregateTableRecords
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.UpdateAggregateTableRecords
+- syntax:
+    content: 'procedure GetPurchaseInvoiceHeaderId(var PurchInvHeader: Record "Purch. Inv. Header"): Guid'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetPurchaseInvoiceHeaderId
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.GetPurchaseInvoiceHeaderId(Purch#_Inv#_Header@):Guid
+- syntax:
+    content: 'procedure GetPurchaseInvoiceHeaderFromId(Id: Text, var PurchInvHeader: Record "Purch. Inv. Header"): Boolean'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetPurchaseInvoiceHeaderFromId
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.GetPurchaseInvoiceHeaderFromId(Text,Purch#_Inv#_Header@):Boolean
+- syntax:
+    content: 'procedure UpdateUnitOfMeasure(var Item: Record Item, JSONUnitOfMeasureTxt: Text)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: JSONUnitOfMeasureTxt
+      parameterType:
+        name: Text
+        isExternal: true
+  name: UpdateUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.UpdateUnitOfMeasure(Item@,Text)
+- syntax:
+    content: 'procedure RedistributeInvoiceDiscounts(var PurchInvEntityAggregate: Record "Purch. Inv. Entity Aggregate")'
+    parameters:
+    - id: PurchInvEntityAggregate
+      parameterType:
+        name: Record "Purch. Inv. Entity Aggregate"
+        isExternal: true
+  name: RedistributeInvoiceDiscounts
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.RedistributeInvoiceDiscounts(Purch#_Inv#_Entity_Aggregate@)
+- syntax:
+    content: 'procedure LoadLines(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, DocumentIdFilter: Text)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: DocumentIdFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LoadLines
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.LoadLines(Purch#_Inv#_Line_Aggregate@,Text)
+- syntax:
+    content: 'procedure PropagateInsertLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateInsertLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.PropagateInsertLine(Purch#_Inv#_Line_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateModifyLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, var TempFieldBuffer: Record "Field Buffer" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: TempFieldBuffer
+      parameterType:
+        name: Record "Field Buffer" temporary
+        isExternal: true
+  name: PropagateModifyLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.PropagateModifyLine(Purch#_Inv#_Line_Aggregate@,Field_Buffer@)
+- syntax:
+    content: 'procedure PropagateDeleteLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+  name: PropagateDeleteLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.PropagateDeleteLine(Purch#_Inv#_Line_Aggregate@)
+- syntax:
+    content: 'procedure UpdateLineAmountsFromPurchaseLine(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+  name: UpdateLineAmountsFromPurchaseLine
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.UpdateLineAmountsFromPurchaseLine(Purch#_Inv#_Line_Aggregate@)
+- syntax:
+    content: 'procedure SetItemVariantId(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, ItemNo: Code[20], VariantCode: Code[20])'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetItemVariantId
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.SetItemVariantId(Purch#_Inv#_Line_Aggregate@,Code[20],Code[20])
+- syntax:
+    content: 'procedure UpdateInvoiceDiscountAmount(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+  name: UpdateInvoiceDiscountAmount
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.UpdateInvoiceDiscountAmount(Purch#_Inv#_Line_Aggregate@)
+- syntax:
+    content: 'procedure VerifyCanUpdateUOM(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary)'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+  name: VerifyCanUpdateUOM
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.VerifyCanUpdateUOM(Purch#_Inv#_Line_Aggregate@)
+- syntax:
+    content: procedure FixInvoicesCreatedFromOrders()
+  name: FixInvoicesCreatedFromOrders
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.FixInvoicesCreatedFromOrders
+- syntax:
+    content: 'procedure SetTaxGroupIdAndCode(var PurchInvLineAggregate: Record "Purch. Inv. Line Aggregate" temporary, TaxGroupCode: Code[20], VATProductPostingGroupCode: Code[20], VATIdentifier: Code[20])'
+    parameters:
+    - id: PurchInvLineAggregate
+      parameterType:
+        name: Record "Purch. Inv. Line Aggregate" temporary
+        isExternal: true
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProductPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATIdentifier
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetTaxGroupIdAndCode
+  uid: M:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator.SetTaxGroupIdAndCode(Purch#_Inv#_Line_Aggregate@,Code[20],Code[20],Code[20])
+commentId: O:Codeunit::Microsoft#Integration#Entity#Purch# Inv# Aggregator
+name: '"Purch. Inv. Aggregator"'
+uid: O:Codeunit::Microsoft#Integration#Entity#Purch#_Inv#_Aggregator

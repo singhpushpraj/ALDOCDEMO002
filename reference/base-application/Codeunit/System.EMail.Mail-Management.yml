@@ -1,0 +1,260 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.EMail."Mail Management"
+alId: ID 9520
+namespace: System.EMail
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.EMail
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Email Attachments" = rimd
+  promoted: false
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AddSource(TableId: Integer, SystemId: Guid)'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SystemId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: AddSource
+  uid: M:Codeunit::System#EMail#Mail_Management.AddSource(Integer,Guid)
+- syntax:
+    content: 'procedure AddSendTo(EmailAddresses: Text)'
+    parameters:
+    - id: EmailAddresses
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AddSendTo
+  uid: M:Codeunit::System#EMail#Mail_Management.AddSendTo(Text)
+- syntax:
+    content: 'procedure InitializeFrom(NewHideMailDialog: Boolean, NewHideEmailSendingError: Boolean)'
+    parameters:
+    - id: NewHideMailDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewHideEmailSendingError
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeFrom
+  uid: M:Codeunit::System#EMail#Mail_Management.InitializeFrom(Boolean,Boolean)
+- syntax:
+    content: 'procedure SetHideMailDialog(NewHideMailDialog: Boolean)'
+    parameters:
+    - id: NewHideMailDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideMailDialog
+  uid: M:Codeunit::System#EMail#Mail_Management.SetHideMailDialog(Boolean)
+- syntax:
+    content: 'procedure SetHideEmailSendingError(NewHideEmailSendingError: Boolean)'
+    parameters:
+    - id: NewHideEmailSendingError
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideEmailSendingError
+  uid: M:Codeunit::System#EMail#Mail_Management.SetHideEmailSendingError(Boolean)
+- syntax:
+    content: 'procedure CheckValidEmailAddresses(Recipients: Text)'
+    parameters:
+    - id: Recipients
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckValidEmailAddresses
+  uid: M:Codeunit::System#EMail#Mail_Management.CheckValidEmailAddresses(Text)
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure CheckValidEmailAddress(EmailAddress: Text): Boolean'
+    parameters:
+    - id: EmailAddress
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckValidEmailAddress
+  uid: M:Codeunit::System#EMail#Mail_Management.CheckValidEmailAddress(Text):Boolean
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure ValidateEmailAddressField(var EmailAddress: Text): Boolean'
+    parameters:
+    - id: EmailAddress
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateEmailAddressField
+  uid: M:Codeunit::System#EMail#Mail_Management.ValidateEmailAddressField(Text@):Boolean
+- syntax:
+    content: 'procedure IsEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsEnabled
+  uid: M:Codeunit::System#EMail#Mail_Management.IsEnabled:Boolean
+- syntax:
+    content: 'procedure IsCancelled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCancelled
+  uid: M:Codeunit::System#EMail#Mail_Management.IsCancelled:Boolean
+- syntax:
+    content: 'procedure IsSent(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSent
+  uid: M:Codeunit::System#EMail#Mail_Management.IsSent:Boolean
+- syntax:
+    content: 'procedure Send(var ParmEmailItem: Record "Email Item", EmailScenario: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: ParmEmailItem
+      parameterType:
+        name: Record "Email Item"
+        isExternal: true
+    - id: EmailScenario
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Send
+  uid: M:Codeunit::System#EMail#Mail_Management.Send(Email_Item@,__MissingSymbol__):Boolean
+- syntax:
+    content: 'procedure Send(var ParmEmailItem: Record "Email Item", EmailScenario: __MissingTypeSymbol__, Enqueue: Boolean): Boolean'
+    parameters:
+    - id: ParmEmailItem
+      parameterType:
+        name: Record "Email Item"
+        isExternal: true
+    - id: EmailScenario
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: Enqueue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Send
+  uid: M:Codeunit::System#EMail#Mail_Management.Send(Email_Item@,__MissingSymbol__,Boolean):Boolean
+- syntax:
+    content: 'procedure SendMailOrDownload(var TempEmailItem: Record "Email Item" temporary, HideMailDialog: Boolean, EmailScenario: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempEmailItem
+      parameterType:
+        name: Record "Email Item" temporary
+        isExternal: true
+    - id: HideMailDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: EmailScenario
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: SendMailOrDownload
+  uid: M:Codeunit::System#EMail#Mail_Management.SendMailOrDownload(Email_Item@,Boolean,__MissingSymbol__)
+- syntax:
+    content: 'procedure SendMailOrDownload(var TempEmailItem: Record "Email Item" temporary, HideMailDialog: Boolean, EmailScenario: __MissingTypeSymbol__, Enqueue: Boolean)'
+    parameters:
+    - id: TempEmailItem
+      parameterType:
+        name: Record "Email Item" temporary
+        isExternal: true
+    - id: HideMailDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: EmailScenario
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: Enqueue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SendMailOrDownload
+  uid: M:Codeunit::System#EMail#Mail_Management.SendMailOrDownload(Email_Item@,Boolean,__MissingSymbol__,Boolean)
+- syntax:
+    content: 'procedure DownloadPdfAttachment(var TempEmailItem: Record "Email Item" temporary)'
+    parameters:
+    - id: TempEmailItem
+      parameterType:
+        name: Record "Email Item" temporary
+        isExternal: true
+  name: DownloadPdfAttachment
+  uid: M:Codeunit::System#EMail#Mail_Management.DownloadPdfAttachment(Email_Item@)
+- syntax:
+    content: 'procedure GetSenderEmailAddress(EmailScenario: __MissingTypeSymbol__): Text[250]'
+    parameters:
+    - id: EmailScenario
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetSenderEmailAddress
+  uid: M:Codeunit::System#EMail#Mail_Management.GetSenderEmailAddress(__MissingSymbol__):Text[250]
+- syntax:
+    content: 'procedure IsHandlingGetEmailBody(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsHandlingGetEmailBody
+  uid: M:Codeunit::System#EMail#Mail_Management.IsHandlingGetEmailBody:Boolean
+- syntax:
+    content: 'procedure IsHandlingGetEmailBodyCustomer(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsHandlingGetEmailBodyCustomer
+  uid: M:Codeunit::System#EMail#Mail_Management.IsHandlingGetEmailBodyCustomer:Boolean
+- syntax:
+    content: 'procedure IsHandlingGetEmailBodyVendor(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsHandlingGetEmailBodyVendor
+  uid: M:Codeunit::System#EMail#Mail_Management.IsHandlingGetEmailBodyVendor:Boolean
+commentId: O:Codeunit::System#EMail#Mail Management
+name: '"Mail Management"'
+uid: O:Codeunit::System#EMail#Mail_Management

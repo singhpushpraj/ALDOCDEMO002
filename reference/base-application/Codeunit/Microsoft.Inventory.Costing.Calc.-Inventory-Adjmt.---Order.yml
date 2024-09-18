@@ -1,0 +1,68 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Calc. Inventory Adjmt. - Order"
+alId: ID 5896
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Capacity Ledger Entry" = r,
+                      TableData "Inventory Adjmt. Entry (Order)" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Calculate(SourceInvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)", var InvtAdjmtBuf: Record "Inventory Adjustment Buffer")'
+    parameters:
+    - id: SourceInvtAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    - id: InvtAdjmtBuf
+      parameterType:
+        name: Record "Inventory Adjustment Buffer"
+        isExternal: true
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Calc#_Inventory_Adjmt#_-_Order.Calculate(Inventory_Adjmt#_Entry_(Order),Inventory_Adjustment_Buffer@)
+- syntax:
+    content: 'procedure CalcActualUsageCosts(SourceInvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)", OutputQty: Decimal, var InvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)")'
+    parameters:
+    - id: SourceInvtAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    - id: OutputQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvtAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+  name: CalcActualUsageCosts
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Calc#_Inventory_Adjmt#_-_Order.CalcActualUsageCosts(Inventory_Adjmt#_Entry_(Order),Decimal,Inventory_Adjmt#_Entry_(Order)@)
+- syntax:
+    content: 'procedure CalcOutputQty(InvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)", OnlyInbounds: Boolean): Decimal'
+    parameters:
+    - id: InvtAdjmtEntryOrder
+      parameterType:
+        name: Record "Inventory Adjmt. Entry (Order)"
+        isExternal: true
+    - id: OnlyInbounds
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOutputQty
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Calc#_Inventory_Adjmt#_-_Order.CalcOutputQty(Inventory_Adjmt#_Entry_(Order),Boolean):Decimal
+commentId: O:Codeunit::Microsoft#Inventory#Costing#Calc# Inventory Adjmt# - Order
+name: '"Calc. Inventory Adjmt. - Order"'
+uid: O:Codeunit::Microsoft#Inventory#Costing#Calc#_Inventory_Adjmt#_-_Order

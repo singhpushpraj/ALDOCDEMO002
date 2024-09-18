@@ -1,0 +1,180 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Calculation."Price Calculation - V15"
+alId: ID 7003
+namespace: Microsoft.Pricing.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteReason
+  value: Replaced by the new implementation (V16) of price calculation.
+  promoted: false
+- name: ObsoleteTag
+  value: "16.0"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetID(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetID
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.GetID:Integer
+- syntax:
+    content: 'procedure GetLine(var Line: Variant)'
+    parameters:
+    - id: Line
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.GetLine(Variant@)
+- syntax:
+    content: 'procedure Init(NewLineWithPrice: Interface "Line With Price", PriceCalculationSetup: Record "Price Calculation Setup")'
+    parameters:
+    - id: NewLineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+    - id: PriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+  name: Init
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.Init(Interface::Microsoft#Pricing#PriceList#Line_With_Price,Price_Calculation_Setup)
+- syntax:
+    content: procedure ApplyDiscount()
+  name: ApplyDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.ApplyDiscount
+- syntax:
+    content: 'procedure ApplyPrice(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ApplyPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.ApplyPrice(Integer)
+- syntax:
+    content: 'procedure CountDiscount(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.CountDiscount(Boolean):Integer
+- syntax:
+    content: 'procedure CountPrice(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.CountPrice(Boolean):Integer
+- syntax:
+    content: 'procedure FindDiscount(var TempPriceListLine: Record "Price List Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.FindDiscount(Price_List_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure FindPrice(var TempPriceListLine: Record "Price List Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.FindPrice(Price_List_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure IsDiscountExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDiscountExists
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.IsDiscountExists(Boolean):Boolean
+- syntax:
+    content: 'procedure IsPriceExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPriceExists
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.IsPriceExists(Boolean):Boolean
+- syntax:
+    content: procedure PickDiscount()
+  name: PickDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.PickDiscount
+- syntax:
+    content: procedure PickPrice()
+  name: PickPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.PickPrice
+- syntax:
+    content: 'procedure ShowPrices(var TempPriceListLine: Record "Price List Line")'
+    parameters:
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: ShowPrices
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15.ShowPrices(Price_List_Line@)
+implements:
+- internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+  name: Microsoft.Pricing.Calculation."Price Calculation"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Pricing#Calculation#Price Calculation - V15
+name: '"Price Calculation - V15"'
+obsoletion:
+  state: pending
+  reason: Replaced by the new implementation (V16) of price calculation.
+  version: "16.0"
+uid: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V15

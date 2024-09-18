@@ -1,0 +1,129 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reminder."Reminder Action Progress"
+alId: ID 6751
+namespace: Microsoft.Sales.Reminder
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reminder
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CreateGroupEntry(var ReminderActionGroup: Record "Reminder Action Group", var ReminderActionGroupLog: Record "Reminder Action Group Log")'
+    parameters:
+    - id: ReminderActionGroup
+      parameterType:
+        name: Record "Reminder Action Group"
+        isExternal: true
+    - id: ReminderActionGroupLog
+      parameterType:
+        name: Record "Reminder Action Group Log"
+        isExternal: true
+  name: CreateGroupEntry
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.CreateGroupEntry(Reminder_Action_Group@,Reminder_Action_Group_Log@)
+- syntax:
+    content: 'procedure GetLastEntryForGroup(ReminderActionGroupCode: Code[50], var ReminderActionGroupLog: Record "Reminder Action Group Log"): Boolean'
+    parameters:
+    - id: ReminderActionGroupCode
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: ReminderActionGroupLog
+      parameterType:
+        name: Record "Reminder Action Group Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetLastEntryForGroup
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.GetLastEntryForGroup(Code[50],Reminder_Action_Group_Log@):Boolean
+- syntax:
+    content: 'procedure GetLastActionEntry(var ReminderAction: Record "Reminder Action", var ReminderActionLog: Record "Reminder Action Log"): Boolean'
+    parameters:
+    - id: ReminderAction
+      parameterType:
+        name: Record "Reminder Action"
+        isExternal: true
+    - id: ReminderActionLog
+      parameterType:
+        name: Record "Reminder Action Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetLastActionEntry
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.GetLastActionEntry(Reminder_Action@,Reminder_Action_Log@):Boolean
+- syntax:
+    content: 'procedure CreateNewActionEntry(var ReminderAction: Record "Reminder Action", ReminderActionLogStatus: Enum "Reminder Log Status", var ReminderActionLog: Record "Reminder Action Log")'
+    parameters:
+    - id: ReminderAction
+      parameterType:
+        name: Record "Reminder Action"
+        isExternal: true
+    - id: ReminderActionLogStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Reminder#Reminder_Log_Status
+        name: Microsoft.Sales.Reminder."Reminder Log Status"
+        isExternal: false
+    - id: ReminderActionLog
+      parameterType:
+        name: Record "Reminder Action Log"
+        isExternal: true
+  name: CreateNewActionEntry
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.CreateNewActionEntry(Reminder_Action@,Enum::Microsoft#Sales#Reminder#Reminder_Log_Status,Reminder_Action_Log@)
+- syntax:
+    content: 'procedure UpdateGroupEntry(var ReminderActionGroupLog: Record "Reminder Action Group Log", ReminderActionLogStatus: Enum "Reminder Log Status")'
+    parameters:
+    - id: ReminderActionGroupLog
+      parameterType:
+        name: Record "Reminder Action Group Log"
+        isExternal: true
+    - id: ReminderActionLogStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Reminder#Reminder_Log_Status
+        name: Microsoft.Sales.Reminder."Reminder Log Status"
+        isExternal: false
+  name: UpdateGroupEntry
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.UpdateGroupEntry(Reminder_Action_Group_Log@,Enum::Microsoft#Sales#Reminder#Reminder_Log_Status)
+- syntax:
+    content: 'procedure UpdateActionEntry(var ReminderAction: Record "Reminder Action", LastRecordID: RecordId, ReminderActionLogStatus: Enum "Reminder Log Status")'
+    parameters:
+    - id: ReminderAction
+      parameterType:
+        name: Record "Reminder Action"
+        isExternal: true
+    - id: LastRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ReminderActionLogStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Reminder#Reminder_Log_Status
+        name: Microsoft.Sales.Reminder."Reminder Log Status"
+        isExternal: false
+  name: UpdateActionEntry
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.UpdateActionEntry(Reminder_Action@,RecordId,Enum::Microsoft#Sales#Reminder#Reminder_Log_Status)
+- syntax:
+    content: 'procedure UpdateStatusAndTotalRecordsProcessed(var ReminderAction: Record "Reminder Action", TotalRecordsProcessed: Integer, StatusText: Text)'
+    parameters:
+    - id: ReminderAction
+      parameterType:
+        name: Record "Reminder Action"
+        isExternal: true
+    - id: TotalRecordsProcessed
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatusText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: UpdateStatusAndTotalRecordsProcessed
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress.UpdateStatusAndTotalRecordsProcessed(Reminder_Action@,Integer,Text)
+commentId: O:Codeunit::Microsoft#Sales#Reminder#Reminder Action Progress
+name: '"Reminder Action Progress"'
+uid: O:Codeunit::Microsoft#Sales#Reminder#Reminder_Action_Progress

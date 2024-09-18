@@ -1,0 +1,206 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Create Inventory Put-away"
+alId: ID 7321
+namespace: Microsoft.Warehouse.Activity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Warehouse Activity Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetSourceDocDetailsFilter(var WarehouseSourceFilter2: Record "Warehouse Source Filter")'
+    parameters:
+    - id: WarehouseSourceFilter2
+      parameterType:
+        name: Record "Warehouse Source Filter"
+        isExternal: true
+  name: SetSourceDocDetailsFilter
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.SetSourceDocDetailsFilter(Warehouse_Source_Filter@)
+- syntax:
+    content: 'procedure SetFilterPurchLine(var PurchaseLine: Record "Purchase Line", PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetFilterPurchLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.SetFilterPurchLine(Purchase_Line@,Purchase_Header):Boolean
+- syntax:
+    content: 'procedure SetFilterSalesLine(var SalesLine: Record "Sales Line", SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetFilterSalesLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.SetFilterSalesLine(Sales_Line@,Sales_Header):Boolean
+- syntax:
+    content: 'procedure SetFilterTransferLine(var TransferLine: Record "Transfer Line", TransferHeader: Record "Transfer Header"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetFilterTransferLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.SetFilterTransferLine(Transfer_Line@,Transfer_Header):Boolean
+- syntax:
+    content: 'procedure SetFilterProdOrderLine(var ProdOrderLine: Record "Prod. Order Line", ProductionOrder: Record "Production Order"): Boolean'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProductionOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetFilterProdOrderLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.SetFilterProdOrderLine(Prod#_Order_Line@,Production_Order):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(WhseItemTrackingSetup is a global variable, so there is no need to pass it as an argument,23.0)]'
+    content: 'procedure FindReservationEntry(SourceType: Integer, DocType: Integer, DocNo: Code[20], DocLineNo: Integer, NewWhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewWhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservationEntry
+  obsoletion:
+    state: pending
+    reason: WhseItemTrackingSetup is a global variable, so there is no need to pass it as an argument
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.FindReservationEntry(Integer,Integer,Code[20],Integer,Item_Tracking_Setup):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(WhseItemTrackingSetup is a global variable, so there is no need to pass it as an argument,23.0)]'
+    content: 'procedure InsertWhseActivLine(var NewWarehouseActivityLine: Record "Warehouse Activity Line", PutAwayQty: Decimal, NewWhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: PutAwayQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewWhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: InsertWhseActivLine
+  obsoletion:
+    state: pending
+    reason: WhseItemTrackingSetup is a global variable, so there is no need to pass it as an argument
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.InsertWhseActivLine(Warehouse_Activity_Line@,Decimal,Item_Tracking_Setup)
+- syntax:
+    content: 'procedure InsertWhseActivLine(var NewWarehouseActivityLine: Record "Warehouse Activity Line", PutAwayQty: Decimal)'
+    parameters:
+    - id: NewWarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: PutAwayQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertWhseActivLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.InsertWhseActivLine(Warehouse_Activity_Line@,Decimal)
+- syntax:
+    content: 'procedure SetWhseRequest(NewWarehouseRequest: Record "Warehouse Request", SetHideDialog: Boolean)'
+    parameters:
+    - id: NewWarehouseRequest
+      parameterType:
+        name: Record "Warehouse Request"
+        isExternal: true
+    - id: SetHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetWhseRequest
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.SetWhseRequest(Warehouse_Request,Boolean)
+- syntax:
+    content: 'procedure CheckSourceDoc(NewWarehouseRequest: Record "Warehouse Request"): Boolean'
+    parameters:
+    - id: NewWarehouseRequest
+      parameterType:
+        name: Record "Warehouse Request"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckSourceDoc
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.CheckSourceDoc(Warehouse_Request):Boolean
+- syntax:
+    content: 'procedure AutoCreatePutAway(var NewWarehouseActivityHeader: Record "Warehouse Activity Header")'
+    parameters:
+    - id: NewWarehouseActivityHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+  name: AutoCreatePutAway
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away.AutoCreatePutAway(Warehouse_Activity_Header@)
+commentId: O:Codeunit::Microsoft#Warehouse#Activity#Create Inventory Put-away
+name: '"Create Inventory Put-away"'
+uid: O:Codeunit::Microsoft#Warehouse#Activity#Create_Inventory_Put-away

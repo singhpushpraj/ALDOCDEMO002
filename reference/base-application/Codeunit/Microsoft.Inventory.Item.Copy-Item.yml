@@ -1,0 +1,109 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Item."Copy Item"
+alId: ID 730
+namespace: Microsoft.Inventory.Item
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Item
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Item
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Item#Item
+    name: Microsoft.Inventory.Item.Item
+    isExternal: false
+methods:
+- syntax:
+    content: procedure DoCopyItem()
+  name: DoCopyItem
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.DoCopyItem
+- syntax:
+    content: 'procedure SetCopyItemBuffer(NewCopyItemBuffer: Record "Copy Item Buffer" temporary)'
+    parameters:
+    - id: NewCopyItemBuffer
+      parameterType:
+        name: Record "Copy Item Buffer" temporary
+        isExternal: true
+  name: SetCopyItemBuffer
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.SetCopyItemBuffer(Copy_Item_Buffer)
+- syntax:
+    content: 'procedure CopyItem(CopyCounter: Integer)'
+    parameters:
+    - id: CopyCounter
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyItem
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.CopyItem(Integer)
+- syntax:
+    content: 'procedure CopyItemRelatedTable(TableId: Integer, FieldNo: Integer, FromItemNo: Code[20], ToItemNo: Code[20])'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyItemRelatedTable
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.CopyItemRelatedTable(Integer,Integer,Code[20],Code[20])
+- syntax:
+    content: 'procedure CopyItemRelatedTableFromRecRef(var SourceRecRef: RecordRef, FieldNo: Integer, FromItemNo: Code[20], ToItemNo: Code[20])'
+    parameters:
+    - id: SourceRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyItemRelatedTableFromRecRef
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.CopyItemRelatedTableFromRecRef(RecordRef@,Integer,Code[20],Code[20])
+- syntax:
+    content: 'procedure ShowCreatedItems(var ItemCopiedNotification: Notification)'
+    parameters:
+    - id: ItemCopiedNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowCreatedItems
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.ShowCreatedItems(Notification@)
+- syntax:
+    content: 'procedure GetNewItemNo(var NewFirstItemNo: Code[20], var NewLastItemNo: Code[20])'
+    parameters:
+    - id: NewFirstItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewLastItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetNewItemNo
+  uid: M:Codeunit::Microsoft#Inventory#Item#Copy_Item.GetNewItemNo(Code[20]@,Code[20]@)
+commentId: O:Codeunit::Microsoft#Inventory#Item#Copy Item
+name: '"Copy Item"'
+uid: O:Codeunit::Microsoft#Inventory#Item#Copy_Item

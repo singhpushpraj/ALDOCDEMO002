@@ -1,0 +1,106 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.BOM.Tree."BOM Node"
+alId: ID 3688
+namespace: Microsoft.Inventory.BOM.Tree
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.BOM.Tree
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetType(): Enum "Production BOM Line Type"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Manufacturing#ProductionBOM#Production_BOM_Line_Type
+        name: Microsoft.Manufacturing.ProductionBOM."Production BOM Line Type"
+        isExternal: false
+  name: GetType
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.GetType:Enum::Microsoft#Manufacturing#ProductionBOM#Production_BOM_Line_Type
+- syntax:
+    content: 'procedure GetNumber(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetNumber
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.GetNumber:Code[20]
+- syntax:
+    content: 'procedure GetLowLevelCode(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLowLevelCode
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.GetLowLevelCode:Integer
+- syntax:
+    content: 'procedure CreateForItem(ItemNo: Code[20], LowLevelCode: Integer, NewLowLevelCodeParam: Codeunit "Low-Level Code Parameter")'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LowLevelCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewLowLevelCodeParam
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#BOM#Tree#Low-Level_Code_Parameter
+        name: Microsoft.Inventory.BOM.Tree."Low-Level Code Parameter"
+        isExternal: false
+  name: CreateForItem
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.CreateForItem(Code[20],Integer,Codeunit::Microsoft#Inventory#BOM#Tree#Low-Level_Code_Parameter)
+- syntax:
+    content: 'procedure CreateForProdBOM(ProdBOMNo: Code[20], LowLevelCode: Integer, NewLowLevelCodeParam: Codeunit "Low-Level Code Parameter")'
+    parameters:
+    - id: ProdBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LowLevelCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewLowLevelCodeParam
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#BOM#Tree#Low-Level_Code_Parameter
+        name: Microsoft.Inventory.BOM.Tree."Low-Level Code Parameter"
+        isExternal: false
+  name: CreateForProdBOM
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.CreateForProdBOM(Code[20],Integer,Codeunit::Microsoft#Inventory#BOM#Tree#Low-Level_Code_Parameter)
+- syntax:
+    content: 'procedure IsInitialized(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInitialized
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.IsInitialized:Boolean
+- syntax:
+    content: 'procedure GetKey(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetKey
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.GetKey:Text
+- syntax:
+    content: procedure TraversedDown()
+  name: TraversedDown
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.TraversedDown
+- syntax:
+    content: 'procedure TraversedDown(FromParent: Codeunit "BOM Node")'
+    parameters:
+    - id: FromParent
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node
+        name: Microsoft.Inventory.BOM.Tree."BOM Node"
+        isExternal: false
+  name: TraversedDown
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node.TraversedDown(Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node)
+commentId: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM Node
+name: '"BOM Node"'
+uid: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node

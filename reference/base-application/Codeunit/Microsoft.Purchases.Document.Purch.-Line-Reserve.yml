@@ -1,0 +1,348 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purch. Line-Reserve"
+alId: ID 99000834
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(var PurchaseLine: Record "Purchase Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.CreateReservation(Purchase_Line@,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure ReservQuantity(PurchaseLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ReservQuantity
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.ReservQuantity(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure Caption(PurchaseLine: Record "Purchase Line"): Text'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.Caption(Purchase_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(PurchaseLine: Record "Purchase Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.FindReservEntry(Purchase_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(PurchaseLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.GetReservedQtyFromInventory(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(PurchaseHeader: Record "Purchase Header"): Decimal'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.GetReservedQtyFromInventory(Purchase_Header):Decimal
+- syntax:
+    content: 'procedure ReservEntryExist(PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.ReservEntryExist(Purchase_Line):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewPurchaseLine: Record "Purchase Line", var OldPurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: NewPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: OldPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.VerifyChange(Purchase_Line@,Purchase_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewPurchaseLine: Record "Purchase Line", var OldPurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: NewPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: OldPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.VerifyQuantity(Purchase_Line@,Purchase_Line@)
+- syntax:
+    content: 'procedure UpdatePlanningFlexibility(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: UpdatePlanningFlexibility
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.UpdatePlanningFlexibility(Purchase_Line@)
+- syntax:
+    content: 'procedure TransferPurchLineToItemJnlLine(var PurchaseLine: Record "Purchase Line", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, var CheckApplToItemEntry: Boolean): Decimal'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplToItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TransferPurchLineToItemJnlLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.TransferPurchLineToItemJnlLine(Purchase_Line@,Item_Journal_Line@,Decimal,Boolean@):Decimal
+- syntax:
+    content: 'procedure TransferPurchLineToPurchLine(var OldPurchaseLine: Record "Purchase Line", var NewPurchaseLine: Record "Purchase Line", TransferQty: Decimal)'
+    parameters:
+    - id: OldPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NewPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferPurchLineToPurchLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.TransferPurchLineToPurchLine(Purchase_Line@,Purchase_Line@,Decimal)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.DeleteLineConfirm(Purchase_Line@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.DeleteLine(Purchase_Line@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.CallItemTracking(Purchase_Line@)
+- syntax:
+    content: 'procedure CallItemTracking(var PurchaseLine: Record "Purchase Line", SecondSourceQuantityArray: array[3] of Decimal)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: SecondSourceQuantityArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.CallItemTracking(Purchase_Line@,Decimal[])
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification(var PurchaseLine: Record "Purchase Line", var TempInvoicingTrackingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TempInvoicingTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.RetrieveInvoiceSpecification(Purchase_Line@,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification2(var PurchaseLine: Record "Purchase Line", var TempInvoicingTrackingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TempInvoicingTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification2
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.RetrieveInvoiceSpecification2(Purchase_Line@,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromHeader(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: DeleteInvoiceSpecFromHeader
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.DeleteInvoiceSpecFromHeader(Purchase_Header)
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromLine(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: DeleteInvoiceSpecFromLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.DeleteInvoiceSpecFromLine(Purchase_Line)
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.UpdateItemTrackingAfterPosting(Purchase_Header)
+- syntax:
+    content: 'procedure SetApplySpecificItemTracking(ApplySpecific: Boolean)'
+    parameters:
+    - id: ApplySpecific
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetApplySpecificItemTracking
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.SetApplySpecificItemTracking(Boolean)
+- syntax:
+    content: 'procedure SetOverruleItemTracking(Overrule: Boolean)'
+    parameters:
+    - id: Overrule
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetOverruleItemTracking
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve.SetOverruleItemTracking(Boolean)
+commentId: O:Codeunit::Microsoft#Purchases#Document#Purch# Line-Reserve
+name: '"Purch. Line-Reserve"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Purch#_Line-Reserve

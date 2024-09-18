@@ -1,0 +1,170 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration.PowerBI."Power BI Service Mgt."
+alId: ID 6301
+namespace: System.Integration.PowerBI
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration.PowerBI
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetPowerBIResourceUrl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetPowerBIResourceUrl
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetPowerBIResourceUrl:Text
+- syntax:
+    content: 'procedure GetPowerBiResourceName(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetPowerBiResourceName
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetPowerBiResourceName:Text
+- syntax:
+    content: 'procedure GetGenericError(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetGenericError
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetGenericError:Text
+- syntax:
+    content: 'procedure GetFactboxRatio(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetFactboxRatio
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetFactboxRatio:Text
+- syntax:
+    content: 'procedure GetMainPageRatio(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetMainPageRatio
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetMainPageRatio:Text
+- syntax:
+    signatures:
+    - '[Obsolete(Error texts should be defined per extension. In other words, define your own text constants.,23.0)]'
+    content: 'procedure GetUnauthorizedErrorText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetUnauthorizedErrorText
+  obsoletion:
+    state: pending
+    reason: Error texts should be defined per extension. In other words, define your own text constants.
+    version: "23.0"
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetUnauthorizedErrorText:Text
+- syntax:
+    content: 'procedure GetContentPacksServicesUrl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetContentPacksServicesUrl
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetContentPacksServicesUrl:Text
+- syntax:
+    content: 'procedure GetContentPacksMyOrganizationUrl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetContentPacksMyOrganizationUrl
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetContentPacksMyOrganizationUrl:Text
+- syntax:
+    content: 'procedure AddReportVisualForContext(ReportId: Guid, ReportPageId: Text[200], ReportVisualId: Text[200], Context: Text[50])'
+    parameters:
+    - id: ReportId
+      description: The ID of the Power BI Report that contains the visual to embed
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: ReportPageId
+      description: The name of the page in the report that contains the visual to embed
+      parameterType:
+        name: Text[200]
+        isExternal: true
+    - id: ReportVisualId
+      description: The ID of the report visual to embed
+      parameterType:
+        name: Text[200]
+        isExternal: true
+    - id: Context
+      description: The context where the Power BI report visual should show up
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  summary: Add a Power BI report visual to the database, so that it's displayed in a certain context for the current user.
+  remarks: >-
+    The easiest way to get the necessary IDs for report visuals is to:
+      1. Open the Power BI report in the browser
+      2. Hover over the visual you want to embed, and click on the three dots menu
+      3. Choose to "Share" the visual, and choose "Link to this Visual"
+      4. Use the "Copy" button to copy the URL
+      5. From the URL, you can find:
+        a. The Report ID after the /reports/ segment 
+        b. The Report Page right after the Report ID
+        c. The visual ID in a URL query parameter called "visual"
+
+    Example URL with placeholders:
+
+    https://app.powerbi.com/groups/me/reports/REPORT_ID/PAGE_ID?[...]&visual=VISUAL_ID
+  name: AddReportVisualForContext
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.AddReportVisualForContext(Guid,Text[200],Text[200],Text[50])
+- syntax:
+    content: 'procedure AddReportForContext(ReportId: Guid, Context: Text[50])'
+    parameters:
+    - id: ReportId
+      description: The ID of the Power BI Report to embed
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: Context
+      description: The context where the Power BI report should show up
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  summary: Add a Power BI report to the database, so that it's displayed in a certain context for the current user.
+  name: AddReportForContext
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.AddReportForContext(Guid,Text[50])
+- syntax:
+    content: 'procedure IsUserAdminForPowerBI(UserSecurityId: Guid): Boolean'
+    parameters:
+    - id: UserSecurityId
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsUserAdminForPowerBI
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.IsUserAdminForPowerBI(Guid):Boolean
+- syntax:
+    content: 'procedure CheckPowerBITablePermissions(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckPowerBITablePermissions
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.CheckPowerBITablePermissions:Boolean
+- syntax:
+    content: 'procedure GetPowerBiTelemetryCategory(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetPowerBiTelemetryCategory
+  uid: M:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#.GetPowerBiTelemetryCategory:Text
+commentId: O:Codeunit::System#Integration#PowerBI#Power BI Service Mgt#
+name: '"Power BI Service Mgt."'
+uid: O:Codeunit::System#Integration#PowerBI#Power_BI_Service_Mgt#

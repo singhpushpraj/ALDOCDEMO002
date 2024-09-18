@@ -1,0 +1,81 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Archive."Job Archive Management"
+alId: ID 5139
+namespace: Microsoft.Projects.Project.Archive
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Archive
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "Job Archive" = ri,
+                      tabledata "Job Task Archive" = rim,
+                      tabledata "Job Planning Line Archive" = rim,
+                      tabledata "Comment Line" = r,
+                      tabledata "Comment Line Archive" = ri
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AutoArchiveJob(var Job: Record Job)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: AutoArchiveJob
+  uid: M:Codeunit::Microsoft#Projects#Project#Archive#Job_Archive_Management.AutoArchiveJob(Job@)
+- syntax:
+    content: 'procedure ArchiveJob(var Job: Record Job)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: ArchiveJob
+  uid: M:Codeunit::Microsoft#Projects#Project#Archive#Job_Archive_Management.ArchiveJob(Job@)
+- syntax:
+    content: 'procedure StoreJob(var Job: Record Job, InteractionExist: Boolean)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: InteractionExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: StoreJob
+  uid: M:Codeunit::Microsoft#Projects#Project#Archive#Job_Archive_Management.StoreJob(Job@,Boolean)
+- syntax:
+    content: 'procedure RestoreJob(var JobArchive: Record "Job Archive")'
+    parameters:
+    - id: JobArchive
+      parameterType:
+        name: Record "Job Archive"
+        isExternal: true
+  name: RestoreJob
+  uid: M:Codeunit::Microsoft#Projects#Project#Archive#Job_Archive_Management.RestoreJob(Job_Archive@)
+- syntax:
+    content: 'procedure GetNextVersionNo(TableId: Integer, DocNo: Code[20]): Integer'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextVersionNo
+  uid: M:Codeunit::Microsoft#Projects#Project#Archive#Job_Archive_Management.GetNextVersionNo(Integer,Code[20]):Integer
+commentId: O:Codeunit::Microsoft#Projects#Project#Archive#Job Archive Management
+name: '"Job Archive Management"'
+uid: O:Codeunit::Microsoft#Projects#Project#Archive#Job_Archive_Management

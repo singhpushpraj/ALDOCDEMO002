@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Outlook."Office Jobs Handler"
+alId: ID 1638
+namespace: Microsoft.CRM.Outlook
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Outlook
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Office Add-in Context
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#CRM#Outlook#Office_Add-in_Context
+    name: Microsoft.CRM.Outlook."Office Add-in Context"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure IsJobsHostType(OfficeAddinContext: Record "Office Add-in Context"): Boolean'
+    parameters:
+    - id: OfficeAddinContext
+      parameterType:
+        name: Record "Office Add-in Context"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsJobsHostType
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Jobs_Handler.IsJobsHostType(Office_Add-in_Context):Boolean
+- syntax:
+    content: 'procedure SubmitJobPlanningLine(JobPlanningLine: Record "Job Planning Line", JobJournalTemplateName: Code[10], JobJournalBatchName: Code[10])'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: JobJournalTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SubmitJobPlanningLine
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Jobs_Handler.SubmitJobPlanningLine(Job_Planning_Line,Code[10],Code[10])
+- syntax:
+    content: 'procedure SetJobJournalRange(var JobJournalLine: Record "Job Journal Line", JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobJournalLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: SetJobJournalRange
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Jobs_Handler.SetJobJournalRange(Job_Journal_Line@,Job_Planning_Line)
+commentId: O:Codeunit::Microsoft#CRM#Outlook#Office Jobs Handler
+name: '"Office Jobs Handler"'
+uid: O:Codeunit::Microsoft#CRM#Outlook#Office_Jobs_Handler

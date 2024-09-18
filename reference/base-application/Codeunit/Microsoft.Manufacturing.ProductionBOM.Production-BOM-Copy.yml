@@ -1,0 +1,53 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.ProductionBOM."Production BOM-Copy"
+alId: ID 99000768
+namespace: Microsoft.Manufacturing.ProductionBOM
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.ProductionBOM
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Production BOM Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Manufacturing#ProductionBOM#Production_BOM_Header
+    name: Microsoft.Manufacturing.ProductionBOM."Production BOM Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CopyBOM(BOMHeaderNo: Code[20], FromVersionCode: Code[20], CurrentBOMHeader: Record "Production BOM Header", ToVersionCode: Code[20])'
+    parameters:
+    - id: BOMHeaderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromVersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CurrentBOMHeader
+      parameterType:
+        name: Record "Production BOM Header"
+        isExternal: true
+    - id: ToVersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Copy.CopyBOM(Code[20],Code[20],Production_BOM_Header,Code[20])
+- syntax:
+    content: 'procedure CopyFromVersion(var ProdBOMVersionList2: Record "Production BOM Version")'
+    parameters:
+    - id: ProdBOMVersionList2
+      parameterType:
+        name: Record "Production BOM Version"
+        isExternal: true
+  name: CopyFromVersion
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Copy.CopyFromVersion(Production_BOM_Version@)
+commentId: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production BOM-Copy
+name: '"Production BOM-Copy"'
+uid: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Production_BOM-Copy

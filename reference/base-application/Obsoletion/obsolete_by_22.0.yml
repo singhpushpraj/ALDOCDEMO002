@@ -1,0 +1,1083 @@
+﻿### YamlMime:BusinessCentralObsoletionList
+tag: "22.0"
+groups:
+- groupName: "22.0"
+  symbols:
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Environment#Configuration#Feature_Map_Currency_Symbol
+    name: Codeunit 5405 "Feature Map Currency Symbol"
+    reason: Feature CurrencySymbolMapping will be enabled by default in version 22.0.
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Environment#Configuration#Feature_-_Option_Mapping
+    name: Codeunit 5408 "Feature - Option Mapping"
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+  - kind: Method
+    internalReference: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.ClearUserPersonalization(__MissingSymbol__)
+    name: 'ClearUserPersonalization(User: __MissingTypeSymbol__)'
+    reason: This procedure cleared old "User Metadata" as well. Use ClearPersonalizedPagesForUser instead.
+  - kind: EnumValue
+    internalReference: E:EnumExtension::System#Environment#Configuration#Feature_To_Update_-_BaseApp.CurrencySymbolMapping
+    name: Enum Value CurrencySymbolMapping
+    reason: Feature CurrencySymbolMapping will be enabled by default in version 22.0.
+  - kind: EnumValue
+    internalReference: E:EnumExtension::System#Environment#Configuration#Feature_To_Update_-_BaseApp.OptionMapping
+    name: Enum Value OptionMapping
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+  - kind: Page
+    internalReference: O:Page::System#Automation#Flow_Selector
+    name: Page 6401 "Flow Selector"
+    reason: This funcionality has been moved to Power Automate menu
+  - kind: Page
+    internalReference: O:Page::System#Automation#Flow_Template_Selector
+    name: Page 6400 "Flow Template Selector"
+    reason: This page will be replaced by a platform feature. You can invoke the platform feature with a customaction of type FlowTemplateGallery.
+  - kind: Table
+    internalReference: O:Table::System#Integration#PowerBI#Power_BI_Service_Status_Setup
+    name: Table 6309 "Power BI Service Status Setup"
+    reason: Power BI service status is no longer cached.
+  - kind: Field
+    internalReference: F:Table::System#Utilities#Error_Message.Description[250]
+    name: 'Description: Text[250]'
+    reason: Replaced by "Message" which has an increase in field length.
+  - kind: Field
+    internalReference: F:Table::System#Utilities#Error_Message_Register.Description[250]
+    name: 'Description: Text[250]'
+    reason: Replaced by "Message"
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#EMail#Setup_Email_Logging
+    name: Codeunit 1641 "Setup Email Logging"
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Page
+    internalReference: O:Page::System#EMail#Setup_Email_Logging
+    name: Page 1811 "Setup Email Logging"
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserToUserGroup(Guid,Code[20],Text[30])
+    name: 'AddUserToUserGroup(UserSecurityID: Guid, UserGroupCode: Code[20], Company: Text[30])'
+    reason: User groups are replaced with security groups, where group membership is specified in M365 admin portal.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserToDefaultUserGroups(Guid):Boolean
+    name: 'AddUserToDefaultUserGroups(UserSecurityID: Guid): Boolean'
+    reason: Replaced with the AssignDefaultPermissionsToUser procedure.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserToDefaultUserGroupsForCompany(Guid,Text[30]):Boolean
+    name: 'AddUserToDefaultUserGroupsForCompany(UserSecurityID: Guid, Company: Text[30]): Boolean'
+    reason: Replaced with the AssignDefaultPermissionsToUser procedure.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#AccessControl#Permission_Manager.ResetUserToDefaultUserGroups(Guid)
+    name: 'ResetUserToDefaultUserGroups(UserSecurityID: Guid)'
+    reason: Replaced with the ResetUserToDefaultPermissions procedure.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#AccessControl#Permission_Manager.AddUserGroupFromExtension(Code[20],Code[20],Guid)
+    name: 'AddUserGroupFromExtension(UserGroupCode: Code[20], RoleID: Code[20], AppGuid: Guid)'
+    reason: User groups are replaced with security groups, use the method Add on the Security Group codeunit.
+  - kind: Method
+    internalReference: M:Codeunit::System#Security#AccessControl#Permission_Manager.ResetUsersToIntelligentCloudUserGroup
+    name: ResetUsersToIntelligentCloudUserGroup()
+    reason: Use the ResetUsersToIntelligentCloud procedure instead.
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Security#AccessControl#Manage_User_Plans_And_Groups
+    name: Codeunit 9021 "Manage User Plans And Groups"
+    reason: '[220_UserGroups] User groups functionality is deprecated. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Security#AccessControl#User_Groups
+    name: Codeunit 9019 "User Groups"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Security#AccessControl#User_Grp#_Perm#_Subscribers
+    name: Codeunit 9004 "User Grp. Perm. Subscribers"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Security#AccessControl#Legacy_User_Groups
+    name: Codeunit 9842 "Legacy User Groups"
+    reason: '[220_UserGroups] User groups functionality is deprecated. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#User_Group_Access_Control
+    name: Table 9002 "User Group Access Control"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Use security groups or permission sets directly instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#User_Group_Permission_Set
+    name: Table 9003 "User Group Permission Set"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Use security groups (Security Group codeunit) or permission sets directly instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#User_Group_Plan
+    name: Table 9007 "User Group Plan"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Default permission sets per plan are defined using the Plan Configuration codeunit. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#User_Group
+    name: Table 9000 "User Group"
+    reason: '[220_UserGroups] Replaced by the Security Group table and Security Group codeunit in the security groups system; by Tenant Permission Set table in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Table
+    internalReference: O:Table::System#Security#AccessControl#User_Group_Member
+    name: Table 9001 "User Group Member"
+    reason: '[220_UserGroups] Replaced by the Security Group Member Buffer table and Security Group codeunit in the security groups system; by Access Control table in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#Permissions_FactBox
+    name: Page 9804 "Permissions FactBox"
+    reason: Replaced with Expanded Permissions Factbox in System Application
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#Tenant_Permissions_FactBox
+    name: Page 9840 "Tenant Permissions FactBox"
+    reason: Replaced with Expanded Permissions Factbox in System Application
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_by_User_Group
+    name: Page 9838 "User by User Group"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Adding users to security groups is done in M365 admin center or Users and Groups menu in Windows. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_by_Plan
+    name: Page 9842 "User Group by Plan"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Default permission sets per plan are defined using the Plan Configuration codeunit. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_Plan_FactBox
+    name: Page 9828 "User Group Plan FactBox"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Default permission sets per plan are defined using the Plan Configuration codeunit. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Groups_FactBox
+    name: Page 9829 "User Groups FactBox"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Use the Security Groups page or Permission Sets page directly instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#Permission_Set_by_User_Group
+    name: Page 9837 "Permission Set by User Group"
+    reason: '[220_UserGroups] Replaced by the Permission Set By Sec. Group page in the security groups system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_Members
+    name: Page 9831 "User Group Members"
+    reason: '[220_UserGroups] Replaced by the Security Group Members page in the security groups system; by Perm. Set Assignments Part page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_Members_FactBox
+    name: Page 9832 "User Group Members FactBox"
+    reason: '[220_UserGroups] Replaced by the Security Group Members Part page in the security groups system; by Perm. Set Assignments Part page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_Memberships_FactBox
+    name: Page 9836 "User Group Memberships FactBox"
+    reason: '[220_UserGroups] Replaced by the User Security Groups Part page in the security groups system; by Permission Sets FactBox page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_Permission_Sets
+    name: Page 9834 "User Group Permission Sets"
+    reason: '[220_UserGroups] Replaced by the Security Group Permission Sets page in the security groups system; by Permission Set Subform page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Group_Permissions_FactBox
+    name: Page 9835 "User Group Permissions FactBox"
+    reason: '[220_UserGroups] Replaced by the Security Group Permissions Part page in the security groups system; by Permission Set Subform page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Groups
+    name: Page 9830 "User Groups"
+    reason: '[220_UserGroups] Replaced by the Security Groups page in the security groups system; by Permission Sets page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Groups_User_SubPage
+    name: Page 9833 "User Groups User SubPage"
+    reason: '[220_UserGroups] Replaced by the User Security Groups Part page in the security groups system; by Permission Sets FactBox page in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#Users_in_User_Groups_Chart
+    name: Page 773 "Users in User Groups Chart"
+    reason: '[220_UserGroups] Replaced by the Security Group Members Chart page in the security groups system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Page
+    internalReference: O:Page::System#Security#AccessControl#User_Groups_Migration_Guide
+    name: Page 9045 "User Groups Migration Guide"
+    reason: '[220_UserGroups] User groups functionality is deprecated. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: XmlPort
+    internalReference: O:XmlPort::System#Security#AccessControl#Export/Import_Plans
+    name: XmlPort 9010 "Export/Import Plans"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Default permission sets per plan are defined using the Plan Configuration codeunit. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: XmlPort
+    internalReference: O:XmlPort::System#Security#AccessControl#Export/Import_User_Groups
+    name: XmlPort 9000 "Export/Import User Groups"
+    reason: '[220_UserGroups] Replaced by the Export/Import Security Groups XML port in the security groups system; by Export Permission Sets System and Export Permission Sets Tenant XML ports in permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Report
+    internalReference: O:Report::System#Security#AccessControl#Copy_User_Group
+    name: Report 9001 "Copy User Group"
+    reason: '[220_UserGroups] Replaced by the Copy Security Group page in the security groups system and Copy Permission Set report in the permission sets system. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Query
+    internalReference: O:Query::System#Security#AccessControl#Users_in_User_Groups
+    name: Query 773 "Users in User Groups"
+    reason: '[220_UserGroups] The user groups functionality is deprecated. Use security groups (Security Group codeunit) or permission sets directly instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: Enum
+    internalReference: O:Enum::System#Security#AccessControl#User_Grp#_Migration_Guide_Page
+    name: Enum 9842 "User Grp. Migration Guide Page"
+    reason: '[220_UserGroups] User groups functionality is deprecated. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.'
+  - kind: PermissionSet
+    internalReference: O:PermissionSet::System#Security#AccessControl#User_Groups_-_Admin
+    name: PermissionSet 7243 "User Groups - Admin"
+    reason: The user group functionality is deprecated.
+  - kind: Table
+    internalReference: O:Table::System#Security#User#User_Callouts
+    name: Table 1552 "User Callouts"
+    reason: Use "User Settings" instead.
+  - kind: Field
+    internalReference: F:Table::System#Security#User#User_Security_Status.Belongs_to_User_Group
+    name: '"Belongs to User Group": Boolean'
+    reason: User group membership cannot be calculated via a flow field in the new user group system.
+  - kind: Field
+    internalReference: F:Table::System#Security#User#User_Security_Status.Users_-_Not_Group_Members
+    name: '"Users - Not Group Members": Integer'
+    reason: User group membership cannot be calculated via a flow field in the new user group system.
+  - kind: Page
+    internalReference: O:Page::System#Security#User#User_Page_Personalization_List
+    name: Page 9191 "User Page Personalization List"
+    reason: This page is based on an obsoleted record. Use page 9200 "Personalized Pages" instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#AI#Image_Analysis_Result.SetJson(Codeunit::System#Text#JSON_Management,Option)
+    name: 'SetJson(InputJSONManagement: Codeunit 5459 "JSON Management", AnalysisType: Option)'
+    reason: Use SetResult with an Enum::"Image Analysis Type" as second parameter instead.
+  - kind: Method
+    internalReference: M:Codeunit::System#AI#Image_Analysis_Result.GetLatestAnalysisType(Option@)
+    name: 'GetLatestAnalysisType(var AnalysisType: Option)'
+    reason: Use GetLatestImageAnalysisTypes instead.
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Telemetry#Send_Daily_Telemetry
+    name: Codeunit 1355 "Send Daily Telemetry"
+    reason: Not needed anymore.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Utilities#Background_Error_Handling_Mgt#.IsEnabled:Boolean
+    name: 'IsEnabled(): Boolean'
+    reason: Feature made enabled by default
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Utilities#Background_Error_Handling_Mgt#.GetFeatureKey:Text[50]
+    name: 'GetFeatureKey(): Text[50]'
+    reason: Feature made enabled by default
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Utilities#Background_Error_Handling_Mgt#.TestIsEnabled
+    name: TestIsEnabled()
+    reason: Feature made enabled by default
+  - kind: Method
+    internalReference: M:Page::Microsoft#Inventory#Availability#Order_Promising_Lines.SetSourceType(Option)
+    name: 'SetSourceType(SourceType: Option)'
+    reason: Replaced by procedure SetSource()
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement
+    name: Codeunit 350 IntraJnlManagement
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Inventory#Intrastat#Intrastat_Document_Completion
+    name: Codeunit 351 "Intrastat Document Completion"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Intrastat#Advanced_Intrastat_Checklist
+    name: Table 8452 "Advanced Intrastat Checklist"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Intrastat#Intrastat_Checklist_Setup
+    name: Table 8451 "Intrastat Checklist Setup"
+    reason: Replaced by Advanced Intrastat Checklist
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Intrastat#Intrastat_Jnl#_Batch
+    name: Table 262 "Intrastat Jnl. Batch"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Intrastat#Intrastat_Jnl#_Line
+    name: Table 263 "Intrastat Jnl. Line"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Intrastat#Intrastat_Jnl#_Template
+    name: Table 261 "Intrastat Jnl. Template"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Intrastat#Intrastat_Setup
+    name: Table 247 "Intrastat Setup"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Intrastat#Intrastat_Setup.Use_Advanced_Checklist
+    name: '"Use Advanced Checklist": Boolean'
+    reason: Unconditionally replaced by Advanced Intrastat Checklist
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Intrastat#Advanced_Intrastat_Checklist
+    name: Page 8452 "Advanced Intrastat Checklist"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Intrastat#Intrastat_Jnl#_Batches
+    name: Page 327 "Intrastat Jnl. Batches"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Intrastat#Intrastat_Jnl#_Template_List
+    name: Page 326 "Intrastat Jnl. Template List"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Intrastat#Intrastat_Journal
+    name: Page 311 "Intrastat Journal"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Intrastat#Intrastat_Journal_Templates
+    name: Page 325 "Intrastat Journal Templates"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Inventory#Intrastat#Intrastat_Setup
+    name: Page 328 "Intrastat Setup"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Inventory#Intrastat#Get_Item_Ledger_Entries
+    name: Report 594 "Get Item Ledger Entries"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Inventory#Intrastat#Intrastat_-_Checklist
+    name: Report 502 "Intrastat - Checklist"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Inventory#Intrastat#Intrastat_-_Form
+    name: Report 501 "Intrastat - Form"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Inventory#Intrastat#Intrastat_-_Make_Disk_Tax_Auth
+    name: Report 593 "Intrastat - Make Disk Tax Auth"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Enum
+    internalReference: O:Enum::Microsoft#Inventory#Intrastat#Intrastat_Export_Format
+    name: Enum 263 "Intrastat Export Format"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Enum
+    internalReference: O:Enum::Microsoft#Inventory#Intrastat#Intrastat_Source_Type
+    name: Enum 264 "Intrastat Source Type"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Item#Catalog#Catalog_Item_Management.GetNewItemNo(Nonstock_Item,Integer,Integer):Code[20]
+    name: 'GetNewItemNo(NonstockItem: Record 5718 "Nonstock Item", Length1: Integer, Length2: Integer): Code[20]'
+    reason: Replaced by GetNewItemNo(NonstockItem)
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Inventory#Item#Catalog#Catalog_Item_Management.CreateNewItem(Code[20],Nonstock_Item)
+    name: 'CreateNewItem(ItemNo: Code[20], NonstockItem: Record 5718 "Nonstock Item")'
+    reason: Replaced by CreateNewItem(NonstockItem)
+  - kind: Table
+    internalReference: O:Table::Microsoft#Inventory#Item#Catalog#Item_Cross_Reference
+    name: Table 5717 "Item Cross Reference"
+    reason: Replaced by ItemReference table as part of Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Item#Item.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Item#Item_Category.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Ledger#Item_Ledger_Entry.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Setup#Inventory_Setup.Use_Item_References
+    name: '"Use Item References": Boolean'
+    reason: Replaced by default visibility for Item Reference's fields and actions.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#Currency#Currency.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#Dimension#Default_Dimension.CreateDimValuePerAccountFromDimValue(Dimension_Value)
+    name: 'CreateDimValuePerAccountFromDimValue(DimValue: Record 349 "Dimension Value")'
+    reason: 'Replaced by CreateDimValuePerAccountFromDimValue(DimValue: Record "Dimension Value"; Allowed: Boolean)'
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#Dimension#Dimension.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#Dimension#Dimension_Value.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#FinancialReports#Acc#_Schedule_Name.Print
+    name: Print()
+    reason: AccScheduleName is no longer printable directly as they are only row definitions, print instead related Financial Report by calling directly the Account Schedule Report with SetFinancialReportName or SetFinancialReportNameNonEditable.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#FinancialReports#Acc#_Schedule_Name.Default_Column_Layout[10]
+    name: '"Default Column Layout": Code[10]'
+    reason: Use now the Column Group property in the table Financial Report
+  - kind: Method
+    internalReference: M:Page::Microsoft#Finance#FinancialReports#New_Account_Schedule_Name.Set(Code[10],Code[10])
+    name: 'Set(Name: Code[10], ColumnLayout: Code[10])'
+    reason: Use Set only with the Name parameter now. Column definition is now stored in Financial Report.
+  - kind: Method
+    internalReference: M:Page::Microsoft#Finance#FinancialReports#New_Account_Schedule_Name.GetColumnLayoutName:Code[10]
+    name: 'GetColumnLayoutName(): Code[10]'
+    reason: Column definition is now stored in Financial Report.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#SalesTax#Tax_Area.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#SalesTax#Tax_Group.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Header.Date_Type
+    name: '"Date Type": Enum 257 "VAT Date Type"'
+    reason: Selected VAT Date type no longer supported
+  - kind: Method
+    internalReference: M:Page::Microsoft#Finance#VAT#Reporting#VAT_Statement_Preview_Line.UpdateForm(VAT_Statement_Name@,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Selection,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Period_Selection,Boolean,Enum::Microsoft#Foundation#Enums#VAT_Date_Type)
+    name: 'UpdateForm(var VATStmtName: Record 257 "VAT Statement Name", NewSelection: Enum 12 "VAT Statement Report Selection", NewPeriodSelection: Enum 13 "VAT Statement Report Period Selection", NewUseAmtsInAddCurr: Boolean, NewVATDateType: Enum 257 "VAT Date Type")'
+    reason: Replaced by UpdateForm without VAT Date
+  - kind: Method
+    internalReference: M:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement.InitializeRequest(Date,Date,Enum::Microsoft#Foundation#Enums#VAT_Date_Type,Date,Code[20],Code[20],Boolean,Boolean)
+    name: 'InitializeRequest(NewStartDate: Date, NewEndDate: Date, NewVATDateType: Enum 257 "VAT Date Type", NewPostingDate: Date, NewDocNo: Code[20], NewSettlementAcc: Code[20], ShowVATEntries: Boolean, Post: Boolean)'
+    reason: Replaced By InitializeRequest without VAT date
+  - kind: Method
+    internalReference: M:Report::Microsoft#Finance#VAT#Reporting#VAT_Statement.InitializeRequest(VAT_Statement_Name@,VAT_Statement_Line@,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Selection,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Period_Selection,Boolean,Boolean,Enum::Microsoft#Foundation#Enums#VAT_Date_Type)
+    name: 'InitializeRequest(var NewVATStmtName: Record 257 "VAT Statement Name", var NewVATStatementLine: Record 256 "VAT Statement Line", NewSelection: Enum 12 "VAT Statement Report Selection", NewPeriodSelection: Enum 13 "VAT Statement Report Period Selection", NewPrintInIntegers: Boolean, NewUseAmtsInAddCurr: Boolean, NewVATDateType: Enum 257 "VAT Date Type")'
+    reason: Replaced by InitializeRequest without VAT Date parameter
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#VAT#Clause#VAT_Clause.GetDescription(Variant)
+    name: 'GetDescription(RecRelatedVariant: Variant)'
+    reason: Replaced by GetDescriptionText()
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Clause#VAT_Clause.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.IncludeLine(Option,Code[20]):Boolean
+    name: 'IncludeLine(Type: Option, No: Code[20]): Boolean'
+    reason: Replaced by procedures IncludeSalesLine() and IncludePurchLine()
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Setup#VAT_Business_Posting_Group.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Setup#VAT_Product_Posting_Group.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Batch.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CanCalculateTax:Boolean
+    name: 'CanCalculateTax(): Boolean'
+    reason: Renaming the global procedure to GetSkipTaxCalculation():Boolean
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Journal#Posted_Gen#_Journal_Line.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Journal#Standard_General_Journal_Line.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Finance#GeneralLedger#Reversal#Reverse_Entries
+    name: Page 179 "Reverse Entries"
+    reason: This page will be replaced by "Reverse Transaction Entries". Use that page instead
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Setup#General_Ledger_Setup.Acc#_Sched#_for_Balance_Sheet[10]
+    name: '"Acc. Sched. for Balance Sheet": Code[10]'
+    reason: Financial Reporting is replacing Account Schedules for financial statements
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Setup#General_Ledger_Setup.Acc#_Sched#_for_Income_Stmt#[10]
+    name: '"Acc. Sched. for Income Stmt.": Code[10]'
+    reason: Financial Reporting is replacing Account Schedules for financial statements
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Setup#General_Ledger_Setup.Acc#_Sched#_for_Cash_Flow_Stmt[10]
+    name: '"Acc. Sched. for Cash Flow Stmt": Code[10]'
+    reason: Financial Reporting is replacing Account Schedules for financial statements
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Setup#General_Ledger_Setup.Acc#_Sched#_for_Retained_Earn#[10]
+    name: '"Acc. Sched. for Retained Earn.": Code[10]'
+    reason: Financial Reporting is replacing Account Schedules for financial statements
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#BankAccount#Payment_Method.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Page::Microsoft#Bank#Ledger#Apply_Bank_Acc#_Ledger_Entries.CopyCurrentFilters(Bank_Account_Ledger_Entry@)
+    name: 'CopyCurrentFilters(var BankAccountLedgerEntry: Record 271 "Bank Account Ledger Entry")'
+    reason: Unused procedure, extend this page instead and use the filters or use the event OnAfterAppliedControledFilters
+  - kind: Method
+    internalReference: M:Page::Microsoft#Bank#Ledger#Apply_Bank_Acc#_Ledger_Entries.ToggleMatchedFilter(Boolean)
+    name: 'ToggleMatchedFilter(SetFilterOn: Boolean)'
+    reason: Use ShowAll, ShowNonMatched instead
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Payments.InitializeDirectDebitCollectionEntriesMatchingBuffer(Direct_Debit_Collection_Entry@)
+    name: 'InitializeDirectDebitCollectionEntriesMatchingBuffer(var TempDirectDebitCollectionEntryBuffer: Record 1208 "Direct Debit Collection Entry" temporary)'
+    reason: Use the InitializeDirectDebitCollectionEntriesMatchingBuffer method above - it is using a dedicated buffer table
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Bank#Reconciliation#Record_Match_Mgt#.SetRespectThresholdForNumbers(Boolean)
+    name: 'SetRespectThresholdForNumbers(NewValue: Boolean)'
+    reason: Numeric matches are not considered below the Lower limit threshold. This procedure is unused
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Contact#Contact.Business_Relation[50]
+    name: '"Business Relation": Text[50]'
+    reason: Replaced by the Contact Business Relation field.
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Context_Adapter
+    name: Codeunit 5065 "Email Logging Context Adapter"
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#CRM#Outlook#Email_Logging_Dispatcher
+    name: Codeunit 5064 "Email Logging Dispatcher"
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Dependency
+    name: Table 5311 "Outlook Synch. Dependency"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Entity
+    name: Table 5300 "Outlook Synch. Entity"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Entity_Element
+    name: Table 5301 "Outlook Synch. Entity Element"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Field
+    name: Table 5304 "Outlook Synch. Field"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Filter
+    name: Table 5303 "Outlook Synch. Filter"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Link
+    name: Table 5302 "Outlook Synch. Link"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Lookup_Name
+    name: Table 5306 "Outlook Synch. Lookup Name"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Option_Correl#
+    name: Table 5307 "Outlook Synch. Option Correl."
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_Setup_Detail
+    name: Table 5310 "Outlook Synch. Setup Detail"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Table
+    internalReference: O:Table::Microsoft#CRM#Outlook#Outlook_Synch#_User_Setup
+    name: Table 5305 "Outlook Synch. User Setup"
+    reason: Legacy outlook sync functionality has been removed.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#CRM#Segment#SegCriteriaManagement.InsertCriteriaFilter(Code[20],Integer,Text[250],Text[250])
+    name: 'InsertCriteriaFilter(SegmentNo: Code[20], TableNo: Integer, Filter: Text[250], View: Text[250])'
+    reason: Replaced by procedure InsertCriteriaFilters()
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#CRM#Segment#SegCriteriaManagement.SegCriteriaFilter(Integer,Text[250]):Text[250]
+    name: 'SegCriteriaFilter(TableNo: Integer, View: Text[250]): Text[250]'
+    reason: Replaced by procedure GetSegCriteriaFilters()
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#CRM#Segment#SegManagement.FindInteractTmplCode(Integer):Code[10]
+    name: 'FindInteractTmplCode(DocumentType: Integer): Code[10]'
+    reason: 'Use FindInteractionTemplateCode(DocumentType: Enum "Interaction Log Entry Document Type") instead.'
+  - kind: Method
+    internalReference: M:Table::Microsoft#CRM#Segment#Saved_Segment_Criteria_Line.Filter:Text[250]
+    name: 'Filter(): Text[250]'
+    reason: Replaced by procedure GetSegmentCriteriaFilters()
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Segment#Saved_Segment_Criteria_Line.View[250]
+    name: 'View: Text[250]'
+    reason: 'Replaced by field "Table View": Text[2048]'
+  - kind: Method
+    internalReference: M:Table::Microsoft#CRM#Segment#Segment_Criteria_Line.Filter:Text[250]
+    name: 'Filter(): Text[250]'
+    reason: Replaced by procedure in page SegmentCriteria
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Segment#Segment_Criteria_Line.View[250]
+    name: 'View: Text[250]'
+    reason: 'Replaced by field "Table View": Text[2048]'
+  - kind: Method
+    internalReference: M:Table::Microsoft#CRM#Setup#Marketing_Setup.GetQueueFolderUID:Text
+    name: 'GetQueueFolderUID(): Text'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Method
+    internalReference: M:Table::Microsoft#CRM#Setup#Marketing_Setup.GetStorageFolderUID:Text
+    name: 'GetStorageFolderUID(): Text'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Queue_Folder_Path[250]
+    name: '"Queue Folder Path": Text[250]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Queue_Folder_UID
+    name: '"Queue Folder UID": Blob'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Storage_Folder_Path[250]
+    name: '"Storage Folder Path": Text[250]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Storage_Folder_UID
+    name: '"Storage Folder UID": Blob'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Autodiscovery_E-Mail_Address[250]
+    name: '"Autodiscovery E-Mail Address": Text[250]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Email_Batch_Size
+    name: '"Email Batch Size": Integer'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Exchange_Service_URL[250]
+    name: '"Exchange Service URL": Text[250]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Exchange_Account_User_Name[250]
+    name: '"Exchange Account User Name": Text[250]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Exchange_Client_Id[250]
+    name: '"Exchange Client Id": Text[250]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Exchange_Client_Secret_Key
+    name: '"Exchange Client Secret Key": Guid'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Email_Logging_Enabled
+    name: '"Email Logging Enabled": Boolean'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Exchange_Redirect_URL[2048]
+    name: '"Exchange Redirect URL": Text[2048]'
+    reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  - kind: Method
+    internalReference: M:Page::Microsoft#CRM#Task#Task_List.Caption:Text
+    name: 'Caption(): Text'
+    reason: Replaced by procedure GetCaption()
+  - kind: Field
+    internalReference: F:Table::Microsoft#EServices#EDocument#Incoming_Document_Attachment.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Intercompany#Inbox#Handled_IC_Inbox_Trans#.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Intercompany#Inbox#IC_Inbox_Transaction.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Intercompany#Outbox#Handled_IC_Outbox_Trans#.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Intercompany#Outbox#IC_Outbox_Transaction.IC_Partner_G/L_Acc#_No#[20]
+    name: '"IC Partner G/L Acc. No.": Code[20]'
+    reason: This field will be replaced by IC Account No.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderRemitTo(Text[100][]@,Purchase_Header@):Boolean
+    name: 'PurchHeaderRemitTo(var AddrArray: array[8] of Text[100], var PurchHeader: Record 38 "Purchase Header"): Boolean'
+    reason: Replaced by PurchHeaderRemitTo with dictionaries.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchInvRemitTo(Text[100][]@,Purch#_Inv#_Header@):Boolean
+    name: 'PurchInvRemitTo(var AddrArray: array[8] of Text[100], var PurchInvHeader: Record 122 "Purch. Inv. Header"): Boolean'
+    reason: Replaced by PurchInvRemitTo with dictionaries.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Foundation#Address#Format_Address.VendorRemitToAddress(Text[100][]@,Remit_Address@)
+    name: 'VendorRemitToAddress(var AddrArray: array[8] of Text[100], var RemitAddress: Record 2224 "Remit Address")'
+    reason: Replaced by VendorRemitToAddress.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Address#Country/Region.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#PaymentTerms#Payment_Terms.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Reporting#Report_Selections.GetJobQueueParameters(Text@,Integer@,Text@,Text[150]@,Code[20]@,Integer@):Boolean
+    name: 'GetJobQueueParameters(var ParameterString: Text, var ReportUsage: Integer, var DocNos: Text, var DocName: Text[150], var CustNo: Code[20], var fieldNo: Integer): Boolean'
+    reason: Unused.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Reporting#Report_Selections.EnqueueMailingJob(RecordId,Text,Text,Text)
+    name: 'EnqueueMailingJob(RecordIdToProcess: RecordId, ParameterString: Text, Description: Text, RecFilter: Text)'
+    reason: Unused.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Reporting#Report_Selections.SendEmailToCust(Integer,Variant,Code[20],Text[150],Boolean,Code[20],Integer)
+    name: 'SendEmailToCust(ReportUsage: Integer, RecordVariant: Variant, DocNo: Code[20], DocName: Text[150], ShowDialog: Boolean, CustNo: Code[20], DocNoFieldNo: Integer)'
+    reason: Unused.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Foundation#Reporting#Report_Selections.SendEmailToVendor(Integer,Variant,Code[20],Text[150],Boolean,Code[20],Integer)
+    name: 'SendEmailToVendor(ReportUsage: Integer, RecordVariant: Variant, DocNo: Code[20], DocName: Text[150], ShowDialog: Boolean, VendorNo: Code[20], VendorNoFieldNo: Integer)'
+    reason: Unused.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Shipping#Shipment_Method.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#UOM#Unit_of_Measure.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#HumanResources#Employee#Employee.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.LinkMissingOptionDoc(Notification)
+    name: 'LinkMissingOptionDoc(SkippedSyncNotification: Notification)'
+    reason: Unused method.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsCurrencySymbolMappingEnabled:Boolean
+    name: 'IsCurrencySymbolMappingEnabled(): Boolean'
+    reason: Feature CurrencySymbolMapping will be enabled by default in version 22.0.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetCurrencySymbolMappingFeatureKey:Text[50]
+    name: 'GetCurrencySymbolMappingFeatureKey(): Text[50]'
+    reason: Feature CurrencySymbolMapping will be enabled by default in version 22.0.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.IsOptionMappingEnabled:Boolean
+    name: 'IsOptionMappingEnabled(): Boolean'
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Integration_Management.GetOptionMappingFeatureKey:Text[50]
+    name: 'GetOptionMappingFeatureKey(): Text[50]'
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#Dataverse#CRM_Synch#_Conflict_Buffer.Deleted_On
+    name: '"Deleted On": DateTime'
+    reason: This field is obsolete and should not be used after Integration Record is deprecated.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Dataverse#CDS_Failed_Option_Mapping
+    name: Table 5358 "CDS Failed Option Mapping"
+    reason: Feature OptionMapping will be enabled by default in version 22.0.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Dataverse#Coupling_Field_Buffer
+    name: Table 5333 "Coupling Field Buffer"
+    reason: This table is no longer used. Use Coupling Field Buffer table instead.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Integration#Dataverse#CRM_Integration_Record.IsIntegrationIdCoupled(Guid):Boolean
+    name: 'IsIntegrationIdCoupled(IntegrationID: Guid): Boolean'
+    reason: 'Replaced by IsIntegrationIdCoupled(IntegrationID: Guid; TableId: Integer)'
+  - kind: Page
+    internalReference: O:Page::Microsoft#Integration#Dataverse#CRM_Coupled_Fields
+    name: Page 5337 "CRM Coupled Fields"
+    reason: This page is no longer used. Use CRM Coupling Fields page instead.
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Upgrade#Upg_Advanced_Checklist_Setup
+    name: Codeunit 104011 "Upg Advanced Checklist Setup"
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Upgrade#Upgrade_Tag_Definitions.GetAdvancedIntrastatBaseDemoDataUpgradeTag:Code[250]
+    name: 'GetAdvancedIntrastatBaseDemoDataUpgradeTag(): Code[250]'
+    reason: Intrastat related functionalities are moved to Intrastat extensions.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Pricing#PriceList#Price_List_Header.IsCRMIntegrationAllowed(Boolean):Boolean
+    name: 'IsCRMIntegrationAllowed(StatusActiveFilterApplied: Boolean): Boolean'
+    reason: Use IsCRMIntegrationAllowed with updated parameters
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.TimeSheetV2Enabled:Boolean
+    name: 'TimeSheetV2Enabled(): Boolean'
+    reason: Remove old time sheet experience.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Projects#TimeSheet#Time_Sheet_Detail.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Page
+    internalReference: O:Page::Microsoft#Projects#TimeSheet#Time_Sheet
+    name: Page 950 "Time Sheet"
+    reason: Remove old time sheet experience.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Projects#Project#Job#Job.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Projects#Resources#Setup#Resources_Setup.Use_New_Time_Sheet_Experience
+    name: '"Use New Time Sheet Experience": Boolean'
+    reason: Replacement of NewTimeSheetExperience feature key until removal of old one.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Archive#Purchase_Line_Archive.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Archive#Purchase_Line_Archive.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Archive#Purchase_Line_Archive.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Archive#Purchase_Line_Archive.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Purchases#Document#Purchase_Header.BatchConfirmUpdateDeferralDate(Option@,Boolean,Date)
+    name: 'BatchConfirmUpdateDeferralDate(var BatchConfirm: Option, ReplacePostingDate: Boolean, PostingDateReq: Date)'
+    reason: Replaced by BatchConfirmUpdateDeferralDate with VAT Date parameters.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Document#Purchase_Header.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Purchases#Document#Purchase_Line.CanCalculateTax:Boolean
+    name: 'CanCalculateTax(): Boolean'
+    reason: Renaming the global procedure to GetSkipTaxCalculation():Boolean
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Document#Purchase_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Document#Purchase_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Document#Purchase_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Document#Purchase_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Method
+    internalReference: M:Report::Microsoft#Purchases#Document#Batch_Post_Purchase_Orders.InitializeRequest(Boolean,Boolean,Date,Boolean,Boolean,Boolean)
+    name: 'InitializeRequest(NewReceiveReq: Boolean, NewInvReq: Boolean, NewPostingDateReq: Date, NewReplacePostingDate: Boolean, NewReplaceDocumentDate: Boolean, NewCalcInvDisc: Boolean)'
+    reason: Replaced by InitializeRequest with VAT Date parameters.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Cr#_Memo_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Cr#_Memo_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Cr#_Memo_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Cr#_Memo_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Inv#_Header.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Inv#_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Inv#_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Inv#_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Inv#_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Return_Shipment_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Return_Shipment_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Return_Shipment_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Return_Shipment_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Purchases#Payables#Payment_Buffer
+    name: Table 372 "Payment Buffer"
+    reason: This table will be replaced by Vendor Payment Buffer.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Purchases#Payables#Vendor_Payment_Buffer.CopyFieldsFromPaymentBuffer(Payment_Buffer)
+    name: 'CopyFieldsFromPaymentBuffer(TempPaymentBuffer: Record 372 "Payment Buffer")'
+    reason: Table Payment Buffer will be replaced by table Vendor Payment Buffer.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Vendor.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Header_Archive.Bill-to_Customer_Template_Code[10]
+    name: '"Bill-to Customer Template Code": Code[10]'
+    reason: Will be removed with other functionality related to "old" templates. Replaced by "Bill-to Customer Templ. Code".
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Line_Archive.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Line_Archive.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Line_Archive.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Archive#Sales_Line_Archive.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Customer#Customer.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Sales#Document#Sales_Header.BatchConfirmUpdateDeferralDate(Option@,Boolean,Date)
+    name: 'BatchConfirmUpdateDeferralDate(var BatchConfirm: Option, ReplacePostingDate: Boolean, PostingDateReq: Date)'
+    reason: Replaced by BatchConfirmUpdateDeferralDate with VAT Date parameters.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Header.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Method
+    internalReference: M:Table::Microsoft#Sales#Document#Sales_Line.CanCalculateTax:Boolean
+    name: 'CanCalculateTax(): Boolean'
+    reason: Renaming the global procedure to GetSkipTaxCalculation():Boolean
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Document#Sales_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Method
+    internalReference: M:Report::Microsoft#Sales#Document#Batch_Post_Sales_Orders.InitializeRequest(Boolean,Boolean,Date,Boolean,Boolean,Boolean)
+    name: 'InitializeRequest(ShipParam: Boolean, InvoiceParam: Boolean, PostingDateParam: Date, ReplacePostingDateParam: Boolean, ReplaceDocumentDateParam: Boolean, CalcInvDiscParam: Boolean)'
+    reason: Replaced by InitializeRequest with VAT Date parameters.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Return_Receipt_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Return_Receipt_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Return_Receipt_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Return_Receipt_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Header.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Header.Payment_Instructions
+    name: '"Payment Instructions": Blob'
+    reason: Microsoft Invoicing is not supported in Business Central
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Header.Payment_Instructions_Name[20]
+    name: '"Payment Instructions Name": Text[20]'
+    reason: Microsoft Invoicing is not supported in Business Central
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Header.Id
+    name: 'Id: Guid'
+    reason: This functionality will be replaced by the systemID field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Invoice_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Cross-Reference_No#[20]
+    name: '"Cross-Reference No.": Code[20]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_of_Measure_(Cross_Ref#)[10]
+    name: '"Unit of Measure (Cross Ref.)": Code[10]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Cross-Reference_Type
+    name: '"Cross-Reference Type": Option'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Cross-Reference_Type_No#[30]
+    name: '"Cross-Reference Type No.": Code[30]'
+    reason: Cross-Reference replaced by Item Reference feature.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.ConfirmationMessage:Text
+    name: 'ConfirmationMessage(): Text'
+    reason: Replaced by new implementation in Posting Selection Management codeunit
+  - kind: Page
+    internalReference: O:Page::Microsoft#Warehouse#Structure#Item_Bin_Contents
+    name: Page 7379 "Item Bin Contents"
+    reason: Replaced by page 7304 - "Bin Content"
+  - kind: Table
+    internalReference: O:Table::Ext_Txt_ID_Integration_Record
+    name: Table 5377 "Ext Txt ID Integration Record"
+    reason: This functionality will be replaced by the systemID field
+  - kind: Table
+    internalReference: O:Table::Integration_Management_Setup
+    name: Table 5515 "Integration Management Setup"
+    reason: The table will be removed with Integration Management. Refactor to use systemID, systemLastModifiedAt and other system fields.
+  - kind: Table
+    internalReference: O:Table::Integration_Record
+    name: Table 5151 "Integration Record"
+    reason: This functionality will be replaced by the systemID field
+  - kind: Table
+    internalReference: O:Table::Integration_Record_Archive
+    name: Table 5152 "Integration Record Archive"
+    reason: This functionality will be replaced by the systemID field
+  - kind: Profile
+    internalReference: O:Profile::M365_Collaboration
+    name: Profile "M365 Collaboration"
+    reason: New EMPLOYEE profile has been created and it should be used instead.
+  uid: N:Module::Base_Application_obsolete_by_22.0#22.0
+uid: N:Module::Base_Application_obsolete_by_22.0

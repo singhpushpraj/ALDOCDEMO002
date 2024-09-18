@@ -1,0 +1,71 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Feedback."Onboarding Signal"
+alId: ID 7580
+namespace: System.Feedback
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Feedback
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Access
+  value: Public
+  promoted: false
+- name: Permissions
+  value: tabledata "Onboarding Signal" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure RegisterNewOnboardingSignal(CompanyName: Text[30], OnboardingSignalType: Enum "Onboarding Signal Type")'
+    parameters:
+    - id: CompanyName
+      description: The name of the company you want to register the onboarding signal for.
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: OnboardingSignalType
+      description: A new Onboarding Signal.
+      parameterType:
+        internalReference: O:Enum::System#Feedback#Onboarding_Signal_Type
+        name: System.Feedback."Onboarding Signal Type"
+        isExternal: false
+  summary: Register a new Onboarding Signal to keep track of.
+  name: RegisterNewOnboardingSignal
+  uid: M:Codeunit::System#Feedback#Onboarding_Signal.RegisterNewOnboardingSignal(Text[30],Enum::System#Feedback#Onboarding_Signal_Type)
+- syntax:
+    content: procedure CheckAndEmitOnboardingSignals()
+  summary: Check the status on all registered onboarding signals, and emit corresponding Telemetry when the criteria is met. This is run automatically once a day when login.
+  name: CheckAndEmitOnboardingSignals
+  uid: M:Codeunit::System#Feedback#Onboarding_Signal.CheckAndEmitOnboardingSignals
+- syntax:
+    content: 'procedure HasCompanyOnboarded(CompanyName: Text): Boolean'
+    parameters:
+    - id: CompanyName
+      description: The Company's name to check.
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      description: True if all the signals for the current company has completed, except for the Company Signal
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Check if a company has onboarded
+  name: HasCompanyOnboarded
+  uid: M:Codeunit::System#Feedback#Onboarding_Signal.HasCompanyOnboarded(Text):Boolean
+- syntax:
+    content: 'procedure GetOnboardingSignals(var OnboardingSignalBuffer: Record "Onboarding Signal Buffer" temporary)'
+    parameters:
+    - id: OnboardingSignalBuffer
+      description: The variable holds all the onboarding signals
+      parameterType:
+        name: Record "Onboarding Signal Buffer" temporary
+        isExternal: true
+  summary: Get all Onboarding Signals with Read access
+  name: GetOnboardingSignals
+  uid: M:Codeunit::System#Feedback#Onboarding_Signal.GetOnboardingSignals(Onboarding_Signal_Buffer@)
+commentId: O:Codeunit::System#Feedback#Onboarding Signal
+name: '"Onboarding Signal"'
+uid: O:Codeunit::System#Feedback#Onboarding_Signal

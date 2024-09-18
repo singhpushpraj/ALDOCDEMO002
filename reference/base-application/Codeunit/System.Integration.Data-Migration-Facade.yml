@@ -1,0 +1,151 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration."Data Migration Facade"
+alId: ID 6100
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure StartMigration(MigrationType: Text[250], Retry: Boolean)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: Retry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: StartMigration
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.StartMigration(Text[250],Boolean)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: procedure OnFillStagingTables()
+  name: OnFillStagingTables
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnFillStagingTables
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnFindBatchForItemTransactions(MigrationType: Text[250], var ItemJournalBatchName: Code[10])'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ItemJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OnFindBatchForItemTransactions
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnFindBatchForItemTransactions(Text[250],Code[10]@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnFindBatchForCustomerTransactions(MigrationType: Text[250], var GenJournalBatchName: Code[10])'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: GenJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OnFindBatchForCustomerTransactions
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnFindBatchForCustomerTransactions(Text[250],Code[10]@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnFindBatchForVendorTransactions(MigrationType: Text[250], var GenJournalBatchName: Code[10])'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: GenJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OnFindBatchForVendorTransactions
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnFindBatchForVendorTransactions(Text[250],Code[10]@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnFindBatchForAccountTransactions(DataMigrationStatus: Record "Data Migration Status", var GenJournalBatchName: Code[10])'
+    parameters:
+    - id: DataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+    - id: GenJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OnFindBatchForAccountTransactions
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnFindBatchForAccountTransactions(Data_Migration_Status,Code[10]@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnGetMigrationHelpTopicUrl(MigrationType: Text, var Url: Text)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Url
+      parameterType:
+        name: Text
+        isExternal: true
+  name: OnGetMigrationHelpTopicUrl
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnGetMigrationHelpTopicUrl(Text,Text@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSelectRowFromDashboard(var DataMigrationStatus: Record "Data Migration Status")'
+    parameters:
+    - id: DataMigrationStatus
+      parameterType:
+        name: Record "Data Migration Status"
+        isExternal: true
+  name: OnSelectRowFromDashboard
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnSelectRowFromDashboard(Data_Migration_Status@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnInitDataMigrationError(MigrationType: Text[250], var BulkFixErrorsButtonEnabled: Boolean)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: BulkFixErrorsButtonEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnInitDataMigrationError
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnInitDataMigrationError(Text[250],Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBatchEditFromErrorView(MigrationType: Text[250], DestinationTableId: Integer)'
+    parameters:
+    - id: MigrationType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DestinationTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: OnBatchEditFromErrorView
+  uid: M:Codeunit::System#Integration#Data_Migration_Facade.OnBatchEditFromErrorView(Text[250],Integer)
+commentId: O:Codeunit::System#Integration#Data Migration Facade
+name: '"Data Migration Facade"'
+uid: O:Codeunit::System#Integration#Data_Migration_Facade

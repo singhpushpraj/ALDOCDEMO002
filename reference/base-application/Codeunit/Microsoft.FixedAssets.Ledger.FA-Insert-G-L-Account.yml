@@ -1,0 +1,205 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Ledger."FA Insert G/L Account"
+alId: ID 5601
+namespace: Microsoft.FixedAssets.Ledger
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Ledger
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: FA Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#FixedAssets#Ledger#FA_Ledger_Entry
+    name: Microsoft.FixedAssets.Ledger."FA Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure InsertMaintenanceAccNo(var MaintenanceLedgEntry: Record "Maintenance Ledger Entry")'
+    parameters:
+    - id: MaintenanceLedgEntry
+      parameterType:
+        name: Record "Maintenance Ledger Entry"
+        isExternal: true
+  name: InsertMaintenanceAccNo
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.InsertMaintenanceAccNo(Maintenance_Ledger_Entry@)
+- syntax:
+    content: 'procedure InsertBufferBalAcc(FAPostingType: Enum "FA Posting Group Account Type", AllocAmount: Decimal, DeprBookCode: Code[10], PostingGrCode: Code[20], GlobalDim1Code: Code[20], GlobalDim2Code: Code[20], DimSetID: Integer, AutomaticEntry: Boolean, Correction: Boolean)'
+    parameters:
+    - id: FAPostingType
+      parameterType:
+        internalReference: O:Enum::Microsoft#FixedAssets#FixedAsset#FA_Posting_Group_Account_Type
+        name: Microsoft.FixedAssets.FixedAsset."FA Posting Group Account Type"
+        isExternal: false
+    - id: AllocAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DeprBookCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PostingGrCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AutomaticEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Correction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertBufferBalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.InsertBufferBalAcc(Enum::Microsoft#FixedAssets#FixedAsset#FA_Posting_Group_Account_Type,Decimal,Code[10],Code[20],Code[20],Code[20],Integer,Boolean,Boolean)
+- syntax:
+    content: 'procedure InsertBalAcc(var FALedgEntry: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: InsertBalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.InsertBalAcc(FA_Ledger_Entry@)
+- syntax:
+    content: 'procedure GetPostingType(var FALedgEntry: Record "FA Ledger Entry"): Enum "FA Posting Group Account Type"'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#FixedAssets#FixedAsset#FA_Posting_Group_Account_Type
+        name: Microsoft.FixedAssets.FixedAsset."FA Posting Group Account Type"
+        isExternal: false
+  name: GetPostingType
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.GetPostingType(FA_Ledger_Entry@):Enum::Microsoft#FixedAssets#FixedAsset#FA_Posting_Group_Account_Type
+- syntax:
+    content: 'procedure GetBalAccBuffer(var GenJnlLine: Record "Gen. Journal Line"): Integer'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetBalAccBuffer
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.GetBalAccBuffer(Gen#_Journal_Line@):Integer
+- syntax:
+    content: 'procedure GetBalAcc(GenJnlLine: Record "Gen. Journal Line"): Integer'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetBalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.GetBalAcc(Gen#_Journal_Line):Integer
+- syntax:
+    content: 'procedure GetBalAcc(var GenJnlLine: Record "Gen. Journal Line", var NextLineNo2: Integer)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: NextLineNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetBalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.GetBalAcc(Gen#_Journal_Line@,Integer@)
+- syntax:
+    content: 'procedure GetBalAccWithBalAccountInfo(GenJnlLine: Record "Gen. Journal Line", BalAccountType: Option, BalAccountNo: Code[20])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: BalAccountType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: BalAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetBalAccWithBalAccountInfo
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.GetBalAccWithBalAccountInfo(Gen#_Journal_Line,Option,Code[20])
+- syntax:
+    content: 'procedure FindFirstGLAcc(var FAGLPostBuf: Record "FA G/L Posting Buffer"): Boolean'
+    parameters:
+    - id: FAGLPostBuf
+      parameterType:
+        name: Record "FA G/L Posting Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.FindFirstGLAcc(FA_G/L_Posting_Buffer@):Boolean
+- syntax:
+    content: 'procedure GetNextGLAcc(var FAGLPostBuf: Record "FA G/L Posting Buffer"): Integer'
+    parameters:
+    - id: FAGLPostBuf
+      parameterType:
+        name: Record "FA G/L Posting Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.GetNextGLAcc(FA_G/L_Posting_Buffer@):Integer
+- syntax:
+    content: procedure DeleteAllGLAcc()
+  name: DeleteAllGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.DeleteAllGLAcc
+- syntax:
+    content: 'procedure SetOrgGenJnlLine(OrgGenJnlLine2: Boolean)'
+    parameters:
+    - id: OrgGenJnlLine2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetOrgGenJnlLine
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.SetOrgGenJnlLine(Boolean)
+- syntax:
+    content: procedure CorrectEntries()
+  name: CorrectEntries
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.CorrectEntries
+- syntax:
+    content: 'procedure SetNetDisposal(NetDisp2: Boolean)'
+    parameters:
+    - id: NetDisp2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetNetDisposal
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account.SetNetDisposal(Boolean)
+commentId: O:Codeunit::Microsoft#FixedAssets#Ledger#FA Insert G/L Account
+name: '"FA Insert G/L Account"'
+uid: O:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_G/L_Account

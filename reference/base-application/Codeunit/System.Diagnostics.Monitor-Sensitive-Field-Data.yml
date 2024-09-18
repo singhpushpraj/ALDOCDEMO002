@@ -1,0 +1,107 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Diagnostics."Monitor Sensitive Field Data"
+alId: ID 1367
+namespace: System.Diagnostics
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Diagnostics
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Field Monitoring Setup" = im
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckIfTableIsMonitored(var TempChangeLogSetupTable: Record "Change Log Setup (Table)" temporary, FieldMonitoringSetup: Record "Field Monitoring Setup", ChangeLogSetup: Record "Change Log Setup"): Boolean'
+    parameters:
+    - id: TempChangeLogSetupTable
+      parameterType:
+        name: Record "Change Log Setup (Table)" temporary
+        isExternal: true
+    - id: FieldMonitoringSetup
+      parameterType:
+        name: Record "Field Monitoring Setup"
+        isExternal: true
+    - id: ChangeLogSetup
+      parameterType:
+        name: Record "Change Log Setup"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfTableIsMonitored
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field_Data.CheckIfTableIsMonitored(Change_Log_Setup_(Table)@,Field_Monitoring_Setup,Change_Log_Setup):Boolean
+- syntax:
+    content: 'procedure HandleMonitorSensitiveFields(var ChangeLogEntry: Record "Change Log Entry", var TempChangeLogSetupField: Record "Change Log Setup (Field)" temporary, RecRef: RecordRef, FldRef: FieldRef, IsAlwaysLoggedTable: Boolean, IsMonitorEnabled: Boolean)'
+    parameters:
+    - id: ChangeLogEntry
+      parameterType:
+        name: Record "Change Log Entry"
+        isExternal: true
+    - id: TempChangeLogSetupField
+      parameterType:
+        name: Record "Change Log Setup (Field)" temporary
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: IsAlwaysLoggedTable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsMonitorEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: HandleMonitorSensitiveFields
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field_Data.HandleMonitorSensitiveFields(Change_Log_Entry@,Change_Log_Setup_(Field)@,RecordRef,FieldRef,Boolean,Boolean)
+- syntax:
+    content: 'procedure IsIgnoredMonitorField(Recref: RecordRef, FldRef: FieldRef): Boolean'
+    parameters:
+    - id: Recref
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: FldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsIgnoredMonitorField
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field_Data.IsIgnoredMonitorField(RecordRef,FieldRef):Boolean
+- syntax:
+    content: 'procedure OpenChangedRecordPage(TableNo: Integer, FieldNo: Integer, RecordSystemID: Guid)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordSystemID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: OpenChangedRecordPage
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field_Data.OpenChangedRecordPage(Integer,Integer,Guid)
+- syntax:
+    content: procedure ResetNotificationCount()
+  name: ResetNotificationCount
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field_Data.ResetNotificationCount
+commentId: O:Codeunit::System#Diagnostics#Monitor Sensitive Field Data
+name: '"Monitor Sensitive Field Data"'
+uid: O:Codeunit::System#Diagnostics#Monitor_Sensitive_Field_Data

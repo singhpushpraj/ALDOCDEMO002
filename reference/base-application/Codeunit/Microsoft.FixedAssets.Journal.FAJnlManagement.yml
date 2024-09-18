@@ -1,0 +1,125 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Journal.FAJnlManagement
+alId: ID 5638
+namespace: Microsoft.FixedAssets.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Journal Template" = rimd,
+                      TableData "FA Journal Batch" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, RecurringJnl: Boolean, var FAJnlLine: Record "FA Journal Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecurringJnl
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FAJnlLine
+      parameterType:
+        name: Record "FA Journal Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.TemplateSelection(Integer,Boolean,FA_Journal_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var FAJnlBatch: Record "FA Journal Batch")'
+    parameters:
+    - id: FAJnlBatch
+      parameterType:
+        name: Record "FA Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.TemplateSelectionFromBatch(FA_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJournal(var CurrentJnlBatchName: Code[10], var FAJnlLine: Record "FA Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FAJnlLine
+      parameterType:
+        name: Record "FA Journal Line"
+        isExternal: true
+  name: OpenJournal
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.OpenJournal(Code[10]@,FA_Journal_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var FAJnlBatch: Record "FA Journal Batch")'
+    parameters:
+    - id: FAJnlBatch
+      parameterType:
+        name: Record "FA Journal Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.OpenJnlBatch(FA_Journal_Batch@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var FAJnlLine: Record "FA Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FAJnlLine
+      parameterType:
+        name: Record "FA Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.CheckName(Code[10],FA_Journal_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var FAJnlLine: Record "FA Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FAJnlLine
+      parameterType:
+        name: Record "FA Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.SetName(Code[10],FA_Journal_Line@)
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var FAJnlLine: Record "FA Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FAJnlLine
+      parameterType:
+        name: Record "FA Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.LookupName(Code[10]@,FA_Journal_Line@)
+- syntax:
+    content: 'procedure GetFA(FANo: Code[20], var FADescription: Text[100])'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FADescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetFA
+  uid: M:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement.GetFA(Code[20],Text[100]@)
+commentId: O:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement
+name: FAJnlManagement
+uid: O:Codeunit::Microsoft#FixedAssets#Journal#FAJnlManagement

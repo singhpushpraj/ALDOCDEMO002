@@ -1,0 +1,680 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Security.Authentication."OAuth 2.0 Mgt."
+alId: ID 1140
+namespace: System.Security.Authentication
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Security.Authentication
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use procedure GetAuthorizationURLAsSecretText instead.,24.0)]'
+    content: 'procedure GetAuthorizationURL(OAuth20Setup: Record "OAuth 2.0 Setup", ClientID: Text): Text'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetAuthorizationURL
+  obsoletion:
+    state: pending
+    reason: Use procedure GetAuthorizationURLAsSecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.GetAuthorizationURL(OAuth_2#0_Setup,Text):Text
+- syntax:
+    content: 'procedure GetAuthorizationURLAsSecretText(OAuth20Setup: Record "OAuth 2.0 Setup", ClientID: Text): SecretText'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: SecretText
+        isExternal: true
+  name: GetAuthorizationURLAsSecretText
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.GetAuthorizationURLAsSecretText(OAuth_2#0_Setup,Text):SecretText
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use RequestAccessToken procedure with parameters declared as SecretText instead.,24.0)]'
+    content: 'procedure RequestAccessToken(var OAuth20Setup: Record "OAuth 2.0 Setup", var MessageText: Text, AuthorizationCode: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Request access token using application/json ContentType.
+  name: RequestAccessToken
+  obsoletion:
+    state: pending
+    reason: Use RequestAccessToken procedure with parameters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessToken(OAuth_2#0_Setup@,Text@,Text,Text,Text,Text@,Text@):Boolean
+- syntax:
+    content: 'procedure RequestAccessToken(var OAuth20Setup: Record "OAuth 2.0 Setup", var MessageText: Text, AuthorizationCode: SecretText, ClientID: Text, ClientSecret: SecretText, var AccessToken: SecretText, var RefreshToken: SecretText): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Request access token using application/json ContentType.
+  name: RequestAccessToken
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessToken(OAuth_2#0_Setup@,Text@,SecretText,Text,SecretText,SecretText@,SecretText@):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use RequestAccessTokenWithGivenRequestJson with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure RequestAccessTokenWithGivenRequestJson(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, AuthorizationCode: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Request access token using given request json and application/json ContentType.
+  name: RequestAccessTokenWithGivenRequestJson
+  obsoletion:
+    state: pending
+    reason: Use RequestAccessTokenWithGivenRequestJson with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessTokenWithGivenRequestJson(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text,Text@,Text@):Boolean
+- syntax:
+    content: 'procedure RequestAccessTokenWithGivenRequestJson(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, AuthorizationCode: SecretText, ClientID: Text, ClientSecret: SecretText, var AccessToken: SecretText, var RefreshToken: SecretText): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Request access token using given request json and application/json ContentType.
+  name: RequestAccessTokenWithGivenRequestJson
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessTokenWithGivenRequestJson(OAuth_2#0_Setup@,Text,Text@,SecretText,Text,SecretText,SecretText@,SecretText@):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use "RequestAccessTokenWithContentType with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure RequestAccessTokenWithContentType(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, AuthorizationCode: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text, UseUrlEncodedContentType: Boolean): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: UseUrlEncodedContentType
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Request access token using application/x-www-form-urlencoded ContentType if UseUrlEncodedContentType is set to true or application/json ContentType otherwise.
+  name: RequestAccessTokenWithContentType
+  obsoletion:
+    state: pending
+    reason: Use "RequestAccessTokenWithContentType with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessTokenWithContentType(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text,Text@,Text@,Boolean):Boolean
+- syntax:
+    content: 'procedure RequestAccessTokenWithContentType(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, AuthorizationCode: SecretText, ClientID: Text, ClientSecret: SecretText, var AccessToken: SecretText, var RefreshToken: SecretText, UseUrlEncodedContentType: Boolean): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: UseUrlEncodedContentType
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Request access token using application/x-www-form-urlencoded ContentType if UseUrlEncodedContentType is set to true or application/json ContentType otherwise.
+  name: RequestAccessTokenWithContentType
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RequestAccessTokenWithContentType(OAuth_2#0_Setup@,Text,Text@,SecretText,Text,SecretText,SecretText@,SecretText@,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use RefreshAccessToken with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure RefreshAccessToken(var OAuth20Setup: Record "OAuth 2.0 Setup", var MessageText: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Refreshes access token using application/json ContentType.
+  name: RefreshAccessToken
+  obsoletion:
+    state: pending
+    reason: Use RefreshAccessToken with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessToken(OAuth_2#0_Setup@,Text@,Text,Text,Text@,Text@):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure RefreshAccessToken(var OAuth20Setup: Record "OAuth 2.0 Setup", var MessageText: Text, ClientID: Text, ClientSecret: SecretText, var AccessToken: SecretText, var RefreshToken: SecretText): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Refreshes access token using application/json ContentType.
+  name: RefreshAccessToken
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessToken(OAuth_2#0_Setup@,Text@,Text,SecretText,SecretText@,SecretText@):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use RefreshAccessTokenWithGivenRequestJson with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure RefreshAccessTokenWithGivenRequestJson(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Refreshes access token with given request json using application/json ContentType.
+  name: RefreshAccessTokenWithGivenRequestJson
+  obsoletion:
+    state: pending
+    reason: Use RefreshAccessTokenWithGivenRequestJson with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessTokenWithGivenRequestJson(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text@,Text@):Boolean
+- syntax:
+    content: 'procedure RefreshAccessTokenWithGivenRequestJson(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, ClientID: Text, ClientSecret: SecretText, var AccessToken: SecretText, var RefreshToken: SecretText): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Refreshes access token with given request json using application/json ContentType.
+  name: RefreshAccessTokenWithGivenRequestJson
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessTokenWithGivenRequestJson(OAuth_2#0_Setup@,Text,Text@,Text,SecretText,SecretText@,SecretText@):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use RefreshAccessTokenWithContentType with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure RefreshAccessTokenWithContentType(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, ClientID: Text, ClientSecret: Text, var AccessToken: Text, var RefreshToken: Text, UseUrlEncodedContentType: Boolean): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: UseUrlEncodedContentType
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Refreshes access token using application/x-www-form-urlencoded ContentType if UseUrlEncodedContentType is set to true or application/json ContentType otherwise.
+  name: RefreshAccessTokenWithContentType
+  obsoletion:
+    state: pending
+    reason: Use RefreshAccessTokenWithContentType with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessTokenWithContentType(OAuth_2#0_Setup@,Text,Text@,Text,Text,Text@,Text@,Boolean):Boolean
+- syntax:
+    content: 'procedure RefreshAccessTokenWithContentType(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var MessageText: Text, ClientID: Text, ClientSecret: SecretText, var AccessToken: SecretText, var RefreshToken: SecretText, UseUrlEncodedContentType: Boolean): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClientSecret
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RefreshToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: UseUrlEncodedContentType
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Refreshes access token using application/x-www-form-urlencoded ContentType if UseUrlEncodedContentType is set to true or application/json ContentType otherwise.
+  name: RefreshAccessTokenWithContentType
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.RefreshAccessTokenWithContentType(OAuth_2#0_Setup@,Text,Text@,Text,SecretText,SecretText@,SecretText@,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use InvokeRequest with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure InvokeRequest(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var ResponseJson: Text, var HttpError: Text, AccessToken: Text, RetryOnCredentialsFailure: Boolean): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ResponseJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: HttpError
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RetryOnCredentialsFailure
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvokeRequest
+  obsoletion:
+    state: pending
+    reason: Use InvokeRequest with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.InvokeRequest(OAuth_2#0_Setup@,Text,Text@,Text@,Text,Boolean):Boolean
+- syntax:
+    content: 'procedure InvokeRequest(var OAuth20Setup: Record "OAuth 2.0 Setup", RequestJson: Text, var ResponseJson: Text, var HttpError: Text, AccessToken: SecretText, RetryOnCredentialsFailure: Boolean): Boolean'
+    parameters:
+    - id: OAuth20Setup
+      parameterType:
+        name: Record "OAuth 2.0 Setup"
+        isExternal: true
+    - id: RequestJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ResponseJson
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: HttpError
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: RetryOnCredentialsFailure
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvokeRequest
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.InvokeRequest(OAuth_2#0_Setup@,Text,Text@,Text@,SecretText,Boolean):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure GetHttpStatusFromJsonResponse(JsonString: Text, var StatusCode: Integer, var StatusReason: Text, var StatusDetails: Text): Boolean'
+    parameters:
+    - id: JsonString
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: StatusCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatusReason
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: StatusDetails
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHttpStatusFromJsonResponse
+  uid: M:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#.GetHttpStatusFromJsonResponse(Text,Integer@,Text@,Text@):Boolean
+commentId: O:Codeunit::System#Security#Authentication#OAuth 2#0 Mgt#
+name: '"OAuth 2.0 Mgt."'
+uid: O:Codeunit::System#Security#Authentication#OAuth_2#0_Mgt#

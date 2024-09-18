@@ -1,0 +1,110 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - Sales Invoice"
+alId: ID 5475
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Sales Invoice Header" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ProcessComplexTypes(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate", SellToAddressJSON: Text)'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+    - id: SellToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ProcessComplexTypes
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.ProcessComplexTypes(Sales_Invoice_Entity_Aggregate@,Text)
+- syntax:
+    content: 'procedure ParseSellToCustomerAddressFromJSON(SellToAddressJSON: Text, var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate")'
+    parameters:
+    - id: SellToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+  name: ParseSellToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.ParseSellToCustomerAddressFromJSON(Text,Sales_Invoice_Entity_Aggregate@)
+- syntax:
+    content: 'procedure ParseBillToCustomerAddressFromJSON(BillToAddressJSON: Text, var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate")'
+    parameters:
+    - id: BillToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+  name: ParseBillToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.ParseBillToCustomerAddressFromJSON(Text,Sales_Invoice_Entity_Aggregate@)
+- syntax:
+    content: 'procedure ParseShipToCustomerAddressFromJSON(ShipToAddressJSON: Text, var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate")'
+    parameters:
+    - id: ShipToAddressJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+  name: ParseShipToCustomerAddressFromJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.ParseShipToCustomerAddressFromJSON(Text,Sales_Invoice_Entity_Aggregate@)
+- syntax:
+    content: 'procedure SellToCustomerAddressToJSON(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate"): Text'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SellToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.SellToCustomerAddressToJSON(Sales_Invoice_Entity_Aggregate@):Text
+- syntax:
+    content: 'procedure BillToCustomerAddressToJSON(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate"): Text'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: BillToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.BillToCustomerAddressToJSON(Sales_Invoice_Entity_Aggregate@):Text
+- syntax:
+    content: 'procedure ShipToCustomerAddressToJSON(var SalesInvoiceEntityAggregate: Record "Sales Invoice Entity Aggregate"): Text'
+    parameters:
+    - id: SalesInvoiceEntityAggregate
+      parameterType:
+        name: Record "Sales Invoice Entity Aggregate"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ShipToCustomerAddressToJSON
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice.ShipToCustomerAddressToJSON(Sales_Invoice_Entity_Aggregate@):Text
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - Sales Invoice
+name: '"Graph Mgt - Sales Invoice"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_Sales_Invoice

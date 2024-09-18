@@ -1,0 +1,730 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.TimeSheet."Time Sheet Management"
+alId: ID 950
+namespace: Microsoft.Projects.TimeSheet
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.TimeSheet
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Time Sheet Posting Entry" = ri,
+                      TableData "Job Planning Line" = r,
+                      TableData Employee = r
+  promoted: false
+methods:
+- syntax:
+    signatures:
+    - '[Obsolete(Remove old time sheet experience.,22.0)]'
+    content: 'procedure TimeSheetV2Enabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TimeSheetV2Enabled
+  obsoletion:
+    state: pending
+    reason: Remove old time sheet experience.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.TimeSheetV2Enabled:Boolean
+- syntax:
+    content: 'procedure IsUserTimeSheetAdmin(UserId: Text): Boolean'
+    parameters:
+    - id: UserId
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsUserTimeSheetAdmin
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.IsUserTimeSheetAdmin(Text):Boolean
+- syntax:
+    content: 'procedure FilterTimeSheets(var TimeSheetHeader: Record "Time Sheet Header", FieldNo: Integer)'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FilterTimeSheets
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FilterTimeSheets(Time_Sheet_Header@,Integer)
+- syntax:
+    content: 'procedure FilterAllTimeSheetLines(var TimeSheetLine: Record "Time Sheet Line", ActionType: Option)'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: ActionType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: FilterAllTimeSheetLines
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FilterAllTimeSheetLines(Time_Sheet_Line@,Option)
+- syntax:
+    content: 'procedure CheckTimeSheetNo(var TimeSheetHeader: Record "Time Sheet Header", TimeSheetNo: Code[20])'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckTimeSheetNo
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckTimeSheetNo(Time_Sheet_Header@,Code[20])
+- syntax:
+    content: 'procedure SetTimeSheetNo(TimeSheetNo: Code[20], var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: SetTimeSheetNo
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.SetTimeSheetNo(Code[20],Time_Sheet_Line@)
+- syntax:
+    content: 'procedure LookupOwnerTimeSheet(var TimeSheetNo: Code[20], var TimeSheetLine: Record "Time Sheet Line", var TimeSheetHeader: Record "Time Sheet Header")'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+  name: LookupOwnerTimeSheet
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.LookupOwnerTimeSheet(Code[20]@,Time_Sheet_Line@,Time_Sheet_Header@)
+- syntax:
+    content: 'procedure LookupApproverTimeSheet(var TimeSheetNo: Code[20], var TimeSheetLine: Record "Time Sheet Line", var TimeSheetHeader: Record "Time Sheet Header")'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+  name: LookupApproverTimeSheet
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.LookupApproverTimeSheet(Code[20]@,Time_Sheet_Line@,Time_Sheet_Header@)
+- syntax:
+    content: 'procedure FormatDate(Date: Date, DOWFormatType: Option): Text[30]'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DOWFormatType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: FormatDate
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FormatDate(Date,Option):Text[30]
+- syntax:
+    content: 'procedure CheckAccPeriod(Date: Date)'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CheckAccPeriod
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckAccPeriod(Date)
+- syntax:
+    content: 'procedure CheckResourceTimeSheetOwner(TimeSheetOwnerUserID: Code[50], CurrResourceNo: Code[20])'
+    parameters:
+    - id: TimeSheetOwnerUserID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: CurrResourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckResourceTimeSheetOwner
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckResourceTimeSheetOwner(Code[50],Code[20])
+- syntax:
+    content: 'procedure CalcStatusFactBoxData(var TimeSheetHeader: Record "Time Sheet Header", var OpenQty: Decimal, var SubmittedQty: Decimal, var RejectedQty: Decimal, var ApprovedQty: Decimal, var PostedQty: Decimal, var TotalQuantity: Decimal)'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    - id: OpenQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SubmittedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RejectedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ApprovedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcStatusFactBoxData
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CalcStatusFactBoxData(Time_Sheet_Header@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcActSchedFactBoxData(TimeSheetHeader: Record "Time Sheet Header", var DateDescription: array[7] of Text[30], var DateQuantity: array[7] of Text[30], var TotalQtyText: Text[30], var TotalPresenceQty: Decimal, var AbsenceQty: Decimal)'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    - id: DateDescription
+      parameterType:
+        name: array[7] of Text[30]
+        isExternal: true
+    - id: DateQuantity
+      parameterType:
+        name: array[7] of Text[30]
+        isExternal: true
+    - id: TotalQtyText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: TotalPresenceQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AbsenceQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcActSchedFactBoxData
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CalcActSchedFactBoxData(Time_Sheet_Header,Text[30][]@,Text[30][]@,Text[30]@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure FormatActualSched(ActualQty: Decimal, ScheduledQty: Decimal): Text[30]'
+    parameters:
+    - id: ActualQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScheduledQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: FormatActualSched
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FormatActualSched(Decimal,Decimal):Text[30]
+- syntax:
+    content: 'procedure FilterTimeSheetsArchive(var TimeSheetHeaderArchive: Record "Time Sheet Header Archive", FieldNo: Integer)'
+    parameters:
+    - id: TimeSheetHeaderArchive
+      parameterType:
+        name: Record "Time Sheet Header Archive"
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FilterTimeSheetsArchive
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FilterTimeSheetsArchive(Time_Sheet_Header_Archive@,Integer)
+- syntax:
+    content: 'procedure CheckTimeSheetArchiveNo(var TimeSheetHeaderArchive: Record "Time Sheet Header Archive", TimeSheetNo: Code[20])'
+    parameters:
+    - id: TimeSheetHeaderArchive
+      parameterType:
+        name: Record "Time Sheet Header Archive"
+        isExternal: true
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckTimeSheetArchiveNo
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckTimeSheetArchiveNo(Time_Sheet_Header_Archive@,Code[20])
+- syntax:
+    content: 'procedure GetTimeSheetDataCaption(TimeSheetHeader: Record "Time Sheet Header"): Text'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTimeSheetDataCaption
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.GetTimeSheetDataCaption(Time_Sheet_Header):Text
+- syntax:
+    content: 'procedure SetTimeSheetArchiveNo(TimeSheetNo: Code[20], var TimeSheetLineArchive: Record "Time Sheet Line Archive")'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLineArchive
+      parameterType:
+        name: Record "Time Sheet Line Archive"
+        isExternal: true
+  name: SetTimeSheetArchiveNo
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.SetTimeSheetArchiveNo(Code[20],Time_Sheet_Line_Archive@)
+- syntax:
+    content: 'procedure LookupOwnerTimeSheetArchive(var TimeSheetNo: Code[20], var TimeSheetLineArchive: Record "Time Sheet Line Archive", var TimeSheetHeaderArchive: Record "Time Sheet Header Archive")'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLineArchive
+      parameterType:
+        name: Record "Time Sheet Line Archive"
+        isExternal: true
+    - id: TimeSheetHeaderArchive
+      parameterType:
+        name: Record "Time Sheet Header Archive"
+        isExternal: true
+  name: LookupOwnerTimeSheetArchive
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.LookupOwnerTimeSheetArchive(Code[20]@,Time_Sheet_Line_Archive@,Time_Sheet_Header_Archive@)
+- syntax:
+    content: 'procedure LookupApproverTimeSheetArchive(var TimeSheetNo: Code[20], var TimeSheetLineArchive: Record "Time Sheet Line Archive", var TimeSheetHeaderArchive: Record "Time Sheet Header Archive")'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLineArchive
+      parameterType:
+        name: Record "Time Sheet Line Archive"
+        isExternal: true
+    - id: TimeSheetHeaderArchive
+      parameterType:
+        name: Record "Time Sheet Header Archive"
+        isExternal: true
+  name: LookupApproverTimeSheetArchive
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.LookupApproverTimeSheetArchive(Code[20]@,Time_Sheet_Line_Archive@,Time_Sheet_Header_Archive@)
+- syntax:
+    content: 'procedure CalcSummaryArcFactBoxData(TimeSheetHeaderArchive: Record "Time Sheet Header Archive", var DateDescription: array[7] of Text[30], var DateQuantity: array[7] of Decimal, var TotalQuantity: Decimal, var AbsenceQuantity: Decimal)'
+    parameters:
+    - id: TimeSheetHeaderArchive
+      parameterType:
+        name: Record "Time Sheet Header Archive"
+        isExternal: true
+    - id: DateDescription
+      parameterType:
+        name: array[7] of Text[30]
+        isExternal: true
+    - id: DateQuantity
+      parameterType:
+        name: array[7] of Decimal
+        isExternal: true
+    - id: TotalQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AbsenceQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcSummaryArcFactBoxData
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CalcSummaryArcFactBoxData(Time_Sheet_Header_Archive,Text[30][]@,Decimal[]@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure MoveTimeSheetToArchive(TimeSheetHeader: Record "Time Sheet Header")'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+  name: MoveTimeSheetToArchive
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.MoveTimeSheetToArchive(Time_Sheet_Header)
+- syntax:
+    content: 'procedure CheckTimeSheetLineFieldsVisible(var WorkTypeCodeVisible: Boolean, var JobFieldsVisible: Boolean, var ChargeableVisible: Boolean, var ServiceOrderNoVisible: Boolean, var AbsenceCauseVisible: Boolean, var AssemblyOrderNoVisible: Boolean)'
+    parameters:
+    - id: WorkTypeCodeVisible
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: JobFieldsVisible
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ChargeableVisible
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ServiceOrderNoVisible
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AbsenceCauseVisible
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AssemblyOrderNoVisible
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckTimeSheetLineFieldsVisible
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckTimeSheetLineFieldsVisible(Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure SelectAndCopyTimeSheetLines(ToTimeSheetHeader: Record "Time Sheet Header", CopyComments: Boolean)'
+    parameters:
+    - id: ToTimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    - id: CopyComments
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SelectAndCopyTimeSheetLines
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.SelectAndCopyTimeSheetLines(Time_Sheet_Header,Boolean)
+- syntax:
+    content: 'procedure CheckCopyPrevTimeSheetLines(TimeSheetHeader: Record "Time Sheet Header")'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+  name: CheckCopyPrevTimeSheetLines
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckCopyPrevTimeSheetLines(Time_Sheet_Header)
+- syntax:
+    content: 'procedure CopyPrevTimeSheetLines(ToTimeSheetHeader: Record "Time Sheet Header")'
+    parameters:
+    - id: ToTimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+  name: CopyPrevTimeSheetLines
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CopyPrevTimeSheetLines(Time_Sheet_Header)
+- syntax:
+    content: 'procedure CalcPrevTimeSheetLines(ToTimeSheetHeader: Record "Time Sheet Header"): Integer'
+    parameters:
+    - id: ToTimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CalcPrevTimeSheetLines
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CalcPrevTimeSheetLines(Time_Sheet_Header):Integer
+- syntax:
+    content: 'procedure CheckCreateLinesFromJobPlanning(TimeSheetHeader: Record "Time Sheet Header"): Integer'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CheckCreateLinesFromJobPlanning
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckCreateLinesFromJobPlanning(Time_Sheet_Header):Integer
+- syntax:
+    content: 'procedure CreateLinesFromJobPlanning(TimeSheetHeader: Record "Time Sheet Header"): Integer'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateLinesFromJobPlanning
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateLinesFromJobPlanning(Time_Sheet_Header):Integer
+- syntax:
+    content: 'procedure CalcLinesFromJobPlanning(TimeSheetHeader: Record "Time Sheet Header"): Integer'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CalcLinesFromJobPlanning
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CalcLinesFromJobPlanning(Time_Sheet_Header):Integer
+- syntax:
+    content: 'procedure FindTimeSheet(var TimeSheetHeader: Record "Time Sheet Header", Which: Option): Code[20]'
+    parameters:
+    - id: TimeSheetHeader
+      parameterType:
+        name: Record "Time Sheet Header"
+        isExternal: true
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: FindTimeSheet
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FindTimeSheet(Time_Sheet_Header@,Option):Code[20]
+- syntax:
+    content: 'procedure FindTimeSheetArchive(var TimeSheetHeaderArchive: Record "Time Sheet Header Archive", Which: Option): Code[20]'
+    parameters:
+    - id: TimeSheetHeaderArchive
+      parameterType:
+        name: Record "Time Sheet Header Archive"
+        isExternal: true
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: FindTimeSheetArchive
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FindTimeSheetArchive(Time_Sheet_Header_Archive@,Option):Code[20]
+- syntax:
+    content: 'procedure GetDateFilter(StartingDate: Date, EndingDate: Date): Text[30]'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: GetDateFilter
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.GetDateFilter(Date,Date):Text[30]
+- syntax:
+    content: 'procedure CreateServDocLinesFromTS(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CreateServDocLinesFromTS
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateServDocLinesFromTS(Service_Header)
+- syntax:
+    content: 'procedure CreateServDocLinesFromTSLine(ServiceHeader: Record "Service Header", var TimeSheetLine: Record "Time Sheet Line")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: CreateServDocLinesFromTSLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateServDocLinesFromTSLine(Service_Header,Time_Sheet_Line@)
+- syntax:
+    content: 'procedure CreateTSLineFromServiceLine(ServiceLine: Record "Service Line", DocumentNo: Code[20], Chargeable: Boolean)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Chargeable
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateTSLineFromServiceLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateTSLineFromServiceLine(Service_Line,Code[20],Boolean)
+- syntax:
+    content: 'procedure CreateTSLineFromServiceShptLine(ServiceShipmentLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServiceShipmentLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: CreateTSLineFromServiceShptLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateTSLineFromServiceShptLine(Service_Shipment_Line)
+- syntax:
+    content: 'procedure CreateTSLineFromAssemblyLine(AssemblyHeader: Record "Assembly Header", AssemblyLine: Record "Assembly Line", Qty: Decimal)'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateTSLineFromAssemblyLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateTSLineFromAssemblyLine(Assembly_Header,Assembly_Line,Decimal)
+- syntax:
+    content: 'procedure CreateTSPostingEntry(TimeSheetDetail: Record "Time Sheet Detail", Qty: Decimal, PostingDate: Date, DocumentNo: Code[20], Desc: Text[100])'
+    parameters:
+    - id: TimeSheetDetail
+      parameterType:
+        name: Record "Time Sheet Detail"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Desc
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: CreateTSPostingEntry
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CreateTSPostingEntry(Time_Sheet_Detail,Decimal,Date,Code[20],Text[100])
+- syntax:
+    content: 'procedure CheckResJnlLine(ResJnlLine: Record "Res. Journal Line")'
+    parameters:
+    - id: ResJnlLine
+      parameterType:
+        name: Record "Res. Journal Line"
+        isExternal: true
+  name: CheckResJnlLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckResJnlLine(Res#_Journal_Line)
+- syntax:
+    content: 'procedure CheckJobJnlLine(JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: CheckJobJnlLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckJobJnlLine(Job_Journal_Line)
+- syntax:
+    content: 'procedure CheckServiceLine(ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CheckServiceLine
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CheckServiceLine(Service_Line)
+- syntax:
+    content: 'procedure CopyFilteredTimeSheetLinesToBuffer(var TimeSheetLineFrom: Record "Time Sheet Line", var TimeSheetLineTo: Record "Time Sheet Line")'
+    parameters:
+    - id: TimeSheetLineFrom
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: TimeSheetLineTo
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+  name: CopyFilteredTimeSheetLinesToBuffer
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.CopyFilteredTimeSheetLinesToBuffer(Time_Sheet_Line@,Time_Sheet_Line@)
+- syntax:
+    content: 'procedure UpdateTimeAllocation(TimeSheetLine: Record "Time Sheet Line", AllocatedQty: array[7] of Decimal)'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: AllocatedQty
+      parameterType:
+        name: array[7] of Decimal
+        isExternal: true
+  name: UpdateTimeAllocation
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.UpdateTimeAllocation(Time_Sheet_Line,Decimal[])
+- syntax:
+    content: 'procedure GetActivityInfo(TimeSheetLine: Record "Time Sheet Line", var ActivityCaption: Text[30], var ActivityID: Code[20], var ActivitySubCaption: Text[30], var ActivitySubID: Code[20])'
+    parameters:
+    - id: TimeSheetLine
+      parameterType:
+        name: Record "Time Sheet Line"
+        isExternal: true
+    - id: ActivityCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ActivityID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ActivitySubCaption
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ActivitySubID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetActivityInfo
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.GetActivityInfo(Time_Sheet_Line,Text[30]@,Code[20]@,Text[30]@,Code[20]@)
+- syntax:
+    content: 'procedure ShowPostingEntries(TimeSheetNo: Code[20], TimeSheetLineNo: Integer)'
+    parameters:
+    - id: TimeSheetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TimeSheetLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowPostingEntries
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.ShowPostingEntries(Code[20],Integer)
+- syntax:
+    content: 'procedure FindNearestTimeSheetStartDate(Date: Date): Date'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: FindNearestTimeSheetStartDate
+  uid: M:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management.FindNearestTimeSheetStartDate(Date):Date
+commentId: O:Codeunit::Microsoft#Projects#TimeSheet#Time Sheet Management
+name: '"Time Sheet Management"'
+uid: O:Codeunit::Microsoft#Projects#TimeSheet#Time_Sheet_Management

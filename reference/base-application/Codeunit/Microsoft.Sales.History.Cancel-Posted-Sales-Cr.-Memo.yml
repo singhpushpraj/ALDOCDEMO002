@@ -1,0 +1,50 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Cancel Posted Sales Cr. Memo"
+alId: ID 1339
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                      TableData "Sales Cr.Memo Header" = rm
+  promoted: false
+- name: TableNo
+  value: Sales Cr.Memo Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#History#Sales_Cr#Memo_Header
+    name: Microsoft.Sales.History."Sales Cr.Memo Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CancelPostedCrMemo(var SalesCrMemoHeader: Record "Sales Cr.Memo Header"): Boolean'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CancelPostedCrMemo
+  uid: M:Codeunit::Microsoft#Sales#History#Cancel_Posted_Sales_Cr#_Memo.CancelPostedCrMemo(Sales_Cr#Memo_Header@):Boolean
+- syntax:
+    content: 'procedure TestCorrectCrMemoIsAllowed(var SalesCrMemoHeader: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: TestCorrectCrMemoIsAllowed
+  uid: M:Codeunit::Microsoft#Sales#History#Cancel_Posted_Sales_Cr#_Memo.TestCorrectCrMemoIsAllowed(Sales_Cr#Memo_Header@)
+commentId: O:Codeunit::Microsoft#Sales#History#Cancel Posted Sales Cr# Memo
+name: '"Cancel Posted Sales Cr. Memo"'
+uid: O:Codeunit::Microsoft#Sales#History#Cancel_Posted_Sales_Cr#_Memo

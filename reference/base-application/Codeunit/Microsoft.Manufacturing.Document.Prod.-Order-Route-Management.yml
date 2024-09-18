@@ -1,0 +1,98 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Prod. Order Route Management"
+alId: ID 99000772
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure NeedsCalculation(ProductionOrderStatus: Enum "Production Order Status", ProdOrderNo: Code[20], RoutingRefNo: Integer, RoutingNo: Code[20]): Boolean'
+    parameters:
+    - id: ProductionOrderStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: ProdOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RoutingRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: NeedsCalculation
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management.NeedsCalculation(Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Code[20],Integer,Code[20]):Boolean
+- syntax:
+    content: 'procedure SetNextOperations(ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: SetNextOperations
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management.SetNextOperations(Prod#_Order_Line)
+- syntax:
+    content: 'procedure CalcSequenceFromActual(ProdOrderRtngLine: Record "Prod. Order Routing Line", Direction: Option)'
+    parameters:
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CalcSequenceFromActual
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management.CalcSequenceFromActual(Prod#_Order_Routing_Line,Option)
+- syntax:
+    content: 'procedure Calculate(ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management.Calculate(Prod#_Order_Line)
+- syntax:
+    content: 'procedure Check(ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: Check
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management.Check(Prod#_Order_Line)
+- syntax:
+    content: 'procedure UpdateComponentsBin(var FilteredProdOrderRtngLineSet: Record "Prod. Order Routing Line", IgnoreErrors: Boolean): Boolean'
+    parameters:
+    - id: FilteredProdOrderRtngLineSet
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: IgnoreErrors
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateComponentsBin
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management.UpdateComponentsBin(Prod#_Order_Routing_Line@,Boolean):Boolean
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Prod# Order Route Management
+name: '"Prod. Order Route Management"'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Route_Management

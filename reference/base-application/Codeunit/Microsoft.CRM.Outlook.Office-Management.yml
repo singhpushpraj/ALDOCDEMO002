@@ -1,0 +1,337 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Outlook."Office Management"
+alId: ID 1630
+namespace: Microsoft.CRM.Outlook
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Outlook
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure InitializeContext(TempNewOfficeAddinContext: Record "Office Add-in Context" temporary)'
+    parameters:
+    - id: TempNewOfficeAddinContext
+      parameterType:
+        name: Record "Office Add-in Context" temporary
+        isExternal: true
+  name: InitializeContext
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.InitializeContext(Office_Add-in_Context)
+- syntax:
+    content: 'procedure AddRecipient(Name: Text[100], Email: Text[80])'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: Email
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: AddRecipient
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.AddRecipient(Text[100],Text[80])
+- syntax:
+    content: 'procedure AttachAvailable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AttachAvailable
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.AttachAvailable:Boolean
+- syntax:
+    content: 'procedure AttachDocument(AttachmentStream: InStream, AttachmentName: Text, BodyText: Text, Subject: Text)'
+    parameters:
+    - id: AttachmentStream
+      parameterType:
+        name: InStream
+        isExternal: true
+    - id: AttachmentName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BodyText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Subject
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AttachDocument
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.AttachDocument(InStream,Text,Text,Text)
+- syntax:
+    content: 'procedure AttachDocument(BodyText: Text, Subject: Text)'
+    parameters:
+    - id: BodyText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Subject
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AttachDocument
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.AttachDocument(Text,Text)
+- syntax:
+    content: 'procedure ChangeCompany(NewCompany: Text)'
+    parameters:
+    - id: NewCompany
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ChangeCompany
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.ChangeCompany(Text)
+- syntax:
+    content: 'procedure ChangeCompanyWithPrompt(NewCompany: Text, Prompt: Text): Boolean'
+    parameters:
+    - id: NewCompany
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Prompt
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ChangeCompanyWithPrompt
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.ChangeCompanyWithPrompt(Text,Text):Boolean
+- syntax:
+    content: 'procedure CheckForExistingInvoice(CustNo: Code[20]): Boolean'
+    parameters:
+    - id: CustNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckForExistingInvoice
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.CheckForExistingInvoice(Code[20]):Boolean
+- syntax:
+    content: procedure CloseEnginePage()
+  name: CloseEnginePage
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.CloseEnginePage
+- syntax:
+    content: 'procedure DisplayOCRUploadSuccessMessage(UploadedDocumentCount: Integer)'
+    parameters:
+    - id: UploadedDocumentCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DisplayOCRUploadSuccessMessage
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.DisplayOCRUploadSuccessMessage(Integer)
+- syntax:
+    content: 'procedure DisplayIncomingDocumentUploadSuccessMessage(UploadedDocumentCount: Integer)'
+    parameters:
+    - id: UploadedDocumentCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DisplayIncomingDocumentUploadSuccessMessage
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.DisplayIncomingDocumentUploadSuccessMessage(Integer)
+- syntax:
+    content: 'procedure DisplayAttachmentUploadSuccessMessage(UploadedDocumentCount: Integer)'
+    parameters:
+    - id: UploadedDocumentCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DisplayAttachmentUploadSuccessMessage
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.DisplayAttachmentUploadSuccessMessage(Integer)
+- syntax:
+    content: 'procedure DisplaySuccessMessage(var ExchangeObject: Record "Exchange Object" temporary)'
+    parameters:
+    - id: ExchangeObject
+      parameterType:
+        name: Record "Exchange Object" temporary
+        isExternal: true
+  name: DisplaySuccessMessage
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.DisplaySuccessMessage(Exchange_Object@)
+- syntax:
+    content: 'procedure GetContact(var Contact: Record Contact, LinkToNo: Code[20]): Boolean'
+    parameters:
+    - id: Contact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: LinkToNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetContact
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.GetContact(Contact@,Code[20]):Boolean
+- syntax:
+    content: 'procedure GetContext(var TempOfficeAddinContext: Record "Office Add-in Context" temporary)'
+    parameters:
+    - id: TempOfficeAddinContext
+      parameterType:
+        name: Record "Office Add-in Context" temporary
+        isExternal: true
+  name: GetContext
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.GetContext(Office_Add-in_Context@)
+- syntax:
+    content: 'procedure GetEmailBody(OfficeAddinContext: Record "Office Add-in Context"): Text'
+    parameters:
+    - id: OfficeAddinContext
+      parameterType:
+        name: Record "Office Add-in Context"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetEmailBody
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.GetEmailBody(Office_Add-in_Context):Text
+- syntax:
+    content: 'procedure GetFinancialsDocument(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetFinancialsDocument
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.GetFinancialsDocument:Text
+- syntax:
+    content: 'procedure EmailHasAttachments(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EmailHasAttachments
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.EmailHasAttachments:Boolean
+- syntax:
+    content: 'procedure InitiateSendToOCR(VendorNumber: Code[20])'
+    parameters:
+    - id: VendorNumber
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InitiateSendToOCR
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.InitiateSendToOCR(Code[20])
+- syntax:
+    content: 'procedure InitiateSendToIncomingDocumentsWithPurchaseHeaderLink(PurchaseHeader: Record "Purchase Header", VendorNumber: Code[20])'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: VendorNumber
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InitiateSendToIncomingDocumentsWithPurchaseHeaderLink
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.InitiateSendToIncomingDocumentsWithPurchaseHeaderLink(Purchase_Header,Code[20])
+- syntax:
+    content: 'procedure InitiateSendToIncomingDocuments(VendorNumber: Code[20])'
+    parameters:
+    - id: VendorNumber
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InitiateSendToIncomingDocuments
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.InitiateSendToIncomingDocuments(Code[20])
+- syntax:
+    content: 'procedure InitiateSendToAttachments(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: InitiateSendToAttachments
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.InitiateSendToAttachments(RecordRef)
+- syntax:
+    content: 'procedure InitiateSendApprovalRequest(VendorNumber: Code[20])'
+    parameters:
+    - id: VendorNumber
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InitiateSendApprovalRequest
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.InitiateSendApprovalRequest(Code[20])
+- syntax:
+    content: 'procedure IsAvailable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAvailable
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.IsAvailable:Boolean
+- syntax:
+    content: 'procedure IsOutlookMobileApp(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOutlookMobileApp
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.IsOutlookMobileApp:Boolean
+- syntax:
+    content: 'procedure IsPopOut(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPopOut
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.IsPopOut:Boolean
+- syntax:
+    content: 'procedure OCRAvailable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OCRAvailable
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.OCRAvailable:Boolean
+- syntax:
+    content: 'procedure SelectAndChangeCompany(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SelectAndChangeCompany
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.SelectAndChangeCompany:Text
+- syntax:
+    content: 'procedure SendToOCR(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: SendToOCR
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.SendToOCR(Incoming_Document@)
+- syntax:
+    content: 'procedure StoreValue(Name: Text, Value: Text)'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: Text
+        isExternal: true
+  name: StoreValue
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.StoreValue(Text,Text)
+- syntax:
+    content: 'procedure SaveEmailBodyHTML(OutputFileName: Text, HTMLText: Text)'
+    parameters:
+    - id: OutputFileName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: HTMLText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SaveEmailBodyHTML
+  uid: M:Codeunit::Microsoft#CRM#Outlook#Office_Management.SaveEmailBodyHTML(Text,Text)
+commentId: O:Codeunit::Microsoft#CRM#Outlook#Office Management
+name: '"Office Management"'
+uid: O:Codeunit::Microsoft#CRM#Outlook#Office_Management

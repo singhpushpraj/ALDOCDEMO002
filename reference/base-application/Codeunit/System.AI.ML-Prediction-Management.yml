@@ -1,0 +1,277 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.AI."ML Prediction Management"
+alId: ID 2003
+namespace: System.AI
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.AI
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: procedure DefaultInitialize()
+  name: DefaultInitialize
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.DefaultInitialize
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use "Initialize(Uri: Text[250]; "Key": SecretText; TimeOutSeconds: Integer)" instead.,24.0)]'
+    content: 'procedure Initialize(Uri: Text[250], "Key": Text[200], TimeOutSeconds: Integer)'
+    parameters:
+    - id: Uri
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: Key
+      parameterType:
+        name: Text[200]
+        isExternal: true
+    - id: TimeOutSeconds
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Initialize
+  obsoletion:
+    state: pending
+    reason: 'Use "Initialize(Uri: Text[250]; "Key": SecretText; TimeOutSeconds: Integer)" instead.'
+    version: "24.0"
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.Initialize(Text[250],Text[200],Integer)
+- syntax:
+    content: 'procedure Initialize(Uri: Text[250], "Key": SecretText, TimeOutSeconds: Integer)'
+    parameters:
+    - id: Uri
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: Key
+      parameterType:
+        name: SecretText
+        isExternal: true
+    - id: TimeOutSeconds
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.Initialize(Text[250],SecretText,Integer)
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure InitializeWithKeyVaultCredentials(TimeOutSeconds: Integer)'
+    parameters:
+    - id: TimeOutSeconds
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitializeWithKeyVaultCredentials
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.InitializeWithKeyVaultCredentials(Integer)
+- syntax:
+    content: 'procedure SetRecord(RecordVariant: Variant)'
+    parameters:
+    - id: RecordVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetRecord
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.SetRecord(Variant)
+- syntax:
+    content: 'procedure GetRecord(var RecordVariant: Variant)'
+    parameters:
+    - id: RecordVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetRecord
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.GetRecord(Variant@)
+- syntax:
+    content: 'procedure AddFeature(FeatureFieldNo: Integer)'
+    parameters:
+    - id: FeatureFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: AddFeature
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.AddFeature(Integer)
+- syntax:
+    content: 'procedure SetLabel(LabelFieldNo: Integer)'
+    parameters:
+    - id: LabelFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLabel
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.SetLabel(Integer)
+- syntax:
+    content: 'procedure SetConfidence(ConfidenceFieldNo: Integer)'
+    parameters:
+    - id: ConfidenceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetConfidence
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.SetConfidence(Integer)
+- syntax:
+    content: 'procedure SetTrainingPercent(TrainingPercentValue: Decimal)'
+    parameters:
+    - id: TrainingPercentValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetTrainingPercent
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.SetTrainingPercent(Decimal)
+- syntax:
+    content: 'procedure GetTrainingPercent(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTrainingPercent
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.GetTrainingPercent:Decimal
+- syntax:
+    content: 'procedure Train(var Model: Text, var Quality: Decimal)'
+    parameters:
+    - id: Model
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Quality
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: Train
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.Train(Text@,Decimal@)
+- syntax:
+    content: 'procedure Predict(Model: Text)'
+    parameters:
+    - id: Model
+      parameterType:
+        name: Text
+        isExternal: true
+  name: Predict
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.Predict(Text)
+- syntax:
+    content: 'procedure Evaluate(Model: Text, var Quality: Decimal)'
+    parameters:
+    - id: Model
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Quality
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: Evaluate
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.Evaluate(Text,Decimal@)
+- syntax:
+    content: 'procedure PlotModel(Model: Text, Features: Text, Labels: Text): Text'
+    parameters:
+    - id: Model
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Features
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Labels
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: PlotModel
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.PlotModel(Text,Text,Text):Text
+- syntax:
+    content: 'procedure DownloadPlot(PdfDataBase64: Text, ModelName: Text)'
+    parameters:
+    - id: PdfDataBase64
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ModelName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: DownloadPlot
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.DownloadPlot(Text,Text)
+- syntax:
+    content: 'procedure IsDataSufficientForClassification(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDataSufficientForClassification
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.IsDataSufficientForClassification:Boolean
+- syntax:
+    content: 'procedure IsDataSufficientForRegression(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDataSufficientForRegression
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.IsDataSufficientForRegression:Boolean
+- syntax:
+    content: 'procedure IsDataSufficientBase(var RecRef: RecordRef): Boolean'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDataSufficientBase
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.IsDataSufficientBase(RecordRef@):Boolean
+- syntax:
+    content: 'procedure GetParameter(Name: Text): Text'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetParameter
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.GetParameter(Text):Text
+- syntax:
+    content: 'procedure GetInput(RowNo: Integer, ColumnNo: Integer): Text'
+    parameters:
+    - id: RowNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ColumnNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetInput
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.GetInput(Integer,Integer):Text
+- syntax:
+    content: 'procedure GetInputLength(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetInputLength
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.GetInputLength:Integer
+- syntax:
+    content: 'procedure MaxNoFeatures(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: MaxNoFeatures
+  uid: M:Codeunit::System#AI#ML_Prediction_Management.MaxNoFeatures:Integer
+commentId: O:Codeunit::System#AI#ML Prediction Management
+name: '"ML Prediction Management"'
+uid: O:Codeunit::System#AI#ML_Prediction_Management

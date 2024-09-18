@@ -1,0 +1,229 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Inventory Posting To G/L"
+alId: ID 5802
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "G/L Account" = r,
+                      TableData "Invt. Posting Buffer" = rimd,
+                      TableData "Value Entry" = rm,
+                      TableData "G/L - Item Ledger Relation" = rimd
+  promoted: false
+- name: TableNo
+  value: Value Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Ledger#Value_Entry
+    name: Microsoft.Inventory.Ledger."Value Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Initialize(PostPerPostGroup: Boolean)'
+    parameters:
+    - id: PostPerPostGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.Initialize(Boolean)
+- syntax:
+    content: 'procedure SetGenJnlBatch(JnlTemplName: Code[10], JnlBatchName: Code[10])'
+    parameters:
+    - id: JnlTemplName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.SetGenJnlBatch(Code[10],Code[10])
+- syntax:
+    content: 'procedure SetRunOnlyCheck(SetCalledFromItemPosting: Boolean, SetCheckOnly: Boolean, SetCalledFromTestReport: Boolean)'
+    parameters:
+    - id: SetCalledFromItemPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SetCheckOnly
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SetCalledFromTestReport
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetRunOnlyCheck
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.SetRunOnlyCheck(Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure BufferInvtPosting(var ValueEntry: Record "Value Entry"): Boolean'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BufferInvtPosting
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.BufferInvtPosting(Value_Entry@):Boolean
+- syntax:
+    content: 'procedure InitInvtPostBuf(ValueEntry: Record "Value Entry", AccType: Enum "Invt. Posting Buffer Account Type", BalAccType: Enum "Invt. Posting Buffer Account Type", CostToPost: Decimal, CostToPostACY: Decimal, InterimAccount: Boolean)'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: AccType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Costing#Invt#_Posting_Buffer_Account_Type
+        name: Microsoft.Inventory.Costing."Invt. Posting Buffer Account Type"
+        isExternal: false
+    - id: BalAccType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Costing#Invt#_Posting_Buffer_Account_Type
+        name: Microsoft.Inventory.Costing."Invt. Posting Buffer Account Type"
+        isExternal: false
+    - id: CostToPost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CostToPostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InterimAccount
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitInvtPostBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.InitInvtPostBuf(Value_Entry,Enum::Microsoft#Inventory#Costing#Invt#_Posting_Buffer_Account_Type,Enum::Microsoft#Inventory#Costing#Invt#_Posting_Buffer_Account_Type,Decimal,Decimal,Boolean)
+- syntax:
+    content: 'procedure PostInvtPostBufPerEntry(var ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: PostInvtPostBufPerEntry
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.PostInvtPostBufPerEntry(Value_Entry@)
+- syntax:
+    content: 'procedure PostInvtPostBufPerPostGrp(DocNo: Code[20], Desc: Text[50])'
+    parameters:
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Desc
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: PostInvtPostBufPerPostGrp
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.PostInvtPostBufPerPostGrp(Code[20],Text[50])
+- syntax:
+    content: 'procedure SetDesc(var GenJnlLine: Record "Gen. Journal Line", InvtPostBuf: Record "Invt. Posting Buffer" temporary)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: InvtPostBuf
+      parameterType:
+        name: Record "Invt. Posting Buffer" temporary
+        isExternal: true
+  name: SetDesc
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.SetDesc(Gen#_Journal_Line@,Invt#_Posting_Buffer)
+- syntax:
+    content: 'procedure GetTempInvtPostToGLTestBuf(var InvtPostToGLTestBuf: Record "Invt. Post to G/L Test Buffer")'
+    parameters:
+    - id: InvtPostToGLTestBuf
+      parameterType:
+        name: Record "Invt. Post to G/L Test Buffer"
+        isExternal: true
+  name: GetTempInvtPostToGLTestBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.GetTempInvtPostToGLTestBuf(Invt#_Post_to_G/L_Test_Buffer@)
+- syntax:
+    content: 'procedure GetAmtToPost(var NewCOGSAmt: Decimal, var NewInvtAdjmtAmt: Decimal, var NewDirCostAmt: Decimal, var NewOvhdCostAmt: Decimal, var NewVarPurchCostAmt: Decimal, var NewVarMfgDirCostAmt: Decimal, var NewVarMfgOvhdCostAmt: Decimal, var NewWIPInvtAmt: Decimal, var NewInvtAmt: Decimal, GetTotal: Boolean)'
+    parameters:
+    - id: NewCOGSAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewInvtAdjmtAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewDirCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewOvhdCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewVarPurchCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewVarMfgDirCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewVarMfgOvhdCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewWIPInvtAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewInvtAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GetTotal
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetAmtToPost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.GetAmtToPost(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Boolean)
+- syntax:
+    content: 'procedure GetInvtPostBuf(var InvtPostBuf: Record "Invt. Posting Buffer" temporary)'
+    parameters:
+    - id: InvtPostBuf
+      parameterType:
+        name: Record "Invt. Posting Buffer" temporary
+        isExternal: true
+  name: GetInvtPostBuf
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.GetInvtPostBuf(Invt#_Posting_Buffer@)
+- syntax:
+    content: 'procedure CheckGenJnlLine(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckGenJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.CheckGenJnlLine(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure PostGenJnlLine(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: PostGenJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L.PostGenJnlLine(Gen#_Journal_Line@)
+commentId: O:Codeunit::Microsoft#Inventory#Costing#Inventory Posting To G/L
+name: '"Inventory Posting To G/L"'
+uid: O:Codeunit::Microsoft#Inventory#Costing#Inventory_Posting_To_G/L

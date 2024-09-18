@@ -1,0 +1,111 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Release Sales Document"
+alId: ID 414
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Sales Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Sales Header" = rm,
+                      TableData "Sales Line" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Reopen(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: Reopen
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.Reopen(Sales_Header@)
+- syntax:
+    content: 'procedure PerformManualRelease(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PerformManualRelease
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.PerformManualRelease(Sales_Header@)
+- syntax:
+    content: 'procedure PerformManualCheckAndRelease(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PerformManualCheckAndRelease
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.PerformManualCheckAndRelease(Sales_Header@)
+- syntax:
+    content: 'procedure PerformManualReopen(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PerformManualReopen
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.PerformManualReopen(Sales_Header@)
+- syntax:
+    content: 'procedure ReleaseSalesHeader(var SalesHdr: Record "Sales Header", Preview: Boolean): Boolean'
+    parameters:
+    - id: SalesHdr
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: Preview
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReleaseSalesHeader
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.ReleaseSalesHeader(Sales_Header@,Boolean):Boolean
+- syntax:
+    content: procedure SetSkipCheckReleaseRestrictions()
+  name: SetSkipCheckReleaseRestrictions
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.SetSkipCheckReleaseRestrictions
+- syntax:
+    content: 'procedure SetSkipWhseRequestOperations(NewSkipWhseRequestOperations: Boolean)'
+    parameters:
+    - id: NewSkipWhseRequestOperations
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipWhseRequestOperations
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.SetSkipWhseRequestOperations(Boolean)
+- syntax:
+    content: 'procedure CalcAndUpdateVATOnLines(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalcAndUpdateVATOnLines
+  uid: M:Codeunit::Microsoft#Sales#Document#Release_Sales_Document.CalcAndUpdateVATOnLines(Sales_Header@,Sales_Line@):Boolean
+commentId: O:Codeunit::Microsoft#Sales#Document#Release Sales Document
+name: '"Release Sales Document"'
+uid: O:Codeunit::Microsoft#Sales#Document#Release_Sales_Document

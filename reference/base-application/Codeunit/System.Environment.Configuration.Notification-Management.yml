@@ -1,0 +1,92 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment.Configuration."Notification Management"
+alId: ID 1510
+namespace: System.Environment.Configuration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment.Configuration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Overdue Approval Entry" = ri,
+                      TableData "Notification Entry" = rimd,
+                      TableData "Sent Notification Entry" = rim
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateOverdueNotifications(WorkflowStepArgument: Record "Workflow Step Argument")'
+    parameters:
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+  name: CreateOverdueNotifications
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Management.CreateOverdueNotifications(Workflow_Step_Argument)
+- syntax:
+    content: 'procedure CreateDefaultNotificationTypeSetup(NotificationType: Enum "Notification Entry Type")'
+    parameters:
+    - id: NotificationType
+      parameterType:
+        internalReference: O:Enum::System#Environment#Configuration#Notification_Entry_Type
+        name: System.Environment.Configuration."Notification Entry Type"
+        isExternal: false
+  name: CreateDefaultNotificationTypeSetup
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Management.CreateDefaultNotificationTypeSetup(Enum::System#Environment#Configuration#Notification_Entry_Type)
+- syntax:
+    content: 'procedure MoveNotificationEntryToSentNotificationEntries(var NotificationEntry: Record "Notification Entry", NotificationBody: Text, AggregatedNotifications: Boolean, NotificationMethod: Option)'
+    parameters:
+    - id: NotificationEntry
+      parameterType:
+        name: Record "Notification Entry"
+        isExternal: true
+    - id: NotificationBody
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AggregatedNotifications
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NotificationMethod
+      parameterType:
+        name: Option
+        isExternal: true
+  name: MoveNotificationEntryToSentNotificationEntries
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Management.MoveNotificationEntryToSentNotificationEntries(Notification_Entry@,Text,Boolean,Option)
+- syntax:
+    content: 'procedure GetDocumentTypeAndNumber(var RecRef: RecordRef, var DocumentType: Text, var DocumentNo: Text)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetDocumentTypeAndNumber
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Management.GetDocumentTypeAndNumber(RecordRef@,Text@,Text@)
+- syntax:
+    content: 'procedure GetActionTextFor(var NotificationEntry: Record "Notification Entry"): Text'
+    parameters:
+    - id: NotificationEntry
+      parameterType:
+        name: Record "Notification Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetActionTextFor
+  uid: M:Codeunit::System#Environment#Configuration#Notification_Management.GetActionTextFor(Notification_Entry@):Text
+commentId: O:Codeunit::System#Environment#Configuration#Notification Management
+name: '"Notification Management"'
+uid: O:Codeunit::System#Environment#Configuration#Notification_Management

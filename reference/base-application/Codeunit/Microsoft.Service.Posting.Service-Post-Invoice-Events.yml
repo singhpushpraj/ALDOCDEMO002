@@ -1,0 +1,489 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Service Post Invoice Events"
+alId: ID 827
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure RunOnAfterUpdateInvoicePostingBuffer(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnAfterUpdateInvoicePostingBuffer
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnAfterUpdateInvoicePostingBuffer(Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnAfterGetSalesAccount(ServiceLine: Record "Service Line", GenPostingSetup: Record "General Posting Setup", var SalesAccountNo: Code[20])'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: SalesAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RunOnAfterGetSalesAccount
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnAfterGetSalesAccount(Service_Line,General_Posting_Setup,Code[20]@)
+- syntax:
+    content: 'procedure RunOnAfterPrepareGenJnlLineFromInvoicePostBuffer(ServiceHeader: Record "Service Header", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: RunOnAfterPrepareGenJnlLineFromInvoicePostBuffer
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnAfterPrepareGenJnlLineFromInvoicePostBuffer(Service_Header,Invoice_Posting_Buffer@,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure RunOnBeforePrepareLine(ServiceHeader: Record "Service Header", ServiceLine: Record "Service Line", ServiceLineACY: Record "Service Line", var IsHandled: Boolean)'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforePrepareLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnBeforePrepareLine(Service_Header,Service_Line,Service_Line,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeCalcInvoiceDiscountPosting(ServiceHeader: Record "Service Header", ServiceLine: Record "Service Line", ServiceLineACY: Record "Service Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var IsHandled: Boolean)'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCalcInvoiceDiscountPosting
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnBeforeCalcInvoiceDiscountPosting(Service_Header,Service_Line,Service_Line,Invoice_Posting_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeCalcLineDiscountPosting(ServiceHeader: Record "Service Header", ServiceLine: Record "Service Line", ServiceLineACY: Record "Service Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var IsHandled: Boolean)'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeCalcLineDiscountPosting
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnBeforeCalcLineDiscountPosting(Service_Header,Service_Line,Service_Line,Invoice_Posting_Buffer@,Boolean@)
+- syntax:
+    content: 'procedure RunOnBeforeGetSalesAccount(ServiceLine: Record "Service Line", GenPostingSetup: Record "General Posting Setup", var SalesAccountNo: Code[20], var IsHandled: Boolean)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: SalesAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnBeforeGetSalesAccount
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnBeforeGetSalesAccount(Service_Line,General_Posting_Setup,Code[20]@,Boolean@)
+- syntax:
+    content: 'procedure RunOnUpdateInvoicePostingBufferOnBeforeUpdate(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: RunOnUpdateInvoicePostingBufferOnBeforeUpdate
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnUpdateInvoicePostingBufferOnBeforeUpdate(Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterFillInvoicePostingBuffer(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, ServiceLine: Record "Service Line", ServiceLineACY: Record "Service Line", SuppressCommit: Boolean)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnAfterFillInvoicePostingBuffer
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPrepareLineOnAfterFillInvoicePostingBuffer(Invoice_Posting_Buffer@,Service_Line,Service_Line,Boolean)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnAfterSetAmounts(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, ServiceLine: Record "Service Line")'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: RunOnPrepareLineOnAfterSetAmounts
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPrepareLineOnAfterSetAmounts(Invoice_Posting_Buffer@,Service_Line)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeSetAmounts(ServiceLine: Record "Service Line", ServiceLineACY: Record "Service Line", var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var TotalVAT: Decimal, var TotalVATACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal, var TotalVATBase: Decimal, var TotalVATBaseACY: Decimal, var IsHandled: Boolean)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBaseACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeSetAmounts
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPrepareLineOnBeforeSetAmounts(Service_Line,Service_Line,Invoice_Posting_Buffer@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Boolean@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeSetAccount(ServiceHeader: Record "Service Header", ServiceLine: Record "Service Line", var SalesAccountNo: Code[20])'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: SalesAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeSetAccount
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPrepareLineOnBeforeSetAccount(Service_Header,Service_Line,Code[20]@)
+- syntax:
+    content: 'procedure RunOnPrepareLineOnBeforeUpdateInvoicePostingBufferLineDiscounts(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, ServiceLine: Record "Service Line")'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: RunOnPrepareLineOnBeforeUpdateInvoicePostingBufferLineDiscounts
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPrepareLineOnBeforeUpdateInvoicePostingBufferLineDiscounts(Invoice_Posting_Buffer@,Service_Line)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnAfterGenJnlPostLine(var GenJournalLine: Record "Gen. Journal Line", ServiceHeader: Record "Service Header", var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostBalancingEntryOnAfterGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPostBalancingEntryOnAfterGenJnlPostLine(Gen#_Journal_Line@,Service_Header,Service_Line@,Service_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostBalancingEntryOnBeforeGenJnlPostLine(var GenJournalLine: Record "Gen. Journal Line", ServiceHeader: Record "Service Header", var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostBalancingEntryOnBeforeGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPostBalancingEntryOnBeforeGenJnlPostLine(Gen#_Journal_Line@,Service_Header,Service_Line@,Service_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostLedgerEntryOnAfterGenJnlPostLine(var GenJournalLine: Record "Gen. Journal Line", ServiceHeader: Record "Service Header", var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostLedgerEntryOnAfterGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPostLedgerEntryOnAfterGenJnlPostLine(Gen#_Journal_Line@,Service_Header,Service_Line@,Service_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostLedgerEntryOnBeforeGenJnlPostLine(var GenJournalLine: Record "Gen. Journal Line", ServiceHeader: Record "Service Header", var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", PreviewMode: Boolean, SuppressCommit: Boolean, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: RunOnPostLedgerEntryOnBeforeGenJnlPostLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPostLedgerEntryOnBeforeGenJnlPostLine(Gen#_Journal_Line@,Service_Header,Service_Line@,Service_Line@,Boolean,Boolean,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure RunOnPostLinesOnAfterGenJnlLinePost(var GenJnlLine: Record "Gen. Journal Line", ServiceHeader: Record "Service Header", TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", PreviewMode: Boolean, SuppressCommit: Boolean, GLEntryNo: Integer)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RunOnPostLinesOnAfterGenJnlLinePost
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPostLinesOnAfterGenJnlLinePost(Gen#_Journal_Line@,Service_Header,Invoice_Posting_Buffer,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Boolean,Boolean,Integer)
+- syntax:
+    content: 'procedure RunOnPostLinesOnBeforeGenJnlLinePost(var GenJnlLine: Record "Gen. Journal Line", ServiceHeader: Record "Service Header", TempInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", PreviewMode: Boolean, SuppressCommit: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TempInvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: PreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RunOnPostLinesOnBeforeGenJnlLinePost
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPostLinesOnBeforeGenJnlLinePost(Gen#_Journal_Line@,Service_Header,Invoice_Posting_Buffer,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Boolean,Boolean)
+- syntax:
+    content: 'procedure RunOnPrepareLineAfterGetGenPostingSetup(var GeneralPostingSetup: Record "General Posting Setup", ServiceHeader: Record "Service Header", ServiceLine: Record "Service Line", ServiceLineACY: Record "Service Line")'
+    parameters:
+    - id: GeneralPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServiceLineACY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: RunOnPrepareLineAfterGetGenPostingSetup
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events.RunOnPrepareLineAfterGetGenPostingSetup(General_Posting_Setup@,Service_Header,Service_Line,Service_Line)
+commentId: O:Codeunit::Microsoft#Service#Posting#Service Post Invoice Events
+name: '"Service Post Invoice Events"'
+uid: O:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice_Events

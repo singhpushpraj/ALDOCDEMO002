@@ -1,0 +1,147 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.ProductionBOM."Calculate Low-Level Code"
+alId: ID 99000793
+namespace: Microsoft.Manufacturing.ProductionBOM
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.ProductionBOM
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = rm,
+                      TableData "Manufacturing Setup" = r
+  promoted: false
+- name: TableNo
+  value: Item
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Item#Item
+    name: Microsoft.Inventory.Item.Item
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CalcLevels(Type: Option, No: Code[20], Level: Integer, LevelDepth: Integer): Integer'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LevelDepth
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CalcLevels
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.CalcLevels(Option,Code[20],Integer,Integer):Integer
+- syntax:
+    content: 'procedure RecalcLowerLevels(ProdBOMNo: Code[20], LowLevelCode: Integer, IgnoreMissingItemsOrBOMs: Boolean)'
+    parameters:
+    - id: ProdBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LowLevelCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IgnoreMissingItemsOrBOMs
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecalcLowerLevels
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.RecalcLowerLevels(Code[20],Integer,Boolean)
+- syntax:
+    content: 'procedure RecalcAsmLowerLevels(ParentItemNo: Code[20], LowLevelCode: Integer, IgnoreMissingItemsOrBOMs: Boolean)'
+    parameters:
+    - id: ParentItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LowLevelCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IgnoreMissingItemsOrBOMs
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecalcAsmLowerLevels
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.RecalcAsmLowerLevels(Code[20],Integer,Boolean)
+- syntax:
+    content: 'procedure SetRecursiveLevelsOnItem(var CompItem: Record Item, LowLevelCode: Integer, IgnoreMissingItemsOrBOMs: Boolean)'
+    parameters:
+    - id: CompItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: LowLevelCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IgnoreMissingItemsOrBOMs
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetRecursiveLevelsOnItem
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.SetRecursiveLevelsOnItem(Item@,Integer,Boolean)
+- syntax:
+    content: 'procedure SetRecursiveLevelsOnBOM(var CompBOM: Record "Production BOM Header", LowLevelCode: Integer, IgnoreMissingItemsOrBOMs: Boolean)'
+    parameters:
+    - id: CompBOM
+      parameterType:
+        name: Record "Production BOM Header"
+        isExternal: true
+    - id: LowLevelCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IgnoreMissingItemsOrBOMs
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetRecursiveLevelsOnBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.SetRecursiveLevelsOnBOM(Production_BOM_Header@,Integer,Boolean)
+- syntax:
+    content: 'procedure GetMax(Level1: Integer, Level2: Integer): Integer'
+    parameters:
+    - id: Level1
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Level2
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetMax
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.GetMax(Integer,Integer):Integer
+- syntax:
+    content: 'procedure SetActualProdBOM(ActualProdBOM2: Record "Production BOM Header")'
+    parameters:
+    - id: ActualProdBOM2
+      parameterType:
+        name: Record "Production BOM Header"
+        isExternal: true
+  name: SetActualProdBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code.SetActualProdBOM(Production_BOM_Header)
+commentId: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate Low-Level Code
+name: '"Calculate Low-Level Code"'
+uid: O:Codeunit::Microsoft#Manufacturing#ProductionBOM#Calculate_Low-Level_Code

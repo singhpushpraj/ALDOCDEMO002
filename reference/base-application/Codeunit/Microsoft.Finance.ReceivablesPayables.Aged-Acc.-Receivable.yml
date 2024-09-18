@@ -1,0 +1,277 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Aged Acc. Receivable"
+alId: ID 763
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure UpdateDataPerGroup(var BusChartBuf: Record "Business Chart Buffer", var TempEntryNoAmountBuf: Record "Entry No. Amount Buffer" temporary)'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    - id: TempEntryNoAmountBuf
+      parameterType:
+        name: Record "Entry No. Amount Buffer" temporary
+        isExternal: true
+  name: UpdateDataPerGroup
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.UpdateDataPerGroup(Business_Chart_Buffer@,Entry_No#_Amount_Buffer@)
+- syntax:
+    content: 'procedure DateFilterByAge(Index: Integer, var StartDate: Date, PeriodLength: Text[1], NoOfPeriods: Integer, var EndDate: Date): Text'
+    parameters:
+    - id: Index
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    - id: NoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: DateFilterByAge
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.DateFilterByAge(Integer,Date@,Text[1],Integer,Date@):Text
+- syntax:
+    content: 'procedure InsertAmountBuffer(Index: Integer, BussUnitCode: Code[20], AmountLCY: Decimal, StartDate: Date, EndDate: Date, var TempEntryNoAmountBuffer: Record "Entry No. Amount Buffer" temporary)'
+    parameters:
+    - id: Index
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BussUnitCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TempEntryNoAmountBuffer
+      parameterType:
+        name: Record "Entry No. Amount Buffer" temporary
+        isExternal: true
+  name: InsertAmountBuffer
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.InsertAmountBuffer(Integer,Code[20],Decimal,Date,Date,Entry_No#_Amount_Buffer@)
+- syntax:
+    content: 'procedure InitParameters(BusChartBuf: Record "Business Chart Buffer", var PeriodLength: Text[1], var NoOfPeriods: Integer)'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    - id: NoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitParameters
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.InitParameters(Business_Chart_Buffer,Text[1]@,Integer@)
+- syntax:
+    content: 'procedure InitParameters(BusChartBuf: Record "Business Chart Buffer", var PeriodLength: Text[1], var NoOfPeriods: Integer, var TempEntryNoAmountBuf: Record "Entry No. Amount Buffer" temporary)'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    - id: NoOfPeriods
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempEntryNoAmountBuf
+      parameterType:
+        name: Record "Entry No. Amount Buffer" temporary
+        isExternal: true
+  name: InitParameters
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.InitParameters(Business_Chart_Buffer,Text[1]@,Integer@,Entry_No#_Amount_Buffer@)
+- syntax:
+    content: 'procedure FormatColumnName(Index: Integer, PeriodLength: Text[1], NoOfColumns: Integer, Period: Option): Text'
+    parameters:
+    - id: Index
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    - id: NoOfColumns
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Period
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FormatColumnName
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.FormatColumnName(Integer,Text[1],Integer,Option):Text
+- syntax:
+    content: 'procedure DrillDown(var BusChartBuf: Record "Business Chart Buffer", CustomerNo: Code[20], var TempEntryNoAmountBuf: Record "Entry No. Amount Buffer" temporary)'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TempEntryNoAmountBuf
+      parameterType:
+        name: Record "Entry No. Amount Buffer" temporary
+        isExternal: true
+  name: DrillDown
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.DrillDown(Business_Chart_Buffer@,Code[20],Entry_No#_Amount_Buffer@)
+- syntax:
+    content: 'procedure DrillDownByGroup(var BusChartBuf: Record "Business Chart Buffer", var TempEntryNoAmountBuf: Record "Entry No. Amount Buffer" temporary)'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    - id: TempEntryNoAmountBuf
+      parameterType:
+        name: Record "Entry No. Amount Buffer" temporary
+        isExternal: true
+  name: DrillDownByGroup
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.DrillDownByGroup(Business_Chart_Buffer@,Entry_No#_Amount_Buffer@)
+- syntax:
+    content: 'procedure DrillDownCustLedgEntries(CustomerNo: Code[20], CustomerGroupCode: Code[20], StartDate: Date, EndDate: Date)'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CustomerGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: DrillDownCustLedgEntries
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.DrillDownCustLedgEntries(Code[20],Code[20],Date,Date)
+- syntax:
+    content: 'procedure Description(PerCustomer: Boolean): Text'
+    parameters:
+    - id: PerCustomer
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Description
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.Description(Boolean):Text
+- syntax:
+    content: 'procedure UpdateStatusText(BusChartBuf: Record "Business Chart Buffer"): Text'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: UpdateStatusText
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.UpdateStatusText(Business_Chart_Buffer):Text
+- syntax:
+    content: 'procedure SaveSettings(BusChartBuf: Record "Business Chart Buffer")'
+    parameters:
+    - id: BusChartBuf
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+  name: SaveSettings
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.SaveSettings(Business_Chart_Buffer)
+- syntax:
+    content: 'procedure InvoicePaymentDaysAverage(CustomerNo: Code[20]): Decimal'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: InvoicePaymentDaysAverage
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.InvoicePaymentDaysAverage(Code[20]):Decimal
+- syntax:
+    content: 'procedure RoundAmount(Amount: Decimal): Decimal'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundAmount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.RoundAmount(Decimal):Decimal
+- syntax:
+    content: 'procedure OverDueText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: OverDueText
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.OverDueText:Text
+- syntax:
+    content: 'procedure AmountText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AmountText
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable.AmountText:Text
+commentId: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged Acc# Receivable
+name: '"Aged Acc. Receivable"'
+uid: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Aged_Acc#_Receivable

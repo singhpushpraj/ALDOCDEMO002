@@ -1,0 +1,1578 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Calculation."Non-Deductible VAT"
+alId: ID 6200
+namespace: Microsoft.Finance.VAT.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Access
+  value: Public
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure IsNonDeductibleVATEnabled(): Boolean'
+    return:
+      description: if the feature is fully enabled
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns true if the Non-Deductible VAT functionality is enabled
+  name: IsNonDeductibleVATEnabled
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.IsNonDeductibleVATEnabled:Boolean
+- syntax:
+    content: 'procedure ShowNonDeductibleVATInLines(): Boolean'
+    return:
+      description: If Non-Deductible VAT fields are visible in documents
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns true if Non-Deductible VAT fields must be shown in document lines
+  name: ShowNonDeductibleVATInLines
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ShowNonDeductibleVATInLines:Boolean
+- syntax:
+    content: 'procedure GetNonDeductibleVATAmount(PurchaseLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      description: The non-deductible VAT amount
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Returns the non-deductible VAT amount of the current purchase line
+  name: GetNonDeductibleVATAmount
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATAmount(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure GetNonDeductibleVATPct(VATBusPostGroupCode: Code[20], VATProdPostGroupCode: Code[20], GeneralPostingType: Enum "General Posting Type")'
+    parameters:
+    - id: VATBusPostGroupCode
+      description: The VAT business posting group code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProdPostGroupCode
+      description: The VAT product posting group code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GeneralPostingType
+      description: The sales or purchase
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+        name: Microsoft.Foundation.Enums."General Posting Type"
+        isExternal: false
+  summary: Returns the non-deductible VAT percent for the combination of a VAT Business group, VAT Product group and a certain posting type
+  name: GetNonDeductibleVATPct
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATPct(Code[20],Code[20],Enum::Microsoft#Foundation#Enums#General_Posting_Type)
+- syntax:
+    content: 'procedure GetNonDeductibleVATPct(VATPostingSetup: Record "VAT Posting Setup"): Decimal'
+    parameters:
+    - id: VATPostingSetup
+      description: The current VAT posting setup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+    return:
+      description: The non-deductible VAT percent
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Returns the non-deductible VAT percent of the current VAT posting setup
+  name: GetNonDeductibleVATPct
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATPct(VAT_Posting_Setup):Decimal
+- syntax:
+    content: 'procedure GetNonDeductibleVATAmount(GenJournalLine: Record "Gen. Journal Line"): Decimal'
+    parameters:
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      description: The non-deductible VAT amount
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Returns the non-deductible VAT amount of the current general journal line
+  name: GetNonDeductibleVATAmount
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATAmount(Gen#_Journal_Line):Decimal
+- syntax:
+    content: 'procedure GetNonDeductibleVATPct(VATBusPostGroupCode: Code[20], VATProdPostGroupCode: Code[20], DeferralDocType: Enum "Deferral Document Type"): Decimal'
+    parameters:
+    - id: VATBusPostGroupCode
+      description: VAT business posting group code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProdPostGroupCode
+      description: VAT product posting group code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralDocType
+      description: Deferral document type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#Deferral#Deferral_Document_Type
+        name: Microsoft.Finance.Deferral."Deferral Document Type"
+        isExternal: false
+    return:
+      description: The non-deductible VAT percent
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Returns the non-deductible VAT percent for deferrals
+  name: GetNonDeductibleVATPct
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATPct(Code[20],Code[20],Enum::Microsoft#Finance#Deferral#Deferral_Document_Type):Decimal
+- syntax:
+    content: 'procedure GetNonDeductibleVATAccForDeferrals(DeferralDocType: Enum "Deferral Document Type", PostingGLAccountNo: Code[20], VATPostingSetup: Record "VAT Posting Setup"): Code[20]'
+    parameters:
+    - id: DeferralDocType
+      description: Deferral document type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#Deferral#Deferral_Document_Type
+        name: Microsoft.Finance.Deferral."Deferral Document Type"
+        isExternal: false
+    - id: PostingGLAccountNo
+      description: Default posting G/L account number
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATPostingSetup
+      description: VAT Posting Setup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+    return:
+      description: The G/L account number
+      returnType:
+        name: Code[20]
+        isExternal: true
+  summary: Returns the Non-Deductible VAT account for deferrals
+  name: GetNonDeductibleVATAccForDeferrals
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATAccForDeferrals(Enum::Microsoft#Finance#Deferral#Deferral_Document_Type,Code[20],VAT_Posting_Setup):Code[20]
+- syntax:
+    content: 'procedure GetNonDeductibleVATAmountForItemCost(PurchaseLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      description: The Non-Deductible VAT Amount
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Get the Non-Deductible VAT amount to add to the item cost
+  name: GetNonDeductibleVATAmountForItemCost
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATAmountForItemCost(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure GetNonDeductibleAmount(Amount: Decimal, NonDeductiblePercent: Decimal, AmountRoundingPrecision: Decimal, var Rounding: Decimal): Decimal'
+    parameters:
+    - id: Amount
+      description: The base amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDeductiblePercent
+      description: The Non-Deductible VAT percent
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountRoundingPrecision
+      description: Amount rounding precision to apply after multiplication
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Rounding
+      description: The remainining rounding difference after multiplication
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      description: The Non-Deductible VAT Amount
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Get Non-Deductible VAT amount
+  name: GetNonDeductibleAmount
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleAmount(Decimal,Decimal,Decimal,Decimal@):Decimal
+- syntax:
+    content: 'procedure GetNonDeductibleVATBaseBothCurrencies(var NonDedVATBase: Decimal, var NonDedVATBaseACY: Decimal, VATEntry: Record "VAT Entry")'
+    parameters:
+    - id: NonDedVATBase
+      description: The Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATBaseACY
+      description: The Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATEntry
+      description: The current purchase line
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+  summary: Returns the non-deductible VAT base from the VAT entry in both LCY and ACY
+  name: GetNonDeductibleVATBaseBothCurrencies
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDeductibleVATBaseBothCurrencies(Decimal@,Decimal@,VAT_Entry)
+- syntax:
+    content: 'procedure SetNonDeductiblePct(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Sets the non-deductible VAT percent in the purchase line
+  name: SetNonDeductiblePct
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDeductiblePct(Purchase_Line@)
+- syntax:
+    content: 'procedure SetNonDedVATAmountInPurchLine(var PurchaseLine: Record "Purchase Line", NonDeductibleVATAmount: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NonDeductibleVATAmount
+      description: The Non-Deductible VAT amount to set
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set the Non-Deductible VAT amount in the purchase line
+  name: SetNonDedVATAmountInPurchLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDedVATAmountInPurchLine(Purchase_Line@,Decimal)
+- syntax:
+    content: 'procedure SetNonDedVATAmountDiffInPurchLine(var PurchaseLine: Record "Purchase Line", var VATAmountLineRemainder: Record "VAT Amount Line", var VATDifference: Decimal, VATAmountLine: Record "VAT Amount Line", Currency: Record Currency, Part: Decimal, Total: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmountLineRemainder
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: VATDifference
+      description: The Non-Deductible VAT difference to set
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: Part
+      description: The numerator for the factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Total
+      description: The denominator for factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set the Non-Deductible VAT difference of the VAT amount line to the purchase line with factor multiplication
+  name: SetNonDedVATAmountDiffInPurchLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDedVATAmountDiffInPurchLine(Purchase_Line@,VAT_Amount_Line@,Decimal@,VAT_Amount_Line,Currency,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetNonDeductibleVATAmount(var VATEntry: Record "VAT Entry", NonDedVATAmount: Decimal, NonDedVATAmountACY: Decimal)'
+    parameters:
+    - id: VATEntry
+      description: The current VAT Entry to be updated
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: NonDedVATAmount
+      description: Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATAmountACY
+      description: Non-Deductible VAT amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set Non-Deductible VAT base in the VAT Entry
+  name: SetNonDeductibleVATAmount
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDeductibleVATAmount(VAT_Entry@,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetNonDeductibleVATBase(var VATEntry: Record "VAT Entry", NonDedVATBase: Decimal, NonDedVATBaseACY: Decimal)'
+    parameters:
+    - id: VATEntry
+      description: The current VAT Entry to be updated
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: NonDedVATBase
+      description: Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATBaseACY
+      description: Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set Non-Deductible VAT amount in the VAT Entry
+  name: SetNonDeductibleVATBase
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDeductibleVATBase(VAT_Entry@,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetNonDeductibleVAT(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, TotalNonDedVATBase: Decimal, TotalNonDedVATAmount: Decimal, TotalNonDedVATBaseACY: Decimal, TotalNonDedVATAmountACY: Decimal, TotalNonDedVATDiff: Decimal)'
+    parameters:
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer to be updated
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: TotalNonDedVATBase
+      description: Total Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmount
+      description: Total Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATBaseACY
+      description: Total Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmountACY
+      description: Total Non-Deductible VAT amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATDiff
+      description: Total Non-Deductible VAT difference
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set Non-Deductible VAT amounts in the invoice posting buffer
+  name: SetNonDeductibleVAT
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDeductibleVAT(Invoice_Posting_Buffer@,Decimal,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with SetNonDeductibleVAT,23.0)]'
+    content: 'procedure SetNonDeductibleVAT(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary, TotalNonDedVATBase: Decimal, TotalNonDedVATAmount: Decimal, TotalNonDedVATBaseACY: Decimal, TotalNonDedVATAmountACY: Decimal, TotalNonDedVATDiff: Decimal)'
+    parameters:
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer to be updated
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: TotalNonDedVATBase
+      description: Total Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmount
+      description: Total Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATBaseACY
+      description: Total Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmountACY
+      description: Total Non-Deductible VAT amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATDiff
+      description: Total Non-Deductible VAT difference
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set Non-Deductible VAT amounts in the invoice post buffer
+  name: SetNonDeductibleVAT
+  obsoletion:
+    state: pending
+    reason: Replaced with SetNonDeductibleVAT
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDeductibleVAT(Invoice_Post#_Buffer@,Decimal,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetNonDedVATInVATEntry(var VATEntry: Record "VAT Entry", NonDedBase: Decimal, NonDedVATAmount: Decimal, SrcCurrNonDedBaseAmount: Decimal, SrcCurrNonDedVATAmount: Decimal, NonDedVATDiff: Decimal, NonDedVATDiffACY: Decimal)'
+    parameters:
+    - id: VATEntry
+      description: The current VAT Entry to be updated
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: NonDedBase
+      description: The Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATAmount
+      description: The Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcCurrNonDedBaseAmount
+      description: The Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SrcCurrNonDedVATAmount
+      description: The Non-Deductible VAT amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATDiff
+      description: The Non-Deductible VAT difference
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATDiffACY
+      description: The Non-Deductible VAT difference in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Set Non-Deductible VAT amounts in the VAT entry
+  name: SetNonDedVATInVATEntry
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.SetNonDedVATInVATEntry(VAT_Entry@,Decimal,Decimal,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure Init(var NonDedVATBase: Decimal, var NonDedVATAmount: Decimal, var NonDedVATBaseACY: Decimal, var NonDedVATAmountACY: Decimal, var NonDedVATDiff: Decimal, PurchaseLine: Record "Purchase Line", PurchaseLineACY: Record "Purchase Line")'
+    parameters:
+    - id: NonDedVATBase
+      description: Non-Deductible VAT Base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATAmount
+      description: Non-Deductible VAT Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATBaseACY
+      description: Non-Deductible VAT Base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATAmountACY
+      description: Non-Deductible VAT Amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDedVATDiff
+      description: Non-Deductible VAT Difference
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchaseLineACY
+      description: The current purchase line in additional currency
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Initialize the Non-Deductible VAT amount from purchase line
+  name: Init
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Init(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Purchase_Line,Purchase_Line)
+- syntax:
+    content: 'procedure InitNonDeductibleVATDiff(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Clears Non-Deductible VAT difference in the purchase line
+  name: InitNonDeductibleVATDiff
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.InitNonDeductibleVATDiff(Purchase_Line@)
+- syntax:
+    content: 'procedure Update(var PurchaseLine: Record "Purchase Line", var TempVATAmountLineRemainder: Record "VAT Amount Line" temporary, Currency: Record Currency)'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TempVATAmountLineRemainder
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+    - id: Currency
+      description: The currency code of the purchase document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Updates the non-deductible VAT base and amount in the purchase line with rounding
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Purchase_Line@,VAT_Amount_Line@,Currency)
+- syntax:
+    content: 'procedure Update(var PurchaseLine: Record "Purchase Line", Currency: Record Currency)'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the purchase document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Updates the non-deductible VAT base and amount in the purchase line
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Purchase_Line@,Currency)
+- syntax:
+    content: 'procedure Update(var PurchaseLine: Record "Purchase Line", Part: Decimal, Total: Decimal, AmountRoundingPrecision: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: Part
+      description: The numerator for the factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Total
+      description: The denominator for factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountRoundingPrecision
+      description: Amount rounding precision to apply after multiplication
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Update the non-deductible VAT base and amount in the purchase line with factor multiplication
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Purchase_Line@,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure Update(var TotalNonDedVATBase: Decimal, var TotalNonDedVATAmount: Decimal, var TotalNonDedVATBaseACY: Decimal, var TotalNonDedVATAmountACY: Decimal, var TotalNonDedVATDiff: Decimal, InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: TotalNonDedVATBase
+      description: Total Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmount
+      description: Total Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATBaseACY
+      description: Total Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmountACY
+      description: Total Non-Deductible VAT amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATDiff
+      description: Total Non-Deductible VAT difference
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer to update totals
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Updates total Non-Deductible VAT amounts in the invoice posting buffer
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Invoice_Posting_Buffer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with UpdateNonDeductibleAmountsInInvoicePostingBuffer,23.0)]'
+    content: 'procedure Update(var TotalNonDedVATBase: Decimal, var TotalNonDedVATAmount: Decimal, var TotalNonDedVATBaseACY: Decimal, var TotalNonDedVATAmountACY: Decimal, var TotalNonDedVATDiff: Decimal, InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: TotalNonDedVATBase
+      description: Total Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmount
+      description: Total Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATBaseACY
+      description: Total Non-Deductible VAT base in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATAmountACY
+      description: Total Non-Deductible VAT amount in additional currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalNonDedVATDiff
+      description: Total Non-Deductible VAT difference
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer to update totals
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Updates total Non-Deductible VAT amounts in the invoice post buffer
+  name: Update
+  obsoletion:
+    state: pending
+    reason: Replaced with UpdateNonDeductibleAmountsInInvoicePostingBuffer
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Invoice_Post#_Buffer)
+- syntax:
+    content: 'procedure Update(var VATAmountLine: Record "VAT Amount Line", Currency: Record Currency)'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Update Non-Deductible VAT amounts in the VAT amount line
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(VAT_Amount_Line@,Currency)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with UpdateAmount,23.0)]'
+    content: 'procedure Update(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary, var RemainderInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, AmountRoundingPrecision: Decimal)'
+    parameters:
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: RemainderInvoicePostBuffer
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: AmountRoundingPrecision
+      description: Amount rounding precision to apply for rounding
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Update Non-Deductible VAT amounts in the invoice post buffer with rounding
+  name: Update
+  obsoletion:
+    state: pending
+    reason: Replaced with UpdateAmount
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Invoice_Post#_Buffer@,Invoice_Post#_Buffer@,Decimal)
+- syntax:
+    content: 'procedure Update(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var RemainderInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, AmountRoundingPrecision: Decimal)'
+    parameters:
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: RemainderInvoicePostingBuffer
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: AmountRoundingPrecision
+      description: Amount rounding precision to apply for rounding
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Update Non-Deductible VAT amounts in the invoice posting buffer with rounding
+  name: Update
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Update(Invoice_Posting_Buffer@,Invoice_Posting_Buffer@,Decimal)
+- syntax:
+    content: 'procedure DivideNonDeductibleVATInPurchaseLine(var PurchaseLine: Record "Purchase Line", var VATAmountLineRemainder: Record "VAT Amount Line", VATAmountLine: Record "VAT Amount Line", Currency: Record Currency, Part: Decimal, Total: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmountLineRemainder
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: VATAmountLine
+      description: The current VAT amount line to divide
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the purchase document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: Part
+      description: The numerator for the factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Total
+      description: The denominator for factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Divide Non-Deductible VAT amounts of VAT amount line for the purchase line
+  name: DivideNonDeductibleVATInPurchaseLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.DivideNonDeductibleVATInPurchaseLine(Purchase_Line@,VAT_Amount_Line@,VAT_Amount_Line,Currency,Decimal,Decimal)
+- syntax:
+    content: 'procedure ValidateVATAmountInVATAmountLine(var VATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  summary: Update Non-Deductible VAT amounts on VAT amount validation in the VAT amount line
+  name: ValidateVATAmountInVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ValidateVATAmountInVATAmountLine(VAT_Amount_Line@)
+- syntax:
+    content: 'procedure ValidateNonDeductibleVATInVATAmountLine(var VATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  summary: Update Non-Deductible VAT amounts on Non-Deductible VAT amount validation in the VAT amount line
+  name: ValidateNonDeductibleVATInVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ValidateNonDeductibleVATInVATAmountLine(VAT_Amount_Line@)
+- syntax:
+    content: 'procedure UpdateNonDeductibleAmountsWithDiffInVATAmountLine(var VATAmountLine: Record "VAT Amount Line", Currency: Record Currency)'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Update Non-Deductible VAT amounts in the VAT amount line with VAT difference
+  name: UpdateNonDeductibleAmountsWithDiffInVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.UpdateNonDeductibleAmountsWithDiffInVATAmountLine(VAT_Amount_Line@,Currency)
+- syntax:
+    content: 'procedure GetNonDedVATAmountFromVATAmountLine(var VATAmountLineRemainder: Record "VAT Amount Line", VATAmountLine: Record "VAT Amount Line", Currency: Record Currency, Part: Decimal, Total: Decimal): Decimal'
+    parameters:
+    - id: VATAmountLineRemainder
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: Part
+      description: The numerator for the factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Total
+      description: The denominator for factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      description: The Non-Deductible VAT Amount
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Get Non-Deductible VAT Amount from VAT amount line with factor multiplication
+  name: GetNonDedVATAmountFromVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.GetNonDedVATAmountFromVATAmountLine(VAT_Amount_Line@,VAT_Amount_Line,Currency,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure AddNonDedAmountsOfPurchLineToVATAmountLine(var VATAmountLine: Record "VAT Amount Line", var VATAmountLineRemainder: Record "VAT Amount Line", PurchaseLine: Record "Purchase Line", Currency: Record Currency, Part: Decimal, Total: Decimal)'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: VATAmountLineRemainder
+      description: Remainder from rounding to add to the next line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: Part
+      description: The numerator for the factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Total
+      description: The denominator for factor calculation
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Adds the Non-Deductible VAT amounts to the VAT amount line from the purchase line with factor multiplication
+  name: AddNonDedAmountsOfPurchLineToVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.AddNonDedAmountsOfPurchLineToVATAmountLine(VAT_Amount_Line@,VAT_Amount_Line@,Purchase_Line,Currency,Decimal,Decimal)
+- syntax:
+    content: 'procedure CopyNonDedVATFromPurchInvLineToVATAmountLine(var VATAmountLine: Record "VAT Amount Line", PurchInvLine: Record "Purch. Inv. Line")'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: PurchInvLine
+      description: The current purchase invoice line
+      parameterType:
+        name: Record "Purch. Inv. Line"
+        isExternal: true
+  summary: Copy Non-Deductible VAT amounts from the purchase invoice line to VAT amount line
+  name: CopyNonDedVATFromPurchInvLineToVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CopyNonDedVATFromPurchInvLineToVATAmountLine(VAT_Amount_Line@,Purch#_Inv#_Line)
+- syntax:
+    content: 'procedure CopyNonDedVATFromPurchCrMemoLineToVATAmountLine(var VATAmountLine: Record "VAT Amount Line", PurchCrMemoLine: Record "Purch. Cr. Memo Line")'
+    parameters:
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: PurchCrMemoLine
+      description: The current purchase credit memo line
+      parameterType:
+        name: Record "Purch. Cr. Memo Line"
+        isExternal: true
+  summary: Copy Non-Deductible VAT amounts from the purchase credit memo line to VAT amount line
+  name: CopyNonDedVATFromPurchCrMemoLineToVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CopyNonDedVATFromPurchCrMemoLineToVATAmountLine(VAT_Amount_Line@,Purch#_Cr#_Memo_Line)
+- syntax:
+    content: 'procedure CopyNonDedVATAmountFromGenJnlLineToGLEntry(var GLEntry: Record "G/L Entry", GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GLEntry
+      description: The current G/L entry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  summary: Copy Non-Deductible VAT amount from general journal line to G/L entry
+  name: CopyNonDedVATAmountFromGenJnlLineToGLEntry
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CopyNonDedVATAmountFromGenJnlLineToGLEntry(G/L_Entry@,Gen#_Journal_Line)
+- syntax:
+    content: 'procedure CheckPrepmtWithNonDeductubleVATInPurchaseLine(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Throws an error if purchase line contains prepayment and Non-Deductible VAT
+  name: CheckPrepmtWithNonDeductubleVATInPurchaseLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CheckPrepmtWithNonDeductubleVATInPurchaseLine(Purchase_Line)
+- syntax:
+    content: 'procedure CheckPrepmtVATPostingSetup(VATPostingSetup: Record "VAT Posting Setup")'
+    parameters:
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+  summary: Throws the error about prepayment not compatible with Non-Deductible VAT if VAT Posting Setup contains Non-Deductible VAT
+  name: CheckPrepmtVATPostingSetup
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CheckPrepmtVATPostingSetup(VAT_Posting_Setup)
+- syntax:
+    content: 'procedure CheckUnrealizedVATWithNonDeductibleVATInVATPostingSetup(VATPostingSetup: Record "VAT Posting Setup")'
+    parameters:
+    - id: VATPostingSetup
+      description: The current VAT posting setup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+  summary: Throws an error if current VAT posting setup contains unrealized VAT and Non-Deductible VAT
+  name: CheckUnrealizedVATWithNonDeductibleVATInVATPostingSetup
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CheckUnrealizedVATWithNonDeductibleVATInVATPostingSetup(VAT_Posting_Setup)
+- syntax:
+    content: 'procedure CheckVATPostingSetupChangeIsAllowed(VATPostingSetup: Record "VAT Posting Setup")'
+    parameters:
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+  summary: Check that a certain change of the VAT Posting Setup is allowed
+  name: CheckVATPostingSetupChangeIsAllowed
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CheckVATPostingSetupChangeIsAllowed(VAT_Posting_Setup)
+- syntax:
+    content: 'procedure CheckNonDeductibleVATPctIsAllowed(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Check that a Non-Deductible VAT % is allowed in the purchase line
+  name: CheckNonDeductibleVATPctIsAllowed
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CheckNonDeductibleVATPctIsAllowed(Purchase_Line)
+- syntax:
+    content: 'procedure CheckNonDeductibleVATAmountDiff(var TempVATAmountLine: Record "VAT Amount Line" temporary, xTempVATAmountLine: Record "VAT Amount Line" temporary, AllowVATDifference: Boolean, Currency: Record Currency)'
+    parameters:
+    - id: TempVATAmountLine
+      description: ""
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+    - id: xTempVATAmountLine
+      description: ""
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+    - id: AllowVATDifference
+      description: ""
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Currency
+      description: ""
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Throws an error if the total Non-Deductible VAT difference is not allowed
+  name: CheckNonDeductibleVATAmountDiff
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CheckNonDeductibleVATAmountDiff(VAT_Amount_Line@,VAT_Amount_Line,Boolean,Currency)
+- syntax:
+    content: 'procedure DeductNonDedValuesFromVATAmountLine(var TotalVATAmountLine: Record "VAT Amount Line", VATAmountLineDeduct: Record "VAT Amount Line")'
+    parameters:
+    - id: TotalVATAmountLine
+      description: The VAT amount line to be deducted
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: VATAmountLineDeduct
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  summary: Deduct the Non-Deductible VAT amounts from the VAT amount line
+  name: DeductNonDedValuesFromVATAmountLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.DeductNonDedValuesFromVATAmountLine(VAT_Amount_Line@,VAT_Amount_Line)
+- syntax:
+    content: 'procedure Reverse(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Reverse the Non-Deductible VAT base and amount in the purchase line
+  name: Reverse
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Reverse(Purchase_Line@)
+- syntax:
+    content: 'procedure Reverse(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Reverse the Non-Deductible VAT base and amount in the invoice posting buffer
+  name: Reverse
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Reverse(Invoice_Posting_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with Reverse,23.0)]'
+    content: 'procedure Reverse(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Reverse the Non-Deductible VAT base and amount in the invoice post buffer
+  name: Reverse
+  obsoletion:
+    state: pending
+    reason: Replaced with Reverse
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Reverse(Invoice_Post#_Buffer@)
+- syntax:
+    content: 'procedure Reverse(var GLEntry: Record "G/L Entry", GLEntryToReverse: Record "G/L Entry")'
+    parameters:
+    - id: GLEntry
+      description: The G/L Entry to set the reversed amount
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: GLEntryToReverse
+      description: The G/L Entry to take the value from
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+  summary: Reverse Non-Deductible amount in G/L Entry
+  name: Reverse
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Reverse(G/L_Entry@,G/L_Entry)
+- syntax:
+    content: 'procedure Reverse(var VATEntry: Record "VAT Entry")'
+    parameters:
+    - id: VATEntry
+      description: The VAT Entry to set the reversed amount
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+  summary: Reverse Non-Deductible amount in the VAT Entry
+  name: Reverse
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Reverse(VAT_Entry@)
+- syntax:
+    content: 'procedure Increment(var TotalVATAmountLine: Record "VAT Amount Line", VATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: TotalVATAmountLine
+      description: The VAT amount line to be incremented
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: VATAmountLine
+      description: The current VAT amount line
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  summary: Increment the Non-Deductible VAT amounts in the VAT amount line
+  name: Increment
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Increment(VAT_Amount_Line@,VAT_Amount_Line)
+- syntax:
+    content: 'procedure Increment(var TotalPurchaseLine: Record "Purchase Line", PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: TotalPurchaseLine
+      description: The purchase line to be incremented
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Increment Non-Deductible VAT amounts in the purchase line
+  name: Increment
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Increment(Purchase_Line@,Purchase_Line)
+- syntax:
+    content: 'procedure Increment(var TotalInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: TotalInvoicePostingBuffer
+      description: The invoice posting buffer to be incremented
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Increment Non-Deductible VAT amounts in the invoice posting buffer
+  name: Increment
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Increment(Invoice_Posting_Buffer@,Invoice_Posting_Buffer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with Increment,23.0)]'
+    content: 'procedure Increment(var TotalInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: TotalInvoicePostBuffer
+      description: The invoice post buffer to be incremented
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Increment Non-Deductible VAT amounts in the invoice post buffer
+  name: Increment
+  obsoletion:
+    state: pending
+    reason: Replaced with Increment
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Increment(Invoice_Post#_Buffer@,Invoice_Post#_Buffer)
+- syntax:
+    content: 'procedure RoundNonDeductibleVAT(PurchaseHeader: Record "Purchase Header", var PurchaseLine: Record "Purchase Line", TotalPurchaseLine: Record "Purchase Line", TotalPurchaseLineLCY: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseHeader
+      description: The current purchase header
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseLine
+      description: The total purchase line with remainders
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchaseLineLCY
+      description: The total purchase line in additional curency with remainders
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Round Non-Deductible VAT amounts after exchanging to the local currency
+  name: RoundNonDeductibleVAT
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.RoundNonDeductibleVAT(Purchase_Header,Purchase_Line@,Purchase_Line,Purchase_Line)
+- syntax:
+    content: 'procedure ClearNonDeductibleVAT(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Clear Non-Deductible VAT in the purchase line
+  name: ClearNonDeductibleVAT
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ClearNonDeductibleVAT(Purchase_Line@)
+- syntax:
+    content: 'procedure ClearNonDeductibleVAT(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Clear Non-Deductible VAT in the invoice posting buffer
+  name: ClearNonDeductibleVAT
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ClearNonDeductibleVAT(Invoice_Posting_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with ClearNonDedVATInInvoicePostingBuffer,23.0)]'
+    content: 'procedure ClearNonDeductibleVAT(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Clear Non-Deductible VAT in the invoice post buffer
+  name: ClearNonDeductibleVAT
+  obsoletion:
+    state: pending
+    reason: Replaced with ClearNonDedVATInInvoicePostingBuffer
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ClearNonDeductibleVAT(Invoice_Post#_Buffer@)
+- syntax:
+    content: 'procedure ClearNonDedVATACYInVATEntry(var VATEntry: Record "VAT Entry")'
+    parameters:
+    - id: VATEntry
+      description: The current VAT entry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+  summary: Clear Non-Deductible VAT amounts in additional currency in VAT entry
+  name: ClearNonDedVATACYInVATEntry
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ClearNonDedVATACYInVATEntry(VAT_Entry@)
+- syntax:
+    content: 'procedure ValidateNonDedVATPctInGenJnlLine(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  summary: Validate the Non-Deductible VAT percent in the general journal line
+  name: ValidateNonDedVATPctInGenJnlLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ValidateNonDedVATPctInGenJnlLine(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure ValidateBalNonDedVATPctInGenJnlLine(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  summary: Validate the Non-Deductible VAT percent in the general journal line for the balance account
+  name: ValidateBalNonDedVATPctInGenJnlLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ValidateBalNonDedVATPctInGenJnlLine(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure Calculate(var GenJournalLine: Record "Gen. Journal Line", Currency: Record Currency)'
+    parameters:
+    - id: GenJournalLine
+      description: The current journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Calculate Non-Deductible VAT amounts in the general journal line
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Calculate(Gen#_Journal_Line@,Currency)
+- syntax:
+    content: 'procedure CalculateBalAcc(var GenJournalLine: Record "Gen. Journal Line", Currency: Record Currency)'
+    parameters:
+    - id: GenJournalLine
+      description: The current journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Currency
+      description: The currency code of the document
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  summary: Calculate Non-Deductible VAT amounts in the general journal line for the balance account
+  name: CalculateBalAcc
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.CalculateBalAcc(Gen#_Journal_Line@,Currency)
+- syntax:
+    content: 'procedure Calculate(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Calculate Non-Deductible VAT amounts in the invoice posting buffer
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Calculate(Invoice_Posting_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with Calculate,23.0)]'
+    content: 'procedure Calculate(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Calculate Non-Deductible VAT amounts in the invoice post buffer
+  name: Calculate
+  obsoletion:
+    state: pending
+    reason: Replaced with Calculate
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Calculate(Invoice_Post#_Buffer@)
+- syntax:
+    content: 'procedure Calculate(var NonDeductibleBaseAmount: Decimal, var NonDeductibleVATAmount: Decimal, var NonDeductibleVATAmtPerUnit: Decimal, var NonDeductibleVATAmtPerUnitLCY: Decimal, var NDVATAmountRounding: Decimal, var NDVATBaseRounding: Decimal, PurchHeader: Record "Purchase Header", PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: NonDeductibleBaseAmount
+      description: The calculated total Non-Deductible base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDeductibleVATAmount
+      description: The calculated total Non-Deductible amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDeductibleVATAmtPerUnit
+      description: The calculated Non-Deductible VAT amount per unit
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDeductibleVATAmtPerUnitLCY
+      description: The calculated Non-Deductible VAT amount per unit in local currency
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NDVATAmountRounding
+      description: The remaining rounding difference of Non-Deductible VAT amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NDVATBaseRounding
+      description: The remaining rounding difference of Non-Deductible VAT base
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PurchHeader
+      description: The current purchase header
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line with LCY amounts
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Calculate Non-Deductible VAT per unit
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Calculate(Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Purchase_Header,Purchase_Line)
+- syntax:
+    content: 'procedure Copy(var InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Copy Non-Deductible VAT from the purchase line to the invoice posting buffer
+  name: Copy
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(Invoice_Posting_Buffer@,Purchase_Line)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with Copy,23.0)]'
+    content: 'procedure Copy(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary, PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: PurchaseLine
+      description: The current purchase line
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  summary: Copy Non-Deductible VAT from the purchase line to the invoice post buffer
+  name: Copy
+  obsoletion:
+    state: pending
+    reason: Replaced with Copy
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(Invoice_Post#_Buffer@,Purchase_Line)
+- syntax:
+    content: 'procedure Copy(var VATEntry: Record "VAT Entry", GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: VATEntry
+      description: The current VAT Entry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  summary: Copy Non-Deductible VAT from the general journal line to the VAT Entry
+  name: Copy
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(VAT_Entry@,Gen#_Journal_Line)
+- syntax:
+    content: 'procedure Copy(var GenJournalLine: Record "Gen. Journal Line", InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: InvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Copy Non-Deductible VAT from the invoice posting buffer to the general journal line
+  name: Copy
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(Gen#_Journal_Line@,Invoice_Posting_Buffer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with Copy,23.0)]'
+    content: 'procedure Copy(var GenJournalLine: Record "Gen. Journal Line", InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: InvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Copy Non-Deductible VAT from the invoice post buffer to the general journal line
+  name: Copy
+  obsoletion:
+    state: pending
+    reason: Replaced with Copy
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.Copy(Gen#_Journal_Line@,Invoice_Post#_Buffer)
+- syntax:
+    content: 'procedure ExchangeAccGLJournalLine(var GenJournalLine: Record "Gen. Journal Line", CopiedGenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: CopiedGenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  summary: Exchange Non-Deductible VAT fields with the balance side in general journaal line
+  name: ExchangeAccGLJournalLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ExchangeAccGLJournalLine(Gen#_Journal_Line@,Gen#_Journal_Line)
+- syntax:
+    content: 'procedure AdjustVATAmountsFromGenJnlLine(var VATAmount: Decimal, var BaseAmount: Decimal, var VATAmountACY: Decimal, var BaseAmountACY: Decimal, var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: VATAmount
+      description: The VAT amount to be adjusted
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BaseAmount
+      description: The VAT base to be adjusted
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountACY
+      description: The VAT amount in additional currency to be adjusted
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BaseAmountACY
+      description: The VAT base in additional currency to be adjusted
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GenJournalLine
+      description: The current general journal line
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  summary: Adjust VAT amounts with Non-Deductible VAT from general journal line
+  name: AdjustVATAmountsFromGenJnlLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.AdjustVATAmountsFromGenJnlLine(Decimal@,Decimal@,Decimal@,Decimal@,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure AdjustRoundingForInvoicePostingBufferUpdate(var RoundingInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var CurrInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: RoundingInvoicePostingBuffer
+      description: The invoice posting buffer for rounding
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: CurrInvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Adjust rounding for invoice posting buffer
+  name: AdjustRoundingForInvoicePostingBufferUpdate
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.AdjustRoundingForInvoicePostingBufferUpdate(Invoice_Posting_Buffer@,Invoice_Posting_Buffer@)
+- syntax:
+    content: 'procedure UseNonDeductibleVATAmountForFixedAssetCost(): Boolean'
+    return:
+      description: If the Non-Deductible amount must be added to the fixed asset cost
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns true if the Non-Deductible VAT amount must be added to the fixed asset cost
+  name: UseNonDeductibleVATAmountForFixedAssetCost
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.UseNonDeductibleVATAmountForFixedAssetCost:Boolean
+- syntax:
+    content: 'procedure UseNonDeductibleVATAmountForJobCost(): Boolean'
+    return:
+      description: If the Non-Deductible amount must be added to the job cost
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Returns true if the Non-Deductible VAT amount must be added to the job cost
+  name: UseNonDeductibleVATAmountForJobCost
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.UseNonDeductibleVATAmountForJobCost:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with AdjustRoundingForInvoicePostingBufferUpdate,23.0)]'
+    content: 'procedure AdjustRoundingForInvoicePostBufferUpdate(var RoundingInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, var CurrInvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: RoundingInvoicePostBuffer
+      description: The invoice post buffer for rounding
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: CurrInvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Adjust romunding for invoice post buffer
+  name: AdjustRoundingForInvoicePostBufferUpdate
+  obsoletion:
+    state: pending
+    reason: Replaced with AdjustRoundingForInvoicePostingBufferUpdate
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.AdjustRoundingForInvoicePostBufferUpdate(Invoice_Post#_Buffer@,Invoice_Post#_Buffer@)
+- syntax:
+    content: 'procedure ApplyRoundingForFinalPostingFromInvoicePostingBuffer(var RoundingInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var CurrInvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: RoundingInvoicePostingBuffer
+      description: The invoice posting buffer for rounding
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: CurrInvoicePostingBuffer
+      description: The current invoice posting buffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  summary: Apply rounding for the final posting from the invoice posting buffer
+  name: ApplyRoundingForFinalPostingFromInvoicePostingBuffer
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ApplyRoundingForFinalPostingFromInvoicePostingBuffer(Invoice_Posting_Buffer@,Invoice_Posting_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with ApplyRoundingForFinalPostingFromInvoicePostingBuffer,23.0)]'
+    content: 'procedure ApplyRoundingForFinalPostingFromInvoicePostBuffer(var RoundingInvoicePostBuffer: Record "Invoice Post. Buffer" temporary, var CurrInvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: RoundingInvoicePostBuffer
+      description: The invoice post buffer for rounding
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: CurrInvoicePostBuffer
+      description: The current invoice post buffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  summary: Apply rounding for the final posting from the invoice post buffer
+  name: ApplyRoundingForFinalPostingFromInvoicePostBuffer
+  obsoletion:
+    state: pending
+    reason: Replaced with ApplyRoundingForFinalPostingFromInvoicePostingBuffer
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT.ApplyRoundingForFinalPostingFromInvoicePostBuffer(Invoice_Post#_Buffer@,Invoice_Post#_Buffer@)
+commentId: O:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible VAT
+summary: Provides an interface of the Non-Deductible VAT functionality.
+name: '"Non-Deductible VAT"'
+uid: O:Codeunit::Microsoft#Finance#VAT#Calculation#Non-Deductible_VAT

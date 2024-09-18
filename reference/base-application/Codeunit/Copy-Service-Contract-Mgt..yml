@@ -1,0 +1,55 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: '"Copy Service Contract Mgt."'
+alId: ID 5975
+baseKind: Codeunit
+kind: Codeunit
+parent: 'N:Module::Base_Application::Namespace::'
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CopyServiceContractLines(ToServiceContractHeader: Record "Service Contract Header", FromContractType: Enum "Service Contract Type From", FromContractNo: Code[20], var FromServiceContractLine: Record "Service Contract Line"): Boolean'
+    parameters:
+    - id: ToServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: FromContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type_From
+        name: Microsoft.Service.Contract."Service Contract Type From"
+        isExternal: false
+    - id: FromContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromServiceContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyServiceContractLines
+  uid: M:Codeunit::Copy_Service_Contract_Mgt#.CopyServiceContractLines(Service_Contract_Header,Enum::Microsoft#Service#Contract#Service_Contract_Type_From,Code[20],Service_Contract_Line@):Boolean
+- syntax:
+    content: 'procedure GetServiceContractType(FromContractType: Enum "Service Contract Type From"): Enum "Service Contract Type"'
+    parameters:
+    - id: FromContractType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type_From
+        name: Microsoft.Service.Contract."Service Contract Type From"
+        isExternal: false
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Type
+        name: Microsoft.Service.Contract."Service Contract Type"
+        isExternal: false
+  name: GetServiceContractType
+  uid: M:Codeunit::Copy_Service_Contract_Mgt#.GetServiceContractType(Enum::Microsoft#Service#Contract#Service_Contract_Type_From):Enum::Microsoft#Service#Contract#Service_Contract_Type
+commentId: O:Codeunit::Copy Service Contract Mgt#
+name: '"Copy Service Contract Mgt."'
+uid: O:Codeunit::Copy_Service_Contract_Mgt#

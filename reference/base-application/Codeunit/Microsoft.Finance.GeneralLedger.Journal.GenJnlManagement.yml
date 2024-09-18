@@ -1,0 +1,263 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Journal.GenJnlManagement
+alId: ID 230
+namespace: Microsoft.Finance.GeneralLedger.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Gen. Journal Template" = rimd,
+                      TableData "Gen. Journal Batch" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, PageTemplate: Enum "Gen. Journal Template Type", RecurringJnl: Boolean, var GenJnlLine: Record "Gen. Journal Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PageTemplate
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Template_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Template Type"
+        isExternal: false
+    - id: RecurringJnl
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.TemplateSelection(Integer,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Template_Type,Boolean,Gen#_Journal_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var GenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: GenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.TemplateSelectionFromBatch(Gen#_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJnl(var CurrentJnlBatchName: Code[10], var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.OpenJnl(Code[10]@,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var GenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: GenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.OpenJnlBatch(Gen#_Journal_Batch@)
+- syntax:
+    content: 'procedure IsBatchNoSeriesEmpty(var CurrentJnlBatchName: Code[10], var GenJnlLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBatchNoSeriesEmpty
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.IsBatchNoSeriesEmpty(Code[10]@,Gen#_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.CheckName(Code[10],Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure CheckCurrencyCode(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckCurrencyCode
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.CheckCurrencyCode(Code[10])
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.SetName(Code[10],Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure SetJournalSimplePageModePreference(SetToSimpleMode: Boolean, PageIdToSet: Integer)'
+    parameters:
+    - id: SetToSimpleMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PageIdToSet
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetJournalSimplePageModePreference
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.SetJournalSimplePageModePreference(Boolean,Integer)
+- syntax:
+    content: 'procedure GetJournalSimplePageModePreference(PageIdToCheck: Integer): Boolean'
+    parameters:
+    - id: PageIdToCheck
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetJournalSimplePageModePreference
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.GetJournalSimplePageModePreference(Integer):Boolean
+- syntax:
+    content: 'procedure GetLastViewedJournalBatchName(PageIdToCheck: Integer): Code[10]'
+    parameters:
+    - id: PageIdToCheck
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetLastViewedJournalBatchName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.GetLastViewedJournalBatchName(Integer):Code[10]
+- syntax:
+    content: 'procedure SetLastViewedJournalBatchName(PageIdToCheck: Integer, GenJnlBatch: Code[10])'
+    parameters:
+    - id: PageIdToCheck
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlBatch
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetLastViewedJournalBatchName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.SetLastViewedJournalBatchName(Integer,Code[10])
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.LookupName(Code[10]@,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure SetJnlBatchName(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: SetJnlBatchName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.SetJnlBatchName(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure GetAccounts(var GenJnlLine: Record "Gen. Journal Line", var AccName: Text[100], var BalAccName: Text[100])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: BalAccName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetAccounts
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.GetAccounts(Gen#_Journal_Line@,Text[100]@,Text[100]@)
+- syntax:
+    content: 'procedure CalcBalance(var GenJnlLine: Record "Gen. Journal Line", LastGenJnlLine: Record "Gen. Journal Line", var Balance: Decimal, var TotalBalance: Decimal, var ShowBalance: Boolean, var ShowTotalBalance: Boolean)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: LastGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Balance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalBalance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ShowBalance
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowTotalBalance
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcBalance
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.CalcBalance(Gen#_Journal_Line@,Gen#_Journal_Line,Decimal@,Decimal@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetAvailableGeneralJournalTemplateName(TemplateName: Code[10]): Code[10]'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetAvailableGeneralJournalTemplateName
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement.GetAvailableGeneralJournalTemplateName(Code[10]):Code[10]
+commentId: O:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement
+name: GenJnlManagement
+uid: O:Codeunit::Microsoft#Finance#GeneralLedger#Journal#GenJnlManagement

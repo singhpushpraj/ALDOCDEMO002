@@ -1,0 +1,572 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Payment Tolerance Management"
+alId: ID 426
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Currency = r,
+                      TableData "Cust. Ledger Entry" = rim,
+                      TableData "Vendor Ledger Entry" = rim,
+                      TableData "Gen. Journal Line" = rim,
+                      TableData "General Ledger Setup" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PmtTolCust(var CustLedgEntry: Record "Cust. Ledger Entry"): Boolean'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PmtTolCust
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.PmtTolCust(Cust#_Ledger_Entry@):Boolean
+- syntax:
+    content: 'procedure PmtTolVend(var VendLedgEntry: Record "Vendor Ledger Entry"): Boolean'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PmtTolVend
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.PmtTolVend(Vendor_Ledger_Entry@):Boolean
+- syntax:
+    content: 'procedure PmtTolGenJnl(var NewGenJnlLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: NewGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PmtTolGenJnl
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.PmtTolGenJnl(Gen#_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure PmtTolPmtReconJnl(var NewBankAccReconciliationLine: Record "Bank Acc. Reconciliation Line"): Boolean'
+    parameters:
+    - id: NewBankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PmtTolPmtReconJnl
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.PmtTolPmtReconJnl(Bank_Acc#_Reconciliation_Line@):Boolean
+- syntax:
+    content: 'procedure CallPmtDiscTolWarning(PostingDate: Date, No: Code[20], DocNo: Code[20], CurrencyCode: Code[10], Amount: Decimal, AppliedAmount: Decimal, PmtDiscAmount: Decimal, var RemainingAmountTest: Boolean, AccountType: Enum "Payment Tolerance Account Type"): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AppliedAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PmtDiscAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingAmountTest
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Account_Type
+        name: Microsoft.Finance.ReceivablesPayables."Payment Tolerance Account Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallPmtDiscTolWarning
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CallPmtDiscTolWarning(Date,Code[20],Code[20],Code[10],Decimal,Decimal,Decimal,Boolean@,Enum::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Account_Type):Boolean
+- syntax:
+    content: 'procedure CallPmtTolWarning(PostingDate: Date, No: Code[20], DocNo: Code[20], CurrencyCode: Code[10], var Amount: Decimal, AppliedAmount: Decimal, AccountType: Enum "Payment Tolerance Account Type"): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AppliedAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Account_Type
+        name: Microsoft.Finance.ReceivablesPayables."Payment Tolerance Account Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CallPmtTolWarning
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CallPmtTolWarning(Date,Code[20],Code[20],Code[10],Decimal@,Decimal,Enum::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Account_Type):Boolean
+- syntax:
+    content: 'procedure CalcGracePeriodCVLedgEntry(PmtTolGracePeriode: DateFormula)'
+    parameters:
+    - id: PmtTolGracePeriode
+      parameterType:
+        name: DateFormula
+        isExternal: true
+  name: CalcGracePeriodCVLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CalcGracePeriodCVLedgEntry(DateFormula)
+- syntax:
+    content: 'procedure CalcTolCustLedgEntry(Customer: Record Customer)'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: CalcTolCustLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CalcTolCustLedgEntry(Customer)
+- syntax:
+    content: 'procedure DelTolCustLedgEntry(Customer: Record Customer)'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: DelTolCustLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.DelTolCustLedgEntry(Customer)
+- syntax:
+    content: 'procedure CalcTolVendLedgEntry(Vendor: Record Vendor)'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: CalcTolVendLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CalcTolVendLedgEntry(Vendor)
+- syntax:
+    content: 'procedure DelTolVendLedgEntry(Vendor: Record Vendor)'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: DelTolVendLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.DelTolVendLedgEntry(Vendor)
+- syntax:
+    content: 'procedure DelPmtTolApllnDocNo(GenJnlLine: Record "Gen. Journal Line", DocumentNo: Code[20])'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DelPmtTolApllnDocNo
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.DelPmtTolApllnDocNo(Gen#_Journal_Line,Code[20])
+- syntax:
+    content: 'procedure ABSMinTol(Decimal1: Decimal, Decimal2: Decimal, Decimal1Tolerance: Decimal): Decimal'
+    parameters:
+    - id: Decimal1
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Decimal2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Decimal1Tolerance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ABSMinTol
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.ABSMinTol(Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure GetApplicationRoundingPrecisionForAppliesToDoc(AppliedEntryCurrencyCode: Code[10], var ApplnRoundingPrecision: Decimal, var AmountRoundingPrecision: Decimal, ApplnCurrencyCode: Code[20])'
+    parameters:
+    - id: AppliedEntryCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ApplnCurrencyCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetApplicationRoundingPrecisionForAppliesToDoc
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.GetApplicationRoundingPrecisionForAppliesToDoc(Code[10],Decimal@,Decimal@,Code[20])
+- syntax:
+    content: 'procedure GetAmountRoundingPrecision(var ApplnRoundingPrecision: Decimal, var AmountRoundingPrecision: Decimal, ApplnInMultiCurrency: Boolean, ApplnCurrencyCode: Code[20])'
+    parameters:
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ApplnInMultiCurrency
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ApplnCurrencyCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetAmountRoundingPrecision
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.GetAmountRoundingPrecision(Decimal@,Decimal@,Boolean,Code[20])
+- syntax:
+    content: 'procedure CalcRemainingPmtDisc(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var OldCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var OldCVLedgEntryBuf2: Record "CV Ledger Entry Buffer", GLSetup: Record "General Ledger Setup")'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: OldCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: OldCVLedgEntryBuf2
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: GLSetup
+      parameterType:
+        name: Record "General Ledger Setup"
+        isExternal: true
+  name: CalcRemainingPmtDisc
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CalcRemainingPmtDisc(CV_Ledger_Entry_Buffer@,CV_Ledger_Entry_Buffer@,CV_Ledger_Entry_Buffer@,General_Ledger_Setup)
+- syntax:
+    content: 'procedure CalcMaxPmtTolerance(DocumentType: Enum "Gen. Journal Document Type", CurrencyCode: Code[10], Amount: Decimal, AmountLCY: Decimal, Sign: Decimal, var MaxPaymentTolerance: Decimal)'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Sign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MaxPaymentTolerance
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcMaxPmtTolerance
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CalcMaxPmtTolerance(Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Code[10],Decimal,Decimal,Decimal,Decimal@)
+- syntax:
+    content: 'procedure CheckCalcPmtDisc(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var OldCVLedgEntryBuf2: Record "CV Ledger Entry Buffer", ApplnRoundingPrecision: Decimal, CheckFilter: Boolean, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: OldCVLedgEntryBuf2
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDisc
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDisc(CV_Ledger_Entry_Buffer@,CV_Ledger_Entry_Buffer@,Decimal,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckCalcPmtDiscCVCust(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var OldCustLedgEntry2: Record "Cust. Ledger Entry", ApplnRoundingPrecision: Decimal, CheckFilter: Boolean, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: OldCustLedgEntry2
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDiscCVCust
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDiscCVCust(CV_Ledger_Entry_Buffer@,Cust#_Ledger_Entry@,Decimal,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckCalcPmtDiscCust(var NewCustLedgEntry: Record "Cust. Ledger Entry", var OldCustLedgEntry2: Record "Cust. Ledger Entry", ApplnRoundingPrecision: Decimal, CheckFilter: Boolean, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: NewCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: OldCustLedgEntry2
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDiscCust
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDiscCust(Cust#_Ledger_Entry@,Cust#_Ledger_Entry@,Decimal,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckCalcPmtDiscGenJnlCust(GenJnlLine: Record "Gen. Journal Line", OldCustLedgEntry2: Record "Cust. Ledger Entry", ApplnRoundingPrecision: Decimal, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: OldCustLedgEntry2
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDiscGenJnlCust
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDiscGenJnlCust(Gen#_Journal_Line,Cust#_Ledger_Entry,Decimal,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckCalcPmtDiscCVVend(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer", var OldVendLedgEntry2: Record "Vendor Ledger Entry", ApplnRoundingPrecision: Decimal, CheckFilter: Boolean, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: NewCVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: OldVendLedgEntry2
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDiscCVVend
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDiscCVVend(CV_Ledger_Entry_Buffer@,Vendor_Ledger_Entry@,Decimal,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckCalcPmtDiscVend(var NewVendLedgEntry: Record "Vendor Ledger Entry", var OldVendLedgEntry2: Record "Vendor Ledger Entry", ApplnRoundingPrecision: Decimal, CheckFilter: Boolean, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: NewVendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: OldVendLedgEntry2
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDiscVend
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDiscVend(Vendor_Ledger_Entry@,Vendor_Ledger_Entry@,Decimal,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckCalcPmtDiscGenJnlVend(GenJnlLine: Record "Gen. Journal Line", OldVendLedgEntry2: Record "Vendor Ledger Entry", ApplnRoundingPrecision: Decimal, CheckAmount: Boolean): Boolean'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: OldVendLedgEntry2
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: ApplnRoundingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCalcPmtDiscGenJnlVend
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckCalcPmtDiscGenJnlVend(Gen#_Journal_Line,Vendor_Ledger_Entry,Decimal,Boolean):Boolean
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetSuppressWarning(NewSuppressWarning: Boolean)'
+    parameters:
+    - id: NewSuppressWarning
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressWarning
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.SetSuppressWarning(Boolean)
+- syntax:
+    content: 'procedure CheckAccountType(GenJnlLine: Record "Gen. Journal Line", AccountType: Enum "Gen. Journal Account Type")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+  name: CheckAccountType
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.CheckAccountType(Gen#_Journal_Line,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type)
+- syntax:
+    content: 'procedure GetAppliesToID(GenJnlLine: Record "Gen. Journal Line"): Code[50]'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[50]
+        isExternal: true
+  name: GetAppliesToID
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management.GetAppliesToID(Gen#_Journal_Line):Code[50]
+commentId: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment Tolerance Management
+name: '"Payment Tolerance Management"'
+uid: O:Codeunit::Microsoft#Finance#ReceivablesPayables#Payment_Tolerance_Management

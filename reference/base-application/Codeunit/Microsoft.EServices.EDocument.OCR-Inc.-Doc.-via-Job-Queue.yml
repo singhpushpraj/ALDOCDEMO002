@@ -1,0 +1,44 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.EServices.EDocument."OCR Inc. Doc. via Job Queue"
+alId: ID 137
+namespace: Microsoft.EServices.EDocument
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.EServices.EDocument
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Job Queue Entry" = rimd
+  promoted: false
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure EnqueueIncomingDoc(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: EnqueueIncomingDoc
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Inc#_Doc#_via_Job_Queue.EnqueueIncomingDoc(Incoming_Document@)
+- syntax:
+    content: 'procedure CancelQueueEntry(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: CancelQueueEntry
+  uid: M:Codeunit::Microsoft#EServices#EDocument#OCR_Inc#_Doc#_via_Job_Queue.CancelQueueEntry(Incoming_Document@)
+commentId: O:Codeunit::Microsoft#EServices#EDocument#OCR Inc# Doc# via Job Queue
+name: '"OCR Inc. Doc. via Job Queue"'
+uid: O:Codeunit::Microsoft#EServices#EDocument#OCR_Inc#_Doc#_via_Job_Queue

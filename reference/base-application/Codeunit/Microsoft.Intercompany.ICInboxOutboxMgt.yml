@@ -1,0 +1,759 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Intercompany.ICInboxOutboxMgt
+alId: ID 427
+namespace: Microsoft.Intercompany
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Intercompany
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "General Ledger Setup" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateOutboxJnlTransaction(TempGenJnlLine: Record "Gen. Journal Line" temporary, Rejection: Boolean): Integer'
+    parameters:
+    - id: TempGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line" temporary
+        isExternal: true
+    - id: Rejection
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateOutboxJnlTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateOutboxJnlTransaction(Gen#_Journal_Line,Boolean):Integer
+- syntax:
+    content: 'procedure SendSalesDoc(var SalesHeader: Record "Sales Header", Post: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SendSalesDoc
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.SendSalesDoc(Sales_Header@,Boolean)
+- syntax:
+    content: 'procedure SendPurchDoc(var PurchHeader: Record "Purchase Header", Post: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SendPurchDoc
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.SendPurchDoc(Purchase_Header@,Boolean)
+- syntax:
+    content: 'procedure CreateOutboxSalesDocTrans(SalesHeader: Record "Sales Header", Rejection: Boolean, Post: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: Rejection
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateOutboxSalesDocTrans
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateOutboxSalesDocTrans(Sales_Header,Boolean,Boolean)
+- syntax:
+    content: 'procedure CreateOutboxSalesInvTrans(SalesInvHdr: Record "Sales Invoice Header")'
+    parameters:
+    - id: SalesInvHdr
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: CreateOutboxSalesInvTrans
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateOutboxSalesInvTrans(Sales_Invoice_Header)
+- syntax:
+    content: 'procedure CreateOutboxSalesCrMemoTrans(SalesCrMemoHdr: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: SalesCrMemoHdr
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: CreateOutboxSalesCrMemoTrans
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateOutboxSalesCrMemoTrans(Sales_Cr#Memo_Header)
+- syntax:
+    content: 'procedure CreateOutboxPurchDocTrans(PurchHeader: Record "Purchase Header", Rejection: Boolean, Post: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: Rejection
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateOutboxPurchDocTrans
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateOutboxPurchDocTrans(Purchase_Header,Boolean,Boolean)
+- syntax:
+    content: 'procedure CreateOutboxJnlLine(TransactionNo: Integer, TransactionSource: Option, TempGenJnlLine: Record "Gen. Journal Line" temporary)'
+    parameters:
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: TempGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line" temporary
+        isExternal: true
+  name: CreateOutboxJnlLine
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateOutboxJnlLine(Integer,Option,Gen#_Journal_Line)
+- syntax:
+    content: 'procedure TranslateICGLAccount(ICAccNo: Code[30]): Code[20]'
+    parameters:
+    - id: ICAccNo
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: TranslateICGLAccount
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.TranslateICGLAccount(Code[30]):Code[20]
+- syntax:
+    content: 'procedure TranslateICPartnerToVendor(ICPartnerCode: Code[20]): Code[20]'
+    parameters:
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: TranslateICPartnerToVendor
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.TranslateICPartnerToVendor(Code[20]):Code[20]
+- syntax:
+    content: 'procedure TranslateICPartnerToCustomer(ICPartnerCode: Code[20]): Code[20]'
+    parameters:
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: TranslateICPartnerToCustomer
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.TranslateICPartnerToCustomer(Code[20]):Code[20]
+- syntax:
+    content: 'procedure CreateJournalLines(InboxTransaction: Record "IC Inbox Transaction", InboxJnlLine: Record "IC Inbox Jnl. Line", var TempGenJnlLine: Record "Gen. Journal Line" temporary, GenJnlTemplate: Record "Gen. Journal Template")'
+    parameters:
+    - id: InboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: InboxJnlLine
+      parameterType:
+        name: Record "IC Inbox Jnl. Line"
+        isExternal: true
+    - id: TempGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line" temporary
+        isExternal: true
+    - id: GenJnlTemplate
+      parameterType:
+        name: Record "Gen. Journal Template"
+        isExternal: true
+  name: CreateJournalLines
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateJournalLines(IC_Inbox_Transaction,IC_Inbox_Jnl#_Line,Gen#_Journal_Line@,Gen#_Journal_Template)
+- syntax:
+    content: 'procedure CreateSalesDocument(ICInboxSalesHeader: Record "IC Inbox Sales Header", ReplacePostingDate: Boolean, PostingDate: Date)'
+    parameters:
+    - id: ICInboxSalesHeader
+      parameterType:
+        name: Record "IC Inbox Sales Header"
+        isExternal: true
+    - id: ReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreateSalesDocument
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateSalesDocument(IC_Inbox_Sales_Header,Boolean,Date)
+- syntax:
+    content: 'procedure CreateSalesLines(SalesHeader: Record "Sales Header", ICInboxSalesLine: Record "IC Inbox Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ICInboxSalesLine
+      parameterType:
+        name: Record "IC Inbox Sales Line"
+        isExternal: true
+  name: CreateSalesLines
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateSalesLines(Sales_Header,IC_Inbox_Sales_Line)
+- syntax:
+    content: 'procedure CreatePurchDocument(ICInboxPurchHeader: Record "IC Inbox Purchase Header", ReplacePostingDate: Boolean, PostingDate: Date)'
+    parameters:
+    - id: ICInboxPurchHeader
+      parameterType:
+        name: Record "IC Inbox Purchase Header"
+        isExternal: true
+    - id: ReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreatePurchDocument
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreatePurchDocument(IC_Inbox_Purchase_Header,Boolean,Date)
+- syntax:
+    content: 'procedure CreatePurchLines(PurchHeader: Record "Purchase Header", ICInboxPurchLine: Record "IC Inbox Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ICInboxPurchLine
+      parameterType:
+        name: Record "IC Inbox Purchase Line"
+        isExternal: true
+  name: CreatePurchLines
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreatePurchLines(Purchase_Header,IC_Inbox_Purchase_Line)
+- syntax:
+    content: 'procedure CreateHandledInbox(InboxTransaction: Record "IC Inbox Transaction")'
+    parameters:
+    - id: InboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+  name: CreateHandledInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateHandledInbox(IC_Inbox_Transaction)
+- syntax:
+    content: 'procedure IsSalesHeaderFromIncomingIC(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSalesHeaderFromIncomingIC
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.IsSalesHeaderFromIncomingIC(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure IsPurchaseHeaderFromIncomingIC(var PurchaseHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPurchaseHeaderFromIncomingIC
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.IsPurchaseHeaderFromIncomingIC(Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure ShowDuplicateICDocumentWarning(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ShowDuplicateICDocumentWarning
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.ShowDuplicateICDocumentWarning(Purchase_Header@)
+- syntax:
+    content: 'procedure ShowDuplicateICDocumentWarning(var PurchaseHeader: Record "Purchase Header", WarningMsg: Text)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: WarningMsg
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ShowDuplicateICDocumentWarning
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.ShowDuplicateICDocumentWarning(Purchase_Header@,Text)
+- syntax:
+    signatures:
+    - '[CommitBehavior(Ignore)]'
+    content: 'procedure RejectAcceptedPurchaseHeader(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: RejectAcceptedPurchaseHeader
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.RejectAcceptedPurchaseHeader(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[CommitBehavior(Ignore)]'
+    content: 'procedure RejectAcceptedSalesHeader(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: RejectAcceptedSalesHeader
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.RejectAcceptedSalesHeader(Sales_Header@)
+- syntax:
+    content: 'procedure RecreateInboxTransaction(var HandledInboxTransaction: Record "Handled IC Inbox Trans.")'
+    parameters:
+    - id: HandledInboxTransaction
+      parameterType:
+        name: Record "Handled IC Inbox Trans."
+        isExternal: true
+  name: RecreateInboxTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.RecreateInboxTransaction(Handled_IC_Inbox_Trans#@)
+- syntax:
+    content: 'procedure RecreateInboxTransaction(var HandledInboxTransaction: Record "Handled IC Inbox Trans.", Confirm: Boolean)'
+    parameters:
+    - id: HandledInboxTransaction
+      parameterType:
+        name: Record "Handled IC Inbox Trans."
+        isExternal: true
+    - id: Confirm
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecreateInboxTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.RecreateInboxTransaction(Handled_IC_Inbox_Trans#@,Boolean)
+- syntax:
+    content: 'procedure RecreateOutboxTransaction(var HandledOutboxTransaction: Record "Handled IC Outbox Trans.")'
+    parameters:
+    - id: HandledOutboxTransaction
+      parameterType:
+        name: Record "Handled IC Outbox Trans."
+        isExternal: true
+  name: RecreateOutboxTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.RecreateOutboxTransaction(Handled_IC_Outbox_Trans#@)
+- syntax:
+    content: 'procedure ForwardToOutBox(InboxTransaction: Record "IC Inbox Transaction")'
+    parameters:
+    - id: InboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+  name: ForwardToOutBox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.ForwardToOutBox(IC_Inbox_Transaction)
+- syntax:
+    content: procedure GetCompanyInfo()
+  name: GetCompanyInfo
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetCompanyInfo
+- syntax:
+    content: procedure GetGLSetup()
+  name: GetGLSetup
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetGLSetup
+- syntax:
+    content: 'procedure GetCurrency(var CurrencyCode: Code[20])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetCurrency
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetCurrency(Code[20]@)
+- syntax:
+    content: 'procedure GetItemFromCommonItem(CommonItemNo: Code[20]): Code[20]'
+    parameters:
+    - id: CommonItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetItemFromCommonItem
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetItemFromCommonItem(Code[20]):Code[20]
+- syntax:
+    signatures:
+    - '[Obsolete(Use another implementation of GetItemFromItemRef.,23.0)]'
+    content: 'procedure GetItemFromItemRef(RefNo: Code[50], RefType: Enum "Item Reference Type", RefTypeNo: Code[20]): Code[20]'
+    parameters:
+    - id: RefNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: RefType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+        name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+        isExternal: false
+    - id: RefTypeNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetItemFromItemRef
+  obsoletion:
+    state: pending
+    reason: Use another implementation of GetItemFromItemRef.
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetItemFromItemRef(Code[50],Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type,Code[20]):Code[20]
+- syntax:
+    content: 'procedure GetItemFromItemRef(RefNo: Code[50], RefType: Enum "Item Reference Type", RefTypeNo: Code[20], ToDate: Date): Code[20]'
+    parameters:
+    - id: RefNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: RefType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+        name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+        isExternal: false
+    - id: RefTypeNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetItemFromItemRef
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.GetItemFromItemRef(Code[50],Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type,Code[20],Date):Code[20]
+- syntax:
+    content: 'procedure HandleICComments(TableName: Option, NewTableName: Option, TransactionNo: Integer, ICPartner: Code[20], TransactionSource: Option)'
+    parameters:
+    - id: TableName
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTableName
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ICPartner
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Option
+        isExternal: true
+  name: HandleICComments
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.HandleICComments(Option,Option,Integer,Code[20],Option)
+- syntax:
+    content: 'procedure OutboxTransToInbox(var ICOutboxTrans: Record "IC Outbox Transaction", var ICInboxTrans: Record "IC Inbox Transaction", FromICPartnerCode: Code[20])'
+    parameters:
+    - id: ICOutboxTrans
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+    - id: ICInboxTrans
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: FromICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: OutboxTransToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxTransToInbox(IC_Outbox_Transaction@,IC_Inbox_Transaction@,Code[20])
+- syntax:
+    content: 'procedure OutboxJnlLineToInbox(var ICInboxTrans: Record "IC Inbox Transaction", var ICOutboxJnlLine: Record "IC Outbox Jnl. Line", var ICInboxJnlLine: Record "IC Inbox Jnl. Line")'
+    parameters:
+    - id: ICInboxTrans
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: ICOutboxJnlLine
+      parameterType:
+        name: Record "IC Outbox Jnl. Line"
+        isExternal: true
+    - id: ICInboxJnlLine
+      parameterType:
+        name: Record "IC Inbox Jnl. Line"
+        isExternal: true
+  name: OutboxJnlLineToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxJnlLineToInbox(IC_Inbox_Transaction@,IC_Outbox_Jnl#_Line@,IC_Inbox_Jnl#_Line@)
+- syntax:
+    content: 'procedure OutboxSalesHdrToInbox(var ICInboxTrans: Record "IC Inbox Transaction", var ICOutboxSalesHeader: Record "IC Outbox Sales Header", var ICInboxPurchHeader: Record "IC Inbox Purchase Header")'
+    parameters:
+    - id: ICInboxTrans
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: ICOutboxSalesHeader
+      parameterType:
+        name: Record "IC Outbox Sales Header"
+        isExternal: true
+    - id: ICInboxPurchHeader
+      parameterType:
+        name: Record "IC Inbox Purchase Header"
+        isExternal: true
+  name: OutboxSalesHdrToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxSalesHdrToInbox(IC_Inbox_Transaction@,IC_Outbox_Sales_Header@,IC_Inbox_Purchase_Header@)
+- syntax:
+    content: 'procedure OutboxSalesLineToInbox(var ICInboxTrans: Record "IC Inbox Transaction", var ICOutboxSalesLine: Record "IC Outbox Sales Line", var ICInboxPurchLine: Record "IC Inbox Purchase Line")'
+    parameters:
+    - id: ICInboxTrans
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: ICOutboxSalesLine
+      parameterType:
+        name: Record "IC Outbox Sales Line"
+        isExternal: true
+    - id: ICInboxPurchLine
+      parameterType:
+        name: Record "IC Inbox Purchase Line"
+        isExternal: true
+  name: OutboxSalesLineToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxSalesLineToInbox(IC_Inbox_Transaction@,IC_Outbox_Sales_Line@,IC_Inbox_Purchase_Line@)
+- syntax:
+    content: 'procedure OutboxICCommentLineToInbox(var ICInboxTransaction: Record "IC Inbox Transaction" temporary, OutgoingICCommentLine: Record "IC Comment Line", var NewICCommentLine: Record "IC Comment Line" temporary)'
+    parameters:
+    - id: ICInboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction" temporary
+        isExternal: true
+    - id: OutgoingICCommentLine
+      parameterType:
+        name: Record "IC Comment Line"
+        isExternal: true
+    - id: NewICCommentLine
+      parameterType:
+        name: Record "IC Comment Line" temporary
+        isExternal: true
+  name: OutboxICCommentLineToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxICCommentLineToInbox(IC_Inbox_Transaction@,IC_Comment_Line,IC_Comment_Line@)
+- syntax:
+    content: 'procedure OutboxPurchHdrToInbox(var ICInboxTrans: Record "IC Inbox Transaction", var ICOutboxPurchHeader: Record "IC Outbox Purchase Header", var ICInboxSalesHeader: Record "IC Inbox Sales Header")'
+    parameters:
+    - id: ICInboxTrans
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: ICOutboxPurchHeader
+      parameterType:
+        name: Record "IC Outbox Purchase Header"
+        isExternal: true
+    - id: ICInboxSalesHeader
+      parameterType:
+        name: Record "IC Inbox Sales Header"
+        isExternal: true
+  name: OutboxPurchHdrToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxPurchHdrToInbox(IC_Inbox_Transaction@,IC_Outbox_Purchase_Header@,IC_Inbox_Sales_Header@)
+- syntax:
+    content: 'procedure OutboxPurchLineToInbox(var ICInboxTrans: Record "IC Inbox Transaction", var ICOutboxPurchLine: Record "IC Outbox Purchase Line", var ICInboxSalesLine: Record "IC Inbox Sales Line")'
+    parameters:
+    - id: ICInboxTrans
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+    - id: ICOutboxPurchLine
+      parameterType:
+        name: Record "IC Outbox Purchase Line"
+        isExternal: true
+    - id: ICInboxSalesLine
+      parameterType:
+        name: Record "IC Inbox Sales Line"
+        isExternal: true
+  name: OutboxPurchLineToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxPurchLineToInbox(IC_Inbox_Transaction@,IC_Outbox_Purchase_Line@,IC_Inbox_Sales_Line@)
+- syntax:
+    content: 'procedure OutboxJnlLineDimToInbox(var ICInboxJnlLine: Record "IC Inbox Jnl. Line", var ICOutboxJnlLineDim: Record "IC Inbox/Outbox Jnl. Line Dim.", var ICInboxJnlLineDim: Record "IC Inbox/Outbox Jnl. Line Dim.", ICInboxTableID: Integer)'
+    parameters:
+    - id: ICInboxJnlLine
+      parameterType:
+        name: Record "IC Inbox Jnl. Line"
+        isExternal: true
+    - id: ICOutboxJnlLineDim
+      parameterType:
+        name: Record "IC Inbox/Outbox Jnl. Line Dim."
+        isExternal: true
+    - id: ICInboxJnlLineDim
+      parameterType:
+        name: Record "IC Inbox/Outbox Jnl. Line Dim."
+        isExternal: true
+    - id: ICInboxTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: OutboxJnlLineDimToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxJnlLineDimToInbox(IC_Inbox_Jnl#_Line@,IC_Inbox/Outbox_Jnl#_Line_Dim#@,IC_Inbox/Outbox_Jnl#_Line_Dim#@,Integer)
+- syntax:
+    content: 'procedure OutboxDocDimToInbox(var ICOutboxDocDim: Record "IC Document Dimension", var ICInboxDocDim: Record "IC Document Dimension", InboxTableID: Integer, InboxICPartnerCode: Code[20], InboxTransSource: Integer)'
+    parameters:
+    - id: ICOutboxDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: ICInboxDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: InboxTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InboxICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InboxTransSource
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: OutboxDocDimToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.OutboxDocDimToInbox(IC_Document_Dimension@,IC_Document_Dimension@,Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure MoveICJnlDimToHandled(TableID: Integer, NewTableID: Integer, TransactionNo: Integer, ICPartner: Code[20], LineNoFilter: Boolean, LineNo: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ICPartner
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNoFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MoveICJnlDimToHandled
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.MoveICJnlDimToHandled(Integer,Integer,Integer,Code[20],Boolean,Integer)
+- syntax:
+    content: 'procedure MoveOutboxTransToHandledOutbox(var ICOutboxTrans: Record "IC Outbox Transaction")'
+    parameters:
+    - id: ICOutboxTrans
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+  name: MoveOutboxTransToHandledOutbox
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.MoveOutboxTransToHandledOutbox(IC_Outbox_Transaction@)
+- syntax:
+    content: 'procedure CreateICDocDimFromPostedDocDim(ICDocDim: Record "IC Document Dimension", DimSetID: Integer, TableNo: Integer)'
+    parameters:
+    - id: ICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateICDocDimFromPostedDocDim
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.CreateICDocDimFromPostedDocDim(IC_Document_Dimension,Integer,Integer)
+- syntax:
+    content: 'procedure FindReceiptLine(var PurchRcptLine: Record "Purch. Rcpt. Line", PurchaseLineSource: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+    - id: PurchaseLineSource
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReceiptLine
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.FindReceiptLine(Purch#_Rcpt#_Line@,Purchase_Line):Boolean
+- syntax:
+    content: 'procedure FindShipmentLine(var ReturnShptLine: Record "Return Shipment Line", PurchaseLineSource: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: ReturnShptLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+    - id: PurchaseLineSource
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindShipmentLine
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.FindShipmentLine(Return_Shipment_Line@,Purchase_Line):Boolean
+- syntax:
+    content: 'procedure UpdatePurchLineICPartnerReference(var PurchaseLine: Record "Purchase Line", PurchaseHeader: Record "Purchase Header", ICInboxPurchLine: Record "IC Inbox Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ICInboxPurchLine
+      parameterType:
+        name: Record "IC Inbox Purchase Line"
+        isExternal: true
+  name: UpdatePurchLineICPartnerReference
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.UpdatePurchLineICPartnerReference(Purchase_Line@,Purchase_Header,IC_Inbox_Purchase_Line)
+- syntax:
+    content: 'procedure UpdatePurchLineReceiptShipment(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: UpdatePurchLineReceiptShipment
+  uid: M:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt.UpdatePurchLineReceiptShipment(Purchase_Line@)
+commentId: O:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt
+name: ICInboxOutboxMgt
+uid: O:Codeunit::Microsoft#Intercompany#ICInboxOutboxMgt

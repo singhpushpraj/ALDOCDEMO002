@@ -1,0 +1,863 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Posting."Purch.-Post"
+alId: ID 90
+namespace: Microsoft.Purchases.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Header" = rm,
+                      TableData "Sales Line" = rm,
+                      TableData "Purchase Line" = rimd,
+    #if not CLEAN23
+                      TableData "Invoice Post. Buffer" = rimd,
+    #endif                  
+                      TableData "Vendor Posting Group" = rimd,
+                      TableData "Inventory Posting Group" = rimd,
+                      TableData "Sales Shipment Header" = rimd,
+                      TableData "Sales Shipment Line" = rimd,
+                      TableData "Purch. Rcpt. Header" = rimd,
+                      TableData "Purch. Rcpt. Line" = rimd,
+                      TableData "Purch. Inv. Header" = rimd,
+                      TableData "Purch. Inv. Line" = rimd,
+                      TableData "Purch. Cr. Memo Hdr." = rimd,
+                      TableData "Purch. Cr. Memo Line" = rimd,
+                      TableData "Drop Shpt. Post. Buffer" = rimd,
+                      TableData "Item Entry Relation" = ri,
+                      TableData "Value Entry Relation" = rid,
+                      TableData "Return Shipment Header" = rimd,
+                      TableData "Return Shipment Line" = rimd,
+                      tabledata "G/L Entry" = r
+  promoted: false
+- name: TableNo
+  value: Purchase Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+    name: Microsoft.Purchases.Document."Purchase Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CopyToTempLines(PurchHeader: Record "Purchase Header", var TempPurchLine: Record "Purchase Line" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TempPurchLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+  name: CopyToTempLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CopyToTempLines(Purchase_Header,Purchase_Line@)
+- syntax:
+    content: 'procedure FillTempLines(PurchHeader: Record "Purchase Header", var TempPurchLine: Record "Purchase Line" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TempPurchLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+  name: FillTempLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.FillTempLines(Purchase_Header,Purchase_Line@)
+- syntax:
+    content: 'procedure RefreshTempLines(PurchHeader: Record "Purchase Header", var TempPurchLine: Record "Purchase Line" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TempPurchLine
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+  name: RefreshTempLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.RefreshTempLines(Purchase_Header,Purchase_Line@)
+- syntax:
+    content: 'procedure ResetTempLines(var TempPurchLineLocal: Record "Purchase Line" temporary)'
+    parameters:
+    - id: TempPurchLineLocal
+      parameterType:
+        name: Record "Purchase Line" temporary
+        isExternal: true
+  name: ResetTempLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.ResetTempLines(Purchase_Line@)
+- syntax:
+    content: 'procedure CalcInvoice(var PurchHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalcInvoice
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CalcInvoice(Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure CheckPurchDocument(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CheckPurchDocument
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CheckPurchDocument(Purchase_Header@)
+- syntax:
+    content: 'procedure PrepareCheckDocument(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PrepareCheckDocument
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.PrepareCheckDocument(Purchase_Header@)
+- syntax:
+    content: 'procedure PostItemJnlLine(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", QtyToBeReceived: Decimal, QtyToBeReceivedBase: Decimal, QtyToBeInvoiced: Decimal, QtyToBeInvoicedBase: Decimal, ItemLedgShptEntryNo: Integer, ItemChargeNo: Code[20], TrackingSpecification: Record "Tracking Specification"): Integer'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: QtyToBeReceived
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeReceivedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoicedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgShptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemChargeNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PostItemJnlLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.PostItemJnlLine(Purchase_Header,Purchase_Line,Decimal,Decimal,Decimal,Decimal,Integer,Code[20],Tracking_Specification):Integer
+- syntax:
+    content: 'procedure PostDistributeItemCharge(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var TempItemLedgEntry: Record "Item Ledger Entry" temporary, NonDistrQuantity: Decimal, NonDistrQtyToAssign: Decimal, NonDistrAmountToAssign: Decimal, Sign: Decimal, IndirectCostPct: Decimal)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: NonDistrQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrAmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Sign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirectCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostDistributeItemCharge
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.PostDistributeItemCharge(Purchase_Header,Purchase_Line,Item_Ledger_Entry@,Decimal,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure TestPurchLine(PurchaseHeader: Record "Purchase Header", PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: TestPurchLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.TestPurchLine(Purchase_Header,Purchase_Line)
+- syntax:
+    content: 'procedure CheckBlockedPostingGroups(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CheckBlockedPostingGroups
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CheckBlockedPostingGroups(Purchase_Line)
+- syntax:
+    content: 'procedure UpdateAssocOrder(var TempDropShptPostBuffer: Record "Drop Shpt. Post. Buffer" temporary)'
+    parameters:
+    - id: TempDropShptPostBuffer
+      parameterType:
+        name: Record "Drop Shpt. Post. Buffer" temporary
+        isExternal: true
+  name: UpdateAssocOrder
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.UpdateAssocOrder(Drop_Shpt#_Post#_Buffer@)
+- syntax:
+    content: 'procedure CheckAndUpdateAssocOrderPostingDate(var SalesHeader: Record "Sales Header", PostingDate: Date)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CheckAndUpdateAssocOrderPostingDate
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CheckAndUpdateAssocOrderPostingDate(Sales_Header@,Date)
+- syntax:
+    content: 'procedure GetCurrency(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrency
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.GetCurrency(Code[10])
+- syntax:
+    content: 'procedure DivideAmount(PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", QtyType: Option, PurchLineQty: Decimal, var TempVATAmountLine: Record "VAT Amount Line" temporary, var TempVATAmountLineRemainder: Record "VAT Amount Line" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PurchLineQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempVATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+    - id: TempVATAmountLineRemainder
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+  name: DivideAmount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.DivideAmount(Purchase_Header,Purchase_Line@,Option,Decimal,VAT_Amount_Line@,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure ReverseAmount(var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: ReverseAmount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.ReverseAmount(Purchase_Line@)
+- syntax:
+    content: 'procedure IncrAmount(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", var TotalPurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: IncrAmount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.IncrAmount(Purchase_Header,Purchase_Line,Purchase_Line@)
+- syntax:
+    content: 'procedure GetPurchLines(var PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", QtyType: Option)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetPurchLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.GetPurchLines(Purchase_Header@,Purchase_Line@,Option)
+- syntax:
+    content: 'procedure SumPurchLines(var NewPurchHeader: Record "Purchase Header", QtyType: Option, var NewTotalPurchLine: Record "Purchase Line", var NewTotalPurchLineLCY: Record "Purchase Line", var VATAmount: Decimal, var VATAmountText: Text[30])'
+    parameters:
+    - id: NewPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NewTotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SumPurchLines
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SumPurchLines(Purchase_Header@,Option,Purchase_Line@,Purchase_Line@,Decimal@,Text[30]@)
+- syntax:
+    content: 'procedure SumPurchLinesTemp(var PurchHeader: Record "Purchase Header", var OldPurchLine: Record "Purchase Line", QtyType: Option, var NewTotalPurchLine: Record "Purchase Line", var NewTotalPurchLineLCY: Record "Purchase Line", var VATAmount: Decimal, var VATAmountText: Text[30])'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: OldPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NewTotalPurchLineLCY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SumPurchLinesTemp
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SumPurchLinesTemp(Purchase_Header@,Purchase_Line@,Option,Purchase_Line@,Purchase_Line@,Decimal@,Text[30]@)
+- syntax:
+    content: 'procedure SumPurchLines2(PurchHeader: Record "Purchase Header", var NewPurchLine: Record "Purchase Line", var OldPurchLine: Record "Purchase Line", QtyType: Option, InsertPurchLine: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: NewPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: OldPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: InsertPurchLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SumPurchLines2
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SumPurchLines2(Purchase_Header,Purchase_Line@,Purchase_Line@,Option,Boolean)
+- syntax:
+    content: 'procedure UpdateBlanketOrderLine(PurchLine: Record "Purchase Line", Receive: Boolean, Ship: Boolean, Invoice: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: Receive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Ship
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateBlanketOrderLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.UpdateBlanketOrderLine(Purchase_Line,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure UpdatePurchOrderChargeAssgnt(PurchOrderInvLine: Record "Purchase Line", PurchOrderLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchOrderInvLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchOrderLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: UpdatePurchOrderChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.UpdatePurchOrderChargeAssgnt(Purchase_Line,Purchase_Line)
+- syntax:
+    content: 'procedure CopyAndCheckItemCharge(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyAndCheckItemCharge
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CopyAndCheckItemCharge(Purchase_Header)
+- syntax:
+    content: 'procedure WhseHandlingRequiredExternal(PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhseHandlingRequiredExternal
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.WhseHandlingRequiredExternal(Purchase_Line):Boolean
+- syntax:
+    content: 'procedure GetTrackingQuantities(PurchLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTrackingQuantities
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.GetTrackingQuantities(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure PostItemCharge(PurchHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line", ItemEntryNo: Integer, QuantityBase: Decimal, AmountToAssign: Decimal, QtyToAssign: Decimal, IndirectCostPct: Decimal)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ItemEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirectCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostItemCharge
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.PostItemCharge(Purchase_Header,Purchase_Line@,Integer,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetWhseRcptHeader(var WhseRcptHeader2: Record "Warehouse Receipt Header")'
+    parameters:
+    - id: WhseRcptHeader2
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+  name: SetWhseRcptHeader
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SetWhseRcptHeader(Warehouse_Receipt_Header@)
+- syntax:
+    content: 'procedure SetWhseShptHeader(var WhseShptHeader2: Record "Warehouse Shipment Header")'
+    parameters:
+    - id: WhseShptHeader2
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+  name: SetWhseShptHeader
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SetWhseShptHeader(Warehouse_Shipment_Header@)
+- syntax:
+    content: 'procedure DecrementPrepmtAmtInvLCY(PurchaseHeader: Record "Purchase Header", PurchaseLine: Record "Purchase Line", var PrepmtAmountInvLCY: Decimal, var PrepmtVATAmountInvLCY: Decimal)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PrepmtAmountInvLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PrepmtVATAmountInvLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: DecrementPrepmtAmtInvLCY
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.DecrementPrepmtAmtInvLCY(Purchase_Header,Purchase_Line,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetPrepmtDiffToLineAmount(PurchLine: Record "Purchase Line"): Decimal'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetPrepmtDiffToLineAmount
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.GetPrepmtDiffToLineAmount(Purchase_Line):Decimal
+- syntax:
+    content: 'procedure ArchiveUnpostedOrder(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ArchiveUnpostedOrder
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.ArchiveUnpostedOrder(Purchase_Header)
+- syntax:
+    content: 'procedure CreateJobPurchLine(var JobPurchLine2: Record "Purchase Line", PurchLine2: Record "Purchase Line", PricesIncludingVAT: Boolean)'
+    parameters:
+    - id: JobPurchLine2
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLine2
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateJobPurchLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CreateJobPurchLine(Purchase_Line@,Purchase_Line,Boolean)
+- syntax:
+    content: 'procedure InitProgressWindow(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: InitProgressWindow
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.InitProgressWindow(Purchase_Header)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure SetCalledBy(NewCalledBy: Integer)'
+    parameters:
+    - id: NewCalledBy
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetCalledBy
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SetCalledBy(Integer)
+- syntax:
+    content: 'procedure CheckSalesCertificateOfSupplyStatus(SalesShptHeader: Record "Sales Shipment Header", SalesShptLine: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: SalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: CheckSalesCertificateOfSupplyStatus
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CheckSalesCertificateOfSupplyStatus(Sales_Shipment_Header,Sales_Shipment_Line)
+- syntax:
+    content: 'procedure InsertReceiptLine(PurchRcptHeader: Record "Purch. Rcpt. Header", PurchLine: Record "Purchase Line", CostBaseAmount: Decimal)'
+    parameters:
+    - id: PurchRcptHeader
+      parameterType:
+        name: Record "Purch. Rcpt. Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: CostBaseAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertReceiptLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.InsertReceiptLine(Purch#_Rcpt#_Header,Purchase_Line,Decimal)
+- syntax:
+    signatures:
+    - '[Obsolete(Moved to Purchase Invoice Posting implementation. Replaced by local procedure CalcInvoiceDiscountPosting in codeunit Purch. Post Invoice,20.0)]'
+    content: 'procedure CalcInvoiceDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  name: CalcInvoiceDiscountPosting
+  obsoletion:
+    state: pending
+    reason: Moved to Purchase Invoice Posting implementation. Replaced by local procedure CalcInvoiceDiscountPosting in codeunit Purch. Post Invoice
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CalcInvoiceDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Post#_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Moved to Purchase Invoice Posting implementation. Replaced by local procedure CalcLineDiscountPosting in codeunit Purch. Post Invoice,20.0)]'
+    content: 'procedure CalcLineDiscountPosting(PurchHeader: Record "Purchase Header", PurchLine: Record "Purchase Line", PurchLineACY: Record "Purchase Line", var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: PurchLineACY
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  name: CalcLineDiscountPosting
+  obsoletion:
+    state: pending
+    reason: Moved to Purchase Invoice Posting implementation. Replaced by local procedure CalcLineDiscountPosting in codeunit Purch. Post Invoice
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CalcLineDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Post#_Buffer@)
+- syntax:
+    content: 'procedure PostUpdateInvoiceLine(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PostUpdateInvoiceLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.PostUpdateInvoiceLine(Purchase_Header@)
+- syntax:
+    content: 'procedure PostUpdateCreditMemoLine(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PostUpdateCreditMemoLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.PostUpdateCreditMemoLine(Purchase_Header@)
+- syntax:
+    content: 'procedure SetPostingFlags(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: SetPostingFlags
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SetPostingFlags(Purchase_Header@)
+- syntax:
+    content: 'procedure ArchiveSalesOrders(var TempDropShptPostBuffer: Record "Drop Shpt. Post. Buffer" temporary)'
+    parameters:
+    - id: TempDropShptPostBuffer
+      parameterType:
+        name: Record "Drop Shpt. Post. Buffer" temporary
+        isExternal: true
+  name: ArchiveSalesOrders
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.ArchiveSalesOrders(Drop_Shpt#_Post#_Buffer@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure GetGeneralPostingSetup(var GenPostingSetup: Record "General Posting Setup", PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: GetGeneralPostingSetup
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.GetGeneralPostingSetup(General_Posting_Setup@,Purchase_Line)
+- syntax:
+    content: 'procedure RunCopyAndCheckItemCharge(PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: RunCopyAndCheckItemCharge
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.RunCopyAndCheckItemCharge(Purchase_Header)
+- syntax:
+    content: 'procedure CheckAssociatedSalesOrderLine(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CheckAssociatedSalesOrderLine
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CheckAssociatedSalesOrderLine(Purchase_Line)
+- syntax:
+    content: 'procedure UpdateChargeItemPurchaseRcptLineGenProdPostingGroup(var PurchRcptLine: Record "Purch. Rcpt. Line")'
+    parameters:
+    - id: PurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+  name: UpdateChargeItemPurchaseRcptLineGenProdPostingGroup
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.UpdateChargeItemPurchaseRcptLineGenProdPostingGroup(Purch#_Rcpt#_Line@)
+- syntax:
+    content: 'procedure UpdateChargeItemReturnShptLineGenProdPostingGroup(var ReturnShipmentLine: Record "Return Shipment Line")'
+    parameters:
+    - id: ReturnShipmentLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+  name: UpdateChargeItemReturnShptLineGenProdPostingGroup
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.UpdateChargeItemReturnShptLineGenProdPostingGroup(Return_Shipment_Line@)
+- syntax:
+    content: 'procedure UpdateChargeItemPurchaseLineGenProdPostingGroup(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: UpdateChargeItemPurchaseLineGenProdPostingGroup
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.UpdateChargeItemPurchaseLineGenProdPostingGroup(Purchase_Line@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnAfterPostPurchaseDoc(var PurchaseHeader: Record "Purchase Header", var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", PurchRcpHdrNo: Code[20], RetShptHdrNo: Code[20], PurchInvHdrNo: Code[20], PurchCrMemoHdrNo: Code[20], CommitIsSupressed: Boolean)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: PurchRcpHdrNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RetShptHdrNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchInvHdrNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchCrMemoHdrNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CommitIsSupressed
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnAfterPostPurchaseDoc
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.OnAfterPostPurchaseDoc(Purchase_Header@,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Code[20],Code[20],Code[20],Code[20],Boolean)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeMakeInventoryAdjustment(var IsHandled: Boolean)'
+    parameters:
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnBeforeMakeInventoryAdjustment
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.OnBeforeMakeInventoryAdjustment(Boolean@)
+commentId: O:Codeunit::Microsoft#Purchases#Posting#Purch#-Post
+name: '"Purch.-Post"'
+uid: O:Codeunit::Microsoft#Purchases#Posting#Purch#-Post

@@ -1,0 +1,100 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Analysis."Sales Pipeline Chart Mgt."
+alId: ID 781
+namespace: Microsoft.Sales.Analysis
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Analysis
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure DrillDown(var BusinessChartBuffer: Record "Business Chart Buffer", var SalesCycleStage: Record "Sales Cycle Stage")'
+    parameters:
+    - id: BusinessChartBuffer
+      parameterType:
+        name: Record "Business Chart Buffer"
+        isExternal: true
+    - id: SalesCycleStage
+      parameterType:
+        name: Record "Sales Cycle Stage"
+        isExternal: true
+  name: DrillDown
+  uid: M:Codeunit::Microsoft#Sales#Analysis#Sales_Pipeline_Chart_Mgt#.DrillDown(Business_Chart_Buffer@,Sales_Cycle_Stage@)
+- syntax:
+    content: 'procedure GetOppEntryCount(SalesCycleCode: Code[10], SalesCycleStage: Integer): Integer'
+    parameters:
+    - id: SalesCycleCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SalesCycleStage
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetOppEntryCount
+  uid: M:Codeunit::Microsoft#Sales#Analysis#Sales_Pipeline_Chart_Mgt#.GetOppEntryCount(Code[10],Integer):Integer
+- syntax:
+    content: 'procedure InsertTempSalesCycleStage(var TempSalesCycleStage: Record "Sales Cycle Stage" temporary, SalesCycle: Record "Sales Cycle")'
+    parameters:
+    - id: TempSalesCycleStage
+      parameterType:
+        name: Record "Sales Cycle Stage" temporary
+        isExternal: true
+    - id: SalesCycle
+      parameterType:
+        name: Record "Sales Cycle"
+        isExternal: true
+  name: InsertTempSalesCycleStage
+  uid: M:Codeunit::Microsoft#Sales#Analysis#Sales_Pipeline_Chart_Mgt#.InsertTempSalesCycleStage(Sales_Cycle_Stage@,Sales_Cycle)
+- syntax:
+    content: 'procedure SetDefaultSalesCycle(var SalesCycle: Record "Sales Cycle", var NextSalesCycleAvailable: Boolean, var PrevSalesCycleAvailable: Boolean): Boolean'
+    parameters:
+    - id: SalesCycle
+      parameterType:
+        name: Record "Sales Cycle"
+        isExternal: true
+    - id: NextSalesCycleAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrevSalesCycleAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetDefaultSalesCycle
+  uid: M:Codeunit::Microsoft#Sales#Analysis#Sales_Pipeline_Chart_Mgt#.SetDefaultSalesCycle(Sales_Cycle@,Boolean@,Boolean@):Boolean
+- syntax:
+    content: 'procedure SetPrevNextSalesCycle(var SalesCycle: Record "Sales Cycle", var NextSalesCycleAvailable: Boolean, var PrevSalesCycleAvailable: Boolean, Step: Integer)'
+    parameters:
+    - id: SalesCycle
+      parameterType:
+        name: Record "Sales Cycle"
+        isExternal: true
+    - id: NextSalesCycleAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrevSalesCycleAvailable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Step
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetPrevNextSalesCycle
+  uid: M:Codeunit::Microsoft#Sales#Analysis#Sales_Pipeline_Chart_Mgt#.SetPrevNextSalesCycle(Sales_Cycle@,Boolean@,Boolean@,Integer)
+commentId: O:Codeunit::Microsoft#Sales#Analysis#Sales Pipeline Chart Mgt#
+name: '"Sales Pipeline Chart Mgt."'
+uid: O:Codeunit::Microsoft#Sales#Analysis#Sales_Pipeline_Chart_Mgt#

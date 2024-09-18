@@ -1,0 +1,61 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: '"O365 Sales Cancel Invoice"'
+alId: ID 2103
+baseKind: Codeunit
+kind: Codeunit
+parent: 'N:Module::Base_Application::Namespace::'
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetEmailAddress(var SalesInvoiceHeader: Record "Sales Invoice Header"): Text[250]'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetEmailAddress
+  uid: M:Codeunit::O365_Sales_Cancel_Invoice.GetEmailAddress(Sales_Invoice_Header@):Text[250]
+- syntax:
+    content: 'procedure GetEmailSubject(var SalesInvoiceHeader: Record "Sales Invoice Header"): Text[250]'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetEmailSubject
+  uid: M:Codeunit::O365_Sales_Cancel_Invoice.GetEmailSubject(Sales_Invoice_Header@):Text[250]
+- syntax:
+    content: 'procedure IsInvoiceCanceled(SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInvoiceCanceled
+  uid: M:Codeunit::O365_Sales_Cancel_Invoice.IsInvoiceCanceled(Sales_Invoice_Header):Boolean
+commentId: O:Codeunit::O365 Sales Cancel Invoice
+name: '"O365 Sales Cancel Invoice"'
+uid: O:Codeunit::O365_Sales_Cancel_Invoice

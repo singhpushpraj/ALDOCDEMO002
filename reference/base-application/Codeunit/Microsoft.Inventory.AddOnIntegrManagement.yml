@@ -1,0 +1,72 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.AddOnIntegrManagement
+alId: ID 5403
+namespace: Microsoft.Inventory
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Manufacturing Setup" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckReceiptOrderStatus(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CheckReceiptOrderStatus
+  uid: M:Codeunit::Microsoft#Inventory#AddOnIntegrManagement.CheckReceiptOrderStatus(Sales_Line@)
+- syntax:
+    content: 'procedure ValidateProdOrderOnPurchLine(var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: ValidateProdOrderOnPurchLine
+  uid: M:Codeunit::Microsoft#Inventory#AddOnIntegrManagement.ValidateProdOrderOnPurchLine(Purchase_Line@)
+- syntax:
+    content: 'procedure ResetReqLineFields(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ResetReqLineFields
+  uid: M:Codeunit::Microsoft#Inventory#AddOnIntegrManagement.ResetReqLineFields(Requisition_Line@)
+- syntax:
+    content: 'procedure ValidateProdOrderOnReqLine(var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: ValidateProdOrderOnReqLine
+  uid: M:Codeunit::Microsoft#Inventory#AddOnIntegrManagement.ValidateProdOrderOnReqLine(Requisition_Line@)
+- syntax:
+    content: procedure InitMfgSetup()
+  name: InitMfgSetup
+  uid: M:Codeunit::Microsoft#Inventory#AddOnIntegrManagement.InitMfgSetup
+- syntax:
+    content: 'procedure TransferFromReqLineToPurchLine(var PurchOrderLine: Record "Purchase Line", ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: PurchOrderLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: TransferFromReqLineToPurchLine
+  uid: M:Codeunit::Microsoft#Inventory#AddOnIntegrManagement.TransferFromReqLineToPurchLine(Purchase_Line@,Requisition_Line)
+commentId: O:Codeunit::Microsoft#Inventory#AddOnIntegrManagement
+name: AddOnIntegrManagement
+uid: O:Codeunit::Microsoft#Inventory#AddOnIntegrManagement

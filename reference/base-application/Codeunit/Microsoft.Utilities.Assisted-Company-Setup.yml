@@ -1,0 +1,171 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities."Assisted Company Setup"
+alId: ID 1800
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Assisted Company Setup Status" = r
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: InherentEntitlements
+  value: X
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ApplyUserInput(var TempConfigSetup: Record "Config. Setup" temporary, var BankAccount: Record "Bank Account", AccountingPeriodStartDate: Date, SkipSetupCompanyInfo: Boolean)'
+    parameters:
+    - id: TempConfigSetup
+      parameterType:
+        name: Record "Config. Setup" temporary
+        isExternal: true
+    - id: BankAccount
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+    - id: AccountingPeriodStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SkipSetupCompanyInfo
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ApplyUserInput
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.ApplyUserInput(Config#_Setup@,Bank_Account@,Date,Boolean)
+- syntax:
+    content: 'procedure CreateAccountingPeriod(StartDate: Date)'
+    parameters:
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreateAccountingPeriod
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.CreateAccountingPeriod(Date)
+- syntax:
+    content: 'procedure IsCompanySetupInProgress(NewCompanyName: Text): Boolean'
+    parameters:
+    - id: NewCompanyName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCompanySetupInProgress
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.IsCompanySetupInProgress(Text):Boolean
+- syntax:
+    content: procedure WaitForPackageImportToComplete()
+  name: WaitForPackageImportToComplete
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.WaitForPackageImportToComplete
+- syntax:
+    content: 'procedure FillCompanyData(NewCompanyName: Text[30], NewCompanyData: Option)'
+    parameters:
+    - id: NewCompanyName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: NewCompanyData
+      parameterType:
+        name: Option
+        isExternal: true
+  name: FillCompanyData
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.FillCompanyData(Text[30],Option)
+- syntax:
+    content: 'procedure ExistsConfigurationPackageFile(CompanyData: Option): Boolean'
+    parameters:
+    - id: CompanyData
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ExistsConfigurationPackageFile
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.ExistsConfigurationPackageFile(Option):Boolean
+- syntax:
+    content: 'procedure FindConfigurationPackageFile(ConfigurationPackageFile: __MissingTypeSymbol__, CompanyData: Option): Boolean'
+    parameters:
+    - id: ConfigurationPackageFile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: CompanyData
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindConfigurationPackageFile
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.FindConfigurationPackageFile(__MissingSymbol__@,Option):Boolean
+- syntax:
+    content: 'procedure ScheduleConfigPackageImport(ConfigurationPackageFile: __MissingTypeSymbol__, Name: Text)'
+    parameters:
+    - id: ConfigurationPackageFile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: Name
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ScheduleConfigPackageImport
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.ScheduleConfigPackageImport(__MissingSymbol__,Text)
+- syntax:
+    content: 'procedure SetUpNewCompany(NewCompanyName: Text[30], NewCompanyData: Option)'
+    parameters:
+    - id: NewCompanyName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: NewCompanyData
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetUpNewCompany
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.SetUpNewCompany(Text[30],Option)
+- syntax:
+    content: 'procedure SetUpNewCompany(NewCompanyName: Text[30], NewCompanyData: Option, InstallAdditionalDemoData: Boolean)'
+    parameters:
+    - id: NewCompanyName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: NewCompanyData
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: InstallAdditionalDemoData
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetUpNewCompany
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.SetUpNewCompany(Text[30],Option,Boolean)
+- syntax:
+    content: 'procedure CreateNewCompany(NewCompanyName: Text[30])'
+    parameters:
+    - id: NewCompanyName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CreateNewCompany
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.CreateNewCompany(Text[30])
+- syntax:
+    content: procedure AddAssistedCompanySetup()
+  name: AddAssistedCompanySetup
+  uid: M:Codeunit::Microsoft#Utilities#Assisted_Company_Setup.AddAssistedCompanySetup
+commentId: O:Codeunit::Microsoft#Utilities#Assisted Company Setup
+name: '"Assisted Company Setup"'
+uid: O:Codeunit::Microsoft#Utilities#Assisted_Company_Setup

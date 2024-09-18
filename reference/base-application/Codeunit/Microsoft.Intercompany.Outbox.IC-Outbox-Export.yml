@@ -1,0 +1,86 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Intercompany.Outbox."IC Outbox Export"
+alId: ID 431
+namespace: Microsoft.Intercompany.Outbox
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Intercompany.Outbox
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: IC Outbox Transaction
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Intercompany#Outbox#IC_Outbox_Transaction
+    name: Microsoft.Intercompany.Outbox."IC Outbox Transaction"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ProcessAutoSendOutboxTransactionNo(ICOutboxTransactionNo: Integer)'
+    parameters:
+    - id: ICOutboxTransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ProcessAutoSendOutboxTransactionNo
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.ProcessAutoSendOutboxTransactionNo(Integer)
+- syntax:
+    content: 'procedure SendToExternalPartner(var ICOutboxTrans: Record "IC Outbox Transaction")'
+    parameters:
+    - id: ICOutboxTrans
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+  name: SendToExternalPartner
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.SendToExternalPartner(IC_Outbox_Transaction@)
+- syntax:
+    content: 'procedure DownloadBatchFiles(DownloadFileName: Text)'
+    parameters:
+    - id: DownloadFileName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: DownloadBatchFiles
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.DownloadBatchFiles(Text)
+- syntax:
+    content: 'procedure SendToInternalPartner(var ICOutboxTrans: Record "IC Outbox Transaction")'
+    parameters:
+    - id: ICOutboxTrans
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+  name: SendToInternalPartner
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.SendToInternalPartner(IC_Outbox_Transaction@)
+- syntax:
+    content: 'procedure ReturnToInbox(var ICOutboxTrans: Record "IC Outbox Transaction")'
+    parameters:
+    - id: ICOutboxTrans
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+  name: ReturnToInbox
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.ReturnToInbox(IC_Outbox_Transaction@)
+- syntax:
+    content: 'procedure CancelTransaction(var ICOutboxTrans: Record "IC Outbox Transaction")'
+    parameters:
+    - id: ICOutboxTrans
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+  name: CancelTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.CancelTransaction(IC_Outbox_Transaction@)
+- syntax:
+    content: 'procedure UpdateICStatus(var ICOutboxTransaction: Record "IC Outbox Transaction")'
+    parameters:
+    - id: ICOutboxTransaction
+      parameterType:
+        name: Record "IC Outbox Transaction"
+        isExternal: true
+  name: UpdateICStatus
+  uid: M:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export.UpdateICStatus(IC_Outbox_Transaction@)
+commentId: O:Codeunit::Microsoft#Intercompany#Outbox#IC Outbox Export
+name: '"IC Outbox Export"'
+uid: O:Codeunit::Microsoft#Intercompany#Outbox#IC_Outbox_Export

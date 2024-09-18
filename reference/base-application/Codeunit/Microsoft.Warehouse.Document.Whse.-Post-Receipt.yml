@@ -1,0 +1,179 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Document."Whse.-Post Receipt"
+alId: ID 5760
+namespace: Microsoft.Warehouse.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Whse. Item Entry Relation" = ri,
+                      TableData "Posted Whse. Receipt Header" = ri,
+                      TableData "Posted Whse. Receipt Line" = ri
+  promoted: false
+- name: TableNo
+  value: Warehouse Receipt Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Line
+    name: Microsoft.Warehouse.Document."Warehouse Receipt Line"
+    isExternal: false
+methods:
+- syntax:
+    content: procedure GetResultMessage()
+  name: GetResultMessage
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.GetResultMessage
+- syntax:
+    content: 'procedure PostUpdateWhseDocuments(var WhseRcptHeader: Record "Warehouse Receipt Header")'
+    parameters:
+    - id: WhseRcptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+  name: PostUpdateWhseDocuments
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.PostUpdateWhseDocuments(Warehouse_Receipt_Header@)
+- syntax:
+    content: 'procedure CreatePostedRcptHeader(var PostedWhseRcptHeader: Record "Posted Whse. Receipt Header", var WhseRcptHeader: Record "Warehouse Receipt Header", ReceivingNo2: Code[20], PostingDate2: Date)'
+    parameters:
+    - id: PostedWhseRcptHeader
+      parameterType:
+        name: Record "Posted Whse. Receipt Header"
+        isExternal: true
+    - id: WhseRcptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+    - id: ReceivingNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreatePostedRcptHeader
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.CreatePostedRcptHeader(Posted_Whse#_Receipt_Header@,Warehouse_Receipt_Header@,Code[20],Date)
+- syntax:
+    content: 'procedure CreatePostedRcptLine(var WhseRcptLine: Record "Warehouse Receipt Line", var PostedWhseRcptHeader: Record "Posted Whse. Receipt Header", var PostedWhseRcptLine: Record "Posted Whse. Receipt Line", var TempHandlingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: WhseRcptLine
+      parameterType:
+        name: Record "Warehouse Receipt Line"
+        isExternal: true
+    - id: PostedWhseRcptHeader
+      parameterType:
+        name: Record "Posted Whse. Receipt Header"
+        isExternal: true
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreatePostedRcptLine
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.CreatePostedRcptLine(Warehouse_Receipt_Line@,Posted_Whse#_Receipt_Header@,Posted_Whse#_Receipt_Line@,Tracking_Specification@)
+- syntax:
+    content: 'procedure GetFirstPutAwayDocument(var WhseActivHeader: Record "Warehouse Activity Header"): Boolean'
+    parameters:
+    - id: WhseActivHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetFirstPutAwayDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.GetFirstPutAwayDocument(Warehouse_Activity_Header@):Boolean
+- syntax:
+    content: 'procedure GetNextPutAwayDocument(var WhseActivHeader: Record "Warehouse Activity Header"): Boolean'
+    parameters:
+    - id: WhseActivHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNextPutAwayDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.GetNextPutAwayDocument(Warehouse_Activity_Header@):Boolean
+- syntax:
+    content: 'procedure InsertTempWhseJnlLine(PostedWhseRcptLine: Record "Posted Whse. Receipt Line")'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+  name: InsertTempWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.InsertTempWhseJnlLine(Posted_Whse#_Receipt_Line)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure SetItemEntryRelation(PostedWhseRcptHeader: Record "Posted Whse. Receipt Header", PostedWhseRcptLine: Record "Posted Whse. Receipt Line", var ItemEntryRelation: Record "Item Entry Relation")'
+    parameters:
+    - id: PostedWhseRcptHeader
+      parameterType:
+        name: Record "Posted Whse. Receipt Header"
+        isExternal: true
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: ItemEntryRelation
+      parameterType:
+        name: Record "Item Entry Relation"
+        isExternal: true
+  name: SetItemEntryRelation
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.SetItemEntryRelation(Posted_Whse#_Receipt_Header,Posted_Whse#_Receipt_Line,Item_Entry_Relation@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure GetCounterSourceDocTotal(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCounterSourceDocTotal
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.GetCounterSourceDocTotal:Integer
+- syntax:
+    content: 'procedure GetCounterSourceDocOK(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCounterSourceDocOK
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt.GetCounterSourceDocOK:Integer
+commentId: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post Receipt
+name: '"Whse.-Post Receipt"'
+uid: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt

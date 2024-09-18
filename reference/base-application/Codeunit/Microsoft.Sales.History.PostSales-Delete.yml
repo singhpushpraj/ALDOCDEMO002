@@ -1,0 +1,142 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."PostSales-Delete"
+alId: ID 363
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Shipment Header" = ri,
+                      TableData "Sales Shipment Line" = rid,
+                      TableData "Sales Invoice Header" = ri,
+                      TableData "Sales Invoice Line" = rid,
+                      TableData "Sales Cr.Memo Header" = ri,
+                      TableData "Sales Cr.Memo Line" = rid,
+                      TableData "Return Receipt Header" = ri,
+                      TableData "Return Receipt Line" = rid
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure DeleteHeader(SalesHeader: Record "Sales Header", var SalesShptHeader: Record "Sales Shipment Header", var SalesInvHeader: Record "Sales Invoice Header", var SalesCrMemoHeader: Record "Sales Cr.Memo Header", var ReturnRcptHeader: Record "Return Receipt Header", var SalesInvHeaderPrePmt: Record "Sales Invoice Header", var SalesCrMemoHeaderPrePmt: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: ReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+    - id: SalesInvHeaderPrePmt
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: SalesCrMemoHeaderPrePmt
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: DeleteHeader
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.DeleteHeader(Sales_Header,Sales_Shipment_Header@,Sales_Invoice_Header@,Sales_Cr#Memo_Header@,Return_Receipt_Header@,Sales_Invoice_Header@,Sales_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure DeleteSalesShptLines(SalesShptHeader: Record "Sales Shipment Header")'
+    parameters:
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+  name: DeleteSalesShptLines
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.DeleteSalesShptLines(Sales_Shipment_Header)
+- syntax:
+    content: 'procedure DeleteSalesInvLines(SalesInvHeader: Record "Sales Invoice Header")'
+    parameters:
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: DeleteSalesInvLines
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.DeleteSalesInvLines(Sales_Invoice_Header)
+- syntax:
+    content: 'procedure DeleteSalesCrMemoLines(SalesCrMemoHeader: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: DeleteSalesCrMemoLines
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.DeleteSalesCrMemoLines(Sales_Cr#Memo_Header)
+- syntax:
+    content: 'procedure DeleteSalesRcptLines(ReturnRcptHeader: Record "Return Receipt Header")'
+    parameters:
+    - id: ReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+  name: DeleteSalesRcptLines
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.DeleteSalesRcptLines(Return_Receipt_Header)
+- syntax:
+    content: 'procedure InitDeleteHeader(SalesHeader: Record "Sales Header", var SalesShptHeader: Record "Sales Shipment Header", var SalesInvHeader: Record "Sales Invoice Header", var SalesCrMemoHeader: Record "Sales Cr.Memo Header", var ReturnRcptHeader: Record "Return Receipt Header", var SalesInvHeaderPrePmt: Record "Sales Invoice Header", var SalesCrMemoHeaderPrePmt: Record "Sales Cr.Memo Header", SourceCode: Code[10])'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: ReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+    - id: SalesInvHeaderPrePmt
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: SalesCrMemoHeaderPrePmt
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: InitDeleteHeader
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.InitDeleteHeader(Sales_Header,Sales_Shipment_Header@,Sales_Invoice_Header@,Sales_Cr#Memo_Header@,Return_Receipt_Header@,Sales_Invoice_Header@,Sales_Cr#Memo_Header@,Code[10])
+- syntax:
+    content: 'procedure IsDocumentDeletionAllowed(PostingDate: Date)'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: IsDocumentDeletionAllowed
+  uid: M:Codeunit::Microsoft#Sales#History#PostSales-Delete.IsDocumentDeletionAllowed(Date)
+commentId: O:Codeunit::Microsoft#Sales#History#PostSales-Delete
+name: '"PostSales-Delete"'
+uid: O:Codeunit::Microsoft#Sales#History#PostSales-Delete

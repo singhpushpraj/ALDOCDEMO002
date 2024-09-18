@@ -1,0 +1,62 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Statement."Undo Bank Statement (Yes/No)"
+alId: ID 1340
+namespace: Microsoft.Bank.Statement
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Statement
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Bank Account Ledger Entry" = rm,
+                      TableData "Check Ledger Entry" = rm,
+                      TableData "Bank Acc. Reconciliation" = ri,
+                      TableData "Bank Acc. Reconciliation Line" = ri,
+                      TableData "Bank Account Statement" = rd,
+                      TableData "Bank Account Statement Line" = rd
+  promoted: false
+- name: TableNo
+  value: Bank Account Statement
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Statement#Bank_Account_Statement
+    name: Microsoft.Bank.Statement."Bank Account Statement"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure UndoBankAccountStatement(BankAccountStatement: Record "Bank Account Statement"): Code[20]'
+    parameters:
+    - id: BankAccountStatement
+      parameterType:
+        name: Record "Bank Account Statement"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: UndoBankAccountStatement
+  uid: M:Codeunit::Microsoft#Bank#Statement#Undo_Bank_Statement_(Yes/No).UndoBankAccountStatement(Bank_Account_Statement):Code[20]
+- syntax:
+    content: 'procedure UndoBankAccountStatement(BankAccountStatement: Record "Bank Account Statement", CreateBankRec: Boolean): Code[20]'
+    parameters:
+    - id: BankAccountStatement
+      parameterType:
+        name: Record "Bank Account Statement"
+        isExternal: true
+    - id: CreateBankRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: UndoBankAccountStatement
+  uid: M:Codeunit::Microsoft#Bank#Statement#Undo_Bank_Statement_(Yes/No).UndoBankAccountStatement(Bank_Account_Statement,Boolean):Code[20]
+commentId: O:Codeunit::Microsoft#Bank#Statement#Undo Bank Statement (Yes/No)
+name: '"Undo Bank Statement (Yes/No)"'
+uid: O:Codeunit::Microsoft#Bank#Statement#Undo_Bank_Statement_(Yes/No)

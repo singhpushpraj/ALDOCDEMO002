@@ -1,0 +1,204 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities.ArchiveManagement
+alId: ID 5063
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tableData "Purch. Comment Line" = r,
+                      tableData "Purchase Header Archive" = ri,
+                      tableData "Purchase Line Archive" = ri,
+                      tableData "Purch. Comment Line Archive" = ri,
+                      tabledata "Sales Comment Line" = r,
+                      tabledata "Sales Header Archive" = ri,
+                      tabledata "Sales Line Archive" = ri,
+                      tabledata "Sales Comment Line Archive" = ri
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AutoArchiveSalesDocument(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: AutoArchiveSalesDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.AutoArchiveSalesDocument(Sales_Header@)
+- syntax:
+    content: 'procedure AutoArchivePurchDocument(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: AutoArchivePurchDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.AutoArchivePurchDocument(Purchase_Header@)
+- syntax:
+    content: 'procedure ArchiveSalesDocument(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ArchiveSalesDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.ArchiveSalesDocument(Sales_Header@)
+- syntax:
+    content: 'procedure ArchivePurchDocument(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ArchivePurchDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.ArchivePurchDocument(Purchase_Header@)
+- syntax:
+    content: 'procedure StoreSalesDocument(var SalesHeader: Record "Sales Header", InteractionExist: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: InteractionExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: StoreSalesDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.StoreSalesDocument(Sales_Header@,Boolean)
+- syntax:
+    content: 'procedure StorePurchDocument(var PurchHeader: Record "Purchase Header", InteractionExist: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: InteractionExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: StorePurchDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.StorePurchDocument(Purchase_Header@,Boolean)
+- syntax:
+    content: 'procedure RestoreSalesDocument(var SalesHeaderArchive: Record "Sales Header Archive")'
+    parameters:
+    - id: SalesHeaderArchive
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+  name: RestoreSalesDocument
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.RestoreSalesDocument(Sales_Header_Archive@)
+- syntax:
+    content: 'procedure GetNextOccurrenceNo(TableId: Integer, DocType: Option, DocNo: Code[20]): Integer'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextOccurrenceNo
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.GetNextOccurrenceNo(Integer,Option,Code[20]):Integer
+- syntax:
+    content: 'procedure GetNextVersionNo(TableId: Integer, DocType: Option, DocNo: Code[20], DocNoOccurrence: Integer): Integer'
+    parameters:
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocNoOccurrence
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextVersionNo
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.GetNextVersionNo(Integer,Option,Code[20],Integer):Integer
+- syntax:
+    content: 'procedure SalesDocArchiveGranule(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesDocArchiveGranule
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.SalesDocArchiveGranule:Boolean
+- syntax:
+    content: 'procedure PurchaseDocArchiveGranule(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchaseDocArchiveGranule
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.PurchaseDocArchiveGranule:Boolean
+- syntax:
+    content: 'procedure ArchSalesDocumentNoConfirm(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ArchSalesDocumentNoConfirm
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.ArchSalesDocumentNoConfirm(Sales_Header@)
+- syntax:
+    content: 'procedure ArchPurchDocumentNoConfirm(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ArchPurchDocumentNoConfirm
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.ArchPurchDocumentNoConfirm(Purchase_Header@)
+- syntax:
+    content: 'procedure RoundSalesDeferralsForArchive(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: RoundSalesDeferralsForArchive
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.RoundSalesDeferralsForArchive(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure RoundPurchaseDeferralsForArchive(PurchaseHeader: Record "Purchase Header", var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: RoundPurchaseDeferralsForArchive
+  uid: M:Codeunit::Microsoft#Utilities#ArchiveManagement.RoundPurchaseDeferralsForArchive(Purchase_Header,Purchase_Line@)
+commentId: O:Codeunit::Microsoft#Utilities#ArchiveManagement
+name: ArchiveManagement
+uid: O:Codeunit::Microsoft#Utilities#ArchiveManagement

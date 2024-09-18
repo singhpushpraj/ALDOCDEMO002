@@ -1,0 +1,171 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Assembly.Posting."Assembly-Post"
+alId: ID 900
+namespace: Microsoft.Assembly.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Assembly.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Posted Assembly Header" = rim,
+                      TableData "Posted Assembly Line" = rim,
+                      TableData "Item Entry Relation" = ri,
+                      TableData "G/L Entry" = r
+  promoted: false
+- name: TableNo
+  value: Assembly Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Assembly#Document#Assembly_Header
+    name: Microsoft.Assembly.Document."Assembly Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetPostingDate(NewReplacePostingDate: Boolean, NewPostingDate: Date)'
+    parameters:
+    - id: NewReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetPostingDate
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.SetPostingDate(Boolean,Date)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure Undo(var PostedAsmHeader: Record "Posted Assembly Header", RecreateAsmOrder: Boolean)'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+    - id: RecreateAsmOrder
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Undo
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.Undo(Posted_Assembly_Header@,Boolean)
+- syntax:
+    content: 'procedure InitPostATO(var AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: InitPostATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.InitPostATO(Assembly_Header@)
+- syntax:
+    content: 'procedure PostATO(var AssemblyHeader: Record "Assembly Header", var ItemJnlPostLine: Codeunit "Item Jnl.-Post Line", var ResJnlPostLine: Codeunit "Res. Jnl.-Post Line", var WhseJnlRegisterLine: Codeunit "Whse. Jnl.-Register Line")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ItemJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line
+        name: Microsoft.Inventory.Posting."Item Jnl.-Post Line"
+        isExternal: false
+    - id: ResJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Projects#Resources#Journal#Res#_Jnl#-Post_Line
+        name: Microsoft.Projects.Resources.Journal."Res. Jnl.-Post Line"
+        isExternal: false
+    - id: WhseJnlRegisterLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line
+        name: Microsoft.Warehouse.Journal."Whse. Jnl.-Register Line"
+        isExternal: false
+  name: PostATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.PostATO(Assembly_Header@,Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line@,Codeunit::Microsoft#Projects#Resources#Journal#Res#_Jnl#-Post_Line@,Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line@)
+- syntax:
+    content: 'procedure FinalizePostATO(var AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: FinalizePostATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.FinalizePostATO(Assembly_Header@)
+- syntax:
+    content: 'procedure UndoInitPostATO(var PostedAsmHeader: Record "Posted Assembly Header")'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+  name: UndoInitPostATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.UndoInitPostATO(Posted_Assembly_Header@)
+- syntax:
+    content: 'procedure UndoPostATO(var PostedAsmHeader: Record "Posted Assembly Header", var ItemJnlPostLine: Codeunit "Item Jnl.-Post Line", var ResJnlPostLine: Codeunit "Res. Jnl.-Post Line", var WhseJnlRegisterLine: Codeunit "Whse. Jnl.-Register Line")'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+    - id: ItemJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line
+        name: Microsoft.Inventory.Posting."Item Jnl.-Post Line"
+        isExternal: false
+    - id: ResJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Projects#Resources#Journal#Res#_Jnl#-Post_Line
+        name: Microsoft.Projects.Resources.Journal."Res. Jnl.-Post Line"
+        isExternal: false
+    - id: WhseJnlRegisterLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line
+        name: Microsoft.Warehouse.Journal."Whse. Jnl.-Register Line"
+        isExternal: false
+  name: UndoPostATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.UndoPostATO(Posted_Assembly_Header@,Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line@,Codeunit::Microsoft#Projects#Resources#Journal#Res#_Jnl#-Post_Line@,Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line@)
+- syntax:
+    content: 'procedure UndoFinalizePostATO(var PostedAsmHeader: Record "Posted Assembly Header")'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+  name: UndoFinalizePostATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.UndoFinalizePostATO(Posted_Assembly_Header@)
+- syntax:
+    content: 'procedure UpdateBlanketATO(xBlanketOrderSalesLine: Record "Sales Line", BlanketOrderSalesLine: Record "Sales Line")'
+    parameters:
+    - id: xBlanketOrderSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: BlanketOrderSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: UpdateBlanketATO
+  uid: M:Codeunit::Microsoft#Assembly#Posting#Assembly-Post.UpdateBlanketATO(Sales_Line,Sales_Line)
+commentId: O:Codeunit::Microsoft#Assembly#Posting#Assembly-Post
+name: '"Assembly-Post"'
+uid: O:Codeunit::Microsoft#Assembly#Posting#Assembly-Post

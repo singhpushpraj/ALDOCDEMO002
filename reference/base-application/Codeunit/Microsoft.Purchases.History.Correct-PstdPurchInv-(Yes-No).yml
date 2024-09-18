@@ -1,0 +1,41 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.History."Correct PstdPurchInv (Yes/No)"
+alId: ID 1324
+namespace: Microsoft.Purchases.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purch. Inv. Header" = rm,
+                      TableData "Purch. Cr. Memo Hdr." = rm
+  promoted: false
+- name: TableNo
+  value: Purch. Inv. Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#History#Purch#_Inv#_Header
+    name: Microsoft.Purchases.History."Purch. Inv. Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CorrectInvoice(var PurchInvHeader: Record "Purch. Inv. Header"): Boolean'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CorrectInvoice
+  uid: M:Codeunit::Microsoft#Purchases#History#Correct_PstdPurchInv_(Yes/No).CorrectInvoice(Purch#_Inv#_Header@):Boolean
+commentId: O:Codeunit::Microsoft#Purchases#History#Correct PstdPurchInv (Yes/No)
+name: '"Correct PstdPurchInv (Yes/No)"'
+uid: O:Codeunit::Microsoft#Purchases#History#Correct_PstdPurchInv_(Yes/No)

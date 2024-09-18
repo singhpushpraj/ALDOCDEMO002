@@ -1,0 +1,1339 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Address."Format Address"
+alId: ID 365
+namespace: Microsoft.Foundation.Address
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Address
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Country/Region" = r
+  promoted: false
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FormatAddr(var AddrArray: array[8] of Text[100], Name: Text[100], Name2: Text[100], Contact: Text[100], Addr: Text[100], Addr2: Text[50], City: Text[50], PostCode: Code[20], County: Text[50], CountryCode: Code[10])'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Name
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: Name2
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: Contact
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: Addr
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: Addr2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: City
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: County
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: CountryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: FormatAddr
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.FormatAddr(Text[100][]@,Text[100],Text[100],Text[100],Text[100],Text[50],Text[50],Code[20],Text[50],Code[10])
+- syntax:
+    content: 'procedure FormatPostCodeCity(var PostCodeCityText: Text[100], var CountyText: Text[50], City: Text[50], PostCode: Code[20], County: Text[50], CountryCode: Code[10])'
+    parameters:
+    - id: PostCodeCityText
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CountyText
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: City
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: County
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: CountryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: FormatPostCodeCity
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.FormatPostCodeCity(Text[100]@,Text[50]@,Text[50],Code[20],Text[50],Code[10])
+- syntax:
+    content: 'procedure GeneratePostCodeCity(var PostCodeCityText: Text[100], var CountyText: Text[50], City: Text[50], PostCode: Code[20], County: Text[50], Country: Record "Country/Region")'
+    parameters:
+    - id: PostCodeCityText
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CountyText
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: City
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: County
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: Country
+      parameterType:
+        name: Record "Country/Region"
+        isExternal: true
+  name: GeneratePostCodeCity
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.GeneratePostCodeCity(Text[100]@,Text[50]@,Text[50],Code[20],Text[50],Country/Region)
+- syntax:
+    content: 'procedure GetCompanyAddr(RespCenterCode: Code[10], var ResponsibilityCenter: Record "Responsibility Center", var CompanyInfo: Record "Company Information", var CompanyAddr: array[8] of Text[100])'
+    parameters:
+    - id: RespCenterCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ResponsibilityCenter
+      parameterType:
+        name: Record "Responsibility Center"
+        isExternal: true
+    - id: CompanyInfo
+      parameterType:
+        name: Record "Company Information"
+        isExternal: true
+    - id: CompanyAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+  name: GetCompanyAddr
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.GetCompanyAddr(Code[10],Responsibility_Center@,Company_Information@,Text[100][]@)
+- syntax:
+    content: 'procedure Company(var AddrArray: array[8] of Text[100], var CompanyInfo: Record "Company Information")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CompanyInfo
+      parameterType:
+        name: Record "Company Information"
+        isExternal: true
+  name: Company
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.Company(Text[100][]@,Company_Information@)
+- syntax:
+    content: 'procedure Customer(var AddrArray: array[8] of Text[100], var Cust: Record Customer)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Cust
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: Customer
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.Customer(Text[100][]@,Customer@)
+- syntax:
+    content: 'procedure Vendor(var AddrArray: array[8] of Text[100], var Vend: Record Vendor)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Vend
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+  name: Vendor
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.Vendor(Text[100][]@,Vendor@)
+- syntax:
+    content: 'procedure BankAcc(var AddrArray: array[8] of Text[100], var BankAcc: Record "Bank Account")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: BankAcc
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+  name: BankAcc
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.BankAcc(Text[100][]@,Bank_Account@)
+- syntax:
+    content: 'procedure Location(var AddrArray: array[8] of Text[100], var Location: Record Location)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+  name: Location
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.Location(Text[100][]@,Location@)
+- syntax:
+    content: 'procedure SalesHeaderSellTo(var AddrArray: array[8] of Text[100], var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SalesHeaderSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesHeaderSellTo(Text[100][]@,Sales_Header@)
+- syntax:
+    content: 'procedure SalesHeaderBillTo(var AddrArray: array[8] of Text[100], var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SalesHeaderBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesHeaderBillTo(Text[100][]@,Sales_Header@)
+- syntax:
+    content: 'procedure SalesHeaderShipTo(var AddrArray: array[8] of Text[100], CustAddr: array[8] of Text[100], var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesHeaderShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesHeaderShipTo(Text[100][]@,Text[100][],Sales_Header@):Boolean
+- syntax:
+    content: 'procedure PurchHeaderBuyFrom(var AddrArray: array[8] of Text[100], var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PurchHeaderBuyFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderBuyFrom(Text[100][]@,Purchase_Header@)
+- syntax:
+    content: 'procedure PurchHeaderPayTo(var AddrArray: array[8] of Text[100], var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PurchHeaderPayTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderPayTo(Text[100][]@,Purchase_Header@)
+- syntax:
+    content: 'procedure PurchHeaderShipTo(var AddrArray: array[8] of Text[100], var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PurchHeaderShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderShipTo(Text[100][]@,Purchase_Header@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by PurchHeaderRemitTo with dictionaries.,22.0)]'
+    content: 'procedure PurchHeaderRemitTo(var AddrArray: array[8] of Text[100], var PurchHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchHeaderRemitTo
+  obsoletion:
+    state: pending
+    reason: Replaced by PurchHeaderRemitTo with dictionaries.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderRemitTo(Text[100][]@,Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure PurchHeaderRemitTo(var RemitAddressBuffer: Record "Remit Address Buffer" temporary, var PurchHeader: Record "Purchase Header"): Boolean'
+    parameters:
+    - id: RemitAddressBuffer
+      parameterType:
+        name: Record "Remit Address Buffer" temporary
+        isExternal: true
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchHeaderRemitTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderRemitTo(Remit_Address_Buffer@,Purchase_Header@):Boolean
+- syntax:
+    content: 'procedure SalesShptSellTo(var AddrArray: array[8] of Text[100], var SalesShptHeader: Record "Sales Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+  name: SalesShptSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesShptSellTo(Text[100][]@,Sales_Shipment_Header@)
+- syntax:
+    content: 'procedure SalesShptBillTo(var AddrArray: array[8] of Text[100], ShipToAddr: array[8] of Text[100], var SalesShptHeader: Record "Sales Shipment Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ShipToAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesShptBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesShptBillTo(Text[100][]@,Text[100][],Sales_Shipment_Header@):Boolean
+- syntax:
+    content: 'procedure SalesShptShipTo(var AddrArray: array[8] of Text[100], var SalesShptHeader: Record "Sales Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+  name: SalesShptShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesShptShipTo(Text[100][]@,Sales_Shipment_Header@)
+- syntax:
+    content: 'procedure SalesInvSellTo(var AddrArray: array[8] of Text[100], var SalesInvHeader: Record "Sales Invoice Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: SalesInvSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesInvSellTo(Text[100][]@,Sales_Invoice_Header@)
+- syntax:
+    content: 'procedure SalesInvBillTo(var AddrArray: array[8] of Text[100], var SalesInvHeader: Record "Sales Invoice Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: SalesInvBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesInvBillTo(Text[100][]@,Sales_Invoice_Header@)
+- syntax:
+    content: 'procedure SalesInvShipTo(var AddrArray: array[8] of Text[100], CustAddr: array[8] of Text[100], var SalesInvHeader: Record "Sales Invoice Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesInvShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesInvShipTo(Text[100][]@,Text[100][],Sales_Invoice_Header@):Boolean
+- syntax:
+    content: 'procedure SalesCrMemoSellTo(var AddrArray: array[8] of Text[100], var SalesCrMemoHeader: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: SalesCrMemoSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesCrMemoSellTo(Text[100][]@,Sales_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure SalesCrMemoBillTo(var AddrArray: array[8] of Text[100], var SalesCrMemoHeader: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: SalesCrMemoBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesCrMemoBillTo(Text[100][]@,Sales_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure SalesCrMemoShipTo(var AddrArray: array[8] of Text[100], CustAddr: array[8] of Text[100], var SalesCrMemoHeader: Record "Sales Cr.Memo Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesCrMemoShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesCrMemoShipTo(Text[100][]@,Text[100][],Sales_Cr#Memo_Header@):Boolean
+- syntax:
+    content: 'procedure SalesRcptSellTo(var AddrArray: array[8] of Text[100], var ReturnRcptHeader: Record "Return Receipt Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+  name: SalesRcptSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesRcptSellTo(Text[100][]@,Return_Receipt_Header@)
+- syntax:
+    content: 'procedure SalesRcptBillTo(var AddrArray: array[8] of Text[100], ShipToAddr: array[8] of Text[100], var ReturnRcptHeader: Record "Return Receipt Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ShipToAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesRcptBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesRcptBillTo(Text[100][]@,Text[100][],Return_Receipt_Header@):Boolean
+- syntax:
+    content: 'procedure SalesRcptShipTo(var AddrArray: array[8] of Text[100], var ReturnRcptHeader: Record "Return Receipt Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+  name: SalesRcptShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesRcptShipTo(Text[100][]@,Return_Receipt_Header@)
+- syntax:
+    content: 'procedure PurchRcptBuyFrom(var AddrArray: array[8] of Text[100], var PurchRcptHeader: Record "Purch. Rcpt. Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchRcptHeader
+      parameterType:
+        name: Record "Purch. Rcpt. Header"
+        isExternal: true
+  name: PurchRcptBuyFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchRcptBuyFrom(Text[100][]@,Purch#_Rcpt#_Header@)
+- syntax:
+    content: 'procedure PurchRcptPayTo(var AddrArray: array[8] of Text[100], var PurchRcptHeader: Record "Purch. Rcpt. Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchRcptHeader
+      parameterType:
+        name: Record "Purch. Rcpt. Header"
+        isExternal: true
+  name: PurchRcptPayTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchRcptPayTo(Text[100][]@,Purch#_Rcpt#_Header@)
+- syntax:
+    content: 'procedure PurchRcptShipTo(var AddrArray: array[8] of Text[100], var PurchRcptHeader: Record "Purch. Rcpt. Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchRcptHeader
+      parameterType:
+        name: Record "Purch. Rcpt. Header"
+        isExternal: true
+  name: PurchRcptShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchRcptShipTo(Text[100][]@,Purch#_Rcpt#_Header@)
+- syntax:
+    content: 'procedure PurchInvBuyFrom(var AddrArray: array[8] of Text[100], var PurchInvHeader: Record "Purch. Inv. Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+  name: PurchInvBuyFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchInvBuyFrom(Text[100][]@,Purch#_Inv#_Header@)
+- syntax:
+    content: 'procedure PurchInvPayTo(var AddrArray: array[8] of Text[100], var PurchInvHeader: Record "Purch. Inv. Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+  name: PurchInvPayTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchInvPayTo(Text[100][]@,Purch#_Inv#_Header@)
+- syntax:
+    content: 'procedure PurchInvShipTo(var AddrArray: array[8] of Text[100], var PurchInvHeader: Record "Purch. Inv. Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+  name: PurchInvShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchInvShipTo(Text[100][]@,Purch#_Inv#_Header@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by PurchInvRemitTo with dictionaries.,22.0)]'
+    content: 'procedure PurchInvRemitTo(var AddrArray: array[8] of Text[100], var PurchInvHeader: Record "Purch. Inv. Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchInvRemitTo
+  obsoletion:
+    state: pending
+    reason: Replaced by PurchInvRemitTo with dictionaries.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchInvRemitTo(Text[100][]@,Purch#_Inv#_Header@):Boolean
+- syntax:
+    content: 'procedure PurchInvRemitTo(var RemitAddressBuffer: Record "Remit Address Buffer" temporary, var PurchInvHeader: Record "Purch. Inv. Header"): Boolean'
+    parameters:
+    - id: RemitAddressBuffer
+      parameterType:
+        name: Record "Remit Address Buffer" temporary
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchInvRemitTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchInvRemitTo(Remit_Address_Buffer@,Purch#_Inv#_Header@):Boolean
+- syntax:
+    content: 'procedure PurchCrMemoBuyFrom(var AddrArray: array[8] of Text[100], var PurchCrMemoHeader: Record "Purch. Cr. Memo Hdr.")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchCrMemoHeader
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+  name: PurchCrMemoBuyFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchCrMemoBuyFrom(Text[100][]@,Purch#_Cr#_Memo_Hdr#@)
+- syntax:
+    content: 'procedure PurchCrMemoPayTo(var AddrArray: array[8] of Text[100], var PurchCrMemoHeader: Record "Purch. Cr. Memo Hdr.")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchCrMemoHeader
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+  name: PurchCrMemoPayTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchCrMemoPayTo(Text[100][]@,Purch#_Cr#_Memo_Hdr#@)
+- syntax:
+    content: 'procedure PurchCrMemoShipTo(var AddrArray: array[8] of Text[100], var PurchCrMemoHeader: Record "Purch. Cr. Memo Hdr.")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchCrMemoHeader
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+  name: PurchCrMemoShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchCrMemoShipTo(Text[100][]@,Purch#_Cr#_Memo_Hdr#@)
+- syntax:
+    content: 'procedure PurchShptBuyFrom(var AddrArray: array[8] of Text[100], var ReturnShptHeader: Record "Return Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReturnShptHeader
+      parameterType:
+        name: Record "Return Shipment Header"
+        isExternal: true
+  name: PurchShptBuyFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchShptBuyFrom(Text[100][]@,Return_Shipment_Header@)
+- syntax:
+    content: 'procedure PurchShptPayTo(var AddrArray: array[8] of Text[100], var ReturnShptHeader: Record "Return Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReturnShptHeader
+      parameterType:
+        name: Record "Return Shipment Header"
+        isExternal: true
+  name: PurchShptPayTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchShptPayTo(Text[100][]@,Return_Shipment_Header@)
+- syntax:
+    content: 'procedure PurchShptShipTo(var AddrArray: array[8] of Text[100], var ReturnShptHeader: Record "Return Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReturnShptHeader
+      parameterType:
+        name: Record "Return Shipment Header"
+        isExternal: true
+  name: PurchShptShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchShptShipTo(Text[100][]@,Return_Shipment_Header@)
+- syntax:
+    content: 'procedure AltAddr(var AddrArray: array[8] of Text[100], var Employee: Record Employee, var AlternativeAddr: Record "Alternative Address")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Employee
+      parameterType:
+        name: Record Employee
+        isExternal: true
+    - id: AlternativeAddr
+      parameterType:
+        name: Record "Alternative Address"
+        isExternal: true
+  name: AltAddr
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.AltAddr(Text[100][]@,Employee@,Alternative_Address@)
+- syntax:
+    content: 'procedure Employee(var AddrArray: array[8] of Text[100], var Employee: Record Employee)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Employee
+      parameterType:
+        name: Record Employee
+        isExternal: true
+  name: Employee
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.Employee(Text[100][]@,Employee@)
+- syntax:
+    content: 'procedure EmployeeAltAddr(var AddrArray: array[8] of Text[100], var Employee: Record Employee)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Employee
+      parameterType:
+        name: Record Employee
+        isExternal: true
+  name: EmployeeAltAddr
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.EmployeeAltAddr(Text[100][]@,Employee@)
+- syntax:
+    content: 'procedure VendBankAcc(var AddrArray: array[8] of Text[100], var VendBankAcc: Record "Vendor Bank Account")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: VendBankAcc
+      parameterType:
+        name: Record "Vendor Bank Account"
+        isExternal: true
+  name: VendBankAcc
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.VendBankAcc(Text[100][]@,Vendor_Bank_Account@)
+- syntax:
+    content: 'procedure CustBankAcc(var AddrArray: array[8] of Text[100], var CustBankAcc: Record "Customer Bank Account")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustBankAcc
+      parameterType:
+        name: Record "Customer Bank Account"
+        isExternal: true
+  name: CustBankAcc
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.CustBankAcc(Text[100][]@,Customer_Bank_Account@)
+- syntax:
+    content: 'procedure RespCenter(var AddrArray: array[8] of Text[100], var RespCenter: Record "Responsibility Center")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: RespCenter
+      parameterType:
+        name: Record "Responsibility Center"
+        isExternal: true
+  name: RespCenter
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.RespCenter(Text[100][]@,Responsibility_Center@)
+- syntax:
+    content: 'procedure TransferShptTransferFrom(var AddrArray: array[8] of Text[100], var TransShptHeader: Record "Transfer Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: TransShptHeader
+      parameterType:
+        name: Record "Transfer Shipment Header"
+        isExternal: true
+  name: TransferShptTransferFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.TransferShptTransferFrom(Text[100][]@,Transfer_Shipment_Header@)
+- syntax:
+    content: 'procedure TransferShptTransferTo(var AddrArray: array[8] of Text[100], var TransShptHeader: Record "Transfer Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: TransShptHeader
+      parameterType:
+        name: Record "Transfer Shipment Header"
+        isExternal: true
+  name: TransferShptTransferTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.TransferShptTransferTo(Text[100][]@,Transfer_Shipment_Header@)
+- syntax:
+    content: 'procedure TransferRcptTransferFrom(var AddrArray: array[8] of Text[100], var TransRcptHeader: Record "Transfer Receipt Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: TransRcptHeader
+      parameterType:
+        name: Record "Transfer Receipt Header"
+        isExternal: true
+  name: TransferRcptTransferFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.TransferRcptTransferFrom(Text[100][]@,Transfer_Receipt_Header@)
+- syntax:
+    content: 'procedure TransferRcptTransferTo(var AddrArray: array[8] of Text[100], var TransRcptHeader: Record "Transfer Receipt Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: TransRcptHeader
+      parameterType:
+        name: Record "Transfer Receipt Header"
+        isExternal: true
+  name: TransferRcptTransferTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.TransferRcptTransferTo(Text[100][]@,Transfer_Receipt_Header@)
+- syntax:
+    content: 'procedure TransferHeaderTransferFrom(var AddrArray: array[8] of Text[100], var TransHeader: Record "Transfer Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: TransHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: TransferHeaderTransferFrom
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.TransferHeaderTransferFrom(Text[100][]@,Transfer_Header@)
+- syntax:
+    content: 'procedure TransferHeaderTransferTo(var AddrArray: array[8] of Text[100], var TransHeader: Record "Transfer Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: TransHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: TransferHeaderTransferTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.TransferHeaderTransferTo(Text[100][]@,Transfer_Header@)
+- syntax:
+    content: 'procedure ContactAddr(var AddrArray: array[8] of Text[100], var Cont: Record Contact)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: ContactAddr
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ContactAddr(Text[100][]@,Contact@)
+- syntax:
+    content: 'procedure ContactAddrAlt(var AddrArray: array[8] of Text[100], var Cont: Record Contact, AltAddressCode: Code[10], ActiveDate: Date)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    - id: AltAddressCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ActiveDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ContactAddrAlt
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ContactAddrAlt(Text[100][]@,Contact@,Code[10],Date)
+- syntax:
+    content: 'procedure ServiceOrderSellto(var AddrArray: array[8] of Text[100], ServHeader: Record "Service Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceOrderSellto
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceOrderSellto(Text[100][]@,Service_Header)
+- syntax:
+    content: 'procedure ServiceOrderShipto(var AddrArray: array[8] of Text[100], ServHeader: Record "Service Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceOrderShipto
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceOrderShipto(Text[100][]@,Service_Header)
+- syntax:
+    content: 'procedure ServContractSellto(var AddrArray: array[8] of Text[100], ServContract: Record "Service Contract Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServContract
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: ServContractSellto
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServContractSellto(Text[100][]@,Service_Contract_Header)
+- syntax:
+    content: 'procedure ServContractShipto(var AddrArray: array[8] of Text[100], ServiceContractHeader: Record "Service Contract Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+  name: ServContractShipto
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServContractShipto(Text[100][]@,Service_Contract_Header)
+- syntax:
+    content: 'procedure ServiceInvBillTo(var AddrArray: array[8] of Text[100], var ServiceInvHeader: Record "Service Invoice Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceInvHeader
+      parameterType:
+        name: Record "Service Invoice Header"
+        isExternal: true
+  name: ServiceInvBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceInvBillTo(Text[100][]@,Service_Invoice_Header@)
+- syntax:
+    content: 'procedure ServiceInvShipTo(var AddrArray: array[8] of Text[100], CustAddr: array[8] of Text[100], var ServiceInvHeader: Record "Service Invoice Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceInvHeader
+      parameterType:
+        name: Record "Service Invoice Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceInvShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceInvShipTo(Text[100][]@,Text[100][],Service_Invoice_Header@):Boolean
+- syntax:
+    content: 'procedure ServiceShptShipTo(var AddrArray: array[8] of Text[100], var ServiceShptHeader: Record "Service Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+  name: ServiceShptShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceShptShipTo(Text[100][]@,Service_Shipment_Header@)
+- syntax:
+    content: 'procedure ServiceShptSellTo(var AddrArray: array[8] of Text[100], var ServiceShptHeader: Record "Service Shipment Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+  name: ServiceShptSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceShptSellTo(Text[100][]@,Service_Shipment_Header@)
+- syntax:
+    content: 'procedure ServiceShptBillTo(var AddrArray: array[8] of Text[100], ShipToAddr: array[8] of Text[100], var ServiceShptHeader: Record "Service Shipment Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ShipToAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceShptBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceShptBillTo(Text[100][]@,Text[100][],Service_Shipment_Header@):Boolean
+- syntax:
+    content: 'procedure ServiceCrMemoBillTo(var AddrArray: array[8] of Text[100], var ServiceCrMemoHeader: Record "Service Cr.Memo Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceCrMemoHeader
+      parameterType:
+        name: Record "Service Cr.Memo Header"
+        isExternal: true
+  name: ServiceCrMemoBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceCrMemoBillTo(Text[100][]@,Service_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure ServiceCrMemoShipTo(var AddrArray: array[8] of Text[100], CustAddr: array[8] of Text[100], var ServiceCrMemoHeader: Record "Service Cr.Memo Header"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceCrMemoHeader
+      parameterType:
+        name: Record "Service Cr.Memo Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceCrMemoShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceCrMemoShipTo(Text[100][]@,Text[100][],Service_Cr#Memo_Header@):Boolean
+- syntax:
+    content: 'procedure ServiceHeaderSellTo(var AddrArray: array[8] of Text[100], var ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceHeaderSellTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceHeaderSellTo(Text[100][]@,Service_Header@)
+- syntax:
+    content: 'procedure ServiceHeaderBillTo(var AddrArray: array[8] of Text[100], var ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceHeaderBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceHeaderBillTo(Text[100][]@,Service_Header@)
+- syntax:
+    content: 'procedure ServiceHeaderShipTo(var AddrArray: array[8] of Text[100], var ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceHeaderShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.ServiceHeaderShipTo(Text[100][]@,Service_Header@)
+- syntax:
+    content: 'procedure PostalBarCode(AddressType: Option): Text[100]'
+    parameters:
+    - id: AddressType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: PostalBarCode
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PostalBarCode(Option):Text[100]
+- syntax:
+    content: 'procedure SalesHeaderArchBillTo(var AddrArray: array[8] of Text[100], var SalesHeaderArch: Record "Sales Header Archive")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesHeaderArch
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+  name: SalesHeaderArchBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesHeaderArchBillTo(Text[100][]@,Sales_Header_Archive@)
+- syntax:
+    content: 'procedure SalesHeaderArchShipTo(var AddrArray: array[8] of Text[100], CustAddr: array[8] of Text[100], var SalesHeaderArch: Record "Sales Header Archive"): Boolean'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: CustAddr
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: SalesHeaderArch
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesHeaderArchShipTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SalesHeaderArchShipTo(Text[100][]@,Text[100][],Sales_Header_Archive@):Boolean
+- syntax:
+    content: 'procedure PurchHeaderBuyFromArch(var AddrArray: array[8] of Text[100], var PurchHeaderArch: Record "Purchase Header Archive")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeaderArch
+      parameterType:
+        name: Record "Purchase Header Archive"
+        isExternal: true
+  name: PurchHeaderBuyFromArch
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderBuyFromArch(Text[100][]@,Purchase_Header_Archive@)
+- syntax:
+    content: 'procedure PurchHeaderPayToArch(var AddrArray: array[8] of Text[100], var PurchHeaderArch: Record "Purchase Header Archive")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeaderArch
+      parameterType:
+        name: Record "Purchase Header Archive"
+        isExternal: true
+  name: PurchHeaderPayToArch
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderPayToArch(Text[100][]@,Purchase_Header_Archive@)
+- syntax:
+    content: 'procedure PurchHeaderShipToArch(var AddrArray: array[8] of Text[100], var PurchHeaderArch: Record "Purchase Header Archive")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: PurchHeaderArch
+      parameterType:
+        name: Record "Purchase Header Archive"
+        isExternal: true
+  name: PurchHeaderShipToArch
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.PurchHeaderShipToArch(Text[100][]@,Purchase_Header_Archive@)
+- syntax:
+    content: 'procedure Reminder(var AddrArray: array[8] of Text[100], var ReminderHeader: Record "Reminder Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: ReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+  name: Reminder
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.Reminder(Text[100][]@,Reminder_Header@)
+- syntax:
+    content: 'procedure IssuedReminder(var AddrArray: array[8] of Text[100], var IssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: IssuedReminder
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.IssuedReminder(Text[100][]@,Issued_Reminder_Header@)
+- syntax:
+    content: 'procedure FinanceChargeMemo(var AddrArray: array[8] of Text[100], var FinanceChargeMemoHeader: Record "Finance Charge Memo Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: FinanceChargeMemoHeader
+      parameterType:
+        name: Record "Finance Charge Memo Header"
+        isExternal: true
+  name: FinanceChargeMemo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.FinanceChargeMemo(Text[100][]@,Finance_Charge_Memo_Header@)
+- syntax:
+    content: 'procedure IssuedFinanceChargeMemo(var AddrArray: array[8] of Text[100], var IssuedFinChargeMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: IssuedFinChargeMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: IssuedFinanceChargeMemo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.IssuedFinanceChargeMemo(Text[100][]@,Issued_Fin#_Charge_Memo_Header@)
+- syntax:
+    content: 'procedure JobBillTo(var AddrArray: array[8] of Text[100], var Job: Record Job)'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: JobBillTo
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.JobBillTo(Text[100][]@,Job@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by VendorRemitToAddress.,22.0)]'
+    content: 'procedure VendorRemitToAddress(var AddrArray: array[8] of Text[100], var RemitAddress: Record "Remit Address")'
+    parameters:
+    - id: AddrArray
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+    - id: RemitAddress
+      parameterType:
+        name: Record "Remit Address"
+        isExternal: true
+  name: VendorRemitToAddress
+  obsoletion:
+    state: pending
+    reason: Replaced by VendorRemitToAddress.
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.VendorRemitToAddress(Text[100][]@,Remit_Address@)
+- syntax:
+    content: 'procedure VendorRemitToAddress(var RemitAddress: Record "Remit Address", var ArrayAddress: array[8] of Text[100])'
+    parameters:
+    - id: RemitAddress
+      parameterType:
+        name: Record "Remit Address"
+        isExternal: true
+    - id: ArrayAddress
+      parameterType:
+        name: array[8] of Text[100]
+        isExternal: true
+  name: VendorRemitToAddress
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.VendorRemitToAddress(Remit_Address@,Text[100][]@)
+- syntax:
+    content: 'procedure VendorRemitToAddress(var RemitAddress: Record "Remit Address", var RemitAddressBuffer: Record "Remit Address Buffer" temporary)'
+    parameters:
+    - id: RemitAddress
+      parameterType:
+        name: Record "Remit Address"
+        isExternal: true
+    - id: RemitAddressBuffer
+      parameterType:
+        name: Record "Remit Address Buffer" temporary
+        isExternal: true
+  name: VendorRemitToAddress
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.VendorRemitToAddress(Remit_Address@,Remit_Address_Buffer@)
+- syntax:
+    content: 'procedure UseCounty(CountryCode: Code[10]): Boolean'
+    parameters:
+    - id: CountryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UseCounty
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.UseCounty(Code[10]):Boolean
+- syntax:
+    content: 'procedure SetLanguageCode(NewLanguageCode: Code[10])'
+    parameters:
+    - id: NewLanguageCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetLanguageCode
+  uid: M:Codeunit::Microsoft#Foundation#Address#Format_Address.SetLanguageCode(Code[10])
+commentId: O:Codeunit::Microsoft#Foundation#Address#Format Address
+name: '"Format Address"'
+uid: O:Codeunit::Microsoft#Foundation#Address#Format_Address

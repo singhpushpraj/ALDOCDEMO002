@@ -1,0 +1,281 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Calculate Prod. Order"
+alId: ID 99000773
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = r,
+                      TableData "Prod. Order Line" = rimd,
+                      TableData "Prod. Order Component" = rimd,
+                      TableData "Manufacturing Setup" = r,
+                      TableData "Production BOM Line" = rimd,
+                      TableData "Production BOM Comment Line" = rimd,
+                      TableData "Production Order" = rimd,
+                      TableData "Prod. Order Comp. Cmt Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitProdOrderRoutingLine(var ProdOrderRoutingLine: Record "Prod. Order Routing Line", RoutingLine: Record "Routing Line")'
+    parameters:
+    - id: ProdOrderRoutingLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: RoutingLine
+      parameterType:
+        name: Record "Routing Line"
+        isExternal: true
+  name: InitProdOrderRoutingLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.InitProdOrderRoutingLine(Prod#_Order_Routing_Line@,Routing_Line)
+- syntax:
+    content: 'procedure TransferTaskInfo(var FromProdOrderRoutingLine: Record "Prod. Order Routing Line", VersionCode: Code[20])'
+    parameters:
+    - id: FromProdOrderRoutingLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: VersionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: TransferTaskInfo
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.TransferTaskInfo(Prod#_Order_Routing_Line@,Code[20])
+- syntax:
+    content: 'procedure TransferBOM(ProdBOMNo: Code[20], Level: Integer, LineQtyPerUOM: Decimal, ItemQtyPerUOM: Decimal): Boolean'
+    parameters:
+    - id: ProdBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransferBOM
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.TransferBOM(Code[20],Integer,Decimal,Decimal):Boolean
+- syntax:
+    content: procedure CalculateComponents()
+  name: CalculateComponents
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.CalculateComponents
+- syntax:
+    content: 'procedure CalculateRoutingFromActual(ProdOrderRoutingLine: Record "Prod. Order Routing Line", Direction: Option, CalcStartEndDate: Boolean)'
+    parameters:
+    - id: ProdOrderRoutingLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CalcStartEndDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateRoutingFromActual
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.CalculateRoutingFromActual(Prod#_Order_Routing_Line,Option,Boolean)
+- syntax:
+    content: 'procedure CalculateProdOrderDates(var ProdOrderLine: Record "Prod. Order Line", LetDueDateDecrease: Boolean)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: LetDueDateDecrease
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateProdOrderDates
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.CalculateProdOrderDates(Prod#_Order_Line@,Boolean)
+- syntax:
+    content: 'procedure Calculate(ProdOrderLine2: Record "Prod. Order Line", Direction: Option, CalcRouting: Boolean, CalcComponents: Boolean, DeleteRelations: Boolean, LetDueDateDecrease: Boolean): Boolean'
+    parameters:
+    - id: ProdOrderLine2
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CalcRouting
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalcComponents
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DeleteRelations
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LetDueDateDecrease
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Calculate
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.Calculate(Prod#_Order_Line,Option,Boolean,Boolean,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure Recalculate(var ProdOrderLine2: Record "Prod. Order Line", Direction: Option, LetDueDateDecrease: Boolean)'
+    parameters:
+    - id: ProdOrderLine2
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LetDueDateDecrease
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Recalculate
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.Recalculate(Prod#_Order_Line@,Option,Boolean)
+- syntax:
+    content: 'procedure BlockDynamicTracking(SetBlock: Boolean)'
+    parameters:
+    - id: SetBlock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: BlockDynamicTracking
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.BlockDynamicTracking(Boolean)
+- syntax:
+    content: 'procedure SetParameter(NewProdOrderModify: Boolean)'
+    parameters:
+    - id: NewProdOrderModify
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetParameter
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.SetParameter(Boolean)
+- syntax:
+    content: 'procedure SetProdOrderLineBinCodeFromRoute(var ProdOrderLine: Record "Prod. Order Line", ParentLocationCode: Code[10], RoutingNo: Code[20])'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ParentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetProdOrderLineBinCodeFromRoute
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.SetProdOrderLineBinCodeFromRoute(Prod#_Order_Line@,Code[10],Code[20])
+- syntax:
+    content: 'procedure SetProdOrderLineBinCodeFromProdRtngLines(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: SetProdOrderLineBinCodeFromProdRtngLines
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.SetProdOrderLineBinCodeFromProdRtngLines(Prod#_Order_Line@)
+- syntax:
+    content: 'procedure SetProdOrderLineBinCodeFromPlanningRtngLines(var ProdOrderLine: Record "Prod. Order Line", ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: SetProdOrderLineBinCodeFromPlanningRtngLines
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.SetProdOrderLineBinCodeFromPlanningRtngLines(Prod#_Order_Line@,Requisition_Line)
+- syntax:
+    content: 'procedure FindAndSetProdOrderLineBinCodeFromProdRoutingLines(ProdOrderStatus: Enum "Production Order Status", ProdOrderNo: Code[20], ProdOrderLineNo: Integer)'
+    parameters:
+    - id: ProdOrderStatus
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+        name: Microsoft.Manufacturing.Document."Production Order Status"
+        isExternal: false
+    - id: ProdOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ProdOrderLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindAndSetProdOrderLineBinCodeFromProdRoutingLines
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.FindAndSetProdOrderLineBinCodeFromProdRoutingLines(Enum::Microsoft#Manufacturing#Document#Production_Order_Status,Code[20],Integer)
+- syntax:
+    content: 'procedure AssignProdOrderLineBinCodeFromProdRtngLineMachineCenter(var ProdOrderRoutingLine: Record "Prod. Order Routing Line")'
+    parameters:
+    - id: ProdOrderRoutingLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+  name: AssignProdOrderLineBinCodeFromProdRtngLineMachineCenter
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.AssignProdOrderLineBinCodeFromProdRtngLineMachineCenter(Prod#_Order_Routing_Line@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnTransferRoutingOnBeforeCalcRoutingCostPerUnit(var ProdOrderRoutingLine: Record "Prod. Order Routing Line", ProdOrderLine: Record "Prod. Order Line", RoutingLine: Record "Routing Line")'
+    parameters:
+    - id: ProdOrderRoutingLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: RoutingLine
+      parameterType:
+        name: Record "Routing Line"
+        isExternal: true
+  name: OnTransferRoutingOnBeforeCalcRoutingCostPerUnit
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.OnTransferRoutingOnBeforeCalcRoutingCostPerUnit(Prod#_Order_Routing_Line@,Prod#_Order_Line,Routing_Line)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnRecalculateOnBeforeCalculateRouting(var ProdOrderLine: Record "Prod. Order Line", var IsHandled: Boolean)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnRecalculateOnBeforeCalculateRouting
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order.OnRecalculateOnBeforeCalculateRouting(Prod#_Order_Line@,Boolean@)
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Calculate Prod# Order
+name: '"Calculate Prod. Order"'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Calculate_Prod#_Order

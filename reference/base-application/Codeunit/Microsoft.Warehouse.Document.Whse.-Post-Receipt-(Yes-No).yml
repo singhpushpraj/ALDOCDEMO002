@@ -1,0 +1,48 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Document."Whse.-Post Receipt (Yes/No)"
+alId: ID 5761
+namespace: Microsoft.Warehouse.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Warehouse Receipt Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Line
+    name: Microsoft.Warehouse.Document."Warehouse Receipt Line"
+    isExternal: false
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Preview(var WarehouseReceiptLine: Record "Warehouse Receipt Line")'
+    parameters:
+    - id: WarehouseReceiptLine
+      parameterType:
+        name: Record "Warehouse Receipt Line"
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt_(Yes/No).Preview(Warehouse_Receipt_Line@)
+- syntax:
+    content: 'procedure MessageIfPostingPreviewMultipleDocuments(var WarehouseReceiptHeaderToPreview: Record "Warehouse Receipt Header", DocumentNo: Code[20])'
+    parameters:
+    - id: WarehouseReceiptHeaderToPreview
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MessageIfPostingPreviewMultipleDocuments
+  uid: M:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt_(Yes/No).MessageIfPostingPreviewMultipleDocuments(Warehouse_Receipt_Header@,Code[20])
+commentId: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post Receipt (Yes/No)
+name: '"Whse.-Post Receipt (Yes/No)"'
+uid: O:Codeunit::Microsoft#Warehouse#Document#Whse#-Post_Receipt_(Yes/No)

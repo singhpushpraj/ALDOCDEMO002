@@ -1,0 +1,611 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Dimension.Correction."Dimension Correction Mgt"
+alId: ID 2580
+namespace: Microsoft.Finance.Dimension.Correction
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Dimension.Correction
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ValidateNoBlockedDimensionsUsed(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: ValidateNoBlockedDimensionsUsed
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ValidateNoBlockedDimensionsUsed(Dimension_Correction@)
+- syntax:
+    content: 'procedure GenerateSupportingTables(var DimensionCorrection: Record "Dimension Correction", var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary)'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+  name: GenerateSupportingTables
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GenerateSupportingTables(Dimension_Correction@,Dim_Correction_Set_Buffer@)
+- syntax:
+    content: 'procedure VerifyCanValidateDimensionCorrection(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: VerifyCanValidateDimensionCorrection
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.VerifyCanValidateDimensionCorrection(Dimension_Correction@)
+- syntax:
+    content: 'procedure ValidateBlockedNotUsed(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: ValidateBlockedNotUsed
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ValidateBlockedNotUsed(Dimension_Correction@)
+- syntax:
+    content: 'procedure ValidateDimensionSets(var DimensionCorrection: Record "Dimension Correction", var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary, var ErrorCount: Integer)'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+    - id: ErrorCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateDimensionSets
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ValidateDimensionSets(Dimension_Correction@,Dim_Correction_Set_Buffer@,Integer@)
+- syntax:
+    content: 'procedure ValidateDimensionChanges(var DimensionCorrection: Record "Dimension Correction", var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary, var ErrorCount: Integer)'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+    - id: ErrorCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateDimensionChanges
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ValidateDimensionChanges(Dimension_Correction@,Dim_Correction_Set_Buffer@,Integer@)
+- syntax:
+    content: 'procedure VerifyIfDimensionCanBeChanged(var DimCorrectionChange: Record "Dim Correction Change")'
+    parameters:
+    - id: DimCorrectionChange
+      parameterType:
+        name: Record "Dim Correction Change"
+        isExternal: true
+  name: VerifyIfDimensionCanBeChanged
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.VerifyIfDimensionCanBeChanged(Dim_Correction_Change@)
+- syntax:
+    content: 'procedure DeleteValidationErrors(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: DeleteValidationErrors
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.DeleteValidationErrors(Dimension_Correction@)
+- syntax:
+    content: 'procedure UpdateValidationStatusAndThrowErrorIfFailed(var DimensionCorrection: Record "Dimension Correction", ErrorCount: Integer)'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: ErrorCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateValidationStatusAndThrowErrorIfFailed
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.UpdateValidationStatusAndThrowErrorIfFailed(Dimension_Correction@,Integer)
+- syntax:
+    content: 'procedure GenerateSelectedEntries(var DimensionCorrection: Record "Dimension Correction", var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary)'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+  name: GenerateSelectedEntries
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GenerateSelectedEntries(Dimension_Correction@,Dim_Correction_Set_Buffer@)
+- syntax:
+    content: 'procedure IsGLEntryForUpdate(var GLEntry: Record "G/L Entry", var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary, DimensionCorrectionEntryNo: Integer, TempExcludedEntriesInteger: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempExcludedEntriesInteger
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsGLEntryForUpdate
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.IsGLEntryForUpdate(G/L_Entry@,Dim_Correction_Set_Buffer@,Integer,__MissingSymbol__@):Boolean
+- syntax:
+    content: 'procedure GetTargetDimCorrectionSetBuffer(var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary, var DimensionCorrection: Record "Dimension Correction", var GLEntry: Record "G/L Entry"): Boolean'
+    parameters:
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetTargetDimCorrectionSetBuffer
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetTargetDimCorrectionSetBuffer(Dim_Correction_Set_Buffer@,Dimension_Correction@,G/L_Entry@):Boolean
+- syntax:
+    content: 'procedure GenerateTargetDimensionSetIds(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: GenerateTargetDimensionSetIds
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GenerateTargetDimensionSetIds(Dimension_Correction@)
+- syntax:
+    content: 'procedure CreateCorrectionFromGLRegister(var GLRegister: Record "G/L Register", var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: GLRegister
+      parameterType:
+        name: Record "G/L Register"
+        isExternal: true
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: CreateCorrectionFromGLRegister
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.CreateCorrectionFromGLRegister(G/L_Register@,Dimension_Correction@)
+- syntax:
+    content: 'procedure CreateCorrectionFromSelection(var GLEntry: Record "G/L Entry", var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: CreateCorrectionFromSelection
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.CreateCorrectionFromSelection(G/L_Entry@,Dimension_Correction@)
+- syntax:
+    content: 'procedure CreateCorrectionFromFilter(var GLEntry: Record "G/L Entry", var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: CreateCorrectionFromFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.CreateCorrectionFromFilter(G/L_Entry@,Dimension_Correction@)
+- syntax:
+    content: 'procedure InsertNewDimCorrectSelectionCriteria(var MainRecordRef: RecordRef, DimCorrectSelectionCriteriaFilterType: Option, var DimCorrectSelectionCriteria: Record "Dim Correct Selection Criteria", DimensionCorrectionEntryNo: Integer)'
+    parameters:
+    - id: MainRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DimCorrectSelectionCriteriaFilterType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: DimCorrectSelectionCriteria
+      parameterType:
+        name: Record "Dim Correct Selection Criteria"
+        isExternal: true
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertNewDimCorrectSelectionCriteria
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.InsertNewDimCorrectSelectionCriteria(RecordRef@,Option,Dim_Correct_Selection_Criteria@,Integer)
+- syntax:
+    content: 'procedure GetSelectedDimensionSetIDsFilter(var TempDimensionSetEntry: Record "Dimension Set Entry" temporary): Text'
+    parameters:
+    - id: TempDimensionSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectedDimensionSetIDsFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetSelectedDimensionSetIDsFilter(Dimension_Set_Entry@):Text
+- syntax:
+    content: 'procedure GetSelectedDimensionSetIDs(var TempDimensionSetEntry: Record "Dimension Set Entry" temporary, TempFoundDimensionSetIDInteger: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempDimensionSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry" temporary
+        isExternal: true
+    - id: TempFoundDimensionSetIDInteger
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GetSelectedDimensionSetIDs
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetSelectedDimensionSetIDs(Dimension_Set_Entry@,__MissingSymbol__@)
+- syntax:
+    content: 'procedure TransferSelectionFilterToRecordRef(var GLEntry: Record "G/L Entry", var GLEntryRecordRef: RecordRef)'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: GLEntryRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: TransferSelectionFilterToRecordRef
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.TransferSelectionFilterToRecordRef(G/L_Entry@,RecordRef@)
+- syntax:
+    content: 'procedure GetDimCorrectionChanges(DimensionCorrectionEntryNo: Integer, var TempDimCorrectionChange: Record "Dim Correction Change" temporary): Boolean'
+    parameters:
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempDimCorrectionChange
+      parameterType:
+        name: Record "Dim Correction Change" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDimCorrectionChanges
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetDimCorrectionChanges(Integer,Dim_Correction_Change@):Boolean
+- syntax:
+    content: 'procedure GetSelectionCriteria(DimensionCorrectionEntryNo: Integer, var DimCorrectSelectionCriteria: Record "Dim Correct Selection Criteria"): Boolean'
+    parameters:
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimCorrectSelectionCriteria
+      parameterType:
+        name: Record "Dim Correct Selection Criteria"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSelectionCriteria
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetSelectionCriteria(Integer,Dim_Correct_Selection_Criteria@):Boolean
+- syntax:
+    content: 'procedure CalculateDimensionSetIds(var DimensionSetIds: List of [Integer], var DimCorrectSelectionCriteria: Record "Dim Correct Selection Criteria")'
+    parameters:
+    - id: DimensionSetIds
+      parameterType:
+        name: List of [Integer]
+        isExternal: true
+    - id: DimCorrectSelectionCriteria
+      parameterType:
+        name: Record "Dim Correct Selection Criteria"
+        isExternal: true
+  name: CalculateDimensionSetIds
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.CalculateDimensionSetIds(List_of_[Integer]@,Dim_Correct_Selection_Criteria@)
+- syntax:
+    content: 'procedure ReloadDimensionChangesTable(DimCorrectionEntryNo: Integer)'
+    parameters:
+    - id: DimCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ReloadDimensionChangesTable
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ReloadDimensionChangesTable(Integer)
+- syntax:
+    content: 'procedure LoadTempDimCorrectionSetBuffer(DimensionCorrectionEntryNo: Integer, var TempDimCorrectionSetBuffer: Record "Dim Correction Set Buffer" temporary): Boolean'
+    parameters:
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempDimCorrectionSetBuffer
+      parameterType:
+        name: Record "Dim Correction Set Buffer" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LoadTempDimCorrectionSetBuffer
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.LoadTempDimCorrectionSetBuffer(Integer,Dim_Correction_Set_Buffer@):Boolean
+- syntax:
+    content: 'procedure ScheduleRunJob(var DimensionCorrection: Record "Dimension Correction"): Boolean'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ScheduleRunJob
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ScheduleRunJob(Dimension_Correction@):Boolean
+- syntax:
+    content: 'procedure ScheduleUndoJob(var DimensionCorrection: Record "Dimension Correction"): Boolean'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ScheduleUndoJob
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ScheduleUndoJob(Dimension_Correction@):Boolean
+- syntax:
+    content: 'procedure ScheduleValidationJob(var DimensionCorrection: Record "Dimension Correction"): Boolean'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ScheduleValidationJob
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ScheduleValidationJob(Dimension_Correction@):Boolean
+- syntax:
+    content: 'procedure ScheduleUpdateAnalysisViews(var DimensionCorrection: Record "Dimension Correction"): Boolean'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ScheduleUpdateAnalysisViews
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ScheduleUpdateAnalysisViews(Dimension_Correction@):Boolean
+- syntax:
+    content: 'procedure UpdateStatus(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: UpdateStatus
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.UpdateStatus(Dimension_Correction@)
+- syntax:
+    content: 'procedure UpdateAnalysisViewStatus(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: UpdateAnalysisViewStatus
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.UpdateAnalysisViewStatus(Dimension_Correction@)
+- syntax:
+    content: 'procedure VerifyCanStartJob(DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: VerifyCanStartJob
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.VerifyCanStartJob(Dimension_Correction)
+- syntax:
+    content: 'procedure SetStatusInProgress(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: SetStatusInProgress
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.SetStatusInProgress(Dimension_Correction@)
+- syntax:
+    content: 'procedure SetUndoStatusInProgress(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: SetUndoStatusInProgress
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.SetUndoStatusInProgress(Dimension_Correction@)
+- syntax:
+    content: 'procedure SetValidatingStatusInProgress(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: SetValidatingStatusInProgress
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.SetValidatingStatusInProgress(Dimension_Correction@)
+- syntax:
+    content: 'procedure GetValidationStatusText(var DimensionCorrection: Record "Dimension Correction", ErrorMessage: Text): Text'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetValidationStatusText
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetValidationStatusText(Dimension_Correction@,Text):Text
+- syntax:
+    content: 'procedure CopyToDraft(var DimensionCorrection: Record "Dimension Correction", var NewDimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+    - id: NewDimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: CopyToDraft
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.CopyToDraft(Dimension_Correction@,Dimension_Correction@)
+- syntax:
+    content: 'procedure IsEntryExclued(var GLEntry: Record "G/L Entry", DimensionCorrectionEntryNo: Integer): Boolean'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsEntryExclued
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.IsEntryExclued(G/L_Entry@,Integer):Boolean
+- syntax:
+    content: 'procedure IsEntryExclued(var GLEntry: Record "G/L Entry", var ExcludedDimCorrectSelectionCriteria: Record "Dim Correct Selection Criteria"): Boolean'
+    parameters:
+    - id: GLEntry
+      parameterType:
+        name: Record "G/L Entry"
+        isExternal: true
+    - id: ExcludedDimCorrectSelectionCriteria
+      parameterType:
+        name: Record "Dim Correct Selection Criteria"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsEntryExclued
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.IsEntryExclued(G/L_Entry@,Dim_Correct_Selection_Criteria@):Boolean
+- syntax:
+    content: 'procedure IncrementAndCommitIfNeeded(var Counter: Integer)'
+    parameters:
+    - id: Counter
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: IncrementAndCommitIfNeeded
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.IncrementAndCommitIfNeeded(Integer@)
+- syntax:
+    content: 'procedure GetMaximumNumberOfValidationErrors(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetMaximumNumberOfValidationErrors
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetMaximumNumberOfValidationErrors:Integer
+- syntax:
+    content: 'procedure GetCommitCount(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCommitCount
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetCommitCount:Integer
+- syntax:
+    content: 'procedure GetPreviewGLEntriesLimit(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetPreviewGLEntriesLimit
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetPreviewGLEntriesLimit:Integer
+- syntax:
+    content: 'procedure GetFilterConditionsLimit(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetFilterConditionsLimit
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.GetFilterConditionsLimit:Integer
+- syntax:
+    content: 'procedure SetUpdateAnalysisViewsCompleted(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: SetUpdateAnalysisViewsCompleted
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.SetUpdateAnalysisViewsCompleted(Dimension_Correction@)
+- syntax:
+    content: procedure ShowNotificationUpdateCashFlowAccounting()
+  name: ShowNotificationUpdateCashFlowAccounting
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.ShowNotificationUpdateCashFlowAccounting
+- syntax:
+    content: 'procedure DontShowAgainUpdateCostAccounting(UpdateCostAcountingNotification: Notification)'
+    parameters:
+    - id: UpdateCostAcountingNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DontShowAgainUpdateCostAccounting
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.DontShowAgainUpdateCostAccounting(Notification)
+- syntax:
+    content: 'procedure VerifyCanUndoDimensionCorrection(var DimensionCorrection: Record "Dimension Correction")'
+    parameters:
+    - id: DimensionCorrection
+      parameterType:
+        name: Record "Dimension Correction"
+        isExternal: true
+  name: VerifyCanUndoDimensionCorrection
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.VerifyCanUndoDimensionCorrection(Dimension_Correction@)
+- syntax:
+    content: 'procedure VerifyCanModifyDraftEntry(DimensionCorrectionEntryNo: Integer)'
+    parameters:
+    - id: DimensionCorrectionEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: VerifyCanModifyDraftEntry
+  uid: M:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt.VerifyCanModifyDraftEntry(Integer)
+commentId: O:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension Correction Mgt
+name: '"Dimension Correction Mgt"'
+uid: O:Codeunit::Microsoft#Finance#Dimension#Correction#Dimension_Correction_Mgt

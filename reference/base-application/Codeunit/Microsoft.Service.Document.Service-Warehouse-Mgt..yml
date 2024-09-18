@@ -1,0 +1,98 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service Warehouse Mgt."
+alId: ID 5995
+namespace: Microsoft.Service.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ServiceLineVerifyChange(var NewServiceLine: Record "Service Line", var OldServiceLine: Record "Service Line")'
+    parameters:
+    - id: NewServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: OldServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: ServiceLineVerifyChange
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#.ServiceLineVerifyChange(Service_Line@,Service_Line@)
+- syntax:
+    content: 'procedure ServiceLineDelete(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: ServiceLineDelete
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#.ServiceLineDelete(Service_Line@)
+- syntax:
+    content: 'procedure ServiceHeaderVerifyChange(var NewServiceHeader: Record "Service Header", var OldServiceHeader: Record "Service Header")'
+    parameters:
+    - id: NewServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: OldServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ServiceHeaderVerifyChange
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#.ServiceHeaderVerifyChange(Service_Header@,Service_Header@)
+- syntax:
+    content: 'procedure FromServiceLine2ShptLine(WarehouseShipmentHeader: Record "Warehouse Shipment Header", ServiceLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: WarehouseShipmentHeader
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FromServiceLine2ShptLine
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#.FromServiceLine2ShptLine(Warehouse_Shipment_Header,Service_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromServiceLine2ShptLine(ServiceLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromServiceLine2ShptLine
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#.CheckIfFromServiceLine2ShptLine(Service_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromServiceLine2ShptLine(ServiceLine: Record "Service Line", ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromServiceLine2ShptLine
+  uid: M:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#.CheckIfFromServiceLine2ShptLine(Service_Line,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+commentId: O:Codeunit::Microsoft#Service#Document#Service Warehouse Mgt#
+name: '"Service Warehouse Mgt."'
+uid: O:Codeunit::Microsoft#Service#Document#Service_Warehouse_Mgt#

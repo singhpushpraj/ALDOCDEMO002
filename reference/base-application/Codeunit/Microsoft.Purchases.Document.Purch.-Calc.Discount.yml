@@ -1,0 +1,59 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purch.-Calc.Discount"
+alId: ID 70
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "Purchase Header" = rm,
+                      tabledata "Purchase Line" = rm
+  promoted: false
+- name: TableNo
+  value: Purchase Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Line
+    name: Microsoft.Purchases.Document."Purchase Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CalculateInvoiceDiscount(var PurchHeader: Record "Purchase Header", var PurchLine2: Record "Purchase Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine2
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CalculateInvoiceDiscount
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Calc#Discount.CalculateInvoiceDiscount(Purchase_Header@,Purchase_Line@)
+- syntax:
+    content: 'procedure CalculateIncDiscForHeader(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CalculateIncDiscForHeader
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Calc#Discount.CalculateIncDiscForHeader(Purchase_Header@)
+- syntax:
+    content: 'procedure CalculateInvoiceDiscountOnLine(var PurchLineToUpdate: Record "Purchase Line")'
+    parameters:
+    - id: PurchLineToUpdate
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CalculateInvoiceDiscountOnLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purch#-Calc#Discount.CalculateInvoiceDiscountOnLine(Purchase_Line@)
+commentId: O:Codeunit::Microsoft#Purchases#Document#Purch#-Calc#Discount
+name: '"Purch.-Calc.Discount"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Purch#-Calc#Discount

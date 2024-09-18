@@ -1,0 +1,49 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Workflow Create Payment Line"
+alId: ID 1512
+namespace: System.Automation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreatePmtLine(WorkflowStepArgument: Record "Workflow Step Argument")'
+    parameters:
+    - id: WorkflowStepArgument
+      parameterType:
+        name: Record "Workflow Step Argument"
+        isExternal: true
+  name: CreatePmtLine
+  uid: M:Codeunit::System#Automation#Workflow_Create_Payment_Line.CreatePmtLine(Workflow_Step_Argument)
+- syntax:
+    content: 'procedure GetDocumentNo(var GenJournalLine: Record "Gen. Journal Line", LastDocNo: Code[20]): Code[20]'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: LastDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetDocumentNo
+  uid: M:Codeunit::System#Automation#Workflow_Create_Payment_Line.GetDocumentNo(Gen#_Journal_Line@,Code[20]):Code[20]
+commentId: O:Codeunit::System#Automation#Workflow Create Payment Line
+name: '"Workflow Create Payment Line"'
+uid: O:Codeunit::System#Automation#Workflow_Create_Payment_Line

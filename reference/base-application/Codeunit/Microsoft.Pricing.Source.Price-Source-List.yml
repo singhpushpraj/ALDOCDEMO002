@@ -1,0 +1,259 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Source."Price Source List"
+alId: ID 7011
+namespace: Microsoft.Pricing.Source
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Source
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: procedure Init()
+  name: Init
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Init
+- syntax:
+    content: 'procedure GetMinMaxLevel(var Level: array[2] of Integer)'
+    parameters:
+    - id: Level
+      parameterType:
+        name: array[2] of Integer
+        isExternal: true
+  name: GetMinMaxLevel
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.GetMinMaxLevel(Integer[]@)
+- syntax:
+    content: 'procedure GetPriceType(): Enum "Price Type"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+  name: GetPriceType
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.GetPriceType:Enum::Microsoft#Pricing#PriceList#Price_Type
+- syntax:
+    content: 'procedure SetPriceType(NewPriceType: Enum "Price Type")'
+    parameters:
+    - id: NewPriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+  name: SetPriceType
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.SetPriceType(Enum::Microsoft#Pricing#PriceList#Price_Type)
+- syntax:
+    content: procedure IncLevel()
+  name: IncLevel
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.IncLevel
+- syntax:
+    content: 'procedure SetLevel(Level: Integer)'
+    parameters:
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLevel
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.SetLevel(Integer)
+- syntax:
+    content: 'procedure Add(SourceType: Enum "Price Source Type", SourceNo: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Add(Enum::Microsoft#Pricing#Source#Price_Source_Type,Code[20])
+- syntax:
+    content: 'procedure Add(SourceType: Enum "Price Source Type", ParentSourceNo: Code[20], SourceNo: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: ParentSourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Add(Enum::Microsoft#Pricing#Source#Price_Source_Type,Code[20],Code[20])
+- syntax:
+    content: 'procedure Add(SourceType: Enum "Price Source Type", SourceId: Guid)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: SourceId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Add(Enum::Microsoft#Pricing#Source#Price_Source_Type,Guid)
+- syntax:
+    content: 'procedure Add(SourceType: Enum "Price Source Type")'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Add(Enum::Microsoft#Pricing#Source#Price_Source_Type)
+- syntax:
+    content: 'procedure Add(PriceSource: Record "Price Source" temporary)'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Add(Price_Source)
+- syntax:
+    content: 'procedure AddChildren(PriceSource: Record "Price Source" temporary)'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+  name: AddChildren
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.AddChildren(Price_Source)
+- syntax:
+    content: 'procedure AddJobAsSources(JobNo: Code[20], JobTaskNo: Code[20])'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddJobAsSources
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.AddJobAsSources(Code[20],Code[20])
+- syntax:
+    content: 'procedure GetValue(SourceType: Enum "Price Source Type"): Code[20]'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetValue
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.GetValue(Enum::Microsoft#Pricing#Source#Price_Source_Type):Code[20]
+- syntax:
+    content: 'procedure Copy(var FromPriceSourceList: Codeunit "Price Source List")'
+    parameters:
+    - id: FromPriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+  name: Copy
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Copy(Codeunit::Microsoft#Pricing#Source#Price_Source_List@)
+- syntax:
+    content: 'procedure GetList(var ToTempPriceSource: Record "Price Source" temporary): Boolean'
+    parameters:
+    - id: ToTempPriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetList
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.GetList(Price_Source@):Boolean
+- syntax:
+    content: 'procedure First(var PriceSource: Record "Price Source" temporary, AtLevel: Integer): Boolean'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: AtLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: First
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.First(Price_Source@,Integer):Boolean
+- syntax:
+    content: 'procedure Next(var PriceSource: Record "Price Source" temporary): Boolean'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Next
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Next(Price_Source@):Boolean
+- syntax:
+    content: 'procedure GetSourceGroup(var DtldPriceCalculationSetup: Record "Dtld. Price Calculation Setup"): Boolean'
+    parameters:
+    - id: DtldPriceCalculationSetup
+      parameterType:
+        name: Record "Dtld. Price Calculation Setup"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSourceGroup
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.GetSourceGroup(Dtld#_Price_Calculation_Setup@):Boolean
+- syntax:
+    content: 'procedure Remove(SourceType: Enum "Price Source Type"): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Remove
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.Remove(Enum::Microsoft#Pricing#Source#Price_Source_Type):Boolean
+- syntax:
+    content: 'procedure RemoveAtLevel(SourceType: Enum "Price Source Type", Level: Integer): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RemoveAtLevel
+  uid: M:Codeunit::Microsoft#Pricing#Source#Price_Source_List.RemoveAtLevel(Enum::Microsoft#Pricing#Source#Price_Source_Type,Integer):Boolean
+commentId: O:Codeunit::Microsoft#Pricing#Source#Price Source List
+name: '"Price Source List"'
+uid: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List

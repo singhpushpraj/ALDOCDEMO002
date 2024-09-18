@@ -1,0 +1,59 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Whse.-Sales Release"
+alId: ID 5771
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Warehouse Request" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Release(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: Release
+  uid: M:Codeunit::Microsoft#Sales#Document#Whse#-Sales_Release.Release(Sales_Header)
+- syntax:
+    content: 'procedure Reopen(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: Reopen
+  uid: M:Codeunit::Microsoft#Sales#Document#Whse#-Sales_Release.Reopen(Sales_Header)
+- syntax:
+    content: 'procedure CreateWarehouseRequest(var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", WhseType: Enum "Warehouse Request Type", var WarehouseRequest: Record "Warehouse Request")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: WhseType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Request#Warehouse_Request_Type
+        name: Microsoft.Warehouse.Request."Warehouse Request Type"
+        isExternal: false
+    - id: WarehouseRequest
+      parameterType:
+        name: Record "Warehouse Request"
+        isExternal: true
+  name: CreateWarehouseRequest
+  uid: M:Codeunit::Microsoft#Sales#Document#Whse#-Sales_Release.CreateWarehouseRequest(Sales_Header@,Sales_Line@,Enum::Microsoft#Warehouse#Request#Warehouse_Request_Type,Warehouse_Request@)
+commentId: O:Codeunit::Microsoft#Sales#Document#Whse#-Sales Release
+name: '"Whse.-Sales Release"'
+uid: O:Codeunit::Microsoft#Sales#Document#Whse#-Sales_Release

@@ -1,0 +1,232 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Create Put-away"
+alId: ID 7313
+namespace: Microsoft.Warehouse.Activity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Posted Whse. Receipt Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#History#Posted_Whse#_Receipt_Line
+    name: Microsoft.Warehouse.History."Posted Whse. Receipt Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure AssignPlaceBinZone(var WhseActivLine: Record "Warehouse Activity Line", PostedWhseRcptLine: Record "Posted Whse. Receipt Line", Location: Record Location, Bin: Record Bin)'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: Bin
+      parameterType:
+        name: Record Bin
+        isExternal: true
+  name: AssignPlaceBinZone
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.AssignPlaceBinZone(Warehouse_Activity_Line@,Posted_Whse#_Receipt_Line,Location,Bin)
+- syntax:
+    content: 'procedure FindBin(LocationCode: Code[10], WarehouseClassCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WarehouseClassCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindBin
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.FindBin(Code[10],Code[10]):Boolean
+- syntax:
+    content: 'procedure CalcQtyToPutAway(EmptyZoneBin: Boolean, NewBinContent: Boolean)'
+    parameters:
+    - id: EmptyZoneBin
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewBinContent
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcQtyToPutAway
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.CalcQtyToPutAway(Boolean,Boolean)
+- syntax:
+    content: 'procedure GetSpecEquipmentCode(BinCode: Code[20]): Code[10]'
+    parameters:
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetSpecEquipmentCode
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetSpecEquipmentCode(Code[20]):Code[10]
+- syntax:
+    content: 'procedure SetValues(NewAssignedID: Code[50], NewSortActivity: Enum "Whse. Activity Sorting Method", NewDoNotFillQtytoHandle: Boolean, BreakbulkFilter2: Boolean)'
+    parameters:
+    - id: NewAssignedID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: NewSortActivity
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method
+        name: Microsoft.Warehouse.Activity."Whse. Activity Sorting Method"
+        isExternal: false
+    - id: NewDoNotFillQtytoHandle
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BreakbulkFilter2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetValues
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.SetValues(Code[50],Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method,Boolean,Boolean)
+- syntax:
+    content: 'procedure GetWhseActivHeaderNo(var FirstPutAwayNo: Code[20], var LastPutAwayNo: Code[20])'
+    parameters:
+    - id: FirstPutAwayNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LastPutAwayNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetWhseActivHeaderNo
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetWhseActivHeaderNo(Code[20]@,Code[20]@)
+- syntax:
+    content: 'procedure EverythingIsHandled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EverythingIsHandled
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.EverythingIsHandled:Boolean
+- syntax:
+    content: 'procedure GetFirstPutAwayDocument(var WhseActivHeader: Record "Warehouse Activity Header"): Boolean'
+    parameters:
+    - id: WhseActivHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetFirstPutAwayDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetFirstPutAwayDocument(Warehouse_Activity_Header@):Boolean
+- syntax:
+    content: 'procedure GetNextPutAwayDocument(var WhseActivHeader: Record "Warehouse Activity Header"): Boolean'
+    parameters:
+    - id: WhseActivHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNextPutAwayDocument
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetNextPutAwayDocument(Warehouse_Activity_Header@):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with GetMessageText that is without Text length limit,24.0)]'
+    content: 'procedure GetMessage(var ErrText000: Text[80])'
+    parameters:
+    - id: ErrText000
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: GetMessage
+  obsoletion:
+    state: pending
+    reason: Replaced with GetMessageText that is without Text length limit
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetMessage(Text[80]@)
+- syntax:
+    content: 'procedure GetMessageText(var ErrorText: Text)'
+    parameters:
+    - id: ErrorText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetMessageText
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetMessageText(Text@)
+- syntax:
+    content: 'procedure UpdateTempWhseItemTrkgLines(PostedWhseRcptLine: Record "Posted Whse. Receipt Line", SourceType: Integer)'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateTempWhseItemTrkgLines
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.UpdateTempWhseItemTrkgLines(Posted_Whse#_Receipt_Line,Integer)
+- syntax:
+    content: 'procedure GetQtyHandledBase(var TempRec: Record "Whse. Item Tracking Line" temporary): Decimal'
+    parameters:
+    - id: TempRec
+      parameterType:
+        name: Record "Whse. Item Tracking Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetQtyHandledBase
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.GetQtyHandledBase(Whse#_Item_Tracking_Line@):Decimal
+- syntax:
+    content: 'procedure SetCrossDockValues(NewCrossDock: Boolean)'
+    parameters:
+    - id: NewCrossDock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCrossDockValues
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.SetCrossDockValues(Boolean)
+- syntax:
+    content: 'procedure DeleteBlankBinContent(WarehouseActivityHeader: Record "Warehouse Activity Header")'
+    parameters:
+    - id: WarehouseActivityHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+  name: DeleteBlankBinContent
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.DeleteBlankBinContent(Warehouse_Activity_Header)
+- syntax:
+    content: 'procedure IsFloatingBin(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsFloatingBin
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away.IsFloatingBin:Boolean
+commentId: O:Codeunit::Microsoft#Warehouse#Activity#Create Put-away
+name: '"Create Put-away"'
+uid: O:Codeunit::Microsoft#Warehouse#Activity#Create_Put-away

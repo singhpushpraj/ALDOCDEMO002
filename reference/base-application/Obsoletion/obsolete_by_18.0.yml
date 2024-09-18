@@ -1,0 +1,375 @@
+﻿### YamlMime:BusinessCentralObsoletionList
+tag: "18.0"
+groups:
+- groupName: "18.0"
+  symbols:
+  - kind: Method
+    internalReference: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.CopyProfilePageMetadata(__MissingSymbol__,__MissingSymbol__)
+    name: 'CopyProfilePageMetadata(OldAllProfile: __MissingTypeSymbol__, NewAllProfile: __MissingTypeSymbol__)'
+    reason: Use procedure CopyProfile instead, which also handles copying page metadata.
+  - kind: Field
+    internalReference: F:Table::System#Environment#Configuration#Application_Area_Setup.Invoicing
+    name: 'Invoicing: Boolean'
+    reason: Microsoft Invoicing is not supported on Business Central
+  - kind: Field
+    internalReference: F:Table::System#Environment#Configuration#Experience_Tier_Setup.Invoicing
+    name: 'Invoicing: Boolean'
+    reason: Microsoft Invoicing is not supported on Business Central
+  - kind: Field
+    internalReference: F:Table::System#Environment#Configuration#Notification_Entry.Error_Message_2[250]
+    name: '"Error Message 2": Text[250]'
+    reason: 'Error Message field size has been increased '
+  - kind: Field
+    internalReference: F:Table::System#Environment#Configuration#Notification_Entry.Error_Message_3[250]
+    name: '"Error Message 3": Text[250]'
+    reason: 'Error Message field size has been increased '
+  - kind: Field
+    internalReference: F:Table::System#Environment#Configuration#Notification_Entry.Error_Message_4[250]
+    name: '"Error Message 4": Text[250]'
+    reason: 'Error Message field size has been increased '
+  - kind: Table
+    internalReference: O:Table::System#Environment#Configuration#Profile_Resource_Import/Export
+    name: Table 9170 "Profile Resource Import/Export"
+    reason: Importing and exporting profile resources is no longer supported. AL profiles and customizations should be used instead.
+  - kind: Table
+    internalReference: O:Table::System#Reflection#MS-Event_Emitter_Event_Codes
+    name: Table 7800 "MS-Event Emitter Event Codes"
+    reason: Deprecated
+  - kind: Codeunit
+    internalReference: O:Codeunit::System#Integration#Web_Service_Helper
+    name: Codeunit 5010 "Web Service Helper"
+    reason: This codeunit will be removed once OData V3 is deprecated
+  - kind: Table
+    internalReference: O:Table::System#EMail#Email_Attachment
+    name: Table 9501 "Email Attachment"
+    reason: We are reverting the fix that was using this table as it was not possible to solve the problem this way.
+  - kind: Field
+    internalReference: F:Table::System#Security#Encryption#Isolated_Certificate.Password[50]
+    name: 'Password: Text[50]'
+    reason: Password should not be stored in a table, use SetCertPassword procedure on Certificate Management codeunit
+  - kind: Field
+    internalReference: F:Table::System#IO#XML_Buffer.Is_Parent
+    name: '"Is Parent": Boolean'
+    reason: Is not used anomore
+  - kind: Field
+    internalReference: F:Table::System#IO#XML_Buffer.Code[20]
+    name: 'Code: Code[20]'
+    reason: Is not used anymore
+  - kind: Field
+    internalReference: F:Table::System#IO#XML_Buffer.Node_Name[250]
+    name: '"Node Name": Text[250]'
+    reason: Is not used anymore
+  - kind: Field
+    internalReference: F:Table::System#IO#XML_Buffer.Has_Attributes
+    name: '"Has Attributes": Boolean'
+    reason: Is not used anymore
+  - kind: Field
+    internalReference: F:Table::System#Threading#Job_Queue_Entry.On_Hold_Due_to_Inactivity
+    name: '"On Hold Due to Inactivity": Boolean'
+    reason: Functionality moved into new job queue status
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Item#Item.Scheduled_Need_(Qty#)
+    name: '"Scheduled Need (Qty.)": Decimal'
+    reason: Use the field 'Qty. on Component Lines' instead
+  - kind: Field
+    internalReference: F:Table::Microsoft#Inventory#Location#Stockkeeping_Unit.Scheduled_Need_(Qty#)
+    name: '"Scheduled Need (Qty.)": Decimal'
+    reason: Use the field 'Qty. on Component Lines' instead
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Header.VATGroup_Return
+    name: '"VATGroup Return": Boolean'
+    reason: Moved to VAT Group Management extension field 4700 VAT Group Return
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Header.VATGroup_Status[20]
+    name: '"VATGroup Status": Text[20]'
+    reason: Moved to VAT Group Management extension field 4701 VAT Group Status
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Header.VATGroup_Settlement_Posted
+    name: '"VATGroup Settlement Posted": Boolean'
+    reason: Moved to VAT Group Management extension field 4702 VAT Group Settlement Posted
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.VATGroup_Role
+    name: '"VATGroup Role": Option'
+    reason: Moved to VAT Group Management extension field 4700 VAT Group Role
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.ApprovedMembers
+    name: 'ApprovedMembers: Integer'
+    reason: Moved to VAT Group Management extension field 4701 Approved Members
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.GroupMember_ID
+    name: '"GroupMember ID": Guid'
+    reason: Moved to VAT Group Management extension field 4702 Group Member ID
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.GroupRepresentative_API_URL[250]
+    name: '"GroupRepresentative API URL": Text[250]'
+    reason: Moved to VAT Group Management extension field 4703 Group Representative API URL
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.AuthenticationType
+    name: 'AuthenticationType: Option'
+    reason: Moved to VAT Group Management extension field 4704 Authentication Type
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.UserName_Key
+    name: '"UserName Key": Guid'
+    reason: Moved to VAT Group Management extension field 4705 User Name Key
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.WebService_Access_Key_Key
+    name: '"WebService Access Key Key": Guid'
+    reason: Moved to VAT Group Management extension field 4706 Web Service Access Key Key
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.GroupRepresentative_Company[30]
+    name: '"GroupRepresentative Company": Text[30]'
+    reason: Moved to VAT Group Management extension field 4707 Group Representative Company
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.ClientID_Key
+    name: '"ClientID Key": Guid'
+    reason: Moved to VAT Group Management extension field 4708 Client ID Key
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.ClientSecret_Key
+    name: '"ClientSecret Key": Guid'
+    reason: Moved to VAT Group Management extension field 4709 Client Secret Key
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.AuthorityURL[250]
+    name: 'AuthorityURL: Text[250]'
+    reason: Moved to VAT Group Management extension field 4710 Authority URL
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.ResourceURL[250]
+    name: 'ResourceURL: Text[250]'
+    reason: Moved to VAT Group Management extension field 4711 Resource URL
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.RedirectURL[250]
+    name: 'RedirectURL: Text[250]'
+    reason: Moved to VAT Group Management extension field 4712 Redirect URL
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.GroupSettlement_Account[20]
+    name: '"GroupSettlement Account": Code[20]'
+    reason: Moved to VAT Group Management extension field 4714 Group Settlement Account
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.VATSettlement_Account[20]
+    name: '"VATSettlement Account": Code[20]'
+    reason: Moved to VAT Group Management extension field 4715 VAT Settlement Account
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.VATDue_Box_No#[30]
+    name: '"VATDue Box No.": Text[30]'
+    reason: Moved to VAT Group Management extension field 4716 VAT Due Box No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.GroupSettle#_Gen#_Jnl#_Templ#[10]
+    name: '"GroupSettle. Gen. Jnl. Templ.": Code[10]'
+    reason: Moved to VAT Group Management extension field 4717 Redirect Group Settle. Gen. Jnl. Templ.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.VATGroup_BC_Version
+    name: '"VATGroup BC Version": Option'
+    reason: Moved to VAT Group Management extension field 4718 VAT Group BC Version
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Line.RepresentativeAmount
+    name: 'RepresentativeAmount: Decimal'
+    reason: Moved to VAT Group Management extension field 4700 Representative Amount
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Line.GroupAmount
+    name: 'GroupAmount: Decimal'
+    reason: Moved to VAT Group Management extension field 4701 Group Amount
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#VAT#Group#VATGroup_Approved_Member
+    name: Table 4800 "VATGroup Approved Member"
+    reason: Moved to VAT Group Management extension table 4700 VAT Group Approved Member
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#VAT#Group#VATGroup_Calculation
+    name: Table 4801 "VATGroup Calculation"
+    reason: Moved to VAT Group Management extension table 4701 VAT Group Calculation
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#VAT#Group#VATGroup_Submission_Header
+    name: Table 4802 "VATGroup Submission Header"
+    reason: Moved to VAT Group Management extension table 4702 VAT Group Submission Header
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#VAT#Group#VATGroup_Submission_Line
+    name: Table 4803 "VATGroup Submission Line"
+    reason: Moved to VAT Group Management extension table 4703 VAT Group Submission Line
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Account#My_Account.Balance
+    name: 'Balance: Decimal'
+    reason: This flowfield is showing incomplete data.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#GeneralLedger#Setup#General_Ledger_Setup.VAT_Reg#_No#_Validation_URL[250]
+    name: '"VAT Reg. No. Validation URL": Text[250]'
+    reason: This field is obsolete, it has been replaced by Table 248 VAT Reg. No. Srv Config.
+  - kind: Field
+    internalReference: F:Table::Microsoft#RoleCenters#SB_Owner_Cue.SOs_Shipped_Not_Invoiced
+    name: '"SOs Shipped Not Invoiced": Integer'
+    reason: Poor performance
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#BankAccount#Bank_Account.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Contact#Contact.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Field
+    internalReference: F:Table::Microsoft#FixedAssets#FixedAsset#Fixed_Asset.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Table
+    internalReference: O:Table::Microsoft#Foundation#BatchProcessing#Batch_Processing_Parameter_Map
+    name: Table 53 "Batch Processing Parameter Map"
+    reason: Moved to table Batch Processing Session Map
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.Show_Chart_On_RoleCenter
+    name: '"Show Chart On RoleCenter": Boolean'
+    reason: Only the Help and Chart Wrapper pages used this. The page has been changed to assume that this field is always set.
+  - kind: Field
+    internalReference: F:Table::Microsoft#HumanResources#Employee#Employee.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Page
+    internalReference: O:Page::Microsoft#Integration#Dataverse#Product_Item_Availability
+    name: Page 5390 "Product Item Availability"
+    reason: This functionality is replaced with new item availability job queue entry.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Integration#Entity#Account_Entity_Setup
+    name: Table 5481 "Account Entity Setup"
+    reason: Became obsolete after refactoring of the NAV APIs.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Projects#Project#Job#Job.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Projects#Resources#Resource#Resource.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Report
+    internalReference: O:Report::Microsoft#Purchases#Reports#Purchase_Credit_Memo_Nos#
+    name: Report 325 "Purchase Credit Memo Nos."
+    reason: Infrequently used report.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Purchases#Reports#Purchase_Invoice_Nos#
+    name: Report 324 "Purchase Invoice Nos."
+    reason: Infrequently used report.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Purchases#Reports#Vendor_Document_Nos#
+    name: Report 328 "Vendor Document Nos."
+    reason: Infrequently used report.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Archive_Quotes_and_Orders
+    name: '"Archive Quotes and Orders": Boolean'
+    reason: Replaced by new fields Archive Quotes and Archive Orders
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Insert_Std#_Purch#_Lines_Mode
+    name: '"Insert Std. Purch. Lines Mode": Option'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Insert_Std#_Lines_on_Quotes
+    name: '"Insert Std. Lines on Quotes": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Insert_Std#_Lines_on_Orders
+    name: '"Insert Std. Lines on Orders": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Insert_Std#_Lines_on_Invoices
+    name: '"Insert Std. Lines on Invoices": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Setup#Purchases_&amp;_Payables_Setup.Insert_Std#_Lines_on_Cr#_Memos
+    name: '"Insert Std. Lines on Cr. Memos": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#Vendor#Vendor.Picture
+    name: 'Picture: Blob'
+    reason: Replaced by Image field
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Archive_Quotes_and_Orders
+    name: '"Archive Quotes and Orders": Boolean'
+    reason: Replaced by new fields Archive Quotes and Archive Orders
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Insert_Std#_Sales_Lines_Mode
+    name: '"Insert Std. Sales Lines Mode": Option'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Insert_Std#_Lines_on_Quotes
+    name: '"Insert Std. Lines on Quotes": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Insert_Std#_Lines_on_Orders
+    name: '"Insert Std. Lines on Orders": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Insert_Std#_Lines_on_Invoices
+    name: '"Insert Std. Lines on Invoices": Boolean'
+    reason: Not needed after refactoring
+  - kind: Field
+    internalReference: F:Table::Microsoft#Sales#Setup#Sales_&amp;_Receivables_Setup.Insert_Std#_Lines_on_Cr#_Memos
+    name: '"Insert Std. Lines on Cr. Memos": Boolean'
+    reason: Not needed after refactoring
+  - kind: Report
+    internalReference: O:Report::Microsoft#Sales#FinanceCharge#Finance_Charge_Memo_Nos#
+    name: Report 127 "Finance Charge Memo Nos."
+    reason: Infrequently used report.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Sales#Reminder#Reminder_Nos#
+    name: Report 126 "Reminder Nos."
+    reason: Infrequently used report.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Sales#Reports#Customer_Document_Nos#
+    name: Report 128 "Customer Document Nos."
+    reason: Infrequently used report.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Sales#Reports#Sales_Credit_Memo_Nos#
+    name: Report 125 "Sales Credit Memo Nos."
+    reason: Infrequently used report.
+  - kind: Report
+    internalReference: O:Report::Microsoft#Sales#Reports#Sales_Invoice_Nos#
+    name: Report 124 "Sales Invoice Nos."
+    reason: Infrequently used report.
+  - kind: Table
+    internalReference: O:Table::Microsoft#Warehouse#Structure#Lot_Numbers_by_Bin_Buffer
+    name: Table 7350 "Lot Numbers by Bin Buffer"
+    reason: Replaced by table 7351 due to change of primary key
+  - kind: Table
+    internalReference: O:Table::Business_Setup
+    name: Table 1875 "Business Setup"
+    reason: This table is being replaced by new table called Manual Setup.
+  - kind: Table
+    internalReference: O:Table::Data_Class#_Notif#_Setup
+    name: Table 1751 "Data Class. Notif. Setup"
+    reason: Functionality moved on My Notifications.
+  - kind: Table
+    internalReference: O:Table::Journal_Lines_Entity_Setup
+    name: Table 5479 "Journal Lines Entity Setup"
+    reason: Became obsolete after refactoring of the NAV APIs.
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Customer
+    name: Table 7820 "MS-QBO Customer"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Failed_Syncs
+    name: Table 7827 "MS-QBO Failed Syncs"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Invoice
+    name: Table 7822 "MS-QBO Invoice"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Item
+    name: Table 7821 "MS-QBO Item"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Modified_Field_List
+    name: Table 7823 "MS-QBO Modified Field List"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Setup
+    name: Table 7824 "MS-QBO Setup"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Start_Sync#_Service
+    name: Table 7826 "MS-QBO Start Sync. Service"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Sync_Buffer
+    name: Table 7828 "MS-QBO Sync Buffer"
+    reason: replacing burntIn Extension tables with V2 Extension
+  - kind: Table
+    internalReference: O:Table::MS-QBO_Synchronization_Error
+    name: Table 7825 "MS-QBO Synchronization Error"
+    reason: replacing burntIn Extension tables with V2 Extension
+  uid: N:Module::Base_Application_obsolete_by_18.0#18.0
+uid: N:Module::Base_Application_obsolete_by_18.0

@@ -1,0 +1,223 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Journal."Job Transfer Line"
+alId: ID 1004
+namespace: Microsoft.Projects.Project.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure FromJnlLineToLedgEntry(JobJnlLine2: Record "Job Journal Line", var JobLedgEntry: Record "Job Ledger Entry")'
+    parameters:
+    - id: JobJnlLine2
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: JobLedgEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+  name: FromJnlLineToLedgEntry
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromJnlLineToLedgEntry(Job_Journal_Line,Job_Ledger_Entry@)
+- syntax:
+    content: 'procedure FromJnlToPlanningLine(JobJnlLine: Record "Job Journal Line", var JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: FromJnlToPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromJnlToPlanningLine(Job_Journal_Line,Job_Planning_Line@)
+- syntax:
+    content: 'procedure FromPlanningSalesLineToJnlLine(JobPlanningLine: Record "Job Planning Line", SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", var JobJnlLine: Record "Job Journal Line", EntryType: Enum "Job Journal Line Entry Type")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Projects#Project#Journal#Job_Journal_Line_Entry_Type
+        name: Microsoft.Projects.Project.Journal."Job Journal Line Entry Type"
+        isExternal: false
+  name: FromPlanningSalesLineToJnlLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromPlanningSalesLineToJnlLine(Job_Planning_Line,Sales_Header,Sales_Line,Job_Journal_Line@,Enum::Microsoft#Projects#Project#Journal#Job_Journal_Line_Entry_Type)
+- syntax:
+    content: 'procedure FromPlanningLineToJnlLine(JobPlanningLine: Record "Job Planning Line", PostingDate: Date, JobJournalTemplateName: Code[10], JobJournalBatchName: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: JobJournalTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: FromPlanningLineToJnlLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromPlanningLineToJnlLine(Job_Planning_Line,Date,Code[10],Code[10],Job_Journal_Line@)
+- syntax:
+    content: 'procedure FromWarehouseActivityLineToJnlLine(WarehouseActivityLine: Record "Warehouse Activity Line", PostingDate: Date, JobJournalTemplateName: Code[10], JobJournalBatchName: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: JobJournalTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJournalBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: FromWarehouseActivityLineToJnlLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromWarehouseActivityLineToJnlLine(Warehouse_Activity_Line,Date,Code[10],Code[10],Job_Journal_Line@)
+- syntax:
+    content: 'procedure FromGenJnlLineToJnlLine(GenJnlLine: Record "Gen. Journal Line", var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: FromGenJnlLineToJnlLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromGenJnlLineToJnlLine(Gen#_Journal_Line,Job_Journal_Line@)
+- syntax:
+    content: 'procedure FromJobLedgEntryToPlanningLine(JobLedgEntry: Record "Job Ledger Entry", var JobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: JobLedgEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: FromJobLedgEntryToPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromJobLedgEntryToPlanningLine(Job_Ledger_Entry,Job_Planning_Line@)
+- syntax:
+    content: 'procedure JobTransferMarkerFieldNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: JobTransferMarkerFieldNo
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.JobTransferMarkerFieldNo:Integer
+- syntax:
+    content: 'procedure FromPurchaseLineToJnlLine(PurchHeader: Record "Purchase Header", PurchInvHeader: Record "Purch. Inv. Header", PurchCrMemoHeader: Record "Purch. Cr. Memo Hdr.", PurchLine: Record "Purchase Line", SourceCode: Code[10], var JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: PurchCrMemoHeader
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: FromPurchaseLineToJnlLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromPurchaseLineToJnlLine(Purchase_Header,Purch#_Inv#_Header,Purch#_Cr#_Memo_Hdr#,Purchase_Line,Code[10],Job_Journal_Line@)
+- syntax:
+    content: 'procedure FromSalesHeaderToPlanningLine(SalesLine: Record "Sales Line", CurrencyFactor: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: FromSalesHeaderToPlanningLine
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.FromSalesHeaderToPlanningLine(Sales_Line,Decimal)
+- syntax:
+    content: 'procedure GetCurrencyRounding(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyRounding
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.GetCurrencyRounding(Code[10])
+- syntax:
+    content: 'procedure ValidateUnitCostAndPrice(var JobJournalLine: Record "Job Journal Line", SalesLine: Record "Sales Line", UnitCost: Decimal, UnitPrice: Decimal)'
+    parameters:
+    - id: JobJournalLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: UnitCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UnitPrice
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ValidateUnitCostAndPrice
+  uid: M:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line.ValidateUnitCostAndPrice(Job_Journal_Line@,Sales_Line,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Projects#Project#Journal#Job Transfer Line
+name: '"Job Transfer Line"'
+uid: O:Codeunit::Microsoft#Projects#Project#Journal#Job_Transfer_Line

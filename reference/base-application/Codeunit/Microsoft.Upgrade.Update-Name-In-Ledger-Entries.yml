@@ -1,0 +1,50 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Upgrade."Update Name In Ledger Entries"
+alId: ID 104
+namespace: Microsoft.Upgrade
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Upgrade
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Vendor Ledger Entry" = rm,
+                      TableData "Item Ledger Entry" = rm,
+                      TableData "Phys. Inventory Ledger Entry" = rm,
+                      TableData "Value Entry" = rm,
+                      tabledata "Warehouse Entry" = rm
+  promoted: false
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ScheduleUpdate(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ScheduleUpdate
+  uid: M:Codeunit::Microsoft#Upgrade#Update_Name_In_Ledger_Entries.ScheduleUpdate(Notification)
+- syntax:
+    content: 'procedure NotifyAboutBlankNamesInLedgerEntries(SetupRecordID: RecordId)'
+    parameters:
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: NotifyAboutBlankNamesInLedgerEntries
+  uid: M:Codeunit::Microsoft#Upgrade#Update_Name_In_Ledger_Entries.NotifyAboutBlankNamesInLedgerEntries(RecordId)
+commentId: O:Codeunit::Microsoft#Upgrade#Update Name In Ledger Entries
+name: '"Update Name In Ledger Entries"'
+uid: O:Codeunit::Microsoft#Upgrade#Update_Name_In_Ledger_Entries

@@ -1,0 +1,42 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Change Exp. Cost Post. to G/L"
+alId: ID 5811
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Value Entry" = rm,
+                      TableData "Avg. Cost Adjmt. Entry Point" = id,
+                      TableData "Post Value Entry to G/L" = id
+  promoted: false
+- name: TableNo
+  value: Inventory Setup
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Setup#Inventory_Setup
+    name: Microsoft.Inventory.Setup."Inventory Setup"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ChangeExpCostPostingToGL(var InventorySetup: Record "Inventory Setup", ExpCostPostingToGL: Boolean)'
+    parameters:
+    - id: InventorySetup
+      parameterType:
+        name: Record "Inventory Setup"
+        isExternal: true
+    - id: ExpCostPostingToGL
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ChangeExpCostPostingToGL
+  uid: M:Codeunit::Microsoft#Inventory#Costing#Change_Exp#_Cost_Post#_to_G/L.ChangeExpCostPostingToGL(Inventory_Setup@,Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Costing#Change Exp# Cost Post# to G/L
+name: '"Change Exp. Cost Post. to G/L"'
+uid: O:Codeunit::Microsoft#Inventory#Costing#Change_Exp#_Cost_Post#_to_G/L

@@ -1,0 +1,75 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."TransferOrder-Post Receipt"
+alId: ID 5705
+namespace: Microsoft.Inventory.Transfer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "G/L Entry" = r,
+                    tabledata "Item Entry Relation" = i,
+                    tabledata "Transfer Receipt Header" = ri,
+                    tabledata "Transfer Receipt Line" = rim
+  promoted: false
+- name: TableNo
+  value: Transfer Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Transfer#Transfer_Header
+    name: Microsoft.Inventory.Transfer."Transfer Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Receipt.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure SetWhseRcptHeader(var WhseRcptHeader2: Record "Warehouse Receipt Header")'
+    parameters:
+    - id: WhseRcptHeader2
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+  name: SetWhseRcptHeader
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Receipt.SetWhseRcptHeader(Warehouse_Receipt_Header@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Receipt.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetCalledBy(NewCalledBy: Integer)'
+    parameters:
+    - id: NewCalledBy
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetCalledBy
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Receipt.SetCalledBy(Integer)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Receipt.SetPreviewMode(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post Receipt
+name: '"TransferOrder-Post Receipt"'
+uid: O:Codeunit::Microsoft#Inventory#Transfer#TransferOrder-Post_Receipt

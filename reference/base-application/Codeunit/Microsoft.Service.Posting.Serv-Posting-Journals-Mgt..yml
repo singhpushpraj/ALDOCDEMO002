@@ -1,0 +1,575 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Serv-Posting Journals Mgt."
+alId: ID 5987
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Invoice Post. Buffer" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Initialize(var TempServHeader: Record "Service Header", TmpConsume: Boolean, TmpInvoice: Boolean)'
+    parameters:
+    - id: TempServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TmpConsume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TmpInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.Initialize(Service_Header@,Boolean,Boolean)
+- syntax:
+    content: procedure Finalize()
+  name: Finalize
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.Finalize
+- syntax:
+    content: 'procedure SetPostingOptions(PassedConsume: Boolean, PassedInvoice: Boolean)'
+    parameters:
+    - id: PassedConsume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPostingOptions
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.SetPostingOptions(Boolean,Boolean)
+- syntax:
+    content: 'procedure SetItemJnlRollRndg(PassedItemJnlRollRndg: Boolean)'
+    parameters:
+    - id: PassedItemJnlRollRndg
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetItemJnlRollRndg
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.SetItemJnlRollRndg(Boolean)
+- syntax:
+    content: 'procedure SetGenJnlLineDocNos(DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: SetGenJnlLineDocNos
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.SetGenJnlLineDocNos(Code[20],Code[35])
+- syntax:
+    content: 'procedure PostItemJnlLine(var ServiceLine: Record "Service Line", QtyToBeShipped: Decimal, QtyToBeShippedBase: Decimal, QtyToBeConsumed: Decimal, QtyToBeConsumedBase: Decimal, QtyToBeInvoiced: Decimal, QtyToBeInvoicedBase: Decimal, ItemLedgShptEntryNo: Integer, var TrackingSpecification: Record "Tracking Specification", var TempTrackingSpecificationInv: Record "Tracking Specification", var TempHandlingSpecification: Record "Tracking Specification", var TempTrackingSpecification: Record "Tracking Specification" temporary, var ServShptHeader: Record "Service Shipment Header", ServShptLineDocNo: Code[20]): Integer'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: QtyToBeShipped
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeConsumed
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeConsumedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoicedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgShptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempTrackingSpecificationInv
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: ServShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+    - id: ServShptLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PostItemJnlLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostItemJnlLine(Service_Line@,Decimal,Decimal,Decimal,Decimal,Decimal,Decimal,Integer,Tracking_Specification@,Tracking_Specification@,Tracking_Specification@,Tracking_Specification@,Service_Shipment_Header@,Code[20]):Integer
+- syntax:
+    content: 'procedure PostLines(ServiceHeader: Record "Service Header", var InvoicePostingInterface: Interface "Invoice Posting", var Window: Dialog, var TotalAmount: Decimal)'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: InvoicePostingInterface
+      parameterType:
+        internalReference: O:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting
+        name: Microsoft.Finance.ReceivablesPayables."Invoice Posting"
+        isExternal: false
+    - id: Window
+      parameterType:
+        name: Dialog
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostLines(Service_Header,Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting@,Dialog@,Decimal@)
+- syntax:
+    content: 'procedure PostLedgerEntry(ServiceHeader: Record "Service Header", var InvoicePostingInterface: Interface "Invoice Posting")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: InvoicePostingInterface
+      parameterType:
+        internalReference: O:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting
+        name: Microsoft.Finance.ReceivablesPayables."Invoice Posting"
+        isExternal: false
+  name: PostLedgerEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostLedgerEntry(Service_Header,Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting@)
+- syntax:
+    content: 'procedure PostBalancingEntry(ServiceHeader: Record "Service Header", var InvoicePostingInterface: Interface "Invoice Posting")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: InvoicePostingInterface
+      parameterType:
+        internalReference: O:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting
+        name: Microsoft.Finance.ReceivablesPayables."Invoice Posting"
+        isExternal: false
+  name: PostBalancingEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostBalancingEntry(Service_Header,Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by new implementation in codeunit Service Post Invoice,20.0)]'
+    content: 'procedure PostInvoicePostBufferLine(var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary, DocType: Integer, DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: PostInvoicePostBufferLine
+  obsoletion:
+    state: pending
+    reason: Replaced by new implementation in codeunit Service Post Invoice
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostInvoicePostBufferLine(Invoice_Post#_Buffer@,Integer,Code[20],Code[35])
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by new implementation in codeunit Service Post Invoice,20.0)]'
+    content: 'procedure PostCustomerEntry(var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", DocType: Integer, DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: PostCustomerEntry
+  obsoletion:
+    state: pending
+    reason: Replaced by new implementation in codeunit Service Post Invoice
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostCustomerEntry(Service_Line@,Service_Line@,Integer,Code[20],Code[35])
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by new implementation in codeunit Service Post Invoice,20.0)]'
+    content: 'procedure PostBalancingEntry(var TotalServiceLine: Record "Service Line", var TotalServiceLineLCY: Record "Service Line", DocType: Integer, DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: TotalServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TotalServiceLineLCY
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: DocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: PostBalancingEntry
+  obsoletion:
+    state: pending
+    reason: Replaced by new implementation in codeunit Service Post Invoice
+    version: "20.0"
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostBalancingEntry(Service_Line@,Service_Line@,Integer,Code[20],Code[35])
+- syntax:
+    content: 'procedure PostResJnlLineShip(var ServiceLine: Record "Service Line", DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: PostResJnlLineShip
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostResJnlLineShip(Service_Line@,Code[20],Code[35])
+- syntax:
+    content: 'procedure PostResJnlLineUndoUsage(var ServiceLine: Record "Service Line", DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: PostResJnlLineUndoUsage
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostResJnlLineUndoUsage(Service_Line@,Code[20],Code[35])
+- syntax:
+    content: 'procedure PostResJnlLineSale(var ServiceLine: Record "Service Line", DocNo: Code[20], ExtDocNo: Code[35])'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: PostResJnlLineSale
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostResJnlLineSale(Service_Line@,Code[20],Code[35])
+- syntax:
+    content: 'procedure PostResJnlLineConsume(var ServiceLine: Record "Service Line", var ServShptHeader: Record "Service Shipment Header")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+  name: PostResJnlLineConsume
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostResJnlLineConsume(Service_Line@,Service_Shipment_Header@)
+- syntax:
+    content: 'procedure InitServiceRegister(var NextServLedgerEntryNo: Integer, var NextWarrantyLedgerEntryNo: Integer)'
+    parameters:
+    - id: NextServLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextWarrantyLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitServiceRegister
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.InitServiceRegister(Integer@,Integer@)
+- syntax:
+    content: 'procedure FinishServiceRegister(var nextServEntryNo: Integer, var nextWarrantyEntryNo: Integer)'
+    parameters:
+    - id: nextServEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: nextWarrantyEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FinishServiceRegister
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.FinishServiceRegister(Integer@,Integer@)
+- syntax:
+    content: 'procedure InsertServLedgerEntry(var NextEntryNo: Integer, var ServiceHeader: Record "Service Header", var ServiceLine: Record "Service Line", var ServItemLine: Record "Service Item Line", Qty: Decimal, DocNo: Code[20]): Integer'
+    parameters:
+    - id: NextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertServLedgerEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.InsertServLedgerEntry(Integer@,Service_Header@,Service_Line@,Service_Item_Line@,Decimal,Code[20]):Integer
+- syntax:
+    content: 'procedure InsertServLedgerEntrySale(var passedNextEntryNo: Integer, var ServHeader: Record "Service Header", var ServLine: Record "Service Line", var ServItemLine: Record "Service Item Line", Qty: Decimal, QtyToCharge: Decimal, GenJnlLineDocNo: Code[20], DocLineNo: Integer)'
+    parameters:
+    - id: passedNextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToCharge
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GenJnlLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertServLedgerEntrySale
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.InsertServLedgerEntrySale(Integer@,Service_Header@,Service_Line@,Service_Item_Line@,Decimal,Decimal,Code[20],Integer)
+- syntax:
+    content: 'procedure CreateCreditEntry(var passedNextEntryNo: Integer, var ServHeader: Record "Service Header", var ServLine: Record "Service Line", GenJnlLineDocNo: Code[20])'
+    parameters:
+    - id: passedNextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: GenJnlLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateCreditEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.CreateCreditEntry(Integer@,Service_Header@,Service_Line@,Code[20])
+- syntax:
+    content: 'procedure InsertWarrantyLedgerEntry(var NextWarrantyEntryNo: Integer, var ServiceHeader: Record "Service Header", var ServiceLine: Record "Service Line", var ServItemLine: Record "Service Item Line", Qty: Decimal, GenJnlLineDocNo: Code[20]): Integer'
+    parameters:
+    - id: NextWarrantyEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GenJnlLineDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertWarrantyLedgerEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.InsertWarrantyLedgerEntry(Integer@,Service_Header@,Service_Line@,Service_Item_Line@,Decimal,Code[20]):Integer
+- syntax:
+    content: 'procedure CalcSLEDivideAmount(Qty: Decimal, var passedServHeader: Record "Service Header", var passedTempServLine: Record "Service Line", var passedVATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: passedServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: passedTempServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: passedVATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: CalcSLEDivideAmount
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.CalcSLEDivideAmount(Decimal,Service_Header@,Service_Line@,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure TestSrvCostDirectPost(ServLineNo: Code[20])'
+    parameters:
+    - id: ServLineNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: TestSrvCostDirectPost
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.TestSrvCostDirectPost(Code[20])
+- syntax:
+    content: 'procedure TestGLAccDirectPost(ServLineNo: Code[20])'
+    parameters:
+    - id: ServLineNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: TestGLAccDirectPost
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.TestGLAccDirectPost(Code[20])
+- syntax:
+    content: 'procedure CollectValueEntryRelation(var PassedValueEntryRelation: Record "Value Entry Relation", RowId: Text[100])'
+    parameters:
+    - id: PassedValueEntryRelation
+      parameterType:
+        name: Record "Value Entry Relation"
+        isExternal: true
+    - id: RowId
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: CollectValueEntryRelation
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.CollectValueEntryRelation(Value_Entry_Relation@,Text[100])
+- syntax:
+    content: 'procedure PostJobJnlLine(var ServHeader: Record "Service Header", ServLine: Record "Service Line", QtyToBeConsumed: Decimal): Boolean'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: QtyToBeConsumed
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PostJobJnlLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostJobJnlLine(Service_Header@,Service_Line,Decimal):Boolean
+- syntax:
+    content: 'procedure SetPostingDate(PostingDate: Date)'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetPostingDate
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.SetPostingDate(Date)
+commentId: O:Codeunit::Microsoft#Service#Posting#Serv-Posting Journals Mgt#
+name: '"Serv-Posting Journals Mgt."'
+uid: O:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#

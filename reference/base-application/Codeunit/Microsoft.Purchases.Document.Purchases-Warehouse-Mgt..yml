@@ -1,0 +1,115 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purchases Warehouse Mgt."
+alId: ID 5992
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure PurchaseLineVerifyChange(var NewPurchaseLine: Record "Purchase Line", var OldPurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: NewPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: OldPurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: PurchaseLineVerifyChange
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.PurchaseLineVerifyChange(Purchase_Line@,Purchase_Line@)
+- syntax:
+    content: 'procedure PurchaseLineDelete(var PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: PurchaseLineDelete
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.PurchaseLineDelete(Purchase_Line@)
+- syntax:
+    content: 'procedure FromPurchLine2ShptLine(WarehouseShipmentHeader: Record "Warehouse Shipment Header", PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: WarehouseShipmentHeader
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FromPurchLine2ShptLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.FromPurchLine2ShptLine(Warehouse_Shipment_Header,Purchase_Line):Boolean
+- syntax:
+    content: 'procedure PurchLine2ReceiptLine(WarehouseReceiptHeader: Record "Warehouse Receipt Header", PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: WarehouseReceiptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PurchLine2ReceiptLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.PurchLine2ReceiptLine(Warehouse_Receipt_Header,Purchase_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromPurchLine2ShptLine(PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromPurchLine2ShptLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.CheckIfFromPurchLine2ShptLine(Purchase_Line):Boolean
+- syntax:
+    content: 'procedure CheckIfFromPurchLine2ShptLine(PurchaseLine: Record "Purchase Line", ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfFromPurchLine2ShptLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.CheckIfFromPurchLine2ShptLine(Purchase_Line,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+- syntax:
+    content: 'procedure CheckIfPurchLine2ReceiptLine(PurchaseLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfPurchLine2ReceiptLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#.CheckIfPurchLine2ReceiptLine(Purchase_Line):Boolean
+commentId: O:Codeunit::Microsoft#Purchases#Document#Purchases Warehouse Mgt#
+name: '"Purchases Warehouse Mgt."'
+uid: O:Codeunit::Microsoft#Purchases#Document#Purchases_Warehouse_Mgt#

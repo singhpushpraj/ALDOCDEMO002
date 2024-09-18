@@ -1,0 +1,161 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.EServices.EDocument."Doc. Exch. Service Mgt."
+alId: ID 1410
+namespace: Microsoft.EServices.EDocument
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.EServices.EDocument
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                      TableData "Sales Cr.Memo Header" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure IsSandbox(var DocExchServiceSetup: Record "Doc. Exch. Service Setup"): Boolean'
+    parameters:
+    - id: DocExchServiceSetup
+      parameterType:
+        name: Record "Doc. Exch. Service Setup"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSandbox
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.IsSandbox(Doc#_Exch#_Service_Setup@):Boolean
+- syntax:
+    content: 'procedure SetURLsToDefault(var DocExchServiceSetup: Record "Doc. Exch. Service Setup")'
+    parameters:
+    - id: DocExchServiceSetup
+      parameterType:
+        name: Record "Doc. Exch. Service Setup"
+        isExternal: true
+  name: SetURLsToDefault
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.SetURLsToDefault(Doc#_Exch#_Service_Setup@)
+- syntax:
+    content: procedure RecallActivateAppNotification()
+  name: RecallActivateAppNotification
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.RecallActivateAppNotification
+- syntax:
+    content: procedure CheckCredentials()
+  name: CheckCredentials
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.CheckCredentials
+- syntax:
+    content: procedure CheckServiceEnabled()
+  name: CheckServiceEnabled
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.CheckServiceEnabled
+- syntax:
+    content: 'procedure GetServiceSetUp(var DocExchServiceSetup: Record "Doc. Exch. Service Setup")'
+    parameters:
+    - id: DocExchServiceSetup
+      parameterType:
+        name: Record "Doc. Exch. Service Setup"
+        isExternal: true
+  name: GetServiceSetUp
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.GetServiceSetUp(Doc#_Exch#_Service_Setup@)
+- syntax:
+    content: 'procedure LogActivitySucceeded(RelatedRecordID: RecordId, ActivityDescription: Text, ActivityMessage: Text)'
+    parameters:
+    - id: RelatedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActivityDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActivityMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LogActivitySucceeded
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.LogActivitySucceeded(RecordId,Text,Text)
+- syntax:
+    content: 'procedure LogActivityFailed(RelatedRecordID: RecordId, ActivityDescription: Text, ActivityMessage: Text)'
+    parameters:
+    - id: RelatedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActivityDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActivityMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LogActivityFailed
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.LogActivityFailed(RecordId,Text,Text)
+- syntax:
+    content: 'procedure LogActivityFailedAndError(RelatedRecordID: RecordId, ActivityDescription: Text, ActivityMessage: Text)'
+    parameters:
+    - id: RelatedRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ActivityDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ActivityMessage
+      parameterType:
+        name: Text
+        isExternal: true
+  name: LogActivityFailedAndError
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.LogActivityFailedAndError(RecordId,Text,Text)
+- syntax:
+    content: 'procedure EnableTraceLog(NewTraceLogEnabled: Boolean)'
+    parameters:
+    - id: NewTraceLogEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: EnableTraceLog
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.EnableTraceLog(Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,1400,OnRegisterServiceConnection,,False,False)]'
+    content: 'procedure HandleVANRegisterServiceConnection(var ServiceConnection: Record "Service Connection" temporary)'
+    parameters:
+    - id: ServiceConnection
+      parameterType:
+        name: Record "Service Connection" temporary
+        isExternal: true
+  name: HandleVANRegisterServiceConnection
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.HandleVANRegisterServiceConnection(Service_Connection@)
+- syntax:
+    content: 'procedure GetExternalDocURL(DocID: Text): Text'
+    parameters:
+    - id: DocID
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetExternalDocURL
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.GetExternalDocURL(Text):Text
+- syntax:
+    content: 'procedure VerifyPrerequisites(ShowFailure: Boolean): Boolean'
+    parameters:
+    - id: ShowFailure
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: VerifyPrerequisites
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#.VerifyPrerequisites(Boolean):Boolean
+commentId: O:Codeunit::Microsoft#EServices#EDocument#Doc# Exch# Service Mgt#
+name: '"Doc. Exch. Service Mgt."'
+uid: O:Codeunit::Microsoft#EServices#EDocument#Doc#_Exch#_Service_Mgt#

@@ -1,0 +1,257 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Assembly.Document."Assembly Header-Reserve"
+alId: ID 925
+namespace: Microsoft.Assembly.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Assembly.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(var AssemblyHeader: Record "Assembly Header", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.CreateReservation(Assembly_Header@,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateReservation(var AssemblyHeader: Record "Assembly Header", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal)'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.CreateReservation(Assembly_Header@,Text[100],Date,Decimal,Decimal)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure SetDisallowCancellation(DisallowCancellation: Boolean)'
+    parameters:
+    - id: DisallowCancellation
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDisallowCancellation
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.SetDisallowCancellation(Boolean)
+- syntax:
+    content: 'procedure FilterReservFor(var FilterReservationEntry: Record "Reservation Entry", AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: FilterReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: FilterReservFor
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.FilterReservFor(Reservation_Entry@,Assembly_Header)
+- syntax:
+    content: 'procedure FindReservEntry(AssemblyHeader: Record "Assembly Header", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.FindReservEntry(Assembly_Header,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure UpdatePlanningFlexibility(var AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: UpdatePlanningFlexibility
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.UpdatePlanningFlexibility(Assembly_Header@)
+- syntax:
+    content: 'procedure ReservEntryExist(AssemblyHeader: Record "Assembly Header"): Boolean'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.ReservEntryExist(Assembly_Header):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.DeleteLine(Assembly_Header@)
+- syntax:
+    content: 'procedure VerifyChange(var NewAssemblyHeader: Record "Assembly Header", var OldAssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: NewAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: OldAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.VerifyChange(Assembly_Header@,Assembly_Header@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewAssemblyHeader: Record "Assembly Header", var OldAssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: NewAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: OldAssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.VerifyQuantity(Assembly_Header@,Assembly_Header@)
+- syntax:
+    content: 'procedure Caption(AssemblyHeader: Record "Assembly Header"): Text'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.Caption(Assembly_Header):Text
+- syntax:
+    content: 'procedure CallItemTracking(var AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.CallItemTracking(Assembly_Header@)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var AssemblyHeader: Record "Assembly Header"): Boolean'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.DeleteLineConfirm(Assembly_Header@):Boolean
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(AssemblyHeader: Record "Assembly Header")'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.UpdateItemTrackingAfterPosting(Assembly_Header)
+- syntax:
+    content: 'procedure TransferAsmHeaderToItemJnlLine(var AssemblyHeader: Record "Assembly Header", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, CheckApplToItemEntry: Boolean): Decimal'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplToItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TransferAsmHeaderToItemJnlLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve.TransferAsmHeaderToItemJnlLine(Assembly_Header@,Item_Journal_Line@,Decimal,Boolean):Decimal
+commentId: O:Codeunit::Microsoft#Assembly#Document#Assembly Header-Reserve
+name: '"Assembly Header-Reserve"'
+uid: O:Codeunit::Microsoft#Assembly#Document#Assembly_Header-Reserve

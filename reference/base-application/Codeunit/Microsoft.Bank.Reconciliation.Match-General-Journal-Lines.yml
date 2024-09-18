@@ -1,0 +1,96 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Match General Journal Lines"
+alId: ID 1250
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure Code(TemplateName: Code[10], BatchName: Code[10])'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: Code
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.Code(Code[10],Code[10])
+- syntax:
+    content: 'procedure PrepareCustLedgerEntryForApplication(var CustLedgerEntry: Record "Cust. Ledger Entry", var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: PrepareCustLedgerEntryForApplication
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.PrepareCustLedgerEntryForApplication(Cust#_Ledger_Entry@,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure FillTempGenJournalLine(var GenJournalBatch: Record "Gen. Journal Batch", var TempGenJournalLine: Record "Gen. Journal Line" temporary)'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: TempGenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line" temporary
+        isExternal: true
+  name: FillTempGenJournalLine
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.FillTempGenJournalLine(Gen#_Journal_Batch@,Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure SetMatchLengthThreshold(NewMatchLengthThreshold: Integer)'
+    parameters:
+    - id: NewMatchLengthThreshold
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetMatchLengthThreshold
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.SetMatchLengthThreshold(Integer)
+- syntax:
+    content: 'procedure SetNormalizingFactor(NewNormalizingFactor: Integer)'
+    parameters:
+    - id: NewNormalizingFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetNormalizingFactor
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.SetNormalizingFactor(Integer)
+- syntax:
+    content: 'procedure GetMatchLengthTreshold(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetMatchLengthTreshold
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.GetMatchLengthTreshold:Integer
+- syntax:
+    content: 'procedure GetNormalizingFactor(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNormalizingFactor
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines.GetNormalizingFactor:Integer
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Match General Journal Lines
+name: '"Match General Journal Lines"'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Match_General_Journal_Lines

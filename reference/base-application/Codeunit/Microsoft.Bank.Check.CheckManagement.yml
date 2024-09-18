@@ -1,0 +1,81 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Check.CheckManagement
+alId: ID 367
+namespace: Microsoft.Bank.Check
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Check
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Vendor Ledger Entry" = rm,
+                      TableData "Bank Account Ledger Entry" = rm,
+                      TableData "Check Ledger Entry" = rim,
+                      TableData "Employee Ledger Entry" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertCheck(var CheckLedgEntry: Record "Check Ledger Entry", RecordIdToPrint: RecordId)'
+    parameters:
+    - id: CheckLedgEntry
+      parameterType:
+        name: Record "Check Ledger Entry"
+        isExternal: true
+    - id: RecordIdToPrint
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: InsertCheck
+  uid: M:Codeunit::Microsoft#Bank#Check#CheckManagement.InsertCheck(Check_Ledger_Entry@,RecordId)
+- syntax:
+    content: 'procedure VoidCheck(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: VoidCheck
+  uid: M:Codeunit::Microsoft#Bank#Check#CheckManagement.VoidCheck(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure FinancialVoidCheck(var CheckLedgEntry: Record "Check Ledger Entry")'
+    parameters:
+    - id: CheckLedgEntry
+      parameterType:
+        name: Record "Check Ledger Entry"
+        isExternal: true
+  name: FinancialVoidCheck
+  uid: M:Codeunit::Microsoft#Bank#Check#CheckManagement.FinancialVoidCheck(Check_Ledger_Entry@)
+- syntax:
+    content: 'procedure GenJournalLineGetSystemIdFromRecordId(GenJournalLineRecordId: RecordId): Guid'
+    parameters:
+    - id: GenJournalLineRecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GenJournalLineGetSystemIdFromRecordId
+  uid: M:Codeunit::Microsoft#Bank#Check#CheckManagement.GenJournalLineGetSystemIdFromRecordId(RecordId):Guid
+- syntax:
+    content: 'procedure ProcessElectronicPayment(var GenJournalLine: Record "Gen. Journal Line", WhichProcess: Option)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: WhichProcess
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ProcessElectronicPayment
+  uid: M:Codeunit::Microsoft#Bank#Check#CheckManagement.ProcessElectronicPayment(Gen#_Journal_Line@,Option)
+commentId: O:Codeunit::Microsoft#Bank#Check#CheckManagement
+name: CheckManagement
+uid: O:Codeunit::Microsoft#Bank#Check#CheckManagement

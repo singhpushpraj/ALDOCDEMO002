@@ -1,0 +1,220 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Prod. Order Line-Reserve"
+alId: ID 99000837
+namespace: Microsoft.Manufacturing.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = rimd,
+                      TableData "Action Message Entry" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(var ProdOrderLine: Record "Prod. Order Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.CreateReservation(Prod#_Order_Line@,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure Caption(ProdOrderLine: Record "Prod. Order Line"): Text'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.Caption(Prod#_Order_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(ProdOrderLine: Record "Prod. Order Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.FindReservEntry(Prod#_Order_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure VerifyChange(var NewProdOrderLine: Record "Prod. Order Line", var OldProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: NewProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: OldProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.VerifyChange(Prod#_Order_Line@,Prod#_Order_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewProdOrderLine: Record "Prod. Order Line", var OldProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: NewProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: OldProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.VerifyQuantity(Prod#_Order_Line@,Prod#_Order_Line@)
+- syntax:
+    content: 'procedure UpdatePlanningFlexibility(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: UpdatePlanningFlexibility
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.UpdatePlanningFlexibility(Prod#_Order_Line@)
+- syntax:
+    content: 'procedure TransferPOLineToPOLine(var OldProdOrderLine: Record "Prod. Order Line", var NewProdOrderLine: Record "Prod. Order Line", TransferQty: Decimal, TransferAll: Boolean)'
+    parameters:
+    - id: OldProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: NewProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransferAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferPOLineToPOLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.TransferPOLineToPOLine(Prod#_Order_Line@,Prod#_Order_Line@,Decimal,Boolean)
+- syntax:
+    content: 'procedure TransferPOLineToItemJnlLine(var OldProdOrderLine: Record "Prod. Order Line", var NewItemJournalLine: Record "Item Journal Line", TransferQty: Decimal)'
+    parameters:
+    - id: OldProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: NewItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferPOLineToItemJnlLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.TransferPOLineToItemJnlLine(Prod#_Order_Line@,Item_Journal_Line@,Decimal)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var ProdOrderLine: Record "Prod. Order Line"): Boolean'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.DeleteLineConfirm(Prod#_Order_Line@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.DeleteLine(Prod#_Order_Line@)
+- syntax:
+    content: 'procedure AssignForPlanning(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: AssignForPlanning
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.AssignForPlanning(Prod#_Order_Line@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.CallItemTracking(Prod#_Order_Line@)
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve.UpdateItemTrackingAfterPosting(Prod#_Order_Line)
+commentId: O:Codeunit::Microsoft#Manufacturing#Document#Prod# Order Line-Reserve
+name: '"Prod. Order Line-Reserve"'
+uid: O:Codeunit::Microsoft#Manufacturing#Document#Prod#_Order_Line-Reserve

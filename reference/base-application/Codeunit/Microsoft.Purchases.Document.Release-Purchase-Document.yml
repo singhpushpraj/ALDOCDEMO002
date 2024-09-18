@@ -1,0 +1,102 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Release Purchase Document"
+alId: ID 415
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Purchase Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+    name: Microsoft.Purchases.Document."Purchase Header"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Purchase Header" = rm,
+                      TableData "Purchase Line" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Reopen(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: Reopen
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.Reopen(Purchase_Header@)
+- syntax:
+    content: 'procedure PerformManualRelease(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PerformManualRelease
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.PerformManualRelease(Purchase_Header@)
+- syntax:
+    content: 'procedure PerformManualCheckAndRelease(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PerformManualCheckAndRelease
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.PerformManualCheckAndRelease(Purchase_Header@)
+- syntax:
+    content: 'procedure PerformManualReopen(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PerformManualReopen
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.PerformManualReopen(Purchase_Header@)
+- syntax:
+    content: 'procedure ReleasePurchaseHeader(var PurchHdr: Record "Purchase Header", Preview: Boolean): Boolean'
+    parameters:
+    - id: PurchHdr
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: Preview
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReleasePurchaseHeader
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.ReleasePurchaseHeader(Purchase_Header@,Boolean):Boolean
+- syntax:
+    content: 'procedure CalcAndUpdateVATOnLines(var PurchaseHeader: Record "Purchase Header", var PurchLine: Record "Purchase Line"): Boolean'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalcAndUpdateVATOnLines
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.CalcAndUpdateVATOnLines(Purchase_Header@,Purchase_Line@):Boolean
+- syntax:
+    content: procedure SetSkipCheckReleaseRestrictions()
+  name: SetSkipCheckReleaseRestrictions
+  uid: M:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document.SetSkipCheckReleaseRestrictions
+commentId: O:Codeunit::Microsoft#Purchases#Document#Release Purchase Document
+name: '"Release Purchase Document"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Release_Purchase_Document

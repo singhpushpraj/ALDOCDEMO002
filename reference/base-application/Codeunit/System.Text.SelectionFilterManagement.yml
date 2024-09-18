@@ -1,0 +1,704 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Text.SelectionFilterManagement
+alId: ID 46
+namespace: System.Text
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Text
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetSelectionFilter(var TempRecRef: RecordRef, SelectionFieldID: Integer): Text'
+    parameters:
+    - id: TempRecRef
+      description: Record used to determine the field filter.
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SelectionFieldID
+      description: The field for which the filter will be constructed.
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      description: The filter for the provided field ID. For example, '1..3|6'.
+      returnType:
+        name: Text
+        isExternal: true
+  summary: Get a filter for the selected field from a provided record. Ranges will be used inside the filter were possible.
+  remarks: This method queries the database intensively, can cause perfomance issues and even cause database server exceptions. Consider using the overload with ComputeRangesUsingRecords set to false.
+  name: GetSelectionFilter
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilter(RecordRef@,Integer):Text
+- syntax:
+    content: 'procedure CreateFilterFromTempTable(var SourceTempRecRef: RecordRef, var RecRef: RecordRef, SelectionFieldID: Integer): Text'
+    parameters:
+    - id: SourceTempRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SelectionFieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: CreateFilterFromTempTable
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.CreateFilterFromTempTable(RecordRef@,RecordRef@,Integer):Text
+- syntax:
+    content: 'procedure AddQuotes(inString: Text): Text'
+    parameters:
+    - id: inString
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AddQuotes
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.AddQuotes(Text):Text
+- syntax:
+    content: 'procedure ReplaceString(String: Text, FindWhat: Text, ReplaceWith: Text): Text'
+    parameters:
+    - id: String
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FindWhat
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ReplaceWith
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ReplaceString
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.ReplaceString(Text,Text,Text):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForItem(var Item: Record Item): Text'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForItem
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForItem(Item@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForServiceItem(var ServiceItem: Record "Service Item"): Text'
+    parameters:
+    - id: ServiceItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForServiceItem
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForServiceItem(Service_Item@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForDimensionValue(var DimVal: Record "Dimension Value"): Text'
+    parameters:
+    - id: DimVal
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForDimensionValue
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForDimensionValue(Dimension_Value@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCurrency(var Currency: Record Currency): Text'
+    parameters:
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCurrency
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCurrency(Currency@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCustomerPriceGroup(var CustomerPriceGroup: Record "Customer Price Group"): Text'
+    parameters:
+    - id: CustomerPriceGroup
+      parameterType:
+        name: Record "Customer Price Group"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCustomerPriceGroup
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCustomerPriceGroup(Customer_Price_Group@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForLocation(var Location: Record Location): Text'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForLocation
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForLocation(Location@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForGLAccount(var GLAccount: Record "G/L Account"): Text'
+    parameters:
+    - id: GLAccount
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForGLAccount
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForGLAccount(G/L_Account@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForGLAccountCategory(var GLAccountCategory: Record "G/L Account Category"): Text'
+    parameters:
+    - id: GLAccountCategory
+      parameterType:
+        name: Record "G/L Account Category"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForGLAccountCategory
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForGLAccountCategory(G/L_Account_Category@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCustomer(var Customer: Record Customer): Text'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCustomer
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCustomer(Customer@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForContact(var Contact: Record Contact): Text'
+    parameters:
+    - id: Contact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForContact
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForContact(Contact@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForVendor(var Vendor: Record Vendor): Text'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForVendor
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForVendor(Vendor@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForResource(var Resource: Record Resource): Text'
+    parameters:
+    - id: Resource
+      parameterType:
+        name: Record Resource
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForResource
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForResource(Resource@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForInventoryPostingGroup(var InventoryPostingGroup: Record "Inventory Posting Group"): Text'
+    parameters:
+    - id: InventoryPostingGroup
+      parameterType:
+        name: Record "Inventory Posting Group"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForInventoryPostingGroup
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForInventoryPostingGroup(Inventory_Posting_Group@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForGLBudgetName(var GLBudgetName: Record "G/L Budget Name"): Text'
+    parameters:
+    - id: GLBudgetName
+      parameterType:
+        name: Record "G/L Budget Name"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForGLBudgetName
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForGLBudgetName(G/L_Budget_Name@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForBusinessUnit(var BusinessUnit: Record "Business Unit"): Text'
+    parameters:
+    - id: BusinessUnit
+      parameterType:
+        name: Record "Business Unit"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForBusinessUnit
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForBusinessUnit(Business_Unit@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForICPartner(var ICPartner: Record "IC Partner"): Text'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForICPartner
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForICPartner(IC_Partner@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCashFlow(var CashFlowForecast: Record "Cash Flow Forecast"): Text'
+    parameters:
+    - id: CashFlowForecast
+      parameterType:
+        name: Record "Cash Flow Forecast"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCashFlow
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCashFlow(Cash_Flow_Forecast@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCashFlowAccount(var CashFlowAccount: Record "Cash Flow Account"): Text'
+    parameters:
+    - id: CashFlowAccount
+      parameterType:
+        name: Record "Cash Flow Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCashFlowAccount
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCashFlowAccount(Cash_Flow_Account@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCostBudgetName(var CostBudgetName: Record "Cost Budget Name"): Text'
+    parameters:
+    - id: CostBudgetName
+      parameterType:
+        name: Record "Cost Budget Name"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCostBudgetName
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCostBudgetName(Cost_Budget_Name@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCostCenter(var CostCenter: Record "Cost Center"): Text'
+    parameters:
+    - id: CostCenter
+      parameterType:
+        name: Record "Cost Center"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCostCenter
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCostCenter(Cost_Center@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCostObject(var CostObject: Record "Cost Object"): Text'
+    parameters:
+    - id: CostObject
+      parameterType:
+        name: Record "Cost Object"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCostObject
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCostObject(Cost_Object@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCostType(var CostType: Record "Cost Type"): Text'
+    parameters:
+    - id: CostType
+      parameterType:
+        name: Record "Cost Type"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCostType
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCostType(Cost_Type@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCampaign(var Campaign: Record Campaign): Text'
+    parameters:
+    - id: Campaign
+      parameterType:
+        name: Record Campaign
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCampaign
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCampaign(Campaign@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForEmployee(var Employee: Record Employee): Text'
+    parameters:
+    - id: Employee
+      parameterType:
+        name: Record Employee
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForEmployee
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForEmployee(Employee@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForLotNoInformation(var LotNoInformation: Record "Lot No. Information"): Text'
+    parameters:
+    - id: LotNoInformation
+      parameterType:
+        name: Record "Lot No. Information"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForLotNoInformation
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForLotNoInformation(Lot_No#_Information@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForPackageNoInformation(var PackageNoInformation: Record "Package No. Information"): Text'
+    parameters:
+    - id: PackageNoInformation
+      parameterType:
+        name: Record "Package No. Information"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForPackageNoInformation
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForPackageNoInformation(Package_No#_Information@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForSerialNoInformation(var SerialNoInformation: Record "Serial No. Information"): Text'
+    parameters:
+    - id: SerialNoInformation
+      parameterType:
+        name: Record "Serial No. Information"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForSerialNoInformation
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForSerialNoInformation(Serial_No#_Information@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForCustomerDiscountGroup(var CustomerDiscountGroup: Record "Customer Discount Group"): Text'
+    parameters:
+    - id: CustomerDiscountGroup
+      parameterType:
+        name: Record "Customer Discount Group"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForCustomerDiscountGroup
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForCustomerDiscountGroup(Customer_Discount_Group@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForItemDiscountGroup(var ItemDiscountGroup: Record "Item Discount Group"): Text'
+    parameters:
+    - id: ItemDiscountGroup
+      parameterType:
+        name: Record "Item Discount Group"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForItemDiscountGroup
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForItemDiscountGroup(Item_Discount_Group@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForItemCategory(var ItemCategory: Record "Item Category"): Text'
+    parameters:
+    - id: ItemCategory
+      parameterType:
+        name: Record "Item Category"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForItemCategory
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForItemCategory(Item_Category@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForIssueReminder(var ReminderHeader: Record "Reminder Header"): Text'
+    parameters:
+    - id: ReminderHeader
+      parameterType:
+        name: Record "Reminder Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForIssueReminder
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForIssueReminder(Reminder_Header@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForWorkflowStepInstance(var WorkflowStepInstance: Record "Workflow Step Instance"): Text'
+    parameters:
+    - id: WorkflowStepInstance
+      parameterType:
+        name: Record "Workflow Step Instance"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForWorkflowStepInstance
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForWorkflowStepInstance(Workflow_Step_Instance@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForWorkflowBuffer(var TempWorkflowBuffer: Record "Workflow Buffer" temporary): Text'
+    parameters:
+    - id: TempWorkflowBuffer
+      parameterType:
+        name: Record "Workflow Buffer" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForWorkflowBuffer
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForWorkflowBuffer(Workflow_Buffer@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForResponsibilityCenter(var ResponsibilityCenter: Record "Responsibility Center"): Text'
+    parameters:
+    - id: ResponsibilityCenter
+      parameterType:
+        name: Record "Responsibility Center"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForResponsibilityCenter
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForResponsibilityCenter(Responsibility_Center@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForSalesPersonPurchaser(var SalespersonPurchaser: Record "Salesperson/Purchaser"): Text'
+    parameters:
+    - id: SalespersonPurchaser
+      parameterType:
+        name: Record "Salesperson/Purchaser"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForSalesPersonPurchaser
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForSalesPersonPurchaser(Salesperson/Purchaser@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForItemVariant(var ItemVariant: Record "Item Variant"): Text'
+    parameters:
+    - id: ItemVariant
+      parameterType:
+        name: Record "Item Variant"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForItemVariant
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForItemVariant(Item_Variant@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForFixedAsset(var FixedAsset: Record "Fixed Asset"): Text'
+    parameters:
+    - id: FixedAsset
+      parameterType:
+        name: Record "Fixed Asset"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForFixedAsset
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForFixedAsset(Fixed_Asset@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForSalesHeader(var SalesHeader: Record "Sales Header"): Text'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForSalesHeader
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForSalesHeader(Sales_Header@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForPurchaseHeader(var PurchaseHeader: Record "Purchase Header"): Text'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForPurchaseHeader
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForPurchaseHeader(Purchase_Header@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForTransferHeader(var TransferHeader: Record "Transfer Header"): Text'
+    parameters:
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForTransferHeader
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForTransferHeader(Transfer_Header@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForAggregatePermissionSetRoleId(AggregatePermissionSet: __MissingTypeSymbol__): Text'
+    parameters:
+    - id: AggregatePermissionSet
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForAggregatePermissionSetRoleId
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForAggregatePermissionSetRoleId(__MissingSymbol__@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForJob(var Job: Record Job): Text'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForJob
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForJob(Job@):Text
+- syntax:
+    content: 'procedure GetSelectionFilterForJobTask(var JobTask: Record "Job Task"): Text'
+    parameters:
+    - id: JobTask
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForJobTask
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForJobTask(Job_Task@):Text
+- syntax:
+    content: 'procedure GetSelectionFilter(var SourceRecRef: RecordRef, SelectionFieldID: Integer, ComputeRangesUsingRecords: Boolean): Text'
+    parameters:
+    - id: SourceRecRef
+      description: Record used to determine the field filter.
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: SelectionFieldID
+      description: The field for which the filter will be constructed.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ComputeRangesUsingRecords
+      description: >-
+        Specify if the computations should be performed on records, or in-memory structures.
+
+        If the parameter is false, the database load is greatly reduced, but the memory footprint is bigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: The filter for the provided field ID. For example, '1..3|6'.
+      returnType:
+        name: Text
+        isExternal: true
+  summary: >-
+    Get a filter for the selected field from a provided record. Ranges will be used inside the filter were possible.
+
+    The values in the selected field must be unique and sorted in ascending order.
+  name: GetSelectionFilter
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilter(RecordRef@,Integer,Boolean):Text
+- syntax:
+    content: 'procedure GetMaximumNumberOfParametersInSQLQuery(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetMaximumNumberOfParametersInSQLQuery
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetMaximumNumberOfParametersInSQLQuery:Integer
+- syntax:
+    content: 'procedure GetSelectionFilterForServiceHeader(var ServiceHeader: Record "Service Header"): Text'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectionFilterForServiceHeader
+  uid: M:Codeunit::System#Text#SelectionFilterManagement.GetSelectionFilterForServiceHeader(Service_Header@):Text
+commentId: O:Codeunit::System#Text#SelectionFilterManagement
+name: SelectionFilterManagement
+uid: O:Codeunit::System#Text#SelectionFilterManagement

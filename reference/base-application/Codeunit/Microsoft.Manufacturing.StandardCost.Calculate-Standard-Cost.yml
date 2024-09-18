@@ -1,0 +1,181 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.StandardCost."Calculate Standard Cost"
+alId: ID 5812
+namespace: Microsoft.Manufacturing.StandardCost
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.StandardCost
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetProperties(NewCalculationDate: Date, NewCalcMultiLevel: Boolean, NewUseAssemblyList: Boolean, NewLogErrors: Boolean, NewStdCostWkshName: Text[50], NewShowDialog: Boolean)'
+    parameters:
+    - id: NewCalculationDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewCalcMultiLevel
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewUseAssemblyList
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewLogErrors
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewStdCostWkshName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: NewShowDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProperties
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.SetProperties(Date,Boolean,Boolean,Boolean,Text[50],Boolean)
+- syntax:
+    content: 'procedure TestPreconditions(var Item: Record Item, var TempNewProductionBOMVersion: Record "Production BOM Version" temporary, var NewRtngVersionErrBuf: Record "Routing Version")'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: TempNewProductionBOMVersion
+      parameterType:
+        name: Record "Production BOM Version" temporary
+        isExternal: true
+    - id: NewRtngVersionErrBuf
+      parameterType:
+        name: Record "Routing Version"
+        isExternal: true
+  name: TestPreconditions
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.TestPreconditions(Item@,Production_BOM_Version@,Routing_Version@)
+- syntax:
+    content: 'procedure CalcItem(ItemNo: Code[20], NewUseAssemblyList: Boolean)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewUseAssemblyList
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcItem
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcItem(Code[20],Boolean)
+- syntax:
+    content: 'procedure CalcItems(var Item: Record Item, var NewTempItem: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NewTempItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: CalcItems
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcItems(Item@,Item@)
+- syntax:
+    content: 'procedure CalcAssemblyItemPrice(ItemNo: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CalcAssemblyItemPrice
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcAssemblyItemPrice(Code[20])
+- syntax:
+    content: 'procedure CalculateAssemblyCostExp(AssemblyHeader: Record "Assembly Header", var ExpCost: array[5] of Decimal)'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ExpCost
+      parameterType:
+        name: array[5] of Decimal
+        isExternal: true
+  name: CalculateAssemblyCostExp
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalculateAssemblyCostExp(Assembly_Header,Decimal[]@)
+- syntax:
+    content: 'procedure CalcOverHeadAmt(CostAmt: Decimal, IndirectCostPct: Decimal, OverheadRateAmt: Decimal): Decimal'
+    parameters:
+    - id: CostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IndirectCostPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OverheadRateAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOverHeadAmt
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcOverHeadAmt(Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcAsmOrderStatistics(AssemblyHeader: Record "Assembly Header", var Value: array[5, 5] of Decimal)'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: array[5, 5] of Decimal
+        isExternal: true
+  name: CalcAsmOrderStatistics
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcAsmOrderStatistics(Assembly_Header,Decimal[5,]@)
+- syntax:
+    content: 'procedure CalcPostedAsmOrderStatistics(PostedAssemblyHeader: Record "Posted Assembly Header", var Value: array[5, 5] of Decimal)'
+    parameters:
+    - id: PostedAssemblyHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+    - id: Value
+      parameterType:
+        name: array[5, 5] of Decimal
+        isExternal: true
+  name: CalcPostedAsmOrderStatistics
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcPostedAsmOrderStatistics(Posted_Assembly_Header,Decimal[5,]@)
+- syntax:
+    content: 'procedure CalcRtngLineCost(RoutingLine: Record "Routing Line", MfgItemQtyBase: Decimal, var SLCap: Decimal, var SLSub: Decimal, var SLCapOvhd: Decimal)'
+    parameters:
+    - id: RoutingLine
+      parameterType:
+        name: Record "Routing Line"
+        isExternal: true
+    - id: MfgItemQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SLCap
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SLSub
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SLCapOvhd
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcRtngLineCost
+  uid: M:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost.CalcRtngLineCost(Routing_Line,Decimal,Decimal@,Decimal@,Decimal@)
+commentId: O:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate Standard Cost
+name: '"Calculate Standard Cost"'
+uid: O:Codeunit::Microsoft#Manufacturing#StandardCost#Calculate_Standard_Cost

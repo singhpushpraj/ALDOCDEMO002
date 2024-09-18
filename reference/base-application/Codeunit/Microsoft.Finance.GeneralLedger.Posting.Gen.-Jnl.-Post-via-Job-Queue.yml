@@ -1,0 +1,54 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post via Job Queue"
+alId: ID 250
+namespace: Microsoft.Finance.GeneralLedger.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure EnqueueGenJrnlLine(var GenJrnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJrnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: EnqueueGenJrnlLine
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_via_Job_Queue.EnqueueGenJrnlLine(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure EnqueueGenJrnlLineWithUI(var GenJrnlLine: Record "Gen. Journal Line", WithUI: Boolean)'
+    parameters:
+    - id: GenJrnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: WithUI
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: EnqueueGenJrnlLineWithUI
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_via_Job_Queue.EnqueueGenJrnlLineWithUI(Gen#_Journal_Line@,Boolean)
+- syntax:
+    content: 'procedure CancelQueueEntry(var GenJrnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJrnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CancelQueueEntry
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_via_Job_Queue.CancelQueueEntry(Gen#_Journal_Line@)
+commentId: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen# Jnl#-Post via Job Queue
+name: '"Gen. Jnl.-Post via Job Queue"'
+uid: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_via_Job_Queue

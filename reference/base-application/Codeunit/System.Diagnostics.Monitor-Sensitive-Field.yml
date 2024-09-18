@@ -1,0 +1,292 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Diagnostics."Monitor Sensitive Field"
+alId: ID 1392
+namespace: System.Diagnostics
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Diagnostics
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Field Monitoring Setup" = im
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ValidateTableNo(TableNo: Integer)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateTableNo
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.ValidateTableNo(Integer)
+- syntax:
+    content: 'procedure ValidateTableAndFieldNo(TableNo: Integer, FieldNo: Integer)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateTableAndFieldNo
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.ValidateTableAndFieldNo(Integer,Integer)
+- syntax:
+    content: 'procedure InsertChangeLogSetupTable(TableNo: Integer)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertChangeLogSetupTable
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.InsertChangeLogSetupTable(Integer)
+- syntax:
+    content: 'procedure DeleteChangeLogSetupTable(TableNo: Integer, FieldNo: Integer)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteChangeLogSetupTable
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.DeleteChangeLogSetupTable(Integer,Integer)
+- syntax:
+    content: 'procedure GetTableCaption(TableNo: Integer): Text'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTableCaption
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.GetTableCaption(Integer):Text
+- syntax:
+    content: 'procedure GetNotificationCount(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNotificationCount
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.GetNotificationCount:Integer
+- syntax:
+    content: procedure OpenDataSensitivityFilterPage()
+  name: OpenDataSensitivityFilterPage
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.OpenDataSensitivityFilterPage
+- syntax:
+    content: 'procedure AddAllowedFieldFilters(FieldTable: __MissingTypeSymbol__)'
+    parameters:
+    - id: FieldTable
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: AddAllowedFieldFilters
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.AddAllowedFieldFilters(__MissingSymbol__@)
+- syntax:
+    content: 'procedure AddValidTablesFilter(AllObjWithCaption: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: AddValidTablesFilter
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.AddValidTablesFilter(__MissingSymbol__@)
+- syntax:
+    content: 'procedure EnableMonitor(ShowConfirmMessage: Boolean)'
+    parameters:
+    - id: ShowConfirmMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: EnableMonitor
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.EnableMonitor(Boolean)
+- syntax:
+    content: procedure DisableMonitor()
+  name: DisableMonitor
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.DisableMonitor
+- syntax:
+    content: 'procedure CheckUserHasValidContactEmail(MonitorUserId: Code[50])'
+    parameters:
+    - id: MonitorUserId
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: CheckUserHasValidContactEmail
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.CheckUserHasValidContactEmail(Code[50])
+- syntax:
+    content: 'procedure ExcludeMonitorTablesFromChangeLog(AllObjectWithCaption: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllObjectWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: ExcludeMonitorTablesFromChangeLog
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.ExcludeMonitorTablesFromChangeLog(__MissingSymbol__@)
+- syntax:
+    content: 'procedure GetSetupTable(var FieldMonitoringSetup: Record "Field Monitoring Setup")'
+    parameters:
+    - id: FieldMonitoringSetup
+      parameterType:
+        name: Record "Field Monitoring Setup"
+        isExternal: true
+  name: GetSetupTable
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.GetSetupTable(Field_Monitoring_Setup@)
+- syntax:
+    content: 'procedure AddMonitoredField(TableNo: Integer, FieldNo: Integer, Notify: Boolean)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Notify
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: AddMonitoredField
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.AddMonitoredField(Integer,Integer,Boolean)
+- syntax:
+    content: 'procedure ImportFieldsBySensitivity(Sensitive: Boolean, Personal: Boolean, CompanyConfidential: Boolean)'
+    parameters:
+    - id: Sensitive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Personal
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CompanyConfidential
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ImportFieldsBySensitivity
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.ImportFieldsBySensitivity(Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetSetupTable(MonitorUserId: Text[50], EmailAccountId: Guid, EmailAccountName: Text[250], EmailConnector: __MissingTypeSymbol__)'
+    parameters:
+    - id: MonitorUserId
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: EmailAccountId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: EmailAccountName
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: EmailConnector
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: SetSetupTable
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.SetSetupTable(Text[50],Guid,Text[250],__MissingSymbol__)
+- syntax:
+    content: procedure ShowPromoteMonitorSensitiveFieldNotification()
+  name: ShowPromoteMonitorSensitiveFieldNotification
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.ShowPromoteMonitorSensitiveFieldNotification
+- syntax:
+    content: 'procedure OpenFieldMonitoringSetupWizard(notification: Notification)'
+    parameters:
+    - id: notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenFieldMonitoringSetupWizard
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.OpenFieldMonitoringSetupWizard(Notification)
+- syntax:
+    content: 'procedure OpenFieldMonitoringWorksheet(notification: Notification)'
+    parameters:
+    - id: notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenFieldMonitoringWorksheet
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.OpenFieldMonitoringWorksheet(Notification)
+- syntax:
+    content: 'procedure OpenFieldMonitoringSetup(notification: Notification)'
+    parameters:
+    - id: notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenFieldMonitoringSetup
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.OpenFieldMonitoringSetup(Notification)
+- syntax:
+    content: 'procedure DisableNotification(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DisableNotification
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.DisableNotification(Notification)
+- syntax:
+    content: 'procedure IsValidTable(TableNo: Integer): Boolean'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsValidTable
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.IsValidTable(Integer):Boolean
+- syntax:
+    content: 'procedure ValidateUserPermissions(MonitorUserId: Code[50], var DoesUserHavePermission: Boolean)'
+    parameters:
+    - id: MonitorUserId
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: DoesUserHavePermission
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateUserPermissions
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.ValidateUserPermissions(Code[50],Boolean@)
+- syntax:
+    content: 'procedure OpenUserCard(MonitorUserId: Code[250])'
+    parameters:
+    - id: MonitorUserId
+      parameterType:
+        name: Code[250]
+        isExternal: true
+  name: OpenUserCard
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.OpenUserCard(Code[250])
+- syntax:
+    content: 'procedure GetPromoteMonitorFeatureNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetPromoteMonitorFeatureNotificationId
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.GetPromoteMonitorFeatureNotificationId:Guid
+- syntax:
+    content: 'procedure GetChangeLogHiddenTablesNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetChangeLogHiddenTablesNotificationId
+  uid: M:Codeunit::System#Diagnostics#Monitor_Sensitive_Field.GetChangeLogHiddenTablesNotificationId:Guid
+commentId: O:Codeunit::System#Diagnostics#Monitor Sensitive Field
+name: '"Monitor Sensitive Field"'
+uid: O:Codeunit::System#Diagnostics#Monitor_Sensitive_Field

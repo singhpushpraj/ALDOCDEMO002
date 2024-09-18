@@ -1,0 +1,510 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Record Restriction Mgt."
+alId: ID 1550
+namespace: System.Automation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Restricted Record" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure RestrictRecordUsage(RecVar: Variant, RestrictionDetails: Text)'
+    parameters:
+    - id: RecVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: RestrictionDetails
+      parameterType:
+        name: Text
+        isExternal: true
+  name: RestrictRecordUsage
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RestrictRecordUsage(Variant,Text)
+- syntax:
+    content: 'procedure AllowGenJournalBatchUsage(GenJournalBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: GenJournalBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: AllowGenJournalBatchUsage
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.AllowGenJournalBatchUsage(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure AllowItemJournalBatchUsage(ItemJournalBatch: Record "Item Journal Batch")'
+    parameters:
+    - id: ItemJournalBatch
+      parameterType:
+        name: Record "Item Journal Batch"
+        isExternal: true
+  name: AllowItemJournalBatchUsage
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.AllowItemJournalBatchUsage(Item_Journal_Batch)
+- syntax:
+    content: 'procedure AllowFAJournalBatchUsage(FAJournalBatch: Record "FA Journal Batch")'
+    parameters:
+    - id: FAJournalBatch
+      parameterType:
+        name: Record "FA Journal Batch"
+        isExternal: true
+  name: AllowFAJournalBatchUsage
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.AllowFAJournalBatchUsage(FA_Journal_Batch)
+- syntax:
+    content: 'procedure AllowRecordUsage(RecVar: Variant)'
+    parameters:
+    - id: RecVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: AllowRecordUsage
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.AllowRecordUsage(Variant)
+- syntax:
+    content: 'procedure UpdateRestriction(RecVar: Variant, xRecVar: Variant)'
+    parameters:
+    - id: RecVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: xRecVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: UpdateRestriction
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.UpdateRestriction(Variant,Variant)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnAfterInsertEvent,,False,False)]'
+    content: 'procedure RestrictGenJournalLineAfterInsert(var Rec: Record "Gen. Journal Line", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RestrictGenJournalLineAfterInsert
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RestrictGenJournalLineAfterInsert(Gen#_Journal_Line@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnAfterModifyEvent,,False,False)]'
+    content: 'procedure RestrictGenJournalLineAfterModify(var Rec: Record "Gen. Journal Line", var xRec: Record "Gen. Journal Line", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RestrictGenJournalLineAfterModify
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RestrictGenJournalLineAfterModify(Gen#_Journal_Line@,Gen#_Journal_Line@,Boolean)
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure CheckRecordHasUsageRestrictions(RecVar: Variant): Boolean'
+    parameters:
+    - id: RecVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckRecordHasUsageRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.CheckRecordHasUsageRestrictions(Variant):Boolean
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,36,OnCheckSalesPostRestrictions,,False,False)]'
+    content: 'procedure CustomerCheckSalesPostRestrictions(var Sender: Record "Sales Header")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CustomerCheckSalesPostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.CustomerCheckSalesPostRestrictions(Sales_Header@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,38,OnCheckPurchasePostRestrictions,,False,False)]'
+    content: 'procedure VendorCheckPurchasePostRestrictions(var Sender: Record "Purchase Header")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: VendorCheckPurchasePostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.VendorCheckPurchasePostRestrictions(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnCheckGenJournalLinePostRestrictions,,False,False)]'
+    content: 'procedure CustomerCheckGenJournalLinePostRestrictions(var Sender: Record "Gen. Journal Line")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CustomerCheckGenJournalLinePostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.CustomerCheckGenJournalLinePostRestrictions(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnCheckGenJournalLinePostRestrictions,,False,False)]'
+    content: 'procedure VendorCheckGenJournalLinePostRestrictions(var Sender: Record "Gen. Journal Line")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: VendorCheckGenJournalLinePostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.VendorCheckGenJournalLinePostRestrictions(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnCheckGenJournalLinePostRestrictions,,False,False)]'
+    content: 'procedure GenJournalLineCheckGenJournalLinePostRestrictions(var Sender: Record "Gen. Journal Line")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: GenJournalLineCheckGenJournalLinePostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.GenJournalLineCheckGenJournalLinePostRestrictions(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnCheckGenJournalLinePrintCheckRestrictions,,False,False)]'
+    content: 'procedure GenJournalLineCheckGenJournalLinePrintCheckRestrictions(var Sender: Record "Gen. Journal Line")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: GenJournalLineCheckGenJournalLinePrintCheckRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.GenJournalLineCheckGenJournalLinePrintCheckRestrictions(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,272,OnBeforeInsertEvent,,False,False)]'
+    content: 'procedure CheckPrintRestrictionsBeforeInsertCheckLedgerEntry(var Rec: Record "Check Ledger Entry", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Check Ledger Entry"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckPrintRestrictionsBeforeInsertCheckLedgerEntry
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.CheckPrintRestrictionsBeforeInsertCheckLedgerEntry(Check_Ledger_Entry@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,272,OnBeforeModifyEvent,,False,False)]'
+    content: 'procedure CheckPrintRestrictionsBeforeModifyCheckLedgerEntry(var Rec: Record "Check Ledger Entry", var xRec: Record "Check Ledger Entry", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Check Ledger Entry"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Check Ledger Entry"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckPrintRestrictionsBeforeModifyCheckLedgerEntry
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.CheckPrintRestrictionsBeforeModifyCheckLedgerEntry(Check_Ledger_Entry@,Check_Ledger_Entry@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnCheckGenJournalLinePostRestrictions,,False,False)]'
+    content: 'procedure GenJournalBatchCheckGenJournalLinePostRestrictions(var Sender: Record "Gen. Journal Line")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: GenJournalBatchCheckGenJournalLinePostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.GenJournalBatchCheckGenJournalLinePostRestrictions(Gen#_Journal_Line@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,232,OnCheckGenJournalLineExportRestrictions,,False,False)]'
+    content: 'procedure GenJournalBatchCheckGenJournalLineExportRestrictions(var Sender: Record "Gen. Journal Batch")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: GenJournalBatchCheckGenJournalLineExportRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.GenJournalBatchCheckGenJournalLineExportRestrictions(Gen#_Journal_Batch@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,36,OnCheckSalesPostRestrictions,,False,False)]'
+    content: 'procedure SalesHeaderCheckSalesPostRestrictions(var Sender: Record "Sales Header")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SalesHeaderCheckSalesPostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.SalesHeaderCheckSalesPostRestrictions(Sales_Header@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,36,OnCheckSalesReleaseRestrictions,,False,False)]'
+    content: 'procedure SalesHeaderCheckSalesReleaseRestrictions(var Sender: Record "Sales Header")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SalesHeaderCheckSalesReleaseRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.SalesHeaderCheckSalesReleaseRestrictions(Sales_Header@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,38,OnCheckPurchasePostRestrictions,,False,False)]'
+    content: 'procedure PurchaseHeaderCheckPurchasePostRestrictions(var Sender: Record "Purchase Header")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PurchaseHeaderCheckPurchasePostRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.PurchaseHeaderCheckPurchasePostRestrictions(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,38,OnCheckPurchaseReleaseRestrictions,,False,False)]'
+    content: 'procedure PurchaseHeaderCheckPurchaseReleaseRestrictions(var Sender: Record "Purchase Header")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: PurchaseHeaderCheckPurchaseReleaseRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.PurchaseHeaderCheckPurchaseReleaseRestrictions(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,18,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemoveCustomerRestrictionsBeforeDelete(var Rec: Record Customer, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveCustomerRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemoveCustomerRestrictionsBeforeDelete(Customer@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,23,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemoveVendorRestrictionsBeforeDelete(var Rec: Record Vendor, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveVendorRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemoveVendorRestrictionsBeforeDelete(Vendor@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,27,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemoveItemRestrictionsBeforeDelete(var Rec: Record Item, RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveItemRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemoveItemRestrictionsBeforeDelete(Item@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemoveGenJournalLineRestrictionsBeforeDelete(var Rec: Record "Gen. Journal Line", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveGenJournalLineRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemoveGenJournalLineRestrictionsBeforeDelete(Gen#_Journal_Line@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,232,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemoveGenJournalBatchRestrictionsBeforeDelete(var Rec: Record "Gen. Journal Batch", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveGenJournalBatchRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemoveGenJournalBatchRestrictionsBeforeDelete(Gen#_Journal_Batch@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,36,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemoveSalesHeaderRestrictionsBeforeDelete(var Rec: Record "Sales Header", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveSalesHeaderRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemoveSalesHeaderRestrictionsBeforeDelete(Sales_Header@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,38,OnBeforeDeleteEvent,,False,False)]'
+    content: 'procedure RemovePurchaseHeaderRestrictionsBeforeDelete(var Rec: Record "Purchase Header", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemovePurchaseHeaderRestrictionsBeforeDelete
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.RemovePurchaseHeaderRestrictionsBeforeDelete(Purchase_Header@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,81,OnAfterRenameEvent,,False,False)]'
+    content: 'procedure UpdateGenJournalLineRestrictionsAfterRename(var Rec: Record "Gen. Journal Line", var xRec: Record "Gen. Journal Line", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateGenJournalLineRestrictionsAfterRename
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.UpdateGenJournalLineRestrictionsAfterRename(Gen#_Journal_Line@,Gen#_Journal_Line@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,130,OnCheckIncomingDocSetForOCRRestrictions,,False,False)]'
+    content: 'procedure IncomingDocCheckSetForOCRRestrictions(var Sender: Record "Incoming Document")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: IncomingDocCheckSetForOCRRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.IncomingDocCheckSetForOCRRestrictions(Incoming_Document@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,130,OnCheckIncomingDocReleaseRestrictions,,False,False)]'
+    content: 'procedure IncomingDocCheckReleaseRestrictions(var Sender: Record "Incoming Document")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: IncomingDocCheckReleaseRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.IncomingDocCheckReleaseRestrictions(Incoming_Document@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,232,OnAfterRenameEvent,,False,False)]'
+    content: 'procedure UpdateGenJournalBatchRestrictionsAfterRename(var Rec: Record "Gen. Journal Batch", var xRec: Record "Gen. Journal Batch", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateGenJournalBatchRestrictionsAfterRename
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.UpdateGenJournalBatchRestrictionsAfterRename(Gen#_Journal_Batch@,Gen#_Journal_Batch@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,36,OnAfterRenameEvent,,False,False)]'
+    content: 'procedure UpdateSalesHeaderRestrictionsAfterRename(var Rec: Record "Sales Header", var xRec: Record "Sales Header", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateSalesHeaderRestrictionsAfterRename
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.UpdateSalesHeaderRestrictionsAfterRename(Sales_Header@,Sales_Header@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,38,OnAfterRenameEvent,,False,False)]'
+    content: 'procedure UpdatePurchaseHeaderRestrictionsAfterRename(var Rec: Record "Purchase Header", var xRec: Record "Purchase Header", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdatePurchaseHeaderRestrictionsAfterRename
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.UpdatePurchaseHeaderRestrictionsAfterRename(Purchase_Header@,Purchase_Header@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,130,OnCheckIncomingDocCreateDocRestrictions,,False,False)]'
+    content: 'procedure IncomingDocCheckCreateDocRestrictions(var Sender: Record "Incoming Document")'
+    parameters:
+    - id: Sender
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: IncomingDocCheckCreateDocRestrictions
+  uid: M:Codeunit::System#Automation#Record_Restriction_Mgt#.IncomingDocCheckCreateDocRestrictions(Incoming_Document@)
+commentId: O:Codeunit::System#Automation#Record Restriction Mgt#
+name: '"Record Restriction Mgt."'
+uid: O:Codeunit::System#Automation#Record_Restriction_Mgt#

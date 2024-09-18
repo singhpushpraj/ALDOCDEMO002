@@ -1,0 +1,117 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability.AvailabilityManagement
+alId: ID 99000889
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Line" = r,
+                      TableData "Purchase Line" = r,
+                      TableData "Order Promising Line" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCaption
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.GetCaption:Text
+- syntax:
+    content: 'procedure SetSalesHeader(var OrderPromisingLine: Record "Order Promising Line", var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SetSalesHeader
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.SetSalesHeader(Order_Promising_Line@,Sales_Header@)
+- syntax:
+    content: 'procedure SetServHeader(var OrderPromisingLine: Record "Order Promising Line", var ServHeader: Record "Service Header")'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetServHeader
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.SetServHeader(Order_Promising_Line@,Service_Header@)
+- syntax:
+    content: 'procedure SetJob(var OrderPromisingLine: Record "Order Promising Line", var Job: Record Job)'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: SetJob
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.SetJob(Order_Promising_Line@,Job@)
+- syntax:
+    content: 'procedure CalcAvailableQty(var OrderPromisingLine: Record "Order Promising Line"): Decimal'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailableQty
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.CalcAvailableQty(Order_Promising_Line@):Decimal
+- syntax:
+    content: 'procedure CalcCapableToPromise(var OrderPromisingLine: Record "Order Promising Line", var OrderPromisingID: Code[20])'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+    - id: OrderPromisingID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CalcCapableToPromise
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.CalcCapableToPromise(Order_Promising_Line@,Code[20]@)
+- syntax:
+    content: 'procedure CalcAvailableToPromise(var OrderPromisingLine: Record "Order Promising Line")'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+  name: CalcAvailableToPromise
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.CalcAvailableToPromise(Order_Promising_Line@)
+- syntax:
+    content: 'procedure UpdateSource(var OrderPromisingLine: Record "Order Promising Line")'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+  name: UpdateSource
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.UpdateSource(Order_Promising_Line@)
+- syntax:
+    content: procedure CancelReservations()
+  name: CancelReservations
+  uid: M:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement.CancelReservations
+commentId: O:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement
+name: AvailabilityManagement
+uid: O:Codeunit::Microsoft#Inventory#Availability#AvailabilityManagement

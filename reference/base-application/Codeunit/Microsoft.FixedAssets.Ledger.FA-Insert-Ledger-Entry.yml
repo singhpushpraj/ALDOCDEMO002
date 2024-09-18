@@ -1,0 +1,220 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Ledger."FA Insert Ledger Entry"
+alId: ID 5600
+namespace: Microsoft.FixedAssets.Ledger
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Ledger
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = rim,
+                      TableData "FA Depreciation Book" = rim,
+                      TableData "FA Register" = rim,
+                      TableData "Maintenance Ledger Entry" = rim
+  promoted: false
+- name: TableNo
+  value: FA Ledger Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#FixedAssets#Ledger#FA_Ledger_Entry
+    name: Microsoft.FixedAssets.Ledger."FA Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure InsertFA(var FALedgEntry3: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry3
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: InsertFA
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.InsertFA(FA_Ledger_Entry@)
+- syntax:
+    content: 'procedure InsertMaintenance(var MaintenanceLedgEntry2: Record "Maintenance Ledger Entry")'
+    parameters:
+    - id: MaintenanceLedgEntry2
+      parameterType:
+        name: Record "Maintenance Ledger Entry"
+        isExternal: true
+  name: InsertMaintenance
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.InsertMaintenance(Maintenance_Ledger_Entry@)
+- syntax:
+    content: 'procedure SetMaintenanceLastDate(MaintenanceLedgEntry: Record "Maintenance Ledger Entry")'
+    parameters:
+    - id: MaintenanceLedgEntry
+      parameterType:
+        name: Record "Maintenance Ledger Entry"
+        isExternal: true
+  name: SetMaintenanceLastDate
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.SetMaintenanceLastDate(Maintenance_Ledger_Entry)
+- syntax:
+    content: 'procedure InsertBalAcc(var FALedgEntry: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: InsertBalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.InsertBalAcc(FA_Ledger_Entry@)
+- syntax:
+    content: 'procedure InsertBalDisposalAcc(FALedgEntry: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: InsertBalDisposalAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.InsertBalDisposalAcc(FA_Ledger_Entry)
+- syntax:
+    content: 'procedure FindFirstGLAcc(var FAGLPostBuf: Record "FA G/L Posting Buffer"): Boolean'
+    parameters:
+    - id: FAGLPostBuf
+      parameterType:
+        name: Record "FA G/L Posting Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.FindFirstGLAcc(FA_G/L_Posting_Buffer@):Boolean
+- syntax:
+    content: 'procedure GetNextGLAcc(var FAGLPostBuf: Record "FA G/L Posting Buffer"): Integer'
+    parameters:
+    - id: FAGLPostBuf
+      parameterType:
+        name: Record "FA G/L Posting Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.GetNextGLAcc(FA_G/L_Posting_Buffer@):Integer
+- syntax:
+    content: procedure DeleteAllGLAcc()
+  name: DeleteAllGLAcc
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.DeleteAllGLAcc
+- syntax:
+    content: 'procedure CopyRecordLinksToFALedgEntry(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyRecordLinksToFALedgEntry
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.CopyRecordLinksToFALedgEntry(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure InsertRegister(CalledFrom: Enum "FA Register Called From", NextEntryNo: Integer)'
+    parameters:
+    - id: CalledFrom
+      parameterType:
+        internalReference: O:Enum::Microsoft#FixedAssets#Ledger#FA_Register_Called_From
+        name: Microsoft.FixedAssets.Ledger."FA Register Called From"
+        isExternal: false
+    - id: NextEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertRegister
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.InsertRegister(Enum::Microsoft#FixedAssets#Ledger#FA_Register_Called_From,Integer)
+- syntax:
+    content: 'procedure SetOrgGenJnlLine(OrgGenJnlLine2: Boolean)'
+    parameters:
+    - id: OrgGenJnlLine2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetOrgGenJnlLine
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.SetOrgGenJnlLine(Boolean)
+- syntax:
+    content: procedure CorrectEntries()
+  name: CorrectEntries
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.CorrectEntries
+- syntax:
+    content: 'procedure InsertReverseEntry(NewGLEntryNo: Integer, FAEntryType: Option, FAEntryNo: Integer, var NewFAEntryNo: Integer, TransactionNo: Integer)'
+    parameters:
+    - id: NewGLEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FAEntryType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FAEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewFAEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertReverseEntry
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.InsertReverseEntry(Integer,Option,Integer,Integer@,Integer)
+- syntax:
+    content: 'procedure CheckFAReverseEntry(FALedgEntry3: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgEntry3
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: CheckFAReverseEntry
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.CheckFAReverseEntry(FA_Ledger_Entry)
+- syntax:
+    content: 'procedure CheckMaintReverseEntry(MaintenanceLedgEntry3: Record "Maintenance Ledger Entry")'
+    parameters:
+    - id: MaintenanceLedgEntry3
+      parameterType:
+        name: Record "Maintenance Ledger Entry"
+        isExternal: true
+  name: CheckMaintReverseEntry
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.CheckMaintReverseEntry(Maintenance_Ledger_Entry)
+- syntax:
+    content: 'procedure FinishFAReverseEntry(GLReg: Record "G/L Register")'
+    parameters:
+    - id: GLReg
+      parameterType:
+        name: Record "G/L Register"
+        isExternal: true
+  name: FinishFAReverseEntry
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.FinishFAReverseEntry(G/L_Register)
+- syntax:
+    content: 'procedure SetNetdisposal(NetDisp2: Boolean)'
+    parameters:
+    - id: NetDisp2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetNetdisposal
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.SetNetdisposal(Boolean)
+- syntax:
+    content: 'procedure SetLastEntryNo(FindLastEntry: Boolean)'
+    parameters:
+    - id: FindLastEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetLastEntryNo
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.SetLastEntryNo(Boolean)
+- syntax:
+    content: 'procedure SetGLRegisterNo(NewGLRegisterNo: Integer)'
+    parameters:
+    - id: NewGLRegisterNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetGLRegisterNo
+  uid: M:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry.SetGLRegisterNo(Integer)
+commentId: O:Codeunit::Microsoft#FixedAssets#Ledger#FA Insert Ledger Entry
+name: '"FA Insert Ledger Entry"'
+uid: O:Codeunit::Microsoft#FixedAssets#Ledger#FA_Insert_Ledger_Entry

@@ -1,0 +1,103 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Process Bank Acc. Rec Lines"
+alId: ID 1248
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Data Exch." = rimd
+  promoted: false
+- name: TableNo
+  value: Bank Acc. Reconciliation Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_Line
+    name: Microsoft.Bank.Reconciliation."Bank Acc. Reconciliation Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ImportBankStatement(BankAccRecon: Record "Bank Acc. Reconciliation", DataExch: Record "Data Exch."): Boolean'
+    parameters:
+    - id: BankAccRecon
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ImportBankStatement
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Process_Bank_Acc#_Rec_Lines.ImportBankStatement(Bank_Acc#_Reconciliation,Data_Exch#):Boolean
+- syntax:
+    content: 'procedure CreateBankAccRecLineTemplate(var BankAccReconLine: Record "Bank Acc. Reconciliation Line", BankAccRecon: Record "Bank Acc. Reconciliation", DataExch: Record "Data Exch.")'
+    parameters:
+    - id: BankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: BankAccRecon
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+  name: CreateBankAccRecLineTemplate
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Process_Bank_Acc#_Rec_Lines.CreateBankAccRecLineTemplate(Bank_Acc#_Reconciliation_Line@,Bank_Acc#_Reconciliation,Data_Exch#)
+- syntax:
+    content: 'procedure InsertNonReconciledOrImportedLines(var TempBankAccReconLine: Record "Bank Acc. Reconciliation Line" temporary, StatementLineNoOffset: Integer)'
+    parameters:
+    - id: TempBankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line" temporary
+        isExternal: true
+    - id: StatementLineNoOffset
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertNonReconciledOrImportedLines
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Process_Bank_Acc#_Rec_Lines.InsertNonReconciledOrImportedLines(Bank_Acc#_Reconciliation_Line@,Integer)
+- syntax:
+    content: 'procedure InsertNonReconciledOrImportedLines(var TempBankAccReconLine: Record "Bank Acc. Reconciliation Line" temporary, StatementLineNoOffset: Integer, var NumberOfLinesImported: Integer)'
+    parameters:
+    - id: TempBankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line" temporary
+        isExternal: true
+    - id: StatementLineNoOffset
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NumberOfLinesImported
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertNonReconciledOrImportedLines
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Process_Bank_Acc#_Rec_Lines.InsertNonReconciledOrImportedLines(Bank_Acc#_Reconciliation_Line@,Integer,Integer@)
+- syntax:
+    content: 'procedure GetLastStatementLineNo(BankAccRecon: Record "Bank Acc. Reconciliation"): Integer'
+    parameters:
+    - id: BankAccRecon
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastStatementLineNo
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Process_Bank_Acc#_Rec_Lines.GetLastStatementLineNo(Bank_Acc#_Reconciliation):Integer
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Process Bank Acc# Rec Lines
+name: '"Process Bank Acc. Rec Lines"'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Process_Bank_Acc#_Rec_Lines

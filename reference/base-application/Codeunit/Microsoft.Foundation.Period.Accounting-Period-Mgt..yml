@@ -1,0 +1,146 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.Period."Accounting Period Mgt."
+alId: ID 360
+namespace: Microsoft.Foundation.Period
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.Period
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: tabledata "Accounting Period" = R
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetPeriodStartingDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetPeriodStartingDate
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.GetPeriodStartingDate:Date
+- syntax:
+    content: 'procedure CheckPostingDateInFiscalYear(PostingDate: Date)'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CheckPostingDateInFiscalYear
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.CheckPostingDateInFiscalYear(Date)
+- syntax:
+    content: 'procedure FindFiscalYear(BalanceDate: Date): Date'
+    parameters:
+    - id: BalanceDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: FindFiscalYear
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.FindFiscalYear(Date):Date
+- syntax:
+    content: 'procedure FindEndOfFiscalYear(BalanceDate: Date): Date'
+    parameters:
+    - id: BalanceDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: FindEndOfFiscalYear
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.FindEndOfFiscalYear(Date):Date
+- syntax:
+    content: 'procedure AccPeriodStartEnd(Date: Date, var StartDate: Date, var EndDate: Date, var PeriodError: Boolean, Steps: Integer, Type: Option, RangeFromType: Option, RangeToType: Option, RangeFromInt: Integer, RangeToInt: Integer)'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Steps
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RangeFromType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RangeToType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RangeFromInt
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RangeToInt
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: AccPeriodStartEnd
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.AccPeriodStartEnd(Date,Date@,Date@,Boolean@,Integer,Option,Option,Option,Integer,Integer)
+- syntax:
+    content: 'procedure InitStartYearAccountingPeriod(var AccountingPeriod: Record "Accounting Period", PostingDate: Date)'
+    parameters:
+    - id: AccountingPeriod
+      parameterType:
+        name: Record "Accounting Period"
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: InitStartYearAccountingPeriod
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.InitStartYearAccountingPeriod(Accounting_Period@,Date)
+- syntax:
+    content: 'procedure InitDefaultAccountingPeriod(var AccountingPeriod: Record "Accounting Period", PostingDate: Date)'
+    parameters:
+    - id: AccountingPeriod
+      parameterType:
+        name: Record "Accounting Period"
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: InitDefaultAccountingPeriod
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.InitDefaultAccountingPeriod(Accounting_Period@,Date)
+- syntax:
+    content: 'procedure GetDefaultPeriodEndingDate(PostingDate: Date): Date'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDefaultPeriodEndingDate
+  uid: M:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#.GetDefaultPeriodEndingDate(Date):Date
+commentId: O:Codeunit::Microsoft#Foundation#Period#Accounting Period Mgt#
+name: '"Accounting Period Mgt."'
+uid: O:Codeunit::Microsoft#Foundation#Period#Accounting_Period_Mgt#

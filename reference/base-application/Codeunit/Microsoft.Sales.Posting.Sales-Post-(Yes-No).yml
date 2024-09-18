@@ -1,0 +1,57 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Posting."Sales-Post (Yes/No)"
+alId: ID 81
+namespace: Microsoft.Sales.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: TableNo
+  value: Sales Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure PostAndSend(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PostAndSend
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_(Yes/No).PostAndSend(Sales_Header@)
+- syntax:
+    content: 'procedure Preview(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: Preview
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_(Yes/No).Preview(Sales_Header@)
+- syntax:
+    content: 'procedure MessageIfPostingPreviewMultipleDocuments(var SalesHeaderToPreview: Record "Sales Header", DocumentNo: Code[20])'
+    parameters:
+    - id: SalesHeaderToPreview
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MessageIfPostingPreviewMultipleDocuments
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_(Yes/No).MessageIfPostingPreviewMultipleDocuments(Sales_Header@,Code[20])
+commentId: O:Codeunit::Microsoft#Sales#Posting#Sales-Post (Yes/No)
+name: '"Sales-Post (Yes/No)"'
+uid: O:Codeunit::Microsoft#Sales#Posting#Sales-Post_(Yes/No)

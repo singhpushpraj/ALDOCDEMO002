@@ -1,0 +1,429 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Item Charge Assgnt. (Purch.)"
+alId: ID 5805
+namespace: Microsoft.Purchases.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purchase Header" = r,
+                      TableData "Purchase Line" = r,
+                      TableData "Purch. Rcpt. Line" = r,
+                      TableData "Item Charge Assignment (Purch)" = rimd,
+                      TableData "Return Shipment Line" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertItemChargeAssignment(ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)", ApplToDocType: Enum "Purchase Applies-to Document Type", ApplToDocNo2: Code[20], ApplToDocLineNo2: Integer, ItemNo2: Code[20], Description2: Text[100], var NextLineNo: Integer)'
+    parameters:
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+    - id: ApplToDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Applies-to_Document_Type
+        name: Microsoft.Purchases.Document."Purchase Applies-to Document Type"
+        isExternal: false
+    - id: ApplToDocNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ApplToDocLineNo2
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Description2
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertItemChargeAssignment
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).InsertItemChargeAssignment(Item_Charge_Assignment_(Purch),Enum::Microsoft#Purchases#Document#Purchase_Applies-to_Document_Type,Code[20],Integer,Code[20],Text[100],Integer@)
+- syntax:
+    content: 'procedure InsertItemChargeAssignmentWithValues(FromItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)", ApplToDocType: Enum "Purchase Applies-to Document Type", FromApplToDocNo: Code[20], FromApplToDocLineNo: Integer, FromItemNo: Code[20], FromDescription: Text[100], QtyToAssign: Decimal, AmountToAssign: Decimal, var NextLineNo: Integer)'
+    parameters:
+    - id: FromItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+    - id: ApplToDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Applies-to_Document_Type
+        name: Microsoft.Purchases.Document."Purchase Applies-to Document Type"
+        isExternal: false
+    - id: FromApplToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromApplToDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: QtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertItemChargeAssignmentWithValues
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).InsertItemChargeAssignmentWithValues(Item_Charge_Assignment_(Purch),Enum::Microsoft#Purchases#Document#Purchase_Applies-to_Document_Type,Code[20],Integer,Code[20],Text[100],Decimal,Decimal,Integer@)
+- syntax:
+    content: 'procedure InsertItemChargeAssignmentWithValuesTo(FromItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)", ApplToDocType: Enum "Purchase Applies-to Document Type", FromApplToDocNo: Code[20], FromApplToDocLineNo: Integer, FromItemNo: Code[20], FromDescription: Text[100], QtyToAssign: Decimal, AmountToAssign: Decimal, var NextLineNo: Integer, var ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+    - id: ApplToDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Applies-to_Document_Type
+        name: Microsoft.Purchases.Document."Purchase Applies-to Document Type"
+        isExternal: false
+    - id: FromApplToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromApplToDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: QtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: InsertItemChargeAssignmentWithValuesTo
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).InsertItemChargeAssignmentWithValuesTo(Item_Charge_Assignment_(Purch),Enum::Microsoft#Purchases#Document#Purchase_Applies-to_Document_Type,Code[20],Integer,Code[20],Text[100],Decimal,Decimal,Integer@,Item_Charge_Assignment_(Purch)@)
+- syntax:
+    content: 'procedure Summarize(var TempToItemChargeAssignmentPurch: Record "Item Charge Assignment (Purch)" temporary, var ToItemChargeAssignmentPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: TempToItemChargeAssignmentPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)" temporary
+        isExternal: true
+    - id: ToItemChargeAssignmentPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: Summarize
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).Summarize(Item_Charge_Assignment_(Purch)@,Item_Charge_Assignment_(Purch)@)
+- syntax:
+    content: 'procedure CreateDocChargeAssgnt(LastItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)", ReceiptNo: Code[20])'
+    parameters:
+    - id: LastItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+    - id: ReceiptNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateDocChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).CreateDocChargeAssgnt(Item_Charge_Assignment_(Purch),Code[20])
+- syntax:
+    content: 'procedure CreateRcptChargeAssgnt(var FromPurchRcptLine: Record "Purch. Rcpt. Line", ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromPurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: CreateRcptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).CreateRcptChargeAssgnt(Purch#_Rcpt#_Line@,Item_Charge_Assignment_(Purch))
+- syntax:
+    content: 'procedure CreateTransferRcptChargeAssgnt(var FromTransRcptLine: Record "Transfer Receipt Line", ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromTransRcptLine
+      parameterType:
+        name: Record "Transfer Receipt Line"
+        isExternal: true
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: CreateTransferRcptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).CreateTransferRcptChargeAssgnt(Transfer_Receipt_Line@,Item_Charge_Assignment_(Purch))
+- syntax:
+    content: 'procedure CreateShptChargeAssgnt(var FromReturnShptLine: Record "Return Shipment Line", ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromReturnShptLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: CreateShptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).CreateShptChargeAssgnt(Return_Shipment_Line@,Item_Charge_Assignment_(Purch))
+- syntax:
+    content: 'procedure CreateSalesShptChargeAssgnt(var FromSalesShptLine: Record "Sales Shipment Line", ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromSalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: CreateSalesShptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).CreateSalesShptChargeAssgnt(Sales_Shipment_Line@,Item_Charge_Assignment_(Purch))
+- syntax:
+    content: 'procedure CreateReturnRcptChargeAssgnt(var FromReturnRcptLine: Record "Return Receipt Line", ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: CreateReturnRcptChargeAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).CreateReturnRcptChargeAssgnt(Return_Receipt_Line@,Item_Charge_Assignment_(Purch))
+- syntax:
+    content: 'procedure SuggestAssgnt(PurchLine: Record "Purchase Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SuggestAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).SuggestAssgnt(Purchase_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure SuggestAssgnt(PurchLine: Record "Purchase Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, TotalQtyToHandle: Decimal, TotalAmtToHandle: Decimal)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SuggestAssgnt
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).SuggestAssgnt(Purchase_Line,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure AssignItemCharges(PurchLine: Record "Purchase Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, SelectedOptionValue: Integer)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SelectedOptionValue
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: AssignItemCharges
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignItemCharges(Purchase_Line,Decimal,Decimal,Integer)
+- syntax:
+    content: 'procedure AssignItemCharges(PurchLine: Record "Purchase Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, SelectionTxt: Text)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SelectionTxt
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AssignItemCharges
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignItemCharges(Purchase_Line,Decimal,Decimal,Text)
+- syntax:
+    content: 'procedure AssignItemCharges(PurchLine: Record "Purchase Line", TotalQtyToAssign: Decimal, TotalAmtToAssign: Decimal, TotalQtyToHandle: Decimal, TotalAmtToHandle: Decimal, SelectionTxt: Text)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: TotalQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmtToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SelectionTxt
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AssignItemCharges
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignItemCharges(Purchase_Line,Decimal,Decimal,Decimal,Decimal,Text)
+- syntax:
+    content: 'procedure AssignEquallyMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignEquallyMenuText
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignEquallyMenuText:Text
+- syntax:
+    content: 'procedure AssignByAmountMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignByAmountMenuText
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignByAmountMenuText:Text
+- syntax:
+    content: 'procedure AssignByWeightMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignByWeightMenuText
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignByWeightMenuText:Text
+- syntax:
+    content: 'procedure AssignByVolumeMenuText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AssignByVolumeMenuText
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignByVolumeMenuText:Text
+- syntax:
+    content: 'procedure AssignPurchItemCharge(var ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)", ItemChargeAssgntPurch2: Record "Item Charge Assignment (Purch)", Currency: Record Currency, var QtyRemainder: Decimal, var AmountRemainder: Decimal)'
+    parameters:
+    - id: ItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+    - id: ItemChargeAssgntPurch2
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: QtyRemainder
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountRemainder
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AssignPurchItemCharge
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).AssignPurchItemCharge(Item_Charge_Assignment_(Purch)@,Item_Charge_Assignment_(Purch),Currency,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetItemValues(TempItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)" temporary, var DecimalArray: array[3] of Decimal)'
+    parameters:
+    - id: TempItemChargeAssgntPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)" temporary
+        isExternal: true
+    - id: DecimalArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: GetItemValues
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).GetItemValues(Item_Charge_Assignment_(Purch),Decimal[]@)
+- syntax:
+    content: 'procedure SuggestAssgntFromLine(var FromItemChargeAssignmentPurch: Record "Item Charge Assignment (Purch)")'
+    parameters:
+    - id: FromItemChargeAssignmentPurch
+      parameterType:
+        name: Record "Item Charge Assignment (Purch)"
+        isExternal: true
+  name: SuggestAssgntFromLine
+  uid: M:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#).SuggestAssgntFromLine(Item_Charge_Assignment_(Purch)@)
+commentId: O:Codeunit::Microsoft#Purchases#Document#Item Charge Assgnt# (Purch#)
+name: '"Item Charge Assgnt. (Purch.)"'
+uid: O:Codeunit::Microsoft#Purchases#Document#Item_Charge_Assgnt#_(Purch#)

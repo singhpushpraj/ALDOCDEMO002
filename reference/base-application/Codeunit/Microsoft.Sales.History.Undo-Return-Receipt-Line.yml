@@ -1,0 +1,48 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Undo Return Receipt Line"
+alId: ID 5816
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Line" = rimd,
+                      TableData "Item Entry Relation" = ri,
+                      TableData "Whse. Item Entry Relation" = rimd,
+                      TableData "Return Receipt Line" = rimd
+  promoted: false
+- name: TableNo
+  value: Return Receipt Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#History#Return_Receipt_Line
+    name: Microsoft.Sales.History."Return Receipt Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Return_Receipt_Line.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure UpdateOrderLine(ReturnRcptLine: Record "Return Receipt Line")'
+    parameters:
+    - id: ReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+  name: UpdateOrderLine
+  uid: M:Codeunit::Microsoft#Sales#History#Undo_Return_Receipt_Line.UpdateOrderLine(Return_Receipt_Line)
+commentId: O:Codeunit::Microsoft#Sales#History#Undo Return Receipt Line
+name: '"Undo Return Receipt Line"'
+uid: O:Codeunit::Microsoft#Sales#History#Undo_Return_Receipt_Line

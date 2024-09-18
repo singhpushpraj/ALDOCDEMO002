@@ -1,0 +1,106 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Batch"
+alId: ID 13
+namespace: Microsoft.Finance.GeneralLedger.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Gen. Journal Batch" = rimd,
+            TableData "Gen. Journal Line" = rimd
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure UpdateDialog(PostingState: Integer, LineNo: Integer, TotalLinesQty: Integer)'
+    parameters:
+    - id: PostingState
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalLinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateDialog
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch.UpdateDialog(Integer,Integer,Integer)
+- syntax:
+    content: 'procedure UpdateDialogUpdateBalLines(PostingSubState: Integer, LineNo: Integer, TotalLinesQty: Integer)'
+    parameters:
+    - id: PostingSubState
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalLinesQty
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateDialogUpdateBalLines
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch.UpdateDialogUpdateBalLines(Integer,Integer,Integer)
+- syntax:
+    content: 'procedure ConfirmPostingUnvoidableChecks(JournalBatchName: Code[20], JournalTemplateName: Code[20]): Boolean'
+    parameters:
+    - id: JournalBatchName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JournalTemplateName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmPostingUnvoidableChecks
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch.ConfirmPostingUnvoidableChecks(Code[20],Code[20]):Boolean
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure InsertPostedGenJnlLine(GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: InsertPostedGenJnlLine
+  uid: M:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch.InsertPostedGenJnlLine(Gen#_Journal_Line)
+commentId: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen# Jnl#-Post Batch
+name: '"Gen. Jnl.-Post Batch"'
+uid: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Batch

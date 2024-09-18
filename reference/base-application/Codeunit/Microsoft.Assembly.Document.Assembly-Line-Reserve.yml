@@ -1,0 +1,396 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Assembly.Document."Assembly Line-Reserve"
+alId: ID 926
+namespace: Microsoft.Assembly.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Assembly.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(AssemblyLine: Record "Assembly Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.CreateReservation(Assembly_Line,Text[100],Date,Decimal,Decimal,Reservation_Entry)
+- syntax:
+    content: 'procedure CreateBindingReservation(AssemblyLine: Record "Assembly Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal)'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateBindingReservation
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.CreateBindingReservation(Assembly_Line,Text[100],Date,Decimal,Decimal)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure SetBinding(Binding: Enum "Reservation Binding")'
+    parameters:
+    - id: Binding
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Binding
+        name: Microsoft.Inventory.Tracking."Reservation Binding"
+        isExternal: false
+  name: SetBinding
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.SetBinding(Enum::Microsoft#Inventory#Tracking#Reservation_Binding)
+- syntax:
+    content: 'procedure FilterReservFor(var FilterReservationEntry: Record "Reservation Entry", AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: FilterReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: FilterReservFor
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.FilterReservFor(Reservation_Entry@,Assembly_Line)
+- syntax:
+    content: 'procedure FindReservEntry(AssemblyLine: Record "Assembly Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.FindReservEntry(Assembly_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure ReservEntryExist(AssemblyLine: Record "Assembly Line"): Boolean'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.ReservEntryExist(Assembly_Line):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.DeleteLine(Assembly_Line@)
+- syntax:
+    content: 'procedure SetDeleteItemTracking(AllowDirectDeletion: Boolean)'
+    parameters:
+    - id: AllowDirectDeletion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDeleteItemTracking
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.SetDeleteItemTracking(Boolean)
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(AssemblyLine: Record "Assembly Line"): Decimal'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.GetReservedQtyFromInventory(Assembly_Line):Decimal
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(AssemblyHeader: Record "Assembly Header"): Decimal'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.GetReservedQtyFromInventory(Assembly_Header):Decimal
+- syntax:
+    content: 'procedure VerifyChange(var NewAssemblyLine: Record "Assembly Line", var OldAssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: NewAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: OldAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.VerifyChange(Assembly_Line@,Assembly_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewAssemblyLine: Record "Assembly Line", var OldAssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: NewAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: OldAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.VerifyQuantity(Assembly_Line@,Assembly_Line@)
+- syntax:
+    content: 'procedure Caption(AssemblyLine: Record "Assembly Line"): Text'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.Caption(Assembly_Line):Text
+- syntax:
+    content: 'procedure CallItemTracking(var AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.CallItemTracking(Assembly_Line@)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var AssemblyLine: Record "Assembly Line"): Boolean'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.DeleteLineConfirm(Assembly_Line@):Boolean
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.UpdateItemTrackingAfterPosting(Assembly_Line)
+- syntax:
+    content: 'procedure TransferAsmLineToItemJnlLine(var AssemblyLine: Record "Assembly Line", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, CheckApplFromItemEntry: Boolean): Decimal'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TransferAsmLineToItemJnlLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.TransferAsmLineToItemJnlLine(Assembly_Line@,Item_Journal_Line@,Decimal,Boolean):Decimal
+- syntax:
+    content: 'procedure TransferAsmLineToAsmLine(var OldAssemblyLine: Record "Assembly Line", var NewAssemblyLine: Record "Assembly Line", TransferQty: Decimal)'
+    parameters:
+    - id: OldAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: NewAssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferAsmLineToAsmLine
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.TransferAsmLineToAsmLine(Assembly_Line@,Assembly_Line@,Decimal)
+- syntax:
+    content: 'procedure BindToRequisition(AssemblyLine: Record "Assembly Line", RequisitionLine: Record "Requisition Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: RequisitionLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToRequisition
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.BindToRequisition(Assembly_Line,Requisition_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToPurchase(AssemblyLine: Record "Assembly Line", PurchaseLine: Record "Purchase Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToPurchase
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.BindToPurchase(Assembly_Line,Purchase_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToProdOrder(AssemblyLine: Record "Assembly Line", ProdOrderLine: Record "Prod. Order Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToProdOrder
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.BindToProdOrder(Assembly_Line,Prod#_Order_Line,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToAssembly(AssemblyLine: Record "Assembly Line", AssemblyHeader: Record "Assembly Header", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToAssembly
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.BindToAssembly(Assembly_Line,Assembly_Header,Decimal,Decimal)
+- syntax:
+    content: 'procedure BindToTransfer(AssemblyLine: Record "Assembly Line", TransferLine: Record "Transfer Line", ReservQty: Decimal, ReservQtyBase: Decimal)'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: BindToTransfer
+  uid: M:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve.BindToTransfer(Assembly_Line,Transfer_Line,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Assembly#Document#Assembly Line-Reserve
+name: '"Assembly Line-Reserve"'
+uid: O:Codeunit::Microsoft#Assembly#Document#Assembly_Line-Reserve

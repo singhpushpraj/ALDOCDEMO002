@@ -1,0 +1,117 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Calculation."Price Calculation Mgt."
+alId: ID 7001
+namespace: Microsoft.Pricing.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure RefreshSetup(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RefreshSetup
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.RefreshSetup:Boolean
+- syntax:
+    content: 'procedure GetHandler(LineWithPrice: Interface "Line With Price", var PriceCalculation: Interface "Price Calculation"): Boolean'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+    - id: PriceCalculation
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+        name: Microsoft.Pricing.Calculation."Price Calculation"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHandler
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.GetHandler(Interface::Microsoft#Pricing#PriceList#Line_With_Price,Interface::Microsoft#Pricing#Calculation#Price_Calculation@):Boolean
+- syntax:
+    content: 'procedure VerifyMethodImplemented(Method: Enum "Price Calculation Method", PriceType: Enum "Price Type")'
+    parameters:
+    - id: Method
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+        name: Microsoft.Pricing.Calculation."Price Calculation Method"
+        isExternal: false
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+  name: VerifyMethodImplemented
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.VerifyMethodImplemented(Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method,Enum::Microsoft#Pricing#PriceList#Price_Type)
+- syntax:
+    content: 'procedure FindActiveSubscriptions(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FindActiveSubscriptions
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.FindActiveSubscriptions:Text
+- syntax:
+    content: 'procedure FindSetup(LineWithPrice: Interface "Line With Price", var PriceCalculationSetup: Record "Price Calculation Setup"): Boolean'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+    - id: PriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindSetup
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.FindSetup(Interface::Microsoft#Pricing#PriceList#Line_With_Price,Price_Calculation_Setup@):Boolean
+- syntax:
+    content: 'procedure IsExtendedPriceCalculationEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExtendedPriceCalculationEnabled
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.IsExtendedPriceCalculationEnabled:Boolean
+- syntax:
+    content: 'procedure GetFeatureKey(): Text[50]'
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetFeatureKey
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.GetFeatureKey:Text[50]
+- syntax:
+    content: 'procedure GetFeatureTelemetryName(): Text[50]'
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetFeatureTelemetryName
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.GetFeatureTelemetryName:Text[50]
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the method in Codeunit 7049 Feature - Price Calculation,19.0)]'
+    content: procedure TestIsEnabled()
+  name: TestIsEnabled
+  obsoletion:
+    state: pending
+    reason: Replaced by the method in Codeunit 7049 Feature - Price Calculation
+    version: "19.0"
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#.TestIsEnabled
+commentId: O:Codeunit::Microsoft#Pricing#Calculation#Price Calculation Mgt#
+name: '"Price Calculation Mgt."'
+uid: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Mgt#

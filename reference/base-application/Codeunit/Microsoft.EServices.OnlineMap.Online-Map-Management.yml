@@ -1,0 +1,177 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.EServices.OnlineMap."Online Map Management"
+alId: ID 802
+namespace: Microsoft.EServices.OnlineMap
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.EServices.OnlineMap
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure MakeSelectionIfMapEnabled(TableID: Integer, Position: Text[1000])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Text[1000]
+        isExternal: true
+  name: MakeSelectionIfMapEnabled
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.MakeSelectionIfMapEnabled(Integer,Text[1000])
+- syntax:
+    content: 'procedure MakeSelection(TableID: Integer, Position: Text[1000])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Text[1000]
+        isExternal: true
+  name: MakeSelection
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.MakeSelection(Integer,Text[1000])
+- syntax:
+    content: 'procedure ProcessMap(TableNo: Integer, ToRecPosition: Text[1000])'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToRecPosition
+      parameterType:
+        name: Text[1000]
+        isExternal: true
+  name: ProcessMap
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.ProcessMap(Integer,Text[1000])
+- syntax:
+    content: 'procedure ProcessDirections(FromNo: Integer, FromRecPosition: Text[1000], ToNo: Integer, ToRecPosition: Text[1000], Distance: Option, Route: Option)'
+    parameters:
+    - id: FromNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromRecPosition
+      parameterType:
+        name: Text[1000]
+        isExternal: true
+    - id: ToNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToRecPosition
+      parameterType:
+        name: Text[1000]
+        isExternal: true
+    - id: Distance
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Route
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ProcessDirections
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.ProcessDirections(Integer,Text[1000],Integer,Text[1000],Option,Option)
+- syntax:
+    content: 'procedure BuildParameters(TableNo: Integer, RecPosition: Text[1000], var Parameters: array[12] of Text[100], Distance: Option, Route: Option)'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecPosition
+      parameterType:
+        name: Text[1000]
+        isExternal: true
+    - id: Parameters
+      parameterType:
+        name: array[12] of Text[100]
+        isExternal: true
+    - id: Distance
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Route
+      parameterType:
+        name: Option
+        isExternal: true
+  name: BuildParameters
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.BuildParameters(Integer,Text[1000],Text[100][]@,Option,Option)
+- syntax:
+    content: 'procedure TestSetup(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestSetup
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.TestSetup:Boolean
+- syntax:
+    content: 'procedure SubstituteParameters(var url: Text[1024], Parameters: array[12] of Text[100])'
+    parameters:
+    - id: url
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    - id: Parameters
+      parameterType:
+        name: array[12] of Text[100]
+        isExternal: true
+  name: SubstituteParameters
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.SubstituteParameters(Text[1024]@,Text[100][])
+- syntax:
+    content: procedure SetupDefault()
+  name: SetupDefault
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.SetupDefault
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,1400,OnRegisterServiceConnection,,False,False)]'
+    content: 'procedure HandleMAPRegisterServiceConnection(var ServiceConnection: Record "Service Connection" temporary)'
+    parameters:
+    - id: ServiceConnection
+      parameterType:
+        name: Record "Service Connection" temporary
+        isExternal: true
+  name: HandleMAPRegisterServiceConnection
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.HandleMAPRegisterServiceConnection(Service_Connection@)
+- syntax:
+    content: 'procedure SetParameters(var RecordRef: RecordRef, var Parameters: array[12] of Text[100], AddressFieldNo: Integer, CityFieldNo: Integer, CountyFieldNo: Integer, PostCodeFieldNo: Integer, CountryCodeFieldNo: Integer)'
+    parameters:
+    - id: RecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: Parameters
+      parameterType:
+        name: array[12] of Text[100]
+        isExternal: true
+    - id: AddressFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CityFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CountyFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PostCodeFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CountryCodeFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management.SetParameters(RecordRef@,Text[100][]@,Integer,Integer,Integer,Integer,Integer)
+commentId: O:Codeunit::Microsoft#EServices#OnlineMap#Online Map Management
+name: '"Online Map Management"'
+uid: O:Codeunit::Microsoft#EServices#OnlineMap#Online_Map_Management

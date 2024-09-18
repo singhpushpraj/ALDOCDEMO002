@@ -1,0 +1,67 @@
+﻿### YamlMime:BusinessCentralObsoletionList
+tag: "17.0"
+groups:
+- groupName: "17.0"
+  symbols:
+  - kind: Method
+    internalReference: M:Codeunit::System#Integration#Item_Data_Migration_Facade.CreateSalesLineDiscountIfNeeded(Option,Code[20],Option,Code[20],Decimal):Boolean
+    name: 'CreateSalesLineDiscountIfNeeded(SalesTypeToSet: Option, SalesCodeToSet: Code[20], TypeToSet: Option, CodeToSet: Code[20], LineDiscountPercentToSet: Decimal): Boolean'
+    reason: 'Replaced by the CreateSalesLineDiscountIfNeeded(SourceType: Enum "Price Source Type"; ...)'
+  - kind: Field
+    internalReference: F:Table::System#Azure#Identity#Azure_AD_App_Setup.Secret_Key
+    name: '"Secret Key": Blob'
+    reason: The Secret Key has been moved to Isolated Storage. Use GetSecretKeyFromIsolatedStorage/SetSecretKeyToIsolatedStorage to retrieve or set the Secret Key.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Service#Document#Service_Line.AfterResourseFindCost(Resource_Cost@)
+    name: 'AfterResourseFindCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.AmountTypeFromPriceType(Enum::Microsoft#Pricing#PriceList#Price_Type):Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+    name: 'AmountTypeFromPriceType(PriceType: Enum 7009 "Price Type"): Enum 7001 "Price Amount Type"'
+    reason: AmountType::Cost is replaced by the combination of AmountType::Price with PriceType::Purchase.
+  - kind: EnumValue
+    internalReference: E:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type.Cost
+    name: Enum Value Cost
+    reason: AmountType::Cost is replaced by the combination of AmountType::Price with PriceType::Purchase.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Project#Journal#Job_Journal_Line.AfterResourceFindCost(Resource_Cost@)
+    name: 'AfterResourceFindCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.AfterResourceFindCost(Resource_Cost@)
+    name: 'AfterResourceFindCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Resources#Journal#Res#_Journal_Line.AfterFindResUnitCost(Resource_Cost@)
+    name: 'AfterFindResUnitCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Resources#Journal#Res#_Journal_Line.AfterFindResPrice(Resource_Price@)
+    name: 'AfterFindResPrice(var ResourcePrice: Record 201 "Resource Price")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Resources#Journal#Res#_Journal_Line.BeforeFindResPrice(Resource_Price@)
+    name: 'BeforeFindResPrice(var ResourcePrice: Record 201 "Resource Price")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Projects#Resources#Journal#Res#_Journal_Line.AfterInitResourceCost(Resource_Cost@)
+    name: 'AfterInitResourceCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Sales#Document#Sales_Line.FindResUnitCostOnAfterInitResCost(Resource_Cost@)
+    name: 'FindResUnitCostOnAfterInitResCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Sales#Document#Sales_Line.AfterFindResUnitCost(Resource_Cost@)
+    name: 'AfterFindResUnitCost(var ResourceCost: Record 202 "Resource Cost")'
+    reason: Replaced by the new implementation (V16) of price calculation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Sales#Document#Sales_Line.FindOpenATOEntry(Code[50],Code[50]):Integer
+    name: 'FindOpenATOEntry(LotNo: Code[50], SerialNo: Code[50]): Integer'
+    reason: Replaced by FindOpenATOEntry() with parameter ItemTrackingSetup.
+  - kind: Page
+    internalReference: O:Page::Microsoft#Sales#Pricing#Sales_Price_Worksheet
+    name: Page 7023 "Sales Price Worksheet"
+    reason: Replaced by the new implementation (V16) of price calculation.
+  uid: N:Module::Base_Application_obsolete_by_17.0#17.0
+uid: N:Module::Base_Application_obsolete_by_17.0

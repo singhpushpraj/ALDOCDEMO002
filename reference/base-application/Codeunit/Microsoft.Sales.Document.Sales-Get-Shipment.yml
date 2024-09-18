@@ -1,0 +1,153 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales-Get Shipment"
+alId: ID 64
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Sales Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Line
+    name: Microsoft.Sales.Document."Sales Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateInvLines(var SalesShptLine2: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesShptLine2
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: CreateInvLines
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.CreateInvLines(Sales_Shipment_Line@)
+- syntax:
+    content: 'procedure InsertInvoiceLineFromShipmentLine(var SalesShptLine2: Record "Sales Shipment Line", TransferLine: Boolean, var PrepmtAmtToDeductRounding: Decimal)'
+    parameters:
+    - id: SalesShptLine2
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: TransferLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrepmtAmtToDeductRounding
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertInvoiceLineFromShipmentLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.InsertInvoiceLineFromShipmentLine(Sales_Shipment_Line@,Boolean,Decimal@)
+- syntax:
+    content: 'procedure SetSalesHeader(var SalesHeader2: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader2
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SetSalesHeader
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.SetSalesHeader(Sales_Header@)
+- syntax:
+    content: procedure UpdateItemChargeLines()
+  name: UpdateItemChargeLines
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.UpdateItemChargeLines
+- syntax:
+    content: 'procedure GetItemChargeAssgnt(var SalesShptLine: Record "Sales Shipment Line", QtyToInvoice: Decimal)'
+    parameters:
+    - id: SalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: QtyToInvoice
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetItemChargeAssgnt
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.GetItemChargeAssgnt(Sales_Shipment_Line@,Decimal)
+- syntax:
+    content: 'procedure CalcInvoiceDiscount(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CalcInvoiceDiscount
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.CalcInvoiceDiscount(Sales_Line@)
+- syntax:
+    content: 'procedure CalcUpdatePrepmtAmtToDeductRounding(SalesShptLine: Record "Sales Shipment Line", SalesLine: Record "Sales Line", var RoundingAmount: Decimal)'
+    parameters:
+    - id: SalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: RoundingAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcUpdatePrepmtAmtToDeductRounding
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.CalcUpdatePrepmtAmtToDeductRounding(Sales_Shipment_Line,Sales_Line,Decimal@)
+- syntax:
+    content: 'procedure AdjustPrepmtAmtToDeductRounding(var SalesLine: Record "Sales Line", RoundingAmount: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: RoundingAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustPrepmtAmtToDeductRounding
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.AdjustPrepmtAmtToDeductRounding(Sales_Line@,Decimal)
+- syntax:
+    content: 'procedure CheckSalesShptLineVATBusPostingGroup(SalesShptLine: Record "Sales Shipment Line", SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CheckSalesShptLineVATBusPostingGroup
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.CheckSalesShptLineVATBusPostingGroup(Sales_Shipment_Line,Sales_Header)
+- syntax:
+    content: 'procedure GetSalesOrderInvoices(var TempSalesInvoiceHeader: Record "Sales Invoice Header" temporary, OrderNo: Code[20])'
+    parameters:
+    - id: TempSalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header" temporary
+        isExternal: true
+    - id: OrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetSalesOrderInvoices
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.GetSalesOrderInvoices(Sales_Invoice_Header@,Code[20])
+- syntax:
+    content: 'procedure CopyDocumentAttachments(var SalesShipmentLine: Record "Sales Shipment Line", var SalesLine2: Record "Sales Line")'
+    parameters:
+    - id: SalesShipmentLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: SalesLine2
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CopyDocumentAttachments
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment.CopyDocumentAttachments(Sales_Shipment_Line@,Sales_Line@)
+commentId: O:Codeunit::Microsoft#Sales#Document#Sales-Get Shipment
+name: '"Sales-Get Shipment"'
+uid: O:Codeunit::Microsoft#Sales#Document#Sales-Get_Shipment

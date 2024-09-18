@@ -1,0 +1,62 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Ledger."Item Ledger Entry-Reserve"
+alId: ID 99000841
+namespace: Microsoft.Inventory.Ledger
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Ledger
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FilterReservFor(var FilterReservationEntry: Record "Reservation Entry", ItemLedgerEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: FilterReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: FilterReservFor
+  uid: M:Codeunit::Microsoft#Inventory#Ledger#Item_Ledger_Entry-Reserve.FilterReservFor(Reservation_Entry@,Item_Ledger_Entry)
+- syntax:
+    content: 'procedure FilterReservFor(var FilterReservationEntry: Record "Reservation Entry", ItemLedgerEntryNo: Integer, SourceKey: Boolean)'
+    parameters:
+    - id: FilterReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ItemLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceKey
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterReservFor
+  uid: M:Codeunit::Microsoft#Inventory#Ledger#Item_Ledger_Entry-Reserve.FilterReservFor(Reservation_Entry@,Integer,Boolean)
+- syntax:
+    content: 'procedure Caption(ItemLedgerEntry: Record "Item Ledger Entry"): Text'
+    parameters:
+    - id: ItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Inventory#Ledger#Item_Ledger_Entry-Reserve.Caption(Item_Ledger_Entry):Text
+commentId: O:Codeunit::Microsoft#Inventory#Ledger#Item Ledger Entry-Reserve
+name: '"Item Ledger Entry-Reserve"'
+uid: O:Codeunit::Microsoft#Inventory#Ledger#Item_Ledger_Entry-Reserve

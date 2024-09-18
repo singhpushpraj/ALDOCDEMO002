@@ -1,0 +1,214 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Asset."Price Asset List"
+alId: ID 7007
+namespace: Microsoft.Pricing.Asset
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Asset
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: procedure Init()
+  name: Init
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Init
+- syntax:
+    content: 'procedure Count(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: Count
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Count:Integer
+- syntax:
+    content: 'procedure GetMinMaxLevel(var Level: array[2] of Integer)'
+    parameters:
+    - id: Level
+      parameterType:
+        name: array[2] of Integer
+        isExternal: true
+  name: GetMinMaxLevel
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.GetMinMaxLevel(Integer[]@)
+- syntax:
+    content: procedure IncLevel()
+  name: IncLevel
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.IncLevel
+- syntax:
+    content: 'procedure SetLevel(Level: Integer)'
+    parameters:
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLevel
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.SetLevel(Integer)
+- syntax:
+    content: 'procedure Add(AssetType: Enum "Price Asset Type", AssetNo: Code[20])'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    - id: AssetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Add(Enum::Microsoft#Pricing#Asset#Price_Asset_Type,Code[20])
+- syntax:
+    content: 'procedure Add(AssetType: Enum "Price Asset Type", AssetId: Guid)'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    - id: AssetId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Add(Enum::Microsoft#Pricing#Asset#Price_Asset_Type,Guid)
+- syntax:
+    content: 'procedure Add(AssetType: Enum "Price Asset Type")'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Add(Enum::Microsoft#Pricing#Asset#Price_Asset_Type)
+- syntax:
+    content: 'procedure Add(PriceAsset: Record "Price Asset" temporary)'
+    parameters:
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Add(Price_Asset)
+- syntax:
+    content: 'procedure Add(PriceCalculationBuffer: Record "Price Calculation Buffer" temporary)'
+    parameters:
+    - id: PriceCalculationBuffer
+      parameterType:
+        name: Record "Price Calculation Buffer" temporary
+        isExternal: true
+  name: Add
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Add(Price_Calculation_Buffer)
+- syntax:
+    content: 'procedure GetValue(AssetType: Enum "Price Asset Type"): Code[20]'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetValue
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.GetValue(Enum::Microsoft#Pricing#Asset#Price_Asset_Type):Code[20]
+- syntax:
+    content: 'procedure Copy(var FromPriceAssetList: Codeunit "Price Asset List")'
+    parameters:
+    - id: FromPriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+  name: Copy
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Copy(Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@)
+- syntax:
+    content: 'procedure Append(var FromPriceAssetList: Codeunit "Price Asset List")'
+    parameters:
+    - id: FromPriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+  name: Append
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Append(Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@)
+- syntax:
+    content: 'procedure GetList(var ToTempPriceAsset: Record "Price Asset" temporary): Boolean'
+    parameters:
+    - id: ToTempPriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetList
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.GetList(Price_Asset@):Boolean
+- syntax:
+    content: 'procedure First(var PriceAsset: Record "Price Asset" temporary, AtLevel: Integer): Boolean'
+    parameters:
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: AtLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: First
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.First(Price_Asset@,Integer):Boolean
+- syntax:
+    content: 'procedure Next(var PriceAsset: Record "Price Asset" temporary): Boolean'
+    parameters:
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Next
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Next(Price_Asset@):Boolean
+- syntax:
+    content: 'procedure Remove(AssetType: Enum "Price Asset Type"): Boolean'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Remove
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.Remove(Enum::Microsoft#Pricing#Asset#Price_Asset_Type):Boolean
+- syntax:
+    content: 'procedure RemoveAtLevel(AssetType: Enum "Price Asset Type", Level: Integer): Boolean'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RemoveAtLevel
+  uid: M:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List.RemoveAtLevel(Enum::Microsoft#Pricing#Asset#Price_Asset_Type,Integer):Boolean
+commentId: O:Codeunit::Microsoft#Pricing#Asset#Price Asset List
+name: '"Price Asset List"'
+uid: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List

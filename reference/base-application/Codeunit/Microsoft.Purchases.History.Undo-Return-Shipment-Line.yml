@@ -1,0 +1,47 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.History."Undo Return Shipment Line"
+alId: ID 5814
+namespace: Microsoft.Purchases.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purchase Line" = rimd,
+                      TableData "Item Entry Relation" = ri,
+                      TableData "Return Shipment Line" = rimd
+  promoted: false
+- name: TableNo
+  value: Return Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#History#Return_Shipment_Line
+    name: Microsoft.Purchases.History."Return Shipment Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Purchases#History#Undo_Return_Shipment_Line.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure UpdateOrderLine(ReturnShptLine: Record "Return Shipment Line")'
+    parameters:
+    - id: ReturnShptLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+  name: UpdateOrderLine
+  uid: M:Codeunit::Microsoft#Purchases#History#Undo_Return_Shipment_Line.UpdateOrderLine(Return_Shipment_Line)
+commentId: O:Codeunit::Microsoft#Purchases#History#Undo Return Shipment Line
+name: '"Undo Return Shipment Line"'
+uid: O:Codeunit::Microsoft#Purchases#History#Undo_Return_Shipment_Line

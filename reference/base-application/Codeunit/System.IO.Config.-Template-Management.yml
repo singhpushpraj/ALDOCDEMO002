@@ -1,0 +1,276 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.IO."Config. Template Management"
+alId: ID 8612
+namespace: System.IO
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.IO
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure UpdateFromTemplateSelection(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: UpdateFromTemplateSelection
+  uid: M:Codeunit::System#IO#Config#_Template_Management.UpdateFromTemplateSelection(RecordRef@)
+- syntax:
+    content: 'procedure UpdateRecord(ConfigTemplateHeader: Record "Config. Template Header", var RecRef: RecordRef)'
+    parameters:
+    - id: ConfigTemplateHeader
+      parameterType:
+        name: Record "Config. Template Header"
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: UpdateRecord
+  uid: M:Codeunit::System#IO#Config#_Template_Management.UpdateRecord(Config#_Template_Header,RecordRef@)
+- syntax:
+    content: 'procedure InsertTemplate(var RecRef: RecordRef, ConfigTemplateHeader: Record "Config. Template Header", SkipFields: Boolean, TempSkipField: __MissingTypeSymbol__)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ConfigTemplateHeader
+      parameterType:
+        name: Record "Config. Template Header"
+        isExternal: true
+    - id: SkipFields
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TempSkipField
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: InsertTemplate
+  uid: M:Codeunit::System#IO#Config#_Template_Management.InsertTemplate(RecordRef@,Config#_Template_Header,Boolean,__MissingSymbol__@)
+- syntax:
+    content: 'procedure ApplyTemplate(var OriginalRecRef: RecordRef, TempFieldsAssigned: __MissingTypeSymbol__, var TemplateAppliedRecRef: RecordRef, var ConfigTemplateHeader: Record "Config. Template Header"): Boolean'
+    parameters:
+    - id: OriginalRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TempFieldsAssigned
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: TemplateAppliedRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ConfigTemplateHeader
+      parameterType:
+        name: Record "Config. Template Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ApplyTemplate
+  uid: M:Codeunit::System#IO#Config#_Template_Management.ApplyTemplate(RecordRef@,__MissingSymbol__@,RecordRef@,Config#_Template_Header@):Boolean
+- syntax:
+    content: 'procedure TestHierarchy(ConfigTemplateLine: Record "Config. Template Line")'
+    parameters:
+    - id: ConfigTemplateLine
+      parameterType:
+        name: Record "Config. Template Line"
+        isExternal: true
+  name: TestHierarchy
+  uid: M:Codeunit::System#IO#Config#_Template_Management.TestHierarchy(Config#_Template_Line)
+- syntax:
+    content: 'procedure SetUpdatingRelatedTable(NewUpdatingRelatedTable: Boolean)'
+    parameters:
+    - id: NewUpdatingRelatedTable
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetUpdatingRelatedTable
+  uid: M:Codeunit::System#IO#Config#_Template_Management.SetUpdatingRelatedTable(Boolean)
+- syntax:
+    content: 'procedure CreateConfigTemplateAndLines(var Code: Code[10], Description: Text[100], TableID: Integer, DefaultValuesFieldRefArray: array[100] of FieldRef)'
+    parameters:
+    - id: Code
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DefaultValuesFieldRefArray
+      parameterType:
+        name: array[100] of FieldRef
+        isExternal: true
+  name: CreateConfigTemplateAndLines
+  uid: M:Codeunit::System#IO#Config#_Template_Management.CreateConfigTemplateAndLines(Code[10]@,Text[100],Integer,FieldRef[])
+- syntax:
+    content: 'procedure UpdateConfigTemplateAndLines(Code: Code[10], Description: Text[100], TableID: Integer, DefaultValuesFieldRefArray: array[100] of FieldRef)'
+    parameters:
+    - id: Code
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DefaultValuesFieldRefArray
+      parameterType:
+        name: array[100] of FieldRef
+        isExternal: true
+  name: UpdateConfigTemplateAndLines
+  uid: M:Codeunit::System#IO#Config#_Template_Management.UpdateConfigTemplateAndLines(Code[10],Text[100],Integer,FieldRef[])
+- syntax:
+    content: 'procedure ApplyTemplateLinesWithoutValidation(ConfigTemplateHeader: Record "Config. Template Header", var RecordRef: RecordRef)'
+    parameters:
+    - id: ConfigTemplateHeader
+      parameterType:
+        name: Record "Config. Template Header"
+        isExternal: true
+    - id: RecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: ApplyTemplateLinesWithoutValidation
+  uid: M:Codeunit::System#IO#Config#_Template_Management.ApplyTemplateLinesWithoutValidation(Config#_Template_Header,RecordRef@)
+- syntax:
+    content: 'procedure GetNextAvailableCode(TableID: Integer): Code[10]'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetNextAvailableCode
+  uid: M:Codeunit::System#IO#Config#_Template_Management.GetNextAvailableCode(Integer):Code[10]
+- syntax:
+    content: 'procedure AddRelatedTemplate(Code: Code[10], RelatedTemplateCode: Code[10])'
+    parameters:
+    - id: Code
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RelatedTemplateCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: AddRelatedTemplate
+  uid: M:Codeunit::System#IO#Config#_Template_Management.AddRelatedTemplate(Code[10],Code[10])
+- syntax:
+    content: 'procedure RemoveRelatedTemplate(Code: Code[10], RelatedTemplateCode: Code[10])'
+    parameters:
+    - id: Code
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RelatedTemplateCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: RemoveRelatedTemplate
+  uid: M:Codeunit::System#IO#Config#_Template_Management.RemoveRelatedTemplate(Code[10],Code[10])
+- syntax:
+    content: 'procedure DeleteRelatedTemplates(ConfigTemplateHeaderCode: Code[10], TableID: Integer)'
+    parameters:
+    - id: ConfigTemplateHeaderCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteRelatedTemplates
+  uid: M:Codeunit::System#IO#Config#_Template_Management.DeleteRelatedTemplates(Code[10],Integer)
+- syntax:
+    content: 'procedure ReplaceDefaultValueForAllTemplates(TableID: Integer, FieldID: Integer, DefaultValue: Text[250])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DefaultValue
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: ReplaceDefaultValueForAllTemplates
+  uid: M:Codeunit::System#IO#Config#_Template_Management.ReplaceDefaultValueForAllTemplates(Integer,Integer,Text[250])
+- syntax:
+    content: 'procedure InsertConfigTemplateLineFromField(ConfigTemplateHeaderCode: Code[10], FieldRef: FieldRef, TableID: Integer)'
+    parameters:
+    - id: ConfigTemplateHeaderCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertConfigTemplateLineFromField
+  uid: M:Codeunit::System#IO#Config#_Template_Management.InsertConfigTemplateLineFromField(Code[10],FieldRef,Integer)
+- syntax:
+    content: 'procedure InsertConfigTemplateLine(ConfigTemplateHeaderCode: Code[10], FieldID: Integer, DefaultValue: Text[2048], TableID: Integer)'
+    parameters:
+    - id: ConfigTemplateHeaderCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FieldID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DefaultValue
+      parameterType:
+        name: Text[2048]
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertConfigTemplateLine
+  uid: M:Codeunit::System#IO#Config#_Template_Management.InsertConfigTemplateLine(Code[10],Integer,Text[2048],Integer)
+- syntax:
+    content: 'procedure RemoveEmptyFieldsFromTemplateHeader(var RecRef: RecordRef, ConfigTemplateHeader: Record "Config. Template Header")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ConfigTemplateHeader
+      parameterType:
+        name: Record "Config. Template Header"
+        isExternal: true
+  name: RemoveEmptyFieldsFromTemplateHeader
+  uid: M:Codeunit::System#IO#Config#_Template_Management.RemoveEmptyFieldsFromTemplateHeader(RecordRef@,Config#_Template_Header)
+commentId: O:Codeunit::System#IO#Config# Template Management
+name: '"Config. Template Management"'
+uid: O:Codeunit::System#IO#Config#_Template_Management

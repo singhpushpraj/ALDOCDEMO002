@@ -1,0 +1,358 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables.PostingSetupManagement
+alId: ID 48
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CheckCustPostingGroupReceivablesAccount(PostingGroup: Code[20])'
+    parameters:
+    - id: PostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckCustPostingGroupReceivablesAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckCustPostingGroupReceivablesAccount(Code[20])
+- syntax:
+    content: 'procedure CheckVendPostingGroupPayablesAccount(PostingGroup: Code[20])'
+    parameters:
+    - id: PostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckVendPostingGroupPayablesAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckVendPostingGroupPayablesAccount(Code[20])
+- syntax:
+    content: 'procedure CheckGenPostingSetupSalesAccount(GenBusGroupCode: Code[20], GenProdGroupCode: Code[20])'
+    parameters:
+    - id: GenBusGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GenProdGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckGenPostingSetupSalesAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckGenPostingSetupSalesAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckGenPostingSetupPurchAccount(GenBusGroupCode: Code[20], GenProdGroupCode: Code[20])'
+    parameters:
+    - id: GenBusGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GenProdGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckGenPostingSetupPurchAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckGenPostingSetupPurchAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckGenPostingSetupCOGSAccount(GenBusGroupCode: Code[20], GenProdGroupCode: Code[20])'
+    parameters:
+    - id: GenBusGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GenProdGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckGenPostingSetupCOGSAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckGenPostingSetupCOGSAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckVATPostingSetupSalesAccount(VATBusGroupCode: Code[20], VATProdGroupCode: Code[20])'
+    parameters:
+    - id: VATBusGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProdGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckVATPostingSetupSalesAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckVATPostingSetupSalesAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckVATPostingSetupPurchAccount(VATBusGroupCode: Code[20], VATProdGroupCode: Code[20])'
+    parameters:
+    - id: VATBusGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProdGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckVATPostingSetupPurchAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckVATPostingSetupPurchAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckInvtPostingSetupInventoryAccount(LocationCode: Code[10], PostingGroup: Code[20])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckInvtPostingSetupInventoryAccount
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.CheckInvtPostingSetupInventoryAccount(Code[10],Code[20])
+- syntax:
+    content: 'procedure GetPostingSetupNotificationID(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetPostingSetupNotificationID
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.GetPostingSetupNotificationID:Guid
+- syntax:
+    content: 'procedure ConfirmPostingAfterWorkingDate(ConfirmQst: Text, PostingDate: Date): Boolean'
+    parameters:
+    - id: ConfirmQst
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmPostingAfterWorkingDate
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.ConfirmPostingAfterWorkingDate(Text,Date):Boolean
+- syntax:
+    content: 'procedure IsPostingSetupNotificationEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPostingSetupNotificationEnabled
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.IsPostingSetupNotificationEnabled:Boolean
+- syntax:
+    content: 'procedure SendCustPostingGroupNotification(CustomerPostingGroup: Record "Customer Posting Group", FieldCaption: Text)'
+    parameters:
+    - id: CustomerPostingGroup
+      parameterType:
+        name: Record "Customer Posting Group"
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SendCustPostingGroupNotification
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.SendCustPostingGroupNotification(Customer_Posting_Group,Text)
+- syntax:
+    content: 'procedure SendVendPostingGroupNotification(VendorPostingGroup: Record "Vendor Posting Group", FieldCaption: Text)'
+    parameters:
+    - id: VendorPostingGroup
+      parameterType:
+        name: Record "Vendor Posting Group"
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SendVendPostingGroupNotification
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.SendVendPostingGroupNotification(Vendor_Posting_Group,Text)
+- syntax:
+    content: 'procedure SendInvtPostingSetupNotification(InvtPostingSetup: Record "Inventory Posting Setup", FieldCaption: Text)'
+    parameters:
+    - id: InvtPostingSetup
+      parameterType:
+        name: Record "Inventory Posting Setup"
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SendInvtPostingSetupNotification
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.SendInvtPostingSetupNotification(Inventory_Posting_Setup,Text)
+- syntax:
+    content: 'procedure SendGenPostingSetupNotification(GenPostingSetup: Record "General Posting Setup", FieldCaption: Text)'
+    parameters:
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SendGenPostingSetupNotification
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.SendGenPostingSetupNotification(General_Posting_Setup,Text)
+- syntax:
+    content: 'procedure LogVATPostingSetupFieldError(VATPostingSetup: Record "VAT Posting Setup", FieldNumber: Integer)'
+    parameters:
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogVATPostingSetupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogVATPostingSetupFieldError(VAT_Posting_Setup,Integer)
+- syntax:
+    content: 'procedure LogGenPostingSetupFieldError(GenPostingSetup: Record "General Posting Setup", FieldNumber: Integer)'
+    parameters:
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogGenPostingSetupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogGenPostingSetupFieldError(General_Posting_Setup,Integer)
+- syntax:
+    content: 'procedure LogInventoryPostingSetupFieldError(InventoryPostingSetup: Record "Inventory Posting Setup", FieldNumber: Integer)'
+    parameters:
+    - id: InventoryPostingSetup
+      parameterType:
+        name: Record "Inventory Posting Setup"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogInventoryPostingSetupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogInventoryPostingSetupFieldError(Inventory_Posting_Setup,Integer)
+- syntax:
+    content: 'procedure LogCustPostingGroupFieldError(CustomerPostingGroup: Record "Customer Posting Group", FieldNumber: Integer)'
+    parameters:
+    - id: CustomerPostingGroup
+      parameterType:
+        name: Record "Customer Posting Group"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogCustPostingGroupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogCustPostingGroupFieldError(Customer_Posting_Group,Integer)
+- syntax:
+    content: 'procedure LogVendPostingGroupFieldError(VendorPostingGroup: Record "Vendor Posting Group", FieldNumber: Integer)'
+    parameters:
+    - id: VendorPostingGroup
+      parameterType:
+        name: Record "Vendor Posting Group"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogVendPostingGroupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogVendPostingGroupFieldError(Vendor_Posting_Group,Integer)
+- syntax:
+    content: 'procedure LogEmplPostingGroupFieldError(EmployeePostingGroup: Record "Employee Posting Group", FieldNumber: Integer)'
+    parameters:
+    - id: EmployeePostingGroup
+      parameterType:
+        name: Record "Employee Posting Group"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogEmplPostingGroupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogEmplPostingGroupFieldError(Employee_Posting_Group,Integer)
+- syntax:
+    content: 'procedure LogJobPostingGroupFieldError(JobPostingGroup: Record "Job Posting Group", FieldNumber: Integer)'
+    parameters:
+    - id: JobPostingGroup
+      parameterType:
+        name: Record "Job Posting Group"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogJobPostingGroupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogJobPostingGroupFieldError(Job_Posting_Group,Integer)
+- syntax:
+    content: 'procedure LogFAPostingGroupFieldError(FAPostingGroup: Record "FA Posting Group", FieldNumber: Integer)'
+    parameters:
+    - id: FAPostingGroup
+      parameterType:
+        name: Record "FA Posting Group"
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LogFAPostingGroupFieldError
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.LogFAPostingGroupFieldError(FA_Posting_Group,Integer)
+- syntax:
+    content: 'procedure SendVATPostingSetupNotification(VATPostingSetup: Record "VAT Posting Setup", FieldCaption: Text)'
+    parameters:
+    - id: VATPostingSetup
+      parameterType:
+        name: Record "VAT Posting Setup"
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SendVATPostingSetupNotification
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.SendVATPostingSetupNotification(VAT_Posting_Setup,Text)
+- syntax:
+    content: 'procedure ShowCustomerPostingGroups(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowCustomerPostingGroups
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.ShowCustomerPostingGroups(Notification)
+- syntax:
+    content: 'procedure ShowVendorPostingGroups(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowVendorPostingGroups
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.ShowVendorPostingGroups(Notification)
+- syntax:
+    content: 'procedure ShowInventoryPostingSetup(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowInventoryPostingSetup
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.ShowInventoryPostingSetup(Notification)
+- syntax:
+    content: 'procedure ShowGenPostingSetup(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowGenPostingSetup
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.ShowGenPostingSetup(Notification)
+- syntax:
+    content: 'procedure ShowVATPostingSetup(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowVATPostingSetup
+  uid: M:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement.ShowVATPostingSetup(Notification)
+commentId: O:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement
+name: PostingSetupManagement
+uid: O:Codeunit::Microsoft#Finance#ReceivablesPayables#PostingSetupManagement

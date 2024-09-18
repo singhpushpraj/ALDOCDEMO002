@@ -1,0 +1,340 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.UOM."Unit of Measure Management"
+alId: ID 5402
+namespace: Microsoft.Foundation.UOM
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.UOM
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetQtyPerUnitOfMeasure(Item: Record Item, UnitOfMeasureCode: Code[10]): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetQtyPerUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.GetQtyPerUnitOfMeasure(Item,Code[10]):Decimal
+- syntax:
+    content: 'procedure GetQtyRoundingPrecision(Item: Record Item, UnitOfMeasureCode: Code[10]): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetQtyRoundingPrecision
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.GetQtyRoundingPrecision(Item,Code[10]):Decimal
+- syntax:
+    content: 'procedure GetResQtyPerUnitOfMeasure(Resource: Record Resource, UnitOfMeasureCode: Code[10]): Decimal'
+    parameters:
+    - id: Resource
+      parameterType:
+        name: Record Resource
+        isExternal: true
+    - id: UnitOfMeasureCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetResQtyPerUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.GetResQtyPerUnitOfMeasure(Resource,Code[10]):Decimal
+- syntax:
+    content: 'procedure CalcBaseQty(Qty: Decimal, QtyPerUOM: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CalcBaseQty(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcBaseQty(ItemNo: Code[20], VariantCode: Code[10], UOMCode: Code[10], QtyBase: Decimal, QtyPerUOM: Decimal): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CalcBaseQty(Code[20],Code[10],Code[10],Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcBaseQty(ItemNo: Code[20], VariantCode: Code[10], UOMCode: Code[10], QtyBase: Decimal, QtyPerUOM: Decimal, QtyRndingPrecision: Decimal): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRndingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CalcBaseQty(Code[20],Code[10],Code[10],Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcBaseQty(ItemNo: Code[20], VariantCode: Code[10], UOMCode: Code[10], QtyBase: Decimal, QtyPerUOM: Decimal, QtyRndingPrecision: Decimal, BasedOnField: Text, FromFieldName: Text, ToFieldName: Text): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRndingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BasedOnField
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FromFieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ToFieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CalcBaseQty(Code[20],Code[10],Code[10],Decimal,Decimal,Decimal,Text,Text,Text):Decimal
+- syntax:
+    content: 'procedure CalcQtyFromBase(QtyBase: Decimal, QtyPerUOM: Decimal): Decimal'
+    parameters:
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyFromBase
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CalcQtyFromBase(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure CalcQtyFromBase(ItemNo: Code[20], VariantCode: Code[10], UOMCode: Code[10], QtyBase: Decimal, QtyPerUOM: Decimal): Decimal'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyFromBase
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CalcQtyFromBase(Code[20],Code[10],Code[10],Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure RoundQty(Qty: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.RoundQty(Decimal):Decimal
+- syntax:
+    content: 'procedure RoundQty(Qty: Decimal, QtyRndingPrecision: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRndingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.RoundQty(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure RoundAndValidateQty(Qty: Decimal, QtyRndingPrecision: Decimal, FieldName: Text): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyRndingPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundAndValidateQty
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.RoundAndValidateQty(Decimal,Decimal,Text):Decimal
+- syntax:
+    content: 'procedure RoundToItemRndPrecision(Qty: Decimal, ItemRndPrecision: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemRndPrecision
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundToItemRndPrecision
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.RoundToItemRndPrecision(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure QtyRndPrecision(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: QtyRndPrecision
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.QtyRndPrecision:Decimal
+- syntax:
+    content: 'procedure CubageRndPrecision(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CubageRndPrecision
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.CubageRndPrecision:Decimal
+- syntax:
+    content: 'procedure TimeRndPrecision(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TimeRndPrecision
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.TimeRndPrecision:Decimal
+- syntax:
+    content: 'procedure WeightRndPrecision(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: WeightRndPrecision
+  uid: M:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management.WeightRndPrecision:Decimal
+commentId: O:Codeunit::Microsoft#Foundation#UOM#Unit of Measure Management
+name: '"Unit of Measure Management"'
+uid: O:Codeunit::Microsoft#Foundation#UOM#Unit_of_Measure_Management

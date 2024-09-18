@@ -1,0 +1,2000 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Peppol."PEPPOL Management"
+alId: ID 1605
+namespace: Microsoft.Sales.Peppol
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Peppol
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetGeneralInfo(SalesHeader: Record "Sales Header", var ID: Text, var IssueDate: Text, var InvoiceTypeCode: Text, var InvoiceTypeCodeListID: Text, var Note: Text, var TaxPointDate: Text, var DocumentCurrencyCode: Text, var DocumentCurrencyCodeListID: Text, var TaxCurrencyCode: Text, var TaxCurrencyCodeListID: Text, var AccountingCost: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IssueDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceTypeCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceTypeCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Note
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxPointDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentCurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentCurrencyCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCurrencyCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccountingCost
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetGeneralInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetGeneralInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetGeneralInfoBIS(SalesHeader: Record "Sales Header", var ID: Text, var IssueDate: Text, var InvoiceTypeCode: Text, var Note: Text, var TaxPointDate: Text, var DocumentCurrencyCode: Text, var AccountingCost: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IssueDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceTypeCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Note
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxPointDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentCurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccountingCost
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetGeneralInfoBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetGeneralInfoBIS(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetInvoicePeriodInfo(var StartDate: Text, var EndDate: Text)'
+    parameters:
+    - id: StartDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetInvoicePeriodInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetInvoicePeriodInfo(Text@,Text@)
+- syntax:
+    content: 'procedure GetOrderReferenceInfo(SalesHeader: Record "Sales Header", var OrderReferenceID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OrderReferenceID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetOrderReferenceInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetOrderReferenceInfo(Sales_Header,Text@)
+- syntax:
+    content: 'procedure GetOrderReferenceInfoBIS(SalesHeader: Record "Sales Header", var OrderReferenceID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OrderReferenceID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetOrderReferenceInfoBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetOrderReferenceInfoBIS(Sales_Header,Text@)
+- syntax:
+    content: 'procedure GetContractDocRefInfo(SalesHeader: Record "Sales Header", var ContractDocumentReferenceID: Text, var DocumentTypeCode: Text, var ContractRefDocTypeCodeListID: Text, var DocumentType: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ContractDocumentReferenceID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentTypeCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ContractRefDocTypeCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetContractDocRefInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetContractDocRefInfo(Sales_Header,Text@,Text@,Text@,Text@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure with additional parameter ProcessedDocType,23.0)]'
+    content: 'procedure GetAdditionalDocRefInfo(Salesheader: Record "Sales Header", var AdditionalDocumentReferenceID: Text, var AdditionalDocRefDocumentType: Text, var URI: Text, var MimeCode: Text, var EmbeddedDocumentBinaryObject: Text)'
+    parameters:
+    - id: Salesheader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: AdditionalDocumentReferenceID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AdditionalDocRefDocumentType
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: URI
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MimeCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: EmbeddedDocumentBinaryObject
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAdditionalDocRefInfo
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure with additional parameter ProcessedDocType
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAdditionalDocRefInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAdditionalDocRefInfo(Salesheader: Record "Sales Header", var AdditionalDocumentReferenceID: Text, var AdditionalDocRefDocumentType: Text, var URI: Text, var MimeCode: Text, var EmbeddedDocumentBinaryObject: Text, NewProcessedDocType: Option)'
+    parameters:
+    - id: Salesheader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: AdditionalDocumentReferenceID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AdditionalDocRefDocumentType
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: URI
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MimeCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: EmbeddedDocumentBinaryObject
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NewProcessedDocType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetAdditionalDocRefInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAdditionalDocRefInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@,Option)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyInfo(var SupplierEndpointID: Text, var SupplierSchemeID: Text, var SupplierName: Text)'
+    parameters:
+    - id: SupplierEndpointID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyInfo(Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyInfoBIS(var SupplierEndpointID: Text, var SupplierSchemeID: Text, var SupplierName: Text)'
+    parameters:
+    - id: SupplierEndpointID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyInfoBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyInfoBIS(Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyPostalAddr(SalesHeader: Record "Sales Header", var StreetName: Text, var SupplierAdditionalStreetName: Text, var CityName: Text, var PostalZone: Text, var CountrySubentity: Text, var IdentificationCode: Text, var ListID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: StreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierAdditionalStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PostalZone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CountrySubentity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: IdentificationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyPostalAddr
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyPostalAddr(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyTaxScheme(var CompanyID: Text, var CompanyIDSchemeID: Text, var TaxSchemeID: Text)'
+    parameters:
+    - id: CompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CompanyIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyTaxScheme
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyTaxScheme(Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyTaxSchemeBIS(var VATAmtLine: Record "VAT Amount Line", var CompanyID: Text, var CompanyIDSchemeID: Text, var TaxSchemeID: Text)'
+    parameters:
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: CompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CompanyIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyTaxSchemeBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyTaxSchemeBIS(VAT_Amount_Line@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyLegalEntity(var PartyLegalEntityRegName: Text, var PartyLegalEntityCompanyID: Text, var PartyLegalEntitySchemeID: Text, var SupplierRegAddrCityName: Text, var SupplierRegAddrCountryIdCode: Text, var SupplRegAddrCountryIdListId: Text)'
+    parameters:
+    - id: PartyLegalEntityRegName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PartyLegalEntityCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PartyLegalEntitySchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierRegAddrCityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierRegAddrCountryIdCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplRegAddrCountryIdListId
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyLegalEntity
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyLegalEntity(Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyLegalEntityBIS(var PartyLegalEntityRegName: Text, var PartyLegalEntityCompanyID: Text, var PartyLegalEntitySchemeID: Text, var SupplierRegAddrCityName: Text, var SupplierRegAddrCountryIdCode: Text, var SupplRegAddrCountryIdListId: Text)'
+    parameters:
+    - id: PartyLegalEntityRegName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PartyLegalEntityCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PartyLegalEntitySchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierRegAddrCityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplierRegAddrCountryIdCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SupplRegAddrCountryIdListId
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyLegalEntityBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyLegalEntityBIS(Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingSupplierPartyContact(SalesHeader: Record "Sales Header", var ContactID: Text, var ContactName: Text, var Telephone: Text, var Telefax: Text, var ElectronicMail: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ContactID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ContactName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Telephone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Telefax
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ElectronicMail
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingSupplierPartyContact
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingSupplierPartyContact(Sales_Header,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyInfo(SalesHeader: Record "Sales Header", var CustomerEndpointID: Text, var CustomerSchemeID: Text, var CustomerPartyIdentificationID: Text, var CustomerPartyIDSchemeID: Text, var CustomerName: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustomerEndpointID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerPartyIdentificationID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerPartyIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyInfoBIS(SalesHeader: Record "Sales Header", var CustomerEndpointID: Text, var CustomerSchemeID: Text, var CustomerPartyIdentificationID: Text, var CustomerPartyIDSchemeID: Text, var CustomerName: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustomerEndpointID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerPartyIdentificationID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerPartyIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyInfoBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyInfoBIS(Sales_Header,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyPostalAddr(SalesHeader: Record "Sales Header", var CustomerStreetName: Text, var CustomerAdditionalStreetName: Text, var CustomerCityName: Text, var CustomerPostalZone: Text, var CustomerCountrySubentity: Text, var CustomerIdentificationCode: Text, var CustomerListID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustomerStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerAdditionalStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerCityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerPostalZone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerCountrySubentity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerIdentificationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomerListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyPostalAddr
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyPostalAddr(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyTaxScheme(SalesHeader: Record "Sales Header", var CustPartyTaxSchemeCompanyID: Text, var CustPartyTaxSchemeCompIDSchID: Text, var CustTaxSchemeID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustPartyTaxSchemeCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustPartyTaxSchemeCompIDSchID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustTaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyTaxScheme
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyTaxScheme(Sales_Header,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyTaxSchemeBIS(SalesHeader: Record "Sales Header", var CustPartyTaxSchemeCompanyID: Text, var CustPartyTaxSchemeCompIDSchID: Text, var CustTaxSchemeID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustPartyTaxSchemeCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustPartyTaxSchemeCompIDSchID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustTaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyTaxSchemeBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyTaxSchemeBIS(Sales_Header,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyLegalEntity(SalesHeader: Record "Sales Header", var CustPartyLegalEntityRegName: Text, var CustPartyLegalEntityCompanyID: Text, var CustPartyLegalEntityIDSchemeID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustPartyLegalEntityRegName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustPartyLegalEntityCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustPartyLegalEntityIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyLegalEntity
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyLegalEntity(Sales_Header,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyLegalEntityBIS(SalesHeader: Record "Sales Header", var CustPartyLegalEntityRegName: Text, var CustPartyLegalEntityCompanyID: Text, var CustPartyLegalEntityIDSchemeID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustPartyLegalEntityRegName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustPartyLegalEntityCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustPartyLegalEntityIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyLegalEntityBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyLegalEntityBIS(Sales_Header,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAccountingCustomerPartyContact(SalesHeader: Record "Sales Header", var CustContactID: Text, var CustContactName: Text, var CustContactTelephone: Text, var CustContactTelefax: Text, var CustContactElectronicMail: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CustContactID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustContactName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustContactTelephone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustContactTelefax
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustContactElectronicMail
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAccountingCustomerPartyContact
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAccountingCustomerPartyContact(Sales_Header,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetPayeePartyInfo(var PayeePartyID: Text, var PayeePartyIDSchemeID: Text, var PayeePartyNameName: Text, var PayeePartyLegalEntityCompanyID: Text, var PayeePartyLegalCompIDSchemeID: Text)'
+    parameters:
+    - id: PayeePartyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyNameName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyLegalEntityCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyLegalCompIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetPayeePartyInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPayeePartyInfo(Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetTaxRepresentativePartyInfo(var TaxRepPartyNameName: Text, var PayeePartyTaxSchemeCompanyID: Text, var PayeePartyTaxSchCompIDSchemeID: Text, var PayeePartyTaxSchemeTaxSchemeID: Text)'
+    parameters:
+    - id: TaxRepPartyNameName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyTaxSchemeCompanyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyTaxSchCompIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayeePartyTaxSchemeTaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetTaxRepresentativePartyInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxRepresentativePartyInfo(Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetDeliveryInfo(var ActualDeliveryDate: Text, var DeliveryID: Text, var DeliveryIDSchemeID: Text)'
+    parameters:
+    - id: ActualDeliveryDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetDeliveryInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetDeliveryInfo(Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetGLNDeliveryInfo(SalesHeader: Record "Sales Header", var ActualDeliveryDate: Text, var DeliveryID: Text, var DeliveryIDSchemeID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ActualDeliveryDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetGLNDeliveryInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetGLNDeliveryInfo(Sales_Header,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetGLNForHeader(SalesHeader: Record "Sales Header"): Code[13]'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[13]
+        isExternal: true
+  name: GetGLNForHeader
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetGLNForHeader(Sales_Header):Code[13]
+- syntax:
+    content: 'procedure GetDeliveryAddress(SalesHeader: Record "Sales Header", var DeliveryStreetName: Text, var DeliveryAdditionalStreetName: Text, var DeliveryCityName: Text, var DeliveryPostalZone: Text, var DeliveryCountrySubentity: Text, var DeliveryCountryIdCode: Text, var DeliveryCountryListID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DeliveryStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryAdditionalStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryCityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryPostalZone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryCountrySubentity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryCountryIdCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DeliveryCountryListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetDeliveryAddress
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetDeliveryAddress(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetPaymentMeansInfo(SalesHeader: Record "Sales Header", var PaymentMeansCode: Text, var PaymentMeansListID: Text, var PaymentDueDate: Text, var PaymentChannelCode: Text, var PaymentID: Text, var PrimaryAccountNumberID: Text, var NetworkID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: PaymentMeansCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PaymentMeansListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PaymentDueDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PaymentChannelCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PaymentID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrimaryAccountNumberID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: NetworkID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetPaymentMeansInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPaymentMeansInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetPaymentMeansPayeeFinancialAcc(var PayeeFinancialAccountID: Text, var PaymentMeansSchemeID: Text, var FinancialInstitutionBranchID: Text, var FinancialInstitutionID: Text, var FinancialInstitutionSchemeID: Text, var FinancialInstitutionName: Text)'
+    parameters:
+    - id: PayeeFinancialAccountID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PaymentMeansSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionBranchID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetPaymentMeansPayeeFinancialAcc
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPaymentMeansPayeeFinancialAcc(Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetPaymentMeansPayeeFinancialAccBIS(var PayeeFinancialAccountID: Text, var FinancialInstitutionBranchID: Text)'
+    parameters:
+    - id: PayeeFinancialAccountID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionBranchID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetPaymentMeansPayeeFinancialAccBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPaymentMeansPayeeFinancialAccBIS(Text@,Text@)
+- syntax:
+    content: 'procedure GetPaymentMeansFinancialInstitutionAddr(var FinancialInstitutionStreetName: Text, var AdditionalStreetName: Text, var FinancialInstitutionCityName: Text, var FinancialInstitutionPostalZone: Text, var FinancialInstCountrySubentity: Text, var FinancialInstCountryIdCode: Text, var FinancialInstCountryListID: Text)'
+    parameters:
+    - id: FinancialInstitutionStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AdditionalStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionCityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstitutionPostalZone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstCountrySubentity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstCountryIdCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: FinancialInstCountryListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetPaymentMeansFinancialInstitutionAddr
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPaymentMeansFinancialInstitutionAddr(Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetPaymentTermsInfo(SalesHeader: Record "Sales Header", var PaymentTermsNote: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: PaymentTermsNote
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetPaymentTermsInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPaymentTermsInfo(Sales_Header,Text@)
+- syntax:
+    content: 'procedure GetAllowanceChargeInfo(VATAmtLine: Record "VAT Amount Line", SalesHeader: Record "Sales Header", var ChargeIndicator: Text, var AllowanceChargeReasonCode: Text, var AllowanceChargeListID: Text, var AllowanceChargeReason: Text, var Amount: Text, var AllowanceChargeCurrencyID: Text, var TaxCategoryID: Text, var TaxCategorySchemeID: Text, var Percent: Text, var AllowanceChargeTaxSchemeID: Text)'
+    parameters:
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ChargeIndicator
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeReasonCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeReason
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCategoryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCategorySchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Percent
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeTaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAllowanceChargeInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAllowanceChargeInfo(VAT_Amount_Line,Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetAllowanceChargeInfoBIS(VATAmtLine: Record "VAT Amount Line", SalesHeader: Record "Sales Header", var ChargeIndicator: Text, var AllowanceChargeReasonCode: Text, var AllowanceChargeListID: Text, var AllowanceChargeReason: Text, var Amount: Text, var AllowanceChargeCurrencyID: Text, var TaxCategoryID: Text, var TaxCategorySchemeID: Text, var Percent: Text, var AllowanceChargeTaxSchemeID: Text)'
+    parameters:
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ChargeIndicator
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeReasonCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeReason
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCategoryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCategorySchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Percent
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceChargeTaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetAllowanceChargeInfoBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetAllowanceChargeInfoBIS(VAT_Amount_Line,Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetTaxExchangeRateInfo(SalesHeader: Record "Sales Header", var SourceCurrencyCode: Text, var SourceCurrencyCodeListID: Text, var TargetCurrencyCode: Text, var TargetCurrencyCodeListID: Text, var CalculationRate: Text, var MathematicOperatorCode: Text, var Date: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SourceCurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SourceCurrencyCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TargetCurrencyCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TargetCurrencyCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CalculationRate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MathematicOperatorCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetTaxExchangeRateInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxExchangeRateInfo(Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetTaxTotalInfo(SalesHeader: Record "Sales Header", var VATAmtLine: Record "VAT Amount Line", var TaxAmount: Text, var TaxTotalCurrencyID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: TaxAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxTotalCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetTaxTotalInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxTotalInfo(Sales_Header,VAT_Amount_Line@,Text@,Text@)
+- syntax:
+    content: 'procedure GetTaxSubtotalInfo(VATAmtLine: Record "VAT Amount Line", SalesHeader: Record "Sales Header", var TaxableAmount: Text, var TaxAmountCurrencyID: Text, var SubtotalTaxAmount: Text, var TaxSubtotalCurrencyID: Text, var TransactionCurrencyTaxAmount: Text, var TransCurrTaxAmtCurrencyID: Text, var TaxTotalTaxCategoryID: Text, var schemeID: Text, var TaxCategoryPercent: Text, var TaxTotalTaxSchemeID: Text)'
+    parameters:
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TaxableAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SubtotalTaxAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxSubtotalCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TransactionCurrencyTaxAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TransCurrTaxAmtCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxTotalTaxCategoryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: schemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCategoryPercent
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxTotalTaxSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetTaxSubtotalInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxSubtotalInfo(VAT_Amount_Line,Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetTaxTotalInfoLCY(SalesHeader: Record "Sales Header", var TaxAmount: Text, var TaxCurrencyID: Text, var TaxTotalCurrencyID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TaxAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxTotalCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetTaxTotalInfoLCY
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxTotalInfoLCY(Sales_Header,Text@,Text@,Text@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by GetLegalMonetaryInfo with TempSalesLine parameter for invoice rounding.,23.0)]'
+    content: 'procedure GetLegalMonetaryInfo(SalesHeader: Record "Sales Header", var VATAmtLine: Record "VAT Amount Line", var LineExtensionAmount: Text, var LegalMonetaryTotalCurrencyID: Text, var TaxExclusiveAmount: Text, var TaxExclusiveAmountCurrencyID: Text, var TaxInclusiveAmount: Text, var TaxInclusiveAmountCurrencyID: Text, var AllowanceTotalAmount: Text, var AllowanceTotalAmountCurrencyID: Text, var ChargeTotalAmount: Text, var ChargeTotalAmountCurrencyID: Text, var PrepaidAmount: Text, var PrepaidCurrencyID: Text, var PayableRoundingAmount: Text, var PayableRndingAmountCurrencyID: Text, var PayableAmount: Text, var PayableAmountCurrencyID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: LineExtensionAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LegalMonetaryTotalCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxExclusiveAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxExclusiveAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxInclusiveAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxInclusiveAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceTotalAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceTotalAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChargeTotalAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChargeTotalAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrepaidAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrepaidCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableRoundingAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableRndingAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLegalMonetaryInfo
+  obsoletion:
+    state: pending
+    reason: Replaced by GetLegalMonetaryInfo with TempSalesLine parameter for invoice rounding.
+    version: "23.0"
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLegalMonetaryInfo(Sales_Header,VAT_Amount_Line@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLegalMonetaryInfo(SalesHeader: Record "Sales Header", var TempSalesLine: Record "Sales Line" temporary, var VATAmtLine: Record "VAT Amount Line", var LineExtensionAmount: Text, var LegalMonetaryTotalCurrencyID: Text, var TaxExclusiveAmount: Text, var TaxExclusiveAmountCurrencyID: Text, var TaxInclusiveAmount: Text, var TaxInclusiveAmountCurrencyID: Text, var AllowanceTotalAmount: Text, var AllowanceTotalAmountCurrencyID: Text, var ChargeTotalAmount: Text, var ChargeTotalAmountCurrencyID: Text, var PrepaidAmount: Text, var PrepaidCurrencyID: Text, var PayableRoundingAmount: Text, var PayableRndingAmountCurrencyID: Text, var PayableAmount: Text, var PayableAmountCurrencyID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: LineExtensionAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LegalMonetaryTotalCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxExclusiveAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxExclusiveAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxInclusiveAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxInclusiveAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceTotalAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceTotalAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChargeTotalAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChargeTotalAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrepaidAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrepaidCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableRoundingAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableRndingAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PayableAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLegalMonetaryInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLegalMonetaryInfo(Sales_Header,Sales_Line@,VAT_Amount_Line@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLegalMonetaryDocAmounts(SalesHeader: Record "Sales Header", var VATAmtLine: Record "VAT Amount Line", var LineExtensionAmount: Text, var LegalMonetaryTotalCurrencyID: Text, var TaxExclusiveAmount: Text, var TaxExclusiveAmountCurrencyID: Text, var TaxInclusiveAmount: Text, var TaxInclusiveAmountCurrencyID: Text, var AllowanceTotalAmount: Text, var AllowanceTotalAmountCurrencyID: Text, var ChargeTotalAmount: Text, var ChargeTotalAmountCurrencyID: Text)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: LineExtensionAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LegalMonetaryTotalCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxExclusiveAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxExclusiveAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxInclusiveAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxInclusiveAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceTotalAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowanceTotalAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChargeTotalAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChargeTotalAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLegalMonetaryDocAmounts
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLegalMonetaryDocAmounts(Sales_Header,VAT_Amount_Line@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineGeneralInfo(SalesLine: Record "Sales Line", SalesHeader: Record "Sales Header", var InvoiceLineID: Text, var InvoiceLineNote: Text, var InvoicedQuantity: Text, var InvoiceLineExtensionAmount: Text, var LineExtensionAmountCurrencyID: Text, var InvoiceLineAccountingCost: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: InvoiceLineID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineNote
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoicedQuantity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineExtensionAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: LineExtensionAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineAccountingCost
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineGeneralInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineGeneralInfo(Sales_Line,Sales_Header,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineUnitCodeInfo(SalesLine: Record "Sales Line", var unitCode: Text, var unitCodeListID: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: unitCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: unitCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineUnitCodeInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineUnitCodeInfo(Sales_Line,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineInvoicePeriodInfo(var InvLineInvoicePeriodStartDate: Text, var InvLineInvoicePeriodEndDate: Text)'
+    parameters:
+    - id: InvLineInvoicePeriodStartDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLineInvoicePeriodEndDate
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineInvoicePeriodInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineInvoicePeriodInfo(Text@,Text@)
+- syntax:
+    content: procedure GetLineOrderLineRefInfo()
+  name: GetLineOrderLineRefInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineOrderLineRefInfo
+- syntax:
+    content: 'procedure GetLineDeliveryInfo(var InvoiceLineActualDeliveryDate: Text, var InvoiceLineDeliveryID: Text, var InvoiceLineDeliveryIDSchemeID: Text)'
+    parameters:
+    - id: InvoiceLineActualDeliveryDate
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineDeliveryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineDeliveryIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineDeliveryInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineDeliveryInfo(Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineDeliveryPostalAddr(var InvoiceLineDeliveryStreetName: Text, var InvLineDeliveryAddStreetName: Text, var InvoiceLineDeliveryCityName: Text, var InvoiceLineDeliveryPostalZone: Text, var InvLnDeliveryCountrySubentity: Text, var InvLnDeliveryCountryIdCode: Text, var InvLineDeliveryCountryListID: Text)'
+    parameters:
+    - id: InvoiceLineDeliveryStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLineDeliveryAddStreetName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineDeliveryCityName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineDeliveryPostalZone
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLnDeliveryCountrySubentity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLnDeliveryCountryIdCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLineDeliveryCountryListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineDeliveryPostalAddr
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineDeliveryPostalAddr(Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineAllowanceChargeInfo(SalesLine: Record "Sales Line", SalesHeader: Record "Sales Header", var InvLnAllowanceChargeIndicator: Text, var InvLnAllowanceChargeReason: Text, var InvLnAllowanceChargeAmount: Text, var InvLnAllowanceChargeAmtCurrID: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: InvLnAllowanceChargeIndicator
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLnAllowanceChargeReason
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLnAllowanceChargeAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLnAllowanceChargeAmtCurrID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineAllowanceChargeInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineAllowanceChargeInfo(Sales_Line,Sales_Header,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineTaxTotal(SalesLine: Record "Sales Line", SalesHeader: Record "Sales Header", var InvoiceLineTaxAmount: Text, var currencyID: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: InvoiceLineTaxAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: currencyID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineTaxTotal
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineTaxTotal(Sales_Line,Sales_Header,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineItemInfo(SalesLine: Record "Sales Line", var Description: Text, var Name: Text, var SellersItemIdentificationID: Text, var StandardItemIdentificationID: Text, var StdItemIdIDSchemeID: Text, var OriginCountryIdCode: Text, var OriginCountryIdCodeListID: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Name
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: SellersItemIdentificationID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: StandardItemIdentificationID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: StdItemIdIDSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: OriginCountryIdCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: OriginCountryIdCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineItemInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineItemInfo(Sales_Line,Text@,Text@,Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineItemCommodityClassficationInfo(var CommodityCode: Text, var CommodityCodeListID: Text, var ItemClassificationCode: Text, var ItemClassificationCodeListID: Text)'
+    parameters:
+    - id: CommodityCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CommodityCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemClassificationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemClassificationCodeListID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineItemCommodityClassficationInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineItemCommodityClassficationInfo(Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineItemClassfiedTaxCategory(SalesLine: Record "Sales Line", var ClassifiedTaxCategoryID: Text, var ItemSchemeID: Text, var InvoiceLineTaxPercent: Text, var ClassifiedTaxCategorySchemeID: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ClassifiedTaxCategoryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineTaxPercent
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClassifiedTaxCategorySchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineItemClassfiedTaxCategory
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineItemClassfiedTaxCategory(Sales_Line,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineItemClassfiedTaxCategoryBIS(SalesLine: Record "Sales Line", var ClassifiedTaxCategoryID: Text, var ItemSchemeID: Text, var InvoiceLineTaxPercent: Text, var ClassifiedTaxCategorySchemeID: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ClassifiedTaxCategoryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemSchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceLineTaxPercent
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ClassifiedTaxCategorySchemeID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineItemClassfiedTaxCategoryBIS
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineItemClassfiedTaxCategoryBIS(Sales_Line,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLineAdditionalItemPropertyInfo(SalesLine: Record "Sales Line", var AdditionalItemPropertyName: Text, var AdditionalItemPropertyValue: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: AdditionalItemPropertyName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AdditionalItemPropertyValue
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLineAdditionalItemPropertyInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLineAdditionalItemPropertyInfo(Sales_Line,Text@,Text@)
+- syntax:
+    content: 'procedure GetLinePriceInfo(SalesLine: Record "Sales Line", SalesHeader: Record "Sales Header", var InvoiceLinePriceAmount: Text, var InvLinePriceAmountCurrencyID: Text, var BaseQuantity: Text, var UnitCode: Text)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: InvoiceLinePriceAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvLinePriceAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BaseQuantity
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: UnitCode
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLinePriceInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLinePriceInfo(Sales_Line,Sales_Header,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetLinePriceAllowanceChargeInfo(var PriceChargeIndicator: Text, var PriceAllowanceChargeAmount: Text, var PriceAllowanceAmountCurrencyID: Text, var PriceAllowanceChargeBaseAmount: Text, var PriceAllowChargeBaseAmtCurrID: Text)'
+    parameters:
+    - id: PriceChargeIndicator
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PriceAllowanceChargeAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PriceAllowanceAmountCurrencyID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PriceAllowanceChargeBaseAmount
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PriceAllowChargeBaseAmtCurrID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetLinePriceAllowanceChargeInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetLinePriceAllowanceChargeInfo(Text@,Text@,Text@,Text@,Text@)
+- syntax:
+    content: 'procedure GetCrMemoBillingReferenceInfo(SalesCrMemoHeader: Record "Sales Cr.Memo Header", var InvoiceDocRefID: Text, var InvoiceDocRefIssueDate: Text)'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: InvoiceDocRefID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: InvoiceDocRefIssueDate
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetCrMemoBillingReferenceInfo
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetCrMemoBillingReferenceInfo(Sales_Cr#Memo_Header,Text@,Text@)
+- syntax:
+    content: 'procedure GetTotals(SalesLine: Record "Sales Line", var VATAmtLine: Record "VAT Amount Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmtLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: GetTotals
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTotals(Sales_Line,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure GetTaxCategories(SalesLine: Record "Sales Line", var VATProductPostingGroupCategory: Record "VAT Product Posting Group")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATProductPostingGroupCategory
+      parameterType:
+        name: Record "VAT Product Posting Group"
+        isExternal: true
+  name: GetTaxCategories
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxCategories(Sales_Line,VAT_Product_Posting_Group@)
+- syntax:
+    content: 'procedure GetInvoiceRoundingLine(var TempSalesLine: Record "Sales Line" temporary, SalesLine: Record "Sales Line")'
+    parameters:
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetInvoiceRoundingLine
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetInvoiceRoundingLine(Sales_Line@,Sales_Line)
+- syntax:
+    content: 'procedure GetTaxExemptionReason(var VATProductPostingGroupCategory: Record "VAT Product Posting Group", var TaxExemptionReasonTxt: Text, TaxCategoryID: Text)'
+    parameters:
+    - id: VATProductPostingGroupCategory
+      parameterType:
+        name: Record "VAT Product Posting Group"
+        isExternal: true
+    - id: TaxExemptionReasonTxt
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TaxCategoryID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetTaxExemptionReason
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetTaxExemptionReason(VAT_Product_Posting_Group@,Text@,Text)
+- syntax:
+    content: 'procedure GetPeppolTelemetryTok(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetPeppolTelemetryTok
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetPeppolTelemetryTok:Text
+- syntax:
+    content: 'procedure GetVATScheme(CountryRegionCode: Code[10]): Text'
+    parameters:
+    - id: CountryRegionCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetVATScheme
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.GetVATScheme(Code[10]):Text
+- syntax:
+    content: 'procedure IsRoundingLine(SalesLine: Record "Sales Line", CustomerNo: Code[20]): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsRoundingLine
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.IsRoundingLine(Sales_Line,Code[20]):Boolean
+- syntax:
+    content: 'procedure MapServiceLineTypeToSalesLineType(ServiceLineType: Enum "Service Line Type"): Integer'
+    parameters:
+    - id: ServiceLineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Line_Type
+        name: Microsoft.Service.Document."Service Line Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: MapServiceLineTypeToSalesLineType
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.MapServiceLineTypeToSalesLineType(Enum::Microsoft#Service#Document#Service_Line_Type):Integer
+- syntax:
+    content: 'procedure MapServiceLineTypeToSalesLineTypeEnum(ServiceLineType: Enum "Service Line Type"): Enum "Sales Line Type"'
+    parameters:
+    - id: ServiceLineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Line_Type
+        name: Microsoft.Service.Document."Service Line Type"
+        isExternal: false
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+        name: Microsoft.Sales.Document."Sales Line Type"
+        isExternal: false
+  name: MapServiceLineTypeToSalesLineTypeEnum
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.MapServiceLineTypeToSalesLineTypeEnum(Enum::Microsoft#Service#Document#Service_Line_Type):Enum::Microsoft#Sales#Document#Sales_Line_Type
+- syntax:
+    content: 'procedure TransferHeaderToSalesHeader(FromRecord: Variant, var ToSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: FromRecord
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: TransferHeaderToSalesHeader
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.TransferHeaderToSalesHeader(Variant,Sales_Header@)
+- syntax:
+    content: 'procedure TransferLineToSalesLine(FromRecord: Variant, var ToSalesLine: Record "Sales Line")'
+    parameters:
+    - id: FromRecord
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: TransferLineToSalesLine
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.TransferLineToSalesLine(Variant,Sales_Line@)
+- syntax:
+    content: 'procedure RecRefTransferFields(FromRecord: Variant, var ToRecord: Variant)'
+    parameters:
+    - id: FromRecord
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ToRecord
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: RecRefTransferFields
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.RecRefTransferFields(Variant,Variant@)
+- syntax:
+    content: 'procedure FindNextInvoiceRec(var SalesInvoiceHeader: Record "Sales Invoice Header", var ServiceInvoiceHeader: Record "Service Invoice Header", var SalesHeader: Record "Sales Header", ProcessedDocType: Option, Position: Integer): Boolean'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: ServiceInvoiceHeader
+      parameterType:
+        name: Record "Service Invoice Header"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ProcessedDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindNextInvoiceRec
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.FindNextInvoiceRec(Sales_Invoice_Header@,Service_Invoice_Header@,Sales_Header@,Option,Integer):Boolean
+- syntax:
+    content: 'procedure FindNextInvoiceLineRec(var SalesInvoiceLine: Record "Sales Invoice Line", var ServiceInvoiceLine: Record "Service Invoice Line", var SalesLine: Record "Sales Line", ProcessedDocType: Option, Position: Integer): Boolean'
+    parameters:
+    - id: SalesInvoiceLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+    - id: ServiceInvoiceLine
+      parameterType:
+        name: Record "Service Invoice Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ProcessedDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindNextInvoiceLineRec
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.FindNextInvoiceLineRec(Sales_Invoice_Line@,Service_Invoice_Line@,Sales_Line@,Option,Integer):Boolean
+- syntax:
+    content: 'procedure FindNextCreditMemoRec(var SalesCrMemoHeader: Record "Sales Cr.Memo Header", var ServiceCrMemoHeader: Record "Service Cr.Memo Header", var SalesHeader: Record "Sales Header", ProcessedDocType: Option, Position: Integer): Boolean'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: ServiceCrMemoHeader
+      parameterType:
+        name: Record "Service Cr.Memo Header"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ProcessedDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindNextCreditMemoRec
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.FindNextCreditMemoRec(Sales_Cr#Memo_Header@,Service_Cr#Memo_Header@,Sales_Header@,Option,Integer):Boolean
+- syntax:
+    content: 'procedure FindNextCreditMemoLineRec(var SalesCrMemoLine: Record "Sales Cr.Memo Line", var ServiceCrMemoLine: Record "Service Cr.Memo Line", var SalesLine: Record "Sales Line", ProcessedDocType: Option, Position: Integer): Boolean'
+    parameters:
+    - id: SalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+    - id: ServiceCrMemoLine
+      parameterType:
+        name: Record "Service Cr.Memo Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ProcessedDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Position
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindNextCreditMemoLineRec
+  uid: M:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management.FindNextCreditMemoLineRec(Sales_Cr#Memo_Line@,Service_Cr#Memo_Line@,Sales_Line@,Option,Integer):Boolean
+commentId: O:Codeunit::Microsoft#Sales#Peppol#PEPPOL Management
+name: '"PEPPOL Management"'
+uid: O:Codeunit::Microsoft#Sales#Peppol#PEPPOL_Management

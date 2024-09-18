@@ -1,0 +1,203 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Item.Attribute."Item Attribute Management"
+alId: ID 7500
+namespace: Microsoft.Inventory.Item.Attribute
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Item.Attribute
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure FindItemsByAttribute(var FilterItemAttributesBuffer: Record "Filter Item Attributes Buffer"): Text'
+    parameters:
+    - id: FilterItemAttributesBuffer
+      parameterType:
+        name: Record "Filter Item Attributes Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FindItemsByAttribute
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.FindItemsByAttribute(Filter_Item_Attributes_Buffer@):Text
+- syntax:
+    content: 'procedure FindItemsByAttributes(var FilterItemAttributesBuffer: Record "Filter Item Attributes Buffer", var TempFilteredItem: Record Item temporary)'
+    parameters:
+    - id: FilterItemAttributesBuffer
+      parameterType:
+        name: Record "Filter Item Attributes Buffer"
+        isExternal: true
+    - id: TempFilteredItem
+      parameterType:
+        name: Record Item temporary
+        isExternal: true
+  name: FindItemsByAttributes
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.FindItemsByAttributes(Filter_Item_Attributes_Buffer@,Item@)
+- syntax:
+    content: 'procedure GetItemNoFilterText(var TempFilteredItem: Record Item temporary, var ParameterCount: Integer): Text'
+    parameters:
+    - id: TempFilteredItem
+      parameterType:
+        name: Record Item temporary
+        isExternal: true
+    - id: ParameterCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetItemNoFilterText
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.GetItemNoFilterText(Item@,Integer@):Text
+- syntax:
+    content: 'procedure InheritAttributesFromItemCategory(var Item: Record Item, NewItemCategoryCode: Code[20], OldItemCategoryCode: Code[20])'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NewItemCategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: OldItemCategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InheritAttributesFromItemCategory
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.InheritAttributesFromItemCategory(Item@,Code[20],Code[20])
+- syntax:
+    content: 'procedure UpdateCategoryAttributesAfterChangingParentCategory(ItemCategoryCode: Code[20], NewParentItemCategory: Code[20], OldParentItemCategory: Code[20])'
+    parameters:
+    - id: ItemCategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewParentItemCategory
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: OldParentItemCategory
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateCategoryAttributesAfterChangingParentCategory
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.UpdateCategoryAttributesAfterChangingParentCategory(Code[20],Code[20],Code[20])
+- syntax:
+    content: 'procedure DeleteItemAttributeValueMapping(Item: Record Item, var TempItemAttributeValueToRemove: Record "Item Attribute Value" temporary)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: TempItemAttributeValueToRemove
+      parameterType:
+        name: Record "Item Attribute Value" temporary
+        isExternal: true
+  name: DeleteItemAttributeValueMapping
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.DeleteItemAttributeValueMapping(Item,Item_Attribute_Value@)
+- syntax:
+    content: 'procedure UpdateCategoryItemsAttributeValueMapping(var TempNewItemAttributeValue: Record "Item Attribute Value" temporary, var TempOldItemAttributeValue: Record "Item Attribute Value" temporary, ItemCategoryCode: Code[20], OldItemCategoryCode: Code[20])'
+    parameters:
+    - id: TempNewItemAttributeValue
+      parameterType:
+        name: Record "Item Attribute Value" temporary
+        isExternal: true
+    - id: TempOldItemAttributeValue
+      parameterType:
+        name: Record "Item Attribute Value" temporary
+        isExternal: true
+    - id: ItemCategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: OldItemCategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateCategoryItemsAttributeValueMapping
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.UpdateCategoryItemsAttributeValueMapping(Item_Attribute_Value@,Item_Attribute_Value@,Code[20],Code[20])
+- syntax:
+    content: 'procedure DeleteCategoryItemsAttributeValueMapping(var TempItemAttributeValueToRemove: Record "Item Attribute Value" temporary, CategoryCode: Code[20])'
+    parameters:
+    - id: TempItemAttributeValueToRemove
+      parameterType:
+        name: Record "Item Attribute Value" temporary
+        isExternal: true
+    - id: CategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DeleteCategoryItemsAttributeValueMapping
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.DeleteCategoryItemsAttributeValueMapping(Item_Attribute_Value@,Code[20])
+- syntax:
+    content: 'procedure InsertCategoryItemsAttributeValueMapping(var TempItemAttributeValueToInsert: Record "Item Attribute Value" temporary, CategoryCode: Code[20])'
+    parameters:
+    - id: TempItemAttributeValueToInsert
+      parameterType:
+        name: Record "Item Attribute Value" temporary
+        isExternal: true
+    - id: CategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InsertCategoryItemsAttributeValueMapping
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.InsertCategoryItemsAttributeValueMapping(Item_Attribute_Value@,Code[20])
+- syntax:
+    content: 'procedure InsertCategoryItemsBufferedAttributeValueMapping(var TempItemAttributeValueToInsert: Record "Item Attribute Value" temporary, var TempInsertedItemAttributeValueMapping: Record "Item Attribute Value Mapping" temporary, CategoryCode: Code[20])'
+    parameters:
+    - id: TempItemAttributeValueToInsert
+      parameterType:
+        name: Record "Item Attribute Value" temporary
+        isExternal: true
+    - id: TempInsertedItemAttributeValueMapping
+      parameterType:
+        name: Record "Item Attribute Value Mapping" temporary
+        isExternal: true
+    - id: CategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InsertCategoryItemsBufferedAttributeValueMapping
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.InsertCategoryItemsBufferedAttributeValueMapping(Item_Attribute_Value@,Item_Attribute_Value_Mapping@,Code[20])
+- syntax:
+    content: 'procedure SearchCategoryItemsForAttribute(CategoryCode: Code[20], AttributeID: Integer): Boolean'
+    parameters:
+    - id: CategoryCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AttributeID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SearchCategoryItemsForAttribute
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.SearchCategoryItemsForAttribute(Code[20],Integer):Boolean
+- syntax:
+    content: 'procedure DoesValueExistInItemAttributeValues(Text: Text[250], var ItemAttributeValue: Record "Item Attribute Value"): Boolean'
+    parameters:
+    - id: Text
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ItemAttributeValue
+      parameterType:
+        name: Record "Item Attribute Value"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesValueExistInItemAttributeValues
+  uid: M:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management.DoesValueExistInItemAttributeValues(Text[250],Item_Attribute_Value@):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Item#Attribute#Item Attribute Management
+name: '"Item Attribute Management"'
+uid: O:Codeunit::Microsoft#Inventory#Item#Attribute#Item_Attribute_Management

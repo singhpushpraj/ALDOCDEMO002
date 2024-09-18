@@ -1,0 +1,71 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Payment."Pmt Export Mgt Gen. Jnl Line"
+alId: ID 1206
+namespace: Microsoft.Bank.Payment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Payment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Vendor Ledger Entry" = rm,
+                      TableData "Gen. Journal Line" = rm,
+                      TableData "Payment Export Data" = rimd
+  promoted: false
+- name: TableNo
+  value: Gen. Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure PreparePaymentExportDataJnl(var TempPaymentExportData: Record "Payment Export Data" temporary, GenJnlLine: Record "Gen. Journal Line", DataExchEntryNo: Integer, LineNo: Integer)'
+    parameters:
+    - id: TempPaymentExportData
+      parameterType:
+        name: Record "Payment Export Data" temporary
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DataExchEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PreparePaymentExportDataJnl
+  uid: M:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Gen#_Jnl_Line.PreparePaymentExportDataJnl(Payment_Export_Data@,Gen#_Journal_Line,Integer,Integer)
+- syntax:
+    content: 'procedure EnableExportToServerTempFile(SilentServerMode: Boolean, ServerFileExtension: Text[3])'
+    parameters:
+    - id: SilentServerMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ServerFileExtension
+      parameterType:
+        name: Text[3]
+        isExternal: true
+  name: EnableExportToServerTempFile
+  uid: M:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Gen#_Jnl_Line.EnableExportToServerTempFile(Boolean,Text[3])
+- syntax:
+    content: 'procedure GetServerTempFileName(): Text[1024]'
+    return:
+      returnType:
+        name: Text[1024]
+        isExternal: true
+  name: GetServerTempFileName
+  uid: M:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Gen#_Jnl_Line.GetServerTempFileName:Text[1024]
+commentId: O:Codeunit::Microsoft#Bank#Payment#Pmt Export Mgt Gen# Jnl Line
+name: '"Pmt Export Mgt Gen. Jnl Line"'
+uid: O:Codeunit::Microsoft#Bank#Payment#Pmt_Export_Mgt_Gen#_Jnl_Line

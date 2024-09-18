@@ -1,0 +1,290 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Intrastat.IntraJnlManagement
+alId: ID 350
+namespace: Microsoft.Inventory.Intrastat
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Intrastat
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Intrastat Jnl. Template" = rimd,
+                      TableData "Intrastat Jnl. Batch" = rimd
+  promoted: false
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "22.0"
+  promoted: false
+- name: ObsoleteReason
+  value: Intrastat related functionalities are moved to Intrastat extensions.
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, var IntrastatJnlLine: Record "Intrastat Jnl. Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.TemplateSelection(Integer,Intrastat_Jnl#_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var IntrastatJnlBatch: Record "Intrastat Jnl. Batch")'
+    parameters:
+    - id: IntrastatJnlBatch
+      parameterType:
+        name: Record "Intrastat Jnl. Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.TemplateSelectionFromBatch(Intrastat_Jnl#_Batch@)
+- syntax:
+    content: 'procedure OpenJnl(var CurrentJnlBatchName: Code[10], var IntrastatJnlLine: Record "Intrastat Jnl. Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.OpenJnl(Code[10]@,Intrastat_Jnl#_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var IntrastatJnlBatch: Record "Intrastat Jnl. Batch")'
+    parameters:
+    - id: IntrastatJnlBatch
+      parameterType:
+        name: Record "Intrastat Jnl. Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.OpenJnlBatch(Intrastat_Jnl#_Batch@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var IntrastatJnlLine: Record "Intrastat Jnl. Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.CheckName(Code[10],Intrastat_Jnl#_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var IntrastatJnlLine: Record "Intrastat Jnl. Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.SetName(Code[10],Intrastat_Jnl#_Line@)
+- syntax:
+    content: 'procedure LookupName(CurrentJnlTemplateName: Code[10], CurrentJnlBatchName: Code[10], var EntrdJnlBatchName: Text[10]): Boolean'
+    parameters:
+    - id: CurrentJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EntrdJnlBatchName
+      parameterType:
+        name: Text[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.LookupName(Code[10],Code[10],Text[10]@):Boolean
+- syntax:
+    content: 'procedure CalcStatisticalValue(var IntrastatJnlLine: Record "Intrastat Jnl. Line", LastIntrastatJnlLine: Record "Intrastat Jnl. Line", var StatisticalValue: Decimal, var TotalStatisticalValue: Decimal, var ShowStatisticalValue: Boolean, var ShowTotalStatisticalValue: Boolean)'
+    parameters:
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+    - id: LastIntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+    - id: StatisticalValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalStatisticalValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ShowStatisticalValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowTotalStatisticalValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcStatisticalValue
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.CalcStatisticalValue(Intrastat_Jnl#_Line@,Intrastat_Jnl#_Line,Decimal@,Decimal@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure ValidateReportWithAdvancedChecklist(IntrastatJnlLine: Record "Intrastat Jnl. Line", ReportId: Integer, ThrowError: Boolean): Boolean'
+    parameters:
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+    - id: ReportId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ThrowError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateReportWithAdvancedChecklist
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.ValidateReportWithAdvancedChecklist(Intrastat_Jnl#_Line,Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure ValidateCodeunitWithAdvancedChecklist(IntrastatJnlLine: Record "Intrastat Jnl. Line", CodeunitId: Integer, ThrowError: Boolean): Boolean'
+    parameters:
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+    - id: CodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ThrowError
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateCodeunitWithAdvancedChecklist
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.ValidateCodeunitWithAdvancedChecklist(Intrastat_Jnl#_Line,Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure IsAdvancedChecklistReportField(ReportId: Integer, FieldNo: Integer, FilterExpression: Text): Boolean'
+    parameters:
+    - id: ReportId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FilterExpression
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAdvancedChecklistReportField
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.IsAdvancedChecklistReportField(Integer,Integer,Text):Boolean
+- syntax:
+    content: 'procedure ChecklistClearBatchErrors(IntrastatJnlBatch: Record "Intrastat Jnl. Batch")'
+    parameters:
+    - id: IntrastatJnlBatch
+      parameterType:
+        name: Record "Intrastat Jnl. Batch"
+        isExternal: true
+  name: ChecklistClearBatchErrors
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.ChecklistClearBatchErrors(Intrastat_Jnl#_Batch)
+- syntax:
+    content: procedure CreateDefaultAdvancedIntrastatSetup()
+  name: CreateDefaultAdvancedIntrastatSetup
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.CreateDefaultAdvancedIntrastatSetup
+- syntax:
+    content: 'procedure CheckForJournalBatchError(IntrastatJnlLine: Record "Intrastat Jnl. Line", ThrowError: Boolean)'
+    parameters:
+    - id: IntrastatJnlLine
+      parameterType:
+        name: Record "Intrastat Jnl. Line"
+        isExternal: true
+    - id: ThrowError
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckForJournalBatchError
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.CheckForJournalBatchError(Intrastat_Jnl#_Line,Boolean)
+- syntax:
+    content: 'procedure RoundTotalWeight(TotalWeight: Decimal): Decimal'
+    parameters:
+    - id: TotalWeight
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: RoundTotalWeight
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.RoundTotalWeight(Decimal):Decimal
+- syntax:
+    content: 'procedure GetCompanyVATRegNo(): Text[50]'
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetCompanyVATRegNo
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.GetCompanyVATRegNo:Text[50]
+- syntax:
+    content: 'procedure GetVATRegNo(CountryCode: Code[10], VATRegNo: Text[20], VATRegNoType: Enum "Intrastat VAT No. On File"): Text[50]'
+    parameters:
+    - id: CountryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VATRegNo
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: VATRegNoType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Intrastat#Intrastat_VAT_No#_On_File
+        name: Microsoft.Inventory.Intrastat."Intrastat VAT No. On File"
+        isExternal: false
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetVATRegNo
+  uid: M:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement.GetVATRegNo(Code[10],Text[20],Enum::Microsoft#Inventory#Intrastat#Intrastat_VAT_No#_On_File):Text[50]
+commentId: O:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement
+name: IntraJnlManagement
+obsoletion:
+  state: pending
+  reason: Intrastat related functionalities are moved to Intrastat extensions.
+  version: "22.0"
+uid: O:Codeunit::Microsoft#Inventory#Intrastat#IntraJnlManagement

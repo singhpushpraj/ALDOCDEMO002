@@ -1,0 +1,203 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Whse.-Activity-Register"
+alId: ID 7307
+namespace: Microsoft.Warehouse.Activity
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Registered Whse. Activity Hdr." = ri,
+                      TableData "Registered Whse. Activity Line" = ri,
+                      TableData "Whse. Item Tracking Line" = rim,
+                      TableData "Warehouse Journal Batch" = rimd,
+                      TableData "Posted Whse. Receipt Header" = rm,
+                      TableData "Posted Whse. Receipt Line" = rm,
+                      TableData "Registered Invt. Movement Hdr." = ri,
+                      TableData "Registered Invt. Movement Line" = ri
+  promoted: false
+- name: TableNo
+  value: Warehouse Activity Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Line
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure UpdateWhseSourceDocLine(WhseActivLineGrouped: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseActivLineGrouped
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: UpdateWhseSourceDocLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.UpdateWhseSourceDocLine(Warehouse_Activity_Line)
+- syntax:
+    content: 'procedure UpdateWhseDocHeader(WhseActivLine: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: UpdateWhseDocHeader
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.UpdateWhseDocHeader(Warehouse_Activity_Line)
+- syntax:
+    content: 'procedure UpdateWhseShipmentLine(WhseActivityLineGrouped: Record "Warehouse Activity Line", WhseDocNo: Code[20], WhseDocLineNo: Integer, QtyToHandle: Decimal, QtyToHandleBase: Decimal, QtyPerUOM: Decimal)'
+    parameters:
+    - id: WhseActivityLineGrouped
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToHandleBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateWhseShipmentLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.UpdateWhseShipmentLine(Warehouse_Activity_Line,Code[20],Integer,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure LocationGet(LocationCode: Code[10])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: LocationGet
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.LocationGet(Code[10])
+- syntax:
+    content: 'procedure GetItemUnitOfMeasure(ItemNo: Code[20], UOMCode: Code[10])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UOMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetItemUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.GetItemUnitOfMeasure(Code[20],Code[10])
+- syntax:
+    content: 'procedure CheckWhseItemTrkgLine(var WhseActivLine: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: CheckWhseItemTrkgLine
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.CheckWhseItemTrkgLine(Warehouse_Activity_Line@)
+- syntax:
+    content: 'procedure SetPointer(WhseActivLine: Record "Warehouse Activity Line", var WhseItemTrkgLine: Record "Whse. Item Tracking Line")'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrkgLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+  name: SetPointer
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.SetPointer(Warehouse_Activity_Line,Whse#_Item_Tracking_Line@)
+- syntax:
+    content: 'procedure SetPointerFilter(WhseActivLine: Record "Warehouse Activity Line", var WhseItemTrkgLine: Record "Whse. Item Tracking Line")'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrkgLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+  name: SetPointerFilter
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.SetPointerFilter(Warehouse_Activity_Line,Whse#_Item_Tracking_Line@)
+- syntax:
+    content: 'procedure ShowHideDialog(HideDialog2: Boolean)'
+    parameters:
+    - id: HideDialog2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowHideDialog
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.ShowHideDialog(Boolean)
+- syntax:
+    content: 'procedure CalcTotalAvailQtyToPick(WhseActivLine: Record "Warehouse Activity Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcTotalAvailQtyToPick
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.CalcTotalAvailQtyToPick(Warehouse_Activity_Line,Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure GetItem(ItemNo: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetItem
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.GetItem(Code[20])
+- syntax:
+    content: 'procedure ReleaseNonSpecificReservations(WhseActivLine: Record "Warehouse Activity Line", WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, QtyToRelease: Decimal): Boolean'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: QtyToRelease
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReleaseNonSpecificReservations
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.ReleaseNonSpecificReservations(Warehouse_Activity_Line,Item_Tracking_Setup,Decimal):Boolean
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register.SetSuppressCommit(Boolean)
+commentId: O:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register
+name: '"Whse.-Activity-Register"'
+uid: O:Codeunit::Microsoft#Warehouse#Activity#Whse#-Activity-Register

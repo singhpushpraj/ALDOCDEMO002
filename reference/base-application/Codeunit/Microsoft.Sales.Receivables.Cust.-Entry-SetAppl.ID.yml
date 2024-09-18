@@ -1,0 +1,49 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Receivables."Cust. Entry-SetAppl.ID"
+alId: ID 101
+namespace: Microsoft.Sales.Receivables
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Receivables
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Cust. Ledger Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetApplId(var CustLedgEntry: Record "Cust. Ledger Entry", ApplyingCustLedgEntry: Record "Cust. Ledger Entry", AppliesToID: Code[50])'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplyingCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: AppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetApplId
+  uid: M:Codeunit::Microsoft#Sales#Receivables#Cust#_Entry-SetAppl#ID.SetApplId(Cust#_Ledger_Entry@,Cust#_Ledger_Entry,Code[50])
+- syntax:
+    content: 'procedure RemoveApplId(var CustLedgerEntry: Record "Cust. Ledger Entry", AppliestoID: Code[50])'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: AppliestoID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: RemoveApplId
+  uid: M:Codeunit::Microsoft#Sales#Receivables#Cust#_Entry-SetAppl#ID.RemoveApplId(Cust#_Ledger_Entry@,Code[50])
+commentId: O:Codeunit::Microsoft#Sales#Receivables#Cust# Entry-SetAppl#ID
+name: '"Cust. Entry-SetAppl.ID"'
+uid: O:Codeunit::Microsoft#Sales#Receivables#Cust#_Entry-SetAppl#ID

@@ -1,0 +1,190 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Journal.ItemJnlManagement
+alId: ID 240
+namespace: Microsoft.Inventory.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Journal Template" = rimd,
+                      TableData "Item Journal Batch" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, PageTemplate: Option, RecurringJnl: Boolean, var ItemJnlLine: Record "Item Journal Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PageTemplate
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RecurringJnl
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.TemplateSelection(Integer,Option,Boolean,Item_Journal_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var ItemJnlBatch: Record "Item Journal Batch")'
+    parameters:
+    - id: ItemJnlBatch
+      parameterType:
+        name: Record "Item Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.TemplateSelectionFromBatch(Item_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJnl(var CurrentJnlBatchName: Code[10], var ItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.OpenJnl(Code[10]@,Item_Journal_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var ItemJnlBatch: Record "Item Journal Batch")'
+    parameters:
+    - id: ItemJnlBatch
+      parameterType:
+        name: Record "Item Journal Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.OpenJnlBatch(Item_Journal_Batch@)
+- syntax:
+    content: 'procedure CheckTemplateName(CurrentJnlTemplateName: Code[10], var CurrentJnlBatchName: Code[10])'
+    parameters:
+    - id: CurrentJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckTemplateName
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.CheckTemplateName(Code[10],Code[10]@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var ItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.CheckName(Code[10],Item_Journal_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var ItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.SetName(Code[10],Item_Journal_Line@)
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var ItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.LookupName(Code[10]@,Item_Journal_Line@)
+- syntax:
+    content: 'procedure GetItem(ItemNo: Code[20], var ItemDescription: Text[100])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetItem
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.GetItem(Code[20],Text[100]@)
+- syntax:
+    content: 'procedure GetConsump(var ItemJnlLine: Record "Item Journal Line", var ProdOrderDescription: Text[100])'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ProdOrderDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetConsump
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.GetConsump(Item_Journal_Line@,Text[100]@)
+- syntax:
+    content: 'procedure GetOutput(var ItemJnlLine: Record "Item Journal Line", var ProdOrderDescription: Text[100], var OperationDescription: Text[100])'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ProdOrderDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: OperationDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetOutput
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.GetOutput(Item_Journal_Line@,Text[100]@,Text[100]@)
+- syntax:
+    content: 'procedure GetCapacity(CapType: Enum "Capacity Type", CapNo: Code[20], var CapDescription: Text[100])'
+    parameters:
+    - id: CapType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+        name: Microsoft.Manufacturing.Capacity."Capacity Type"
+        isExternal: false
+    - id: CapNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CapDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetCapacity
+  uid: M:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement.GetCapacity(Enum::Microsoft#Manufacturing#Capacity#Capacity_Type,Code[20],Text[100]@)
+commentId: O:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement
+name: ItemJnlManagement
+uid: O:Codeunit::Microsoft#Inventory#Journal#ItemJnlManagement

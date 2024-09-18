@@ -1,0 +1,259 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Match Bank Rec. Lines"
+alId: ID 1252
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure MatchManually(var SelectedBankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var SelectedBankAccountLedgerEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: SelectedBankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: SelectedBankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: MatchManually
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.MatchManually(Bank_Acc#_Reconciliation_Line@,Bank_Account_Ledger_Entry@)
+- syntax:
+    content: 'procedure RemoveMatchesFromRecLines(var SelectedBankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: SelectedBankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: RemoveMatchesFromRecLines
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.RemoveMatchesFromRecLines(Bank_Acc#_Reconciliation_Line@)
+- syntax:
+    content: 'procedure RemoveMatchesFromRecLines(var SelectedBankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var MatchesRemoved: Boolean)'
+    parameters:
+    - id: SelectedBankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: MatchesRemoved
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveMatchesFromRecLines
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.RemoveMatchesFromRecLines(Bank_Acc#_Reconciliation_Line@,Boolean@)
+- syntax:
+    content: 'procedure RemoveMatch(var SelectedBankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", var SelectedBankAccountLedgerEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: SelectedBankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: SelectedBankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: RemoveMatch
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.RemoveMatch(Bank_Acc#_Reconciliation_Line@,Bank_Account_Ledger_Entry@)
+- syntax:
+    content: 'procedure BankAccReconciliationAutoMatch(BankAccReconciliation: Record "Bank Acc. Reconciliation", DaysTolerance: Integer)'
+    parameters:
+    - id: BankAccReconciliation
+      description: ""
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    - id: DaysTolerance
+      description: ""
+      parameterType:
+        name: Integer
+        isExternal: true
+  summary: >-
+    Algorithm for auto matching used in the Bank Acc. Reconciliation page.
+
+    It updates matched Bank Account Ledger Entries by applying them and setting their Statement No., Statement Line No., etc.
+  name: BankAccReconciliationAutoMatch
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.BankAccReconciliationAutoMatch(Bank_Acc#_Reconciliation,Integer)
+- syntax:
+    content: 'procedure BankAccReconciliationAutoMatch(var BankAccReconciliation: Record "Bank Acc. Reconciliation", DaysTolerance: Integer, RaiseFindBestMatchesEvent: Boolean, ShouldShowMatchSummary: Boolean)'
+    parameters:
+    - id: BankAccReconciliation
+      description: ""
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    - id: DaysTolerance
+      description: ""
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RaiseFindBestMatchesEvent
+      description: ""
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShouldShowMatchSummary
+      description: ""
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    Algorithm for auto matching used in the Bank Acc. Reconciliation page.
+
+    It updates matched Bank Account Ledger Entries by applying them and setting their Statement No., Statement Line No., etc.
+  name: BankAccReconciliationAutoMatch
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.BankAccReconciliationAutoMatch(Bank_Acc#_Reconciliation@,Integer,Boolean,Boolean)
+- syntax:
+    content: 'procedure InitializeBLEMatchingTempTable(var TempBankAccLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary, var BankAccountLedgerEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: TempBankAccLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: InitializeBLEMatchingTempTable
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.InitializeBLEMatchingTempTable(Ledger_Entry_Matching_Buffer@,Bank_Account_Ledger_Entry@)
+- syntax:
+    content: 'procedure ListOfMatchedFields(AmountMatched: Boolean, DocumentNoMatched: Boolean, ExternalDocumentNoMatched: Boolean, TransactionDateMatched: Boolean, RelatedPartyMatched: Boolean, DescriptionMatched: Boolean): Text'
+    parameters:
+    - id: AmountMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DocumentNoMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExternalDocumentNoMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TransactionDateMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RelatedPartyMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DescriptionMatched
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ListOfMatchedFields
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.ListOfMatchedFields(Boolean,Boolean,Boolean,Boolean,Boolean,Boolean):Text
+- syntax:
+    content: 'procedure SaveOneToOneMatching(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccountNo: Code[20], StatementNo: Code[20])'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StatementNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SaveOneToOneMatching
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.SaveOneToOneMatching(Bank_Statement_Matching_Buffer@,Code[20],Code[20])
+- syntax:
+    content: 'procedure SaveManyToOneMatching(var TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccountNo: Code[20], StatementNo: Code[20])'
+    parameters:
+    - id: TempBankStatementMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StatementNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SaveManyToOneMatching
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.SaveManyToOneMatching(Bank_Statement_Matching_Buffer@,Code[20],Code[20])
+- syntax:
+    content: 'procedure ShowMatchSummary(BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: ShowMatchSummary
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.ShowMatchSummary(Bank_Acc#_Reconciliation)
+- syntax:
+    content: 'procedure GetDescriptionMatchScore(BankRecDescription: Text, BankEntryDescription: Text, DocumentNo: Code[20], ExternalDocumentNo: Code[35]): Integer'
+    parameters:
+    - id: BankRecDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BankEntryDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExternalDocumentNo
+      parameterType:
+        name: Code[35]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDescriptionMatchScore
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.GetDescriptionMatchScore(Text,Text,Code[20],Code[35]):Integer
+- syntax:
+    content: 'procedure SetMatchLengthTreshold(NewMatchLengthThreshold: Integer)'
+    parameters:
+    - id: NewMatchLengthThreshold
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetMatchLengthTreshold
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.SetMatchLengthTreshold(Integer)
+- syntax:
+    content: 'procedure SetNormalizingFactor(NewNormalizingFactor: Integer)'
+    parameters:
+    - id: NewNormalizingFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetNormalizingFactor
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.SetNormalizingFactor(Integer)
+- syntax:
+    content: 'procedure GetMatchLengthTreshold(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetMatchLengthTreshold
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.GetMatchLengthTreshold:Integer
+- syntax:
+    content: 'procedure GetNormalizingFactor(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNormalizingFactor
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines.GetNormalizingFactor:Integer
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Match Bank Rec# Lines
+name: '"Match Bank Rec. Lines"'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Match_Bank_Rec#_Lines

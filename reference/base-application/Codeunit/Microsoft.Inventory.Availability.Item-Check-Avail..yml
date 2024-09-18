@@ -1,0 +1,406 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability."Item-Check Avail."
+alId: ID 311
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "My Notifications" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ItemJnlCheckLine(ItemJnlLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemJnlCheckLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ItemJnlCheckLine(Item_Journal_Line):Boolean
+- syntax:
+    content: 'procedure SalesLineCheck(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLineCheck
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.SalesLineCheck(Sales_Line):Boolean
+- syntax:
+    content: 'procedure TransferLineCheck(TransLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: TransLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransferLineCheck
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.TransferLineCheck(Transfer_Line):Boolean
+- syntax:
+    content: 'procedure ServiceInvLineCheck(ServInvLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: ServInvLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceInvLineCheck
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ServiceInvLineCheck(Service_Line):Boolean
+- syntax:
+    content: 'procedure JobPlanningLineCheck(JobPlanningLine: Record "Job Planning Line"): Boolean'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: JobPlanningLineCheck
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.JobPlanningLineCheck(Job_Planning_Line):Boolean
+- syntax:
+    content: 'procedure AssemblyLineCheck(AssemblyLine: Record "Assembly Line"): Boolean'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssemblyLineCheck
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.AssemblyLineCheck(Assembly_Line):Boolean
+- syntax:
+    content: 'procedure ShowAsmWarningYesNo(var AsmHeader: Record "Assembly Header", var AsmLine: Record "Assembly Line"): Boolean'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: AsmLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowAsmWarningYesNo
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ShowAsmWarningYesNo(Assembly_Header@,Assembly_Line@):Boolean
+- syntax:
+    content: 'procedure ItemJnlLineShowWarning(ItemJnlLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemJnlLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ItemJnlLineShowWarning(Item_Journal_Line):Boolean
+- syntax:
+    content: 'procedure SalesLineShowWarning(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.SalesLineShowWarning(Sales_Line):Boolean
+- syntax:
+    content: 'procedure ShowWarning(ItemNoArg: Code[20], ItemVariantCodeArg: Code[10], ItemLocationCodeArg: Code[10], UnitOfMeasureCodeArg: Code[10], QtyPerUnitOfMeasureArg: Decimal, NewItemNetChangeArg: Decimal, OldItemNetChangeArg: Decimal, ShipmentDateArg: Date, OldShipmentDateArg: Date): Boolean'
+    parameters:
+    - id: ItemNoArg
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemVariantCodeArg
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemLocationCodeArg
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UnitOfMeasureCodeArg
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: QtyPerUnitOfMeasureArg
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewItemNetChangeArg
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: OldItemNetChangeArg
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ShipmentDateArg
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OldShipmentDateArg
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ShowWarning(Code[20],Code[10],Code[10],Code[10],Decimal,Decimal,Decimal,Date,Date):Boolean
+- syntax:
+    content: 'procedure TransferLineShowWarning(TransLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: TransLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TransferLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.TransferLineShowWarning(Transfer_Line):Boolean
+- syntax:
+    content: 'procedure ServiceInvLineShowWarning(ServLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceInvLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ServiceInvLineShowWarning(Service_Line):Boolean
+- syntax:
+    content: 'procedure JobPlanningLineShowWarning(JobPlanningLine: Record "Job Planning Line"): Boolean'
+    parameters:
+    - id: JobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: JobPlanningLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.JobPlanningLineShowWarning(Job_Planning_Line):Boolean
+- syntax:
+    content: 'procedure AsmOrderLineShowWarning(AssemblyLine: Record "Assembly Line"): Boolean'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AsmOrderLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.AsmOrderLineShowWarning(Assembly_Line):Boolean
+- syntax:
+    content: 'procedure AsmOrderCalculate(AssemblyHeader: Record "Assembly Header", var InventoryQty2: Decimal, var GrossReq2: Decimal, var ReservedReq2: Decimal, var SchedRcpt2: Decimal, var ReservedRcpt2: Decimal)'
+    parameters:
+    - id: AssemblyHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: InventoryQty2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GrossReq2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedReq2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SchedRcpt2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedRcpt2
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AsmOrderCalculate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.AsmOrderCalculate(Assembly_Header,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure FetchCalculation(var ItemNo2: Code[20], var UnitOfMeasureCode2: Code[10], var InventoryQty2: Decimal, var GrossReq2: Decimal, var ReservedReq2: Decimal, var SchedRcpt2: Decimal, var ReservedRcpt2: Decimal, var CurrentQuantity2: Decimal, var CurrentReservedQty2: Decimal, var TotalQuantity2: Decimal, var EarliestAvailDate2: Date)'
+    parameters:
+    - id: ItemNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UnitOfMeasureCode2
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: InventoryQty2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GrossReq2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedReq2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SchedRcpt2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedRcpt2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrentQuantity2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrentReservedQty2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalQuantity2
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: EarliestAvailDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: FetchCalculation
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.FetchCalculation(Code[20]@,Code[10]@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Date@)
+- syntax:
+    content: procedure RaiseUpdateInterruptedError()
+  name: RaiseUpdateInterruptedError
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.RaiseUpdateInterruptedError
+- syntax:
+    content: 'procedure ShowAndHandleAvailabilityPage(RecordId: RecordId): Boolean'
+    parameters:
+    - id: RecordId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowAndHandleAvailabilityPage
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ShowAndHandleAvailabilityPage(RecordId):Boolean
+- syntax:
+    content: 'procedure ShowNotificationDetails(AvailabilityCheckNotification: Notification)'
+    parameters:
+    - id: AvailabilityCheckNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowNotificationDetails
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ShowNotificationDetails(Notification)
+- syntax:
+    content: 'procedure ShowWarningForThisItem(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowWarningForThisItem
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ShowWarningForThisItem(Code[20]):Boolean
+- syntax:
+    content: 'procedure InvtDocCheckLine(InvtDocLine: Record "Invt. Document Line"): Boolean'
+    parameters:
+    - id: InvtDocLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvtDocCheckLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.InvtDocCheckLine(Invt#_Document_Line):Boolean
+- syntax:
+    content: 'procedure ItemDocLineShowWarning(InvtDocLine: Record "Invt. Document Line"): Boolean'
+    parameters:
+    - id: InvtDocLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemDocLineShowWarning
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.ItemDocLineShowWarning(Invt#_Document_Line):Boolean
+- syntax:
+    content: 'procedure GetItemAvailabilityNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetItemAvailabilityNotificationId
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.GetItemAvailabilityNotificationId:Guid
+- syntax:
+    content: 'procedure DeactivateNotification(SetupNotification: Notification)'
+    parameters:
+    - id: SetupNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DeactivateNotification
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.DeactivateNotification(Notification)
+- syntax:
+    content: 'procedure SetUseOrderPromise(NewUseOrderPromise: Boolean)'
+    parameters:
+    - id: NewUseOrderPromise
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetUseOrderPromise
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#.SetUseOrderPromise(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Availability#Item-Check Avail#
+name: '"Item-Check Avail."'
+uid: O:Codeunit::Microsoft#Inventory#Availability#Item-Check_Avail#

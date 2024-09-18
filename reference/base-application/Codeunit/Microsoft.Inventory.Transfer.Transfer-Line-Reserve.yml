@@ -1,0 +1,402 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."Transfer Line-Reserve"
+alId: ID 99000836
+namespace: Microsoft.Inventory.Transfer
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Reservation Entry" = rimd,
+                      TableData "Planning Assignment" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateReservation(var TransferLine: Record "Transfer Line", Description: Text[100], ExpectedReceiptDate: Date, Quantity: Decimal, QuantityBase: Decimal, ForReservationEntry: Record "Reservation Entry", Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ExpectedReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ForReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: CreateReservation
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.CreateReservation(Transfer_Line@,Text[100],Date,Decimal,Decimal,Reservation_Entry,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure CreateReservationSetFrom(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateReservationSetFrom
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.CreateReservationSetFrom(Tracking_Specification)
+- syntax:
+    content: 'procedure Caption(TransferLine: Record "Transfer Line"): Text'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.Caption(Transfer_Line):Text
+- syntax:
+    content: 'procedure FindReservEntry(TransferLine: Record "Transfer Line", var ReservationEntry: Record "Reservation Entry", Direction: Enum "Transfer Direction"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.FindReservEntry(Transfer_Line,Reservation_Entry@,Enum::Microsoft#Foundation#Enums#Transfer_Direction):Boolean
+- syntax:
+    content: 'procedure FindReservEntrySet(TransferLine: Record "Transfer Line", var ReservationEntry: Record "Reservation Entry", Direction: Enum "Transfer Direction"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindReservEntrySet
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.FindReservEntrySet(Transfer_Line,Reservation_Entry@,Enum::Microsoft#Foundation#Enums#Transfer_Direction):Boolean
+- syntax:
+    content: 'procedure FindInboundReservEntry(TransferLine: Record "Transfer Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindInboundReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.FindInboundReservEntry(Transfer_Line,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(TransferLine: Record "Transfer Line"): Decimal'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.GetReservedQtyFromInventory(Transfer_Line):Decimal
+- syntax:
+    content: 'procedure GetReservedQtyFromInventory(TransferHeader: Record "Transfer Header"): Decimal'
+    parameters:
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservedQtyFromInventory
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.GetReservedQtyFromInventory(Transfer_Header):Decimal
+- syntax:
+    content: 'procedure VerifyChange(var NewTransferLine: Record "Transfer Line", var OldTransferLine: Record "Transfer Line")'
+    parameters:
+    - id: NewTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: OldTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: VerifyChange
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.VerifyChange(Transfer_Line@,Transfer_Line@)
+- syntax:
+    content: 'procedure VerifyQuantity(var NewTransferLine: Record "Transfer Line", var OldTransferLine: Record "Transfer Line")'
+    parameters:
+    - id: NewTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: OldTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: VerifyQuantity
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.VerifyQuantity(Transfer_Line@,Transfer_Line@)
+- syntax:
+    content: 'procedure UpdatePlanningFlexibility(var TransferLine: Record "Transfer Line")'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: UpdatePlanningFlexibility
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.UpdatePlanningFlexibility(Transfer_Line@)
+- syntax:
+    content: 'procedure TransferTransferToItemJnlLine(var TransferLine: Record "Transfer Line", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: TransferTransferToItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.TransferTransferToItemJnlLine(Transfer_Line@,Item_Journal_Line@,Decimal,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure TransferTransferToItemJnlLine(var TransferLine: Record "Transfer Line", var ItemJournalLine: Record "Item Journal Line", TransferQty: Decimal, Direction: Enum "Transfer Direction", IsReclass: Boolean)'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    - id: IsReclass
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferTransferToItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.TransferTransferToItemJnlLine(Transfer_Line@,Item_Journal_Line@,Decimal,Enum::Microsoft#Foundation#Enums#Transfer_Direction,Boolean)
+- syntax:
+    content: 'procedure TransferWhseShipmentToItemJnlLine(var TransferLine: Record "Transfer Line", var ItemJournalLine: Record "Item Journal Line", var WarehouseShipmentHeader: Record "Warehouse Shipment Header", TransferQty: Decimal)'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: WarehouseShipmentHeader
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferWhseShipmentToItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.TransferWhseShipmentToItemJnlLine(Transfer_Line@,Item_Journal_Line@,Warehouse_Shipment_Header@,Decimal)
+- syntax:
+    content: 'procedure TransferTransferToTransfer(var OldTransferLine: Record "Transfer Line", var NewTransferLine: Record "Transfer Line", TransferQty: Decimal, Direction: Enum "Transfer Direction", var TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: OldTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: NewTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: TransferQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: TransferTransferToTransfer
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.TransferTransferToTransfer(Transfer_Line@,Transfer_Line@,Decimal,Enum::Microsoft#Foundation#Enums#Transfer_Direction,Tracking_Specification@)
+- syntax:
+    content: 'procedure DeleteLineConfirm(var TransferLine: Record "Transfer Line"): Boolean'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeleteLineConfirm
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.DeleteLineConfirm(Transfer_Line@):Boolean
+- syntax:
+    content: 'procedure DeleteLine(var TransferLine: Record "Transfer Line")'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: DeleteLine
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.DeleteLine(Transfer_Line@)
+- syntax:
+    content: 'procedure Block(SetBlocked: Boolean)'
+    parameters:
+    - id: SetBlocked
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: Block
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.Block(Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var TransferLine: Record "Transfer Line", Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.CallItemTracking(Transfer_Line@,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure CallItemTracking(var TransferLine: Record "Transfer Line", Direction: Enum "Transfer Direction", DirectTransfer: Boolean)'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    - id: DirectTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.CallItemTracking(Transfer_Line@,Enum::Microsoft#Foundation#Enums#Transfer_Direction,Boolean)
+- syntax:
+    content: 'procedure CallItemTracking(var TransferLine: Record "Transfer Line", Direction: Enum "Transfer Direction", SecondSourceQuantityArray: array[3] of Decimal)'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    - id: SecondSourceQuantityArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: CallItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.CallItemTracking(Transfer_Line@,Enum::Microsoft#Foundation#Enums#Transfer_Direction,Decimal[])
+- syntax:
+    content: 'procedure UpdateItemTrackingAfterPosting(TransferHeader: Record "Transfer Header", Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: TransferHeader
+      parameterType:
+        name: Record "Transfer Header"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: UpdateItemTrackingAfterPosting
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.UpdateItemTrackingAfterPosting(Transfer_Header,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure RegisterBinContentItemTracking(var TransferLine: Record "Transfer Line", var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: RegisterBinContentItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve.RegisterBinContentItemTracking(Transfer_Line@,Tracking_Specification@)
+commentId: O:Codeunit::Microsoft#Inventory#Transfer#Transfer Line-Reserve
+name: '"Transfer Line-Reserve"'
+uid: O:Codeunit::Microsoft#Inventory#Transfer#Transfer_Line-Reserve

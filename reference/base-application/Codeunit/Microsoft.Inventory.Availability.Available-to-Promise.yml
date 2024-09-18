@@ -1,0 +1,323 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability."Available to Promise"
+alId: ID 5790
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Prod. Order Line" = r,
+                      TableData "Prod. Order Component" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalcQtyAvailableToPromise(var Item: Record Item, var GrossRequirement: Decimal, var ScheduledReceipt: Decimal, AvailabilityDate: Date, PeriodType: Enum "Analysis Period Type", LookaheadDateFormula: DateFormula): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: GrossRequirement
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScheduledReceipt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AvailabilityDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: LookaheadDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyAvailableToPromise
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcQtyAvailableToPromise(Item@,Decimal@,Decimal@,Date,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,DateFormula):Decimal
+- syntax:
+    content: 'procedure CalcAvailableInventory(var Item: Record Item): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailableInventory
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcAvailableInventory(Item@):Decimal
+- syntax:
+    content: 'procedure CalcGrossRequirement(var Item: Record Item): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcGrossRequirement
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcGrossRequirement(Item@):Decimal
+- syntax:
+    content: 'procedure CalcReservedRequirement(var Item: Record Item): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservedRequirement
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcReservedRequirement(Item@):Decimal
+- syntax:
+    content: 'procedure CalcScheduledReceipt(var Item: Record Item): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcScheduledReceipt
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcScheduledReceipt(Item@):Decimal
+- syntax:
+    content: 'procedure CalcReservedReceipt(var Item: Record Item): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservedReceipt
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcReservedReceipt(Item@):Decimal
+- syntax:
+    content: 'procedure CalcEarliestAvailabilityDate(var Item: Record Item, NeededQty: Decimal, StartDate: Date, ExcludeQty: Decimal, ExcludeOnDate: Date, var AvailableQty: Decimal, PeriodType: Enum "Analysis Period Type", LookaheadDateFormula: DateFormula): Date'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NeededQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ExcludeQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExcludeOnDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AvailableQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: LookaheadDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcEarliestAvailabilityDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalcEarliestAvailabilityDate(Item@,Decimal,Date,Decimal,Date,Decimal@,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,DateFormula):Date
+- syntax:
+    content: 'procedure CalculateForward(var Item: Record Item, PeriodType: Enum "Analysis Period Type", StartDate: Date, EndDate: Date): Decimal'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalculateForward
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalculateForward(Item@,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Date,Date):Decimal
+- syntax:
+    content: 'procedure CalculateAvailability(var Item: Record Item, var AvailabilityAtDate: Record "Availability at Date")'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: AvailabilityAtDate
+      parameterType:
+        name: Record "Availability at Date"
+        isExternal: true
+  name: CalculateAvailability
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.CalculateAvailability(Item@,Availability_at_Date@)
+- syntax:
+    content: 'procedure UpdateScheduledReceipt(var AvailabilityAtDate: Record "Availability at Date", ReceiptDate: Date, ScheduledReceipt: Decimal)'
+    parameters:
+    - id: AvailabilityAtDate
+      parameterType:
+        name: Record "Availability at Date"
+        isExternal: true
+    - id: ReceiptDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ScheduledReceipt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateScheduledReceipt
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.UpdateScheduledReceipt(Availability_at_Date@,Date,Decimal)
+- syntax:
+    content: 'procedure UpdateGrossRequirement(var AvailabilityAtDate: Record "Availability at Date", ShipmentDate: Date, GrossRequirement: Decimal)'
+    parameters:
+    - id: AvailabilityAtDate
+      parameterType:
+        name: Record "Availability at Date"
+        isExternal: true
+    - id: ShipmentDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: GrossRequirement
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateGrossRequirement
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.UpdateGrossRequirement(Availability_at_Date@,Date,Decimal)
+- syntax:
+    content: 'procedure GetRequiredShipmentDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetRequiredShipmentDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.GetRequiredShipmentDate:Date
+- syntax:
+    content: 'procedure GetForwardPeriodEndDate(LookaheadDateFormula: DateFormula, PeriodType: Enum "Analysis Period Type", StartDate: Date): Date'
+    parameters:
+    - id: LookaheadDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetForwardPeriodEndDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.GetForwardPeriodEndDate(DateFormula,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type,Date):Date
+- syntax:
+    content: 'procedure GetPeriodEndingDate(PeriodEnd: Date, PeriodType: Enum "Analysis Period Type"): Date'
+    parameters:
+    - id: PeriodEnd
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Period_Type
+        name: Microsoft.Foundation.Enums."Analysis Period Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetPeriodEndingDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.GetPeriodEndingDate(Date,Enum::Microsoft#Foundation#Enums#Analysis_Period_Type):Date
+- syntax:
+    content: 'procedure SetPromisingReqShipDate(OrderPromisingLine: Record "Order Promising Line")'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+  name: SetPromisingReqShipDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.SetPromisingReqShipDate(Order_Promising_Line)
+- syntax:
+    content: 'procedure SetOriginalShipmentDate(OrderPromisingLine: Record "Order Promising Line")'
+    parameters:
+    - id: OrderPromisingLine
+      parameterType:
+        name: Record "Order Promising Line"
+        isExternal: true
+  name: SetOriginalShipmentDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.SetOriginalShipmentDate(Order_Promising_Line)
+- syntax:
+    content: 'procedure SetChangedSalesLine(SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SetChangedSalesLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.SetChangedSalesLine(Sales_Line)
+- syntax:
+    content: 'procedure SetChangedAsmLine(AssemblyLine: Record "Assembly Line")'
+    parameters:
+    - id: AssemblyLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: SetChangedAsmLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.SetChangedAsmLine(Assembly_Line)
+- syntax:
+    content: procedure ResetItemNo()
+  name: ResetItemNo
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise.ResetItemNo
+commentId: O:Codeunit::Microsoft#Inventory#Availability#Available to Promise
+name: '"Available to Promise"'
+uid: O:Codeunit::Microsoft#Inventory#Availability#Available_to_Promise

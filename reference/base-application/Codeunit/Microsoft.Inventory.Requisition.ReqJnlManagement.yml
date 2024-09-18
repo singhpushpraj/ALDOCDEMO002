@@ -1,0 +1,147 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition.ReqJnlManagement
+alId: ID 330
+namespace: Microsoft.Inventory.Requisition
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Req. Wksh. Template" = rimd,
+                      TableData "Requisition Wksh. Name" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure WkshTemplateSelection(PageID: Integer, RecurringJnl: Boolean, TemplateType: Enum "Req. Worksheet Template Type", var ReqLine: Record "Requisition Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecurringJnl
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TemplateType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Requisition#Req#_Worksheet_Template_Type
+        name: Microsoft.Inventory.Requisition."Req. Worksheet Template Type"
+        isExternal: false
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: WkshTemplateSelection
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.WkshTemplateSelection(Integer,Boolean,Enum::Microsoft#Inventory#Requisition#Req#_Worksheet_Template_Type,Requisition_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var ReqWkshName: Record "Requisition Wksh. Name")'
+    parameters:
+    - id: ReqWkshName
+      parameterType:
+        name: Record "Requisition Wksh. Name"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.TemplateSelectionFromBatch(Requisition_Wksh#_Name@)
+- syntax:
+    content: 'procedure OpenJnl(var CurrentJnlBatchName: Code[10], var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.OpenJnl(Code[10]@,Requisition_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var ReqWkshName: Record "Requisition Wksh. Name")'
+    parameters:
+    - id: ReqWkshName
+      parameterType:
+        name: Record "Requisition Wksh. Name"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.OpenJnlBatch(Requisition_Wksh#_Name@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.CheckName(Code[10],Requisition_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.SetName(Code[10],Requisition_Line@)
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var ReqLine: Record "Requisition Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.LookupName(Code[10]@,Requisition_Line@)
+- syntax:
+    content: 'procedure GetDescriptionAndRcptName(var ReqLine: Record "Requisition Line", var Description: Text[100], var BuyFromVendorName: Text[100])'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: BuyFromVendorName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetDescriptionAndRcptName
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.GetDescriptionAndRcptName(Requisition_Line@,Text[100]@,Text[100]@)
+- syntax:
+    content: 'procedure SetUpNewLine(var ReqLine: Record "Requisition Line", LastReqLine: Record "Requisition Line")'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: LastReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement.SetUpNewLine(Requisition_Line@,Requisition_Line)
+commentId: O:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement
+name: ReqJnlManagement
+uid: O:Codeunit::Microsoft#Inventory#Requisition#ReqJnlManagement

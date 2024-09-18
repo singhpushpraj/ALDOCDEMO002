@@ -1,0 +1,41 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Sales Credit Memo Hdr. - Edit"
+alId: ID 1408
+namespace: Microsoft.Sales.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Sales Cr.Memo Header" = rm
+  promoted: false
+- name: TableNo
+  value: Sales Cr.Memo Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#History#Sales_Cr#Memo_Header
+    name: Microsoft.Sales.History."Sales Cr.Memo Header"
+    isExternal: false
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeSalesCrMemoHeaderModify(var SalesCrMemoHeader: Record "Sales Cr.Memo Header", FromSalesCrMemoHeader: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: FromSalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: OnBeforeSalesCrMemoHeaderModify
+  uid: M:Codeunit::Microsoft#Sales#History#Sales_Credit_Memo_Hdr#_-_Edit.OnBeforeSalesCrMemoHeaderModify(Sales_Cr#Memo_Header@,Sales_Cr#Memo_Header)
+commentId: O:Codeunit::Microsoft#Sales#History#Sales Credit Memo Hdr# - Edit
+name: '"Sales Credit Memo Hdr. - Edit"'
+uid: O:Codeunit::Microsoft#Sales#History#Sales_Credit_Memo_Hdr#_-_Edit

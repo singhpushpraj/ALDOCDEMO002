@@ -1,0 +1,122 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reminder."Cancel Issued Reminder"
+alId: ID 1393
+namespace: Microsoft.Sales.Reminder
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reminder
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rm,
+                      TableData "Issued Reminder Header" = rm,
+                      TableData "Issued Reminder Line" = rm,
+                      TableData "Reminder/Fin. Charge Entry" = rm
+  promoted: false
+- name: TableNo
+  value: Issued Reminder Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Reminder#Issued_Reminder_Header
+    name: Microsoft.Sales.Reminder."Issued Reminder Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure GetErrorMessages(var TempErrorMessageResult: Record "Error Message" temporary): Boolean'
+    parameters:
+    - id: TempErrorMessageResult
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetErrorMessages
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder.GetErrorMessages(Error_Message@):Boolean
+- syntax:
+    content: 'procedure SetParameters(NewUseSameDocumentNo: Boolean, NewUseSamePostingDate: Boolean, PostingDate: Date, NewUseSameVATDate: Boolean, VATDate: Date, NewSkipShowNotification: Boolean)'
+    parameters:
+    - id: NewUseSameDocumentNo
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewUseSamePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewUseSameVATDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewSkipShowNotification
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: Specify parameters with specifying VAT Date
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder.SetParameters(Boolean,Boolean,Date,Boolean,Date,Boolean)
+- syntax:
+    content: 'procedure SetParameters(NewUseSameDocumentNo: Boolean, NewUseSamePostingDate: Boolean, PostingDate: Date, NewSkipShowNotification: Boolean)'
+    parameters:
+    - id: NewUseSameDocumentNo
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewUseSamePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewSkipShowNotification
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: Specify parameters with UseSameVATDate default to True
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder.SetParameters(Boolean,Boolean,Date,Boolean)
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder.SetGenJnlBatch(Gen#_Journal_Batch)
+- syntax:
+    content: 'procedure ShowIssuedReminder(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowIssuedReminder
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder.ShowIssuedReminder(Notification)
+- syntax:
+    content: 'procedure ShowCustomerLedgerEntry(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: ShowCustomerLedgerEntry
+  uid: M:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder.ShowCustomerLedgerEntry(Notification)
+commentId: O:Codeunit::Microsoft#Sales#Reminder#Cancel Issued Reminder
+name: '"Cancel Issued Reminder"'
+uid: O:Codeunit::Microsoft#Sales#Reminder#Cancel_Issued_Reminder

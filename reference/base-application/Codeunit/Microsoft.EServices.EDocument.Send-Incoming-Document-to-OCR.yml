@@ -1,0 +1,98 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.EServices.EDocument."Send Incoming Document to OCR"
+alId: ID 133
+namespace: Microsoft.EServices.EDocument
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.EServices.EDocument
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Incoming Document
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#EServices#EDocument#Incoming_Document
+    name: Microsoft.EServices.EDocument."Incoming Document"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure RemoveFromJobQueue(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: RemoveFromJobQueue
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.RemoveFromJobQueue(Incoming_Document@)
+- syntax:
+    content: procedure ScheduleJobQueueReceive()
+  name: ScheduleJobQueueReceive
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.ScheduleJobQueueReceive
+- syntax:
+    content: 'procedure SetStatusToReceived(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: SetStatusToReceived
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.SetStatusToReceived(Incoming_Document@)
+- syntax:
+    content: 'procedure SetStatusToFailed(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: SetStatusToFailed
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.SetStatusToFailed(Incoming_Document@)
+- syntax:
+    content: 'procedure SetStatusToVerify(var IncomingDocument: Record "Incoming Document")'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+  name: SetStatusToVerify
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.SetStatusToVerify(Incoming_Document@)
+- syntax:
+    content: 'procedure TrySendToOCR(var IncomingDocument: Record "Incoming Document"): Boolean'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TrySendToOCR
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.TrySendToOCR(Incoming_Document@):Boolean
+- syntax:
+    content: 'procedure TryRetrieveFromOCR(var IncomingDocument: Record "Incoming Document"): Boolean'
+    parameters:
+    - id: IncomingDocument
+      parameterType:
+        name: Record "Incoming Document"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TryRetrieveFromOCR
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.TryRetrieveFromOCR(Incoming_Document@):Boolean
+- syntax:
+    content: 'procedure SetShowMessages(NewShowMessages: Boolean)'
+    parameters:
+    - id: NewShowMessages
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetShowMessages
+  uid: M:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR.SetShowMessages(Boolean)
+commentId: O:Codeunit::Microsoft#EServices#EDocument#Send Incoming Document to OCR
+name: '"Send Incoming Document to OCR"'
+uid: O:Codeunit::Microsoft#EServices#EDocument#Send_Incoming_Document_to_OCR

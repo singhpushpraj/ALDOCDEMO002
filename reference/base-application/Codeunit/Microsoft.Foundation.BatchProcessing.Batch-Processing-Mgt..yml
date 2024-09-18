@@ -1,0 +1,361 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Foundation.BatchProcessing."Batch Processing Mgt."
+alId: ID 1380
+namespace: Microsoft.Foundation.BatchProcessing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Foundation.BatchProcessing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Batch Processing Parameter" = rimd,
+                      TableData "Batch Processing Session Map" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure BatchProcess(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: BatchProcess
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.BatchProcess(RecordRef@)
+- syntax:
+    content: 'procedure BatchProcess(SourceRecord: Variant, SourceRecordProcessingCodeunitId: Integer, ErrorHandlingOptions: Enum "Error Handling Options", NoSelected: Integer, NoSkipped: Integer)'
+    parameters:
+    - id: SourceRecord
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceRecordProcessingCodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ErrorHandlingOptions
+      parameterType:
+        internalReference: O:Enum::Microsoft#Utilities#Error_Handling_Options
+        name: Microsoft.Utilities."Error Handling Options"
+        isExternal: false
+    - id: NoSelected
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NoSkipped
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: BatchProcess
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.BatchProcess(Variant,Integer,Enum::Microsoft#Utilities#Error_Handling_Options,Integer,Integer)
+- syntax:
+    content: 'procedure BatchProcess(var RecRef: RecordRef, ErrorHandlingOptions: Enum "Error Handling Options")'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ErrorHandlingOptions
+      parameterType:
+        internalReference: O:Enum::Microsoft#Utilities#Error_Handling_Options
+        name: Microsoft.Utilities."Error Handling Options"
+        isExternal: false
+  name: BatchProcess
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.BatchProcess(RecordRef@,Enum::Microsoft#Utilities#Error_Handling_Options)
+- syntax:
+    content: 'procedure BatchProcessGenJournalLine(var GenJournalLine: Record "Gen. Journal Line", PostingCodeunitId: Integer)'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: PostingCodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: BatchProcessGenJournalLine
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.BatchProcessGenJournalLine(Gen#_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure FillBatchProcessingMap(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: FillBatchProcessingMap
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.FillBatchProcessingMap(RecordRef@)
+- syntax:
+    content: 'procedure GetErrorMessages(var TempErrorMessageResult: Record "Error Message" temporary)'
+    parameters:
+    - id: TempErrorMessageResult
+      parameterType:
+        name: Record "Error Message" temporary
+        isExternal: true
+  name: GetErrorMessages
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetErrorMessages(Error_Message@)
+- syntax:
+    content: procedure ResetBatchID()
+  name: ResetBatchID
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.ResetBatchID
+- syntax:
+    content: 'procedure AddArtifact(ArtifactType: Enum "Batch Processing Artifact Type", ArtifactName: Text[1024], TempBlobArtivactValue: __MissingTypeSymbol__)'
+    parameters:
+    - id: ArtifactType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Processing_Artifact_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Processing Artifact Type"
+        isExternal: false
+    - id: ArtifactName
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    - id: TempBlobArtivactValue
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: AddArtifact
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.AddArtifact(Enum::Microsoft#Foundation#BatchProcessing#Batch_Processing_Artifact_Type,Text[1024],__MissingSymbol__@)
+- syntax:
+    content: 'procedure HasArtifacts(ArtifactType: Enum "Batch Processing Artifact Type"): Boolean'
+    parameters:
+    - id: ArtifactType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Processing_Artifact_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Processing Artifact Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasArtifacts
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.HasArtifacts(Enum::Microsoft#Foundation#BatchProcessing#Batch_Processing_Artifact_Type):Boolean
+- syntax:
+    content: 'procedure GetArtifacts(ArtifactType: Enum "Batch Processing Artifact Type", var TempBatchProcessingArtifact: Record "Batch Processing Artifact" temporary): Boolean'
+    parameters:
+    - id: ArtifactType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Processing_Artifact_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Processing Artifact Type"
+        isExternal: false
+    - id: TempBatchProcessingArtifact
+      parameterType:
+        name: Record "Batch Processing Artifact" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetArtifacts
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetArtifacts(Enum::Microsoft#Foundation#BatchProcessing#Batch_Processing_Artifact_Type,Batch_Processing_Artifact@):Boolean
+- syntax:
+    content: 'procedure DeleteBatchProcessingSessionMapForRecordId(RecordIdToClean: RecordId)'
+    parameters:
+    - id: RecordIdToClean
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: DeleteBatchProcessingSessionMapForRecordId
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.DeleteBatchProcessingSessionMapForRecordId(RecordId)
+- syntax:
+    content: 'procedure SetParameter(ParameterId: Enum "Batch Posting Parameter Type", Value: Variant)'
+    parameters:
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: Value
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetParameter
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.SetParameter(Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Variant)
+- syntax:
+    content: 'procedure SetParametersForPageID(PageID: Integer)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetParametersForPageID
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.SetParametersForPageID(Integer)
+- syntax:
+    content: 'procedure GetTextParameter(RecordID: RecordId, ParameterId: Enum "Batch Posting Parameter Type", var ParameterValue: Text[250]): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: ParameterValue
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetTextParameter
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetTextParameter(RecordId,Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Text[250]@):Boolean
+- syntax:
+    content: 'procedure GetBooleanParameter(RecordID: RecordId, ParameterId: Enum "Batch Posting Parameter Type", var ParameterValue: Boolean): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: ParameterValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetBooleanParameter
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetBooleanParameter(RecordId,Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Boolean@):Boolean
+- syntax:
+    content: 'procedure GetIntegerParameter(RecordID: RecordId, ParameterId: Enum "Batch Posting Parameter Type", var ParameterValue: Integer): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: ParameterValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetIntegerParameter
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetIntegerParameter(RecordId,Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Integer@):Boolean
+- syntax:
+    content: 'procedure GetDateParameter(RecordID: RecordId, ParameterId: Enum "Batch Posting Parameter Type", var ParameterValue: Date): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: ParameterValue
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDateParameter
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetDateParameter(RecordId,Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Date@):Boolean
+- syntax:
+    content: 'procedure GetTimeParameter(RecordID: RecordId, ParameterId: Enum "Batch Posting Parameter Type", var ParameterValue: Time): Boolean'
+    parameters:
+    - id: RecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: ParameterId
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type
+        name: Microsoft.Foundation.BatchProcessing."Batch Posting Parameter Type"
+        isExternal: false
+    - id: ParameterValue
+      parameterType:
+        name: Time
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetTimeParameter
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetTimeParameter(RecordId,Enum::Microsoft#Foundation#BatchProcessing#Batch_Posting_Parameter_Type,Time@):Boolean
+- syntax:
+    content: 'procedure IsActive(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsActive
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.IsActive:Boolean
+- syntax:
+    content: 'procedure GetIsCustomProcessingHandled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetIsCustomProcessingHandled
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetIsCustomProcessingHandled:Boolean
+- syntax:
+    content: 'procedure GetKeepParameters(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetKeepParameters
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetKeepParameters:Boolean
+- syntax:
+    content: 'procedure GetRecRefForCustomProcessing(var RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: GetRecRefForCustomProcessing
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetRecRefForCustomProcessing(RecordRef@)
+- syntax:
+    content: 'procedure GetBatchFromSession(SourceRecordID: RecordId, SourceSessionID: Integer)'
+    parameters:
+    - id: SourceRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: SourceSessionID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetBatchFromSession
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.GetBatchFromSession(RecordId,Integer)
+- syntax:
+    content: 'procedure SetRecRefForCustomProcessing(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: SetRecRefForCustomProcessing
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.SetRecRefForCustomProcessing(RecordRef)
+- syntax:
+    content: 'procedure SetProcessingCodeunit(NewProcessingCodeunitID: Integer)'
+    parameters:
+    - id: NewProcessingCodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetProcessingCodeunit
+  uid: M:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#.SetProcessingCodeunit(Integer)
+commentId: O:Codeunit::Microsoft#Foundation#BatchProcessing#Batch Processing Mgt#
+name: '"Batch Processing Mgt."'
+uid: O:Codeunit::Microsoft#Foundation#BatchProcessing#Batch_Processing_Mgt#

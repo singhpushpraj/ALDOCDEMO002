@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.EMail."Setup Email Logging"
+alId: ID 1641
+namespace: System.EMail
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.EMail
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: ObsoleteReason
+  value: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  promoted: false
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "22.0"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetDomainFromEmail(Email: Text): Text'
+    parameters:
+    - id: Email
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetDomainFromEmail
+  uid: M:Codeunit::System#EMail#Setup_Email_Logging.GetDomainFromEmail(Text):Text
+- syntax:
+    content: procedure CreateEmailLoggingJobQueueSetup()
+  name: CreateEmailLoggingJobQueueSetup
+  uid: M:Codeunit::System#EMail#Setup_Email_Logging.CreateEmailLoggingJobQueueSetup
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use "GetClientCredentialsAccessToken(TenantId: SecretText; var AccessToken: SecretText)" instead.,24.0)]'
+    content: 'procedure GetClientCredentialsAccessToken(TenantId: Text, var AccessToken: Text)'
+    parameters:
+    - id: TenantId
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AccessToken
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetClientCredentialsAccessToken
+  obsoletion:
+    state: pending
+    reason: 'Use "GetClientCredentialsAccessToken(TenantId: SecretText; var AccessToken: SecretText)" instead.'
+    version: "24.0"
+  uid: M:Codeunit::System#EMail#Setup_Email_Logging.GetClientCredentialsAccessToken(Text,Text@)
+commentId: O:Codeunit::System#EMail#Setup Email Logging
+name: '"Setup Email Logging"'
+obsoletion:
+  state: pending
+  reason: Feature EmailLoggingUsingGraphApi will be enabled by default in version 22.0
+  version: "22.0"
+uid: O:Codeunit::System#EMail#Setup_Email_Logging

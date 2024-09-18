@@ -1,0 +1,1371 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Posting."Sales-Post"
+alId: ID 80
+namespace: Microsoft.Sales.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Line" = rimd,
+                      TableData "Purchase Header" = rm,
+                      TableData "Purchase Line" = rm,
+    #if not CLEAN23
+                      TableData "Invoice Post. Buffer" = rimd,
+    #endif
+                      TableData "Sales Shipment Header" = rimd,
+                      TableData "Sales Shipment Line" = rimd,
+                      TableData "Sales Invoice Header" = rimd,
+                      TableData "Sales Invoice Line" = rimd,
+                      TableData "Sales Cr.Memo Header" = rimd,
+                      TableData "Sales Cr.Memo Line" = rimd,
+                      TableData "Purch. Rcpt. Header" = rimd,
+                      TableData "Purch. Rcpt. Line" = rimd,
+                      TableData "Drop Shpt. Post. Buffer" = rimd,
+                      TableData "General Posting Setup" = rimd,
+                      TableData "Posted Assemble-to-Order Link" = ri,
+                      TableData "Service Item" = rimd,
+                      TableData "Item Entry Relation" = ri,
+                      TableData "Value Entry Relation" = rid,
+                      TableData "Return Receipt Header" = rimd,
+                      TableData "Return Receipt Line" = rimd,
+                      TableData "G/L Entry" = r,
+                      Tabledata Job = r
+  promoted: false
+- name: TableNo
+  value: Sales Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CopyToTempLines(SalesHeader: Record "Sales Header", var TempSalesLine: Record "Sales Line" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: CopyToTempLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CopyToTempLines(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure FillTempLines(SalesHeader: Record "Sales Header", var TempSalesLine: Record "Sales Line" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: FillTempLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.FillTempLines(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure RefreshTempLines(SalesHeader: Record "Sales Header", var TempSalesLine: Record "Sales Line" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: RefreshTempLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.RefreshTempLines(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure ResetTempLines(var TempSalesLineLocal: Record "Sales Line" temporary)'
+    parameters:
+    - id: TempSalesLineLocal
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: ResetTempLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.ResetTempLines(Sales_Line@)
+- syntax:
+    content: 'procedure CheckSalesDocument(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CheckSalesDocument
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CheckSalesDocument(Sales_Header@)
+- syntax:
+    content: 'procedure PrepareCheckDocument(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PrepareCheckDocument
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PrepareCheckDocument(Sales_Header@)
+- syntax:
+    content: 'procedure PostItemLine(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var TempDropShptPostBuffer: Record "Drop Shpt. Post. Buffer" temporary, var TempPostedATOLink: Record "Posted Assemble-to-Order Link" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempDropShptPostBuffer
+      parameterType:
+        name: Record "Drop Shpt. Post. Buffer" temporary
+        isExternal: true
+    - id: TempPostedATOLink
+      parameterType:
+        name: Record "Posted Assemble-to-Order Link" temporary
+        isExternal: true
+  name: PostItemLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemLine(Sales_Header,Sales_Line@,Drop_Shpt#_Post#_Buffer@,Posted_Assemble-to-Order_Link@)
+- syntax:
+    content: 'procedure PostItemJnlLine(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", QtyToBeShipped: Decimal, QtyToBeShippedBase: Decimal, QtyToBeInvoiced: Decimal, QtyToBeInvoicedBase: Decimal, ItemLedgShptEntryNo: Integer, ItemChargeNo: Code[20], TrackingSpecification: Record "Tracking Specification", IsATO: Boolean): Integer'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyToBeShipped
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoicedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgShptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemChargeNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: IsATO
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PostItemJnlLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemJnlLine(Sales_Header,Sales_Line,Decimal,Decimal,Decimal,Decimal,Integer,Code[20],Tracking_Specification,Boolean):Integer
+- syntax:
+    content: 'procedure PostItemJnlLinePrepareJournalLine(var ItemJnlLine: Record "Item Journal Line", SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", QtyToBeShipped: Decimal, QtyToBeShippedBase: Decimal, QtyToBeInvoiced: Decimal, QtyToBeInvoicedBase: Decimal, ItemLedgShptEntryNo: Integer, ItemChargeNo: Code[20], TrackingSpecification: Record "Tracking Specification", IsATO: Boolean)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyToBeShipped
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoicedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgShptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ItemChargeNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: IsATO
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostItemJnlLinePrepareJournalLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemJnlLinePrepareJournalLine(Item_Journal_Line@,Sales_Header,Sales_Line,Decimal,Decimal,Decimal,Decimal,Integer,Code[20],Tracking_Specification,Boolean)
+- syntax:
+    content: 'procedure GetGlobaDocumentsHeaders(var NewSalesShptHeader: Record "Sales Shipment Header", var NewSalesInvHeader: Record "Sales Invoice Header", var NewSalesCrMemoHeader: Record "Sales Cr.Memo Header", var NewReturnRcptHeader: Record "Return Receipt Header")'
+    parameters:
+    - id: NewSalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: NewSalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: NewSalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: NewReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+  name: GetGlobaDocumentsHeaders
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGlobaDocumentsHeaders(Sales_Shipment_Header@,Sales_Invoice_Header@,Sales_Cr#Memo_Header@,Return_Receipt_Header@)
+- syntax:
+    content: 'procedure GetGlobalWhseFlags(var NewWhseShip: Boolean, var NewWhseReceive: Boolean, var NewInvtPickPutaway: Boolean)'
+    parameters:
+    - id: NewWhseShip
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewWhseReceive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewInvtPickPutaway
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetGlobalWhseFlags
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGlobalWhseFlags(Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetGlobalTempTrackingSpecificationInv(var NewTempTrackingSpecificationInv: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: NewTempTrackingSpecificationInv
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: GetGlobalTempTrackingSpecificationInv
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGlobalTempTrackingSpecificationInv(Tracking_Specification@)
+- syntax:
+    content: 'procedure GetGlobalTempTrackingSpecification(var NewTempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: NewTempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: GetGlobalTempTrackingSpecification
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGlobalTempTrackingSpecification(Tracking_Specification@)
+- syntax:
+    content: 'procedure GetGlobalSrcCode(var NewSrcCode: Code[10])'
+    parameters:
+    - id: NewSrcCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetGlobalSrcCode
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGlobalSrcCode(Code[10]@)
+- syntax:
+    content: 'procedure PostItemJnlLineItemCharges(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", var OriginalItemJnlLine: Record "Item Journal Line", ItemShptEntryNo: Integer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OriginalItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ItemShptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PostItemJnlLineItemCharges
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemJnlLineItemCharges(Sales_Header,Sales_Line,Item_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure PostItemJnlLineTracking(SalesLine: Record "Sales Line", var TempWhseTrackingSpecification: Record "Tracking Specification" temporary, PostWhseJnlLine: Boolean, QtyToBeInvoiced: Decimal, var TempTrackingSpec: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempWhseTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: PostWhseJnlLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempTrackingSpec
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: PostItemJnlLineTracking
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemJnlLineTracking(Sales_Line,Tracking_Specification@,Boolean,Decimal,Tracking_Specification@)
+- syntax:
+    content: 'procedure PostItemJnlLineWhseLine(var TempWhseJnlLine: Record "Warehouse Journal Line" temporary, var TempWhseTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+    - id: TempWhseTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: PostItemJnlLineWhseLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemJnlLineWhseLine(Warehouse_Journal_Line@,Tracking_Specification@)
+- syntax:
+    content: 'procedure PostItemJnlLineBeforePost(var ItemJnlLine: Record "Item Journal Line", SalesLine: Record "Sales Line", var TempWhseJnlLine: Record "Warehouse Journal Line" temporary, var PostWhseJnlLine: Boolean, QtyToBeShippedBase: Decimal, TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+    - id: PostWhseJnlLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: PostItemJnlLineBeforePost
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemJnlLineBeforePost(Item_Journal_Line@,Sales_Line,Warehouse_Journal_Line@,Boolean@,Decimal,Tracking_Specification)
+- syntax:
+    content: 'procedure ShouldPostWhseJnlLine(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShouldPostWhseJnlLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.ShouldPostWhseJnlLine(Sales_Line):Boolean
+- syntax:
+    content: 'procedure PostItemChargePerShpt(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: PostItemChargePerShpt
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemChargePerShpt(Sales_Header,Sales_Line@)
+- syntax:
+    content: 'procedure PostDistributeItemCharge(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", var TempItemLedgEntry: Record "Item Ledger Entry" temporary, NonDistrQuantity: Decimal, NonDistrQtyToAssign: Decimal, NonDistrAmountToAssign: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: NonDistrQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrQtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrAmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostDistributeItemCharge
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostDistributeItemCharge(Sales_Header,Sales_Line,Item_Ledger_Entry@,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure ReleaseSalesDocument(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ReleaseSalesDocument
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.ReleaseSalesDocument(Sales_Header@)
+- syntax:
+    content: 'procedure TestSalesLine(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: TestSalesLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.TestSalesLine(Sales_Header,Sales_Line)
+- syntax:
+    content: 'procedure UpdateAssocLines(var SalesOrderLine: Record "Sales Line")'
+    parameters:
+    - id: SalesOrderLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: UpdateAssocLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdateAssocLines(Sales_Line@)
+- syntax:
+    content: 'procedure DeleteAfterPosting(var SalesHeader: Record "Sales Header", EverythingInvoiced: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: EverythingInvoiced
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteAfterPosting
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.DeleteAfterPosting(Sales_Header@,Boolean)
+- syntax:
+    content: 'procedure GetCurrency(CurrencyCode: Code[10])'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrency
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetCurrency(Code[10])
+- syntax:
+    content: 'procedure ReverseAmount(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: ReverseAmount
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.ReverseAmount(Sales_Line@)
+- syntax:
+    content: 'procedure IncrAmount(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", var TotalSalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: IncrAmount
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.IncrAmount(Sales_Header,Sales_Line,Sales_Line@)
+- syntax:
+    content: 'procedure GetSalesLines(var SalesHeader: Record "Sales Header", var NewSalesLine: Record "Sales Line", QtyType: Option)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetSalesLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetSalesLines(Sales_Header@,Sales_Line@,Option)
+- syntax:
+    content: 'procedure GetSalesLines(var SalesHeader: Record "Sales Header", var NewSalesLine: Record "Sales Line", QtyType: Option, IncludePrepayments: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: IncludePrepayments
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetSalesLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetSalesLines(Sales_Header@,Sales_Line@,Option,Boolean)
+- syntax:
+    content: 'procedure GetSalesLinesTemp(var SalesHeader: Record "Sales Header", var NewSalesLine: Record "Sales Line", var OldSalesLine: Record "Sales Line", QtyType: Option)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetSalesLinesTemp
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetSalesLinesTemp(Sales_Header@,Sales_Line@,Sales_Line@,Option)
+- syntax:
+    content: 'procedure SumSalesLines(var NewSalesHeader: Record "Sales Header", QtyType: Option, var NewTotalSalesLine: Record "Sales Line", var NewTotalSalesLineLCY: Record "Sales Line", var VATAmount: Decimal, var VATAmountText: Text[30], var ProfitLCY: Decimal, var ProfitPct: Decimal, var TotalAdjCostLCY: Decimal)'
+    parameters:
+    - id: NewSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewTotalSalesLineLCY
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ProfitLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProfitPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAdjCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SumSalesLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SumSalesLines(Sales_Header@,Option,Sales_Line@,Sales_Line@,Decimal@,Text[30]@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure SumSalesLinesTemp(var SalesHeader: Record "Sales Header", var OldSalesLine: Record "Sales Line", QtyType: Option, var NewTotalSalesLine: Record "Sales Line", var NewTotalSalesLineLCY: Record "Sales Line", var VATAmount: Decimal, var VATAmountText: Text[30], var ProfitLCY: Decimal, var ProfitPct: Decimal, var TotalAdjCostLCY: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewTotalSalesLineLCY
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ProfitLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProfitPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAdjCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SumSalesLinesTemp
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SumSalesLinesTemp(Sales_Header@,Sales_Line@,Option,Sales_Line@,Sales_Line@,Decimal@,Text[30]@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure SumSalesLinesTemp(var SalesHeader: Record "Sales Header", var OldSalesLine: Record "Sales Line", QtyType: Option, var NewTotalSalesLine: Record "Sales Line", var NewTotalSalesLineLCY: Record "Sales Line", var VATAmount: Decimal, var VATAmountText: Text[30], var ProfitLCY: Decimal, var ProfitPct: Decimal, var TotalAdjCostLCY: Decimal, IncludePrepayments: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewTotalSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewTotalSalesLineLCY
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATAmountText
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ProfitLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProfitPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAdjCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IncludePrepayments
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SumSalesLinesTemp
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SumSalesLinesTemp(Sales_Header@,Sales_Line@,Option,Sales_Line@,Sales_Line@,Decimal@,Text[30]@,Decimal@,Decimal@,Decimal@,Boolean)
+- syntax:
+    content: 'procedure UpdateBlanketOrderLine(SalesLine: Record "Sales Line", Ship: Boolean, Receive: Boolean, Invoice: Boolean)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: Ship
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Receive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateBlanketOrderLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdateBlanketOrderLine(Sales_Line,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure UpdateSalesOrderChargeAssgnt(SalesOrderInvLine: Record "Sales Line", SalesOrderLine: Record "Sales Line")'
+    parameters:
+    - id: SalesOrderInvLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesOrderLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: UpdateSalesOrderChargeAssgnt
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdateSalesOrderChargeAssgnt(Sales_Line,Sales_Line)
+- syntax:
+    content: 'procedure CopyAndCheckItemCharge(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyAndCheckItemCharge
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CopyAndCheckItemCharge(Sales_Header)
+- syntax:
+    content: 'procedure CreateWhseJnlLine(ItemJnlLine: Record "Item Journal Line", SalesLine: Record "Sales Line", var TempWhseJnlLine: Record "Warehouse Journal Line" temporary)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+  name: CreateWhseJnlLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CreateWhseJnlLine(Item_Journal_Line,Sales_Line,Warehouse_Journal_Line@)
+- syntax:
+    content: 'procedure WhseHandlingRequiredExternal(SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhseHandlingRequiredExternal
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.WhseHandlingRequiredExternal(Sales_Line):Boolean
+- syntax:
+    content: 'procedure CheckTrackingSpecification(SalesHeader: Record "Sales Header", var TempItemSalesLine: Record "Sales Line" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempItemSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+  name: CheckTrackingSpecification
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CheckTrackingSpecification(Sales_Header,Sales_Line@)
+- syntax:
+    content: procedure InsertValueEntryRelation()
+  name: InsertValueEntryRelation
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.InsertValueEntryRelation
+- syntax:
+    content: 'procedure PostItemCharge(SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", ItemLedgEntryNo: Integer, QuantityBase: Decimal, AmountToAssign: Decimal, QtyToAssign: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToAssign
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostItemCharge
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemCharge(Sales_Header,Sales_Line@,Integer,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure TransferReservToItemJnlLine(var SalesOrderLine: Record "Sales Line", var ItemJnlLine: Record "Item Journal Line", QtyToBeShippedBase: Decimal, var TempTrackingSpecification2: Record "Tracking Specification" temporary, var CheckApplFromItemEntry: Boolean)'
+    parameters:
+    - id: SalesOrderLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempTrackingSpecification2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferReservToItemJnlLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.TransferReservToItemJnlLine(Sales_Line@,Item_Journal_Line@,Decimal,Tracking_Specification@,Boolean@)
+- syntax:
+    content: 'procedure TransferReservFromPurchLine(var PurchOrderLine: Record "Purchase Line", var ItemJnlLine: Record "Item Journal Line", SalesLine: Record "Sales Line", QtyToBeShippedBase: Decimal)'
+    parameters:
+    - id: PurchOrderLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferReservFromPurchLine
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.TransferReservFromPurchLine(Purchase_Line@,Item_Journal_Line@,Sales_Line,Decimal)
+- syntax:
+    content: 'procedure SetWhseRcptHeader(var WhseRcptHeader2: Record "Warehouse Receipt Header")'
+    parameters:
+    - id: WhseRcptHeader2
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+  name: SetWhseRcptHeader
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetWhseRcptHeader(Warehouse_Receipt_Header@)
+- syntax:
+    content: 'procedure SetWhseShptHeader(var WhseShptHeader2: Record "Warehouse Shipment Header")'
+    parameters:
+    - id: WhseShptHeader2
+      parameterType:
+        name: Record "Warehouse Shipment Header"
+        isExternal: true
+  name: SetWhseShptHeader
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetWhseShptHeader(Warehouse_Shipment_Header@)
+- syntax:
+    content: 'procedure CreatePrepaymentLines(SalesHeader: Record "Sales Header", CompleteFunctionality: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: CompleteFunctionality
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreatePrepaymentLines
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CreatePrepaymentLines(Sales_Header,Boolean)
+- syntax:
+    content: 'procedure CheckPrepmtAmtToDeduct(SalesHeader: Record "Sales Header", var TempSalesLine: Record "Sales Line" temporary, Fraction: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TempSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+    - id: Fraction
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CheckPrepmtAmtToDeduct
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CheckPrepmtAmtToDeduct(Sales_Header,Sales_Line@,Decimal)
+- syntax:
+    content: 'procedure InsertedPrepmtVATBaseToDeduct(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", PrepmtLineNo: Integer, TotalPrepmtAmtToDeduct: Decimal): Decimal'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: PrepmtLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalPrepmtAmtToDeduct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: InsertedPrepmtVATBaseToDeduct
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.InsertedPrepmtVATBaseToDeduct(Sales_Header,Sales_Line,Integer,Decimal):Decimal
+- syntax:
+    content: 'procedure DividePrepmtAmountLCY(var PrepmtSalesLine: Record "Sales Line", SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: PrepmtSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: DividePrepmtAmountLCY
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.DividePrepmtAmountLCY(Sales_Line@,Sales_Header)
+- syntax:
+    content: 'procedure UpdatePrepmtSalesLineWithRounding(var PrepmtSalesLine: Record "Sales Line", TotalRoundingAmount: array[2] of Decimal, TotalPrepmtAmount: array[2] of Decimal, FinalInvoice: Boolean, PricesInclVATRoundingAmount: array[2] of Decimal)'
+    parameters:
+    - id: PrepmtSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TotalRoundingAmount
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: TotalPrepmtAmount
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: FinalInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PricesInclVATRoundingAmount
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+  name: UpdatePrepmtSalesLineWithRounding
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdatePrepmtSalesLineWithRounding(Sales_Line@,Decimal[],Decimal[],Boolean,Decimal[])
+- syntax:
+    content: 'procedure DecrementPrepmtAmtInvLCY(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", var PrepmtAmountInvLCY: Decimal, var PrepmtVATAmountInvLCY: Decimal)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: PrepmtAmountInvLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PrepmtVATAmountInvLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: DecrementPrepmtAmtInvLCY
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.DecrementPrepmtAmtInvLCY(Sales_Header,Sales_Line,Decimal@,Decimal@)
+- syntax:
+    content: procedure TestGetShipmentPPmtAmtToDeduct()
+  name: TestGetShipmentPPmtAmtToDeduct
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.TestGetShipmentPPmtAmtToDeduct
+- syntax:
+    content: 'procedure ArchiveUnpostedOrder(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ArchiveUnpostedOrder
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.ArchiveUnpostedOrder(Sales_Header@)
+- syntax:
+    content: procedure GetGLSetup()
+  name: GetGLSetup
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGLSetup
+- syntax:
+    content: 'procedure GetGeneralPostingSetup(var GenPostingSetup: Record "General Posting Setup", SalesLine: Record "Sales Line")'
+    parameters:
+    - id: GenPostingSetup
+      parameterType:
+        name: Record "General Posting Setup"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: GetGeneralPostingSetup
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetGeneralPostingSetup(General_Posting_Setup@,Sales_Line)
+- syntax:
+    content: 'procedure SetItemEntryRelation(var ItemEntryRelation: Record "Item Entry Relation", var SalesShptLine: Record "Sales Shipment Line", var InvoicingTrackingSpecification: Record "Tracking Specification", var ItemLedgEntryNotInvoiced: Record "Item Ledger Entry", TrackingSpecificationExists: Boolean, HasATOShippedNotInvoiced: Boolean)'
+    parameters:
+    - id: ItemEntryRelation
+      parameterType:
+        name: Record "Item Entry Relation"
+        isExternal: true
+    - id: SalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: InvoicingTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: ItemLedgEntryNotInvoiced
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TrackingSpecificationExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: HasATOShippedNotInvoiced
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetItemEntryRelation
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetItemEntryRelation(Item_Entry_Relation@,Sales_Shipment_Line@,Tracking_Specification@,Item_Ledger_Entry@,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetWhseJnlRegisterCU(var WhseJnlRegisterLine: Codeunit "Whse. Jnl.-Register Line")'
+    parameters:
+    - id: WhseJnlRegisterLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line
+        name: Microsoft.Warehouse.Journal."Whse. Jnl.-Register Line"
+        isExternal: false
+  name: SetWhseJnlRegisterCU
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetWhseJnlRegisterCU(Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line@)
+- syntax:
+    content: 'procedure InitProgressWindow(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: InitProgressWindow
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.InitProgressWindow(Sales_Header)
+- syntax:
+    content: 'procedure GetPostedDocumentRecord(SalesHeader: Record "Sales Header", var PostedSalesDocumentVariant: Variant)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: PostedSalesDocumentVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetPostedDocumentRecord
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.GetPostedDocumentRecord(Sales_Header,Variant@)
+- syntax:
+    content: 'procedure SendPostedDocumentRecord(SalesHeader: Record "Sales Header", var DocumentSendingProfile: Record "Document Sending Profile")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: DocumentSendingProfile
+      parameterType:
+        name: Record "Document Sending Profile"
+        isExternal: true
+  name: SendPostedDocumentRecord
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SendPostedDocumentRecord(Sales_Header,Document_Sending_Profile@)
+- syntax:
+    signatures:
+    - '[Obsolete(Moved to Sales Invoice Posting implementation.,19.0)]'
+    content: 'procedure CalcInvoiceDiscountPosting(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", SalesLineACY: Record "Sales Line", var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesLineACY
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  name: CalcInvoiceDiscountPosting
+  obsoletion:
+    state: pending
+    reason: Moved to Sales Invoice Posting implementation.
+    version: "19.0"
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CalcInvoiceDiscountPosting(Sales_Header,Sales_Line,Sales_Line,Invoice_Post#_Buffer@)
+- syntax:
+    signatures:
+    - '[Obsolete(Moved to Sales Invoice Posting implementation.,19.0)]'
+    content: 'procedure CalcLineDiscountPosting(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", SalesLineACY: Record "Sales Line", var InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesLineACY
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  name: CalcLineDiscountPosting
+  obsoletion:
+    state: pending
+    reason: Moved to Sales Invoice Posting implementation.
+    version: "19.0"
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.CalcLineDiscountPosting(Sales_Header,Sales_Line,Sales_Line,Invoice_Post#_Buffer@)
+- syntax:
+    content: 'procedure SetCalledBy(NewCalledBy: Integer)'
+    parameters:
+    - id: NewCalledBy
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetCalledBy
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetCalledBy(Integer)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure PostItemTrackingCheckReturnReceipt(SalesLine: Record "Sales Line", RemQtyToBeInvoiced: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: RemQtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostItemTrackingCheckReturnReceipt
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemTrackingCheckReturnReceipt(Sales_Line,Decimal)
+- syntax:
+    content: 'procedure PostItemTrackingCheckShipment(SalesLine: Record "Sales Line", RemQtyToBeInvoiced: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: RemQtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostItemTrackingCheckShipment
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemTrackingCheckShipment(Sales_Line,Decimal)
+- syntax:
+    content: 'procedure PostItemTrackingForReceipt(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", TrackingSpecificationExists: Boolean, var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TrackingSpecificationExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: PostItemTrackingForReceipt
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemTrackingForReceipt(Sales_Header,Sales_Line,Boolean,Tracking_Specification@)
+- syntax:
+    content: 'procedure PostItemTrackingForShipment(SalesHeader: Record "Sales Header", SalesLine: Record "Sales Line", TrackingSpecificationExists: Boolean, var TempTrackingSpecification: Record "Tracking Specification" temporary, var TempItemLedgEntryNotInvoiced: Record "Item Ledger Entry" temporary, HasATOShippedNotInvoiced: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TrackingSpecificationExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempItemLedgEntryNotInvoiced
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: HasATOShippedNotInvoiced
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostItemTrackingForShipment
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.PostItemTrackingForShipment(Sales_Header,Sales_Line,Boolean,Tracking_Specification@,Item_Ledger_Entry@,Boolean)
+- syntax:
+    content: 'procedure SetPostingFlags(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SetPostingFlags
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetPostingFlags(Sales_Header@)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure IsItemJnlPostLineHandled(var ItemJnlLine: Record "Item Journal Line", var SalesLine: Record "Sales Line", var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsItemJnlPostLineHandled
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.IsItemJnlPostLineHandled(Item_Journal_Line@,Sales_Line@,Sales_Header@):Boolean
+- syntax:
+    content: 'procedure UpdateChargeItemReturnRcptLineGenProdPostingGroup(var ReturnReceiptLine: Record "Return Receipt Line")'
+    parameters:
+    - id: ReturnReceiptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+  name: UpdateChargeItemReturnRcptLineGenProdPostingGroup
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdateChargeItemReturnRcptLineGenProdPostingGroup(Return_Receipt_Line@)
+- syntax:
+    content: 'procedure UpdateChargeItemSalesShptLineGenProdPostingGroup(var SalesShipmentLine: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesShipmentLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: UpdateChargeItemSalesShptLineGenProdPostingGroup
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdateChargeItemSalesShptLineGenProdPostingGroup(Sales_Shipment_Line@)
+- syntax:
+    content: 'procedure UpdateChargeItemSalesLineGenProdPostingGroup(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: UpdateChargeItemSalesLineGenProdPostingGroup
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.UpdateChargeItemSalesLineGenProdPostingGroup(Sales_Line@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeUpdateWonOpportunities(var SalesHeader: Record "Sales Header", SalesInvHeader: Record "Sales Invoice Header", var IsHandled: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnBeforeUpdateWonOpportunities
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.OnBeforeUpdateWonOpportunities(Sales_Header@,Sales_Invoice_Header,Boolean@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeMakeInventoryAdjustment(var InvtSetup: Record "Inventory Setup", var InvtAdjmtHandler: Codeunit "Inventory Adjustment Handler", var IsHandled: Boolean)'
+    parameters:
+    - id: InvtSetup
+      parameterType:
+        name: Record "Inventory Setup"
+        isExternal: true
+    - id: InvtAdjmtHandler
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment_Handler
+        name: Microsoft.Inventory.Costing."Inventory Adjustment Handler"
+        isExternal: false
+    - id: IsHandled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnBeforeMakeInventoryAdjustment
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post.OnBeforeMakeInventoryAdjustment(Inventory_Setup@,Codeunit::Microsoft#Inventory#Costing#Inventory_Adjustment_Handler@,Boolean@)
+commentId: O:Codeunit::Microsoft#Sales#Posting#Sales-Post
+name: '"Sales-Post"'
+uid: O:Codeunit::Microsoft#Sales#Posting#Sales-Post

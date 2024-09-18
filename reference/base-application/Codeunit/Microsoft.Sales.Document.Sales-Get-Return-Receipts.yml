@@ -1,0 +1,67 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales-Get Return Receipts"
+alId: ID 6638
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Sales Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Line
+    name: Microsoft.Sales.Document."Sales Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateInvLines(var ReturnRcptLine2: Record "Return Receipt Line")'
+    parameters:
+    - id: ReturnRcptLine2
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+  name: CreateInvLines
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Return_Receipts.CreateInvLines(Return_Receipt_Line@)
+- syntax:
+    content: 'procedure SetSalesHeader(var SalesHeader2: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader2
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SetSalesHeader
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Return_Receipts.SetSalesHeader(Sales_Header@)
+- syntax:
+    content: 'procedure GetItemChargeAssgnt(var ReturnRcptLine: Record "Return Receipt Line", QtyToInv: Decimal)'
+    parameters:
+    - id: ReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+    - id: QtyToInv
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetItemChargeAssgnt
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Return_Receipts.GetItemChargeAssgnt(Return_Receipt_Line@,Decimal)
+- syntax:
+    content: 'procedure GetSalesRetOrderCrMemos(var TempSalesCrMemoHeader: Record "Sales Cr.Memo Header" temporary, ReturnOrderNo: Code[20])'
+    parameters:
+    - id: TempSalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header" temporary
+        isExternal: true
+    - id: ReturnOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetSalesRetOrderCrMemos
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales-Get_Return_Receipts.GetSalesRetOrderCrMemos(Sales_Cr#Memo_Header@,Code[20])
+commentId: O:Codeunit::Microsoft#Sales#Document#Sales-Get Return Receipts
+name: '"Sales-Get Return Receipts"'
+uid: O:Codeunit::Microsoft#Sales#Document#Sales-Get_Return_Receipts

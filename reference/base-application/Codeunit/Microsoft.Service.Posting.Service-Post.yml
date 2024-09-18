@@ -1,0 +1,191 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Service-Post"
+alId: ID 5980
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Service Header" = rimd,
+                      TableData "Service Item Line" = rimd,
+                      TableData "Service Line" = rimd,
+                      TableData "Service Shipment Item Line" = rimd,
+                      TableData "Service Shipment Header" = rimd,
+                      TableData "Service Shipment Line" = rimd,
+                      TableData "Service Invoice Header" = rimd,
+                      TableData "Service Invoice Line" = rimd,
+                      TableData "Service Cr.Memo Header" = rimd,
+                      TableData "Service Cr.Memo Line" = rimd,
+                      tabledata "G/L Entry" = r
+  promoted: false
+- name: TableNo
+  value: Service Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#Document#Service_Header
+    name: Microsoft.Service.Document."Service Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure PostWithLines(var PassedServHeader: Record "Service Header", var PassedServLine: Record "Service Line", var PassedShip: Boolean, var PassedConsume: Boolean, var PassedInvoice: Boolean)'
+    parameters:
+    - id: PassedServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: PassedShip
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedConsume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostWithLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.PostWithLines(Service_Header@,Service_Line@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure CheckServiceDocument(var PassedServiceHeader: Record "Service Header", var PassedServiceLine: Record "Service Line")'
+    parameters:
+    - id: PassedServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CheckServiceDocument
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.CheckServiceDocument(Service_Header@,Service_Line@)
+- syntax:
+    content: 'procedure SetPostingDate(NewReplacePostingDate: Boolean, NewReplaceDocumentDate: Boolean, NewPostingDate: Date)'
+    parameters:
+    - id: NewReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewReplaceDocumentDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetPostingDate
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.SetPostingDate(Boolean,Boolean,Date)
+- syntax:
+    content: 'procedure SetPostingOptions(PassedShip: Boolean, PassedConsume: Boolean, PassedInvoice: Boolean)'
+    parameters:
+    - id: PassedShip
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedConsume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PassedInvoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPostingOptions
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.SetPostingOptions(Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure TestDeleteHeader(ServiceHeader: Record "Service Header", var ServiceShptHeader: Record "Service Shipment Header", var ServiceInvHeader: Record "Service Invoice Header", var ServiceCrMemoHeader: Record "Service Cr.Memo Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+    - id: ServiceInvHeader
+      parameterType:
+        name: Record "Service Invoice Header"
+        isExternal: true
+    - id: ServiceCrMemoHeader
+      parameterType:
+        name: Record "Service Cr.Memo Header"
+        isExternal: true
+  name: TestDeleteHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.TestDeleteHeader(Service_Header,Service_Shipment_Header@,Service_Invoice_Header@,Service_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure DeleteHeader(ServiceHeader: Record "Service Header", var ServiceShptHeader: Record "Service Shipment Header", var ServiceInvHeader: Record "Service Invoice Header", var ServiceCrMemoHeader: Record "Service Cr.Memo Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+    - id: ServiceInvHeader
+      parameterType:
+        name: Record "Service Invoice Header"
+        isExternal: true
+    - id: ServiceCrMemoHeader
+      parameterType:
+        name: Record "Service Cr.Memo Header"
+        isExternal: true
+  name: DeleteHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.DeleteHeader(Service_Header,Service_Shipment_Header@,Service_Invoice_Header@,Service_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure GetPostedDocumentRecord(ServiceHeader: Record "Service Header", var PostedServiceDocumentVariant: Variant)'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PostedServiceDocumentVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetPostedDocumentRecord
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post.GetPostedDocumentRecord(Service_Header,Variant@)
+commentId: O:Codeunit::Microsoft#Service#Posting#Service-Post
+name: '"Service-Post"'
+uid: O:Codeunit::Microsoft#Service#Posting#Service-Post

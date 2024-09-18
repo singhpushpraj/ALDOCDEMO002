@@ -1,0 +1,419 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Item Tracking Data Collection"
+alId: ID 6501
+namespace: Microsoft.Inventory.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Entry Relation" = rd,
+                      TableData "Value Entry Relation" = rd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEditTrackingNo(var TempTrackingSpecification: Record "Tracking Specification" temporary, SearchForSupply: Boolean, CurrentSignFactor: Integer, LookupMode: Enum "Item Tracking Type", MaxQuantity: Decimal)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: SearchForSupply
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrentSignFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LookupMode
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+    - id: MaxQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AssistEditTrackingNo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.AssistEditTrackingNo(Tracking_Specification@,Boolean,Integer,Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type,Decimal)
+- syntax:
+    content: 'procedure AssistOutBoundBarcodeScannerTrackingNo(BarcodeResult: Text, var TempTrackingSpecification: Record "Tracking Specification" temporary, SearchForSupply: Boolean, CurrentSignFactor: Integer, LookupMode: Enum "Item Tracking Type", MaxQuantity: Decimal): Boolean'
+    parameters:
+    - id: BarcodeResult
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: SearchForSupply
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrentSignFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LookupMode
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+    - id: MaxQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistOutBoundBarcodeScannerTrackingNo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.AssistOutBoundBarcodeScannerTrackingNo(Text,Tracking_Specification@,Boolean,Integer,Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type,Decimal):Boolean
+- syntax:
+    content: 'procedure SelectMultipleTrackingNo(var TempTrackingSpecification: Record "Tracking Specification" temporary, MaxQuantity: Decimal, CurrentSignFactor: Integer)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: MaxQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrentSignFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SelectMultipleTrackingNo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.SelectMultipleTrackingNo(Tracking_Specification@,Decimal,Integer)
+- syntax:
+    content: 'procedure LookupTrackingAvailability(var TempTrackingSpecification: Record "Tracking Specification" temporary, LookupMode: Enum "Item Tracking Type")'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: LookupMode
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+  name: LookupTrackingAvailability
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.LookupTrackingAvailability(Tracking_Specification@,Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type)
+- syntax:
+    content: 'procedure RetrieveLookupData(var TempTrackingSpecification: Record "Tracking Specification" temporary, FullDataSet: Boolean)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: FullDataSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveLookupData
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.RetrieveLookupData(Tracking_Specification@,Boolean)
+- syntax:
+    content: 'procedure GetTempGlobalEntrySummary(var TempGlobalEntrySummary2: Record "Entry Summary" temporary)'
+    parameters:
+    - id: TempGlobalEntrySummary2
+      parameterType:
+        name: Record "Entry Summary" temporary
+        isExternal: true
+  name: GetTempGlobalEntrySummary
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.GetTempGlobalEntrySummary(Entry_Summary@)
+- syntax:
+    content: 'procedure TransferItemLedgToTempRec(var ItemLedgEntry: Record "Item Ledger Entry", var TrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: TransferItemLedgToTempRec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.TransferItemLedgToTempRec(Item_Ledger_Entry@,Tracking_Specification@)
+- syntax:
+    content: 'procedure TransferReservEntryToTempRec(var TempReservEntry: Record "Reservation Entry" temporary, var TrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempReservEntry
+      parameterType:
+        name: Record "Reservation Entry" temporary
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: TransferReservEntryToTempRec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.TransferReservEntryToTempRec(Reservation_Entry@,Tracking_Specification@)
+- syntax:
+    content: 'procedure AddSelectedTrackingToDataSet(var TempEntrySummary: Record "Entry Summary" temporary, var TempTrackingSpecification: Record "Tracking Specification" temporary, CurrentSignFactor: Integer)'
+    parameters:
+    - id: TempEntrySummary
+      parameterType:
+        name: Record "Entry Summary" temporary
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: CurrentSignFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: AddSelectedTrackingToDataSet
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.AddSelectedTrackingToDataSet(Entry_Summary@,Tracking_Specification@,Integer)
+- syntax:
+    content: 'procedure TrackingAvailable(TempTrackingSpecification: Record "Tracking Specification" temporary, LookupMode: Enum "Item Tracking Type"): Boolean'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: LookupMode
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TrackingAvailable
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.TrackingAvailable(Tracking_Specification,Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type):Boolean
+- syntax:
+    content: 'procedure CheckAvailableTrackingQuantity(var TempTrackingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckAvailableTrackingQuantity
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.CheckAvailableTrackingQuantity(Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure UpdateTrackingDataSetWithChange(var TempTrackingSpecificationChanged: Record "Tracking Specification" temporary, LineIsDemand: Boolean, CurrentSignFactor: Integer, ChangeType: Option)'
+    parameters:
+    - id: TempTrackingSpecificationChanged
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: LineIsDemand
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrentSignFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ChangeType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateTrackingDataSetWithChange
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.UpdateTrackingDataSetWithChange(Tracking_Specification@,Boolean,Integer,Option)
+- syntax:
+    content: 'procedure RefreshTrackingAvailability(var TempTrackingSpecification: Record "Tracking Specification" temporary, ShowMessage: Boolean): Boolean'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: ShowMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RefreshTrackingAvailability
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.RefreshTrackingAvailability(Tracking_Specification@,Boolean):Boolean
+- syntax:
+    content: 'procedure SetCurrentBinAndItemTrkgCode(BinCode: Code[20], ItemTrackingCode: Record "Item Tracking Code")'
+    parameters:
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingCode
+      parameterType:
+        name: Record "Item Tracking Code"
+        isExternal: true
+  name: SetCurrentBinAndItemTrkgCode
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.SetCurrentBinAndItemTrkgCode(Code[20],Item_Tracking_Code)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure SumUpTempTrkgSpec(var TempTrackingSpecification: Record "Tracking Specification" temporary, ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SumUpTempTrkgSpec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.SumUpTempTrkgSpec(Tracking_Specification@,Reservation_Entry)
+- syntax:
+    content: 'procedure RelateJnlLineToTempTrkgSpec(var ReservEntry: Record "Reservation Entry", var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: RelateJnlLineToTempTrkgSpec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.RelateJnlLineToTempTrkgSpec(Reservation_Entry@,Tracking_Specification@)
+- syntax:
+    content: 'procedure RelateJobJnlLineToTempTrkgSpec(var ReservEntry: Record "Reservation Entry", var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: RelateJobJnlLineToTempTrkgSpec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.RelateJobJnlLineToTempTrkgSpec(Reservation_Entry@,Tracking_Specification@)
+- syntax:
+    content: 'procedure CurrentDataSetMatches(ItemNo: Code[20], VariantCode: Code[20], LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CurrentDataSetMatches
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.CurrentDataSetMatches(Code[20],Code[20],Code[10]):Boolean
+- syntax:
+    content: 'procedure FindLotNoBySN(TrackingSpecification: Record "Tracking Specification"): Code[50]'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[50]
+        isExternal: true
+  name: FindLotNoBySN
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.FindLotNoBySN(Tracking_Specification):Code[50]
+- syntax:
+    content: 'procedure FindLotNoBySNSilent(var LotNo: Code[50], TrackingSpecification: Record "Tracking Specification"): Boolean'
+    parameters:
+    - id: LotNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLotNoBySNSilent
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.FindLotNoBySNSilent(Code[50]@,Tracking_Specification):Boolean
+- syntax:
+    content: 'procedure FindPackageNoBySN(TrackingSpecification: Record "Tracking Specification"): Code[50]'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[50]
+        isExternal: true
+  name: FindPackageNoBySN
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.FindPackageNoBySN(Tracking_Specification):Code[50]
+- syntax:
+    content: 'procedure FindPackageNoBySNSilent(var PackageNo: Code[50], TrackingSpecification: Record "Tracking Specification"): Boolean'
+    parameters:
+    - id: PackageNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindPackageNoBySNSilent
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.FindPackageNoBySNSilent(Code[50]@,Tracking_Specification):Boolean
+- syntax:
+    content: 'procedure GetAvailableLotQty(TrackingSpecification: Record "Tracking Specification"): Decimal'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetAvailableLotQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.GetAvailableLotQty(Tracking_Specification):Decimal
+- syntax:
+    content: 'procedure SetSkipLot(SkipLot2: Boolean)'
+    parameters:
+    - id: SkipLot2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipLot
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.SetSkipLot(Boolean)
+- syntax:
+    content: 'procedure SetDirectTransfer(NewDirectTransfer: Boolean)'
+    parameters:
+    - id: NewDirectTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDirectTransfer
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection.SetDirectTransfer(Boolean)
+commentId: O:Codeunit::Microsoft#Inventory#Tracking#Item Tracking Data Collection
+name: '"Item Tracking Data Collection"'
+uid: O:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Data_Collection

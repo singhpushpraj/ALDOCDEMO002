@@ -1,0 +1,435 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Security.User."User Setup Management"
+alId: ID 5700
+namespace: System.Security.User
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Security.User
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Location = r,
+                      TableData "Responsibility Center" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetSalesFilter(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetSalesFilter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetSalesFilter:Code[10]
+- syntax:
+    content: 'procedure GetPurchasesFilter(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetPurchasesFilter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetPurchasesFilter:Code[10]
+- syntax:
+    content: 'procedure GetServiceFilter(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetServiceFilter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetServiceFilter:Code[10]
+- syntax:
+    content: 'procedure GetSalesFilter(UserCode: Code[50]): Code[10]'
+    parameters:
+    - id: UserCode
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetSalesFilter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetSalesFilter(Code[50]):Code[10]
+- syntax:
+    content: 'procedure GetPurchasesFilter(UserCode: Code[50]): Code[10]'
+    parameters:
+    - id: UserCode
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetPurchasesFilter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetPurchasesFilter(Code[50]):Code[10]
+- syntax:
+    content: 'procedure GetServiceFilter(UserCode: Code[50]): Code[10]'
+    parameters:
+    - id: UserCode
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetServiceFilter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetServiceFilter(Code[50]):Code[10]
+- syntax:
+    content: 'procedure GetRespCenter(DocType: Option, AccRespCenter: Code[10]): Code[10]'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AccRespCenter
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetRespCenter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetRespCenter(Option,Code[10]):Code[10]
+- syntax:
+    content: 'procedure CheckRespCenter(DocType: Option, AccRespCenter: Code[10]): Boolean'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AccRespCenter
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckRespCenter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckRespCenter(Option,Code[10]):Boolean
+- syntax:
+    content: 'procedure CheckRespCenter(DocType: Option, AccRespCenter: Code[10], UserCode: Code[50]): Boolean'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AccRespCenter
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UserCode
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckRespCenter
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckRespCenter(Option,Code[10],Code[50]):Boolean
+- syntax:
+    content: 'procedure GetLocation(DocType: Option, AccLocation: Code[10], RespCenterCode: Code[10]): Code[10]'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AccLocation
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RespCenterCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetLocation
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetLocation(Option,Code[10],Code[10]):Code[10]
+- syntax:
+    content: 'procedure CheckAllowedPostingDate(PostingDate: Date)'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CheckAllowedPostingDate
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckAllowedPostingDate(Date)
+- syntax:
+    content: 'procedure TestAllowedPostingDate(PostingDate: Date, var ErrorText: Text[250]): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ErrorText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestAllowedPostingDate
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.TestAllowedPostingDate(Date,Text[250]@):Boolean
+- syntax:
+    content: 'procedure CheckAllowedVATDatesRange(AllowVATDateFrom: Date, AllowVATDateTo: Date, NotificationType: Option, InvokedBy: Integer)'
+    parameters:
+    - id: AllowVATDateFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AllowVATDateTo
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NotificationType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: InvokedBy
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckAllowedVATDatesRange
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckAllowedVATDatesRange(Date,Date,Option,Integer)
+- syntax:
+    content: 'procedure CheckAllowedPostingDatesRange(AllowPostingFrom: Date, AllowPostingTo: Date, NotificationType: Option, InvokedBy: Integer)'
+    parameters:
+    - id: AllowPostingFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AllowPostingTo
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NotificationType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: InvokedBy
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckAllowedPostingDatesRange
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckAllowedPostingDatesRange(Date,Date,Option,Integer)
+- syntax:
+    content: 'procedure CheckAllowedPostingDatesRange(AllowPostingFrom: Date, AllowPostingTo: Date, NotificationType: Option, InvokedBy: Integer, AllowPostingFromCaption: Text, AllowPostingToCaption: Text)'
+    parameters:
+    - id: AllowPostingFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AllowPostingTo
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NotificationType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: InvokedBy
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AllowPostingFromCaption
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowPostingToCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckAllowedPostingDatesRange
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckAllowedPostingDatesRange(Date,Date,Option,Integer,Text,Text)
+- syntax:
+    content: 'procedure CheckAllowedVATDatesRange(AllowPostingFrom: Date, AllowPostingTo: Date, NotificationType: Option, InvokedBy: Integer, AllowVATFromCaption: Text, AllowVATToCaption: Text)'
+    parameters:
+    - id: AllowPostingFrom
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AllowPostingTo
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NotificationType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: InvokedBy
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AllowVATFromCaption
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AllowVATToCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckAllowedVATDatesRange
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.CheckAllowedVATDatesRange(Date,Date,Option,Integer,Text,Text)
+- syntax:
+    content: 'procedure IsVATDateInAllowedPeriod(VATDate: Date, var SetupRecordID: RecordId, var FieldNo: Integer): Boolean'
+    parameters:
+    - id: VATDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVATDateInAllowedPeriod
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.IsVATDateInAllowedPeriod(Date,RecordId@,Integer@):Boolean
+- syntax:
+    content: 'procedure IsPostingDateValid(PostingDate: Date): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPostingDateValid
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.IsPostingDateValid(Date):Boolean
+- syntax:
+    content: 'procedure IsPostingDateValidWithSetup(PostingDate: Date, var SetupRecordID: RecordId): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPostingDateValidWithSetup
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.IsPostingDateValidWithSetup(Date,RecordId@):Boolean
+- syntax:
+    content: 'procedure IsDeferralPostingDateValidWithSetup(PostingDate: Date, var SetupRecordID: RecordId): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDeferralPostingDateValidWithSetup
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.IsDeferralPostingDateValidWithSetup(Date,RecordId@):Boolean
+- syntax:
+    content: 'procedure IsPostingDateValidWithGenJnlTemplate(PostingDate: Date, TemplateName: Code[20]): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TemplateName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPostingDateValidWithGenJnlTemplate
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.IsPostingDateValidWithGenJnlTemplate(Date,Code[20]):Boolean
+- syntax:
+    content: 'procedure IsPostingDateValidWithGenJnlTemplateWithSetup(PostingDate: Date, TemplateName: Code[20], var SetupRecordID: RecordId): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TemplateName
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SetupRecordID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPostingDateValidWithGenJnlTemplateWithSetup
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.IsPostingDateValidWithGenJnlTemplateWithSetup(Date,Code[20],RecordId@):Boolean
+- syntax:
+    content: 'procedure GetSalesInvoicePostingPolicy(var PostQty: Boolean, var PostAmount: Boolean)'
+    parameters:
+    - id: PostQty
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetSalesInvoicePostingPolicy
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetSalesInvoicePostingPolicy(Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetPurchaseInvoicePostingPolicy(var PostQty: Boolean, var PostAmount: Boolean)'
+    parameters:
+    - id: PostQty
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetPurchaseInvoicePostingPolicy
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetPurchaseInvoicePostingPolicy(Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetServiceInvoicePostingPolicy(var Ship: Boolean, var Consume: Boolean, var Invoice: Boolean)'
+    parameters:
+    - id: Ship
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Consume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetServiceInvoicePostingPolicy
+  uid: M:Codeunit::System#Security#User#User_Setup_Management.GetServiceInvoicePostingPolicy(Boolean@,Boolean@,Boolean@)
+commentId: O:Codeunit::System#Security#User#User Setup Management
+name: '"User Setup Management"'
+uid: O:Codeunit::System#Security#User#User_Setup_Management

@@ -1,0 +1,42 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Consolidation."Import Consolidation from API"
+alId: ID 102
+namespace: Microsoft.Finance.Consolidation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Consolidation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "General Ledger Setup" = R,
+                      tabledata "Gen. Journal Batch" = R
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ImportConsolidationDataForBusinessUnit(ConsolidationProcess: Record "Consolidation Process", BusinessUnit: Record "Business Unit", var BusUnitConsolidationData: Record "Bus. Unit Consolidation Data" temporary)'
+    parameters:
+    - id: ConsolidationProcess
+      parameterType:
+        name: Record "Consolidation Process"
+        isExternal: true
+    - id: BusinessUnit
+      parameterType:
+        name: Record "Business Unit"
+        isExternal: true
+    - id: BusUnitConsolidationData
+      parameterType:
+        name: Record "Bus. Unit Consolidation Data" temporary
+        isExternal: true
+  name: ImportConsolidationDataForBusinessUnit
+  uid: M:Codeunit::Microsoft#Finance#Consolidation#Import_Consolidation_from_API.ImportConsolidationDataForBusinessUnit(Consolidation_Process,Business_Unit,Bus#_Unit_Consolidation_Data@)
+implements:
+- internalReference: O:Interface::Microsoft#Finance#Consolidation#Import_Consolidation_Data
+  name: Microsoft.Finance.Consolidation."Import Consolidation Data"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Finance#Consolidation#Import Consolidation from API
+name: '"Import Consolidation from API"'
+uid: O:Codeunit::Microsoft#Finance#Consolidation#Import_Consolidation_from_API

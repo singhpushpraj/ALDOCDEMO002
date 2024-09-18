@@ -1,0 +1,179 @@
+﻿### YamlMime:BusinessCentralObsoletionList
+tag: "20.0"
+groups:
+- groupName: "20.0"
+  symbols:
+  - kind: Table
+    internalReference: O:Table::System#EMail#SMTP_Mail_Setup
+    name: Table 409 "SMTP Mail Setup"
+    reason: Moved to "Email - SMTP" app. Use SMTP connector to create SMTP accounts. Email accounts can be configured from "Email Accouts" page from "System Application".
+  - kind: Report
+    internalReference: O:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates
+    name: Report 595 "Adjust Exchange Rates"
+    reason: Replaced by new report 596 "Exch. Rate Adjustment"
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PrepareInitialPair(Invoice_Post#_Buffer,Decimal,Decimal,Code[20],Code[20])
+    name: 'PrepareInitialPair(InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, RemainAmtToDefer: Decimal, RemainAmtToDeferACY: Decimal, GLAccount: Code[20], DeferralAccount: Code[20])'
+    reason: Replaced by PrepareInitialAmounts()
+  - kind: Codeunit
+    internalReference: O:Codeunit::Microsoft#Finance#Dimension#Dim#_Array_Conversion_Helper
+    name: Codeunit 488 "Dim. Array Conversion Helper"
+    reason: Temporary codeunit for compatibility
+  - kind: Table
+    internalReference: O:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer
+    name: Table 49 "Invoice Post. Buffer"
+    reason: This table will be replaced by table Invoice Posting Buffer in new Invoice Posting implementation.
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.PrepareSales(Sales_Line@)
+    name: 'PrepareSales(var SalesLine: Record 37 "Sales Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.CalcDiscount(Boolean,Decimal,Decimal)
+    name: 'CalcDiscount(PricesInclVAT: Boolean, DiscountAmount: Decimal, DiscountAmountACY: Decimal)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.SetAccount(Code[20],Decimal@,Decimal@,Decimal@,Decimal@)
+    name: 'SetAccount(AccountNo: Code[20], var TotalVAT: Decimal, var TotalVATACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.SetAmounts(Decimal,Decimal,Decimal,Decimal,Decimal,Decimal,Decimal)
+    name: 'SetAmounts(TotalVAT: Decimal, TotalVATACY: Decimal, TotalAmount: Decimal, TotalAmountACY: Decimal, VATDifference: Decimal, TotalVATBase: Decimal, TotalVATBaseACY: Decimal)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.PreparePurchase(Purchase_Line@)
+    name: 'PreparePurchase(var PurchLine: Record 39 "Purchase Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.CalcDiscountNoVAT(Decimal,Decimal)
+    name: 'CalcDiscountNoVAT(DiscountAmount: Decimal, DiscountAmountACY: Decimal)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.SetSalesTaxForPurchLine(Purchase_Line)
+    name: 'SetSalesTaxForPurchLine(PurchaseLine: Record 39 "Purchase Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.SetSalesTaxForSalesLine(Sales_Line)
+    name: 'SetSalesTaxForSalesLine(SalesLine: Record 37 "Sales Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.ReverseAmounts
+    name: ReverseAmounts()
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.SetAmountsNoVAT(Decimal,Decimal,Decimal)
+    name: 'SetAmountsNoVAT(TotalAmount: Decimal, TotalAmountACY: Decimal, VATDifference: Decimal)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.PrepareService(Service_Line@)
+    name: 'PrepareService(var ServiceLine: Record 5902 "Service Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.PreparePrepmtAdjBuffer(Invoice_Post#_Buffer,Code[20],Decimal,Boolean)
+    name: 'PreparePrepmtAdjBuffer(InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, GLAccountNo: Code[20], AdjAmount: Decimal, RoundingEntry: Boolean)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.Update(Invoice_Post#_Buffer)
+    name: 'Update(InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.Update(Invoice_Post#_Buffer,Integer@,Integer@)
+    name: 'Update(InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, var InvDefLineNo: Integer, var DeferralLineNo: Integer)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.UpdateVATBase(Decimal@,Decimal@)
+    name: 'UpdateVATBase(var TotalVATBase: Decimal, var TotalVATBaseACY: Decimal)'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.CopyToGenJnlLine(Gen#_Journal_Line@)
+    name: 'CopyToGenJnlLine(var GenJnlLine: Record 81 "Gen. Journal Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Method
+    internalReference: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Post#_Buffer.CopyToGenJnlLineFA(Gen#_Journal_Line@)
+    name: 'CopyToGenJnlLineFA(var GenJnlLine: Record 81 "Gen. Journal Line")'
+    reason: Replaced by procedure in table Invoice Posting Buffer
+  - kind: Field
+    internalReference: F:Table::Microsoft#Finance#VAT#Reporting#VAT_Report_Setup.Period_Reminder_Time
+    name: '"Period Reminder Time": Integer'
+    reason: Redesigned to a new field "Period Reminder Calculation"
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Service#Posting#Serv-Amounts_Mgt#.FillInvoicePostBuffer(Invoice_Post#_Buffer@,Service_Line@,Service_Line@,Service_Header)
+    name: 'FillInvoicePostBuffer(var TempInvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, var ServiceLine: Record 5902 "Service Line", var ServiceLineACY: Record 5902 "Service Line", ServiceHeader: Record 5900 "Service Header")'
+    reason: Replaced by new implementation in ServicePostInvoice codeunit
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostInvoicePostBufferLine(Invoice_Post#_Buffer@,Integer,Code[20],Code[35])
+    name: 'PostInvoicePostBufferLine(var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary, DocType: Integer, DocNo: Code[20], ExtDocNo: Code[35])'
+    reason: Replaced by new implementation in codeunit Service Post Invoice
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostCustomerEntry(Service_Line@,Service_Line@,Integer,Code[20],Code[35])
+    name: 'PostCustomerEntry(var TotalServiceLine: Record 5902 "Service Line", var TotalServiceLineLCY: Record 5902 "Service Line", DocType: Integer, DocNo: Code[20], ExtDocNo: Code[35])'
+    reason: Replaced by new implementation in codeunit Service Post Invoice
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Service#Posting#Serv-Posting_Journals_Mgt#.PostBalancingEntry(Service_Line@,Service_Line@,Integer,Code[20],Code[35])
+    name: 'PostBalancingEntry(var TotalServiceLine: Record 5902 "Service Line", var TotalServiceLineLCY: Record 5902 "Service Line", DocType: Integer, DocNo: Code[20], ExtDocNo: Code[35])'
+    reason: Replaced by new implementation in codeunit Service Post Invoice
+  - kind: Field
+    internalReference: F:Table::Microsoft#Bank#BankAccount#Bank_Account_Posting_Group.G/L_Bank_Account_No#[20]
+    name: '"G/L Bank Account No.": Code[20]'
+    reason: Moved to G/L Account No.
+  - kind: Field
+    internalReference: F:Table::Microsoft#CRM#Setup#Marketing_Setup.Sync_with_Microsoft_Graph
+    name: '"Sync with Microsoft Graph": Boolean'
+    reason: The field will be removed. The API that this field was used for was discontinued.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Foundation#Company#Company_Information.Sync_with_O365_Bus#_profile
+    name: '"Sync with O365 Bus. profile": Boolean'
+    reason: The field will be removed. The API that this field was used for was discontinued.
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Connection_Setup.Is_User_Mapping_Required
+    name: '"Is User Mapping Required": Boolean'
+    reason: This functionality is not in use and not supported
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Connection_Setup.Is_User_Mapped_To_CRM_User
+    name: '"Is User Mapped To CRM User": Boolean'
+    reason: This functionality is not in use and not supported
+  - kind: Field
+    internalReference: F:Table::Microsoft#Integration#D365Sales#CRM_Connection_Setup.Is_Enabled_For_User
+    name: '"Is Enabled For User": Boolean'
+    reason: Use field "Is Enabled" instead.
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Integration#Dataverse#CRM_Synch#_Helper.ConvertTableToOption(FieldRef,Integer@):Boolean
+    name: 'ConvertTableToOption(SourceFieldRef: FieldRef, var OptionValue: Integer): Boolean'
+    reason: Use another implementation of ConvertTableToOption
+  - kind: Field
+    internalReference: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Over-Receipt_Code[10]
+    name: '"Over-Receipt Code": Code[10]'
+    reason: Replaced with field 8512 due to wrong field length
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CalcInvoiceDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Post#_Buffer@)
+    name: 'CalcInvoiceDiscountPosting(PurchHeader: Record 38 "Purchase Header", PurchLine: Record 39 "Purchase Line", PurchLineACY: Record 39 "Purchase Line", var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Moved to Purchase Invoice Posting implementation. Replaced by local procedure CalcInvoiceDiscountPosting in codeunit Purch. Post Invoice
+  - kind: Method
+    internalReference: M:Codeunit::Microsoft#Purchases#Posting#Purch#-Post.CalcLineDiscountPosting(Purchase_Header,Purchase_Line,Purchase_Line,Invoice_Post#_Buffer@)
+    name: 'CalcLineDiscountPosting(PurchHeader: Record 38 "Purchase Header", PurchLine: Record 39 "Purchase Line", PurchLineACY: Record 39 "Purchase Line", var InvoicePostBuffer: Record 49 "Invoice Post. Buffer" temporary)'
+    reason: Moved to Purchase Invoice Posting implementation. Replaced by local procedure CalcLineDiscountPosting in codeunit Purch. Post Invoice
+  - kind: Table
+    internalReference: O:Table::Graph_Business_Profile
+    name: Table 5456 "Graph Business Profile"
+    reason: This functionality will be removed. The API that it was integrating to was discontinued.
+  - kind: Table
+    internalReference: O:Table::Graph_Contact
+    name: Table 5450 "Graph Contact"
+    reason: This functionality will be removed. The API that it was integrating to was discontinued.
+  - kind: Table
+    internalReference: O:Table::Graph_Integration_Rec#_Archive
+    name: Table 5452 "Graph Integration Rec. Archive"
+    reason: This functionality will be removed. The API that it was integrating to was discontinued.
+  - kind: Table
+    internalReference: O:Table::Graph_Integration_Record
+    name: Table 5451 "Graph Integration Record"
+    reason: This functionality will be removed. The API that it was integrating to was discontinued.
+  - kind: Table
+    internalReference: O:Table::Social_Listening_Search_Topic
+    name: Table 871 "Social Listening Search Topic"
+    reason: Microsoft Social Engagement has been discontinued.
+  - kind: Table
+    internalReference: O:Table::Social_Listening_Setup
+    name: Table 870 "Social Listening Setup"
+    reason: Microsoft Social Engagement has been discontinued.
+  uid: N:Module::Base_Application_obsolete_by_20.0#20.0
+uid: N:Module::Base_Application_obsolete_by_20.0

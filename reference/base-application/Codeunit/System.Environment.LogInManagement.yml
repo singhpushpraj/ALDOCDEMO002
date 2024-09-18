@@ -1,0 +1,56 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment.LogInManagement
+alId: ID 40
+namespace: System.Environment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Company Information" = r,
+                      TableData "G/L Entry" = r,
+                      TableData "General Ledger Setup" = r,
+                      TableData Customer = r,
+                      TableData Vendor = r,
+                      TableData Item = r,
+                      TableData User = r,
+                      TableData "User Personalization" = rm,
+                      TableData "User Time Register" = rimd,
+                      TableData "My Customer" = rimd,
+                      TableData "My Vendor" = rimd,
+                      TableData "My Item" = rimd,
+                      TableData "My Account" = rimd,
+                      TableData "Windows Language" = r
+  promoted: false
+- name: SingleInstance
+  value: "True"
+  promoted: false
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+methods:
+- syntax:
+    content: procedure CompanyClose()
+  name: CompanyClose
+  uid: M:Codeunit::System#Environment#LogInManagement.CompanyClose
+- syntax:
+    signatures:
+    - '[InherentPermissions(TableData,17,r)]'
+    content: 'procedure GetDefaultWorkDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDefaultWorkDate
+  uid: M:Codeunit::System#Environment#LogInManagement.GetDefaultWorkDate:Date
+commentId: O:Codeunit::System#Environment#LogInManagement
+name: LogInManagement
+uid: O:Codeunit::System#Environment#LogInManagement

@@ -1,0 +1,69 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Workflow Webhook Notification"
+alId: ID 1545
+namespace: System.Automation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: Permissions
+  value: TableData "Workflow Webhook Notification" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure Initialize(RetryCount: Integer, WaitTimeInMs: Integer)'
+    parameters:
+    - id: RetryCount
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: WaitTimeInMs
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Initialize
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Notification.Initialize(Integer,Integer)
+- syntax:
+    content: 'procedure StartNotification(WorkflowStepInstanceID: Guid)'
+    parameters:
+    - id: WorkflowStepInstanceID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: StartNotification
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Notification.StartNotification(Guid)
+- syntax:
+    content: 'procedure GetCurrentRetryCounter(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCurrentRetryCounter
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Notification.GetCurrentRetryCounter:Integer
+- syntax:
+    content: 'procedure ShouldRetry(StatusCode: Integer, StatusDescription: Text): Boolean'
+    parameters:
+    - id: StatusCode
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatusDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShouldRetry
+  uid: M:Codeunit::System#Automation#Workflow_Webhook_Notification.ShouldRetry(Integer,Text):Boolean
+commentId: O:Codeunit::System#Automation#Workflow Webhook Notification
+name: '"Workflow Webhook Notification"'
+uid: O:Codeunit::System#Automation#Workflow_Webhook_Notification

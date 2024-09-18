@@ -1,0 +1,146 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CostAccounting.Journal.CostJnlManagement
+alId: ID 1106
+namespace: Microsoft.CostAccounting.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CostAccounting.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Cost Journal Template" = rimd,
+                      TableData "Cost Journal Batch" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TemplateSelection(var CostJnlLine: Record "Cost Journal Line", var JnlSelected: Boolean)'
+    parameters:
+    - id: CostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+    - id: JnlSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.TemplateSelection(Cost_Journal_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var CostJnlBatch: Record "Cost Journal Batch")'
+    parameters:
+    - id: CostJnlBatch
+      parameterType:
+        name: Record "Cost Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.TemplateSelectionFromBatch(Cost_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJnl(var CostJnlBatchName: Code[10], var CostJnlLine: Record "Cost Journal Line")'
+    parameters:
+    - id: CostJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.OpenJnl(Code[10]@,Cost_Journal_Line@)
+- syntax:
+    content: 'procedure OpenJnlBatch(var CostJnlBatch: Record "Cost Journal Batch")'
+    parameters:
+    - id: CostJnlBatch
+      parameterType:
+        name: Record "Cost Journal Batch"
+        isExternal: true
+  name: OpenJnlBatch
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.OpenJnlBatch(Cost_Journal_Batch@)
+- syntax:
+    content: 'procedure CheckTemplateName(CostJnlTemplateName: Code[10], var CostJnlBatchName: Code[10])'
+    parameters:
+    - id: CostJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CostJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckTemplateName
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.CheckTemplateName(Code[10],Code[10]@)
+- syntax:
+    content: 'procedure CheckName(CostJnlBatchName: Code[10], var CostJnlLine: Record "Cost Journal Line")'
+    parameters:
+    - id: CostJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.CheckName(Code[10],Cost_Journal_Line@)
+- syntax:
+    content: 'procedure SetName(CostJnlBatchName: Code[10], var CostJnlLine: Record "Cost Journal Line")'
+    parameters:
+    - id: CostJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.SetName(Code[10],Cost_Journal_Line@)
+- syntax:
+    content: 'procedure LookupName(var CostJnlBatchName: Code[10], var CostJnlLine: Record "Cost Journal Line")'
+    parameters:
+    - id: CostJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.LookupName(Code[10]@,Cost_Journal_Line@)
+- syntax:
+    content: 'procedure CalcBalance(var CostJnlLine: Record "Cost Journal Line", LastCostJnlLine: Record "Cost Journal Line", var Balance: Decimal, var TotalBalance: Decimal, var ShowBalance: Boolean, var ShowTotalBalance: Boolean)'
+    parameters:
+    - id: CostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+    - id: LastCostJnlLine
+      parameterType:
+        name: Record "Cost Journal Line"
+        isExternal: true
+    - id: Balance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalBalance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ShowBalance
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowTotalBalance
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcBalance
+  uid: M:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement.CalcBalance(Cost_Journal_Line@,Cost_Journal_Line,Decimal@,Decimal@,Boolean@,Boolean@)
+commentId: O:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement
+name: CostJnlManagement
+uid: O:Codeunit::Microsoft#CostAccounting#Journal#CostJnlManagement

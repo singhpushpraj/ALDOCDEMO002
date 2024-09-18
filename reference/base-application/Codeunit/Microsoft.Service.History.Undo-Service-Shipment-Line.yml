@@ -1,0 +1,54 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.History."Undo Service Shipment Line"
+alId: ID 5818
+namespace: Microsoft.Service.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Application Entry" = rmd,
+                      TableData "Service Line" = rimd,
+                      TableData "Service Ledger Entry" = ri,
+                      TableData "Warranty Ledger Entry" = rim,
+                      TableData "Service Shipment Line" = rimd,
+                      TableData "Item Entry Relation" = ri
+  promoted: false
+- name: TableNo
+  value: Service Shipment Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#History#Service_Shipment_Line
+    name: Microsoft.Service.History."Service Shipment Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Service#History#Undo_Service_Shipment_Line.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure GetCorrectionLineNo(ServiceShipmentLine2: Record "Service Shipment Line"): Integer'
+    parameters:
+    - id: ServiceShipmentLine2
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCorrectionLineNo
+  uid: M:Codeunit::Microsoft#Service#History#Undo_Service_Shipment_Line.GetCorrectionLineNo(Service_Shipment_Line):Integer
+commentId: O:Codeunit::Microsoft#Service#History#Undo Service Shipment Line
+name: '"Undo Service Shipment Line"'
+uid: O:Codeunit::Microsoft#Service#History#Undo_Service_Shipment_Line

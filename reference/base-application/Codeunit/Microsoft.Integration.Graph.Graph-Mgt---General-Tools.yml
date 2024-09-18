@@ -1,0 +1,221 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.Graph."Graph Mgt - General Tools"
+alId: ID 5465
+namespace: Microsoft.Integration.Graph
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.Graph
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rimd,
+                      TableData "Sales Cr.Memo Header" = rimd,
+                      TableData "Purch. Inv. Header" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure HandleUpdateReferencedIdFieldOnItem(var RecRef: RecordRef, NewId: Guid, var Handled: Boolean, DatabaseNumber: Integer, RecordFieldNumber: Integer)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: NewId
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: Handled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DatabaseNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordFieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: HandleUpdateReferencedIdFieldOnItem
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.HandleUpdateReferencedIdFieldOnItem(RecordRef@,Guid,Boolean@,Integer,Integer)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure ProcessNewRecordFromAPI(var InsertedRecordRef: RecordRef, TempFieldSet: __MissingTypeSymbol__, ModifiedDateTime: DateTime)'
+    parameters:
+    - id: InsertedRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TempFieldSet
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: ModifiedDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: ProcessNewRecordFromAPI
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.ProcessNewRecordFromAPI(RecordRef@,__MissingSymbol__@,DateTime)
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure ProcessNewRecordFromAPI(var InsertedRecordRef: RecordRef, TempFieldSet: __MissingTypeSymbol__, ModifiedDateTime: DateTime, var ConfigTemplateHeader: Record "Config. Template Header")'
+    parameters:
+    - id: InsertedRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TempFieldSet
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: ModifiedDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: ConfigTemplateHeader
+      parameterType:
+        name: Record "Config. Template Header"
+        isExternal: true
+  name: ProcessNewRecordFromAPI
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.ProcessNewRecordFromAPI(RecordRef@,__MissingSymbol__@,DateTime,Config#_Template_Header@)
+- syntax:
+    content: procedure ErrorIdImmutable()
+  name: ErrorIdImmutable
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.ErrorIdImmutable
+- syntax:
+    content: procedure ErrorLastDateTimeModifiedImmutable()
+  name: ErrorLastDateTimeModifiedImmutable
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.ErrorLastDateTimeModifiedImmutable
+- syntax:
+    content: 'procedure IsApiEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsApiEnabled
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.IsApiEnabled:Boolean
+- syntax:
+    content: 'procedure IsApiSubscriptionEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsApiSubscriptionEnabled
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.IsApiSubscriptionEnabled:Boolean
+- syntax:
+    content: procedure APISetupIfEnabled()
+  name: APISetupIfEnabled
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.APISetupIfEnabled
+- syntax:
+    content: 'procedure TranslateNAVCurrencyCodeToCurrencyCode(var CachedLCYCurrencyCode: Code[10], CurrencyCode: Code[10]): Code[10]'
+    parameters:
+    - id: CachedLCYCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: TranslateNAVCurrencyCodeToCurrencyCode
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.TranslateNAVCurrencyCodeToCurrencyCode(Code[10]@,Code[10]):Code[10]
+- syntax:
+    content: 'procedure TranslateCurrencyCodeToNAVCurrencyCode(var CachedLCYCurrencyCode: Code[10], CurrentCurrencyCode: Code[10]): Code[10]'
+    parameters:
+    - id: CachedLCYCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: TranslateCurrencyCodeToNAVCurrencyCode
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.TranslateCurrencyCodeToNAVCurrencyCode(Code[10]@,Code[10]):Code[10]
+- syntax:
+    content: 'procedure TransferRelatedRecordIntegrationIDs(var OriginalRecordRef: RecordRef, var UpdatedRecordRef: RecordRef, TempRelatedRecodIdsField: __MissingTypeSymbol__)'
+    parameters:
+    - id: OriginalRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: UpdatedRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: TempRelatedRecodIdsField
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: TransferRelatedRecordIntegrationIDs
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.TransferRelatedRecordIntegrationIDs(RecordRef@,RecordRef@,__MissingSymbol__@)
+- syntax:
+    content: 'procedure CleanAggregateWithoutParent(MainRecordVariant: Variant)'
+    parameters:
+    - id: MainRecordVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CleanAggregateWithoutParent
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.CleanAggregateWithoutParent(Variant)
+- syntax:
+    content: 'procedure ScheduleUpdateAPIRecordsJob(CodeunitID: Integer)'
+    parameters:
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ScheduleUpdateAPIRecordsJob
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.ScheduleUpdateAPIRecordsJob(Integer)
+- syntax:
+    content: 'procedure StripBrackets(StringWithBrackets: Text): Text'
+    parameters:
+    - id: StringWithBrackets
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: StripBrackets
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.StripBrackets(Text):Text
+- syntax:
+    content: 'procedure GetIdWithoutBrackets(Id: Guid): Text'
+    parameters:
+    - id: Id
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetIdWithoutBrackets
+  uid: M:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools.GetIdWithoutBrackets(Guid):Text
+commentId: O:Codeunit::Microsoft#Integration#Graph#Graph Mgt - General Tools
+name: '"Graph Mgt - General Tools"'
+uid: O:Codeunit::Microsoft#Integration#Graph#Graph_Mgt_-_General_Tools

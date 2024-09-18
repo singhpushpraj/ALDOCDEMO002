@@ -1,0 +1,293 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities."Sync.Dep.Fld-Utilities"
+alId: ID 702
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Access
+  value: Public
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetPreviousRecord(CurrentRecord: Variant, var PreviousRecordRef: RecordRef): Boolean'
+    parameters:
+    - id: CurrentRecord
+      description: Current record that we want to get a previous version of.
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: PreviousRecordRef
+      description: Previous record.
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    return:
+      description: A boolean that indicates whether the previous record exists.
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    Gets the previous record - xRec is not the previous version of the record it is the previous record on the page.
+
+    If the update was not started from page, xRec will be same as the Rec.
+
+    This function MUST be called before the update of the record is done, for example from OnBeforeModify trigger.
+  name: GetPreviousRecord
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.GetPreviousRecord(Variant,RecordRef@):Boolean
+- syntax:
+    content: 'procedure IsFieldSynchronizationDisabled(): Boolean'
+    return:
+      description: A boolean that indicates whether the synchronization is disabled.
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    Check if synchronization is disabled.
+
+    By default is disabled when install or upgrade is in progress.
+
+    In that cases is not suitable to run synchronization.
+  name: IsFieldSynchronizationDisabled
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.IsFieldSynchronizationDisabled:Boolean
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Boolean, var ValidFieldValue: Boolean)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Boolean@,Boolean@)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Boolean, var ValidFieldValue: Boolean, PrevObsoleteFieldValue: Boolean, PrevValidFieldValue: Boolean)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Boolean@,Boolean@,Boolean,Boolean)
+- syntax:
+    content: 'procedure SyncFieldsCode10(var ObsoleteFieldValue: Code[10], var ValidFieldValue: Code[10])'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SyncFieldsCode10
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFieldsCode10(Code[10]@,Code[10]@)
+- syntax:
+    content: 'procedure SyncFieldsCode10(var ObsoleteFieldValue: Code[10], var ValidFieldValue: Code[10], PrevObsoleteFieldValue: Code[10], PrevValidFieldValue: Code[10])'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SyncFieldsCode10
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFieldsCode10(Code[10]@,Code[10]@,Code[10],Code[10])
+- syntax:
+    content: 'procedure SyncFieldsCode20(var ObsoleteFieldValue: Code[20], var ValidFieldValue: Code[20])'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SyncFieldsCode20
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFieldsCode20(Code[20]@,Code[20]@)
+- syntax:
+    content: 'procedure SyncFieldsCode20(var ObsoleteFieldValue: Code[20], var ValidFieldValue: Code[20], PrevObsoleteFieldValue: Code[20], PrevValidFieldValue: Code[20])'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SyncFieldsCode20
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFieldsCode20(Code[20]@,Code[20]@,Code[20],Code[20])
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Text, var ValidFieldValue: Text)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Text@,Text@)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Text, var ValidFieldValue: Text, PrevObsoleteFieldValue: Text, PrevValidFieldValue: Text)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Text@,Text@,Text,Text)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Date, var ValidFieldValue: Date, PrevObsoleteFieldValue: Date, PrevValidFieldValue: Date)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Date@,Date@,Date,Date)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: DateTime, var ValidFieldValue: DateTime, PrevObsoleteFieldValue: DateTime, PrevValidFieldValue: DateTime)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(DateTime@,DateTime@,DateTime,DateTime)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Integer, var ValidFieldValue: Integer)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Integer@,Integer@)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Integer, var ValidFieldValue: Integer, PrevObsoleteFieldValue: Integer, PrevValidFieldValue: Integer)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Integer@,Integer@,Integer,Integer)
+- syntax:
+    content: 'procedure SyncFields(var ObsoleteFieldValue: Decimal, var ValidFieldValue: Decimal, PrevObsoleteFieldValue: Decimal, PrevValidFieldValue: Decimal)'
+    parameters:
+    - id: ObsoleteFieldValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ValidFieldValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PrevObsoleteFieldValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PrevValidFieldValue
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SyncFields
+  uid: M:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities.SyncFields(Decimal@,Decimal@,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities
+name: '"Sync.Dep.Fld-Utilities"'
+uid: O:Codeunit::Microsoft#Utilities#Sync#Dep#Fld-Utilities

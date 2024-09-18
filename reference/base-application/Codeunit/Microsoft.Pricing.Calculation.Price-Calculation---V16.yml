@@ -1,0 +1,336 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Calculation."Price Calculation - V16"
+alId: ID 7002
+namespace: Microsoft.Pricing.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure GetLine(var Line: Variant)'
+    parameters:
+    - id: Line
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: GetLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.GetLine(Variant@)
+- syntax:
+    content: 'procedure Init(NewLineWithPrice: Interface "Line With Price", PriceCalculationSetup: Record "Price Calculation Setup")'
+    parameters:
+    - id: NewLineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+    - id: PriceCalculationSetup
+      parameterType:
+        name: Record "Price Calculation Setup"
+        isExternal: true
+  name: Init
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.Init(Interface::Microsoft#Pricing#PriceList#Line_With_Price,Price_Calculation_Setup)
+- syntax:
+    content: procedure ApplyDiscount()
+  name: ApplyDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.ApplyDiscount
+- syntax:
+    content: 'procedure ApplyPrice(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ApplyPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.ApplyPrice(Integer)
+- syntax:
+    content: 'procedure CountDiscount(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.CountDiscount(Boolean):Integer
+- syntax:
+    content: 'procedure CountPrice(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.CountPrice(Boolean):Integer
+- syntax:
+    content: 'procedure FindDiscount(var TempPriceListLine: Record "Price List Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.FindDiscount(Price_List_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure FindPrice(var TempPriceListLine: Record "Price List Line", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.FindPrice(Price_List_Line@,Boolean):Boolean
+- syntax:
+    content: 'procedure IsDiscountExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDiscountExists
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.IsDiscountExists(Boolean):Boolean
+- syntax:
+    content: 'procedure IsPriceExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPriceExists
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.IsPriceExists(Boolean):Boolean
+- syntax:
+    content: procedure PickDiscount()
+  name: PickDiscount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.PickDiscount
+- syntax:
+    content: procedure PickPrice()
+  name: PickPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.PickPrice
+- syntax:
+    content: 'procedure ShowPrices(var TempPriceListLine: Record "Price List Line")'
+    parameters:
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: ShowPrices
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.ShowPrices(Price_List_Line@)
+- syntax:
+    content: 'procedure IsDegradedLine(PriceListLine: Record "Price List Line", BestPriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: BestPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDegradedLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.IsDegradedLine(Price_List_Line,Price_List_Line):Boolean
+- syntax:
+    content: 'procedure IsImprovedLine(PriceListLine: Record "Price List Line", BestPriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: BestPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsImprovedLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.IsImprovedLine(Price_List_Line,Price_List_Line):Boolean
+- syntax:
+    content: 'procedure IsBetterLine(var PriceListLine: Record "Price List Line", AmountType: Enum "Price Amount Type", BestPriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: BestPriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBetterLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.IsBetterLine(Price_List_Line@,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Price_List_Line):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(AmountType::Cost is replaced by the combination of AmountType::Price with PriceType::Purchase.,17.0)]'
+    content: 'procedure AmountTypeFromPriceType(PriceType: Enum "Price Type"): Enum "Price Amount Type"'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: AmountTypeFromPriceType
+  obsoletion:
+    state: pending
+    reason: AmountType::Cost is replaced by the combination of AmountType::Price with PriceType::Purchase.
+    version: "17.0"
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.AmountTypeFromPriceType(Enum::Microsoft#Pricing#PriceList#Price_Type):Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+- syntax:
+    content: 'procedure FindLines(AmountType: Enum "Price Amount Type", var TempPriceListLine: Record "Price List Line" temporary, var PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt.", ShowAll: Boolean): Boolean'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line" temporary
+        isExternal: true
+    - id: PriceCalculationBufferMgt
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#
+        name: Microsoft.Pricing.Calculation."Price Calculation Buffer Mgt."
+        isExternal: false
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLines
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.FindLines(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Price_List_Line@,Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#@,Boolean):Boolean
+- syntax:
+    content: 'procedure CopyLinesBySource(var PriceListLine: Record "Price List Line", PriceSource: Record "Price Source" temporary, var PriceAssetList: Codeunit "Price Asset List", var TempPriceListLine: Record "Price List Line" temporary): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: PriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyLinesBySource
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.CopyLinesBySource(Price_List_Line@,Price_Source,Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@,Price_List_Line@):Boolean
+- syntax:
+    content: 'procedure CopyLinesBySource(var PriceListLine: Record "Price List Line", PriceSource: Record "Price Source" temporary, PriceAsset: Record "Price Asset" temporary, var TempPriceListLine: Record "Price List Line" temporary): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: TempPriceListLine
+      parameterType:
+        name: Record "Price List Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyLinesBySource
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.CopyLinesBySource(Price_List_Line@,Price_Source,Price_Asset,Price_List_Line@):Boolean
+- syntax:
+    content: 'procedure CalcBestAmount(AmountType: Enum "Price Amount Type", var PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt.", var PriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: PriceCalculationBufferMgt
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#
+        name: Microsoft.Pricing.Calculation."Price Calculation Buffer Mgt."
+        isExternal: false
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalcBestAmount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16.CalcBestAmount(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#@,Price_List_Line@):Boolean
+implements:
+- internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+  name: Microsoft.Pricing.Calculation."Price Calculation"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Pricing#Calculation#Price Calculation - V16
+name: '"Price Calculation - V16"'
+uid: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_-_V16

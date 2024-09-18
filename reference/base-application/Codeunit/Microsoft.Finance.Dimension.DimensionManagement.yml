@@ -1,0 +1,2003 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Dimension.DimensionManagement
+alId: ID 408
+namespace: Microsoft.Finance.Dimension
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Dimension
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Gen. Journal Template" = rimd,
+                      TableData "Gen. Journal Batch" = rimd,
+                      tabledata "Default Dimension" = R,
+                      tabledata "Dimension Set Entry" = R
+  promoted: false
+methods:
+- syntax:
+    content: procedure SetCollectErrorsMode()
+  name: SetCollectErrorsMode
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetCollectErrorsMode
+- syntax:
+    content: 'procedure SetSourceCode(TableID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetSourceCode
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetSourceCode(Integer)
+- syntax:
+    content: 'procedure SetSourceCode(TableID: Integer, RecordVar: Variant)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetSourceCode
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetSourceCode(Integer,Variant)
+- syntax:
+    content: 'procedure GetSourceCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetSourceCode
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetSourceCode:Code[10]
+- syntax:
+    content: 'procedure GetDimensionSetID(var DimSetEntry2: Record "Dimension Set Entry"): Integer'
+    parameters:
+    - id: DimSetEntry2
+      parameterType:
+        name: Record "Dimension Set Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDimensionSetID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimensionSetID(Dimension_Set_Entry@):Integer
+- syntax:
+    content: 'procedure GetDimensionSet(var TempDimSetEntry: Record "Dimension Set Entry" temporary, DimSetID: Integer)'
+    parameters:
+    - id: TempDimSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry" temporary
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetDimensionSet
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimensionSet(Dimension_Set_Entry@,Integer)
+- syntax:
+    content: 'procedure ShowDimensionSet(DimSetID: Integer, NewCaption: Text[250])'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: ShowDimensionSet
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ShowDimensionSet(Integer,Text[250])
+- syntax:
+    content: 'procedure EditDimensionSet(DimSetID: Integer, NewCaption: Text[250]): Integer'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: EditDimensionSet
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.EditDimensionSet(Integer,Text[250]):Integer
+- syntax:
+    content: 'procedure EditDimensionSet(DimSetID: Integer, NewCaption: Text[250], var GlobalDimVal1: Code[20], var GlobalDimVal2: Code[20]): Integer'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: GlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: EditDimensionSet
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.EditDimensionSet(Integer,Text[250],Code[20]@,Code[20]@):Integer
+- syntax:
+    content: 'procedure EditDimensionSet(RecVariant: Variant, DimSetID: Integer, NewCaption: Text[250], var GlobalDimVal1: Code[20], var GlobalDimVal2: Code[20]): Integer'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: GlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: EditDimensionSet
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.EditDimensionSet(Variant,Integer,Text[250],Code[20]@,Code[20]@):Integer
+- syntax:
+    content: 'procedure EditReclasDimensionSet(var DimSetID: Integer, var NewDimSetID: Integer, NewCaption: Text[250], var GlobalDimVal1: Code[20], var GlobalDimVal2: Code[20], var NewGlobalDimVal1: Code[20], var NewGlobalDimVal2: Code[20])'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: GlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewGlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewGlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: EditReclasDimensionSet
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.EditReclasDimensionSet(Integer@,Integer@,Text[250],Code[20]@,Code[20]@,Code[20]@,Code[20]@)
+- syntax:
+    content: 'procedure UpdateGlobalDimFromDimSetID(DimSetID: Integer, var GlobalDimVal1: Code[20], var GlobalDimVal2: Code[20])'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateGlobalDimFromDimSetID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateGlobalDimFromDimSetID(Integer,Code[20]@,Code[20]@)
+- syntax:
+    content: 'procedure GetCombinedDimensionSetID(DimensionSetIDArr: array[10] of Integer, var GlobalDimVal1: Code[20], var GlobalDimVal2: Code[20]): Integer'
+    parameters:
+    - id: DimensionSetIDArr
+      parameterType:
+        name: array[10] of Integer
+        isExternal: true
+    - id: GlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCombinedDimensionSetID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetCombinedDimensionSetID(Integer[],Code[20]@,Code[20]@):Integer
+- syntax:
+    content: 'procedure GetDeltaDimSetID(DimSetID: Integer, NewParentDimSetID: Integer, OldParentDimSetID: Integer): Integer'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OldParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDeltaDimSetID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDeltaDimSetID(Integer,Integer,Integer):Integer
+- syntax:
+    content: 'procedure GetGLSetup(var GLSetupShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: GLSetupShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: GetGLSetup
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetGLSetup(Code[20][]@)
+- syntax:
+    content: 'procedure CheckDimIDComb(DimSetID: Integer): Boolean'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimIDComb
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimIDComb(Integer):Boolean
+- syntax:
+    content: 'procedure CheckDimValuePosting(TableID: array[10] of Integer, No: array[10] of Code[20], DimSetID: Integer): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: array[10] of Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: array[10] of Code[20]
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimValuePosting
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimValuePosting(Integer[],Code[20][],Integer):Boolean
+- syntax:
+    content: 'procedure CheckDimBuffer(var DimBuffer: Record "Dimension Buffer"): Boolean'
+    parameters:
+    - id: DimBuffer
+      parameterType:
+        name: Record "Dimension Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimBuffer
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimBuffer(Dimension_Buffer@):Boolean
+- syntax:
+    content: 'procedure CheckDimComb(var TempDimBuf: Record "Dimension Buffer" temporary): Boolean'
+    parameters:
+    - id: TempDimBuf
+      parameterType:
+        name: Record "Dimension Buffer" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimComb
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimComb(Dimension_Buffer@):Boolean
+- syntax:
+    content: 'procedure GetNotAllowedDimValuePerAccount(DefaultDim: Record "Default Dimension", DimValueCode: Code[20]): Text'
+    parameters:
+    - id: DefaultDim
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: DimValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetNotAllowedDimValuePerAccount
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetNotAllowedDimValuePerAccount(Default_Dimension,Code[20]):Text
+- syntax:
+    content: 'procedure GetDimCombErr(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDimCombErr
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimCombErr:Text[250]
+- syntax:
+    content: 'procedure UpdateDefaultDim(TableID: Integer, No: Code[20], var GlobalDim1Code: Code[20], var GlobalDim2Code: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateDefaultDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateDefaultDim(Integer,Code[20],Code[20]@,Code[20]@)
+- syntax:
+    content: 'procedure GetDefaultDimID(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], SourceCode: Code[20], var GlobalDim1Code: Code[20], var GlobalDim2Code: Code[20], InheritFromDimSetID: Integer, InheritFromTableNo: Integer): Integer'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InheritFromDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InheritFromTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDefaultDimID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDefaultDimID(List_of_[Dictionary],Code[20],Code[20]@,Code[20]@,Integer,Integer):Integer
+- syntax:
+    content: 'procedure GetRecDefaultDimID(RecVariant: Variant, CurrFieldNo: Integer, DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], SourceCode: Code[20], var GlobalDim1Code: Code[20], var GlobalDim2Code: Code[20], InheritFromDimSetID: Integer, InheritFromTableNo: Integer): Integer'
+    parameters:
+    - id: RecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InheritFromDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InheritFromTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetRecDefaultDimID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetRecDefaultDimID(Variant,Integer,List_of_[Dictionary],Code[20],Code[20]@,Code[20]@,Integer,Integer):Integer
+- syntax:
+    content: 'procedure AddFirstToTableIdArray(var TableID: array[10] of Integer, var No: array[10] of Code[20], NewTableId: Integer, NewNo: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: array[10] of Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: array[10] of Code[20]
+        isExternal: true
+    - id: NewTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddFirstToTableIdArray
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.AddFirstToTableIdArray(Integer[]@,Code[20][]@,Integer,Code[20])
+- syntax:
+    content: 'procedure AddLastToTableIdArray(var TableID: array[10] of Integer, var No: array[10] of Code[20], NewTableId: Integer, NewNo: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: array[10] of Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: array[10] of Code[20]
+        isExternal: true
+    - id: NewTableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddLastToTableIdArray
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.AddLastToTableIdArray(Integer[]@,Code[20][]@,Integer,Code[20])
+- syntax:
+    content: 'procedure TypeToTableID1(Type: Option): Integer'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: TypeToTableID1
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.TypeToTableID1(Option):Integer
+- syntax:
+    content: 'procedure TypeToTableID2(Type: Option): Integer'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: TypeToTableID2
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.TypeToTableID2(Option):Integer
+- syntax:
+    content: 'procedure SalesLineTypeToTableID(LineType: Enum "Sales Line Type"): Integer'
+    parameters:
+    - id: LineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+        name: Microsoft.Sales.Document."Sales Line Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SalesLineTypeToTableID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SalesLineTypeToTableID(Enum::Microsoft#Sales#Document#Sales_Line_Type):Integer
+- syntax:
+    content: 'procedure PurchLineTypeToTableID(LineType: Enum "Purchase Line Type"): Integer'
+    parameters:
+    - id: LineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Line_Type
+        name: Microsoft.Purchases.Document."Purchase Line Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PurchLineTypeToTableID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.PurchLineTypeToTableID(Enum::Microsoft#Purchases#Document#Purchase_Line_Type):Integer
+- syntax:
+    content: 'procedure ReqLineTypeToTableID(LineType: Enum "Requisition Line Type"): Integer'
+    parameters:
+    - id: LineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Requisition#Requisition_Line_Type
+        name: Microsoft.Inventory.Requisition."Requisition Line Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ReqLineTypeToTableID
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ReqLineTypeToTableID(Enum::Microsoft#Inventory#Requisition#Requisition_Line_Type):Integer
+- syntax:
+    content: 'procedure TypeToTableID4(Type: Option): Integer'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: TypeToTableID4
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.TypeToTableID4(Option):Integer
+- syntax:
+    content: 'procedure TypeToTableID5(Type: Option): Integer'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: TypeToTableID5
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.TypeToTableID5(Option):Integer
+- syntax:
+    content: 'procedure DeleteDefaultDim(TableID: Integer, No: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DeleteDefaultDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DeleteDefaultDim(Integer,Code[20])
+- syntax:
+    content: 'procedure RenameDefaultDim(TableID: Integer, OldNo: Code[20], NewNo: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OldNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RenameDefaultDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.RenameDefaultDim(Integer,Code[20],Code[20])
+- syntax:
+    content: 'procedure LookupDimValueCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupDimValueCode
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.LookupDimValueCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ValidateDimValueCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateDimValueCode
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ValidateDimValueCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ValidateShortcutDimValues(FieldNumber: Integer, var ShortcutDimCode: Code[20], var DimSetID: Integer)'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateShortcutDimValues
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ValidateShortcutDimValues(Integer,Code[20]@,Integer@)
+- syntax:
+    content: 'procedure SaveDefaultDim(TableID: Integer, No: Code[20], FieldNumber: Integer, ShortcutDimCode: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SaveDefaultDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SaveDefaultDim(Integer,Code[20],Integer,Code[20])
+- syntax:
+    content: 'procedure GetGlobalDimensions(DimSetID: Integer, var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: GetGlobalDimensions
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetGlobalDimensions(Integer,Code[20][]@)
+- syntax:
+    content: 'procedure GetShortcutDimensions(DimSetID: Integer, var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: GetShortcutDimensions
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetShortcutDimensions(Integer,Code[20][]@)
+- syntax:
+    content: 'procedure CheckDimBufferValuePosting(var DimBuffer: Record "Dimension Buffer", TableID: array[10] of Integer, No: array[10] of Code[20]): Boolean'
+    parameters:
+    - id: DimBuffer
+      parameterType:
+        name: Record "Dimension Buffer"
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: array[10] of Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: array[10] of Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimBufferValuePosting
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimBufferValuePosting(Dimension_Buffer@,Integer[],Code[20][]):Boolean
+- syntax:
+    content: 'procedure GetDimValuePostingErr(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDimValuePostingErr
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimValuePostingErr:Text[250]
+- syntax:
+    content: 'procedure DefaultDimObjectNoList(TempAllObjWithCaption: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempAllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: DefaultDimObjectNoList
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DefaultDimObjectNoList(__MissingSymbol__@)
+- syntax:
+    content: 'procedure DefaultDimObjectNoWithGlobalDimsList(TempAllObjWithCaption: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempAllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: DefaultDimObjectNoWithGlobalDimsList
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DefaultDimObjectNoWithGlobalDimsList(__MissingSymbol__@)
+- syntax:
+    content: 'procedure DefaultDimInsertTempObject(TempAllObjWithCaption: __MissingTypeSymbol__, TableID: Integer)'
+    parameters:
+    - id: TempAllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DefaultDimInsertTempObject
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DefaultDimInsertTempObject(__MissingSymbol__@,Integer)
+- syntax:
+    content: 'procedure GlobalDimObjectNoList(TempAllObjWithCaption: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempAllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GlobalDimObjectNoList
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GlobalDimObjectNoList(__MissingSymbol__@)
+- syntax:
+    content: 'procedure JobTaskDimObjectNoList(TempAllObjWithCaption: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempAllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: JobTaskDimObjectNoList
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.JobTaskDimObjectNoList(__MissingSymbol__@)
+- syntax:
+    content: 'procedure FindDimFieldInTable(TableNo: Integer, FieldNameFilter: Text, Field: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: TableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNameFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Field
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindDimFieldInTable
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.FindDimFieldInTable(Integer,Text,__MissingSymbol__@):Boolean
+- syntax:
+    content: 'procedure GetDocDimConsistencyErr(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDocDimConsistencyErr
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDocDimConsistencyErr:Text[250]
+- syntax:
+    content: 'procedure CheckDim(DimCode: Code[20]): Boolean'
+    parameters:
+    - id: DimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDim(Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckDimValue(DimCode: Code[20], DimValCode: Code[20]): Boolean'
+    parameters:
+    - id: DimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimValue
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimValue(Code[20],Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckBlockedDimAndValues(DimSetID: Integer): Boolean'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckBlockedDimAndValues
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckBlockedDimAndValues(Integer):Boolean
+- syntax:
+    content: 'procedure GetDimErr(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDimErr
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimErr:Text[250]
+- syntax:
+    content: 'procedure LogError(SourceRecVariant: Variant, SourceFieldNo: Integer, Message: Text, HelpArticleCode: Code[30]): Boolean'
+    parameters:
+    - id: SourceRecVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SourceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Message
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: HelpArticleCode
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LogError
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.LogError(Variant,Integer,Text,Code[30]):Boolean
+- syntax:
+    content: 'procedure LookupDimValueCodeNoUpdate(FieldNumber: Integer)'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LookupDimValueCodeNoUpdate
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.LookupDimValueCodeNoUpdate(Integer)
+- syntax:
+    content: 'procedure CopyJnlLineDimToICJnlDim(TableID: Integer, TransactionNo: Integer, PartnerCode: Code[20], TransactionSource: Option, LineNo: Integer, DimSetID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyJnlLineDimToICJnlDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CopyJnlLineDimToICJnlDim(Integer,Integer,Code[20],Option,Integer,Integer)
+- syntax:
+    content: 'procedure DefaultDimOnInsert(DefaultDimension: Record "Default Dimension")'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+  name: DefaultDimOnInsert
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DefaultDimOnInsert(Default_Dimension)
+- syntax:
+    content: 'procedure DefaultDimOnModify(DefaultDimension: Record "Default Dimension")'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+  name: DefaultDimOnModify
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DefaultDimOnModify(Default_Dimension)
+- syntax:
+    content: 'procedure DefaultDimOnDelete(DefaultDimension: Record "Default Dimension")'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+  name: DefaultDimOnDelete
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DefaultDimOnDelete(Default_Dimension)
+- syntax:
+    content: 'procedure CopyICJnlDimToICJnlDim(var FromInOutBoxLineDim: Record "IC Inbox/Outbox Jnl. Line Dim.", var ToInOutBoxlineDim: Record "IC Inbox/Outbox Jnl. Line Dim.")'
+    parameters:
+    - id: FromInOutBoxLineDim
+      parameterType:
+        name: Record "IC Inbox/Outbox Jnl. Line Dim."
+        isExternal: true
+    - id: ToInOutBoxlineDim
+      parameterType:
+        name: Record "IC Inbox/Outbox Jnl. Line Dim."
+        isExternal: true
+  name: CopyICJnlDimToICJnlDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CopyICJnlDimToICJnlDim(IC_Inbox/Outbox_Jnl#_Line_Dim#@,IC_Inbox/Outbox_Jnl#_Line_Dim#@)
+- syntax:
+    content: 'procedure CopyDocDimtoICDocDim(TableID: Integer, TransactionNo: Integer, PartnerCode: Code[20], TransactionSource: Option, LineNo: Integer, DimSetEntryID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimSetEntryID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyDocDimtoICDocDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CopyDocDimtoICDocDim(Integer,Integer,Code[20],Option,Integer,Integer)
+- syntax:
+    content: 'procedure CopyICDocDimtoICDocDim(FromSourceICDocDim: Record "IC Document Dimension", var ToSourceICDocDim: Record "IC Document Dimension", ToTableID: Integer, ToTransactionSource: Integer)'
+    parameters:
+    - id: FromSourceICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: ToSourceICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: ToTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToTransactionSource
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyICDocDimtoICDocDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CopyICDocDimtoICDocDim(IC_Document_Dimension,IC_Document_Dimension@,Integer,Integer)
+- syntax:
+    content: 'procedure MoveICDocDimtoICDocDim(FromSourceICDocDim: Record "IC Document Dimension", var ToSourceICDocDim: Record "IC Document Dimension", ToTableID: Integer, ToTransactionSource: Integer)'
+    parameters:
+    - id: FromSourceICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: ToSourceICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: ToTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToTransactionSource
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MoveICDocDimtoICDocDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.MoveICDocDimtoICDocDim(IC_Document_Dimension,IC_Document_Dimension@,Integer,Integer)
+- syntax:
+    content: 'procedure SetICDocDimFilters(var ICDocDim: Record "IC Document Dimension", TableID: Integer, TransactionNo: Integer, PartnerCode: Code[20], TransactionSource: Integer, LineNo: Integer)'
+    parameters:
+    - id: ICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetICDocDimFilters
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetICDocDimFilters(IC_Document_Dimension@,Integer,Integer,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure DeleteICDocDim(TableID: Integer, ICTransactionNo: Integer, ICPartnerCode: Code[20], TransactionSource: Option, LineNo: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ICTransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteICDocDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DeleteICDocDim(Integer,Integer,Code[20],Option,Integer)
+- syntax:
+    content: 'procedure DeleteICJnlDim(TableID: Integer, ICTransactionNo: Integer, ICPartnerCode: Code[20], TransactionSource: Option, LineNo: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ICTransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionSource
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteICJnlDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DeleteICJnlDim(Integer,Integer,Code[20],Option,Integer)
+- syntax:
+    content: 'procedure ConvertDimtoICDim(FromDim: Code[20]): Code[20]'
+    parameters:
+    - id: FromDim
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: ConvertDimtoICDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ConvertDimtoICDim(Code[20]):Code[20]
+- syntax:
+    content: 'procedure ConvertDimValuetoICDimVal(FromDim: Code[20], FromDimValue: Code[20]): Code[20]'
+    parameters:
+    - id: FromDim
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromDimValue
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: ConvertDimValuetoICDimVal
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ConvertDimValuetoICDimVal(Code[20],Code[20]):Code[20]
+- syntax:
+    content: 'procedure CheckICDimValue(ICDimCode: Code[20], ICDimValCode: Code[20]): Boolean'
+    parameters:
+    - id: ICDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ICDimValCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckICDimValue
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckICDimValue(Code[20],Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckICDim(ICDimCode: Code[20]): Boolean'
+    parameters:
+    - id: ICDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckICDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckICDim(Code[20]):Boolean
+- syntax:
+    content: 'procedure SaveJobTaskDim(JobNo: Code[20], JobTaskNo: Code[20], FieldNumber: Integer, ShortcutDimCode: Code[20])'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SaveJobTaskDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SaveJobTaskDim(Code[20],Code[20],Integer,Code[20])
+- syntax:
+    content: 'procedure SaveJobTaskTempDim(FieldNumber: Integer, ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SaveJobTaskTempDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SaveJobTaskTempDim(Integer,Code[20])
+- syntax:
+    content: 'procedure InsertJobTaskDim(JobNo: Code[20], JobTaskNo: Code[20], var GlobalDim1Code: Code[20], var GlobalDim2Code: Code[20])'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InsertJobTaskDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.InsertJobTaskDim(Code[20],Code[20],Code[20]@,Code[20]@)
+- syntax:
+    content: 'procedure InsertJobTaskDim(var DefaultDim: Record "Default Dimension", JobNo: Code[20], JobTaskNo: Code[20], var GlobalDim1Code: Code[20], var GlobalDim2Code: Code[20])'
+    parameters:
+    - id: DefaultDim
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InsertJobTaskDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.InsertJobTaskDim(Default_Dimension@,Code[20],Code[20],Code[20]@,Code[20]@)
+- syntax:
+    content: procedure DeleteJobTaskTempDim()
+  name: DeleteJobTaskTempDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DeleteJobTaskTempDim
+- syntax:
+    content: 'procedure CopyJobTaskDimToJobTaskDim(JobNo: Code[20], JobTaskNo: Code[20], NewJobNo: Code[20], NewJobTaskNo: Code[20])'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewJobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewJobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyJobTaskDimToJobTaskDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CopyJobTaskDimToJobTaskDim(Code[20],Code[20],Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckDimIDConsistency(var DimSetEntry: Record "Dimension Set Entry", var PostedDimSetEntry: Record "Dimension Set Entry", DocTableID: Integer, PostedDocTableID: Integer): Boolean'
+    parameters:
+    - id: DimSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry"
+        isExternal: true
+    - id: PostedDimSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry"
+        isExternal: true
+    - id: DocTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PostedDocTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimIDConsistency
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDimIDConsistency(Dimension_Set_Entry@,Dimension_Set_Entry@,Integer,Integer):Boolean
+- syntax:
+    content: 'procedure CreateDimSetIDFromICDocDim(var ICDocDim: Record "IC Document Dimension"): Integer'
+    parameters:
+    - id: ICDocDim
+      parameterType:
+        name: Record "IC Document Dimension"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateDimSetIDFromICDocDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimSetIDFromICDocDim(IC_Document_Dimension@):Integer
+- syntax:
+    content: 'procedure CreateDimSetIDFromICJnlLineDim(var ICInboxOutboxJnlLineDim: Record "IC Inbox/Outbox Jnl. Line Dim."): Integer'
+    parameters:
+    - id: ICInboxOutboxJnlLineDim
+      parameterType:
+        name: Record "IC Inbox/Outbox Jnl. Line Dim."
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateDimSetIDFromICJnlLineDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimSetIDFromICJnlLineDim(IC_Inbox/Outbox_Jnl#_Line_Dim#@):Integer
+- syntax:
+    content: 'procedure CopyDimBufToDimSetEntry(var FromDimBuf: Record "Dimension Buffer", var DimSetEntry: Record "Dimension Set Entry")'
+    parameters:
+    - id: FromDimBuf
+      parameterType:
+        name: Record "Dimension Buffer"
+        isExternal: true
+    - id: DimSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry"
+        isExternal: true
+  name: CopyDimBufToDimSetEntry
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CopyDimBufToDimSetEntry(Dimension_Buffer@,Dimension_Set_Entry@)
+- syntax:
+    content: 'procedure CreateDimSetIDFromDimBuf(var DimBuf: Record "Dimension Buffer"): Integer'
+    parameters:
+    - id: DimBuf
+      parameterType:
+        name: Record "Dimension Buffer"
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateDimSetIDFromDimBuf
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimSetIDFromDimBuf(Dimension_Buffer@):Integer
+- syntax:
+    content: 'procedure CreateDimForPurchLineWithHigherPriorities(PurchaseLine: Record "Purchase Line", CurrFieldNo: Integer, var DimensionSetID: Integer, var DimValue1: Code[20], var DimValue2: Code[20], SourceCode: Code[10], PriorityTableID: Integer)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimensionSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimValue1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PriorityTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimForPurchLineWithHigherPriorities
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimForPurchLineWithHigherPriorities(Purchase_Line,Integer,Integer@,Code[20]@,Code[20]@,Code[10],Integer)
+- syntax:
+    content: 'procedure CreateDimForSalesLineWithHigherPriorities(SalesLine: Record "Sales Line", CurrFieldNo: Integer, var DimensionSetID: Integer, var DimValue1: Code[20], var DimValue2: Code[20], SourceCode: Code[10], PriorityTableID: Integer)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimensionSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimValue1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PriorityTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimForSalesLineWithHigherPriorities
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimForSalesLineWithHigherPriorities(Sales_Line,Integer,Integer@,Code[20]@,Code[20]@,Code[10],Integer)
+- syntax:
+    content: 'procedure CreateDimForJobJournalLineWithHigherPriorities(JobJournalLine: Record "Job Journal Line", CurrFieldNo: Integer, var DimensionSetID: Integer, var DimValue1: Code[20], var DimValue2: Code[20], SourceCode: Code[10], PriorityTableID: Integer)'
+    parameters:
+    - id: JobJournalLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimensionSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimValue1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValue2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PriorityTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimForJobJournalLineWithHigherPriorities
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimForJobJournalLineWithHigherPriorities(Job_Journal_Line,Integer,Integer@,Code[20]@,Code[20]@,Code[10],Integer)
+- syntax:
+    content: 'procedure GetTableIDsForHigherPriorities(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], var HighPriorityDefaultDimSource: List of [Dictionary of [Integer, Code[20]]], SourceCode: Code[10], PriorityTableID: Integer): Boolean'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: HighPriorityDefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PriorityTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetTableIDsForHigherPriorities
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetTableIDsForHigherPriorities(List_of_[Dictionary],List_of_[Dictionary]@,Code[10],Integer):Boolean
+- syntax:
+    content: 'procedure GetDimSetIDsForFilter(DimCode: Code[20], DimValueFilter: Text)'
+    parameters:
+    - id: DimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimValueFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: GetDimSetIDsForFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimSetIDsForFilter(Code[20],Text)
+- syntax:
+    content: 'procedure GetDimSetFilters(): List of [Text]'
+    return:
+      returnType:
+        name: List of [Text]
+        isExternal: true
+  name: GetDimSetFilters
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimSetFilters:List_of_[Text]
+- syntax:
+    content: 'procedure GetDimSetFilter(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetDimSetFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimSetFilter:Text
+- syntax:
+    content: procedure ClearDimSetFilter()
+  name: ClearDimSetFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ClearDimSetFilter
+- syntax:
+    content: 'procedure GetTempDimSetEntry(var TempDimSetEntry: Record "Dimension Set Entry" temporary)'
+    parameters:
+    - id: TempDimSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry" temporary
+        isExternal: true
+  name: GetTempDimSetEntry
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetTempDimSetEntry(Dimension_Set_Entry@)
+- syntax:
+    content: 'procedure UpdateCostType(DefaultDimension: Record "Default Dimension", CallingTrigger: Option)'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: CallingTrigger
+      parameterType:
+        name: Option
+        isExternal: true
+  name: UpdateCostType
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateCostType(Default_Dimension,Option)
+- syntax:
+    content: 'procedure CreateDimSetFromJobTaskDim(JobNo: Code[20], JobTaskNo: Code[20], var GlobalDimVal1: Code[20], var GlobalDimVal2: Code[20]): Integer'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal1
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GlobalDimVal2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CreateDimSetFromJobTaskDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CreateDimSetFromJobTaskDim(Code[20],Code[20],Code[20]@,Code[20]@):Integer
+- syntax:
+    content: 'procedure UpdateGenJnlLineDim(var GenJnlLine: Record "Gen. Journal Line", DimSetID: Integer)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateGenJnlLineDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateGenJnlLineDim(Gen#_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure UpdateGenJnlLineDimFromCustLedgEntry(var GenJnlLine: Record "Gen. Journal Line", DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DtldCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+  name: UpdateGenJnlLineDimFromCustLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateGenJnlLineDimFromCustLedgEntry(Gen#_Journal_Line@,Detailed_Cust#_Ledg#_Entry)
+- syntax:
+    content: 'procedure UpdateGenJnlLineDimFromVendLedgEntry(var GenJnlLine: Record "Gen. Journal Line", DtldVendLedgEntry: Record "Detailed Vendor Ledg. Entry")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: DtldVendLedgEntry
+      parameterType:
+        name: Record "Detailed Vendor Ledg. Entry"
+        isExternal: true
+  name: UpdateGenJnlLineDimFromVendLedgEntry
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateGenJnlLineDimFromVendLedgEntry(Gen#_Journal_Line@,Detailed_Vendor_Ledg#_Entry)
+- syntax:
+    content: 'procedure GetDimSetEntryDefaultDim(var DimSetEntry: Record "Dimension Set Entry")'
+    parameters:
+    - id: DimSetEntry
+      parameterType:
+        name: Record "Dimension Set Entry"
+        isExternal: true
+  name: GetDimSetEntryDefaultDim
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetDimSetEntryDefaultDim(Dimension_Set_Entry@)
+- syntax:
+    content: 'procedure InsertObject(TempAllObjWithCaption: __MissingTypeSymbol__, TableID: Integer)'
+    parameters:
+    - id: TempAllObjWithCaption
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertObject
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.InsertObject(__MissingSymbol__@,Integer)
+- syntax:
+    content: 'procedure GetConsolidatedDimFilterByDimFilter(var Dimension: Record Dimension, DimFilter: Text): Text'
+    parameters:
+    - id: Dimension
+      parameterType:
+        name: Record Dimension
+        isExternal: true
+    - id: DimFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetConsolidatedDimFilterByDimFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetConsolidatedDimFilterByDimFilter(Dimension@,Text):Text
+- syntax:
+    content: 'procedure ResolveDimValueFilter(var DimValueFilter: Text, DimensionCode: Code[20])'
+    parameters:
+    - id: DimValueFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ResolveDimValueFilter
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.ResolveDimValueFilter(Text@,Code[20])
+- syntax:
+    content: 'procedure UseShortcutDims(var DimVisible1: Boolean, var DimVisible2: Boolean, var DimVisible3: Boolean, var DimVisible4: Boolean, var DimVisible5: Boolean, var DimVisible6: Boolean, var DimVisible7: Boolean, var DimVisible8: Boolean)'
+    parameters:
+    - id: DimVisible1
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible3
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible4
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible5
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible6
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible7
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DimVisible8
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UseShortcutDims
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UseShortcutDims(Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure OpenAllowedDimValuesPerAccount(var DefaultDimension: Record "Default Dimension")'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+  name: OpenAllowedDimValuesPerAccount
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.OpenAllowedDimValuesPerAccount(Default_Dimension@)
+- syntax:
+    content: 'procedure FillDimValuePerAccountBuffer(var DefaultDimension: Record "Default Dimension", var TempDimValuePerAccount: Record "Dim. Value per Account" temporary)'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: TempDimValuePerAccount
+      parameterType:
+        name: Record "Dim. Value per Account" temporary
+        isExternal: true
+  name: FillDimValuePerAccountBuffer
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.FillDimValuePerAccountBuffer(Default_Dimension@,Dim#_Value_per_Account@)
+- syntax:
+    content: 'procedure SyncDimValuePerAccountWithDimValues(var DefaultDimension: Record "Default Dimension")'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+  name: SyncDimValuePerAccountWithDimValues
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SyncDimValuePerAccountWithDimValues(Default_Dimension@)
+- syntax:
+    content: 'procedure SyncTempDimValuePerAccountWithDimValues(var DefaultDimension: Record "Default Dimension", var TempDimValuePerAccount: Record "Dim. Value per Account" temporary)'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: TempDimValuePerAccount
+      parameterType:
+        name: Record "Dim. Value per Account" temporary
+        isExternal: true
+  name: SyncTempDimValuePerAccountWithDimValues
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SyncTempDimValuePerAccountWithDimValues(Default_Dimension@,Dim#_Value_per_Account@)
+- syntax:
+    content: 'procedure OpenAllowedDimValuesPerAccountDimMultiple(var DefaultDimension: Record "Default Dimension", var TempDimValuePerAccount: Record "Dim. Value per Account" temporary)'
+    parameters:
+    - id: DefaultDimension
+      parameterType:
+        name: Record "Default Dimension"
+        isExternal: true
+    - id: TempDimValuePerAccount
+      parameterType:
+        name: Record "Dim. Value per Account" temporary
+        isExternal: true
+  name: OpenAllowedDimValuesPerAccountDimMultiple
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.OpenAllowedDimValuesPerAccountDimMultiple(Default_Dimension@,Dim#_Value_per_Account@)
+- syntax:
+    content: 'procedure AddDefaultDimensionAllowedDimensionValue(DimensionValue: Record "Dimension Value")'
+    parameters:
+    - id: DimensionValue
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+  name: AddDefaultDimensionAllowedDimensionValue
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.AddDefaultDimensionAllowedDimensionValue(Dimension_Value)
+- syntax:
+    content: 'procedure UpdateDefaultDimensionAllowedDimensionValues(DimensionValue: Record "Dimension Value")'
+    parameters:
+    - id: DimensionValue
+      parameterType:
+        name: Record "Dimension Value"
+        isExternal: true
+  name: UpdateDefaultDimensionAllowedDimensionValues
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.UpdateDefaultDimensionAllowedDimensionValues(Dimension_Value)
+- syntax:
+    content: 'procedure CheckIfNoAllowedValuesSelected(var DimValuePerAccount: Record "Dim. Value per Account")'
+    parameters:
+    - id: DimValuePerAccount
+      parameterType:
+        name: Record "Dim. Value per Account"
+        isExternal: true
+  name: CheckIfNoAllowedValuesSelected
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckIfNoAllowedValuesSelected(Dim#_Value_per_Account@)
+- syntax:
+    content: 'procedure AddDimSource(var DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], TableId: Integer, No: Code[20])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddDimSource
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.AddDimSource(List_of_[Dictionary]@,Integer,Code[20])
+- syntax:
+    content: 'procedure AddDimSource(var DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], TableId: Integer, No: Code[20], FirstPos: Boolean)'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: TableId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FirstPos
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: AddDimSource
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.AddDimSource(List_of_[Dictionary]@,Integer,Code[20],Boolean)
+- syntax:
+    content: 'procedure IsDefaultDimDefinedForTable(TableValuePair: Dictionary of [Integer, Code[20]]): Boolean'
+    parameters:
+    - id: TableValuePair
+      parameterType:
+        name: Dictionary of [Integer, Code[20]]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDefaultDimDefinedForTable
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.IsDefaultDimDefinedForTable(Dictionary_of_[Integer,Code]):Boolean
+- syntax:
+    content: 'procedure DontNotifyCurrentUserAgain(Notification: Notification)'
+    parameters:
+    - id: Notification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: DontNotifyCurrentUserAgain
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.DontNotifyCurrentUserAgain(Notification)
+- syntax:
+    content: 'procedure OpenDefaultDimPriorities(DefaultDimPrioritiesNotification: Notification)'
+    parameters:
+    - id: DefaultDimPrioritiesNotification
+      parameterType:
+        name: Notification
+        isExternal: true
+  name: OpenDefaultDimPriorities
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.OpenDefaultDimPriorities(Notification)
+- syntax:
+    content: 'procedure CheckDefaultDimensionHasCodeMandatory(TableID: array[10] of Integer, No: array[10] of Code[20]): Boolean'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: array[10] of Integer
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: array[10] of Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDefaultDimensionHasCodeMandatory
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.CheckDefaultDimensionHasCodeMandatory(Integer[],Code[20][]):Boolean
+- syntax:
+    content: 'procedure SetSkipChangeDimensionsQst(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipChangeDimensionsQst
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetSkipChangeDimensionsQst(Boolean)
+- syntax:
+    content: 'procedure SetSkipUpdateDimensions(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipUpdateDimensions
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetSkipUpdateDimensions(Boolean)
+- syntax:
+    content: 'procedure GetSkipUpdateDimensions(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSkipUpdateDimensions
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.GetSkipUpdateDimensions:Boolean
+- syntax:
+    content: 'procedure SetDimensionValue(DimSetID: Integer, DimensionCode: Code[20], DimensionValueCode: Code[20], AutoCreateMissingDimension: Boolean, AutoCreateMissingDimensionValue: Boolean): Integer'
+    parameters:
+    - id: DimSetID
+      description: Specifies the dimension set that is going to be updated.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimensionCode
+      description: Specifies the code of the dimension that is going to be updated.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueCode
+      description: Specifies the code of the dimension value that is going to set in the dimension set.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AutoCreateMissingDimension
+      description: Specifies whether the dimension will be created if it doesn't exist.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AutoCreateMissingDimensionValue
+      description: Specifies whether the dimension value will be created if it doesn't exist.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: Returns the new dimension set ID.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Adds or updates the dimension value for the specified dimension set.
+  name: SetDimensionValue
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetDimensionValue(Integer,Code[20],Code[20],Boolean,Boolean):Integer
+- syntax:
+    content: 'procedure SetDimensionValue(DimSetID: Integer, DimensionCode: Code[20], DimensionValueCode: Code[20], DimensionName: Text[30], DimensionValueName: Text[30]): Integer'
+    parameters:
+    - id: DimSetID
+      description: Specifies the dimension set that is going to be updated.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimensionCode
+      description: Specifies the code of the dimension that is going to be updated.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueCode
+      description: Specifies the code of the dimension value that is going to set in the dimension set.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionName
+      description: Specifies the name of the dimension, if the the dimension doesn't exist yet.
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: DimensionValueName
+      description: Specifies the name of the dimension value, if the dimension value doesn't exist yet.
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    return:
+      description: Returns the new dimension set ID.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Adds or updates the dimension value for the specified dimension set. Any dimension or dimension value that doesn't exist will be created automatically.
+  name: SetDimensionValue
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetDimensionValue(Integer,Code[20],Code[20],Text[30],Text[30]):Integer
+- syntax:
+    content: 'procedure SetDimensionValue(DimSetID: Integer, DimensionCode: Code[20], DimensionName: Text[30], DimensionValueCode: Code[20], DimensionValueName: Text[30], AutoCreateMissingDimension: Boolean, AutoCreateMissingDimensionValue: Boolean): Integer'
+    parameters:
+    - id: DimSetID
+      description: Specifies the dimension set that is going to be updated.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DimensionCode
+      description: Specifies the code of the dimension that is going to be updated.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionName
+      description: Specifies the name of the dimension, if the the dimension doesn't exist yet.
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: DimensionValueCode
+      description: Specifies the code of the dimension value that is going to set in the dimension set.
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      description: Specifies the name of the dimension value, if the the dimension value doesn't exist yet.
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: AutoCreateMissingDimension
+      description: Specifies whether the dimension will be create if it doesn't exist.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: AutoCreateMissingDimensionValue
+      description: Specifies whether the dimension value will be create if doesn't exist.
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: Returns the new dimension set ID.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Adds or updates the dimension value for the specified dimension set.
+  name: SetDimensionValue
+  uid: M:Codeunit::Microsoft#Finance#Dimension#DimensionManagement.SetDimensionValue(Integer,Code[20],Text[30],Code[20],Text[30],Boolean,Boolean):Integer
+commentId: O:Codeunit::Microsoft#Finance#Dimension#DimensionManagement
+name: DimensionManagement
+uid: O:Codeunit::Microsoft#Finance#Dimension#DimensionManagement

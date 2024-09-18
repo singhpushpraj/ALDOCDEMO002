@@ -1,0 +1,617 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Posting."Item Jnl.-Post Line"
+alId: ID 22
+namespace: Microsoft.Inventory.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = rimd,
+                      TableData "Item Ledger Entry" = rimd,
+                      TableData "Item Register" = rimd,
+                      TableData "Phys. Inventory Ledger Entry" = rimd,
+                      TableData "Item Application Entry" = rimd,
+                      TableData "Prod. Order Capacity Need" = rimd,
+                      TableData "Stockkeeping Unit" = rimd,
+                      TableData "Value Entry" = rimd,
+                      TableData "Avg. Cost Adjmt. Entry Point" = rim,
+                      TableData "Post Value Entry to G/L" = ri,
+                      TableData "Capacity Ledger Entry" = rimd,
+                      TableData "Inventory Adjmt. Entry (Order)" = rim
+  promoted: false
+- name: TableNo
+  value: Item Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Journal#Item_Journal_Line
+    name: Microsoft.Inventory.Journal."Item Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure RunWithCheck(var ItemJnlLine2: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine2
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RunWithCheck
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.RunWithCheck(Item_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure RunPostWithReservation(var ItemJnlLine2: Record "Item Journal Line", var ReservationEntry: Record "Reservation Entry"): Boolean'
+    parameters:
+    - id: ItemJnlLine2
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RunPostWithReservation
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.RunPostWithReservation(Item_Journal_Line@,Reservation_Entry@):Boolean
+- syntax:
+    content: 'procedure PostSplitJnlLine(var ItemJnlLineToPost: Record "Item Journal Line", TrackingSpecExists: Boolean): Boolean'
+    parameters:
+    - id: ItemJnlLineToPost
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TrackingSpecExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PostSplitJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.PostSplitJnlLine(Item_Journal_Line@,Boolean):Boolean
+- syntax:
+    content: procedure PostItem()
+  name: PostItem
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.PostItem
+- syntax:
+    content: procedure ItemQtyPosting()
+  name: ItemQtyPosting
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.ItemQtyPosting
+- syntax:
+    content: procedure ItemValuePosting()
+  name: ItemValuePosting
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.ItemValuePosting
+- syntax:
+    content: 'procedure PostFlushedConsumption(ProdOrder: Record "Production Order", ProdOrderLine: Record "Prod. Order Line", ProdOrderComp: Record "Prod. Order Component", var ProdOrderRoutingLine: Record "Prod. Order Routing Line", OldItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: ProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: ProdOrderRoutingLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    - id: OldItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: PostFlushedConsumption
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.PostFlushedConsumption(Production_Order,Prod#_Order_Line,Prod#_Order_Component,Prod#_Order_Routing_Line@,Item_Journal_Line)
+- syntax:
+    content: 'procedure UpdateUnitCost(ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: UpdateUnitCost
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.UpdateUnitCost(Value_Entry)
+- syntax:
+    content: 'procedure UnApply(ItemApplnEntry: Record "Item Application Entry")'
+    parameters:
+    - id: ItemApplnEntry
+      parameterType:
+        name: Record "Item Application Entry"
+        isExternal: true
+  name: UnApply
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.UnApply(Item_Application_Entry)
+- syntax:
+    content: 'procedure ReApply(ItemLedgEntry: Record "Item Ledger Entry", ApplyWith: Integer)'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ApplyWith
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ReApply
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.ReApply(Item_Ledger_Entry,Integer)
+- syntax:
+    content: 'procedure ApplyItemLedgEntry(var ItemLedgEntry: Record "Item Ledger Entry", var OldItemLedgEntry: Record "Item Ledger Entry", var ValueEntry: Record "Value Entry", CausedByTransfer: Boolean)'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: OldItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: CausedByTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ApplyItemLedgEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.ApplyItemLedgEntry(Item_Ledger_Entry@,Item_Ledger_Entry@,Value_Entry@,Boolean)
+- syntax:
+    content: 'procedure InitItemLedgEntry(var ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: InitItemLedgEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InitItemLedgEntry(Item_Ledger_Entry@)
+- syntax:
+    content: 'procedure InsertItemLedgEntry(var ItemLedgEntry: Record "Item Ledger Entry", TransferItem: Boolean)'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TransferItem
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertItemLedgEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InsertItemLedgEntry(Item_Ledger_Entry@,Boolean)
+- syntax:
+    content: 'procedure InsertPhysInventoryEntry(var ItemJournalLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: InsertPhysInventoryEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InsertPhysInventoryEntry(Item_Journal_Line@)
+- syntax:
+    content: 'procedure PostInventoryToGL(var ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: PostInventoryToGL
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.PostInventoryToGL(Value_Entry@)
+- syntax:
+    content: 'procedure InsertApplEntry(ItemLedgEntryNo: Integer, InboundItemEntry: Integer, OutboundItemEntry: Integer, TransferedFromEntryNo: Integer, PostingDate: Date, Quantity: Decimal, CostToApply: Boolean)'
+    parameters:
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InboundItemEntry
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OutboundItemEntry
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransferedFromEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CostToApply
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertApplEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InsertApplEntry(Integer,Integer,Integer,Integer,Date,Decimal,Boolean)
+- syntax:
+    content: 'procedure InsertValueEntry(var ValueEntry: Record "Value Entry", var ItemLedgEntry: Record "Item Ledger Entry", TransferItem: Boolean)'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TransferItem
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertValueEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InsertValueEntry(Value_Entry@,Item_Ledger_Entry@,Boolean)
+- syntax:
+    content: 'procedure InitTransValueEntry(var ValueEntry: Record "Value Entry", ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: InitTransValueEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InitTransValueEntry(Value_Entry@,Item_Ledger_Entry)
+- syntax:
+    content: 'procedure AutoTrack(var ItemLedgEntryRec: Record "Item Ledger Entry", IsReserved: Boolean)'
+    parameters:
+    - id: ItemLedgEntryRec
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: IsReserved
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: AutoTrack
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.AutoTrack(Item_Ledger_Entry@,Boolean)
+- syntax:
+    content: 'procedure SetPostponeReservationHandling(Postpone: Boolean)'
+    parameters:
+    - id: Postpone
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPostponeReservationHandling
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetPostponeReservationHandling(Boolean)
+- syntax:
+    content: 'procedure CollectTrackingSpecification(var TargetTrackingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: TargetTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CollectTrackingSpecification
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.CollectTrackingSpecification(Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure CollectValueEntryRelation(var TargetValueEntryRelation: Record "Value Entry Relation" temporary, RowId: Text[250]): Boolean'
+    parameters:
+    - id: TargetValueEntryRelation
+      parameterType:
+        name: Record "Value Entry Relation" temporary
+        isExternal: true
+    - id: RowId
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CollectValueEntryRelation
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.CollectValueEntryRelation(Value_Entry_Relation@,Text[250]):Boolean
+- syntax:
+    content: 'procedure CollectItemEntryRelation(var TargetItemEntryRelation: Record "Item Entry Relation" temporary): Boolean'
+    parameters:
+    - id: TargetItemEntryRelation
+      parameterType:
+        name: Record "Item Entry Relation" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CollectItemEntryRelation
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.CollectItemEntryRelation(Item_Entry_Relation@):Boolean
+- syntax:
+    content: 'procedure UndoValuePostingWithJob(OldItemLedgEntryNo: Integer, NewItemLedgEntryNo: Integer)'
+    parameters:
+    - id: OldItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UndoValuePostingWithJob
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.UndoValuePostingWithJob(Integer,Integer)
+- syntax:
+    content: procedure CheckItemTracking()
+  name: CheckItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.CheckItemTracking
+- syntax:
+    content: 'procedure SetCalledFromInvtPutawayPick(NewCalledFromInvtPutawayPick: Boolean)'
+    parameters:
+    - id: NewCalledFromInvtPutawayPick
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromInvtPutawayPick
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetCalledFromInvtPutawayPick(Boolean)
+- syntax:
+    content: 'procedure SetCalledFromAdjustment(NewCalledFromAdjustment: Boolean, NewPostToGL: Boolean)'
+    parameters:
+    - id: NewCalledFromAdjustment
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPostToGL
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromAdjustment
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetCalledFromAdjustment(Boolean,Boolean)
+- syntax:
+    content: 'procedure NextOperationExist(var ProdOrderRtngLine: Record "Prod. Order Routing Line"): Boolean'
+    parameters:
+    - id: ProdOrderRtngLine
+      parameterType:
+        name: Record "Prod. Order Routing Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: NextOperationExist
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.NextOperationExist(Prod#_Order_Routing_Line@):Boolean
+- syntax:
+    content: 'procedure AllowAdjmtOnPosting(TheDate: Date): Boolean'
+    parameters:
+    - id: TheDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AllowAdjmtOnPosting
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.AllowAdjmtOnPosting(Date):Boolean
+- syntax:
+    content: procedure RedoApplications()
+  name: RedoApplications
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.RedoApplications
+- syntax:
+    content: procedure CostAdjust()
+  name: CostAdjust
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.CostAdjust
+- syntax:
+    content: 'procedure TouchEntry(EntryNo: Integer)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: TouchEntry
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.TouchEntry(Integer)
+- syntax:
+    content: 'procedure AnyTouchedEntries(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AnyTouchedEntries
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.AnyTouchedEntries:Boolean
+- syntax:
+    content: 'procedure SetValuationDateAllValueEntrie(ItemLedgerEntryNo: Integer, ValuationDate: Date, FixedApplication: Boolean)'
+    parameters:
+    - id: ItemLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ValuationDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: FixedApplication
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetValuationDateAllValueEntrie
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetValuationDateAllValueEntrie(Integer,Date,Boolean)
+- syntax:
+    content: 'procedure SetServUndoConsumption(Value: Boolean)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetServUndoConsumption
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetServUndoConsumption(Boolean)
+- syntax:
+    content: 'procedure SetProdOrderCompModified(ProdOrderCompIsModified: Boolean)'
+    parameters:
+    - id: ProdOrderCompIsModified
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProdOrderCompModified
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetProdOrderCompModified(Boolean)
+- syntax:
+    content: 'procedure InsertCountryCode(var NewItemLedgEntry: Record "Item Ledger Entry", ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: NewItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: InsertCountryCode
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.InsertCountryCode(Item_Ledger_Entry@,Item_Ledger_Entry)
+- syntax:
+    content: 'procedure SetupTempSplitItemJnlLine(ItemJnlLine2: Record "Item Journal Line", SignFactor: Integer, var NonDistrQuantity: Decimal, var NonDistrAmount: Decimal, var NonDistrAmountACY: Decimal, var NonDistrDiscountAmount: Decimal, Invoice: Boolean): Boolean'
+    parameters:
+    - id: ItemJnlLine2
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SignFactor
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NonDistrQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Invoice
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetupTempSplitItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetupTempSplitItemJnlLine(Item_Journal_Line,Integer,Decimal@,Decimal@,Decimal@,Decimal@,Boolean):Boolean
+- syntax:
+    content: 'procedure PrepareItem(var ItemJnlLineToPost: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJnlLineToPost
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: PrepareItem
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.PrepareItem(Item_Journal_Line@)
+- syntax:
+    content: 'procedure SetSkipApplicationCheck(NewValue: Boolean)'
+    parameters:
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipApplicationCheck
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetSkipApplicationCheck(Boolean)
+- syntax:
+    content: 'procedure LogApply(ApplyItemLedgEntry: Record "Item Ledger Entry", AppliedItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ApplyItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: AppliedItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: LogApply
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.LogApply(Item_Ledger_Entry,Item_Ledger_Entry)
+- syntax:
+    content: 'procedure LogUnapply(ItemApplnEntry: Record "Item Application Entry")'
+    parameters:
+    - id: ItemApplnEntry
+      parameterType:
+        name: Record "Item Application Entry"
+        isExternal: true
+  name: LogUnapply
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.LogUnapply(Item_Application_Entry)
+- syntax:
+    content: procedure ClearApplicationLog()
+  name: ClearApplicationLog
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.ClearApplicationLog
+- syntax:
+    content: procedure UndoApplications()
+  name: UndoApplications
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.UndoApplications
+- syntax:
+    content: 'procedure ApplicationLogIsEmpty(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ApplicationLogIsEmpty
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.ApplicationLogIsEmpty:Boolean
+- syntax:
+    content: 'procedure GetCalledFromAdjustment(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCalledFromAdjustment
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.GetCalledFromAdjustment:Boolean
+- syntax:
+    content: 'procedure SetCalledFromApplicationWorksheet(IsCalledFromApplicationWorksheet: Boolean)'
+    parameters:
+    - id: IsCalledFromApplicationWorksheet
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromApplicationWorksheet
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetCalledFromApplicationWorksheet(Boolean)
+- syntax:
+    content: 'procedure RestoreTouchedEntries(var TempItem: Record Item temporary)'
+    parameters:
+    - id: TempItem
+      parameterType:
+        name: Record Item temporary
+        isExternal: true
+  name: RestoreTouchedEntries
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.RestoreTouchedEntries(Item@)
+- syntax:
+    content: 'procedure SetSkipSerialNoQtyValidation(NewSkipSerialNoQtyValidation: Boolean)'
+    parameters:
+    - id: NewSkipSerialNoQtyValidation
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipSerialNoQtyValidation
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.SetSkipSerialNoQtyValidation(Boolean)
+- syntax:
+    content: 'procedure MarkAppliedInboundItemEntriesForAdjustment(OutboundItemLedgerEntryNo: Integer)'
+    parameters:
+    - id: OutboundItemLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MarkAppliedInboundItemEntriesForAdjustment
+  uid: M:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line.MarkAppliedInboundItemEntriesForAdjustment(Integer)
+commentId: O:Codeunit::Microsoft#Inventory#Posting#Item Jnl#-Post Line
+name: '"Item Jnl.-Post Line"'
+uid: O:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line

@@ -1,0 +1,235 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Serv-Item Tracking Rsrv. Mgt."
+alId: ID 5985
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Value Entry Relation" = ri
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckTrackingSpecification(ServHeader: Record "Service Header", var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CheckTrackingSpecification
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.CheckTrackingSpecification(Service_Header,Service_Line@)
+- syntax:
+    content: 'procedure SaveInvoiceSpecification(var TempInvoicingSpecification: Record "Tracking Specification" temporary, var TempTrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TempInvoicingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: SaveInvoiceSpecification
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.SaveInvoiceSpecification(Tracking_Specification@,Tracking_Specification@)
+- syntax:
+    content: 'procedure InsertTrackingSpecification(var ServHeader: Record "Service Header", var TempTrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: InsertTrackingSpecification
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.InsertTrackingSpecification(Service_Header@,Tracking_Specification@)
+- syntax:
+    content: 'procedure InsertTempHandlngSpecification(SrcType: Integer, var ServLine: Record "Service Line", var TempHandlingSpecification: Record "Tracking Specification", var TempTrackingSpecification: Record "Tracking Specification", var TempTrackingSpecificationInv: Record "Tracking Specification", QtyToInvoiceNonZero: Boolean)'
+    parameters:
+    - id: SrcType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempTrackingSpecificationInv
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: QtyToInvoiceNonZero
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertTempHandlngSpecification
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.InsertTempHandlngSpecification(Integer,Service_Line@,Tracking_Specification@,Tracking_Specification@,Tracking_Specification@,Boolean)
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification(var ServLine: Record "Service Line", var TempInvoicingSpecification: Record "Tracking Specification", Consume: Boolean): Boolean'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: TempInvoicingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: Consume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.RetrieveInvoiceSpecification(Service_Line@,Tracking_Specification@,Boolean):Boolean
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromHeader(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: DeleteInvoiceSpecFromHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.DeleteInvoiceSpecFromHeader(Service_Header@)
+- syntax:
+    content: 'procedure InsertShptEntryRelation(var ServiceShptLine: Record "Service Shipment Line", var TempHandlingSpecification: Record "Tracking Specification", var TempTrackingSpecificationInv: Record "Tracking Specification", ItemLedgShptEntryNo: Integer): Integer'
+    parameters:
+    - id: ServiceShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempTrackingSpecificationInv
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: ItemLedgShptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: InsertShptEntryRelation
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.InsertShptEntryRelation(Service_Shipment_Line@,Tracking_Specification@,Tracking_Specification@,Integer):Integer
+- syntax:
+    content: 'procedure InsertValueEntryRelation(var TempValueEntryRelation: Record "Value Entry Relation")'
+    parameters:
+    - id: TempValueEntryRelation
+      parameterType:
+        name: Record "Value Entry Relation"
+        isExternal: true
+  name: InsertValueEntryRelation
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.InsertValueEntryRelation(Value_Entry_Relation@)
+- syntax:
+    content: 'procedure TransServLineToItemJnlLine(var ServiceLine: Record "Service Line", var ItemJnlLine: Record "Item Journal Line", QtyToBeShippedBase: Decimal, var CheckApplFromItemEntry: Boolean)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransServLineToItemJnlLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.TransServLineToItemJnlLine(Service_Line@,Item_Journal_Line@,Decimal,Boolean@)
+- syntax:
+    content: 'procedure TransferReservToItemJnlLine(var ServiceLine: Record "Service Line", var ItemJnlLine: Record "Item Journal Line", QtyToBeShippedBase: Decimal, var CheckApplFromItemEntry: Boolean)'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: QtyToBeShippedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CheckApplFromItemEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferReservToItemJnlLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.TransferReservToItemJnlLine(Service_Line@,Item_Journal_Line@,Decimal,Boolean@)
+- syntax:
+    content: 'procedure SplitWhseJnlLine(var TempWhseJnlLine: Record "Warehouse Journal Line", var TempWhseJnlLine2: Record "Warehouse Journal Line", var TempTrackingSpecification: Record "Tracking Specification", ToTransfer: Boolean)'
+    parameters:
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: TempWhseJnlLine2
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: ToTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SplitWhseJnlLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.SplitWhseJnlLine(Warehouse_Journal_Line@,Warehouse_Journal_Line@,Tracking_Specification@,Boolean)
+- syntax:
+    content: 'procedure AdjustQuantityRounding(RemQtyToBeInvoiced: Decimal, QtyToBeInvoiced: Decimal, RemQtyToBeInvoicedBase: Decimal, QtyToBeInvoicedBase: Decimal)'
+    parameters:
+    - id: RemQtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoiced
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemQtyToBeInvoicedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeInvoicedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustQuantityRounding
+  uid: M:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#.AdjustQuantityRounding(Decimal,Decimal,Decimal,Decimal)
+commentId: O:Codeunit::Microsoft#Service#Posting#Serv-Item Tracking Rsrv# Mgt#
+name: '"Serv-Item Tracking Rsrv. Mgt."'
+uid: O:Codeunit::Microsoft#Service#Posting#Serv-Item_Tracking_Rsrv#_Mgt#

@@ -1,0 +1,205 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Asset."Price Asset"
+namespace: Microsoft.Pricing.Asset
+baseKind: Interface
+kind: Interface
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Asset
+langs:
+- al
+seeAlso:
+- '[Interface](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-interfaces-in-al)'
+methods:
+- syntax:
+    content: 'procedure GetNo(var PriceAsset: Record "Price Asset" temporary)'
+    parameters:
+    - id: PriceAsset
+      description: the record gets filled with data
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+  summary: The method fills the Price Asset parameter with "Asset No." and other data from the asset defined in the implementation codeunit.
+  name: GetNo
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.GetNo(Price_Asset@)
+- syntax:
+    content: 'procedure GetId(var PriceAsset: Record "Price Asset" temporary)'
+    parameters:
+    - id: PriceAsset
+      description: the record gets filled with data
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+  summary: The method fills the Price Asset parameter with "Asset ID" and other data from the asset defined in the implementation codeunit.
+  name: GetId
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.GetId(Price_Asset@)
+- syntax:
+    content: 'procedure IsLookupOK(var PriceAsset: Record "Price Asset" temporary): Boolean'
+    parameters:
+    - id: PriceAsset
+      description: Defines the default asset to be shown on opening of the lookup page
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    return:
+      description: true if the lookup is completed
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: The method runs the modal page for looking up for an asset.
+  name: IsLookupOK
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.IsLookupOK(Price_Asset@):Boolean
+- syntax:
+    content: 'procedure ValidateUnitOfMeasure(var PriceAsset: Record "Price Asset" temporary): Boolean'
+    parameters:
+    - id: PriceAsset
+      description: The asset with "Unit of Measure Code" that should be validated
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    The method validates if the unit of measure exists for the asset. 
+
+    Not used. This validation should happen in IsLookupUnitOfMeasureOK.
+  name: ValidateUnitOfMeasure
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.ValidateUnitOfMeasure(Price_Asset@):Boolean
+- syntax:
+    content: 'procedure IsLookupUnitOfMeasureOK(var PriceAsset: Record "Price Asset" temporary): Boolean'
+    parameters:
+    - id: PriceAsset
+      description: Defines the default unit of measure to be shown on opening of the lookup page
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    return:
+      description: true if the lookup is completed
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: The method runs the modal page for looking up for a unit of measure.
+  name: IsLookupUnitOfMeasureOK
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.IsLookupUnitOfMeasureOK(Price_Asset@):Boolean
+- syntax:
+    content: 'procedure IsLookupVariantOK(var PriceAsset: Record "Price Asset" temporary): Boolean'
+    parameters:
+    - id: PriceAsset
+      description: Defines the default item variant to be shown on opening of the lookup page
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    return:
+      description: true if the lookup is completed
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: The method runs the modal page for looking up for an item variant.
+  name: IsLookupVariantOK
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.IsLookupVariantOK(Price_Asset@):Boolean
+- syntax:
+    content: 'procedure IsAssetNoRequired(): Boolean'
+    return:
+      description: true if "Asset No." must be filled
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    The method should return true for an asset that requires "Asset No." to be filled. 
+
+    In W1 returns false just for one asset type - All.
+  name: IsAssetNoRequired
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.IsAssetNoRequired:Boolean
+- syntax:
+    content: 'procedure FillBestLine(PriceCalculationBuffer: Record "Price Calculation Buffer" temporary, AmountType: Enum "Price Amount Type", var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceCalculationBuffer
+      description: Contains data from a document/journal line
+      parameterType:
+        name: Record "Price Calculation Buffer" temporary
+        isExternal: true
+    - id: AmountType
+      description: Price or Discount
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: PriceListLine
+      description: gets filled with default data from an asset card or another source
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  summary: >-
+    The method is called in case there is no a price list line that matches all filters defined by the document/journal line. 
+
+    As a result, the PriceListLine parameter gets pricing data from an asset card or another source.
+  name: FillBestLine
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.FillBestLine(Price_Calculation_Buffer,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Price_List_Line@)
+- syntax:
+    content: 'procedure FilterPriceLines(PriceAsset: Record "Price Asset" temporary, var PriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceAsset
+      description: current price asset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: PriceListLine
+      description: the variable that gets additional filters
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      description: not used
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    The method should add the filters for PriceListLine related to the PriceAsset, 
+
+    e.g., besides "Asset Type" and "Asset No." Item adds "Varian Code", Resource adds "Work Type Code"
+  name: FilterPriceLines
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.FilterPriceLines(Price_Asset,Price_List_Line@):Boolean
+- syntax:
+    content: 'procedure PutRelatedAssetsToList(PriceAsset: Record "Price Asset" temporary, var PriceAssetList: Codeunit "Price Asset List")'
+    parameters:
+    - id: PriceAsset
+      description: the current asset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: PriceAssetList
+      description: the list gets filled with one or more assets
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+  summary: >-
+    The method should add assets related to the current one to build the multi-level PriceAssetList.
+
+    E.g., a resource asset can add up to two levels: "Resource Group" and "All resources" to setup the hierarchical search,
+
+    while an item asset adds "Item Discount Group" at the same level as "Item" is, so both participate in search simultaneously.
+  name: PutRelatedAssetsToList
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.PutRelatedAssetsToList(Price_Asset,Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@)
+- syntax:
+    content: 'procedure FillFromBuffer(var PriceAsset: Record "Price Asset" temporary, PriceCalculationBuffer: Record "Price Calculation Buffer" temporary)'
+    parameters:
+    - id: PriceAsset
+      description: the asset to be added to the list
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+    - id: PriceCalculationBuffer
+      description: the buffer containing asset's data
+      parameterType:
+        name: Record "Price Calculation Buffer" temporary
+        isExternal: true
+  summary: >-
+    The method should fill the PriceAsset with asset related data from the PriceCalculationBuffer.
+
+    Used in Add() method of the "Price Asset List" codeunit.
+  name: FillFromBuffer
+  uid: M:Interface::Microsoft#Pricing#Asset#Price_Asset.FillFromBuffer(Price_Asset@,Price_Calculation_Buffer)
+commentId: O:Interface::Microsoft#Pricing#Asset#Price Asset
+name: '"Price Asset"'
+uid: O:Interface::Microsoft#Pricing#Asset#Price_Asset

@@ -1,0 +1,97 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Journal."Calc. Inventory Value-Check"
+alId: ID 5899
+namespace: Microsoft.Inventory.Journal
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Journal
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Avg. Cost Adjmt. Entry Point" = r
+  promoted: false
+methods:
+- syntax:
+    signatures:
+    - '[Obsolete(Reolaced by procedure SetParameters(),24.0)]'
+    content: 'procedure SetProperties(NewPostingDate: Date, NewCalculatePer: Option, NewByLocation: Boolean, NewByVariant: Boolean, NewShowDialog: Boolean, NewTestMode: Boolean)'
+    parameters:
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewCalculatePer
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: NewByLocation
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewByVariant
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewShowDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewTestMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProperties
+  obsoletion:
+    state: pending
+    reason: Reolaced by procedure SetParameters()
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Calc#_Inventory_Value-Check.SetProperties(Date,Option,Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetParameters(NewPostingDate: Date, NewCalculatePer: Enum "Inventory Value Calc. Per", NewByLocation: Boolean, NewByVariant: Boolean, NewShowDialog: Boolean, NewTestMode: Boolean)'
+    parameters:
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewCalculatePer
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Costing#Inventory_Value_Calc#_Per
+        name: Microsoft.Inventory.Costing."Inventory Value Calc. Per"
+        isExternal: false
+    - id: NewByLocation
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewByVariant
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewShowDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewTestMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Calc#_Inventory_Value-Check.SetParameters(Date,Enum::Microsoft#Inventory#Costing#Inventory_Value_Calc#_Per,Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure RunCheck(var Item: Record Item, var NewErrorBuf: Record "Error Buffer")'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NewErrorBuf
+      parameterType:
+        name: Record "Error Buffer"
+        isExternal: true
+  name: RunCheck
+  uid: M:Codeunit::Microsoft#Inventory#Journal#Calc#_Inventory_Value-Check.RunCheck(Item@,Error_Buffer@)
+commentId: O:Codeunit::Microsoft#Inventory#Journal#Calc# Inventory Value-Check
+name: '"Calc. Inventory Value-Check"'
+uid: O:Codeunit::Microsoft#Inventory#Journal#Calc#_Inventory_Value-Check

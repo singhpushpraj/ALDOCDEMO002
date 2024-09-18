@@ -1,0 +1,39 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.DirectDebit."SEPA DD-Fill Export Buffer"
+alId: ID 1231
+namespace: Microsoft.Bank.DirectDebit
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.DirectDebit
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Payment Export Data" = rimd
+  promoted: false
+- name: TableNo
+  value: Payment Export Data
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Bank#Payment#Payment_Export_Data
+    name: Microsoft.Bank.Payment."Payment Export Data"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure FillExportBuffer(var DirectDebitCollectionEntry: Record "Direct Debit Collection Entry", var PaymentExportData: Record "Payment Export Data")'
+    parameters:
+    - id: DirectDebitCollectionEntry
+      parameterType:
+        name: Record "Direct Debit Collection Entry"
+        isExternal: true
+    - id: PaymentExportData
+      parameterType:
+        name: Record "Payment Export Data"
+        isExternal: true
+  name: FillExportBuffer
+  uid: M:Codeunit::Microsoft#Bank#DirectDebit#SEPA_DD-Fill_Export_Buffer.FillExportBuffer(Direct_Debit_Collection_Entry@,Payment_Export_Data@)
+commentId: O:Codeunit::Microsoft#Bank#DirectDebit#SEPA DD-Fill Export Buffer
+name: '"SEPA DD-Fill Export Buffer"'
+uid: O:Codeunit::Microsoft#Bank#DirectDebit#SEPA_DD-Fill_Export_Buffer

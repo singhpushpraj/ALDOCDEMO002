@@ -1,0 +1,82 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.BOM.Tree."BOM Tree"
+alId: ID 3682
+namespace: Microsoft.Inventory.BOM.Tree
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.BOM.Tree
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Access
+  value: Public
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AddRelation(Parent: Codeunit "BOM Node", Child: Codeunit "BOM Node")'
+    parameters:
+    - id: Parent
+      description: The node that represents the parent part of the relationship.
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node
+        name: Microsoft.Inventory.BOM.Tree."BOM Node"
+        isExternal: false
+    - id: Child
+      description: The node that represents the child part of the relationship.
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node
+        name: Microsoft.Inventory.BOM.Tree."BOM Node"
+        isExternal: false
+  summary: Adds a relation between two nodes connected in a parent- child relationship.
+  name: AddRelation
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Tree.AddRelation(Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node,Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node)
+- syntax:
+    content: procedure TraverseDown()
+  summary: Traverses the nodes starting from the root node and traverses down to the children and so on. Note that there can be many root nodes, in which case, the traversal starts from each of them.
+  name: TraverseDown
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Tree.TraverseDown
+- syntax:
+    content: 'procedure TraverseDown(Node: Codeunit "BOM Node")'
+    parameters:
+    - id: Node
+      description: The node from which the traversal should start.
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node
+        name: Microsoft.Inventory.BOM.Tree."BOM Node"
+        isExternal: false
+  summary: Traverses the nodes starting from the given node and traverses down to the children and so on.
+  name: TraverseDown
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Tree.TraverseDown(Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Node)
+- syntax:
+    content: 'procedure ChildHasKey(ParentKey: Text, ChildKey: Text): Boolean'
+    parameters:
+    - id: ParentKey
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ChildKey
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    Finds if a node with the given key is a child of another node with the given parent key.
+
+    <param name="ParentKey">The key of the parent node.</param>
+
+    <param name="ChildKey">The key of the child node.</param>
+
+    <returns>True if there was a child found with the key, false otherwise.</returns>
+
+    <remarks>This will return false if the node with the parent key was not found.</remarks>
+  name: ChildHasKey
+  uid: M:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Tree.ChildHasKey(Text,Text):Boolean
+commentId: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM Tree
+summary: Helps create and traverse data as nodes in a tree. The structure supports disjoint trees as well as multiple parents for a child node.
+name: '"BOM Tree"'
+uid: O:Codeunit::Microsoft#Inventory#BOM#Tree#BOM_Tree

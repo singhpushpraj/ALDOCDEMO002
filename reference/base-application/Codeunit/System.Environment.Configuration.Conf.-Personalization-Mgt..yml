@@ -1,0 +1,282 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment.Configuration."Conf./Personalization Mgt."
+alId: ID 9170
+namespace: System.Environment.Configuration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment.Configuration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+- name: InherentEntitlements
+  value: X
+  promoted: false
+- name: InherentPermissions
+  value: X
+  promoted: false
+- name: Permissions
+  value: >-
+    tabledata "User Personalization" = r,
+                      tabledata "All Profile" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure DefaultRoleCenterID(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: DefaultRoleCenterID
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.DefaultRoleCenterID:Integer
+- syntax:
+    content: 'procedure GetCurrentProfile(AllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GetCurrentProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.GetCurrentProfile(__MissingSymbol__@)
+- syntax:
+    content: 'procedure GetCurrentProfileNoError(AllProfile: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCurrentProfileNoError
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.GetCurrentProfileNoError(__MissingSymbol__@):Boolean
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure TryGetDefaultProfileForCurrentUser(AllProfile: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TryGetDefaultProfileForCurrentUser
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.TryGetDefaultProfileForCurrentUser(__MissingSymbol__@):Boolean
+- syntax:
+    content: 'procedure IsCurrentProfile(Scope: Option, AppID: Guid, ProfileID: Code[30]): Boolean'
+    parameters:
+    - id: Scope
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AppID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: ProfileID
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCurrentProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.IsCurrentProfile(Option,Guid,Code[30]):Boolean
+- syntax:
+    content: 'procedure SetCurrentProfile(AllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: SetCurrentProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.SetCurrentProfile(__MissingSymbol__)
+- syntax:
+    content: 'procedure CopyProfileWithUserInput(SourceAllProfile: __MissingTypeSymbol__, DestinationAllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: SourceAllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: DestinationAllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: CopyProfileWithUserInput
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.CopyProfileWithUserInput(__MissingSymbol__,__MissingSymbol__@)
+- syntax:
+    content: 'procedure CopyProfile(AllProfile: __MissingTypeSymbol__, NewProfileID: Code[30], NewProfileCaption: Text[100], NewAllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: NewProfileID
+      parameterType:
+        name: Code[30]
+        isExternal: true
+    - id: NewProfileCaption
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: NewAllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: CopyProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.CopyProfile(__MissingSymbol__,Code[30],Text[100],__MissingSymbol__@)
+- syntax:
+    content: 'procedure ClearProfileConfiguration(AllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: ClearProfileConfiguration
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.ClearProfileConfiguration(__MissingSymbol__)
+- syntax:
+    signatures:
+    - '[Obsolete(This procedure cleared old "User Metadata" as well. Use ClearPersonalizedPagesForUser instead.,22.0)]'
+    content: 'procedure ClearUserPersonalization(User: __MissingTypeSymbol__)'
+    parameters:
+    - id: User
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: ClearUserPersonalization
+  obsoletion:
+    state: pending
+    reason: This procedure cleared old "User Metadata" as well. Use ClearPersonalizedPagesForUser instead.
+    version: "22.0"
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.ClearUserPersonalization(__MissingSymbol__)
+- syntax:
+    content: 'procedure ClearPersonalizedPagesForUser(UserSid: Guid)'
+    parameters:
+    - id: UserSid
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ClearPersonalizedPagesForUser
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.ClearPersonalizedPagesForUser(Guid)
+- syntax:
+    content: 'procedure ValidateDeleteProfile(AllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: ValidateDeleteProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.ValidateDeleteProfile(__MissingSymbol__)
+- syntax:
+    content: 'procedure ValidateDisableProfile(AllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: ValidateDisableProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.ValidateDisableProfile(__MissingSymbol__)
+- syntax:
+    content: 'procedure FilterToInstalledLanguages(WindowsLanguage: __MissingTypeSymbol__)'
+    parameters:
+    - id: WindowsLanguage
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: FilterToInstalledLanguages
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.FilterToInstalledLanguages(__MissingSymbol__@)
+- syntax:
+    content: procedure DownloadProfileConfigurationPackage()
+  name: DownloadProfileConfigurationPackage
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.DownloadProfileConfigurationPackage
+- syntax:
+    signatures:
+    - '[Obsolete(Use procedure CopyProfile instead, which also handles copying page metadata.,18.0)]'
+    content: 'procedure CopyProfilePageMetadata(OldAllProfile: __MissingTypeSymbol__, NewAllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: OldAllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: NewAllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: CopyProfilePageMetadata
+  obsoletion:
+    state: pending
+    reason: Use procedure CopyProfile instead, which also handles copying page metadata.
+    version: "18.0"
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.CopyProfilePageMetadata(__MissingSymbol__,__MissingSymbol__)
+- syntax:
+    content: procedure RaiseOnOpenRoleCenterEvent()
+  name: RaiseOnOpenRoleCenterEvent
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.RaiseOnOpenRoleCenterEvent
+- syntax:
+    content: 'procedure GetProfileConfigurationUrlForWeb(AllProfile: __MissingTypeSymbol__): Text'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetProfileConfigurationUrlForWeb
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.GetProfileConfigurationUrlForWeb(__MissingSymbol__):Text
+- syntax:
+    content: 'procedure CanDeleteProfile(AllProfile: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanDeleteProfile
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.CanDeleteProfile(__MissingSymbol__):Boolean
+- syntax:
+    content: 'procedure GetProfileUrlParameterForEvaluationCompany(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetProfileUrlParameterForEvaluationCompany
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.GetProfileUrlParameterForEvaluationCompany:Text
+- syntax:
+    content: 'procedure OpenProfileCustomizationUrl(AllProfile: __MissingTypeSymbol__)'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: OpenProfileCustomizationUrl
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.OpenProfileCustomizationUrl(__MissingSymbol__)
+- syntax:
+    content: 'procedure IsProfileIdAmbiguous(AllProfile: __MissingTypeSymbol__): Boolean'
+    parameters:
+    - id: AllProfile
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsProfileIdAmbiguous
+  uid: M:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#.IsProfileIdAmbiguous(__MissingSymbol__):Boolean
+commentId: O:Codeunit::System#Environment#Configuration#Conf#/Personalization Mgt#
+name: '"Conf./Personalization Mgt."'
+uid: O:Codeunit::System#Environment#Configuration#Conf#/Personalization_Mgt#

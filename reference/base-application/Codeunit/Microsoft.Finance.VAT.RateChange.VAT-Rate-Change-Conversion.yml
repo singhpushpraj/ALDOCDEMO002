@@ -1,0 +1,292 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.RateChange."VAT Rate Change Conversion"
+alId: ID 550
+namespace: Microsoft.Finance.VAT.RateChange
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.RateChange
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "VAT Rate Change Log Entry" = i
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ConvertVATProdPostGrp(UpdateOption: Option): Boolean'
+    parameters:
+    - id: UpdateOption
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConvertVATProdPostGrp
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.ConvertVATProdPostGrp(Option):Boolean
+- syntax:
+    content: 'procedure ConvertGenProdPostGrp(UpdateOption: Option): Boolean'
+    parameters:
+    - id: UpdateOption
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConvertGenProdPostGrp
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.ConvertGenProdPostGrp(Option):Boolean
+- syntax:
+    content: 'procedure UpdateTable(TableID: Integer, ConvertVATProdPostingGroup: Boolean, ConvertGenProdPostingGroup: Boolean)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ConvertVATProdPostingGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ConvertGenProdPostingGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateTable
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.UpdateTable(Integer,Boolean,Boolean)
+- syntax:
+    content: 'procedure UpdateRec(var RecRef: RecordRef, ConvertVATProdPostingGroup: Boolean, ConvertGenProdPostingGroup: Boolean)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: ConvertVATProdPostingGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ConvertGenProdPostingGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateRec
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.UpdateRec(RecordRef@,Boolean,Boolean)
+- syntax:
+    content: 'procedure WriteLogEntry(VATRateChangeLogEntry: Record "VAT Rate Change Log Entry")'
+    parameters:
+    - id: VATRateChangeLogEntry
+      parameterType:
+        name: Record "VAT Rate Change Log Entry"
+        isExternal: true
+  name: WriteLogEntry
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.WriteLogEntry(VAT_Rate_Change_Log_Entry)
+- syntax:
+    content: 'procedure AddNewSalesLine(SalesLine: Record "Sales Line", VATProdPostingGroup: Code[20], GenProdPostingGroup: Code[20])'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATProdPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GenProdPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddNewSalesLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.AddNewSalesLine(Sales_Line,Code[20],Code[20])
+- syntax:
+    content: procedure UpdatePurchase()
+  name: UpdatePurchase
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.UpdatePurchase
+- syntax:
+    content: 'procedure GetNextPurchaseLineNo(PurchaseLine: Record "Purchase Line", var NextLineNo: Integer): Boolean'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNextPurchaseLineNo
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.GetNextPurchaseLineNo(Purchase_Line,Integer@):Boolean
+- syntax:
+    content: 'procedure UpdateUnitPriceInclVAT(Type: Enum "Sales Line Type"): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+        name: Microsoft.Sales.Document."Sales Line Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateUnitPriceInclVAT
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.UpdateUnitPriceInclVAT(Enum::Microsoft#Sales#Document#Sales_Line_Type):Boolean
+- syntax:
+    content: 'procedure LineInScope(GenProdPostingGroup: Code[20], VATProdPostingGroup: Code[20], ConvertGenProdPostingGroup: Boolean, ConvertVATProdPostingGroup: Boolean): Boolean'
+    parameters:
+    - id: GenProdPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATProdPostingGroup
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ConvertGenProdPostingGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ConvertVATProdPostingGroup
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LineInScope
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.LineInScope(Code[20],Code[20],Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure GetNextSalesLineNo(SalesLine: Record "Sales Line", var NextLineNo: Integer): Boolean'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNextSalesLineNo
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.GetNextSalesLineNo(Sales_Line,Integer@):Boolean
+- syntax:
+    content: 'procedure GetRoundingPrecision(CurrencyCode: Code[10]): Decimal'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetRoundingPrecision
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.GetRoundingPrecision(Code[10]):Decimal
+- syntax:
+    content: 'procedure GetNextServiceLineNo(ServiceLine: Record "Service Line", var NextLineNo: Integer): Boolean'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetNextServiceLineNo
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.GetNextServiceLineNo(Service_Line,Integer@):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedures IncludeSalesLine() and IncludePurchLine(),22.0)]'
+    content: 'procedure IncludeLine(Type: Option, No: Code[20]): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IncludeLine
+  obsoletion:
+    state: pending
+    reason: Replaced by procedures IncludeSalesLine() and IncludePurchLine()
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.IncludeLine(Option,Code[20]):Boolean
+- syntax:
+    content: 'procedure IncludeSalesLine(Type: Enum "Sales Line Type", No: Code[20]): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+        name: Microsoft.Sales.Document."Sales Line Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IncludeSalesLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.IncludeSalesLine(Enum::Microsoft#Sales#Document#Sales_Line_Type,Code[20]):Boolean
+- syntax:
+    content: 'procedure IncludePurchLine(Type: Enum "Purchase Line Type", No: Code[20]): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Line_Type
+        name: Microsoft.Purchases.Document."Purchase Line Type"
+        isExternal: false
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IncludePurchLine
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.IncludePurchLine(Enum::Microsoft#Purchases#Document#Purchase_Line_Type,Code[20]):Boolean
+- syntax:
+    content: 'procedure InitVATRateChangeLogEntry(var VATRateChangeLogEntry: Record "VAT Rate Change Log Entry", RecRef: RecordRef, OutstandingQuantity: Decimal, LineNo: Integer)'
+    parameters:
+    - id: VATRateChangeLogEntry
+      parameterType:
+        name: Record "VAT Rate Change Log Entry"
+        isExternal: true
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: OutstandingQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitVATRateChangeLogEntry
+  uid: M:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion.InitVATRateChangeLogEntry(VAT_Rate_Change_Log_Entry@,RecordRef,Decimal,Integer)
+commentId: O:Codeunit::Microsoft#Finance#VAT#RateChange#VAT Rate Change Conversion
+name: '"VAT Rate Change Conversion"'
+uid: O:Codeunit::Microsoft#Finance#VAT#RateChange#VAT_Rate_Change_Conversion

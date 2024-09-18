@@ -1,0 +1,108 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.EMail.Mail
+alId: ID 397
+namespace: System.EMail
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.EMail
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CreateMessage(ToAddresses: Text, CcAddresses: Text, BccAddresses: Text, Subject: Text, Body: Text, ShowNewMailDialogOnSend: Boolean, RunModal: Boolean)'
+    parameters:
+    - id: ToAddresses
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CcAddresses
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: BccAddresses
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Subject
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Body
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ShowNewMailDialogOnSend
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RunModal
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateMessage
+  uid: M:Codeunit::System#EMail#Mail.CreateMessage(Text,Text,Text,Text,Text,Boolean,Boolean)
+- syntax:
+    content: 'procedure CollectAddresses(ContactNo: Code[20], var ContactThrough: Record "Communication Method", ShowAddresses: Boolean): Text[260]'
+    parameters:
+    - id: ContactNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContactThrough
+      parameterType:
+        name: Record "Communication Method"
+        isExternal: true
+    - id: ShowAddresses
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Text[260]
+        isExternal: true
+  name: CollectAddresses
+  uid: M:Codeunit::System#EMail#Mail.CollectAddresses(Code[20],Communication_Method@,Boolean):Text[260]
+- syntax:
+    content: 'procedure ValidateEmail(var ContactThrough: Record "Communication Method", EMailToValidate: Text): Boolean'
+    parameters:
+    - id: ContactThrough
+      parameterType:
+        name: Record "Communication Method"
+        isExternal: true
+    - id: EMailToValidate
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateEmail
+  uid: M:Codeunit::System#EMail#Mail.ValidateEmail(Communication_Method@,Text):Boolean
+- syntax:
+    content: 'procedure CollectCurrentUserEmailAddresses(var TempNameValueBuffer: Record "Name/Value Buffer" temporary)'
+    parameters:
+    - id: TempNameValueBuffer
+      parameterType:
+        name: Record "Name/Value Buffer" temporary
+        isExternal: true
+  name: CollectCurrentUserEmailAddresses
+  uid: M:Codeunit::System#EMail#Mail.CollectCurrentUserEmailAddresses(Name/Value_Buffer@)
+- syntax:
+    content: 'procedure FormatTextForHtml(Text: Text): Text'
+    parameters:
+    - id: Text
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FormatTextForHtml
+  uid: M:Codeunit::System#EMail#Mail.FormatTextForHtml(Text):Text
+commentId: O:Codeunit::System#EMail#Mail
+name: Mail
+uid: O:Codeunit::System#EMail#Mail

@@ -1,0 +1,220 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Service Post Invoice"
+alId: ID 817
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure Check(TableID: Integer)'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Check
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.Check(Integer)
+- syntax:
+    content: procedure ClearBuffers()
+  name: ClearBuffers
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.ClearBuffers
+- syntax:
+    content: 'procedure SetPreviewMode(NewPreviewMode: Boolean)'
+    parameters:
+    - id: NewPreviewMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPreviewMode
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.SetPreviewMode(Boolean)
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure SetHideProgressWindow(NewHideProgressWindow: Boolean)'
+    parameters:
+    - id: NewHideProgressWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideProgressWindow
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.SetHideProgressWindow(Boolean)
+- syntax:
+    content: 'procedure SetParameters(NewInvoicePostingParameters: Record "Invoice Posting Parameters" temporary)'
+    parameters:
+    - id: NewInvoicePostingParameters
+      parameterType:
+        name: Record "Invoice Posting Parameters" temporary
+        isExternal: true
+  name: SetParameters
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.SetParameters(Invoice_Posting_Parameters)
+- syntax:
+    content: 'procedure SetTotalLines(TotalDocumentLine: Variant, TotalDocumentLineLCY: Variant)'
+    parameters:
+    - id: TotalDocumentLine
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: TotalDocumentLineLCY
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetTotalLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.SetTotalLines(Variant,Variant)
+- syntax:
+    content: 'procedure PrepareLine(DocumentHeaderVar: Variant, DocumentLineVar: Variant, DocumentLineACYVar: Variant)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: DocumentLineACYVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: PrepareLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.PrepareLine(Variant,Variant,Variant)
+- syntax:
+    content: 'procedure PostLines(DocumentHeaderVar: Variant, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line", var Window: Dialog, var TotalAmount: Decimal)'
+    parameters:
+    - id: DocumentHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+    - id: Window
+      parameterType:
+        name: Dialog
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: PostLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.PostLines(Variant,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@,Dialog@,Decimal@)
+- syntax:
+    content: 'procedure CheckCreditLine(SalesHeaderVar: Variant, SalesLineVar: Variant)'
+    parameters:
+    - id: SalesHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SalesLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CheckCreditLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.CheckCreditLine(Variant,Variant)
+- syntax:
+    content: 'procedure PostLedgerEntry(ServiceHeaderVar: Variant, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: ServiceHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: PostLedgerEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.PostLedgerEntry(Variant,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure PostBalancingEntry(ServiceHeaderVar: Variant, var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")'
+    parameters:
+    - id: ServiceHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: GenJnlPostLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line
+        name: Microsoft.Finance.GeneralLedger.Posting."Gen. Jnl.-Post Line"
+        isExternal: false
+  name: PostBalancingEntry
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.PostBalancingEntry(Variant,Codeunit::Microsoft#Finance#GeneralLedger#Posting#Gen#_Jnl#-Post_Line@)
+- syntax:
+    content: 'procedure PrepareJobLine(SalesHeaderVar: Variant, SalesLineVar: Variant, SalesLineACYVar: Variant)'
+    parameters:
+    - id: SalesHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SalesLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: SalesLineACYVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: PrepareJobLine
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.PrepareJobLine(Variant,Variant,Variant)
+- syntax:
+    content: 'procedure CalcDeferralAmounts(ServiceHeaderVar: Variant, ServiceLineVar: Variant, OriginalDeferralAmount: Decimal)'
+    parameters:
+    - id: ServiceHeaderVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: ServiceLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: OriginalDeferralAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcDeferralAmounts
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.CalcDeferralAmounts(Variant,Variant,Decimal)
+- syntax:
+    content: 'procedure CreatePostedDeferralSchedule(ServiceLineVar: Variant, NewDocumentType: Integer, NewDocumentNo: Code[20], NewLineNo: Integer, PostingDate: Date)'
+    parameters:
+    - id: ServiceLineVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: NewDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewDocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CreatePostedDeferralSchedule
+  uid: M:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice.CreatePostedDeferralSchedule(Variant,Integer,Code[20],Integer,Date)
+implements:
+- internalReference: O:Interface::Microsoft#Finance#ReceivablesPayables#Invoice_Posting
+  name: Microsoft.Finance.ReceivablesPayables."Invoice Posting"
+  isExternal: false
+commentId: O:Codeunit::Microsoft#Service#Posting#Service Post Invoice
+name: '"Service Post Invoice"'
+uid: O:Codeunit::Microsoft#Service#Posting#Service_Post_Invoice

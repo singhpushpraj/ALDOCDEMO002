@@ -1,0 +1,106 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales - Calc Discount By Type"
+alId: ID 56
+namespace: Microsoft.Sales.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Sales Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Line
+    name: Microsoft.Sales.Document."Sales Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure ApplyDefaultInvoiceDiscount(InvoiceDiscountAmount: Decimal, var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ApplyDefaultInvoiceDiscount
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.ApplyDefaultInvoiceDiscount(Decimal,Sales_Header@)
+- syntax:
+    content: 'procedure ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount: Decimal, var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: InvoiceDiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ApplyInvDiscBasedOnAmt
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.ApplyInvDiscBasedOnAmt(Decimal,Sales_Header@)
+- syntax:
+    content: 'procedure GetCustInvoiceDiscountPct(SalesLine: Record "Sales Line"): Decimal'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetCustInvoiceDiscountPct
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.GetCustInvoiceDiscountPct(Sales_Line):Decimal
+- syntax:
+    content: 'procedure ShouldRedistributeInvoiceDiscountAmount(var SalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShouldRedistributeInvoiceDiscountAmount
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.ShouldRedistributeInvoiceDiscountAmount(Sales_Header@):Boolean
+- syntax:
+    content: 'procedure ResetRecalculateInvoiceDisc(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ResetRecalculateInvoiceDisc
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.ResetRecalculateInvoiceDisc(Sales_Header)
+- syntax:
+    content: 'procedure InvoiceDiscIsAllowed(InvDiscCode: Code[20]): Boolean'
+    parameters:
+    - id: InvDiscCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvoiceDiscIsAllowed
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.InvoiceDiscIsAllowed(Code[20]):Boolean
+- syntax:
+    content: 'procedure CalcInvoiceDiscOnLine(CalcInvoiceDiscountOnLine: Boolean)'
+    parameters:
+    - id: CalcInvoiceDiscountOnLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcInvoiceDiscOnLine
+  uid: M:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type.CalcInvoiceDiscOnLine(Boolean)
+commentId: O:Codeunit::Microsoft#Sales#Document#Sales - Calc Discount By Type
+name: '"Sales - Calc Discount By Type"'
+uid: O:Codeunit::Microsoft#Sales#Document#Sales_-_Calc_Discount_By_Type

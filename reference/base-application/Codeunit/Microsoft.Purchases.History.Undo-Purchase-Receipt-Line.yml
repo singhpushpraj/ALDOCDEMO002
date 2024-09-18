@@ -1,0 +1,70 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.History."Undo Purchase Receipt Line"
+alId: ID 5813
+namespace: Microsoft.Purchases.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Purchase Line" = rimd,
+                      TableData "Purch. Rcpt. Line" = rimd,
+                      TableData "Item Entry Relation" = ri,
+                      TableData "Whse. Item Entry Relation" = rimd
+  promoted: false
+- name: TableNo
+  value: Purch. Rcpt. Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line
+    name: Microsoft.Purchases.History."Purch. Rcpt. Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetHideDialog(NewHideDialog: Boolean)'
+    parameters:
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialog
+  uid: M:Codeunit::Microsoft#Purchases#History#Undo_Purchase_Receipt_Line.SetHideDialog(Boolean)
+- syntax:
+    content: 'procedure UpdateOrderLine(PurchRcptLine: Record "Purch. Rcpt. Line")'
+    parameters:
+    - id: PurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+  name: UpdateOrderLine
+  uid: M:Codeunit::Microsoft#Purchases#History#Undo_Purchase_Receipt_Line.UpdateOrderLine(Purch#_Rcpt#_Line)
+- syntax:
+    content: 'procedure UpdateBlanketOrder(PurchRcptLine: Record "Purch. Rcpt. Line")'
+    parameters:
+    - id: PurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+  name: UpdateBlanketOrder
+  uid: M:Codeunit::Microsoft#Purchases#History#Undo_Purchase_Receipt_Line.UpdateBlanketOrder(Purch#_Rcpt#_Line)
+- syntax:
+    content: 'procedure HasInvoicedNotReturnedQuantity(PurchRcptLine: Record "Purch. Rcpt. Line"): Boolean'
+    parameters:
+    - id: PurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasInvoicedNotReturnedQuantity
+  uid: M:Codeunit::Microsoft#Purchases#History#Undo_Purchase_Receipt_Line.HasInvoicedNotReturnedQuantity(Purch#_Rcpt#_Line):Boolean
+commentId: O:Codeunit::Microsoft#Purchases#History#Undo Purchase Receipt Line
+name: '"Undo Purchase Receipt Line"'
+uid: O:Codeunit::Microsoft#Purchases#History#Undo_Purchase_Receipt_Line

@@ -1,0 +1,193 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.WIP."Job Calculate WIP"
+alId: ID 1000
+namespace: Microsoft.Projects.Project.WIP
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.WIP
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Job Ledger Entry" = rm,
+                      TableData "Job Task" = rimd,
+                      TableData "Job Planning Line" = r,
+                      TableData "Job WIP Entry" = rimd,
+                      TableData "Job WIP G/L Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure JobCalcWIP(var Job: Record Job, WIPPostingDate2: Date, DocNo2: Code[20])'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+    - id: WIPPostingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DocNo2
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: JobCalcWIP
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.JobCalcWIP(Job@,Date,Code[20])
+- syntax:
+    content: 'procedure DeleteWIP(Job: Record Job)'
+    parameters:
+    - id: Job
+      parameterType:
+        name: Record Job
+        isExternal: true
+  name: DeleteWIP
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.DeleteWIP(Job)
+- syntax:
+    content: 'procedure CreateWIPBufferEntryFromTask(var JobTask: Record "Job Task", var JobWIPTotal: Record "Job WIP Total", JobWIPBufferType: Enum "Job WIP Buffer Type", AppliedAccrued: Boolean)'
+    parameters:
+    - id: JobTask
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: JobWIPTotal
+      parameterType:
+        name: Record "Job WIP Total"
+        isExternal: true
+    - id: JobWIPBufferType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Projects#Project#WIP#Job_WIP_Buffer_Type
+        name: Microsoft.Projects.Project.WIP."Job WIP Buffer Type"
+        isExternal: false
+    - id: AppliedAccrued
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateWIPBufferEntryFromTask
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.CreateWIPBufferEntryFromTask(Job_Task@,Job_WIP_Total@,Enum::Microsoft#Projects#Project#WIP#Job_WIP_Buffer_Type,Boolean)
+- syntax:
+    content: 'procedure FindJobLedgerEntriesByJobTask(var JobTask: Record "Job Task", var JobWIPTotal: Record "Job WIP Total", JobWIPBufferType: Enum "Job WIP Buffer Type")'
+    parameters:
+    - id: JobTask
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: JobWIPTotal
+      parameterType:
+        name: Record "Job WIP Total"
+        isExternal: true
+    - id: JobWIPBufferType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Projects#Project#WIP#Job_WIP_Buffer_Type
+        name: Microsoft.Projects.Project.WIP."Job WIP Buffer Type"
+        isExternal: false
+  name: FindJobLedgerEntriesByJobTask
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.FindJobLedgerEntriesByJobTask(Job_Task@,Job_WIP_Total@,Enum::Microsoft#Projects#Project#WIP#Job_WIP_Buffer_Type)
+- syntax:
+    content: 'procedure CreateWIPBufferEntryFromLedger(var JobLedgerEntry: Record "Job Ledger Entry", var JobTask: Record "Job Task", var JobWIPTotal: Record "Job WIP Total", JobWIPBufferType: Enum "Job WIP Buffer Type")'
+    parameters:
+    - id: JobLedgerEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+    - id: JobTask
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: JobWIPTotal
+      parameterType:
+        name: Record "Job WIP Total"
+        isExternal: true
+    - id: JobWIPBufferType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Projects#Project#WIP#Job_WIP_Buffer_Type
+        name: Microsoft.Projects.Project.WIP."Job WIP Buffer Type"
+        isExternal: false
+  name: CreateWIPBufferEntryFromLedger
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.CreateWIPBufferEntryFromLedger(Job_Ledger_Entry@,Job_Task@,Job_WIP_Total@,Enum::Microsoft#Projects#Project#WIP#Job_WIP_Buffer_Type)
+- syntax:
+    content: 'procedure CalcGLWIP(JobNo: Code[20], JustReverse: Boolean, DocNo: Code[20], PostingDate: Date, NewPostDate: Boolean)'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JustReverse
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcGLWIP
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.CalcGLWIP(Code[20],Boolean,Code[20],Date,Boolean)
+- syntax:
+    content: 'procedure ReOpenJob(JobNo: Code[20])'
+    parameters:
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ReOpenJob
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.ReOpenJob(Code[20])
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,1001,OnBeforeModifyEvent,,False,False)]'
+    content: 'procedure VerifyJobWIPEntryOnBeforeModify(var Rec: Record "Job Task", var xRec: Record "Job Task", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: VerifyJobWIPEntryOnBeforeModify
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.VerifyJobWIPEntryOnBeforeModify(Job_Task@,Job_Task@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,1001,OnBeforeRenameEvent,,False,False)]'
+    content: 'procedure VerifyJobWIPEntryOnBeforeRename(var Rec: Record "Job Task", var xRec: Record "Job Task", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: xRec
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: VerifyJobWIPEntryOnBeforeRename
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.VerifyJobWIPEntryOnBeforeRename(Job_Task@,Job_Task@,Boolean)
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP.SetGenJnlBatch(Gen#_Journal_Batch)
+commentId: O:Codeunit::Microsoft#Projects#Project#WIP#Job Calculate WIP
+name: '"Job Calculate WIP"'
+uid: O:Codeunit::Microsoft#Projects#Project#WIP#Job_Calculate_WIP

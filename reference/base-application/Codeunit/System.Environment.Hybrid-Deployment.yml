@@ -1,0 +1,40 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Environment."Hybrid Deployment"
+alId: ID 6060
+namespace: System.Environment
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Environment
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Hybrid Deployment Setup" = rimd,
+                      TableData "Intelligent Cloud" = rimd,
+                      TableData "Intelligent Cloud Status" = rimd,
+                      TableData "Webhook Subscription" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: procedure SanitizeCompanyBeforeUpgrade()
+  name: SanitizeCompanyBeforeUpgrade
+  uid: M:Codeunit::System#Environment#Hybrid_Deployment.SanitizeCompanyBeforeUpgrade
+- syntax:
+    content: 'procedure SanitizeFields(NameOfCompany: Text, TableID: Integer)'
+    parameters:
+    - id: NameOfCompany
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SanitizeFields
+  uid: M:Codeunit::System#Environment#Hybrid_Deployment.SanitizeFields(Text,Integer)
+commentId: O:Codeunit::System#Environment#Hybrid Deployment
+name: '"Hybrid Deployment"'
+uid: O:Codeunit::System#Environment#Hybrid_Deployment

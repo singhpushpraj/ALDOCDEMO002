@@ -1,0 +1,139 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.AI."Azure AI Usage"
+alId: ID 2006
+namespace: System.AI
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.AI
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Access
+  value: Public
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure IncrementTotalProcessingTime(Service: Enum "Azure AI Service", ProcessingTime: Decimal)'
+    parameters:
+    - id: Service
+      description: The Azure AI service for which to increment the processing time.
+      parameterType:
+        internalReference: O:Enum::System#AI#Azure_AI_Service
+        name: System.AI."Azure AI Service"
+        isExternal: false
+    - id: ProcessingTime
+      description: The value with which to increment the total processing time of the Azure AI service.
+      parameterType:
+        name: Decimal
+        isExternal: true
+  summary: Increments the processing time for the provided Azure AI service with `ProcessingTime`.
+  name: IncrementTotalProcessingTime
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.IncrementTotalProcessingTime(Enum::System#AI#Azure_AI_Service,Decimal)
+- syntax:
+    content: 'procedure IsLimitReached(Service: Enum "Azure AI Service", UsageLimit: Decimal): Boolean'
+    parameters:
+    - id: Service
+      description: The Azure AI service for which to check.
+      parameterType:
+        internalReference: O:Enum::System#AI#Azure_AI_Service
+        name: System.AI."Azure AI Service"
+        isExternal: false
+    - id: UsageLimit
+      description: The limit for which to check if it was reached.
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      description: True if the limit was reached; otherwise - false.
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: Checks whether the total processing time of a provided Azure AI service has reached a certain limit.
+  name: IsLimitReached
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.IsLimitReached(Enum::System#AI#Azure_AI_Service,Decimal):Boolean
+- syntax:
+    content: 'procedure GetTotalProcessingTime(Service: Enum "Azure AI Service"): Decimal'
+    parameters:
+    - id: Service
+      description: The Azure AI service for which to retrieve the processing time.
+      parameterType:
+        internalReference: O:Enum::System#AI#Azure_AI_Service
+        name: System.AI."Azure AI Service"
+        isExternal: false
+    return:
+      description: The processing time that the service has used so far.
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Gets the total processing time of an Azure AI service.
+  name: GetTotalProcessingTime
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.GetTotalProcessingTime(Enum::System#AI#Azure_AI_Service):Decimal
+- syntax:
+    content: 'procedure GetResourceLimit(Service: Enum "Azure AI Service"): Decimal'
+    parameters:
+    - id: Service
+      description: The Azure AI service for which to retrieve the resource limit.
+      parameterType:
+        internalReference: O:Enum::System#AI#Azure_AI_Service
+        name: System.AI."Azure AI Service"
+        isExternal: false
+    return:
+      description: The resource limit for the provided service.
+      returnType:
+        name: Decimal
+        isExternal: true
+  summary: Gets the limit of an Azure AI service.
+  name: GetResourceLimit
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.GetResourceLimit(Enum::System#AI#Azure_AI_Service):Decimal
+- syntax:
+    content: 'procedure GetLimitPeriod(Service: Enum "Azure AI Service"): Option'
+    parameters:
+    - id: Service
+      description: The Azure AI service for which to retrieve the limit period.
+      parameterType:
+        internalReference: O:Enum::System#AI#Azure_AI_Service
+        name: System.AI."Azure AI Service"
+        isExternal: false
+    return:
+      description: 'An option: Year,Month,Day,Hour.'
+      returnType:
+        name: Option
+        isExternal: true
+  summary: Gets the type of limit period of an Azure AI service.
+  name: GetLimitPeriod
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.GetLimitPeriod(Enum::System#AI#Azure_AI_Service):Option
+- syntax:
+    content: 'procedure GetLastTimeUpdated(Service: Enum "Azure AI Service"): DateTime'
+    parameters:
+    - id: Service
+      description: The Azure AI service for which to retrieve the last time it was updated.
+      parameterType:
+        internalReference: O:Enum::System#AI#Azure_AI_Service
+        name: System.AI."Azure AI Service"
+        isExternal: false
+    return:
+      description: A datetime that notes the last time the Azure AI service was updated.
+      returnType:
+        name: DateTime
+        isExternal: true
+  summary: Gets the last time the provided Azure AI service was updated.
+  name: GetLastTimeUpdated
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.GetLastTimeUpdated(Enum::System#AI#Azure_AI_Service):DateTime
+- syntax:
+    content: 'procedure SetImageAnalysisIsSetup(NewValue: Boolean)'
+    parameters:
+    - id: NewValue
+      description: The value to set.
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: Sets a value that denotes whether the Image Analysis service was setup.
+  remarks: The function will be discontinued as it should not be part of the this API.
+  name: SetImageAnalysisIsSetup
+  uid: M:Codeunit::System#AI#Azure_AI_Usage.SetImageAnalysisIsSetup(Boolean)
+commentId: O:Codeunit::System#AI#Azure AI Usage
+summary: Retrieves information about the usage of the Azure AI services.
+name: '"Azure AI Usage"'
+uid: O:Codeunit::System#AI#Azure_AI_Usage

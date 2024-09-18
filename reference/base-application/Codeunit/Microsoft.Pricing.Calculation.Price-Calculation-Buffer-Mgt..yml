@@ -1,0 +1,304 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Calculation."Price Calculation Buffer Mgt."
+alId: ID 7008
+namespace: Microsoft.Pricing.Calculation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Calculation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure AddAsset(AssetType: Enum "Price Asset Type", AssetNo: Code[20])'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    - id: AssetNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddAsset
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.AddAsset(Enum::Microsoft#Pricing#Asset#Price_Asset_Type,Code[20])
+- syntax:
+    content: 'procedure AddSource(SourceType: Enum "Price Source Type", ParentSourceNo: Code[20], SourceNo: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: ParentSourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddSource
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.AddSource(Enum::Microsoft#Pricing#Source#Price_Source_Type,Code[20],Code[20])
+- syntax:
+    content: 'procedure AddSource(SourceType: Enum "Price Source Type", SourceNo: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddSource
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.AddSource(Enum::Microsoft#Pricing#Source#Price_Source_Type,Code[20])
+- syntax:
+    content: 'procedure AddSource(SourceType: Enum "Price Source Type")'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+  name: AddSource
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.AddSource(Enum::Microsoft#Pricing#Source#Price_Source_Type)
+- syntax:
+    content: 'procedure GetAsset(var PriceAsset: Record "Price Asset" temporary)'
+    parameters:
+    - id: PriceAsset
+      parameterType:
+        name: Record "Price Asset" temporary
+        isExternal: true
+  name: GetAsset
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.GetAsset(Price_Asset@)
+- syntax:
+    content: 'procedure GetAssets(var NewPriceAssetList: Codeunit "Price Asset List")'
+    parameters:
+    - id: NewPriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+  name: GetAssets
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.GetAssets(Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@)
+- syntax:
+    content: 'procedure GetBuffer(var ResultPriceCalculationBuffer: Record "Price Calculation Buffer" temporary)'
+    parameters:
+    - id: ResultPriceCalculationBuffer
+      parameterType:
+        name: Record "Price Calculation Buffer" temporary
+        isExternal: true
+  name: GetBuffer
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.GetBuffer(Price_Calculation_Buffer@)
+- syntax:
+    content: 'procedure GetSource(SourceType: Enum "Price Source Type"): Code[20]'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetSource
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.GetSource(Enum::Microsoft#Pricing#Source#Price_Source_Type):Code[20]
+- syntax:
+    content: 'procedure GetSources(var TempPriceSource: Record "Price Source" temporary): Boolean'
+    parameters:
+    - id: TempPriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSources
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.GetSources(Price_Source@):Boolean
+- syntax:
+    content: 'procedure GetSources(var NewPriceSourceList: Codeunit "Price Source List")'
+    parameters:
+    - id: NewPriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+  name: GetSources
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.GetSources(Codeunit::Microsoft#Pricing#Source#Price_Source_List@)
+- syntax:
+    content: 'procedure SetAssets(var NewPriceAssetList: Codeunit "Price Asset List")'
+    parameters:
+    - id: NewPriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+  name: SetAssets
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.SetAssets(Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@)
+- syntax:
+    content: 'procedure SetSources(var NewPriceSourceList: Codeunit "Price Source List")'
+    parameters:
+    - id: NewPriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+  name: SetSources
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.SetSources(Codeunit::Microsoft#Pricing#Source#Price_Source_List@)
+- syntax:
+    content: 'procedure Set(NewPriceCalculationBuffer: Record "Price Calculation Buffer" temporary, var PriceSourceList: Codeunit "Price Source List")'
+    parameters:
+    - id: NewPriceCalculationBuffer
+      parameterType:
+        name: Record "Price Calculation Buffer" temporary
+        isExternal: true
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+  name: Set
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.Set(Price_Calculation_Buffer,Codeunit::Microsoft#Pricing#Source#Price_Source_List@)
+- syntax:
+    content: 'procedure RoundPrice(var Price: Decimal)'
+    parameters:
+    - id: Price
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: RoundPrice
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.RoundPrice(Decimal@)
+- syntax:
+    content: 'procedure IsInMinQty(PriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInMinQty
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.IsInMinQty(Price_List_Line):Boolean
+- syntax:
+    content: 'procedure ConvertAmount(AmountType: Enum "Price Amount Type", var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: ConvertAmount
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.ConvertAmount(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Price_List_Line@)
+- syntax:
+    content: 'procedure ConvertAmountByTax(var PriceListLine: Record "Price List Line", var Amount: Decimal)'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ConvertAmountByTax
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.ConvertAmountByTax(Price_List_Line@,Decimal@)
+- syntax:
+    content: 'procedure ConvertAmountByUnitOfMeasure(var PriceListLine: Record "Price List Line", var Amount: Decimal)'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ConvertAmountByUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.ConvertAmountByUnitOfMeasure(Price_List_Line@,Decimal@)
+- syntax:
+    content: 'procedure ConvertAmountByCurrency(var PriceListLine: Record "Price List Line", var Amount: Decimal)'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: ConvertAmountByCurrency
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.ConvertAmountByCurrency(Price_List_Line@,Decimal@)
+- syntax:
+    content: 'procedure SetLineDiscountPctForPickBestLine(var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: SetLineDiscountPctForPickBestLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.SetLineDiscountPctForPickBestLine(Price_List_Line@)
+- syntax:
+    content: 'procedure FillBestLine(AmountType: Enum "Price Amount Type", var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: FillBestLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.FillBestLine(Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Price_List_Line@)
+- syntax:
+    content: 'procedure SetFiltersOnPriceListLine(var PriceListLine: Record "Price List Line", AmountType: Enum "Price Amount Type", ShowAll: Boolean)'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetFiltersOnPriceListLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.SetFiltersOnPriceListLine(Price_List_Line@,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type,Boolean)
+- syntax:
+    content: 'procedure RestoreFilters(var PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: RestoreFilters
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.RestoreFilters(Price_List_Line@)
+- syntax:
+    content: 'procedure VerifySelectedLine(PriceListLine: Record "Price List Line")'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+  name: VerifySelectedLine
+  uid: M:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#.VerifySelectedLine(Price_List_Line)
+commentId: O:Codeunit::Microsoft#Pricing#Calculation#Price Calculation Buffer Mgt#
+name: '"Price Calculation Buffer Mgt."'
+uid: O:Codeunit::Microsoft#Pricing#Calculation#Price_Calculation_Buffer_Mgt#

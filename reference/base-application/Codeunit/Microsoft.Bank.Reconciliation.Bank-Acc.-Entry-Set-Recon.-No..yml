@@ -1,0 +1,90 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Bank Acc. Entry Set Recon.-No."
+alId: ID 375
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Bank Account Ledger Entry" = rm,
+                      TableData "Check Ledger Entry" = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ApplyEntries(var BankAccReconLine: Record "Bank Acc. Reconciliation Line", var BankAccLedgEntry: Record "Bank Account Ledger Entry", Relation: Option): Boolean'
+    parameters:
+    - id: BankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: BankAccLedgEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: Relation
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ApplyEntries
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Entry_Set_Recon#-No#.ApplyEntries(Bank_Acc#_Reconciliation_Line@,Bank_Account_Ledger_Entry@,Option):Boolean
+- syntax:
+    content: 'procedure SetLineCount(NewLineCount: Integer)'
+    parameters:
+    - id: NewLineCount
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetLineCount
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Entry_Set_Recon#-No#.SetLineCount(Integer)
+- syntax:
+    content: 'procedure RemoveApplication(var BankAccLedgEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: BankAccLedgEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: RemoveApplication
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Entry_Set_Recon#-No#.RemoveApplication(Bank_Account_Ledger_Entry@)
+- syntax:
+    content: 'procedure SetReconNo(var BankAccLedgEntry: Record "Bank Account Ledger Entry", var BankAccReconLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccLedgEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: BankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: SetReconNo
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Entry_Set_Recon#-No#.SetReconNo(Bank_Account_Ledger_Entry@,Bank_Acc#_Reconciliation_Line@)
+- syntax:
+    content: 'procedure RemoveReconNo(var BankAccLedgEntry: Record "Bank Account Ledger Entry", var BankAccReconLine: Record "Bank Acc. Reconciliation Line", Test: Boolean)'
+    parameters:
+    - id: BankAccLedgEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: BankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: Test
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RemoveReconNo
+  uid: M:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Entry_Set_Recon#-No#.RemoveReconNo(Bank_Account_Ledger_Entry@,Bank_Acc#_Reconciliation_Line@,Boolean)
+commentId: O:Codeunit::Microsoft#Bank#Reconciliation#Bank Acc# Entry Set Recon#-No#
+name: '"Bank Acc. Entry Set Recon.-No."'
+uid: O:Codeunit::Microsoft#Bank#Reconciliation#Bank_Acc#_Entry_Set_Recon#-No#

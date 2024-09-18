@@ -1,0 +1,91 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Posting."Sales-Post + Print"
+alId: ID 82
+namespace: Microsoft.Sales.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Sales Header
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure PostAndEmail(var ParmSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: ParmSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PostAndEmail
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.PostAndEmail(Sales_Header@)
+- syntax:
+    content: 'procedure GetReport(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: GetReport
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.GetReport(Sales_Header@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by new implementation in Posting Selection Management codeunit,22.0)]'
+    content: 'procedure ConfirmationMessage(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ConfirmationMessage
+  obsoletion:
+    state: pending
+    reason: Replaced by new implementation in Posting Selection Management codeunit
+    version: "22.0"
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.ConfirmationMessage:Text
+- syntax:
+    content: 'procedure PrintReceive(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PrintReceive
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.PrintReceive(Sales_Header)
+- syntax:
+    content: 'procedure PrintInvoice(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PrintInvoice
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.PrintInvoice(Sales_Header)
+- syntax:
+    content: 'procedure PrintShip(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PrintShip
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.PrintShip(Sales_Header)
+- syntax:
+    content: 'procedure PrintCrMemo(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PrintCrMemo
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print.PrintCrMemo(Sales_Header)
+commentId: O:Codeunit::Microsoft#Sales#Posting#Sales-Post + Print
+name: '"Sales-Post + Print"'
+uid: O:Codeunit::Microsoft#Sales#Posting#Sales-Post_+_Print

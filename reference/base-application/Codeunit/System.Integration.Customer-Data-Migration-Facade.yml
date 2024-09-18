@@ -1,0 +1,1063 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration."Customer Data Migration Facade"
+alId: ID 6112
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Data Migration Parameters
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Integration#Data_Migration_Parameters
+    name: System.Integration."Data Migration Parameters"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure CreateCustomerIfNeeded(CustomerNoToSet: Code[20], CustomerNameToSet: Text[50]): Boolean'
+    parameters:
+    - id: CustomerNoToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CustomerNameToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreateCustomerIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateCustomerIfNeeded(Code[20],Text[50]):Boolean
+- syntax:
+    content: 'procedure CreatePostingSetupIfNeeded(CustomerPostingGroupCode: Code[20], CustomerPostingGroupDescription: Text[50], ReceivablesAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CustomerPostingGroupDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ReceivablesAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreatePostingSetupIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreatePostingSetupIfNeeded(Code[20],Text[50],Code[20])
+- syntax:
+    content: 'procedure CreateGeneralJournalBatchIfNeeded(GeneralJournalBatchCode: Code[10], NoSeriesCode: Code[20], PostingNoSeriesCode: Code[20])'
+    parameters:
+    - id: GeneralJournalBatchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingNoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateGeneralJournalBatchIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateGeneralJournalBatchIfNeeded(Code[10],Code[20],Code[20])
+- syntax:
+    content: 'procedure CreateGeneralJournalLine(GeneralJournalBatchCode: Code[10], DocumentNo: Code[20], Description: Text[50], PostingDate: Date, DueDate: Date, Amount: Decimal, AmountLCY: Decimal, Currency: Code[10], BalancingAccount: Code[20])'
+    parameters:
+    - id: GeneralJournalBatchCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BalancingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateGeneralJournalLine
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateGeneralJournalLine(Code[10],Code[20],Text[50],Date,Date,Decimal,Decimal,Code[10],Code[20])
+- syntax:
+    content: 'procedure SetGeneralJournalLineDimension(DimensionCode: Code[20], DimensionDescription: Text[50], DimensionValueCode: Code[20], DimensionValueName: Text[50])'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DimensionValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: SetGeneralJournalLineDimension
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGeneralJournalLineDimension(Code[20],Text[50],Code[20],Text[50])
+- syntax:
+    content: 'procedure SetGeneralJournalLineDocumentType(DocumentTypeToSet: Option)'
+    parameters:
+    - id: DocumentTypeToSet
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetGeneralJournalLineDocumentType
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGeneralJournalLineDocumentType(Option)
+- syntax:
+    content: 'procedure SetGeneralJournalLineSourceCode(SourceCodeToSet: Code[10])'
+    parameters:
+    - id: SourceCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetGeneralJournalLineSourceCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGeneralJournalLineSourceCode(Code[10])
+- syntax:
+    content: 'procedure SetGeneralJournalLineExternalDocumentNo(ExternalDocumentNoToSet: Code[35])'
+    parameters:
+    - id: ExternalDocumentNoToSet
+      parameterType:
+        name: Code[35]
+        isExternal: true
+  name: SetGeneralJournalLineExternalDocumentNo
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGeneralJournalLineExternalDocumentNo(Code[35])
+- syntax:
+    content: 'procedure SetGeneralJournalLineSalesPersonCode(SalespersonCodeToSet: Code[20])'
+    parameters:
+    - id: SalespersonCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetGeneralJournalLineSalesPersonCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGeneralJournalLineSalesPersonCode(Code[20])
+- syntax:
+    content: 'procedure SetGeneralJournalLinePaymentTerms(PaymentTermsCodeToSet: Code[10])'
+    parameters:
+    - id: PaymentTermsCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetGeneralJournalLinePaymentTerms
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGeneralJournalLinePaymentTerms(Code[10])
+- syntax:
+    content: 'procedure SetGlobalCustomer(CustomerNo: Code[20]): Boolean'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetGlobalCustomer
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGlobalCustomer(Code[20]):Boolean
+- syntax:
+    content: 'procedure ModifyCustomer(RunTrigger: Boolean)'
+    parameters:
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ModifyCustomer
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.ModifyCustomer(Boolean)
+- syntax:
+    content: 'procedure SetSearchName(SearchNameToSet: Code[50])'
+    parameters:
+    - id: SearchNameToSet
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetSearchName
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetSearchName(Code[50])
+- syntax:
+    content: 'procedure DoesCustomerExist(CustomerNo: Code[20]): Boolean'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesCustomerExist
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.DoesCustomerExist(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetAddress(AdressToSet: Text[50], Adress2ToSet: Text[50], CountryRegionCodeToSet: Code[10], PostCodeToSet: Code[20], CityToSet: Text[30])'
+    parameters:
+    - id: AdressToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: Adress2ToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: CountryRegionCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: PostCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CityToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SetAddress
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetAddress(Text[50],Text[50],Code[10],Code[20],Text[30])
+- syntax:
+    content: 'procedure SetPhoneNo(PhoneNoToSet: Text[30])'
+    parameters:
+    - id: PhoneNoToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SetPhoneNo
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetPhoneNo(Text[30])
+- syntax:
+    content: 'procedure SetTelexNo(TelexNoToSet: Text[20])'
+    parameters:
+    - id: TelexNoToSet
+      parameterType:
+        name: Text[20]
+        isExternal: true
+  name: SetTelexNo
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetTelexNo(Text[20])
+- syntax:
+    content: 'procedure SetCreditLimitLCY(CreditLimitToSet: Decimal)'
+    parameters:
+    - id: CreditLimitToSet
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetCreditLimitLCY
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCreditLimitLCY(Decimal)
+- syntax:
+    content: 'procedure SetCurrencyCode(CurrencyCodeToSet: Code[10])'
+    parameters:
+    - id: CurrencyCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetCurrencyCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCurrencyCode(Code[10])
+- syntax:
+    content: 'procedure SetCustomerPriceGroup(CustomerPriceGroupToSet: Code[10])'
+    parameters:
+    - id: CustomerPriceGroupToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetCustomerPriceGroup
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPriceGroup(Code[10])
+- syntax:
+    content: 'procedure SetGenBusPostingGroup(GenBusPostingGroupToSet: Code[10])'
+    parameters:
+    - id: GenBusPostingGroupToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetGenBusPostingGroup
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetGenBusPostingGroup(Code[10])
+- syntax:
+    content: 'procedure SetLanguageCode(LanguageCodeToSet: Code[10])'
+    parameters:
+    - id: LanguageCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetLanguageCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetLanguageCode(Code[10])
+- syntax:
+    content: 'procedure SetShipmentMethodCode(ShipmentMethodCodeToSet: Code[10])'
+    parameters:
+    - id: ShipmentMethodCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetShipmentMethodCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetShipmentMethodCode(Code[10])
+- syntax:
+    content: 'procedure SetPaymentTermsCode(PaymentTermsCodeToSet: Code[10])'
+    parameters:
+    - id: PaymentTermsCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetPaymentTermsCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetPaymentTermsCode(Code[10])
+- syntax:
+    content: 'procedure SetSalesPersonCode(SalespersonCodeToSet: Code[20])'
+    parameters:
+    - id: SalespersonCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetSalesPersonCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetSalesPersonCode(Code[20])
+- syntax:
+    content: 'procedure SetInvoiceDiscCode(InvoiceDiscCodeToSet: Code[20])'
+    parameters:
+    - id: InvoiceDiscCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetInvoiceDiscCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetInvoiceDiscCode(Code[20])
+- syntax:
+    content: 'procedure SetBlocked(BlockedTypeToSet: Enum "Customer Blocked")'
+    parameters:
+    - id: BlockedTypeToSet
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Customer#Customer_Blocked
+        name: Microsoft.Sales.Customer."Customer Blocked"
+        isExternal: false
+  name: SetBlocked
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetBlocked(Enum::Microsoft#Sales#Customer#Customer_Blocked)
+- syntax:
+    content: 'procedure SetFaxNo(FaxNoToSet: Text[30])'
+    parameters:
+    - id: FaxNoToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SetFaxNo
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetFaxNo(Text[30])
+- syntax:
+    content: 'procedure SetVATRegistrationNo(VatRegistrationNoToSet: Text[20])'
+    parameters:
+    - id: VatRegistrationNoToSet
+      parameterType:
+        name: Text[20]
+        isExternal: true
+  name: SetVATRegistrationNo
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetVATRegistrationNo(Text[20])
+- syntax:
+    content: 'procedure SetHomePage(HomePageToSet: Text[80])'
+    parameters:
+    - id: HomePageToSet
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: SetHomePage
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetHomePage(Text[80])
+- syntax:
+    content: 'procedure SetBillToCustomerNo(BillToCustomerToSet: Code[20])'
+    parameters:
+    - id: BillToCustomerToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetBillToCustomerNo
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetBillToCustomerNo(Code[20])
+- syntax:
+    content: 'procedure SetPaymentMethodCode(PaymentMethodCodeToSet: Code[10])'
+    parameters:
+    - id: PaymentMethodCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetPaymentMethodCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetPaymentMethodCode(Code[10])
+- syntax:
+    content: 'procedure SetContact(ContactToSet: Text[50])'
+    parameters:
+    - id: ContactToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: SetContact
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetContact(Text[50])
+- syntax:
+    content: 'procedure SetLastDateModified(LastDateModifiedToSet: Date)'
+    parameters:
+    - id: LastDateModifiedToSet
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetLastDateModified
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetLastDateModified(Date)
+- syntax:
+    content: 'procedure SetLastModifiedDateTime(LastModifiedDateTimeToSet: DateTime)'
+    parameters:
+    - id: LastModifiedDateTimeToSet
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SetLastModifiedDateTime
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetLastModifiedDateTime(DateTime)
+- syntax:
+    content: 'procedure SetTaxLiable(TaxLiable: Boolean)'
+    parameters:
+    - id: TaxLiable
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetTaxLiable
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetTaxLiable(Boolean)
+- syntax:
+    content: 'procedure SetTaxAreaCode(TaxAreaCodeToSet: Code[20])'
+    parameters:
+    - id: TaxAreaCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetTaxAreaCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetTaxAreaCode(Code[20])
+- syntax:
+    content: 'procedure SetEmail(EmailToSet: Text[80])'
+    parameters:
+    - id: EmailToSet
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: SetEmail
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetEmail(Text[80])
+- syntax:
+    content: 'procedure SetName2(Name2: Text[50])'
+    parameters:
+    - id: Name2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+  name: SetName2
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetName2(Text[50])
+- syntax:
+    content: 'procedure SetTerritoryCode(TerritoryCode: Code[10])'
+    parameters:
+    - id: TerritoryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetTerritoryCode
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetTerritoryCode(Code[10])
+- syntax:
+    content: 'procedure SetPrintStatement(PrintStatement: Boolean)'
+    parameters:
+    - id: PrintStatement
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPrintStatement
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetPrintStatement(Boolean)
+- syntax:
+    content: 'procedure CreateDefaultDimensionAndRequirementsIfNeeded(DimensionCode: Text[20], DimensionDescription: Text[50], DimensionValueCode: Code[20], DimensionValueName: Text[30])'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Text[20]
+        isExternal: true
+    - id: DimensionDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DimensionValueCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimensionValueName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CreateDefaultDimensionAndRequirementsIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateDefaultDimensionAndRequirementsIfNeeded(Text[20],Text[50],Code[20],Text[30])
+- syntax:
+    content: 'procedure CreateCustomerDiscountGroupIfNeeded(CodeToSet: Code[20], DescriptionToSet: Text[50]): Code[20]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateCustomerDiscountGroupIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateCustomerDiscountGroupIfNeeded(Code[20],Text[50]):Code[20]
+- syntax:
+    content: 'procedure CreateShipmentMethodIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[50]): Code[10]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreateShipmentMethodIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateShipmentMethodIfNeeded(Code[10],Text[50]):Code[10]
+- syntax:
+    content: 'procedure CreateSalespersonPurchaserIfNeeded(CodeToSet: Code[20], NameToSet: Text[50], PhoneNoToSet: Text[30], EmailToSet: Text[80]): Code[20]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NameToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PhoneNoToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: EmailToSet
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateSalespersonPurchaserIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateSalespersonPurchaserIfNeeded(Code[20],Text[50],Text[30],Text[80]):Code[20]
+- syntax:
+    content: 'procedure CreateCustomerPriceGroupIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[50], PriceIncludesVatToSet: Boolean): Code[10]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PriceIncludesVatToSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreateCustomerPriceGroupIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateCustomerPriceGroupIfNeeded(Code[10],Text[50],Boolean):Code[10]
+- syntax:
+    content: 'procedure CreatePaymentTermsIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[50], DueDateCalculationToSet: DateFormula): Code[10]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: DueDateCalculationToSet
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreatePaymentTermsIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreatePaymentTermsIfNeeded(Code[10],Text[50],DateFormula):Code[10]
+- syntax:
+    content: 'procedure CreatePaymentMethodIfNeeded(CodeToSet: Code[10], DescriptionToSet: Text[50]): Code[10]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: DescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreatePaymentMethodIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreatePaymentMethodIfNeeded(Code[10],Text[50]):Code[10]
+- syntax:
+    content: 'procedure CreateTerritoryCodeIfNeeded(TerritoryCodeToSet: Code[10], TerritoryNameToSet: Text[50]): Code[10]'
+    parameters:
+    - id: TerritoryCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TerritoryNameToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreateTerritoryCodeIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateTerritoryCodeIfNeeded(Code[10],Text[50]):Code[10]
+- syntax:
+    content: 'procedure CreateTaxAreaIfNeeded(TaxAreaCodeToSet: Code[20], TaxDescriptionToSet: Text[50]): Code[20]'
+    parameters:
+    - id: TaxAreaCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxDescriptionToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateTaxAreaIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateTaxAreaIfNeeded(Code[20],Text[50]):Code[20]
+- syntax:
+    content: 'procedure DoesPostCodeExist(CodeToSearch: Code[20], CityToSearch: Text[30]): Boolean'
+    parameters:
+    - id: CodeToSearch
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CityToSearch
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesPostCodeExist
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.DoesPostCodeExist(Code[20],Text[30]):Boolean
+- syntax:
+    content: 'procedure CreatePostCodeIfNeeded(CodeToSet: Code[20], CityToSet: Text[30], CountyToSet: Text[30], CountryRegionCodeToSet: Code[10]): Boolean'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CityToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: CountyToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: CountryRegionCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CreatePostCodeIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreatePostCodeIfNeeded(Code[20],Text[30],Text[30],Code[10]):Boolean
+- syntax:
+    content: 'procedure CreateCountryIfNeeded(CodeToSet: Code[10], NameToSet: Text[50], AddressFormatToSet: Option, ContactAddressFormatToSet: Option): Code[10]'
+    parameters:
+    - id: CodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NameToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: AddressFormatToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ContactAddressFormatToSet
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: CreateCountryIfNeeded
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.CreateCountryIfNeeded(Code[10],Text[50],Option,Option):Code[10]
+- syntax:
+    content: 'procedure SearchCountry(CodeToSearch: Code[10], NameToSearch: Text[50], EUCountryRegionCodeToSearch: Code[10], IntrastatCodeToSet: Code[10], var CodeToGet: Code[10]): Boolean'
+    parameters:
+    - id: CodeToSearch
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NameToSearch
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: EUCountryRegionCodeToSearch
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: IntrastatCodeToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CodeToGet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SearchCountry
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SearchCountry(Code[10],Text[50],Code[10],Code[10],Code[10]@):Boolean
+- syntax:
+    content: 'procedure SearchLanguage(AbbreviatedNameToSearch: Code[3], var CodeToGet: Code[10]): Boolean'
+    parameters:
+    - id: AbbreviatedNameToSearch
+      parameterType:
+        name: Code[3]
+        isExternal: true
+    - id: CodeToGet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SearchLanguage
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SearchLanguage(Code[3],Code[10]@):Boolean
+- syntax:
+    content: 'procedure SetCustomerPostingGroup(CustomerPostingGroupCode: Code[20]): Boolean'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetCustomerPostingGroup
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroup(Code[20]):Boolean
+- syntax:
+    content: 'procedure SetCustomerPostingGroupAccounts(CustomerPostingGroupCode: Code[20], ReceivablesAccount: Code[20], ServiceChargeAcc: Code[20], PaymentDiscDebitAcc: Code[20], InvoiceRoundingAccount: Code[20], AdditionalFeeAccount: Code[20], InterestAccount: Code[20], DebitCurrApplnRndgAcc: Code[20], CreditCurrApplnRndgAcc: Code[20], DebitRoundingAccount: Code[20], CreditRoundingAccount: Code[20], PaymentDiscCreditAcc: Code[20], PaymentToleranceDebitAcc: Code[20], PaymentToleranceCreditAcc: Code[20], AddFeePerLineAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ReceivablesAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServiceChargeAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentDiscDebitAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InvoiceRoundingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdditionalFeeAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InterestAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DebitCurrApplnRndgAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CreditCurrApplnRndgAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DebitRoundingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CreditRoundingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentDiscCreditAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentToleranceDebitAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentToleranceCreditAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AddFeePerLineAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupAccounts
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupAccounts(Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupServiceChargeAcc(CustomerPostingGroupCode: Code[20], ServiceChargeAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServiceChargeAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupServiceChargeAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupServiceChargeAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupPaymentDiscDebitAcc(CustomerPostingGroupCode: Code[20], PaymentDiscDebitAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentDiscDebitAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupPaymentDiscDebitAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupPaymentDiscDebitAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupInvoiceRoundingAccount(CustomerPostingGroupCode: Code[20], InvoiceRoundingAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InvoiceRoundingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupInvoiceRoundingAccount
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupInvoiceRoundingAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupAdditionalFeeAccount(CustomerPostingGroupCode: Code[20], AdditionalFeeAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdditionalFeeAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupAdditionalFeeAccount
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupAdditionalFeeAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupInterestAccount(CustomerPostingGroupCode: Code[20], InterestAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InterestAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupInterestAccount
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupInterestAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupDebitCurrApplnRndgAcc(CustomerPostingGroupCode: Code[20], DebitCurrApplnRndgAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DebitCurrApplnRndgAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupDebitCurrApplnRndgAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupDebitCurrApplnRndgAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupCreditCurrApplnRndgAcc(CustomerPostingGroupCode: Code[20], CreditCurrApplnRndgAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CreditCurrApplnRndgAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupCreditCurrApplnRndgAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupCreditCurrApplnRndgAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupDebitRoundingAccount(CustomerPostingGroupCode: Code[20], DebitRoundingAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DebitRoundingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupDebitRoundingAccount
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupDebitRoundingAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupCreditRoundingAccount(CustomerPostingGroupCode: Code[20], CreditRoundingAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CreditRoundingAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupCreditRoundingAccount
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupCreditRoundingAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupPaymentDiscCreditAcc(CustomerPostingGroupCode: Code[20], PaymentDiscCreditAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentDiscCreditAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupPaymentDiscCreditAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupPaymentDiscCreditAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupPaymentToleranceDebitAcc(CustomerPostingGroupCode: Code[20], PaymentToleranceDebitAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentToleranceDebitAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupPaymentToleranceDebitAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupPaymentToleranceDebitAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupPaymentToleranceCreditAcc(CustomerPostingGroupCode: Code[20], PaymentToleranceCreditAcc: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PaymentToleranceCreditAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupPaymentToleranceCreditAcc
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupPaymentToleranceCreditAcc(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerPostingGroupAddFeePerLineAccount(CustomerPostingGroupCode: Code[20], AddFeePerLineAccount: Code[20])'
+    parameters:
+    - id: CustomerPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AddFeePerLineAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetCustomerPostingGroupAddFeePerLineAccount
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerPostingGroupAddFeePerLineAccount(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCustomerAlternativeContact(NameToSet: Text[50], AddressToSet: Text[50], Address2ToSet: Text[50], PostCodeToSet: Code[20], CityToSet: Text[30], CountryToSet: Code[10], EmailToset: Text[80], PhoneNoToSet: Text[30], FaxToSet: Text[30], MobileNoToSet: Text[30])'
+    parameters:
+    - id: NameToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: AddressToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: Address2ToSet
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: PostCodeToSet
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CityToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: CountryToSet
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: EmailToset
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: PhoneNoToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: FaxToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: MobileNoToSet
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: SetCustomerAlternativeContact
+  uid: M:Codeunit::System#Integration#Customer_Data_Migration_Facade.SetCustomerAlternativeContact(Text[50],Text[50],Text[50],Code[20],Text[30],Code[10],Text[80],Text[30],Text[30],Text[30])
+commentId: O:Codeunit::System#Integration#Customer Data Migration Facade
+name: '"Customer Data Migration Facade"'
+uid: O:Codeunit::System#Integration#Customer_Data_Migration_Facade

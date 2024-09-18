@@ -1,0 +1,207 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.History."Whse. Undo Quantity"
+alId: ID 7320
+namespace: Microsoft.Warehouse.History
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.History
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Whse. Item Entry Relation" = md,
+                      TableData "Posted Whse. Shipment Line" = rimd
+  promoted: false
+- name: TableNo
+  value: Item Journal Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Journal#Item_Journal_Line
+    name: Microsoft.Inventory.Journal."Item Journal Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure InsertTempWhseJnlLine(ItemJnlLine: Record "Item Journal Line", SourceType: Integer, SourceSubType: Integer, SourceNo: Code[20], SourceLineNo: Integer, RefDoc: Integer, var TempWhseJnlLine: Record "Warehouse Journal Line" temporary, var NextLineNo: Integer)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RefDoc
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertTempWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.InsertTempWhseJnlLine(Item_Journal_Line,Integer,Integer,Code[20],Integer,Integer,Warehouse_Journal_Line@,Integer@)
+- syntax:
+    content: 'procedure PostTempWhseJnlLine(var TempWhseJnlLine: Record "Warehouse Journal Line" temporary)'
+    parameters:
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+  name: PostTempWhseJnlLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.PostTempWhseJnlLine(Warehouse_Journal_Line@)
+- syntax:
+    content: 'procedure PostTempWhseJnlLineCache(var TempWhseJnlLine: Record "Warehouse Journal Line" temporary, var WhseJnlRegLine: Codeunit "Whse. Jnl.-Register Line")'
+    parameters:
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+    - id: WhseJnlRegLine
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line
+        name: Microsoft.Warehouse.Journal."Whse. Jnl.-Register Line"
+        isExternal: false
+  name: PostTempWhseJnlLineCache
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.PostTempWhseJnlLineCache(Warehouse_Journal_Line@,Codeunit::Microsoft#Warehouse#Journal#Whse#_Jnl#-Register_Line@)
+- syntax:
+    content: 'procedure UndoPostedWhseRcptLine(var PostedWhseRcptLine: Record "Posted Whse. Receipt Line")'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+  name: UndoPostedWhseRcptLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.UndoPostedWhseRcptLine(Posted_Whse#_Receipt_Line@)
+- syntax:
+    content: 'procedure UndoPostedWhseShptLine(var PostedWhseShptLine: Record "Posted Whse. Shipment Line")'
+    parameters:
+    - id: PostedWhseShptLine
+      parameterType:
+        name: Record "Posted Whse. Shipment Line"
+        isExternal: true
+  name: UndoPostedWhseShptLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.UndoPostedWhseShptLine(Posted_Whse#_Shipment_Line@)
+- syntax:
+    content: 'procedure UpdateRcptSourceDocLines(var PostedWhseRcptLine: Record "Posted Whse. Receipt Line")'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+  name: UpdateRcptSourceDocLines
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.UpdateRcptSourceDocLines(Posted_Whse#_Receipt_Line@)
+- syntax:
+    content: 'procedure UpdateShptSourceDocLines(var PostedWhseShptLine: Record "Posted Whse. Shipment Line")'
+    parameters:
+    - id: PostedWhseShptLine
+      parameterType:
+        name: Record "Posted Whse. Shipment Line"
+        isExternal: true
+  name: UpdateShptSourceDocLines
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.UpdateShptSourceDocLines(Posted_Whse#_Shipment_Line@)
+- syntax:
+    content: 'procedure FindPostedWhseRcptLine(var PostedWhseRcptLine: Record "Posted Whse. Receipt Line", UndoType: Integer, UndoID: Code[20], SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceRefNo: Integer): Boolean'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: UndoType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UndoID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindPostedWhseRcptLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.FindPostedWhseRcptLine(Posted_Whse#_Receipt_Line@,Integer,Code[20],Integer,Integer,Code[20],Integer):Boolean
+- syntax:
+    content: 'procedure FindPostedWhseShptLine(var PostedWhseShptLine: Record "Posted Whse. Shipment Line", UndoType: Integer, UndoID: Code[20], SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceRefNo: Integer): Boolean'
+    parameters:
+    - id: PostedWhseShptLine
+      parameterType:
+        name: Record "Posted Whse. Shipment Line"
+        isExternal: true
+    - id: UndoType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UndoID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindPostedWhseShptLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.FindPostedWhseShptLine(Posted_Whse#_Shipment_Line@,Integer,Code[20],Integer,Integer,Code[20],Integer):Boolean
+- syntax:
+    content: 'procedure InsertPostedWhseShptLine(OldPostedWhseShptLine: Record "Posted Whse. Shipment Line")'
+    parameters:
+    - id: OldPostedWhseShptLine
+      parameterType:
+        name: Record "Posted Whse. Shipment Line"
+        isExternal: true
+  name: InsertPostedWhseShptLine
+  uid: M:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity.InsertPostedWhseShptLine(Posted_Whse#_Shipment_Line)
+commentId: O:Codeunit::Microsoft#Warehouse#History#Whse# Undo Quantity
+name: '"Whse. Undo Quantity"'
+uid: O:Codeunit::Microsoft#Warehouse#History#Whse#_Undo_Quantity

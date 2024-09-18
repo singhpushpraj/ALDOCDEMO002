@@ -1,0 +1,287 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document.ServOrderManagement
+alId: ID 5900
+namespace: Microsoft.Service.Document
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ServHeaderLookup(DocumentType: Integer, var DocumentNo: Code[20]): Boolean'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServHeaderLookup
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.ServHeaderLookup(Integer,Code[20]@):Boolean
+- syntax:
+    content: 'procedure UpdateResponseDateTime(var ServItemLine: Record "Service Item Line", Deleting: Boolean)'
+    parameters:
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Deleting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateResponseDateTime
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.UpdateResponseDateTime(Service_Item_Line@,Boolean)
+- syntax:
+    content: 'procedure CreateNewCustomer(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CreateNewCustomer
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CreateNewCustomer(Service_Header@)
+- syntax:
+    content: 'procedure ReplacementCreateServItem(FromServItem: Record "Service Item", ServiceLine: Record "Service Line", ServShptDocNo: Code[20], ServShptLineNo: Integer, var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: FromServItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ServShptDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServShptLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: ReplacementCreateServItem
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.ReplacementCreateServItem(Service_Item,Service_Line,Code[20],Integer,Tracking_Specification@)
+- syntax:
+    content: 'procedure InsertServCost(ServInvLine: Record "Service Line", CostType: Integer, LinktoServItemLine: Boolean): Boolean'
+    parameters:
+    - id: ServInvLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: CostType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LinktoServItemLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InsertServCost
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.InsertServCost(Service_Line,Integer,Boolean):Boolean
+- syntax:
+    content: 'procedure FindContactInformation(CustNo: Code[20]): Code[20]'
+    parameters:
+    - id: CustNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: FindContactInformation
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.FindContactInformation(Code[20]):Code[20]
+- syntax:
+    content: 'procedure FindResLocationCode(ResourceNo: Code[20], StartDate: Date): Code[10]'
+    parameters:
+    - id: ResourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: FindResLocationCode
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.FindResLocationCode(Code[20],Date):Code[10]
+- syntax:
+    content: 'procedure CalcServTime(StartingDate: Date, StartingTime: Time, FinishingDate: Date, FinishingTime: Time, ContractNo: Code[20], ContractCalendarExists: Boolean): Decimal'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: FinishingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: FinishingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContractCalendarExists
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcServTime
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CalcServTime(Date,Time,Date,Time,Code[20],Boolean):Decimal
+- syntax:
+    content: 'procedure LookupServItemNo(var ServItemLine: Record "Service Item Line")'
+    parameters:
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: LookupServItemNo
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.LookupServItemNo(Service_Item_Line@)
+- syntax:
+    content: 'procedure UpdatePriority(var ServItemLine: Record "Service Item Line", Deleting: Boolean)'
+    parameters:
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+    - id: Deleting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdatePriority
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.UpdatePriority(Service_Item_Line@,Boolean)
+- syntax:
+    content: 'procedure InServiceContract(var ServInvLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: ServInvLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InServiceContract
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.InServiceContract(Service_Line@):Boolean
+- syntax:
+    content: 'procedure CheckServItemRepairStatus(ServHeader: Record "Service Header", var ServItemLine: Record "Service Item Line" temporary, var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line" temporary
+        isExternal: true
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CheckServItemRepairStatus
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CheckServItemRepairStatus(Service_Header,Service_Item_Line@,Service_Line@)
+- syntax:
+    content: 'procedure CopyCommentLines(FromDocumentType: Integer, ToDocumentType: Integer, FromNo: Code[20], ToNo: Code[20])'
+    parameters:
+    - id: FromDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyCommentLines
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CopyCommentLines(Integer,Integer,Code[20],Code[20])
+- syntax:
+    content: 'procedure CopyCommentLinesWithSubType(FromDocumentType: Integer, ToDocumentType: Integer, FromNo: Code[20], ToNo: Code[20], FromTableSubType: Integer)'
+    parameters:
+    - id: FromDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToDocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FromNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromTableSubType
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyCommentLinesWithSubType
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CopyCommentLinesWithSubType(Integer,Integer,Code[20],Code[20],Integer)
+- syntax:
+    content: 'procedure CalcContractDates(var ServHeader: Record "Service Header", var ServItemLine: Record "Service Item Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: CalcContractDates
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CalcContractDates(Service_Header@,Service_Item_Line@)
+- syntax:
+    content: 'procedure CalcServItemDates(var ServHeader: Record "Service Header", ServItemNo: Code[20])'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CalcServItemDates
+  uid: M:Codeunit::Microsoft#Service#Document#ServOrderManagement.CalcServItemDates(Service_Header@,Code[20])
+commentId: O:Codeunit::Microsoft#Service#Document#ServOrderManagement
+name: ServOrderManagement
+uid: O:Codeunit::Microsoft#Service#Document#ServOrderManagement

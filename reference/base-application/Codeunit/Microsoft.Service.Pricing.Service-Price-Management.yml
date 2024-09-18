@@ -1,0 +1,85 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Pricing."Service Price Management"
+alId: ID 6080
+namespace: Microsoft.Service.Pricing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Pricing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure ShowPriceAdjustment(ServItemLine: Record "Service Item Line")'
+    parameters:
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: ShowPriceAdjustment
+  uid: M:Codeunit::Microsoft#Service#Pricing#Service_Price_Management.ShowPriceAdjustment(Service_Item_Line)
+- syntax:
+    content: 'procedure AdjustLines(ServLinePriceAdjmt: Record "Service Line Price Adjmt.", ServPriceGrSetup: Record "Serv. Price Group Setup")'
+    parameters:
+    - id: ServLinePriceAdjmt
+      parameterType:
+        name: Record "Service Line Price Adjmt."
+        isExternal: true
+    - id: ServPriceGrSetup
+      parameterType:
+        name: Record "Serv. Price Group Setup"
+        isExternal: true
+  name: AdjustLines
+  uid: M:Codeunit::Microsoft#Service#Pricing#Service_Price_Management.AdjustLines(Service_Line_Price_Adjmt#,Serv#_Price_Group_Setup)
+- syntax:
+    content: 'procedure GetServPriceGrSetup(var ServPriceGrSetup: Record "Serv. Price Group Setup", ServHeader: Record "Service Header", ServItemLine: Record "Service Item Line")'
+    parameters:
+    - id: ServPriceGrSetup
+      parameterType:
+        name: Record "Serv. Price Group Setup"
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: GetServPriceGrSetup
+  uid: M:Codeunit::Microsoft#Service#Pricing#Service_Price_Management.GetServPriceGrSetup(Serv#_Price_Group_Setup@,Service_Header,Service_Item_Line)
+- syntax:
+    content: 'procedure ResetAdjustedLines(ServLine: Record "Service Line")'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: ResetAdjustedLines
+  uid: M:Codeunit::Microsoft#Service#Pricing#Service_Price_Management.ResetAdjustedLines(Service_Line)
+- syntax:
+    content: 'procedure CheckServItemGrCode(var ServLine: Record "Service Line")'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CheckServItemGrCode
+  uid: M:Codeunit::Microsoft#Service#Pricing#Service_Price_Management.CheckServItemGrCode(Service_Line@)
+- syntax:
+    content: 'procedure IsLineToAdjustFirstInvoiced(var ServLine: Record "Service Line"): Boolean'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsLineToAdjustFirstInvoiced
+  uid: M:Codeunit::Microsoft#Service#Pricing#Service_Price_Management.IsLineToAdjustFirstInvoiced(Service_Line@):Boolean
+commentId: O:Codeunit::Microsoft#Service#Pricing#Service Price Management
+name: '"Service Price Management"'
+uid: O:Codeunit::Microsoft#Service#Pricing#Service_Price_Management

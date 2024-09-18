@@ -1,0 +1,73 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.IO."Record Set Management"
+alId: ID 8400
+namespace: System.IO
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.IO
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Record Set Definition" = rimd,
+                      TableData "Record Set Tree" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SaveSetSingleTable(RecordsVariant: Variant): Integer'
+    parameters:
+    - id: RecordsVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SaveSetSingleTable
+  uid: M:Codeunit::System#IO#Record_Set_Management.SaveSetSingleTable(Variant):Integer
+- syntax:
+    content: 'procedure SaveSet(var TempRecordSetBuffer: Record "Record Set Buffer" temporary): Integer'
+    parameters:
+    - id: TempRecordSetBuffer
+      parameterType:
+        name: Record "Record Set Buffer" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SaveSet
+  uid: M:Codeunit::System#IO#Record_Set_Management.SaveSet(Record_Set_Buffer@):Integer
+- syntax:
+    content: 'procedure GetSet(var TempRecordSetBuffer: Record "Record Set Buffer" temporary, SetID: Integer)'
+    parameters:
+    - id: TempRecordSetBuffer
+      parameterType:
+        name: Record "Record Set Buffer" temporary
+        isExternal: true
+    - id: SetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetSet
+  uid: M:Codeunit::System#IO#Record_Set_Management.GetSet(Record_Set_Buffer@,Integer)
+- syntax:
+    content: 'procedure RenameRecord(RecRef: RecordRef, xRecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: xRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: RenameRecord
+  uid: M:Codeunit::System#IO#Record_Set_Management.RenameRecord(RecordRef,RecordRef)
+commentId: O:Codeunit::System#IO#Record Set Management
+name: '"Record Set Management"'
+uid: O:Codeunit::System#IO#Record_Set_Management

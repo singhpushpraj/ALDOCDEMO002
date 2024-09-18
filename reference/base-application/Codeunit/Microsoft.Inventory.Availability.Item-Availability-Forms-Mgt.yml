@@ -1,0 +1,677 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Availability."Item Availability Forms Mgt"
+alId: ID 353
+namespace: Microsoft.Inventory.Availability
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Availability
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CalcItemPlanningFields(var Item: Record Item, CalculateTransferQuantities: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: CalculateTransferQuantities
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcItemPlanningFields
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.CalcItemPlanningFields(Item@,Boolean)
+- syntax:
+    content: 'procedure CalculateNeed(var Item: Record Item, var GrossRequirement: Decimal, var PlannedOrderReceipt: Decimal, var ScheduledReceipt: Decimal, var PlannedOrderReleases: Decimal)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: GrossRequirement
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderReceipt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScheduledReceipt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderReleases
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculateNeed
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.CalculateNeed(Item@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcAvailQuantities(var Item: Record Item, IsBalanceAtDate: Boolean, var GrossRequirement: Decimal, var PlannedOrderRcpt: Decimal, var ScheduledRcpt: Decimal, var PlannedOrderReleases: Decimal, var ProjAvailableBalance: Decimal, var ExpectedInventory: Decimal, var QtyAvailable: Decimal)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: IsBalanceAtDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GrossRequirement
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderRcpt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScheduledRcpt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderReleases
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProjAvailableBalance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpectedInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyAvailable
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailQuantities
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.CalcAvailQuantities(Item@,Boolean,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CalcAvailQuantities(var Item: Record Item, IsBalanceAtDate: Boolean, var GrossRequirement: Decimal, var PlannedOrderRcpt: Decimal, var ScheduledRcpt: Decimal, var PlannedOrderReleases: Decimal, var ProjAvailableBalance: Decimal, var ExpectedInventory: Decimal, var QtyAvailable: Decimal, var AvailableInventory: Decimal)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: IsBalanceAtDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: GrossRequirement
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderRcpt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ScheduledRcpt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PlannedOrderReleases
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ProjAvailableBalance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExpectedInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyAvailable
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AvailableInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailQuantities
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.CalcAvailQuantities(Item@,Boolean,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure ShowItemLedgerEntries(var Item: Record Item, NetChange: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NetChange
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemLedgerEntries
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemLedgerEntries(Item@,Boolean)
+- syntax:
+    content: 'procedure ShowSalesLines(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowSalesLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowSalesLines(Item@)
+- syntax:
+    content: 'procedure ShowServLines(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowServLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowServLines(Item@)
+- syntax:
+    content: 'procedure ShowJobPlanningLines(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowJobPlanningLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowJobPlanningLines(Item@)
+- syntax:
+    content: 'procedure ShowPurchLines(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowPurchLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowPurchLines(Item@)
+- syntax:
+    content: 'procedure ShowSchedReceipt(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowSchedReceipt
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowSchedReceipt(Item@)
+- syntax:
+    content: 'procedure ShowSchedNeed(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowSchedNeed
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowSchedNeed(Item@)
+- syntax:
+    content: 'procedure ShowTransLines(var Item: Record Item, What: Integer)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: What
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowTransLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowTransLines(Item@,Integer)
+- syntax:
+    content: 'procedure ShowAsmOrders(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowAsmOrders
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowAsmOrders(Item@)
+- syntax:
+    content: 'procedure ShowAsmCompLines(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ShowAsmCompLines
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowAsmCompLines(Item@)
+- syntax:
+    content: 'procedure ShowItemAvailLineList(var Item: Record Item, What: Integer)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: What
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ShowItemAvailLineList
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailLineList(Item@,Integer)
+- syntax:
+    content: 'procedure ShowItemAvailFromItem(var Item: Record Item, AvailabilityType: Option)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromItem
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromItem(Item@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromSalesLine(var SalesLine: Record "Sales Line", AvailabilityType: Option)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromSalesLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromSalesLine(Sales_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromPurchLine(var PurchLine: Record "Purchase Line", AvailabilityType: Option)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromPurchLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromPurchLine(Purchase_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromReqLine(var ReqLine: Record "Requisition Line", AvailabilityType: Option)'
+    parameters:
+    - id: ReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromReqLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromReqLine(Requisition_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromProdOrderLine(var ProdOrderLine: Record "Prod. Order Line", AvailabilityType: Option)'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromProdOrderLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromProdOrderLine(Prod#_Order_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromProdOrderComp(var ProdOrderComp: Record "Prod. Order Component", AvailabilityType: Option)'
+    parameters:
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromProdOrderComp
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromProdOrderComp(Prod#_Order_Component@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromTransLine(var TransLine: Record "Transfer Line", AvailabilityType: Option)'
+    parameters:
+    - id: TransLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromTransLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromTransLine(Transfer_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromWhseActivLine(var WhseActivLine: Record "Warehouse Activity Line", AvailabilityType: Option)'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromWhseActivLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromWhseActivLine(Warehouse_Activity_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromServLine(var ServLine: Record "Service Line", AvailabilityType: Option)'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromServLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromServLine(Service_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromWhseRcptLine(var WhseRcptLine: Record "Warehouse Receipt Line", AvailabilityType: Option)'
+    parameters:
+    - id: WhseRcptLine
+      parameterType:
+        name: Record "Warehouse Receipt Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromWhseRcptLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromWhseRcptLine(Warehouse_Receipt_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromItemJnlLine(var ItemJnlLine: Record "Item Journal Line", AvailabilityType: Option)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromItemJnlLine(Item_Journal_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromAsmHeader(var AsmHeader: Record "Assembly Header", AvailabilityType: Option)'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromAsmHeader
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromAsmHeader(Assembly_Header@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromAsmLine(var AsmLine: Record "Assembly Line", AvailabilityType: Option)'
+    parameters:
+    - id: AsmLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromAsmLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromAsmLine(Assembly_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromPlanningComp(var PlanningComp: Record "Planning Component", AvailabilityType: Option)'
+    parameters:
+    - id: PlanningComp
+      parameterType:
+        name: Record "Planning Component"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromPlanningComp
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromPlanningComp(Planning_Component@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailFromInvtDocLine(var InvtDocLine: Record "Invt. Document Line", AvailabilityType: Option)'
+    parameters:
+    - id: InvtDocLine
+      parameterType:
+        name: Record "Invt. Document Line"
+        isExternal: true
+    - id: AvailabilityType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowItemAvailFromInvtDocLine
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailFromInvtDocLine(Invt#_Document_Line@,Option)
+- syntax:
+    content: 'procedure ShowItemAvailByEvent(var Item: Record Item, FieldCaption: Text[80], OldDate: Date, var NewDate: Date, IncludeForecast: Boolean): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: OldDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: IncludeForecast
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemAvailByEvent
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailByEvent(Item@,Text[80],Date,Date@,Boolean):Boolean
+- syntax:
+    content: 'procedure ShowItemAvailByLoc(var Item: Record Item, FieldCaption: Text[80], OldLocationCode: Code[20], var NewLocationCode: Code[20]): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: OldLocationCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewLocationCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemAvailByLoc
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailByLoc(Item@,Text[80],Code[20],Code[20]@):Boolean
+- syntax:
+    content: 'procedure ShowItemAvailByDate(var Item: Record Item, FieldCaption: Text[80], OldDate: Date, var NewDate: Date): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: OldDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemAvailByDate
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailByDate(Item@,Text[80],Date,Date@):Boolean
+- syntax:
+    content: 'procedure ShowItemAvailVariant(var Item: Record Item, FieldCaption: Text[80], OldVariant: Code[20], var NewVariant: Code[20]): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: OldVariant
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewVariant
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemAvailVariant
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailVariant(Item@,Text[80],Code[20],Code[20]@):Boolean
+- syntax:
+    content: 'procedure ShowItemAvailByBOMLevel(var Item: Record Item, FieldCaption: Text[80], OldDate: Date, var NewDate: Date): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: OldDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemAvailByBOMLevel
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailByBOMLevel(Item@,Text[80],Date,Date@):Boolean
+- syntax:
+    content: 'procedure ShowItemAvailByUOM(var Item: Record Item, FieldCaption: Text[80], OldUoMCode: Code[10], var NewUoMCode: Code[10]): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: FieldCaption
+      parameterType:
+        name: Text[80]
+        isExternal: true
+    - id: OldUoMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewUoMCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowItemAvailByUOM
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ShowItemAvailByUOM(Item@,Text[80],Code[10],Code[10]@):Boolean
+- syntax:
+    content: 'procedure SetQtyByUnitOfMeasure(NewQtyByUnitOfMeasure: Decimal)'
+    parameters:
+    - id: NewQtyByUnitOfMeasure
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetQtyByUnitOfMeasure
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.SetQtyByUnitOfMeasure(Decimal)
+- syntax:
+    content: 'procedure FilterItem(var Item: Record Item, LocationCode: Code[20], VariantCode: Code[20], Date: Date)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+  name: FilterItem
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.FilterItem(Item@,Code[20],Code[20],Date)
+- syntax:
+    content: 'procedure ByEvent(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ByEvent
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ByEvent:Integer
+- syntax:
+    content: 'procedure ByLocation(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ByLocation
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ByLocation:Integer
+- syntax:
+    content: 'procedure ByVariant(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ByVariant
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ByVariant:Integer
+- syntax:
+    content: 'procedure ByPeriod(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ByPeriod
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ByPeriod:Integer
+- syntax:
+    content: 'procedure ByBOM(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ByBOM
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ByBOM:Integer
+- syntax:
+    content: 'procedure ByUOM(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ByUOM
+  uid: M:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt.ByUOM:Integer
+commentId: O:Codeunit::Microsoft#Inventory#Availability#Item Availability Forms Mgt
+name: '"Item Availability Forms Mgt"'
+uid: O:Codeunit::Microsoft#Inventory#Availability#Item_Availability_Forms_Mgt

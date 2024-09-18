@@ -1,0 +1,143 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.SalesTax."Sales Tax Calculate"
+alId: ID 398
+namespace: Microsoft.Finance.SalesTax
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.SalesTax
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CalculateTax(TaxAreaCode: Code[20], TaxGroupCode: Code[20], TaxLiable: Boolean, Date: Date, Amount: Decimal, Quantity: Decimal, ExchangeRate: Decimal): Decimal'
+    parameters:
+    - id: TaxAreaCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxLiable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExchangeRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalculateTax
+  uid: M:Codeunit::Microsoft#Finance#SalesTax#Sales_Tax_Calculate.CalculateTax(Code[20],Code[20],Boolean,Date,Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure ReverseCalculateTax(TaxAreaCode: Code[20], TaxGroupCode: Code[20], TaxLiable: Boolean, Date: Date, TotalAmount: Decimal, Quantity: Decimal, ExchangeRate: Decimal): Decimal'
+    parameters:
+    - id: TaxAreaCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxLiable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExchangeRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ReverseCalculateTax
+  uid: M:Codeunit::Microsoft#Finance#SalesTax#Sales_Tax_Calculate.ReverseCalculateTax(Code[20],Code[20],Boolean,Date,Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure InitSalesTaxLines(TaxAreaCode: Code[20], TaxGroupCode: Code[20], TaxLiable: Boolean, Amount: Decimal, Quantity: Decimal, Date: Date, DesiredTaxAmount: Decimal)'
+    parameters:
+    - id: TaxAreaCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxLiable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DesiredTaxAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InitSalesTaxLines
+  uid: M:Codeunit::Microsoft#Finance#SalesTax#Sales_Tax_Calculate.InitSalesTaxLines(Code[20],Code[20],Boolean,Decimal,Decimal,Date,Decimal)
+- syntax:
+    content: 'procedure GetSalesTaxLine(var TaxDetail2: Record "Tax Detail", var ReturnTaxAmount: Decimal, var ReturnTaxBaseAmount: Decimal): Boolean'
+    parameters:
+    - id: TaxDetail2
+      parameterType:
+        name: Record "Tax Detail"
+        isExternal: true
+    - id: ReturnTaxAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReturnTaxBaseAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSalesTaxLine
+  uid: M:Codeunit::Microsoft#Finance#SalesTax#Sales_Tax_Calculate.GetSalesTaxLine(Tax_Detail@,Decimal@,Decimal@):Boolean
+commentId: O:Codeunit::Microsoft#Finance#SalesTax#Sales Tax Calculate
+name: '"Sales Tax Calculate"'
+uid: O:Codeunit::Microsoft#Finance#SalesTax#Sales_Tax_Calculate

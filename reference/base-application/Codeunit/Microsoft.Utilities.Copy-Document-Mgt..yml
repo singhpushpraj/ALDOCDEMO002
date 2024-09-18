@@ -1,0 +1,1489 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Utilities."Copy Document Mgt."
+alId: ID 6620
+namespace: Microsoft.Utilities
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Utilities
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure SetProperties(NewIncludeHeader: Boolean, NewRecalculateLines: Boolean, NewMoveNegLines: Boolean, NewCreateToHeader: Boolean, NewHideDialog: Boolean, NewExactCostRevMandatory: Boolean, NewApplyFully: Boolean)'
+    parameters:
+    - id: NewIncludeHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewRecalculateLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewMoveNegLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewCreateToHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewHideDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewExactCostRevMandatory
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewApplyFully
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProperties
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SetProperties(Boolean,Boolean,Boolean,Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: procedure SetPropertiesForCreditMemoCorrection()
+  name: SetPropertiesForCreditMemoCorrection
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SetPropertiesForCreditMemoCorrection
+- syntax:
+    content: 'procedure SetPropertiesForInvoiceCorrection(NewSkipCopyFromDescription: Boolean)'
+    parameters:
+    - id: NewSkipCopyFromDescription
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPropertiesForInvoiceCorrection
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SetPropertiesForInvoiceCorrection(Boolean)
+- syntax:
+    content: 'procedure GetSalesDocumentType(FromDocType: Enum "Sales Document Type From"): Enum "Sales Document Type"'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type_From
+        name: Microsoft.Sales.Document."Sales Document Type From"
+        isExternal: false
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+  name: GetSalesDocumentType
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.GetSalesDocumentType(Enum::Microsoft#Sales#Document#Sales_Document_Type_From):Enum::Microsoft#Sales#Document#Sales_Document_Type
+- syntax:
+    content: 'procedure GetPurchaseDocumentType(FromDocType: Enum "Purchase Document Type From"): Enum "Purchase Document Type"'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From
+        name: Microsoft.Purchases.Document."Purchase Document Type From"
+        isExternal: false
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Document_Type
+        name: Microsoft.Purchases.Document."Purchase Document Type"
+        isExternal: false
+  name: GetPurchaseDocumentType
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.GetPurchaseDocumentType(Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From):Enum::Microsoft#Purchases#Document#Purchase_Document_Type
+- syntax:
+    content: 'procedure CopySalesDocForInvoiceCancelling(FromDocNo: Code[20], var ToSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopySalesDocForInvoiceCancelling
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDocForInvoiceCancelling(Code[20],Sales_Header@)
+- syntax:
+    content: 'procedure CopySalesDocForCrMemoCancelling(FromDocNo: Code[20], var ToSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopySalesDocForCrMemoCancelling
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDocForCrMemoCancelling(Code[20],Sales_Header@)
+- syntax:
+    content: 'procedure CopySalesDoc(FromDocType: Enum "Sales Document Type From", FromDocNo: Code[20], var ToSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type_From
+        name: Microsoft.Sales.Document."Sales Document Type From"
+        isExternal: false
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopySalesDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDoc(Enum::Microsoft#Sales#Document#Sales_Document_Type_From,Code[20],Sales_Header@)
+- syntax:
+    content: 'procedure CopySalesDocSalesLine(FromSalesHeader: Record "Sales Header", var ToSalesHeader: Record "Sales Header", var LinesNotCopied: Integer, NextLineNo: Integer)'
+    parameters:
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopySalesDocSalesLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDocSalesLine(Sales_Header,Sales_Header@,Integer@,Integer)
+- syntax:
+    content: 'procedure CopySalesDocSalesLineArchive(FromSalesHeaderArchive: Record "Sales Header Archive", var ToSalesHeader: Record "Sales Header", var LinesNotCopied: Integer, NextLineNo: Integer)'
+    parameters:
+    - id: FromSalesHeaderArchive
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopySalesDocSalesLineArchive
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDocSalesLineArchive(Sales_Header_Archive,Sales_Header@,Integer@,Integer)
+- syntax:
+    content: 'procedure CopySalesDocUpdateHeader(FromDocType: Enum "Sales Document Type From", FromDocNo: Code[20], var ToSalesHeader: Record "Sales Header", FromSalesHeader: Record "Sales Header", FromSalesShptHeader: Record "Sales Shipment Header", FromSalesInvHeader: Record "Sales Invoice Header", FromReturnRcptHeader: Record "Return Receipt Header", FromSalesCrMemoHeader: Record "Sales Cr.Memo Header", FromSalesHeaderArchive: Record "Sales Header Archive", var ReleaseDocument: Boolean)'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type_From
+        name: Microsoft.Sales.Document."Sales Document Type From"
+        isExternal: false
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: FromSalesInvHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: FromReturnRcptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+    - id: FromSalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: FromSalesHeaderArchive
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+    - id: ReleaseDocument
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesDocUpdateHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDocUpdateHeader(Enum::Microsoft#Sales#Document#Sales_Document_Type_From,Code[20],Sales_Header@,Sales_Header,Sales_Shipment_Header,Sales_Invoice_Header,Return_Receipt_Header,Sales_Cr#Memo_Header,Sales_Header_Archive,Boolean@)
+- syntax:
+    content: 'procedure CheckCustomer(var FromSalesHeader: Record "Sales Header", var ToSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CheckCustomer
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CheckCustomer(Sales_Header@,Sales_Header@)
+- syntax:
+    content: 'procedure CopyPurchaseDocForInvoiceCancelling(FromDocNo: Code[20], var ToPurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyPurchaseDocForInvoiceCancelling
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchaseDocForInvoiceCancelling(Code[20],Purchase_Header@)
+- syntax:
+    content: 'procedure CopyPurchDocForCrMemoCancelling(FromDocNo: Code[20], var ToPurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyPurchDocForCrMemoCancelling
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchDocForCrMemoCancelling(Code[20],Purchase_Header@)
+- syntax:
+    content: 'procedure CopyPurchDoc(FromDocType: Enum "Purchase Document Type From", FromDocNo: Code[20], var ToPurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From
+        name: Microsoft.Purchases.Document."Purchase Document Type From"
+        isExternal: false
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyPurchDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchDoc(Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From,Code[20],Purchase_Header@)
+- syntax:
+    content: 'procedure CopyPurchDocPurchLine(FromPurchHeader: Record "Purchase Header", ToPurchHeader: Record "Purchase Header", var LinesNotCopied: Integer, NextLineNo: Integer)'
+    parameters:
+    - id: FromPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyPurchDocPurchLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchDocPurchLine(Purchase_Header,Purchase_Header,Integer@,Integer)
+- syntax:
+    content: 'procedure CopyPurchDocPurchLineArchive(FromPurchHeaderArchive: Record "Purchase Header Archive", var ToPurchHeader: Record "Purchase Header", var LinesNotCopied: Integer, NextLineNo: Integer)'
+    parameters:
+    - id: FromPurchHeaderArchive
+      parameterType:
+        name: Record "Purchase Header Archive"
+        isExternal: true
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyPurchDocPurchLineArchive
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchDocPurchLineArchive(Purchase_Header_Archive,Purchase_Header@,Integer@,Integer)
+- syntax:
+    content: 'procedure ShowSalesDoc(ToSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ShowSalesDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ShowSalesDoc(Sales_Header)
+- syntax:
+    content: 'procedure ShowPurchDoc(ToPurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ShowPurchDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ShowPurchDoc(Purchase_Header)
+- syntax:
+    content: 'procedure CopyFromSalesToPurchDoc(VendorNo: Code[20], FromSalesHeader: Record "Sales Header", var ToPurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: VendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFromSalesToPurchDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyFromSalesToPurchDoc(Code[20],Sales_Header,Purchase_Header@)
+- syntax:
+    content: 'procedure TransfldsFromSalesToPurchLine(var FromSalesLine: Record "Sales Line", var ToPurchLine: Record "Purchase Line")'
+    parameters:
+    - id: FromSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: TransfldsFromSalesToPurchLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.TransfldsFromSalesToPurchLine(Sales_Line@,Purchase_Line@)
+- syntax:
+    content: 'procedure CopySalesDocLine(var ToSalesHeader: Record "Sales Header", var ToSalesLine: Record "Sales Line", var FromSalesHeader: Record "Sales Header", var FromSalesLine: Record "Sales Line", var NextLineNo: Integer, var LinesNotCopied: Integer, RecalculateAmount: Boolean, FromSalesDocType: Enum "Sales Document Type From", var CopyPostedDeferral: Boolean, DocLineNo: Integer): Boolean'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecalculateAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromSalesDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type_From
+        name: Microsoft.Sales.Document."Sales Document Type From"
+        isExternal: false
+    - id: CopyPostedDeferral
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesDocLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesDocLine(Sales_Header@,Sales_Line@,Sales_Header@,Sales_Line@,Integer@,Integer@,Boolean,Enum::Microsoft#Sales#Document#Sales_Document_Type_From,Boolean@,Integer):Boolean
+- syntax:
+    content: 'procedure UpdateSalesHeaderWhenCopyFromSalesHeader(var SalesHeader: Record "Sales Header", OriginalSalesHeader: Record "Sales Header", FromDocType: Enum "Sales Document Type From")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OriginalSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type_From
+        name: Microsoft.Sales.Document."Sales Document Type From"
+        isExternal: false
+  name: UpdateSalesHeaderWhenCopyFromSalesHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.UpdateSalesHeaderWhenCopyFromSalesHeader(Sales_Header@,Sales_Header,Enum::Microsoft#Sales#Document#Sales_Document_Type_From)
+- syntax:
+    content: 'procedure ClearSalesLastNoSFields(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: ClearSalesLastNoSFields
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ClearSalesLastNoSFields(Sales_Header@)
+- syntax:
+    content: 'procedure HandleAsmAttachedToSalesLine(var ToSalesLine: Record "Sales Line")'
+    parameters:
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: HandleAsmAttachedToSalesLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.HandleAsmAttachedToSalesLine(Sales_Line@)
+- syntax:
+    content: 'procedure CopyPurchDocLine(var ToPurchHeader: Record "Purchase Header", var ToPurchLine: Record "Purchase Line", var FromPurchHeader: Record "Purchase Header", var FromPurchLine: Record "Purchase Line", var NextLineNo: Integer, var LinesNotCopied: Integer, RecalculateAmount: Boolean, FromPurchDocType: Enum "Purchase Document Type From", var CopyPostedDeferral: Boolean, DocLineNo: Integer): Boolean'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: FromPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecalculateAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromPurchDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From
+        name: Microsoft.Purchases.Document."Purchase Document Type From"
+        isExternal: false
+    - id: CopyPostedDeferral
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyPurchDocLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchDocLine(Purchase_Header@,Purchase_Line@,Purchase_Header@,Purchase_Line@,Integer@,Integer@,Boolean,Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From,Boolean@,Integer):Boolean
+- syntax:
+    content: 'procedure UpdatePurchHeaderWhenCopyFromPurchHeader(var PurchaseHeader: Record "Purchase Header", OriginalPurchaseHeader: Record "Purchase Header", FromDocType: Enum "Purchase Document Type From")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: OriginalPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From
+        name: Microsoft.Purchases.Document."Purchase Document Type From"
+        isExternal: false
+  name: UpdatePurchHeaderWhenCopyFromPurchHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.UpdatePurchHeaderWhenCopyFromPurchHeader(Purchase_Header@,Purchase_Header,Enum::Microsoft#Purchases#Document#Purchase_Document_Type_From)
+- syntax:
+    content: 'procedure ClearPurchLastNoSFields(var PurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: ClearPurchLastNoSFields
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ClearPurchLastNoSFields(Purchase_Header@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by same procedure in codeunit CopyServiceContractMgt.,24.0)]'
+    content: 'procedure CopyServContractLines(ToServContractHeader: Record "Service Contract Header", FromDocType: Option, FromDocNo: Code[20], var FromServContractLine: Record "Service Contract Line"): Boolean'
+    parameters:
+    - id: ToServContractHeader
+      parameterType:
+        name: Record "Service Contract Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromServContractLine
+      parameterType:
+        name: Record "Service Contract Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyServContractLines
+  obsoletion:
+    state: pending
+    reason: Replaced by same procedure in codeunit CopyServiceContractMgt.
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyServContractLines(Service_Contract_Header,Option,Code[20],Service_Contract_Line@):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure GetServiceContractType() in codeunit CopyServiceContractMgt.,24.0)]'
+    content: 'procedure ServContractHeaderDocType(DocType: Option): Integer'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ServContractHeaderDocType
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure GetServiceContractType() in codeunit CopyServiceContractMgt.
+    version: "24.0"
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ServContractHeaderDocType(Option):Integer
+- syntax:
+    content: 'procedure CopySalesShptLinesToDoc(ToSalesHeader: Record "Sales Header", var FromSalesShptLine: Record "Sales Shipment Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesShptLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesShptLinesToDoc(Sales_Header,Sales_Shipment_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopySalesInvLinesToDoc(ToSalesHeader: Record "Sales Header", var FromSalesInvLine: Record "Sales Invoice Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesInvLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesInvLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesInvLinesToDoc(Sales_Header,Sales_Invoice_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopySalesCrMemoLinesToDoc(ToSalesHeader: Record "Sales Header", var FromSalesCrMemoLine: Record "Sales Cr.Memo Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesCrMemoLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesCrMemoLinesToDoc(Sales_Header,Sales_Cr#Memo_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopySalesReturnRcptLinesToDoc(ToSalesHeader: Record "Sales Header", var FromReturnRcptLine: Record "Return Receipt Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesReturnRcptLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesReturnRcptLinesToDoc(Sales_Header,Return_Receipt_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure SplitPstdSalesLinesPerILE(ToSalesHeader: Record "Sales Header", FromSalesHeader: Record "Sales Header", var ItemLedgEntry: Record "Item Ledger Entry", var TempSalesLineBuf: Record "Sales Line" temporary, FromSalesLine: Record "Sales Line", var TempDocSalesLine: Record "Sales Line" temporary, var NextLineNo: Integer, var CopyItemTrkg: Boolean, var MissingExCostRevLink: Boolean, FillExactCostRevLink: Boolean, FromShptOrRcpt: Boolean): Boolean'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TempSalesLineBuf
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+    - id: FromSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: TempDocSalesLine
+      parameterType:
+        name: Record "Sales Line" temporary
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CopyItemTrkg
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FillExactCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromShptOrRcpt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SplitPstdSalesLinesPerILE
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SplitPstdSalesLinesPerILE(Sales_Header,Sales_Header,Item_Ledger_Entry@,Sales_Line@,Sales_Line,Sales_Line@,Integer@,Boolean@,Boolean@,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CopyPurchRcptLinesToDoc(ToPurchHeader: Record "Purchase Header", var FromPurchRcptLine: Record "Purch. Rcpt. Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyPurchRcptLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchRcptLinesToDoc(Purchase_Header,Purch#_Rcpt#_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopyPurchInvLinesToDoc(ToPurchHeader: Record "Purchase Header", var FromPurchInvLine: Record "Purch. Inv. Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchInvLine
+      parameterType:
+        name: Record "Purch. Inv. Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyPurchInvLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchInvLinesToDoc(Purchase_Header,Purch#_Inv#_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopyPurchCrMemoLinesToDoc(ToPurchHeader: Record "Purchase Header", var FromPurchCrMemoLine: Record "Purch. Cr. Memo Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchCrMemoLine
+      parameterType:
+        name: Record "Purch. Cr. Memo Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyPurchCrMemoLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchCrMemoLinesToDoc(Purchase_Header,Purch#_Cr#_Memo_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopyPurchReturnShptLinesToDoc(ToPurchHeader: Record "Purchase Header", var FromReturnShptLine: Record "Return Shipment Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromReturnShptLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyPurchReturnShptLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchReturnShptLinesToDoc(Purchase_Header,Return_Shipment_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure IsCopyItemTrkg(var ItemLedgEntry: Record "Item Ledger Entry", var CopyItemTrkg: Boolean, FillExactCostRevLink: Boolean): Boolean'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: CopyItemTrkg
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FillExactCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCopyItemTrkg
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.IsCopyItemTrkg(Item_Ledger_Entry@,Boolean@,Boolean):Boolean
+- syntax:
+    content: 'procedure GetLastToSalesLineNo(ToSalesHeader: Record "Sales Header"): Decimal'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLastToSalesLineNo
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.GetLastToSalesLineNo(Sales_Header):Decimal
+- syntax:
+    content: 'procedure GetLastToPurchLineNo(ToPurchHeader: Record "Purchase Header"): Decimal'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLastToPurchLineNo
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.GetLastToPurchLineNo(Purchase_Header):Decimal
+- syntax:
+    content: 'procedure InsertOldSalesDocNoLine(ToSalesHeader: Record "Sales Header", OldDocNo: Code[20], OldDocType: Integer, var NextLineNo: Integer)'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OldDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: OldDocType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertOldSalesDocNoLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InsertOldSalesDocNoLine(Sales_Header,Code[20],Integer,Integer@)
+- syntax:
+    content: 'procedure IsSalesFillExactCostRevLink(ToSalesHeader: Record "Sales Header", FromDocType: Option, CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsSalesFillExactCostRevLink
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.IsSalesFillExactCostRevLink(Sales_Header,Option,Code[10]):Boolean
+- syntax:
+    content: 'procedure IsPurchFillExactCostRevLink(ToPurchHeader: Record "Purchase Header", FromDocType: Option, CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPurchFillExactCostRevLink
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.IsPurchFillExactCostRevLink(Purchase_Header,Option,Code[10]):Boolean
+- syntax:
+    content: 'procedure IsRecalculateAmount(FromCurrencyCode: Code[10], ToCurrencyCode: Code[10], FromPricesInclVAT: Boolean, ToPricesInclVAT: Boolean): Boolean'
+    parameters:
+    - id: FromCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ToCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FromPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ToPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsRecalculateAmount
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.IsRecalculateAmount(Code[10],Code[10],Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CalculateRevSalesLineAmount(var SalesLine: Record "Sales Line", OrgQtyBase: Decimal, FromPricesInclVAT: Boolean, ToPricesInclVAT: Boolean)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OrgQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ToPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateRevSalesLineAmount
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CalculateRevSalesLineAmount(Sales_Line@,Decimal,Boolean,Boolean)
+- syntax:
+    content: 'procedure CalculateRevPurchLineAmount(var PurchLine: Record "Purchase Line", OrgQtyBase: Decimal, FromPricesInclVAT: Boolean, ToPricesInclVAT: Boolean)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: OrgQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ToPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateRevPurchLineAmount
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CalculateRevPurchLineAmount(Purchase_Line@,Decimal,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetHideProcessWindow(NewHideProcessWindow: Boolean)'
+    parameters:
+    - id: NewHideProcessWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideProcessWindow
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SetHideProcessWindow(Boolean)
+- syntax:
+    content: 'procedure IsTimeForUpdate(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsTimeForUpdate
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.IsTimeForUpdate:Boolean
+- syntax:
+    content: 'procedure ShowMessageReapply(OriginalQuantity: Boolean)'
+    parameters:
+    - id: OriginalQuantity
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowMessageReapply
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.ShowMessageReapply(Boolean)
+- syntax:
+    content: 'procedure LinkJobPlanningLine(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: LinkJobPlanningLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.LinkJobPlanningLine(Sales_Header)
+- syntax:
+    content: 'procedure CopyAsmHeaderToAsmHeader(FromAsmHeader: Record "Assembly Header", ToAsmHeader: Record "Assembly Header", IncludeHeader: Boolean)'
+    parameters:
+    - id: FromAsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: ToAsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: IncludeHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyAsmHeaderToAsmHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyAsmHeaderToAsmHeader(Assembly_Header,Assembly_Header,Boolean)
+- syntax:
+    content: 'procedure CopyPostedAsmHeaderToAsmHeader(PostedAsmHeader: Record "Posted Assembly Header", ToAsmHeader: Record "Assembly Header", IncludeHeader: Boolean)'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+    - id: ToAsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: IncludeHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyPostedAsmHeaderToAsmHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPostedAsmHeaderToAsmHeader(Posted_Assembly_Header,Assembly_Header,Boolean)
+- syntax:
+    content: 'procedure InitAsmCopyHandling(ResetQuantities: Boolean)'
+    parameters:
+    - id: ResetQuantities
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitAsmCopyHandling
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitAsmCopyHandling(Boolean)
+- syntax:
+    content: 'procedure InitialToAsmHeaderCheck(ToAsmHeader: Record "Assembly Header", IncludeHeader: Boolean)'
+    parameters:
+    - id: ToAsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    - id: IncludeHeader
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitialToAsmHeaderCheck
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitialToAsmHeaderCheck(Assembly_Header,Boolean)
+- syntax:
+    content: 'procedure SetArchDocVal(DocOccurrencyNo: Integer, DocVersionNo: Integer)'
+    parameters:
+    - id: DocOccurrencyNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocVersionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetArchDocVal
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SetArchDocVal(Integer,Integer)
+- syntax:
+    content: 'procedure CopyArchSalesLine(var ToSalesHeader: Record "Sales Header", var ToSalesLine: Record "Sales Line", var FromSalesHeaderArchive: Record "Sales Header Archive", var FromSalesLineArchive: Record "Sales Line Archive", var NextLineNo: Integer, var LinesNotCopied: Integer, RecalculateAmount: Boolean): Boolean'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: FromSalesHeaderArchive
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+    - id: FromSalesLineArchive
+      parameterType:
+        name: Record "Sales Line Archive"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecalculateAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyArchSalesLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyArchSalesLine(Sales_Header@,Sales_Line@,Sales_Header_Archive@,Sales_Line_Archive@,Integer@,Integer@,Boolean):Boolean
+- syntax:
+    content: 'procedure CopyArchPurchLine(var ToPurchHeader: Record "Purchase Header", var ToPurchLine: Record "Purchase Line", var FromPurchHeaderArchive: Record "Purchase Header Archive", var FromPurchLineArchive: Record "Purchase Line Archive", var NextLineNo: Integer, var LinesNotCopied: Integer, RecalculateAmount: Boolean): Boolean'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: FromPurchHeaderArchive
+      parameterType:
+        name: Record "Purchase Header Archive"
+        isExternal: true
+    - id: FromPurchLineArchive
+      parameterType:
+        name: Record "Purchase Line Archive"
+        isExternal: true
+    - id: NextLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecalculateAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CopyArchPurchLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyArchPurchLine(Purchase_Header@,Purchase_Line@,Purchase_Header_Archive@,Purchase_Line_Archive@,Integer@,Integer@,Boolean):Boolean
+- syntax:
+    content: 'procedure CopyFieldsFromOldSalesHeader(var ToSalesHeader: Record "Sales Header", OldSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OldSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyFieldsFromOldSalesHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyFieldsFromOldSalesHeader(Sales_Header@,Sales_Header)
+- syntax:
+    content: 'procedure CopyFieldsFromOldPurchHeader(var ToPurchHeader: Record "Purchase Header", OldPurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: OldPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFieldsFromOldPurchHeader
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyFieldsFromOldPurchHeader(Purchase_Header@,Purchase_Header)
+- syntax:
+    content: 'procedure DeferralTypeForSalesDoc(DocType: Option): Integer'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: DeferralTypeForSalesDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.DeferralTypeForSalesDoc(Option):Integer
+- syntax:
+    content: 'procedure DeferralTypeForPurchDoc(DocType: Option): Integer'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: DeferralTypeForPurchDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.DeferralTypeForPurchDoc(Option):Integer
+- syntax:
+    content: 'procedure CheckDateOrder(PostingNo: Code[20], PostingNoSeries: Code[20], OldPostingDate: Date, NewPostingDate: Date): Boolean'
+    parameters:
+    - id: PostingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PostingNoSeries
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: OldPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDateOrder
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CheckDateOrder(Code[20],Code[20],Date,Date):Boolean
+- syntax:
+    content: 'procedure UpdateCustLedgerEntry(var ToSalesHeader: Record "Sales Header", FromDocType: Enum "Gen. Journal Document Type", FromDocNo: Code[20])'
+    parameters:
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateCustLedgerEntry
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.UpdateCustLedgerEntry(Sales_Header@,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Code[20])
+- syntax:
+    content: 'procedure UpdateVendLedgEntry(var ToPurchHeader: Record "Purchase Header", FromDocType: Enum "Gen. Journal Document Type", FromDocNo: Code[20])'
+    parameters:
+    - id: ToPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateVendLedgEntry
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.UpdateVendLedgEntry(Purchase_Header@,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Code[20])
+- syntax:
+    content: 'procedure InitAndCheckSalesDocuments(FromDocType: Option, FromDocNo: Code[20], var FromSalesHeader: Record "Sales Header", var ToSalesHeader: Record "Sales Header", var ToSalesLine: Record "Sales Line", var FromSalesShipmentHeader: Record "Sales Shipment Header", var FromSalesInvoiceHeader: Record "Sales Invoice Header", var FromReturnReceiptHeader: Record "Return Receipt Header", var FromSalesCrMemoHeader: Record "Sales Cr.Memo Header", var FromSalesHeaderArchive: Record "Sales Header Archive"): Boolean'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: FromSalesShipmentHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: FromSalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+    - id: FromReturnReceiptHeader
+      parameterType:
+        name: Record "Return Receipt Header"
+        isExternal: true
+    - id: FromSalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: FromSalesHeaderArchive
+      parameterType:
+        name: Record "Sales Header Archive"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InitAndCheckSalesDocuments
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitAndCheckSalesDocuments(Option,Code[20],Sales_Header@,Sales_Header@,Sales_Line@,Sales_Shipment_Header@,Sales_Invoice_Header@,Return_Receipt_Header@,Sales_Cr#Memo_Header@,Sales_Header_Archive@):Boolean
+- syntax:
+    content: 'procedure InitAndCheckPurchaseDocuments(FromDocType: Option, FromDocNo: Code[20], var FromPurchaseHeader: Record "Purchase Header", var ToPurchaseHeader: Record "Purchase Header", var FromPurchRcptHeader: Record "Purch. Rcpt. Header", var FromPurchInvHeader: Record "Purch. Inv. Header", var FromReturnShipmentHeader: Record "Return Shipment Header", var FromPurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.", var FromPurchaseHeaderArchive: Record "Purchase Header Archive"): Boolean'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FromDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FromPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: ToPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchRcptHeader
+      parameterType:
+        name: Record "Purch. Rcpt. Header"
+        isExternal: true
+    - id: FromPurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+    - id: FromReturnShipmentHeader
+      parameterType:
+        name: Record "Return Shipment Header"
+        isExternal: true
+    - id: FromPurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+    - id: FromPurchaseHeaderArchive
+      parameterType:
+        name: Record "Purchase Header Archive"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InitAndCheckPurchaseDocuments
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitAndCheckPurchaseDocuments(Option,Code[20],Purchase_Header@,Purchase_Header@,Purch#_Rcpt#_Header@,Purch#_Inv#_Header@,Return_Shipment_Header@,Purch#_Cr#_Memo_Hdr#@,Purchase_Header_Archive@):Boolean
+- syntax:
+    content: 'procedure InitSalesLineFields(var ToSalesLine: Record "Sales Line")'
+    parameters:
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: InitSalesLineFields
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitSalesLineFields(Sales_Line@)
+- syntax:
+    content: 'procedure InitJobFieldsForSalesLine(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: InitJobFieldsForSalesLine
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitJobFieldsForSalesLine(Sales_Line@)
+- syntax:
+    content: 'procedure InitPurchLineFields(var ToPurchLine: Record "Purchase Line")'
+    parameters:
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: InitPurchLineFields
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.InitPurchLineFields(Purchase_Line@)
+- syntax:
+    content: 'procedure CopySalesLinesToDoc(FromDocType: Option, ToSalesHeader: Record "Sales Header", var FromSalesShipmentLine: Record "Sales Shipment Line", var FromSalesInvoiceLine: Record "Sales Invoice Line", var FromReturnReceiptLine: Record "Return Receipt Line", var FromSalesCrMemoLine: Record "Sales Cr.Memo Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ToSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: FromSalesShipmentLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+    - id: FromSalesInvoiceLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+    - id: FromReturnReceiptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+    - id: FromSalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopySalesLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopySalesLinesToDoc(Option,Sales_Header,Sales_Shipment_Line@,Sales_Invoice_Line@,Return_Receipt_Line@,Sales_Cr#Memo_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopyPurchaseLinesToDoc(FromDocType: Option, ToPurchaseHeader: Record "Purchase Header", var FromPurchRcptLine: Record "Purch. Rcpt. Line", var FromPurchInvLine: Record "Purch. Inv. Line", var FromReturnShipmentLine: Record "Return Shipment Line", var FromPurchCrMemoLine: Record "Purch. Cr. Memo Line", var LinesNotCopied: Integer, var MissingExCostRevLink: Boolean)'
+    parameters:
+    - id: FromDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ToPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+    - id: FromPurchInvLine
+      parameterType:
+        name: Record "Purch. Inv. Line"
+        isExternal: true
+    - id: FromReturnShipmentLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+    - id: FromPurchCrMemoLine
+      parameterType:
+        name: Record "Purch. Cr. Memo Line"
+        isExternal: true
+    - id: LinesNotCopied
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyPurchaseLinesToDoc
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyPurchaseLinesToDoc(Option,Purchase_Header,Purch#_Rcpt#_Line@,Purch#_Inv#_Line@,Return_Shipment_Line@,Purch#_Cr#_Memo_Line@,Integer@,Boolean@)
+- syntax:
+    content: 'procedure CopyShippingInfoPurchOrder(var ToPurchaseHeader: Record "Purchase Header", FromPurchaseHeader: Record "Purchase Header")'
+    parameters:
+    - id: ToPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: FromPurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyShippingInfoPurchOrder
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.CopyShippingInfoPurchOrder(Purchase_Header@,Purchase_Header)
+- syntax:
+    content: 'procedure SetPropertiesForCorrectiveCreditMemo(NewSkipCopyFromDescription: Boolean)'
+    parameters:
+    - id: NewSkipCopyFromDescription
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPropertiesForCorrectiveCreditMemo
+  uid: M:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#.SetPropertiesForCorrectiveCreditMemo(Boolean)
+commentId: O:Codeunit::Microsoft#Utilities#Copy Document Mgt#
+name: '"Copy Document Mgt."'
+uid: O:Codeunit::Microsoft#Utilities#Copy_Document_Mgt#

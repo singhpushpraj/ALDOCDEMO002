@@ -1,0 +1,1732 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Item Tracking Management"
+alId: ID 6500
+namespace: Microsoft.Inventory.Tracking
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Item Entry Relation" = rd,
+                      TableData "Value Entry Relation" = rd,
+                      TableData "Whse. Item Tracking Line" = rimd,
+                      TableData "Tracking Specification" = rd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetPointerFilter(var TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: SetPointerFilter
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SetPointerFilter(Tracking_Specification@)
+- syntax:
+    content: 'procedure LookupTrackingNoInfo(ItemNo: Code[20], VariantCode: Code[20], ItemTrackingType: Enum "Item Tracking Type", ItemTrackingNo: Code[50])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+    - id: ItemTrackingNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: LookupTrackingNoInfo
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.LookupTrackingNoInfo(Code[20],Code[20],Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type,Code[50])
+- syntax:
+    content: 'procedure CreateTrackingSpecification(var FromReservEntry: Record "Reservation Entry", var ToTrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: FromReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ToTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateTrackingSpecification
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CreateTrackingSpecification(Reservation_Entry@,Tracking_Specification@)
+- syntax:
+    content: 'procedure GetItemTrackingSetup(var ItemTrackingCode: Record "Item Tracking Code", EntryType: Enum "Item Ledger Entry Type", Inbound: Boolean, var ItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: ItemTrackingCode
+      parameterType:
+        name: Record "Item Tracking Code"
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Entry_Type
+        name: Microsoft.Inventory.Ledger."Item Ledger Entry Type"
+        isExternal: false
+    - id: Inbound
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: GetItemTrackingSetup
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.GetItemTrackingSetup(Item_Tracking_Code@,Enum::Microsoft#Inventory#Ledger#Item_Ledger_Entry_Type,Boolean,Item_Tracking_Setup@)
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecification(SourceSpecification: Record "Tracking Specification", var TempInvoicingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: SourceSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempInvoicingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecification
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.RetrieveInvoiceSpecification(Tracking_Specification,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure RetrieveInvoiceSpecWithService(SourceSpecification: Record "Tracking Specification", var TempInvoicingSpecification: Record "Tracking Specification" temporary, Consume: Boolean): Boolean'
+    parameters:
+    - id: SourceSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TempInvoicingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: Consume
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveInvoiceSpecWithService
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.RetrieveInvoiceSpecWithService(Tracking_Specification,Tracking_Specification@,Boolean):Boolean
+- syntax:
+    content: 'procedure RetrieveItemTracking(ItemJnlLine: Record "Item Journal Line", var TempHandlingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.RetrieveItemTracking(Item_Journal_Line,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure RetrieveItemTrackingFromReservEntry(ItemJnlLine: Record "Item Journal Line", var ReservEntry: Record "Reservation Entry", var TempTrackingSpec: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: TempTrackingSpec
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveItemTrackingFromReservEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.RetrieveItemTrackingFromReservEntry(Item_Journal_Line,Reservation_Entry@,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure RetrieveConsumpItemTracking(ItemJnlLine: Record "Item Journal Line", var TempHandlingSpecification: Record "Tracking Specification" temporary): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RetrieveConsumpItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.RetrieveConsumpItemTracking(Item_Journal_Line,Tracking_Specification@):Boolean
+- syntax:
+    content: 'procedure SumUpItemTracking(var ReservEntry: Record "Reservation Entry", var TempHandlingSpecification: Record "Tracking Specification" temporary, SumPerLine: Boolean, SumPerTracking: Boolean): Boolean'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: TempHandlingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: SumPerLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SumPerTracking
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SumUpItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SumUpItemTracking(Reservation_Entry@,Tracking_Specification@,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure SumUpItemTrackingOnlyInventoryOrATO(var ReservationEntry: Record "Reservation Entry", var TrackingSpecification: Record "Tracking Specification", SumPerLine: Boolean, SumPerLotSN: Boolean): Boolean'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: SumPerLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SumPerLotSN
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SumUpItemTrackingOnlyInventoryOrATO
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SumUpItemTrackingOnlyInventoryOrATO(Reservation_Entry@,Tracking_Specification@,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure DecomposeRowID(IDtext: Text[250], var StrArray: array[6] of Text[100])'
+    parameters:
+    - id: IDtext
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: StrArray
+      parameterType:
+        name: array[6] of Text[100]
+        isExternal: true
+  name: DecomposeRowID
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DecomposeRowID(Text[250],Text[100][]@)
+- syntax:
+    content: 'procedure ComposeRowID(Type: Integer, Subtype: Integer, ID: Code[20], BatchName: Code[10], ProdOrderLine: Integer, RefNo: Integer): Text[250]'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Subtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: ComposeRowID
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ComposeRowID(Integer,Integer,Code[20],Code[10],Integer,Integer):Text[250]
+- syntax:
+    content: 'procedure CopyItemTracking(FromRowID: Text[250], ToRowID: Text[250], SwapSign: Boolean)'
+    parameters:
+    - id: FromRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ToRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: SwapSign
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyItemTracking(Text[250],Text[250],Boolean)
+- syntax:
+    content: 'procedure CopyItemTracking(FromRowID: Text[250], ToRowID: Text[250], SwapSign: Boolean, SkipReservation: Boolean)'
+    parameters:
+    - id: FromRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ToRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: SwapSign
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SkipReservation
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyItemTracking(Text[250],Text[250],Boolean,Boolean)
+- syntax:
+    content: 'procedure CopyHandledItemTrkgToInvLine(FromSalesLine: Record "Sales Line", ToSalesInvLine: Record "Sales Line")'
+    parameters:
+    - id: FromSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ToSalesInvLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CopyHandledItemTrkgToInvLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyHandledItemTrkgToInvLine(Sales_Line,Sales_Line)
+- syntax:
+    content: 'procedure CopyHandledItemTrkgToInvLine(FromPurchLine: Record "Purchase Line", ToPurchLine: Record "Purchase Line")'
+    parameters:
+    - id: FromPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CopyHandledItemTrkgToInvLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyHandledItemTrkgToInvLine(Purchase_Line,Purchase_Line)
+- syntax:
+    content: 'procedure CopyHandledItemTrkgToPurchLineWithLineQty(FromPurchLine: Record "Purchase Line", ToPurchLine: Record "Purchase Line")'
+    parameters:
+    - id: FromPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CopyHandledItemTrkgToPurchLineWithLineQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyHandledItemTrkgToPurchLineWithLineQty(Purchase_Line,Purchase_Line)
+- syntax:
+    content: 'procedure CopyHandledItemTrkgToServLine(FromServLine: Record "Service Line", ToServLine: Record "Service Line")'
+    parameters:
+    - id: FromServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: ToServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CopyHandledItemTrkgToServLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyHandledItemTrkgToServLine(Service_Line,Service_Line)
+- syntax:
+    content: 'procedure CollectItemEntryRelation(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, TotalQty: Decimal): Boolean'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TotalQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CollectItemEntryRelation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CollectItemEntryRelation(Item_Ledger_Entry@,Integer,Integer,Code[20],Code[10],Integer,Integer,Decimal):Boolean
+- syntax:
+    content: 'procedure IsOrderNetworkEntity(Type: Integer, Subtype: Integer): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Subtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOrderNetworkEntity
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.IsOrderNetworkEntity(Integer,Integer):Boolean
+- syntax:
+    content: 'procedure DeleteItemEntryRelation(SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, DeleteAllDocLines: Boolean)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DeleteAllDocLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteItemEntryRelation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DeleteItemEntryRelation(Integer,Integer,Code[20],Code[10],Integer,Integer,Boolean)
+- syntax:
+    content: 'procedure DeleteValueEntryRelation(RowID: Text[100])'
+    parameters:
+    - id: RowID
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: DeleteValueEntryRelation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DeleteValueEntryRelation(Text[100])
+- syntax:
+    content: 'procedure FindInInventory(ItemNo: Code[20], VariantCode: Code[20], SerialNo: Code[50]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SerialNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindInInventory
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.FindInInventory(Code[20],Code[20],Code[50]):Boolean
+- syntax:
+    content: 'procedure SplitWhseJnlLine(TempWhseJnlLine: Record "Warehouse Journal Line" temporary, var TempWhseJnlLine2: Record "Warehouse Journal Line" temporary, var TempWhseSplitTrackingSpec: Record "Tracking Specification" temporary, ToTransfer: Boolean)'
+    parameters:
+    - id: TempWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+    - id: TempWhseJnlLine2
+      parameterType:
+        name: Record "Warehouse Journal Line" temporary
+        isExternal: true
+    - id: TempWhseSplitTrackingSpec
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: ToTransfer
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SplitWhseJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SplitWhseJnlLine(Warehouse_Journal_Line,Warehouse_Journal_Line@,Tracking_Specification@,Boolean)
+- syntax:
+    content: 'procedure SplitPostedWhseRcptLine(PostedWhseRcptLine: Record "Posted Whse. Receipt Line", var TempPostedWhseRcptLine: Record "Posted Whse. Receipt Line" temporary)'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: TempPostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line" temporary
+        isExternal: true
+  name: SplitPostedWhseRcptLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SplitPostedWhseRcptLine(Posted_Whse#_Receipt_Line,Posted_Whse#_Receipt_Line@)
+- syntax:
+    content: 'procedure SplitInternalPutAwayLine(PostedWhseRcptLine: Record "Posted Whse. Receipt Line", var TempPostedWhseRcptLine: Record "Posted Whse. Receipt Line" temporary)'
+    parameters:
+    - id: PostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line"
+        isExternal: true
+    - id: TempPostedWhseRcptLine
+      parameterType:
+        name: Record "Posted Whse. Receipt Line" temporary
+        isExternal: true
+  name: SplitInternalPutAwayLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SplitInternalPutAwayLine(Posted_Whse#_Receipt_Line,Posted_Whse#_Receipt_Line@)
+- syntax:
+    content: 'procedure DeleteWhseItemTrkgLines(SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, LocationCode: Code[10], RelatedToLine: Boolean)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RelatedToLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteWhseItemTrkgLines
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DeleteWhseItemTrkgLines(Integer,Integer,Code[20],Code[10],Integer,Integer,Code[10],Boolean)
+- syntax:
+    content: 'procedure DeleteWhseItemTrkgLinesWithRunDeleteTrigger(SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, LocationCode: Code[10], RelatedToLine: Boolean, RunDeleteTrigger: Boolean)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: RelatedToLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RunDeleteTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteWhseItemTrkgLinesWithRunDeleteTrigger
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DeleteWhseItemTrkgLinesWithRunDeleteTrigger(Integer,Integer,Code[20],Code[10],Integer,Integer,Code[10],Boolean,Boolean)
+- syntax:
+    content: 'procedure SetDeleteReservationEntries(DeleteEntries: Boolean)'
+    parameters:
+    - id: DeleteEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDeleteReservationEntries
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SetDeleteReservationEntries(Boolean)
+- syntax:
+    content: 'procedure InitTrackingSpecification(WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: InitTrackingSpecification
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.InitTrackingSpecification(Whse#_Worksheet_Line)
+- syntax:
+    content: 'procedure CreateWhseItemTrkgForResEntry(SourceReservEntry: Record "Reservation Entry", WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: SourceReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: CreateWhseItemTrkgForResEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CreateWhseItemTrkgForResEntry(Reservation_Entry,Whse#_Worksheet_Line)
+- syntax:
+    content: 'procedure CalcWhseItemTrkgLine(var WhseItemTrkgLine: Record "Whse. Item Tracking Line")'
+    parameters:
+    - id: WhseItemTrkgLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+  name: CalcWhseItemTrkgLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CalcWhseItemTrkgLine(Whse#_Item_Tracking_Line@)
+- syntax:
+    content: 'procedure InitItemTrackingForTempWhseWorksheetLine(WhseDocType: Enum "Warehouse Worksheet Document Type", WhseDocNo: Code[20], WhseDocLineNo: Integer, SourceType: Integer, SourceSubtype: Integer, SourceNo: Code[20], SourceLineNo: Integer, SourceSublineNo: Integer)'
+    parameters:
+    - id: WhseDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type
+        name: Microsoft.Warehouse.Worksheet."Warehouse Worksheet Document Type"
+        isExternal: false
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSublineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitItemTrackingForTempWhseWorksheetLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.InitItemTrackingForTempWhseWorksheetLine(Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type,Code[20],Integer,Integer,Integer,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure InitWhseWorksheetLine(var WhseWorksheetLine: Record "Whse. Worksheet Line", WhseDocType: Enum "Warehouse Worksheet Document Type", WhseDocNo: Code[20], WhseDocLineNo: Integer, SourceType: Integer, SourceSubtype: Integer, SourceNo: Code[20], SourceLineNo: Integer, SourceSublineNo: Integer)'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: WhseDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type
+        name: Microsoft.Warehouse.Worksheet."Warehouse Worksheet Document Type"
+        isExternal: false
+    - id: WhseDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseDocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSublineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitWhseWorksheetLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.InitWhseWorksheetLine(Whse#_Worksheet_Line@,Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type,Code[20],Integer,Integer,Integer,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure UpdateWhseItemTrkgLines(var TempWhseItemTrackingLine: Record "Whse. Item Tracking Line" temporary)'
+    parameters:
+    - id: TempWhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line" temporary
+        isExternal: true
+  name: UpdateWhseItemTrkgLines
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.UpdateWhseItemTrkgLines(Whse#_Item_Tracking_Line@)
+- syntax:
+    content: 'procedure ItemTrkgIsManagedByWhse(Type: Integer, Subtype: Integer, ID: Code[20], ProdOrderLine: Integer, RefNo: Integer, LocationCode: Code[10], ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Subtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemTrkgIsManagedByWhse
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ItemTrkgIsManagedByWhse(Integer,Integer,Code[20],Integer,Integer,Code[10],Code[20]):Boolean
+- syntax:
+    content: 'procedure GetWhseItemTrkgSetup(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetWhseItemTrkgSetup
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.GetWhseItemTrkgSetup(Code[20]):Boolean
+- syntax:
+    content: 'procedure GetWhseItemTrkgSetup(ItemNo: Code[20], var WhseItemTrackingSetup: Record "Item Tracking Setup" temporary): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetWhseItemTrkgSetup
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.GetWhseItemTrkgSetup(Code[20],Item_Tracking_Setup@):Boolean
+- syntax:
+    content: 'procedure CheckWhseItemTrkgSetup(ItemNo: Code[20])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckWhseItemTrkgSetup
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CheckWhseItemTrkgSetup(Code[20])
+- syntax:
+    content: 'procedure SetGlobalParameters(SourceSpecification2: Record "Tracking Specification" temporary, var TempTrackingSpecification2: Record "Tracking Specification" temporary, DueDate2: Date)'
+    parameters:
+    - id: SourceSpecification2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempTrackingSpecification2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: DueDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetGlobalParameters
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SetGlobalParameters(Tracking_Specification,Tracking_Specification@,Date)
+- syntax:
+    content: 'procedure AdjustQuantityRounding(NonDistrQuantity: Decimal, var QtyToBeHandled: Decimal, NonDistrQuantityBase: Decimal, QtyToBeHandledBase: Decimal)'
+    parameters:
+    - id: NonDistrQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeHandled
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NonDistrQuantityBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToBeHandledBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AdjustQuantityRounding
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.AdjustQuantityRounding(Decimal,Decimal@,Decimal,Decimal)
+- syntax:
+    content: 'procedure SynchronizeItemTrackingByPtrs(FromReservEntry: Record "Reservation Entry", ToReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: FromReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ToReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SynchronizeItemTrackingByPtrs
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SynchronizeItemTrackingByPtrs(Reservation_Entry,Reservation_Entry)
+- syntax:
+    content: 'procedure SynchronizeItemTracking(FromRowID: Text[250], ToRowID: Text[250], DialogText: Text[250])'
+    parameters:
+    - id: FromRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: ToRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DialogText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SynchronizeItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SynchronizeItemTracking(Text[250],Text[250],Text[250])
+- syntax:
+    content: 'procedure SynchronizeItemTracking2(var FromReservEntry: Record "Reservation Entry", ToRowID: Text[250], DialogText: Text[250])'
+    parameters:
+    - id: FromReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ToRowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DialogText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SynchronizeItemTracking2
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SynchronizeItemTracking2(Reservation_Entry@,Text[250],Text[250])
+- syntax:
+    content: 'procedure SetRegistering(Registering2: Boolean)'
+    parameters:
+    - id: Registering2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetRegistering
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SetRegistering(Boolean)
+- syntax:
+    content: 'procedure SynchronizeWhseItemTracking(var TempTrackingSpecification: Record "Tracking Specification" temporary, RegPickNo: Code[20], Deletion: Boolean)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: RegPickNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Deletion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SynchronizeWhseItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SynchronizeWhseItemTracking(Tracking_Specification@,Code[20],Boolean)
+- syntax:
+    content: 'procedure CopyLotNoInformation(LotNoInfo: Record "Lot No. Information", NewLotNo: Code[50])'
+    parameters:
+    - id: LotNoInfo
+      parameterType:
+        name: Record "Lot No. Information"
+        isExternal: true
+    - id: NewLotNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: CopyLotNoInformation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyLotNoInformation(Lot_No#_Information,Code[50])
+- syntax:
+    content: 'procedure CopySerialNoInformation(SerialNoInfo: Record "Serial No. Information", NewSerialNo: Code[50])'
+    parameters:
+    - id: SerialNoInfo
+      parameterType:
+        name: Record "Serial No. Information"
+        isExternal: true
+    - id: NewSerialNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: CopySerialNoInformation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopySerialNoInformation(Serial_No#_Information,Code[50])
+- syntax:
+    content: 'procedure FindLastItemLedgerEntry(ItemNo: Code[20], VariantCode: Code[20], ItemTrackingSetup: Record "Item Tracking Setup" temporary, var ItemLedgEntry: Record "Item Ledger Entry"): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLastItemLedgerEntry
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.FindLastItemLedgerEntry(Code[20],Code[20],Item_Tracking_Setup,Item_Ledger_Entry@):Boolean
+- syntax:
+    content: 'procedure WhseItemTrackingLineExists(TemplateName: Code[10], BatchName: Code[10], LocationCode: Code[10], LineNo: Integer, var WhseItemTrackingLine: Record "Whse. Item Tracking Line"): Boolean'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: WhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhseItemTrackingLineExists
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.WhseItemTrackingLineExists(Code[10],Code[10],Code[10],Integer,Whse#_Item_Tracking_Line@):Boolean
+- syntax:
+    content: 'procedure ExistingExpirationDate(ItemNo: Code[20], VariantCode: Code[20], ItemTrackingSetup: Record "Item Tracking Setup" temporary, TestMultiple: Boolean, var EntriesExist: Boolean): Date'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: TestMultiple
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: EntriesExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ExistingExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ExistingExpirationDate(Code[20],Code[20],Item_Tracking_Setup,Boolean,Boolean@):Date
+- syntax:
+    content: 'procedure ExistingExpirationDate(WarehouseActivityLine: Record "Warehouse Activity Line", TestMultiple: Boolean, var EntriesExist: Boolean): Date'
+    parameters:
+    - id: WarehouseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: TestMultiple
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: EntriesExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ExistingExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ExistingExpirationDate(Warehouse_Activity_Line,Boolean,Boolean@):Date
+- syntax:
+    content: 'procedure ExistingExpirationDate(TrackingSpecification: Record "Tracking Specification", TestMultiple: Boolean, var EntriesExist: Boolean): Date'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: TestMultiple
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: EntriesExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ExistingExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ExistingExpirationDate(Tracking_Specification,Boolean,Boolean@):Date
+- syntax:
+    content: 'procedure ExistingExpirationDate(ItemLedgerEntry: Record "Item Ledger Entry", TestMultiple: Boolean, var EntriesExist: Boolean): Date'
+    parameters:
+    - id: ItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: TestMultiple
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: EntriesExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ExistingExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ExistingExpirationDate(Item_Ledger_Entry,Boolean,Boolean@):Date
+- syntax:
+    content: 'procedure ExistingExpirationDateAndQty(ItemNo: Code[20], VariantCode: Code[20], ItemTrackingSetup: Record "Item Tracking Setup" temporary, var SumOfEntries: Decimal): Date'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: SumOfEntries
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ExistingExpirationDateAndQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ExistingExpirationDateAndQty(Code[20],Code[20],Item_Tracking_Setup,Decimal@):Date
+- syntax:
+    content: 'procedure ExistingWarrantyDate(ItemNo: Code[20], VariantCode: Code[20], ItemTrackingSetup: Record "Item Tracking Setup" temporary, var EntriesExist: Boolean): Date'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: EntriesExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: ExistingWarrantyDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ExistingWarrantyDate(Code[20],Code[20],Item_Tracking_Setup,Boolean@):Date
+- syntax:
+    content: 'procedure WhseExistingExpirationDate(ItemNo: Code[20], VariantCode: Code[20], Location: Record Location, WhseItemTrackingSetup: Record "Item Tracking Setup" temporary, var EntriesExist: Boolean): Date'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: EntriesExist
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: WhseExistingExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.WhseExistingExpirationDate(Code[20],Code[20],Location,Item_Tracking_Setup,Boolean@):Date
+- syntax:
+    content: 'procedure GetWhseExpirationDate(ItemNo: Code[20], VariantCode: Code[20], Location: Record Location, ItemTrackingSetup: Record "Item Tracking Setup" temporary, var ExpiryDate: Date): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: ExpiryDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetWhseExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.GetWhseExpirationDate(Code[20],Code[20],Location,Item_Tracking_Setup,Date@):Boolean
+- syntax:
+    content: 'procedure GetWhseWarrantyDate(ItemNo: Code[20], VariantCode: Code[20], Location: Record Location, ItemTrackingSetup: Record "Item Tracking Setup" temporary, var Warrantydate: Date): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    - id: Warrantydate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetWhseWarrantyDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.GetWhseWarrantyDate(Code[20],Code[20],Location,Item_Tracking_Setup,Date@):Boolean
+- syntax:
+    content: 'procedure SumNewLotOnTrackingSpec(var TempTrackingSpecification: Record "Tracking Specification" temporary): Decimal'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: SumNewLotOnTrackingSpec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SumNewLotOnTrackingSpec(Tracking_Specification@):Decimal
+- syntax:
+    content: 'procedure TestExpDateOnTrackingSpec(var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: TestExpDateOnTrackingSpec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.TestExpDateOnTrackingSpec(Tracking_Specification@)
+- syntax:
+    content: 'procedure TestExpDateOnTrackingSpecNew(var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: TestExpDateOnTrackingSpecNew
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.TestExpDateOnTrackingSpecNew(Tracking_Specification@)
+- syntax:
+    content: 'procedure CalcQtyBaseRegistered(var RegisteredWhseActivityLine: Record "Registered Whse. Activity Line"): Decimal'
+    parameters:
+    - id: RegisteredWhseActivityLine
+      parameterType:
+        name: Record "Registered Whse. Activity Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyBaseRegistered
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CalcQtyBaseRegistered(Registered_Whse#_Activity_Line@):Decimal
+- syntax:
+    content: 'procedure CopyItemLedgEntryTrkgToSalesLn(var TempItemLedgEntryBuf: Record "Item Ledger Entry" temporary, ToSalesLine: Record "Sales Line", FillExactCostRevLink: Boolean, var MissingExCostRevLink: Boolean, FromPricesInclVAT: Boolean, ToPricesInclVAT: Boolean, FromShptOrRcpt: Boolean)'
+    parameters:
+    - id: TempItemLedgEntryBuf
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: ToSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: FillExactCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ToPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromShptOrRcpt
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyItemLedgEntryTrkgToSalesLn
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyItemLedgEntryTrkgToSalesLn(Item_Ledger_Entry@,Sales_Line,Boolean,Boolean@,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure CopyItemLedgEntryTrkgToPurchLn(var ItemLedgEntryBuf: Record "Item Ledger Entry", ToPurchLine: Record "Purchase Line", FillExactCostRevLink: Boolean, var MissingExCostRevLink: Boolean, FromPricesInclVAT: Boolean, ToPricesInclVAT: Boolean, FromShptOrRcpt: Boolean)'
+    parameters:
+    - id: ItemLedgEntryBuf
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ToPurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: FillExactCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: MissingExCostRevLink
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ToPricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FromShptOrRcpt
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyItemLedgEntryTrkgToPurchLn
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyItemLedgEntryTrkgToPurchLn(Item_Ledger_Entry@,Purchase_Line,Boolean,Boolean@,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure CopyItemLedgEntryTrkgToTransferLine(var ItemLedgEntryBuf: Record "Item Ledger Entry", ToTransferLine: Record "Transfer Line")'
+    parameters:
+    - id: ItemLedgEntryBuf
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ToTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: CopyItemLedgEntryTrkgToTransferLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CopyItemLedgEntryTrkgToTransferLine(Item_Ledger_Entry@,Transfer_Line)
+- syntax:
+    content: 'procedure SynchronizeWhseActivItemTrkg(WhseActivLine: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseActivLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: SynchronizeWhseActivItemTrkg
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SynchronizeWhseActivItemTrkg(Warehouse_Activity_Line)
+- syntax:
+    content: 'procedure RetrieveAppliedExpirationDate(var TempItemLedgEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: RetrieveAppliedExpirationDate
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.RetrieveAppliedExpirationDate(Item_Ledger_Entry@)
+- syntax:
+    content: procedure InitCollectItemTrkgInformation()
+  name: InitCollectItemTrkgInformation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.InitCollectItemTrkgInformation
+- syntax:
+    content: 'procedure CollectItemTrkgInfWhseJnlLine(WhseJnlLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: CollectItemTrkgInfWhseJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CollectItemTrkgInfWhseJnlLine(Warehouse_Journal_Line)
+- syntax:
+    content: procedure CheckItemTrkgInfBeforePost()
+  name: CheckItemTrkgInfBeforePost
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CheckItemTrkgInfBeforePost
+- syntax:
+    content: 'procedure SetPick(IsPick2: Boolean)'
+    parameters:
+    - id: IsPick2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetPick
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.SetPick(Boolean)
+- syntax:
+    content: 'procedure StrictExpirationPosting(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: StrictExpirationPosting
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.StrictExpirationPosting(Code[20]):Boolean
+- syntax:
+    content: 'procedure WhseItemTrkgLineExists(SourceId: Code[20], SourceType: Integer, SourceSubtype: Integer, SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, LocationCode: Code[10], ItemTrackingSetup: Record "Item Tracking Setup" temporary): Boolean'
+    parameters:
+    - id: SourceId
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhseItemTrkgLineExists
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.WhseItemTrkgLineExists(Code[20],Integer,Integer,Code[10],Integer,Integer,Code[10],Item_Tracking_Setup):Boolean
+- syntax:
+    content: 'procedure CalcWhseItemTrkgLineQtyBase(SourceType: Integer, SourceSubtype: Integer, SourceId: Code[20], SourceBatchName: Code[10], SourceProdOrderLine: Integer, SourceRefNo: Integer, LocationCode: Code[10], ItemTrackingSetup: Record "Item Tracking Setup" temporary): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceId
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SourceProdOrderLine
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcWhseItemTrkgLineQtyBase
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CalcWhseItemTrkgLineQtyBase(Integer,Integer,Code[20],Code[10],Integer,Integer,Code[10],Item_Tracking_Setup):Decimal
+- syntax:
+    content: 'procedure InsertProspectReservEntryFromItemEntryRelationAndSourceData(var ItemEntryRelation: Record "Item Entry Relation", SourceSubtype: Option, SourceID: Code[20], SourceRefNo: Integer)'
+    parameters:
+    - id: ItemEntryRelation
+      parameterType:
+        name: Record "Item Entry Relation"
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InsertProspectReservEntryFromItemEntryRelationAndSourceData
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.InsertProspectReservEntryFromItemEntryRelationAndSourceData(Item_Entry_Relation@,Option,Code[20],Integer)
+- syntax:
+    content: 'procedure UpdateQuantities(WhseWorksheetLine: Record "Whse. Worksheet Line", var TotalWhseItemTrackingLine: Record "Whse. Item Tracking Line", var SourceQuantityArray: array[2] of Decimal, var UndefinedQtyArray: array[2] of Decimal, SourceType: Integer): Boolean'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: TotalWhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+    - id: SourceQuantityArray
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: UndefinedQtyArray
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateQuantities
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.UpdateQuantities(Whse#_Worksheet_Line,Whse#_Item_Tracking_Line@,Decimal[]@,Decimal[]@,Integer):Boolean
+- syntax:
+    content: 'procedure CalculateSums(WhseWorksheetLine: Record "Whse. Worksheet Line", var TotalWhseItemTrackingLine: Record "Whse. Item Tracking Line", SourceQuantityArray: array[2] of Decimal, var UndefinedQtyArray: array[2] of Decimal, SourceType: Integer): Boolean'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: TotalWhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+    - id: SourceQuantityArray
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: UndefinedQtyArray
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalculateSums
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CalculateSums(Whse#_Worksheet_Line,Whse#_Item_Tracking_Line@,Decimal[],Decimal[]@,Integer):Boolean
+- syntax:
+    content: 'procedure UpdateUndefinedQty(TotalWhseItemTrackingLine: Record "Whse. Item Tracking Line", SourceQuantityArray: array[2] of Decimal, var UndefinedQtyArray: array[2] of Decimal): Boolean'
+    parameters:
+    - id: TotalWhseItemTrackingLine
+      parameterType:
+        name: Record "Whse. Item Tracking Line"
+        isExternal: true
+    - id: SourceQuantityArray
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    - id: UndefinedQtyArray
+      parameterType:
+        name: array[2] of Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateUndefinedQty
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.UpdateUndefinedQty(Whse#_Item_Tracking_Line,Decimal[],Decimal[]@):Boolean
+- syntax:
+    content: 'procedure InsertReservEntryFromTrackingSpec(TrackingSpecification: Record "Tracking Specification", SourceSubtype: Option, SourceID: Code[20], SourceRefNo: Integer, QtyBase: Decimal)'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertReservEntryFromTrackingSpec
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.InsertReservEntryFromTrackingSpec(Tracking_Specification,Option,Code[20],Integer,Decimal)
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromHeader(SourceType: Integer, SourceSubtype: Option, SourceID: Code[20])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DeleteInvoiceSpecFromHeader
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DeleteInvoiceSpecFromHeader(Integer,Option,Code[20])
+- syntax:
+    content: 'procedure DeleteInvoiceSpecFromLine(SourceType: Integer, SourceSubtype: Option, SourceID: Code[20], SourceRefNo: Integer)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteInvoiceSpecFromLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.DeleteInvoiceSpecFromLine(Integer,Option,Code[20],Integer)
+- syntax:
+    content: 'procedure ItemTrackingExistsOnDocumentLine(SourceType: Integer, SourceSubtype: Option, SourceID: Code[20], SourceRefNo: Integer): Boolean'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemTrackingExistsOnDocumentLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.ItemTrackingExistsOnDocumentLine(Integer,Option,Code[20],Integer):Boolean
+- syntax:
+    content: 'procedure CalcQtyToHandleForTrackedQtyOnDocumentLine(SourceType: Integer, SourceSubtype: Option, SourceID: Code[20], SourceRefNo: Integer): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyToHandleForTrackedQtyOnDocumentLine
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CalcQtyToHandleForTrackedQtyOnDocumentLine(Integer,Option,Code[20],Integer):Decimal
+- syntax:
+    content: 'procedure CreateSerialNoInformation(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateSerialNoInformation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CreateSerialNoInformation(Tracking_Specification)
+- syntax:
+    content: 'procedure CreateLotNoInformation(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CreateLotNoInformation
+  uid: M:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management.CreateLotNoInformation(Tracking_Specification)
+commentId: O:Codeunit::Microsoft#Inventory#Tracking#Item Tracking Management
+name: '"Item Tracking Management"'
+uid: O:Codeunit::Microsoft#Inventory#Tracking#Item_Tracking_Management

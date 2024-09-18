@@ -1,0 +1,181 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing.ItemCostManagement
+alId: ID 5804
+namespace: Microsoft.Inventory.Costing
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData Item = rm,
+                      TableData "Stockkeeping Unit" = rm,
+                      TableData "Value Entry" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure IsItemUnitCostUpdated(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsItemUnitCostUpdated
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.IsItemUnitCostUpdated:Boolean
+- syntax:
+    content: 'procedure UpdateUnitCost(var Item: Record Item, LocationCode: Code[10], VariantCode: Code[10], LastDirectCost: Decimal, NewStdCost: Decimal, UpdateSKU: Boolean, FilterSKU: Boolean, RecalcStdCost: Boolean, CalledByFieldNo: Integer)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LastDirectCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewStdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UpdateSKU
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FilterSKU
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RecalcStdCost
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateUnitCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.UpdateUnitCost(Item@,Code[10],Code[10],Decimal,Decimal,Boolean,Boolean,Boolean,Integer)
+- syntax:
+    content: 'procedure UpdateStdCostShares(FromItem: Record Item)'
+    parameters:
+    - id: FromItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: UpdateStdCostShares
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.UpdateStdCostShares(Item)
+- syntax:
+    content: 'procedure UpdateUnitCostSKU(Item: Record Item, var SKU: Record "Stockkeeping Unit", LastDirectCost: Decimal, NewStdCost: Decimal, MatchSKU: Boolean, CalledByFieldNo: Integer)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: SKU
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+    - id: LastDirectCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewStdCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MatchSKU
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateUnitCostSKU
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.UpdateUnitCostSKU(Item,Stockkeeping_Unit@,Decimal,Decimal,Boolean,Integer)
+- syntax:
+    content: 'procedure CalculateAverageCost(var Item: Record Item, var AverageCost: Decimal, var AverageCostACY: Decimal): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: AverageCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AverageCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalculateAverageCost
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.CalculateAverageCost(Item@,Decimal@,Decimal@):Boolean
+- syntax:
+    content: 'procedure SetFilters(var ValueEntry: Record "Value Entry", var Item: Record Item)'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: SetFilters
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.SetFilters(Value_Entry@,Item@)
+- syntax:
+    content: 'procedure SetProperties(NewCalledFromAdjustment: Boolean, NewInvoicedQty: Decimal)'
+    parameters:
+    - id: NewCalledFromAdjustment
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewInvoicedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetProperties
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.SetProperties(Boolean,Decimal)
+- syntax:
+    content: 'procedure FindUpdateUnitCostSKU(Item: Record Item, LocationCode: Code[10], VariantCode: Code[10], FilterSKU: Boolean, LastDirectCost: Decimal)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: FilterSKU
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LastDirectCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: FindUpdateUnitCostSKU
+  uid: M:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement.FindUpdateUnitCostSKU(Item,Code[10],Code[10],Boolean,Decimal)
+commentId: O:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement
+name: ItemCostManagement
+uid: O:Codeunit::Microsoft#Inventory#Costing#ItemCostManagement

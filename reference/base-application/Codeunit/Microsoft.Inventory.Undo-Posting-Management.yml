@@ -1,0 +1,450 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory."Undo Posting Management"
+alId: ID 5817
+namespace: Microsoft.Inventory
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: TableData "Reservation Entry" = i
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TestTransferShptLine(TransferShptLine: Record "Transfer Shipment Line")'
+    parameters:
+    - id: TransferShptLine
+      parameterType:
+        name: Record "Transfer Shipment Line"
+        isExternal: true
+  name: TestTransferShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestTransferShptLine(Transfer_Shipment_Line)
+- syntax:
+    content: 'procedure TestSalesShptLine(SalesShptLine: Record "Sales Shipment Line")'
+    parameters:
+    - id: SalesShptLine
+      parameterType:
+        name: Record "Sales Shipment Line"
+        isExternal: true
+  name: TestSalesShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestSalesShptLine(Sales_Shipment_Line)
+- syntax:
+    content: 'procedure TestServShptLine(ServShptLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: TestServShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestServShptLine(Service_Shipment_Line)
+- syntax:
+    content: 'procedure TestPurchRcptLine(PurchRcptLine: Record "Purch. Rcpt. Line")'
+    parameters:
+    - id: PurchRcptLine
+      parameterType:
+        name: Record "Purch. Rcpt. Line"
+        isExternal: true
+  name: TestPurchRcptLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestPurchRcptLine(Purch#_Rcpt#_Line)
+- syntax:
+    content: 'procedure TestReturnShptLine(ReturnShptLine: Record "Return Shipment Line")'
+    parameters:
+    - id: ReturnShptLine
+      parameterType:
+        name: Record "Return Shipment Line"
+        isExternal: true
+  name: TestReturnShptLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestReturnShptLine(Return_Shipment_Line)
+- syntax:
+    content: 'procedure TestReturnRcptLine(ReturnRcptLine: Record "Return Receipt Line")'
+    parameters:
+    - id: ReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line"
+        isExternal: true
+  name: TestReturnRcptLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestReturnRcptLine(Return_Receipt_Line)
+- syntax:
+    content: 'procedure TestAsmHeader(PostedAsmHeader: Record "Posted Assembly Header")'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+  name: TestAsmHeader
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestAsmHeader(Posted_Assembly_Header)
+- syntax:
+    content: 'procedure TestAsmLine(PostedAsmLine: Record "Posted Assembly Line")'
+    parameters:
+    - id: PostedAsmLine
+      parameterType:
+        name: Record "Posted Assembly Line"
+        isExternal: true
+  name: TestAsmLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TestAsmLine(Posted_Assembly_Line)
+- syntax:
+    content: 'procedure RunTestAllTransactions(UndoType: Integer, UndoID: Code[20], UndoLineNo: Integer, SourceType: Integer, SourceSubtype: Integer, SourceID: Code[20], SourceRefNo: Integer)'
+    parameters:
+    - id: UndoType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: UndoID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UndoLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceID
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RunTestAllTransactions
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.RunTestAllTransactions(Integer,Code[20],Integer,Integer,Integer,Code[20],Integer)
+- syntax:
+    content: 'procedure CheckItemLedgEntries(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, LineRef: Integer)'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: LineRef
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckItemLedgEntries
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.CheckItemLedgEntries(Item_Ledger_Entry@,Integer)
+- syntax:
+    content: 'procedure CheckItemLedgEntries(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, LineRef: Integer, InvoicedEntry: Boolean)'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: LineRef
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InvoicedEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckItemLedgEntries
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.CheckItemLedgEntries(Item_Ledger_Entry@,Integer,Boolean)
+- syntax:
+    content: 'procedure PostItemJnlLineAppliedToList(ItemJnlLine: Record "Item Journal Line", var TempApplyToItemLedgEntry: Record "Item Ledger Entry" temporary, UndoQty: Decimal, UndoQtyBase: Decimal, var TempItemLedgEntry: Record "Item Ledger Entry" temporary, var TempItemEntryRelation: Record "Item Entry Relation" temporary)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TempApplyToItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: TempItemEntryRelation
+      parameterType:
+        name: Record "Item Entry Relation" temporary
+        isExternal: true
+  name: PostItemJnlLineAppliedToList
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.PostItemJnlLineAppliedToList(Item_Journal_Line,Item_Ledger_Entry@,Decimal,Decimal,Item_Ledger_Entry@,Item_Entry_Relation@)
+- syntax:
+    content: 'procedure PostItemJnlLineAppliedToList(ItemJnlLine: Record "Item Journal Line", var TempApplyToItemLedgEntry: Record "Item Ledger Entry" temporary, UndoQty: Decimal, UndoQtyBase: Decimal, var TempItemLedgEntry: Record "Item Ledger Entry" temporary, var TempItemEntryRelation: Record "Item Entry Relation" temporary, InvoicedEntry: Boolean)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: TempApplyToItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: TempItemEntryRelation
+      parameterType:
+        name: Record "Item Entry Relation" temporary
+        isExternal: true
+    - id: InvoicedEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostItemJnlLineAppliedToList
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.PostItemJnlLineAppliedToList(Item_Journal_Line,Item_Ledger_Entry@,Decimal,Decimal,Item_Ledger_Entry@,Item_Entry_Relation@,Boolean)
+- syntax:
+    content: 'procedure AreAllItemEntriesCompletelyInvoiced(var TempApplyToItemLedgEntry: Record "Item Ledger Entry" temporary): Boolean'
+    parameters:
+    - id: TempApplyToItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AreAllItemEntriesCompletelyInvoiced
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.AreAllItemEntriesCompletelyInvoiced(Item_Ledger_Entry@):Boolean
+- syntax:
+    content: 'procedure CollectItemLedgEntries(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, SourceType: Integer, DocumentNo: Code[20], LineNo: Integer, BaseQty: Decimal, EntryRef: Integer)'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BaseQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: EntryRef
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CollectItemLedgEntries
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.CollectItemLedgEntries(Item_Ledger_Entry@,Integer,Code[20],Integer,Decimal,Integer)
+- syntax:
+    content: 'procedure UpdatePurchLine(PurchLine: Record "Purchase Line", UndoQty: Decimal, UndoQtyBase: Decimal, var TempUndoneItemLedgEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempUndoneItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: UpdatePurchLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.UpdatePurchLine(Purchase_Line,Decimal,Decimal,Item_Ledger_Entry@)
+- syntax:
+    content: 'procedure UpdateSalesLine(SalesLine: Record "Sales Line", UndoQty: Decimal, UndoQtyBase: Decimal, var TempUndoneItemLedgEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempUndoneItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: UpdateSalesLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.UpdateSalesLine(Sales_Line,Decimal,Decimal,Item_Ledger_Entry@)
+- syntax:
+    content: 'procedure UpdateTransLine(TransferLine: Record "Transfer Line", UndoQty: Decimal, UndoQtyBase: Decimal, var TempUndoneItemLedgEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempUndoneItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: UpdateTransLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.UpdateTransLine(Transfer_Line,Decimal,Decimal,Item_Ledger_Entry@)
+- syntax:
+    content: 'procedure UpdateServLine(ServLine: Record "Service Line", UndoQty: Decimal, UndoQtyBase: Decimal, var TempUndoneItemLedgEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempUndoneItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: UpdateServLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.UpdateServLine(Service_Line,Decimal,Decimal,Item_Ledger_Entry@)
+- syntax:
+    content: 'procedure UpdateServLineCnsm(var ServLine: Record "Service Line", UndoQty: Decimal, UndoQtyBase: Decimal, var TempUndoneItemLedgEntry: Record "Item Ledger Entry" temporary)'
+    parameters:
+    - id: ServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: UndoQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UndoQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TempUndoneItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+  name: UpdateServLineCnsm
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.UpdateServLineCnsm(Service_Line@,Decimal,Decimal,Item_Ledger_Entry@)
+- syntax:
+    content: 'procedure RevertPostedItemTracking(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, AvailabilityDate: Date, RevertInvoiced: Boolean)'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: AvailabilityDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: RevertInvoiced
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RevertPostedItemTracking
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.RevertPostedItemTracking(Item_Ledger_Entry@,Date,Boolean)
+- syntax:
+    content: 'procedure PostItemJnlLine(var ItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: PostItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.PostItemJnlLine(Item_Journal_Line@)
+- syntax:
+    content: 'procedure TransferSourceValues(var ItemJnlLine: Record "Item Journal Line", EntryNo: Integer)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: TransferSourceValues
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.TransferSourceValues(Item_Journal_Line@,Integer)
+- syntax:
+    content: 'procedure ReapplyJobConsumption(ItemRcptEntryNo: Integer)'
+    parameters:
+    - id: ItemRcptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ReapplyJobConsumption
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.ReapplyJobConsumption(Integer)
+- syntax:
+    content: 'procedure FindItemReceiptApplication(var ItemApplnEntry: Record "Item Application Entry", ItemRcptEntryNo: Integer)'
+    parameters:
+    - id: ItemApplnEntry
+      parameterType:
+        name: Record "Item Application Entry"
+        isExternal: true
+    - id: ItemRcptEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindItemReceiptApplication
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.FindItemReceiptApplication(Item_Application_Entry@,Integer)
+- syntax:
+    content: 'procedure FindItemShipmentApplication(var ItemApplnEntry: Record "Item Application Entry", ItemShipmentEntryNo: Integer)'
+    parameters:
+    - id: ItemApplnEntry
+      parameterType:
+        name: Record "Item Application Entry"
+        isExternal: true
+    - id: ItemShipmentEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindItemShipmentApplication
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.FindItemShipmentApplication(Item_Application_Entry@,Integer)
+- syntax:
+    content: 'procedure UpdatePurchaseLineOverRcptQty(PurchaseLine: Record "Purchase Line", OverRcptQty: Decimal)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: OverRcptQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdatePurchaseLineOverRcptQty
+  uid: M:Codeunit::Microsoft#Inventory#Undo_Posting_Management.UpdatePurchaseLineOverRcptQty(Purchase_Line,Decimal)
+commentId: O:Codeunit::Microsoft#Inventory#Undo Posting Management
+name: '"Undo Posting Management"'
+uid: O:Codeunit::Microsoft#Inventory#Undo_Posting_Management

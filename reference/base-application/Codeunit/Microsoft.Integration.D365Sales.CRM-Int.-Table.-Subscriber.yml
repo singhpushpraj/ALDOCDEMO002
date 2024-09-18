@@ -1,0 +1,250 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Integration.D365Sales."CRM Int. Table. Subscriber"
+alId: ID 5341
+namespace: Microsoft.Integration.D365Sales
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Integration.D365Sales
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: SingleInstance
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: procedure ClearCache()
+  name: ClearCache
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.ClearCache
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnBeforeTransferRecordFields,,False,False)]'
+    content: 'procedure OnBeforeTransferRecordFields(SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: OnBeforeTransferRecordFields
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnBeforeTransferRecordFields(RecordRef,RecordRef@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5336,OnTransferFieldData,,False,False)]'
+    content: 'procedure OnTransferFieldData(SourceFieldRef: FieldRef, DestinationFieldRef: FieldRef, var NewValue: Variant, var IsValueFound: Boolean, var NeedsConversion: Boolean)'
+    parameters:
+    - id: SourceFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: DestinationFieldRef
+      parameterType:
+        name: FieldRef
+        isExternal: true
+    - id: NewValue
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: IsValueFound
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NeedsConversion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnTransferFieldData
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnTransferFieldData(FieldRef,FieldRef,Variant@,Boolean@,Boolean@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnAfterTransferRecordFields,,False,False)]'
+    content: 'procedure OnAfterTransferRecordFields(SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, var AdditionalFieldsWereModified: Boolean, DestinationIsInserted: Boolean)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: AdditionalFieldsWereModified
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DestinationIsInserted
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnAfterTransferRecordFields
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnAfterTransferRecordFields(RecordRef,RecordRef@,Boolean@,Boolean)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnBeforeInsertRecord,,False,False)]'
+    content: 'procedure OnBeforeInsertRecord(SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: OnBeforeInsertRecord
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnBeforeInsertRecord(RecordRef,RecordRef@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnAfterInsertRecord,,False,False)]'
+    content: 'procedure OnAfterInsertRecord(var SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: OnAfterInsertRecord
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnAfterInsertRecord(RecordRef@,RecordRef@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnBeforeModifyRecord,,False,False)]'
+    content: 'procedure OnBeforeModifyRecord(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: OnBeforeModifyRecord
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnBeforeModifyRecord(Integration_Table_Mapping,RecordRef,RecordRef@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnAfterModifyRecord,,False,False)]'
+    content: 'procedure OnAfterModifyRecord(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: OnAfterModifyRecord
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnAfterModifyRecord(Integration_Table_Mapping,RecordRef,RecordRef@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnAfterUnchangedRecordHandled,,False,False)]'
+    content: 'procedure OnAfterUnchangedRecordHandled(IntegrationTableMapping: Record "Integration Table Mapping", SourceRecordRef: RecordRef, DestinationRecordRef: RecordRef)'
+    parameters:
+    - id: IntegrationTableMapping
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: OnAfterUnchangedRecordHandled
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnAfterUnchangedRecordHandled(Integration_Table_Mapping,RecordRef,RecordRef)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5340,OnQueryPostFilterIgnoreRecord,,False,False)]'
+    content: 'procedure OnQueryPostFilterIgnoreRecord(SourceRecordRef: RecordRef, var IgnoreRecord: Boolean)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: IgnoreRecord
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnQueryPostFilterIgnoreRecord
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnQueryPostFilterIgnoreRecord(RecordRef,Boolean@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Codeunit,5345,OnFindUncoupledDestinationRecord,,False,False)]'
+    content: 'procedure OnFindUncoupledDestinationRecord(SourceRecordRef: RecordRef, var DestinationRecordRef: RecordRef, var DestinationIsDeleted: Boolean, var DestinationFound: Boolean)'
+    parameters:
+    - id: SourceRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: DestinationIsDeleted
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DestinationFound
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnFindUncoupledDestinationRecord
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnFindUncoupledDestinationRecord(RecordRef,RecordRef@,Boolean@,Boolean@)
+- syntax:
+    signatures:
+    - '[EventSubscriber(Table,5335,OnAfterDeleteEvent,,False,False)]'
+    content: 'procedure OnAfterDeleteIntegrationTableMapping(var Rec: Record "Integration Table Mapping", RunTrigger: Boolean)'
+    parameters:
+    - id: Rec
+      parameterType:
+        name: Record "Integration Table Mapping"
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnAfterDeleteIntegrationTableMapping
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.OnAfterDeleteIntegrationTableMapping(Integration_Table_Mapping@,Boolean)
+- syntax:
+    content: 'procedure MarkArchivedSalesOrder(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: MarkArchivedSalesOrder
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.MarkArchivedSalesOrder(Sales_Header)
+- syntax:
+    content: 'procedure SetDocOccurenceNumber(var CRMSalesorder: Record "CRM Salesorder", var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: CRMSalesorder
+      parameterType:
+        name: Record "CRM Salesorder"
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SetDocOccurenceNumber
+  uid: M:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber.SetDocOccurenceNumber(CRM_Salesorder@,Sales_Header@)
+commentId: O:Codeunit::Microsoft#Integration#D365Sales#CRM Int# Table# Subscriber
+name: '"CRM Int. Table. Subscriber"'
+uid: O:Codeunit::Microsoft#Integration#D365Sales#CRM_Int#_Table#_Subscriber

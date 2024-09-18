@@ -1,0 +1,373 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Intercompany.DataExchange."IC Data Exchange API"
+alId: ID 561
+namespace: Microsoft.Intercompany.DataExchange
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Intercompany.DataExchange
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    tabledata "IC Inbox Transaction" = i,
+                      tabledata "IC Inbox Jnl. Line" = i,
+                      tabledata "IC Inbox Purchase Header" = i,
+                      tabledata "IC Inbox Purchase Line" = i,
+                      tabledata "IC Inbox Sales Header" = i,
+                      tabledata "IC Inbox Sales Line" = i,
+                      tabledata "IC Inbox/Outbox Jnl. Line Dim." = i,
+                      tabledata "IC Document Dimension" = i,
+                      tabledata "IC Comment Line" = i
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetICPartnerICGLAccount(ICPartner: Record "IC Partner", var TempICPartnerICGLAccount: Record "IC G/L Account" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICGLAccount
+      parameterType:
+        name: Record "IC G/L Account" temporary
+        isExternal: true
+  name: GetICPartnerICGLAccount
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerICGLAccount(IC_Partner,IC_G/L_Account@)
+- syntax:
+    content: 'procedure GetICPartnerICDimension(ICPartner: Record "IC Partner", var TempICPartnerICDimension: Record "IC Dimension" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICDimension
+      parameterType:
+        name: Record "IC Dimension" temporary
+        isExternal: true
+  name: GetICPartnerICDimension
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerICDimension(IC_Partner,IC_Dimension@)
+- syntax:
+    content: 'procedure GetICPartnerICDimensionValue(ICPartner: Record "IC Partner", var TempICPartnerICDimensionValue: Record "IC Dimension Value" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICDimensionValue
+      parameterType:
+        name: Record "IC Dimension Value" temporary
+        isExternal: true
+  name: GetICPartnerICDimensionValue
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerICDimensionValue(IC_Partner,IC_Dimension_Value@)
+- syntax:
+    content: 'procedure GetICPartnerFromICPartner(ICPartner: Record "IC Partner", var TempRegisteredICPartner: Record "IC Partner" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempRegisteredICPartner
+      parameterType:
+        name: Record "IC Partner" temporary
+        isExternal: true
+  name: GetICPartnerFromICPartner
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerFromICPartner(IC_Partner,IC_Partner@)
+- syntax:
+    content: 'procedure GetICPartnerFromICPartner(ICPartner: Record "IC Partner", ICPartnerCode: Code[20], var TempRegisteredICPartner: Record "IC Partner" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TempRegisteredICPartner
+      parameterType:
+        name: Record "IC Partner" temporary
+        isExternal: true
+  name: GetICPartnerFromICPartner
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerFromICPartner(IC_Partner,Code[20],IC_Partner@)
+- syntax:
+    content: 'procedure GetICPartnerICSetup(ICPartnerName: Text, var TempICPartnerICSetup: Record "IC Setup" temporary)'
+    parameters:
+    - id: ICPartnerName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempICPartnerICSetup
+      parameterType:
+        name: Record "IC Setup" temporary
+        isExternal: true
+  name: GetICPartnerICSetup
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerICSetup(Text,IC_Setup@)
+- syntax:
+    content: 'procedure GetICPartnerICSetup(ICPartner: Record "IC Partner", var TempICPartnerICSetup: Record "IC Setup" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICSetup
+      parameterType:
+        name: Record "IC Setup" temporary
+        isExternal: true
+  name: GetICPartnerICSetup
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerICSetup(IC_Partner,IC_Setup@)
+- syntax:
+    content: 'procedure GetICPartnerGeneralLedgerSetup(ICPartnerName: Text, var TempICPartnerGeneralLedgerSetup: Record "General Ledger Setup" temporary)'
+    parameters:
+    - id: ICPartnerName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempICPartnerGeneralLedgerSetup
+      parameterType:
+        name: Record "General Ledger Setup" temporary
+        isExternal: true
+  name: GetICPartnerGeneralLedgerSetup
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerGeneralLedgerSetup(Text,General_Ledger_Setup@)
+- syntax:
+    content: 'procedure GetICPartnerGeneralLedgerSetup(ICPartner: Record "IC Partner", var TempICPartnerGeneralLedgerSetup: Record "General Ledger Setup" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerGeneralLedgerSetup
+      parameterType:
+        name: Record "General Ledger Setup" temporary
+        isExternal: true
+  name: GetICPartnerGeneralLedgerSetup
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerGeneralLedgerSetup(IC_Partner,General_Ledger_Setup@)
+- syntax:
+    content: 'procedure GetICPartnerCompanyInformation(ICPartnerName: Text, var TempICPartnerCompanyInformation: Record "Company Information" temporary)'
+    parameters:
+    - id: ICPartnerName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempICPartnerCompanyInformation
+      parameterType:
+        name: Record "Company Information" temporary
+        isExternal: true
+  name: GetICPartnerCompanyInformation
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerCompanyInformation(Text,Company_Information@)
+- syntax:
+    content: 'procedure GetICPartnerCompanyInformation(ICPartner: Record "IC Partner", var TempICPartnerCompanyInformation: Record "Company Information" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerCompanyInformation
+      parameterType:
+        name: Record "Company Information" temporary
+        isExternal: true
+  name: GetICPartnerCompanyInformation
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerCompanyInformation(IC_Partner,Company_Information@)
+- syntax:
+    content: 'procedure GetICPartnerBankAccount(ICPartner: Record "IC Partner", var TempICPartnerBankAccount: Record "Bank Account" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerBankAccount
+      parameterType:
+        name: Record "Bank Account" temporary
+        isExternal: true
+  name: GetICPartnerBankAccount
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerBankAccount(IC_Partner,Bank_Account@)
+- syntax:
+    content: 'procedure GetICPartnerICInboxTransaction(ICPartner: Record "IC Partner", var TempICPartnerICInboxTransaction: Record "IC Inbox Transaction" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction" temporary
+        isExternal: true
+  name: GetICPartnerICInboxTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerICInboxTransaction(IC_Partner,IC_Inbox_Transaction@)
+- syntax:
+    content: 'procedure GetICPartnerHandledICInboxTransaction(ICPartner: Record "IC Partner", var TempICPartnerHandledICInboxTransaction: Record "Handled IC Inbox Trans." temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerHandledICInboxTransaction
+      parameterType:
+        name: Record "Handled IC Inbox Trans." temporary
+        isExternal: true
+  name: GetICPartnerHandledICInboxTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.GetICPartnerHandledICInboxTransaction(IC_Partner,Handled_IC_Inbox_Trans#@)
+- syntax:
+    content: 'procedure PostICTransactionToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxTransaction: Record "IC Inbox Transaction" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction" temporary
+        isExternal: true
+  name: PostICTransactionToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICTransactionToICPartnerInbox(IC_Partner,IC_Inbox_Transaction@)
+- syntax:
+    content: 'procedure PostICJournalLineToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxJnlLine: Record "IC Inbox Jnl. Line" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxJnlLine
+      parameterType:
+        name: Record "IC Inbox Jnl. Line" temporary
+        isExternal: true
+  name: PostICJournalLineToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICJournalLineToICPartnerInbox(IC_Partner,IC_Inbox_Jnl#_Line@)
+- syntax:
+    content: 'procedure PostICPurchaseHeaderToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxPurchaseHeader: Record "IC Inbox Purchase Header" temporary, var RegisteredPartner: Record "IC Partner" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxPurchaseHeader
+      parameterType:
+        name: Record "IC Inbox Purchase Header" temporary
+        isExternal: true
+    - id: RegisteredPartner
+      parameterType:
+        name: Record "IC Partner" temporary
+        isExternal: true
+  name: PostICPurchaseHeaderToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICPurchaseHeaderToICPartnerInbox(IC_Partner,IC_Inbox_Purchase_Header@,IC_Partner@)
+- syntax:
+    content: 'procedure PostICPurchaseLineToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxPurchaseLine: Record "IC Inbox Purchase Line" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxPurchaseLine
+      parameterType:
+        name: Record "IC Inbox Purchase Line" temporary
+        isExternal: true
+  name: PostICPurchaseLineToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICPurchaseLineToICPartnerInbox(IC_Partner,IC_Inbox_Purchase_Line@)
+- syntax:
+    content: 'procedure PostICSalesHeaderToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxSalesHeader: Record "IC Inbox Sales Header" temporary, var RegisteredPartner: Record "IC Partner" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxSalesHeader
+      parameterType:
+        name: Record "IC Inbox Sales Header" temporary
+        isExternal: true
+    - id: RegisteredPartner
+      parameterType:
+        name: Record "IC Partner" temporary
+        isExternal: true
+  name: PostICSalesHeaderToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICSalesHeaderToICPartnerInbox(IC_Partner,IC_Inbox_Sales_Header@,IC_Partner@)
+- syntax:
+    content: 'procedure PostICSalesLineToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxSalesLine: Record "IC Inbox Sales Line" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxSalesLine
+      parameterType:
+        name: Record "IC Inbox Sales Line" temporary
+        isExternal: true
+  name: PostICSalesLineToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICSalesLineToICPartnerInbox(IC_Partner,IC_Inbox_Sales_Line@)
+- syntax:
+    content: 'procedure PostICJournalLineDimensionToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxOutboxJnlLineDim: Record "IC Inbox/Outbox Jnl. Line Dim." temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxOutboxJnlLineDim
+      parameterType:
+        name: Record "IC Inbox/Outbox Jnl. Line Dim." temporary
+        isExternal: true
+  name: PostICJournalLineDimensionToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICJournalLineDimensionToICPartnerInbox(IC_Partner,IC_Inbox/Outbox_Jnl#_Line_Dim#@)
+- syntax:
+    content: 'procedure PostICDocumentDimensionToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICDocDim: Record "IC Document Dimension" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICDocDim
+      parameterType:
+        name: Record "IC Document Dimension" temporary
+        isExternal: true
+  name: PostICDocumentDimensionToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICDocumentDimensionToICPartnerInbox(IC_Partner,IC_Document_Dimension@)
+- syntax:
+    content: 'procedure PostICCommentLineToICPartnerInbox(ICPartner: Record "IC Partner", var TempICPartnerICInboxCommentLine: Record "IC Comment Line" temporary)'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: TempICPartnerICInboxCommentLine
+      parameterType:
+        name: Record "IC Comment Line" temporary
+        isExternal: true
+  name: PostICCommentLineToICPartnerInbox
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.PostICCommentLineToICPartnerInbox(IC_Partner,IC_Comment_Line@)
+- syntax:
+    content: 'procedure EnqueueAutoAcceptedICInboxTransaction(ICPartner: Record "IC Partner", ICInboxTransaction: Record "IC Inbox Transaction")'
+    parameters:
+    - id: ICPartner
+      parameterType:
+        name: Record "IC Partner"
+        isExternal: true
+    - id: ICInboxTransaction
+      parameterType:
+        name: Record "IC Inbox Transaction"
+        isExternal: true
+  name: EnqueueAutoAcceptedICInboxTransaction
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.EnqueueAutoAcceptedICInboxTransaction(IC_Partner,IC_Inbox_Transaction)
+- syntax:
+    content: 'procedure InsertICIncomingNotification(var ICIncomingNotification: Record "IC Incoming Notification")'
+    parameters:
+    - id: ICIncomingNotification
+      parameterType:
+        name: Record "IC Incoming Notification"
+        isExternal: true
+  name: InsertICIncomingNotification
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.InsertICIncomingNotification(IC_Incoming_Notification@)
+- syntax:
+    content: 'procedure CleanupICOutgoingNotification(var ICOutgoingNotification: Record "IC Outgoing Notification")'
+    parameters:
+    - id: ICOutgoingNotification
+      parameterType:
+        name: Record "IC Outgoing Notification"
+        isExternal: true
+  name: CleanupICOutgoingNotification
+  uid: M:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API.CleanupICOutgoingNotification(IC_Outgoing_Notification@)
+implements:
+- name: Microsoft.Intercompany.DataExchange."IC Data Exchange"
+  isExternal: true
+commentId: O:Codeunit::Microsoft#Intercompany#DataExchange#IC Data Exchange API
+name: '"IC Data Exchange API"'
+uid: O:Codeunit::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_API

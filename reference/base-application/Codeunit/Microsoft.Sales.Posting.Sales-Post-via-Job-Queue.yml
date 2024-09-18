@@ -1,0 +1,54 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Posting."Sales Post via Job Queue"
+alId: ID 88
+namespace: Microsoft.Sales.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure EnqueueSalesDoc(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: EnqueueSalesDoc
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales_Post_via_Job_Queue.EnqueueSalesDoc(Sales_Header@)
+- syntax:
+    content: 'procedure EnqueueSalesDocWithUI(var SalesHeader: Record "Sales Header", WithUI: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: WithUI
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: EnqueueSalesDocWithUI
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales_Post_via_Job_Queue.EnqueueSalesDocWithUI(Sales_Header@,Boolean)
+- syntax:
+    content: 'procedure CancelQueueEntry(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CancelQueueEntry
+  uid: M:Codeunit::Microsoft#Sales#Posting#Sales_Post_via_Job_Queue.CancelQueueEntry(Sales_Header@)
+commentId: O:Codeunit::Microsoft#Sales#Posting#Sales Post via Job Queue
+name: '"Sales Post via Job Queue"'
+uid: O:Codeunit::Microsoft#Sales#Posting#Sales_Post_via_Job_Queue

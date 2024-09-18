@@ -1,0 +1,49 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Source."Price Source Group"
+namespace: Microsoft.Pricing.Source
+baseKind: Interface
+kind: Interface
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Source
+langs:
+- al
+seeAlso:
+- '[Interface](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-interfaces-in-al)'
+methods:
+- syntax:
+    content: 'procedure IsSourceTypeSupported(SourceType: Enum "Price Source Type"): Boolean'
+    parameters:
+    - id: SourceType
+      description: Price source type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Type
+        name: Microsoft.Pricing.Source."Price Source Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  summary: >-
+    "Price Source Group" enum is a subset of the "Price Source Type" enum. 
+
+    The group limits allowed Source Types, e.g. for Customer group the Vendor source type is not supported.
+
+    Returns true if the passed price source type belongs to the price source group.
+  name: IsSourceTypeSupported
+  uid: M:Interface::Microsoft#Pricing#Source#Price_Source_Group.IsSourceTypeSupported(Enum::Microsoft#Pricing#Source#Price_Source_Type):Boolean
+- syntax:
+    content: 'procedure GetGroup(): Enum "Price Source Group"'
+    return:
+      description: the source group.
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#Source#Price_Source_Group
+        name: Microsoft.Pricing.Source."Price Source Group"
+        isExternal: false
+  summary: >-
+    Some of source types are mapped to the price source groups that is used in setup. 
+
+    If the source type does not belong to one group then it returns group All.
+  name: GetGroup
+  uid: M:Interface::Microsoft#Pricing#Source#Price_Source_Group.GetGroup:Enum::Microsoft#Pricing#Source#Price_Source_Group
+commentId: O:Interface::Microsoft#Pricing#Source#Price Source Group
+name: '"Price Source Group"'
+uid: O:Interface::Microsoft#Pricing#Source#Price_Source_Group

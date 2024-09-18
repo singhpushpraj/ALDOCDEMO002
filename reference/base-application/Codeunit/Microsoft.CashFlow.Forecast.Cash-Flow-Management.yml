@@ -1,0 +1,211 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CashFlow.Forecast."Cash Flow Management"
+alId: ID 841
+namespace: Microsoft.CashFlow.Forecast
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.CashFlow.Forecast
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure CashFlowNameFullLength(CashFlowNo: Code[20]): Text[100]'
+    parameters:
+    - id: CashFlowNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: CashFlowNameFullLength
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.CashFlowNameFullLength(Code[20]):Text[100]
+- syntax:
+    content: 'procedure CashFlowAccountName(CashFlowAccountNo: Code[20]): Text[100]'
+    parameters:
+    - id: CashFlowAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: CashFlowAccountName
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.CashFlowAccountName(Code[20]):Text[100]
+- syntax:
+    content: 'procedure RecurrenceToRecurringFrequency(Recurrence: Option): Text'
+    parameters:
+    - id: Recurrence
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: RecurrenceToRecurringFrequency
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.RecurrenceToRecurringFrequency(Option):Text
+- syntax:
+    content: 'procedure RecurringFrequencyToRecurrence(RecurringFrequency: DateFormula, var RecurrenceOut: Option)'
+    parameters:
+    - id: RecurringFrequency
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: RecurrenceOut
+      parameterType:
+        name: Option
+        isExternal: true
+  name: RecurringFrequencyToRecurrence
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.RecurringFrequencyToRecurrence(DateFormula,Option@)
+- syntax:
+    content: 'procedure CreateAndStartJobQueueEntry(UpdateFrequency: Option)'
+    parameters:
+    - id: UpdateFrequency
+      parameterType:
+        name: Option
+        isExternal: true
+  name: CreateAndStartJobQueueEntry
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.CreateAndStartJobQueueEntry(Option)
+- syntax:
+    content: procedure DeleteJobQueueEntries()
+  name: DeleteJobQueueEntries
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.DeleteJobQueueEntries
+- syntax:
+    content: 'procedure GetCashAccountFilter(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCashAccountFilter
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.GetCashAccountFilter:Text
+- syntax:
+    content: 'procedure SetupCashFlow(LiquidFundsGLAccountFilter: Code[250])'
+    parameters:
+    - id: LiquidFundsGLAccountFilter
+      parameterType:
+        name: Code[250]
+        isExternal: true
+  name: SetupCashFlow
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.SetupCashFlow(Code[250])
+- syntax:
+    content: 'procedure CreateCashFlowAccount(SourceType: Enum "Cash Flow Source Type", LiquidFundsGLAccountFilter: Code[250])'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type
+        name: Microsoft.CashFlow.Setup."Cash Flow Source Type"
+        isExternal: false
+    - id: LiquidFundsGLAccountFilter
+      parameterType:
+        name: Code[250]
+        isExternal: true
+  name: CreateCashFlowAccount
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.CreateCashFlowAccount(Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type,Code[250])
+- syntax:
+    content: 'procedure UpdateCashFlowForecast(AzureAIEnabled: Boolean)'
+    parameters:
+    - id: AzureAIEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateCashFlowForecast
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.UpdateCashFlowForecast(Boolean)
+- syntax:
+    content: 'procedure SetViewOnPurchaseHeaderForTaxCalc(var PurchaseHeader: Record "Purchase Header", TaxPaymentDueDate: Date)'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: TaxPaymentDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetViewOnPurchaseHeaderForTaxCalc
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.SetViewOnPurchaseHeaderForTaxCalc(Purchase_Header@,Date)
+- syntax:
+    content: 'procedure SetViewOnSalesHeaderForTaxCalc(var SalesHeader: Record "Sales Header", TaxPaymentDueDate: Date)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: TaxPaymentDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetViewOnSalesHeaderForTaxCalc
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.SetViewOnSalesHeaderForTaxCalc(Sales_Header@,Date)
+- syntax:
+    content: 'procedure SetViewOnVATEntryForTaxCalc(var VATEntry: Record "VAT Entry", TaxPaymentDueDate: Date)'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: TaxPaymentDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetViewOnVATEntryForTaxCalc
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.SetViewOnVATEntryForTaxCalc(VAT_Entry@,Date)
+- syntax:
+    content: 'procedure GetTaxAmountFromSalesOrder(SalesHeader: Record "Sales Header"): Decimal'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTaxAmountFromSalesOrder
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.GetTaxAmountFromSalesOrder(Sales_Header):Decimal
+- syntax:
+    content: 'procedure GetTaxAmountFromPurchaseOrder(PurchaseHeader: Record "Purchase Header"): Decimal'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTaxAmountFromPurchaseOrder
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.GetTaxAmountFromPurchaseOrder(Purchase_Header):Decimal
+- syntax:
+    content: 'procedure GetTotalAmountFromSalesOrder(SalesHeader: Record "Sales Header"): Decimal'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalAmountFromSalesOrder
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.GetTotalAmountFromSalesOrder(Sales_Header):Decimal
+- syntax:
+    content: 'procedure GetTotalAmountFromPurchaseOrder(PurchaseHeader: Record "Purchase Header"): Decimal'
+    parameters:
+    - id: PurchaseHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalAmountFromPurchaseOrder
+  uid: M:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management.GetTotalAmountFromPurchaseOrder(Purchase_Header):Decimal
+commentId: O:Codeunit::Microsoft#CashFlow#Forecast#Cash Flow Management
+name: '"Cash Flow Management"'
+uid: O:Codeunit::Microsoft#CashFlow#Forecast#Cash_Flow_Management

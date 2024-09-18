@@ -1,0 +1,199 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration.ODataUtility
+alId: ID 6710
+namespace: System.Integration
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::System.Integration
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Tenant Web Service OData" = rimd,
+                      TableData "Tenant Web Service Columns" = rimd,
+                      TableData "Tenant Web Service Filter" = rimd,
+                      TableData "Tenant Web Service" = r
+  promoted: false
+methods:
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure GenerateSelectText(ServiceNameParam: Text, ObjectTypeParam: Option, var SelectTextParam: Text): Boolean'
+    parameters:
+    - id: ServiceNameParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ObjectTypeParam
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SelectTextParam
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GenerateSelectText
+  uid: M:Codeunit::System#Integration#ODataUtility.GenerateSelectText(Text,Option,Text@):Boolean
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure GenerateODataV3FilterText(ServiceNameParam: Text, ObjectTypeParam: Option, var FilterTextParam: Text): Boolean'
+    parameters:
+    - id: ServiceNameParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ObjectTypeParam
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FilterTextParam
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GenerateODataV3FilterText
+  uid: M:Codeunit::System#Integration#ODataUtility.GenerateODataV3FilterText(Text,Option,Text@):Boolean
+- syntax:
+    signatures:
+    - '[TryFunction]'
+    content: 'procedure GenerateODataV4FilterText(ServiceNameParam: Text, ObjectTypeParam: Option, var FilterTextParam: Text): Boolean'
+    parameters:
+    - id: ServiceNameParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ObjectTypeParam
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: FilterTextParam
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GenerateODataV4FilterText
+  uid: M:Codeunit::System#Integration#ODataUtility.GenerateODataV4FilterText(Text,Option,Text@):Boolean
+- syntax:
+    content: 'procedure GenerateODataV3Url(ServiceRootUrlParam: Text, ServiceNameParam: Text, ObjectTypeParam: Option): Text'
+    parameters:
+    - id: ServiceRootUrlParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ServiceNameParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ObjectTypeParam
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GenerateODataV3Url
+  uid: M:Codeunit::System#Integration#ODataUtility.GenerateODataV3Url(Text,Text,Option):Text
+- syntax:
+    content: 'procedure GenerateODataV4Url(ServiceRootUrlParam: Text, ServiceNameParam: Text, ObjectTypeParam: Option): Text'
+    parameters:
+    - id: ServiceRootUrlParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ServiceNameParam
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ObjectTypeParam
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GenerateODataV4Url
+  uid: M:Codeunit::System#Integration#ODataUtility.GenerateODataV4Url(Text,Text,Option):Text
+- syntax:
+    content: 'procedure EditJournalWorksheetInExcel(PageCaption: Text[240], PageId: Text, JournalBatchName: Text, JournalTemplateName: Text)'
+    parameters:
+    - id: PageCaption
+      parameterType:
+        name: Text[240]
+        isExternal: true
+    - id: PageId
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: JournalBatchName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: JournalTemplateName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: EditJournalWorksheetInExcel
+  uid: M:Codeunit::System#Integration#ODataUtility.EditJournalWorksheetInExcel(Text[240],Text,Text,Text)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by EditinExcelHandler.EditPageInExcel(PageCaption: Text[240]; ObjectId: Integer; CodeUnit "Filters"),23.0)]'
+    content: 'procedure EditWorksheetInExcel(PageCaption: Text[240], PageId: Text, Filter: Text)'
+    parameters:
+    - id: PageCaption
+      parameterType:
+        name: Text[240]
+        isExternal: true
+    - id: PageId
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Filter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: EditWorksheetInExcel
+  obsoletion:
+    state: pending
+    reason: 'Replaced by EditinExcelHandler.EditPageInExcel(PageCaption: Text[240]; ObjectId: Integer; CodeUnit "Filters")'
+    version: "23.0"
+  uid: M:Codeunit::System#Integration#ODataUtility.EditWorksheetInExcel(Text[240],Text,Text)
+- syntax:
+    content: 'procedure ExternalizeName(Name: Text): Text'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ExternalizeName
+  uid: M:Codeunit::System#Integration#ODataUtility.ExternalizeName(Text):Text
+- syntax:
+    content: 'procedure GetHostName(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetHostName
+  uid: M:Codeunit::System#Integration#ODataUtility.GetHostName:Text
+commentId: O:Codeunit::System#Integration#ODataUtility
+name: ODataUtility
+uid: O:Codeunit::System#Integration#ODataUtility

@@ -1,0 +1,59 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Currency."Update Currency Factor"
+alId: ID 325
+namespace: Microsoft.Finance.Currency
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Currency
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                      TableData "Sales Cr.Memo Header" = rm,
+                      TableData "Purch. Inv. Header" = rm,
+                      TableData "Purch. Cr. Memo Hdr." = rm
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ModifyPostedSalesInvoice(var SalesInvoiceHeader: Record "Sales Invoice Header")'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: ModifyPostedSalesInvoice
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Factor.ModifyPostedSalesInvoice(Sales_Invoice_Header@)
+- syntax:
+    content: 'procedure ModifyPostedSalesCreditMemo(var SalesCrMemoHeader: Record "Sales Cr.Memo Header")'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+  name: ModifyPostedSalesCreditMemo
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Factor.ModifyPostedSalesCreditMemo(Sales_Cr#Memo_Header@)
+- syntax:
+    content: 'procedure ModifyPostedPurchaseInvoice(var PurchInvHeader: Record "Purch. Inv. Header")'
+    parameters:
+    - id: PurchInvHeader
+      parameterType:
+        name: Record "Purch. Inv. Header"
+        isExternal: true
+  name: ModifyPostedPurchaseInvoice
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Factor.ModifyPostedPurchaseInvoice(Purch#_Inv#_Header@)
+- syntax:
+    content: 'procedure ModifyPostedPurchaseCreditMemo(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.")'
+    parameters:
+    - id: PurchCrMemoHdr
+      parameterType:
+        name: Record "Purch. Cr. Memo Hdr."
+        isExternal: true
+  name: ModifyPostedPurchaseCreditMemo
+  uid: M:Codeunit::Microsoft#Finance#Currency#Update_Currency_Factor.ModifyPostedPurchaseCreditMemo(Purch#_Cr#_Memo_Hdr#@)
+commentId: O:Codeunit::Microsoft#Finance#Currency#Update Currency Factor
+name: '"Update Currency Factor"'
+uid: O:Codeunit::Microsoft#Finance#Currency#Update_Currency_Factor

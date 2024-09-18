@@ -1,0 +1,54 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Posting."Purchase Post via Job Queue"
+alId: ID 98
+namespace: Microsoft.Purchases.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: TableNo
+  value: Job Queue Entry
+  promoted: false
+  xrefType:
+    internalReference: O:Table::System#Threading#Job_Queue_Entry
+    name: System.Threading."Job Queue Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure EnqueuePurchDoc(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: EnqueuePurchDoc
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Post_via_Job_Queue.EnqueuePurchDoc(Purchase_Header@)
+- syntax:
+    content: 'procedure EnqueuePurchDocWithUI(var PurchHeader: Record "Purchase Header", WithUI: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: WithUI
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: EnqueuePurchDocWithUI
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Post_via_Job_Queue.EnqueuePurchDocWithUI(Purchase_Header@,Boolean)
+- syntax:
+    content: 'procedure CancelQueueEntry(var PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CancelQueueEntry
+  uid: M:Codeunit::Microsoft#Purchases#Posting#Purchase_Post_via_Job_Queue.CancelQueueEntry(Purchase_Header@)
+commentId: O:Codeunit::Microsoft#Purchases#Posting#Purchase Post via Job Queue
+name: '"Purchase Post via Job Queue"'
+uid: O:Codeunit::Microsoft#Purchases#Posting#Purchase_Post_via_Job_Queue

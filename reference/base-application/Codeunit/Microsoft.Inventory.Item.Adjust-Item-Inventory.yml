@@ -1,0 +1,120 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Item."Adjust Item Inventory"
+alId: ID 1327
+namespace: Microsoft.Inventory.Item
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Item
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+methods:
+- syntax:
+    content: 'procedure PostAdjustmentToItemLedger(Item: Record Item, NewInventory: Decimal): Text'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: NewInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: PostAdjustmentToItemLedger
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.PostAdjustmentToItemLedger(Item,Decimal):Text
+- syntax:
+    content: 'procedure PostMultipleAdjustmentsToItemLedger(var TempItemJournalLine: Record "Item Journal Line" temporary): Text'
+    parameters:
+    - id: TempItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: PostMultipleAdjustmentsToItemLedger
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.PostMultipleAdjustmentsToItemLedger(Item_Journal_Line@):Text
+- syntax:
+    content: 'procedure CreateItemJnlLine(var ItemJnlLine: Record "Item Journal Line", var Item: Record Item, ItemTemplate: Code[10], ItemBatch: Code[10], NewInventory: Decimal)'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: ItemTemplate
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemBatch
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewInventory
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateItemJnlLine
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.CreateItemJnlLine(Item_Journal_Line@,Item@,Code[10],Code[10],Decimal)
+- syntax:
+    content: 'procedure PostItemJnlLines(var ItemJournalLine: Record "Item Journal Line"): Text'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: PostItemJnlLines
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.PostItemJnlLines(Item_Journal_Line@):Text
+- syntax:
+    content: 'procedure SelectItemTemplateForAdjustment(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: SelectItemTemplateForAdjustment
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.SelectItemTemplateForAdjustment:Code[10]
+- syntax:
+    content: 'procedure FindOrCreateItemBatchWithCustomNameDesc(TemplateName: Code[10], BatchName: Code[10], BatchDescription: Text[50]): Code[10]'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchDescription
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: FindOrCreateItemBatchWithCustomNameDesc
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.FindOrCreateItemBatchWithCustomNameDesc(Code[10],Code[10],Text[50]):Code[10]
+- syntax:
+    content: 'procedure GetInventoryAdjustmentAllowed(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetInventoryAdjustmentAllowed
+  uid: M:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory.GetInventoryAdjustmentAllowed:Boolean
+commentId: O:Codeunit::Microsoft#Inventory#Item#Adjust Item Inventory
+name: '"Adjust Item Inventory"'
+uid: O:Codeunit::Microsoft#Inventory#Item#Adjust_Item_Inventory

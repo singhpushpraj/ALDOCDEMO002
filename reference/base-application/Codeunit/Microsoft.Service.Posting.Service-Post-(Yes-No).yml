@@ -1,0 +1,101 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Posting."Service-Post (Yes/No)"
+alId: ID 5981
+namespace: Microsoft.Service.Posting
+baseKind: Codeunit
+kind: Codeunit
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Posting
+langs:
+- al
+seeAlso:
+- '[Codeunit](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-codeunit-object)'
+objectProperties:
+- name: EventSubscriberInstance
+  value: Manual
+  promoted: false
+- name: TableNo
+  value: Service Line
+  promoted: false
+  xrefType:
+    internalReference: O:Table::Microsoft#Service#Document#Service_Line
+    name: Microsoft.Service.Document."Service Line"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure PostDocument(var ServiceHeaderSource: Record "Service Header")'
+    parameters:
+    - id: ServiceHeaderSource
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: PostDocument
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).PostDocument(Service_Header@)
+- syntax:
+    content: 'procedure PostDocumentWithLines(var ServiceHeaderSource: Record "Service Header", var PassedServLine: Record "Service Line")'
+    parameters:
+    - id: ServiceHeaderSource
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: PostDocumentWithLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).PostDocumentWithLines(Service_Header@,Service_Line@)
+- syntax:
+    content: 'procedure PreviewDocument(var ServHeader: Record "Service Header")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: PreviewDocument
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).PreviewDocument(Service_Header@)
+- syntax:
+    content: 'procedure MessageIfPostingPreviewMultipleDocuments(var ServiceHeaderToPreview: Record "Service Header", DocumentNo: Code[20])'
+    parameters:
+    - id: ServiceHeaderToPreview
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: MessageIfPostingPreviewMultipleDocuments
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).MessageIfPostingPreviewMultipleDocuments(Service_Header@,Code[20])
+- syntax:
+    content: 'procedure PreviewDocumentWithLines(var ServHeader: Record "Service Header", var PassedServLine: Record "Service Line")'
+    parameters:
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PassedServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: PreviewDocumentWithLines
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).PreviewDocumentWithLines(Service_Header@,Service_Line@)
+- syntax:
+    content: 'procedure SetGlobalServiceHeader(var ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetGlobalServiceHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).SetGlobalServiceHeader(Service_Header@)
+- syntax:
+    content: 'procedure GetGlobalServiceHeader(var ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: GetGlobalServiceHeader
+  uid: M:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No).GetGlobalServiceHeader(Service_Header@)
+commentId: O:Codeunit::Microsoft#Service#Posting#Service-Post (Yes/No)
+name: '"Service-Post (Yes/No)"'
+uid: O:Codeunit::Microsoft#Service#Posting#Service-Post_(Yes/No)

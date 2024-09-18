@@ -1,0 +1,202 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Bank Statement Matching Buffer"
+alId: ID 1250
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Bank Statement Matching Buffer
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: TableType
+  value: Temporary
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AddMatchCandidate(LineNo: Integer, EntryNo: Integer, NewQuality: Integer, AccountType: Enum "Gen. Journal Account Type", AccountNo: Code[20])'
+    parameters:
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewQuality
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddMatchCandidate
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.AddMatchCandidate(Integer,Integer,Integer,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Code[20])
+- syntax:
+    content: 'procedure InsertOrUpdateOneToManyRule(TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary, LineNo: Integer, RelatedPartyMatched: Option, AccountType: Enum "Gen. Journal Account Type", RemainingAmount: Decimal)'
+    parameters:
+    - id: TempLedgerEntryMatchingBuffer
+      parameterType:
+        name: Record "Ledger Entry Matching Buffer" temporary
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RelatedPartyMatched
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: RemainingAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertOrUpdateOneToManyRule
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.InsertOrUpdateOneToManyRule(Ledger_Entry_Matching_Buffer,Integer,Option,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Decimal)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: Quality
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Quality
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Account Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Account_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"One to Many Match"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.One_to_Many_Match
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Entries"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.No#_of_Entries
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Remaining Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Total_Remaining_Amount
+- type:
+    name: Option
+    isExternal: true
+  name: '"Related Party Matched"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Related_Party_Matched
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Match Details"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Match_Details[250]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Doc. No. Score"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Doc#_No#_Score
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Ext. Doc. No. Score"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Ext#_Doc#_No#_Score
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Description Score"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Description_Score
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Difference"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Amount_Difference
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Date Difference"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Date_Difference
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Doc. No. Exact Score"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Doc#_No#_Exact_Score
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Ext. Doc. No. Exact Score"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Ext#_Doc#_No#_Exact_Score
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Description Exact Score"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.Description_Exact_Score
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Reconciliation#Bank Statement Matching Buffer
+name: '"Bank Statement Matching Buffer"'
+uid: O:Table::Microsoft#Bank#Reconciliation#Bank_Statement_Matching_Buffer

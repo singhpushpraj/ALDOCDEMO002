@@ -1,0 +1,483 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Production Order"
+alId: ID 5405
+namespace: Microsoft.Manufacturing.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Production Order
+  promoted: false
+- name: DataCaptionFields
+  value: 2,3
+  promoted: false
+- name: DrillDownPageID
+  value: Production Order List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Manufacturing#Document#Production_Order_List
+    name: Microsoft.Manufacturing.Document."Production Order List"
+    isExternal: false
+- name: LookupPageID
+  value: Production Order List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Manufacturing#Document#Production_Order_List
+    name: Microsoft.Manufacturing.Document."Production Order List"
+    isExternal: false
+- name: Permissions
+  value: TableData "Prod. Order Capacity Need" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure InitRecord()
+  name: InitRecord
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.InitRecord
+- syntax:
+    content: procedure TestNoSeries()
+  name: TestNoSeries
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.TestNoSeries
+- syntax:
+    content: 'procedure AssistEdit(OldProdOrder: Record "Production Order"): Boolean'
+    parameters:
+    - id: OldProdOrder
+      parameterType:
+        name: Record "Production Order"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.AssistEdit(Production_Order):Boolean
+- syntax:
+    content: 'procedure GetNoSeriesCode(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetNoSeriesCode
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.GetNoSeriesCode:Code[20]
+- syntax:
+    content: 'procedure CheckProdOrderStatus(Name: Text[80])'
+    parameters:
+    - id: Name
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: CheckProdOrderStatus
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.CheckProdOrderStatus(Text[80])
+- syntax:
+    content: procedure DeleteProdOrderRelations()
+  name: DeleteProdOrderRelations
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.DeleteProdOrderRelations
+- syntax:
+    content: procedure DeleteFinishedProdOrderRelations()
+  name: DeleteFinishedProdOrderRelations
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.DeleteFinishedProdOrderRelations
+- syntax:
+    content: procedure AdjustStartEndingDate()
+  name: AdjustStartEndingDate
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.AdjustStartEndingDate
+- syntax:
+    content: procedure UpdateDatetime()
+  name: UpdateDatetime
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.UpdateDatetime
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: procedure Navigate()
+  name: Navigate
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.Navigate
+- syntax:
+    content: 'procedure CreatePick(AssignedUserID: Code[50], SortingMethod: Option, SetBreakBulkFilter: Boolean, DoNotFillQtyToHandle: Boolean, PrintDocument: Boolean)'
+    parameters:
+    - id: AssignedUserID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: SortingMethod
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SetBreakBulkFilter
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DoNotFillQtyToHandle
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrintDocument
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreatePick
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.CreatePick(Code[50],Option,Boolean,Boolean,Boolean)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.SetHideValidationDialog(Boolean)
+- syntax:
+    content: procedure CreateInvtPutAwayPick()
+  name: CreateInvtPutAwayPick
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.CreateInvtPutAwayPick
+- syntax:
+    content: procedure SetUpdateEndDate()
+  name: SetUpdateEndDate
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.SetUpdateEndDate
+- syntax:
+    content: procedure ShowDocDim()
+  name: ShowDocDim
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.ShowDocDim
+- syntax:
+    content: 'procedure ProdOrderLineExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ProdOrderLineExist
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.ProdOrderLineExist:Boolean
+- syntax:
+    content: 'procedure IsStatusLessThanReleased(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsStatusLessThanReleased
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.IsStatusLessThanReleased:Boolean
+- syntax:
+    content: procedure CreateDimFromDefaultDim()
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Manufacturing#Document#Production_Order.CreateDimFromDefaultDim
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+    name: Microsoft.Manufacturing.Document."Production Order Status"
+    isExternal: false
+  name: Status
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Status
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Description[100]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Description"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Search_Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Description_2[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Creation Date"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Creation_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Last_Date_Modified
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Document#Prod#_Order_Source_Type
+    name: Microsoft.Manufacturing.Document."Prod. Order Source Type"
+    isExternal: false
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Source_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Source_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Routing_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Inventory Posting Group"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Inventory_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Comment
+- type:
+    name: Time
+    isExternal: true
+  name: '"Starting Time"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Starting_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Starting Date"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Starting_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Ending Time"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Ending_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Ending Date"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Ending_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Due_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Finished Date"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Finished_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: Blocked
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Blocked
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Replan Ref. No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Replan_Ref#_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+    name: Microsoft.Manufacturing.Document."Production Order Status"
+    isExternal: false
+  name: '"Replan Ref. Status"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Replan_Ref#_Status
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Low-Level Code"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Low-Level_Code
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Cost_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Work Center Filter"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Work_Center_Filter[20]
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type
+    name: Microsoft.Manufacturing.Capacity."Capacity Type"
+    isExternal: false
+  name: '"Capacity Type Filter"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Capacity_Type_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Capacity No. Filter"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Capacity_No#_Filter[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Date_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Operation Cost Amt."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Expected_Operation_Cost_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Component Cost Amt."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Expected_Component_Cost_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Actual Time Used"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Actual_Time_Used
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Allocated Capacity Need"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Allocated_Capacity_Need
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Capacity Need"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Expected_Capacity_Need
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Planned Order No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Planned_Order_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Firm Planned Order No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Firm_Planned_Order_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Simulated Order No."'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Simulated_Order_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Material Ovhd. Cost"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Expected_Material_Ovhd#_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Capacity Ovhd. Cost"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Expected_Capacity_Ovhd#_Cost
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Starting Date-Time"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Starting_Date-Time
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Ending Date-Time"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Ending_Date-Time
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Dimension_Set_ID
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Picked"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Completely_Picked
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Assigned User ID"'
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.Assigned_User_ID[50]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Manufacturing#Document#Production_Order.SystemRowVersion
+commentId: O:Table::Microsoft#Manufacturing#Document#Production Order
+name: '"Production Order"'
+uid: O:Table::Microsoft#Manufacturing#Document#Production_Order

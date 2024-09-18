@@ -1,0 +1,286 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Payment Application Proposal"
+alId: ID 1293
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Payment Application Proposal
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetAppliedPaymentEntry(var AppliedPaymentEntry: Record "Applied Payment Entry"): Boolean'
+    parameters:
+    - id: AppliedPaymentEntry
+      parameterType:
+        name: Record "Applied Payment Entry"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetAppliedPaymentEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.GetAppliedPaymentEntry(Applied_Payment_Entry@):Boolean
+- syntax:
+    content: 'procedure TransferFromBankAccReconLine(BankAccReconLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: TransferFromBankAccReconLine
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.TransferFromBankAccReconLine(Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure CreateFromAppliedPaymentEntry(AppliedPaymentEntry: Record "Applied Payment Entry")'
+    parameters:
+    - id: AppliedPaymentEntry
+      parameterType:
+        name: Record "Applied Payment Entry"
+        isExternal: true
+  name: CreateFromAppliedPaymentEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.CreateFromAppliedPaymentEntry(Applied_Payment_Entry)
+- syntax:
+    content: 'procedure CreateFromBankStmtMacthingBuffer(TempBankStmtMatchingBuffer: Record "Bank Statement Matching Buffer" temporary, BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", BankAccount: Record "Bank Account")'
+    parameters:
+    - id: TempBankStmtMatchingBuffer
+      parameterType:
+        name: Record "Bank Statement Matching Buffer" temporary
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: BankAccount
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+  name: CreateFromBankStmtMacthingBuffer
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.CreateFromBankStmtMacthingBuffer(Bank_Statement_Matching_Buffer,Bank_Acc#_Reconciliation_Line,Bank_Account)
+- syntax:
+    content: 'procedure UpdateDefaultCalculatedFields(var BankAccount: Record "Bank Account", AppliesToEntryNo: Integer)'
+    parameters:
+    - id: BankAccount
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+    - id: AppliesToEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateDefaultCalculatedFields
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.UpdateDefaultCalculatedFields(Bank_Account@,Integer)
+- syntax:
+    content: 'procedure GetRemainingAmountAfterPostingValue(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetRemainingAmountAfterPostingValue
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.GetRemainingAmountAfterPostingValue:Decimal
+- syntax:
+    content: procedure RemoveApplications()
+  name: RemoveApplications
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.RemoveApplications
+- syntax:
+    content: procedure AccountNameDrillDown()
+  name: AccountNameDrillDown
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.AccountNameDrillDown
+- syntax:
+    content: 'procedure GetAccountName(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetAccountName
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.GetAccountName:Text
+- syntax:
+    content: procedure AppliesToEntryNoDrillDown()
+  name: AppliesToEntryNoDrillDown
+  uid: M:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.AppliesToEntryNoDrillDown
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bank Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Bank_Account_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Statement No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Statement_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Statement Line No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Statement_Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Reconciliation#Bank_Acc#_Rec#_Stmt#_Type
+    name: Microsoft.Bank.Reconciliation."Bank Acc. Rec. Stmt. Type"
+    isExternal: false
+  name: '"Statement Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Statement_Type
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Account Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Account_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applies-to Entry No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Applies-to_Entry_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Applied Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Applied_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: Applied
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Applied
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Applied Pmt. Discount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Applied_Pmt#_Discount
+- type:
+    name: Integer
+    isExternal: true
+  name: Quality
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Quality
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Currency_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Due_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.External_Document_No#[35]
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Reconciliation#Bank_Rec#_Match_Confidence
+    name: Microsoft.Bank.Reconciliation."Bank Rec. Match Confidence"
+    isExternal: false
+  name: '"Match Confidence"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Match_Confidence
+- type:
+    name: Date
+    isExternal: true
+  name: '"Pmt. Disc. Due Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Pmt#_Disc#_Due_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Pmt. Disc. Possible"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Remaining_Pmt#_Disc#_Possible
+- type:
+    name: Date
+    isExternal: true
+  name: '"Pmt. Disc. Tolerance Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Pmt#_Disc#_Tolerance_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Applied Amt. Incl. Discount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Applied_Amt#_Incl#_Discount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Remaining_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Amt. Incl. Discount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Remaining_Amt#_Incl#_Discount
+- type:
+    name: Option
+    isExternal: true
+  name: Type
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sorting Order"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Sorting_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Stmt To Rem. Amount Difference"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.Stmt_To_Rem#_Amount_Difference
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Reconciliation#Payment Application Proposal
+name: '"Payment Application Proposal"'
+uid: O:Table::Microsoft#Bank#Reconciliation#Payment_Application_Proposal

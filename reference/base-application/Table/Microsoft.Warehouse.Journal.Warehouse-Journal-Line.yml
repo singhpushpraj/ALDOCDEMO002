@@ -1,0 +1,724 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Journal."Warehouse Journal Line"
+alId: ID 7311
+namespace: Microsoft.Warehouse.Journal
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Journal
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Warehouse Journal Line
+  promoted: false
+- name: DrillDownPageID
+  value: Warehouse Journal Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Warehouse#Journal#Warehouse_Journal_Lines
+    name: Microsoft.Warehouse.Journal."Warehouse Journal Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Warehouse Journal Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Warehouse#Journal#Warehouse_Journal_Lines
+    name: Microsoft.Warehouse.Journal."Warehouse Journal Lines"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetItem(ItemNo: Code[20], var ItemDescription: Text[100])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetItem
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.GetItem(Code[20],Text[100]@)
+- syntax:
+    content: 'procedure SetUpNewLine(LastWhseJnlLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: LastWhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetUpNewLine(Warehouse_Journal_Line)
+- syntax:
+    content: procedure SetUpAdjustmentBin()
+  name: SetUpAdjustmentBin
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetUpAdjustmentBin
+- syntax:
+    content: 'procedure CalcReservEntryQuantity(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservEntryQuantity
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CalcReservEntryQuantity:Decimal
+- syntax:
+    content: 'procedure EmptyLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EmptyLine
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.EmptyLine:Boolean
+- syntax:
+    content: 'procedure GetBinType(LocationCode: Code[10], BinCode: Code[20]): Code[10]'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetBinType
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.GetBinType(Code[10],Code[20]):Code[10]
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, PageTemplate: Enum "Warehouse Journal Template Type", var WhseJnlLine: Record "Warehouse Journal Line"): Boolean'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PageTemplate
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Journal#Warehouse_Journal_Template_Type
+        name: Microsoft.Warehouse.Journal."Warehouse Journal Template Type"
+        isExternal: false
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.TemplateSelection(Integer,Enum::Microsoft#Warehouse#Journal#Warehouse_Journal_Template_Type,Warehouse_Journal_Line@):Boolean
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var WhseJnlBatch: Record "Warehouse Journal Batch")'
+    parameters:
+    - id: WhseJnlBatch
+      parameterType:
+        name: Record "Warehouse Journal Batch"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.TemplateSelectionFromBatch(Warehouse_Journal_Batch@)
+- syntax:
+    content: 'procedure OpenJnl(var CurrentJnlBatchName: Code[10], var CurrentLocationCode: Code[10], var WhseJnlLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: OpenJnl
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.OpenJnl(Code[10]@,Code[10]@,Warehouse_Journal_Line@)
+- syntax:
+    content: 'procedure CheckTemplateName(CurrentJnlTemplateName: Code[10], var CurrentLocationCode: Code[10], var CurrentJnlBatchName: Code[10])'
+    parameters:
+    - id: CurrentJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckTemplateName
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CheckTemplateName(Code[10],Code[10]@,Code[10]@)
+- syntax:
+    content: 'procedure CheckName(CurrentJnlBatchName: Code[10], CurrentLocationCode: Code[10], var WhseJnlLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: CheckName
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CheckName(Code[10],Code[10],Warehouse_Journal_Line@)
+- syntax:
+    content: 'procedure SetName(CurrentJnlBatchName: Code[10], CurrentLocationCode: Code[10], var WhseJnlLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: SetName
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetName(Code[10],Code[10],Warehouse_Journal_Line@)
+- syntax:
+    content: 'procedure LookupName(var CurrentJnlBatchName: Code[10], var CurrentLocationCode: Code[10], var WhseJnlLine: Record "Warehouse Journal Line")'
+    parameters:
+    - id: CurrentJnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseJnlLine
+      parameterType:
+        name: Record "Warehouse Journal Line"
+        isExternal: true
+  name: LookupName
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.LookupName(Code[10]@,Code[10]@,Warehouse_Journal_Line@)
+- syntax:
+    content: procedure OpenItemTrackingLines()
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.OpenItemTrackingLines
+- syntax:
+    content: 'procedure ItemTrackingReclass(TemplateName: Code[10], BatchName: Code[10], LocationCode: Code[10], LineNo: Integer): Boolean'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemTrackingReclass
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.ItemTrackingReclass(Code[10],Code[10],Code[10],Integer):Boolean
+- syntax:
+    content: 'procedure LookupItemTracking(var WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: LookupItemTracking
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.LookupItemTracking(Item_Tracking_Setup@)
+- syntax:
+    content: 'procedure IsReclass(CurrentJnlTemplateName: Code[10]): Boolean'
+    parameters:
+    - id: CurrentJnlTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsReclass
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.IsReclass(Code[10]):Boolean
+- syntax:
+    content: 'procedure SetProposal(NewValue: Boolean)'
+    parameters:
+    - id: NewValue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetProposal
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetProposal(Boolean)
+- syntax:
+    content: 'procedure IsOpenedFromBatch(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOpenedFromBatch
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.IsOpenedFromBatch:Boolean
+- syntax:
+    content: 'procedure CheckTrackingIfRequired(WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CheckTrackingIfRequired
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CheckTrackingIfRequired(Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CopyTrackingFromItemLedgEntry(ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: CopyTrackingFromItemLedgEntry
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CopyTrackingFromItemLedgEntry(Item_Ledger_Entry)
+- syntax:
+    content: 'procedure CopyTrackingFromItemTrackingSetupIfRequired(WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CopyTrackingFromItemTrackingSetupIfRequired
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CopyTrackingFromItemTrackingSetupIfRequired(Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CopyNewTrackingFromItemTrackingSetupIfRequired(WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CopyNewTrackingFromItemTrackingSetupIfRequired
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CopyNewTrackingFromItemTrackingSetupIfRequired(Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CopyTrackingFromWhseActivityLine(WhseActivityLine: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseActivityLine
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: CopyTrackingFromWhseActivityLine
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CopyTrackingFromWhseActivityLine(Warehouse_Activity_Line)
+- syntax:
+    content: 'procedure CopyTrackingFromWhseEntry(WhseEntry: Record "Warehouse Entry")'
+    parameters:
+    - id: WhseEntry
+      parameterType:
+        name: Record "Warehouse Entry"
+        isExternal: true
+  name: CopyTrackingFromWhseEntry
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CopyTrackingFromWhseEntry(Warehouse_Entry)
+- syntax:
+    content: 'procedure IsQtyPhysInventoryBaseEditable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsQtyPhysInventoryBaseEditable
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.IsQtyPhysInventoryBaseEditable:Boolean
+- syntax:
+    content: 'procedure SetSource(SourceType: Integer, SourceSubtype: Integer, SourceNo: Code[20], SourceLineNo: Integer, SourceSublineNo: Integer)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubtype
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSublineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetSource
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetSource(Integer,Integer,Code[20],Integer,Integer)
+- syntax:
+    content: 'procedure SetTrackingFilterFromBinContent(var BinContent: Record "Bin Content")'
+    parameters:
+    - id: BinContent
+      parameterType:
+        name: Record "Bin Content"
+        isExternal: true
+  name: SetTrackingFilterFromBinContent
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetTrackingFilterFromBinContent(Bin_Content@)
+- syntax:
+    content: 'procedure SetWhseDocument(DocType: Enum "Warehouse Journal Document Type", DocNo: Code[20], DocLineNo: Integer)'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Journal#Warehouse_Journal_Document_Type
+        name: Microsoft.Warehouse.Journal."Warehouse Journal Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetWhseDocument
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SetWhseDocument(Enum::Microsoft#Warehouse#Journal#Warehouse_Journal_Document_Type,Code[20],Integer)
+- syntax:
+    content: procedure InitExpirationDate()
+  name: InitExpirationDate
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.InitExpirationDate
+- syntax:
+    content: 'procedure CheckExpirationDateExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckExpirationDateExists
+  uid: M:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.CheckExpirationDateExists:Boolean
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Template Name"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Journal_Template_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Journal_Batch_Name[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Line_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Registering Date"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Registering_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Location_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"From Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.From_Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"From Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.From_Bin_Code[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Description[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Item_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Absolute)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Absolute)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Absolute, Base)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Absolute,_Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Bin_Code[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Source Subtype"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_Subtype
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Line No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Subline No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_Subline_No#
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Journal#Warehouse_Journal_Source_Document
+    name: Microsoft.Warehouse.Journal."Warehouse Journal Source Document"
+    isExternal: false
+  name: '"Source Document"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_Document
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Source_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"To Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.To_Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"To Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.To_Bin_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Reason_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Registering No. Series"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Registering_No#_Series[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"From Bin Type Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.From_Bin_Type_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Cubage
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Cubage
+- type:
+    name: Decimal
+    isExternal: true
+  name: Weight
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Weight
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Whse. Document No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Whse#_Document_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Journal#Warehouse_Journal_Document_Type
+    name: Microsoft.Warehouse.Journal."Warehouse Journal Document Type"
+    isExternal: false
+  name: '"Whse. Document Type"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Whse#_Document_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Whse. Document Line No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Whse#_Document_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Calculated)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Calculated)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Phys. Inventory)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Phys#_Inventory)
+- type:
+    name: Option
+    isExternal: true
+  name: '"Entry Type"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Entry_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Phys. Inventory"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Phys#_Inventory
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Setup#Whse#_Reference_Document_Type
+    name: Microsoft.Warehouse.Setup."Whse. Reference Document Type"
+    isExternal: false
+  name: '"Reference Document"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Reference_Document
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Reference No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Reference_No#[20]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.User_ID[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Calculated) (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Calculated)_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Phys. Inventory) (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_(Phys#_Inventory)_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Variant_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Serial No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Serial_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Lot No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Lot_No#[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Warranty Date"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Warranty_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expiration Date"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Expiration_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"New Serial No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.New_Serial_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"New Lot No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.New_Lot_No#[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"New Expiration Date"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.New_Expiration_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Package No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Package_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"New Package No."'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.New_Package_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Phys Invt Counting Period Code"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Phys_Invt_Counting_Period_Code[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Phys Invt Counting Period Type"'
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.Phys_Invt_Counting_Period_Type
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Warehouse#Journal#Warehouse Journal Line
+name: '"Warehouse Journal Line"'
+uid: O:Table::Microsoft#Warehouse#Journal#Warehouse_Journal_Line

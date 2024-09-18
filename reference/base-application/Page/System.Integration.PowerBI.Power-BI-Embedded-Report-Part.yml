@@ -1,0 +1,105 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Integration.PowerBI."Power BI Embedded Report Part"
+alId: ID 6325
+namespace: System.Integration.PowerBI
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::System.Integration.PowerBI
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::System#Integration#PowerBI#Power_BI_Report_Configuration
+  name: System.Integration.PowerBI."Power BI Report Configuration"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Power BI
+  promoted: false
+- name: PageType
+  value: CardPart
+  promoted: true
+- name: SourceTable
+  value: "6301"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::System#Integration#PowerBI#Power_BI_Report_Configuration
+    name: System.Integration.PowerBI."Power BI Report Configuration"
+    isExternal: false
+- name: SourceTableTemporary
+  value: "True"
+  promoted: false
+- name: ObsoleteReason
+  value: The SourceTable of this page will be changed to Power BI Displayed Element. Only filtering on the Context field is supported; that field will maintain the same field name.
+  promoted: false
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "23.0"
+  promoted: false
+- name: Editable
+  value: "False"
+  promoted: false
+- name: RefreshOnActivate
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitPageRatio(ReportFrameRatioInput: Text)'
+    parameters:
+    - id: ReportFrameRatioInput
+      parameterType:
+        name: Text
+        isExternal: true
+  name: InitPageRatio
+  uid: M:Page::System#Integration#PowerBI#Power_BI_Embedded_Report_Part.InitPageRatio(Text)
+- syntax:
+    content: 'procedure SetPageContext(InputContext: Text)'
+    parameters:
+    - id: InputContext
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetPageContext
+  uid: M:Page::System#Integration#PowerBI#Power_BI_Embedded_Report_Part.SetPageContext(Text)
+- syntax:
+    content: 'procedure SetFilterToMultipleValues(FilteringVariant: Variant, FieldNumber: Integer)'
+    parameters:
+    - id: FilteringVariant
+      description: A Record or RecordRef filtered to the records to show in the Power BI Report.
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: FieldNumber
+      description: The number of the field of `FilteringVariant` that should be used for filtering the Power BI Report.
+      parameterType:
+        name: Integer
+        isExternal: true
+  summary: >-
+    Filters the currently displayed Power BI report to multiple values.
+
+    These values are picked from the field number `FieldNumber` in the records within the filter of `FilteringVariant`.
+  remarks: The values will be applied to the first filter defined in the Power BI report. If no record falls within the filter, the filter is reset to all values.
+  name: SetFilterToMultipleValues
+  uid: M:Page::System#Integration#PowerBI#Power_BI_Embedded_Report_Part.SetFilterToMultipleValues(Variant,Integer)
+- syntax:
+    content: 'procedure SetCurrentListSelection(InputSelectionVariant: Variant)'
+    parameters:
+    - id: InputSelectionVariant
+      description: A value to set as filter for the Power BI Report.
+      parameterType:
+        name: Variant
+        isExternal: true
+  summary: Filters the currently displayed Power BI report to a single value. Only values of primitive types (such as Text, Code, Guid, Integer, Date) are supported.
+  remarks: The value will be applied to the first filter defined in the Power BI report.
+  name: SetCurrentListSelection
+  uid: M:Page::System#Integration#PowerBI#Power_BI_Embedded_Report_Part.SetCurrentListSelection(Variant)
+commentId: O:Page::System#Integration#PowerBI#Power BI Embedded Report Part
+name: '"Power BI Embedded Report Part"'
+obsoletion:
+  state: pending
+  reason: The SourceTable of this page will be changed to Power BI Displayed Element. Only filtering on the Context field is supported; that field will maintain the same field name.
+  version: "23.0"
+uid: O:Page::System#Integration#PowerBI#Power_BI_Embedded_Report_Part

@@ -1,0 +1,398 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Interaction.Attachment
+alId: ID 5062
+namespace: Microsoft.CRM.Interaction
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Interaction
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Attachment
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure OpenAttachment(Caption: Text[260], IsTemporary: Boolean, LanguageCode: Code[10])'
+    parameters:
+    - id: Caption
+      parameterType:
+        name: Text[260]
+        isExternal: true
+    - id: IsTemporary
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LanguageCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OpenAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.OpenAttachment(Text[260],Boolean,Code[10])
+- syntax:
+    content: 'procedure OpenAttachment(var SegmentLine: Record "Segment Line", WordCaption: Text)'
+    parameters:
+    - id: SegmentLine
+      parameterType:
+        name: Record "Segment Line"
+        isExternal: true
+    - id: WordCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: OpenAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.OpenAttachment(Segment_Line@,Text)
+- syntax:
+    content: procedure InsertRecord()
+  name: InsertRecord
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.InsertRecord
+- syntax:
+    content: 'procedure ShowAttachment(var SegLine: Record "Segment Line", WordCaption: Text)'
+    parameters:
+    - id: SegLine
+      parameterType:
+        name: Record "Segment Line"
+        isExternal: true
+    - id: WordCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ShowAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.ShowAttachment(Segment_Line@,Text)
+- syntax:
+    content: procedure WizSaveAttachment()
+  name: WizSaveAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.WizSaveAttachment
+- syntax:
+    content: 'procedure ConstDiskFileName(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ConstDiskFileName
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.ConstDiskFileName:Text
+- syntax:
+    signatures:
+    - '[Obsolete(Correspondence Type Fax is no longer supported. This procedure only checked for Fax.,23.0)]'
+    content: 'procedure CheckCorrespondenceType(CorrespondenceType: Enum "Correspondence Type"): Text[80]'
+    parameters:
+    - id: CorrespondenceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#Interaction#Correspondence_Type
+        name: Microsoft.CRM.Interaction."Correspondence Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: CheckCorrespondenceType
+  obsoletion:
+    state: pending
+    reason: Correspondence Type Fax is no longer supported. This procedure only checked for Fax.
+    version: "23.0"
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.CheckCorrespondenceType(Enum::Microsoft#CRM#Interaction#Correspondence_Type):Text[80]
+- syntax:
+    content: 'procedure LinkToMessage(MessageID: Text, EntryID: Text, RunTrigger: Boolean)'
+    parameters:
+    - id: MessageID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: EntryID
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: LinkToMessage
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.LinkToMessage(Text,Text,Boolean)
+- syntax:
+    content: 'procedure Checksum(MessageID: Text): Integer'
+    parameters:
+    - id: MessageID
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: Checksum
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.Checksum(Text):Integer
+- syntax:
+    content: 'procedure GetMessageID(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetMessageID
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.GetMessageID:Text
+- syntax:
+    content: 'procedure SetMessageID(MessageID: Text)'
+    parameters:
+    - id: MessageID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetMessageID
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.SetMessageID(Text)
+- syntax:
+    content: 'procedure SetEntryID(EntryID: Text)'
+    parameters:
+    - id: EntryID
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetEntryID
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.SetEntryID(Text)
+- syntax:
+    content: 'procedure GetEmailMessageUrl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetEmailMessageUrl
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.GetEmailMessageUrl:Text
+- syntax:
+    content: 'procedure SetEmailMessageUrl(Url: Text)'
+    parameters:
+    - id: Url
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetEmailMessageUrl
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.SetEmailMessageUrl(Text)
+- syntax:
+    content: 'procedure Read(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Read
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.Read:Text
+- syntax:
+    content: 'procedure Write(SourceText: Text)'
+    parameters:
+    - id: SourceText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: Write
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.Write(Text)
+- syntax:
+    content: 'procedure ReadHTMLCustomLayoutAttachment(var ContentBodyText: Text, var CustomLayoutCode: Code[20]): Boolean'
+    parameters:
+    - id: ContentBodyText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomLayoutCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReadHTMLCustomLayoutAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.ReadHTMLCustomLayoutAttachment(Text@,Code[20]@):Boolean
+- syntax:
+    content: 'procedure ReadHTMLCustomLayoutAttachment(var ContentBodyText: Text, var CustomLayoutCode: Code[20], var ReportLayoutName: Text[250]): Boolean'
+    parameters:
+    - id: ContentBodyText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomLayoutCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ReportLayoutName
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReadHTMLCustomLayoutAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.ReadHTMLCustomLayoutAttachment(Text@,Code[20]@,Text[250]@):Boolean
+- syntax:
+    content: 'procedure WriteHTMLCustomLayoutAttachment(ContentBodyText: Text, CustomLayoutCode: Code[20])'
+    parameters:
+    - id: ContentBodyText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: CustomLayoutCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: WriteHTMLCustomLayoutAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.WriteHTMLCustomLayoutAttachment(Text,Code[20])
+- syntax:
+    content: 'procedure WriteHTMLCustomLayoutAttachment(ContentBodyText: Text, ReportLayoutName: Text[250])'
+    parameters:
+    - id: ContentBodyText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ReportLayoutName
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: WriteHTMLCustomLayoutAttachment
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.WriteHTMLCustomLayoutAttachment(Text,Text[250])
+- syntax:
+    content: 'procedure IsHTML(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsHTML
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.IsHTML:Boolean
+- syntax:
+    content: 'procedure IsHTMLReady(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsHTMLReady
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.IsHTMLReady:Boolean
+- syntax:
+    content: 'procedure IsHTMLCustomLayout(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsHTMLCustomLayout
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.IsHTMLCustomLayout:Boolean
+- syntax:
+    content: 'procedure GetServerFileName(DiskFileName: Text): Text'
+    parameters:
+    - id: DiskFileName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetServerFileName
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.GetServerFileName(Text):Text
+- syntax:
+    content: 'procedure SetAttachmentFileFromBlob(TempBlob: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: SetAttachmentFileFromBlob
+  uid: M:Table::Microsoft#CRM#Interaction#Attachment.SetAttachmentFileFromBlob(__MissingSymbol__)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.No#
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Attachment File"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Attachment_File
+- type:
+    internalReference: O:Enum::Microsoft#CRM#Interaction#Attachment_Storage_Type
+    name: Microsoft.CRM.Interaction."Attachment Storage Type"
+    isExternal: false
+  name: '"Storage Type"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Storage_Type
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Storage Pointer"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Storage_Pointer[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"File Extension"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.File_Extension[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Read Only"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Read_Only
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Last_Date_Modified
+- type:
+    name: Time
+    isExternal: true
+  name: '"Last Time Modified"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Last_Time_Modified
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Merge Source"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Merge_Source
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Email Message ID"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Email_Message_ID
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Email Entry ID"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Email_Entry_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Email Message Checksum"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Email_Message_Checksum
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Email Message Url"'
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.Email_Message_Url
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#CRM#Interaction#Attachment.SystemRowVersion
+commentId: O:Table::Microsoft#CRM#Interaction#Attachment
+name: Attachment
+uid: O:Table::Microsoft#CRM#Interaction#Attachment

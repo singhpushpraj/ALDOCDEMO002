@@ -1,0 +1,94 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Check.Check
+alId: ID 1401
+namespace: Microsoft.Bank.Check
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Check
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Bank/Check/Check.rdlc
+  promoted: false
+- name: Caption
+  value: Check
+  promoted: false
+- name: Permissions
+  value: TableData "Bank Account" = m
+  promoted: false
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Bank/Check/Check.rdlc
+  promoted: false
+- name: Caption
+  value: Check
+  promoted: false
+- name: Permissions
+  value: TableData "Bank Account" = m
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FormatNoText(var NoText: array[2] of Text[80], No: Decimal, CurrencyCode: Code[10])'
+    parameters:
+    - id: NoText
+      parameterType:
+        name: array[2] of Text[80]
+        isExternal: true
+    - id: "No"
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: FormatNoText
+  uid: M:Report::Microsoft#Bank#Check#Check.FormatNoText(Text[80][]@,Decimal,Code[10])
+- syntax:
+    content: procedure InitTextVariable()
+  name: InitTextVariable
+  uid: M:Report::Microsoft#Bank#Check#Check.InitTextVariable
+- syntax:
+    content: 'procedure InitializeRequest(BankAcc: Code[20], LastCheckNo: Code[20], NewOneCheckPrVend: Boolean, NewReprintChecks: Boolean, NewTestPrint: Boolean, NewPreprintedStub: Boolean)'
+    parameters:
+    - id: BankAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LastCheckNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewOneCheckPrVend
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewReprintChecks
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewTestPrint
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewPreprintedStub
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Bank#Check#Check.InitializeRequest(Code[20],Code[20],Boolean,Boolean,Boolean,Boolean)
+- syntax:
+    content: procedure InputBankAccount()
+  name: InputBankAccount
+  uid: M:Report::Microsoft#Bank#Check#Check.InputBankAccount
+commentId: O:Report::Microsoft#Bank#Check#Check
+name: Check
+uid: O:Report::Microsoft#Bank#Check#Check

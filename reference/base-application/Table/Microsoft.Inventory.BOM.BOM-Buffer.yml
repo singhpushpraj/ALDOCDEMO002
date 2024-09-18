@@ -1,0 +1,709 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.BOM."BOM Buffer"
+alId: ID 5870
+namespace: Microsoft.Inventory.BOM
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.BOM
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: BOM Buffer
+  promoted: false
+- name: DataCaptionFields
+  value: 3,5
+  promoted: false
+- name: Permissions
+  value: ""
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure TransferFromItem(var EntryNo: Integer, Item: Record Item, DemandDate: Date)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: DemandDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: TransferFromItem
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromItem(Integer@,Item,Date)
+- syntax:
+    content: 'procedure TransferFromAsmHeader(var EntryNo: Integer, AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: TransferFromAsmHeader
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromAsmHeader(Integer@,Assembly_Header)
+- syntax:
+    content: 'procedure TransferFromAsmLine(var EntryNo: Integer, AsmLine: Record "Assembly Line")'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AsmLine
+      parameterType:
+        name: Record "Assembly Line"
+        isExternal: true
+  name: TransferFromAsmLine
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromAsmLine(Integer@,Assembly_Line)
+- syntax:
+    content: 'procedure TransferFromBOMComp(var EntryNo: Integer, BOMComp: Record "BOM Component", NewIndentation: Integer, ParentQtyPer: Decimal, ParentScrapQtyPer: Decimal, NeedByDate: Date, ParentLocationCode: Code[10])'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: BOMComp
+      parameterType:
+        name: Record "BOM Component"
+        isExternal: true
+    - id: NewIndentation
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ParentQtyPer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ParentScrapQtyPer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NeedByDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ParentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: TransferFromBOMComp
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromBOMComp(Integer@,BOM_Component,Integer,Decimal,Decimal,Date,Code[10])
+- syntax:
+    content: 'procedure TransferFromProdComp(var EntryNo: Integer, ProdBOMLine: Record "Production BOM Line", NewIndentation: Integer, ParentQtyPer: Decimal, ParentScrapQtyPer: Decimal, ParentScrapPct: Decimal, NeedByDate: Date, ParentLocationCode: Code[10], ParentItem: Record Item, BOMQtyPerUOM: Decimal)'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ProdBOMLine
+      parameterType:
+        name: Record "Production BOM Line"
+        isExternal: true
+    - id: NewIndentation
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ParentQtyPer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ParentScrapQtyPer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ParentScrapPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NeedByDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ParentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ParentItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: BOMQtyPerUOM
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: TransferFromProdComp
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromProdComp(Integer@,Production_BOM_Line,Integer,Decimal,Decimal,Decimal,Date,Code[10],Item,Decimal)
+- syntax:
+    content: 'procedure TransferFromProdOrderLine(var EntryNo: Integer, ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: TransferFromProdOrderLine
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromProdOrderLine(Integer@,Prod#_Order_Line)
+- syntax:
+    content: 'procedure TransferFromProdOrderComp(var EntryNo: Integer, ProdOrderComp: Record "Prod. Order Component")'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ProdOrderComp
+      parameterType:
+        name: Record "Prod. Order Component"
+        isExternal: true
+  name: TransferFromProdOrderComp
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromProdOrderComp(Integer@,Prod#_Order_Component)
+- syntax:
+    content: 'procedure TransferFromProdRouting(var EntryNo: Integer, RoutingLine: Record "Routing Line", NewIndentation: Integer, ParentQtyPer: Decimal, NeedByDate: Date, ParentLocationCode: Code[10])'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RoutingLine
+      parameterType:
+        name: Record "Routing Line"
+        isExternal: true
+    - id: NewIndentation
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ParentQtyPer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NeedByDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ParentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: TransferFromProdRouting
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.TransferFromProdRouting(Integer@,Routing_Line,Integer,Decimal,Date,Code[10])
+- syntax:
+    content: 'procedure InitFromItem(Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: InitFromItem
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.InitFromItem(Item)
+- syntax:
+    content: 'procedure InitFromRes(Resourse: Record Resource)'
+    parameters:
+    - id: Resourse
+      parameterType:
+        name: Record Resource
+        isExternal: true
+  name: InitFromRes
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.InitFromRes(Resource)
+- syntax:
+    content: 'procedure InitFromMachineCenter(MachineCenter: Record "Machine Center")'
+    parameters:
+    - id: MachineCenter
+      parameterType:
+        name: Record "Machine Center"
+        isExternal: true
+  name: InitFromMachineCenter
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.InitFromMachineCenter(Machine_Center)
+- syntax:
+    content: 'procedure InitFromWorkCenter(WorkCenter: Record "Work Center")'
+    parameters:
+    - id: WorkCenter
+      parameterType:
+        name: Record "Work Center"
+        isExternal: true
+  name: InitFromWorkCenter
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.InitFromWorkCenter(Work_Center)
+- syntax:
+    content: 'procedure UpdateAbleToMake(AvailQty: Decimal)'
+    parameters:
+    - id: AvailQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateAbleToMake
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.UpdateAbleToMake(Decimal)
+- syntax:
+    content: 'procedure AddMaterialCost(SingleLvlCostAmt: Decimal, RolledUpCostAmt: Decimal)'
+    parameters:
+    - id: SingleLvlCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RolledUpCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddMaterialCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AddMaterialCost(Decimal,Decimal)
+- syntax:
+    content: 'procedure AddCapacityCost(SingleLvlCostAmt: Decimal, RolledUpCostAmt: Decimal)'
+    parameters:
+    - id: SingleLvlCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RolledUpCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddCapacityCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AddCapacityCost(Decimal,Decimal)
+- syntax:
+    content: 'procedure AddSubcontrdCost(SingleLvlCostAmt: Decimal, RolledUpCostAmt: Decimal)'
+    parameters:
+    - id: SingleLvlCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RolledUpCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddSubcontrdCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AddSubcontrdCost(Decimal,Decimal)
+- syntax:
+    content: 'procedure AddCapOvhdCost(SingleLvlCostAmt: Decimal, RolledUpCostAmt: Decimal)'
+    parameters:
+    - id: SingleLvlCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RolledUpCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddCapOvhdCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AddCapOvhdCost(Decimal,Decimal)
+- syntax:
+    content: 'procedure AddMfgOvhdCost(SingleLvlCostAmt: Decimal, RolledUpCostAmt: Decimal)'
+    parameters:
+    - id: SingleLvlCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RolledUpCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddMfgOvhdCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AddMfgOvhdCost(Decimal,Decimal)
+- syntax:
+    content: 'procedure AddScrapCost(SingleLvlCostAmt: Decimal, RolledUpCostAmt: Decimal)'
+    parameters:
+    - id: SingleLvlCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RolledUpCostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddScrapCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AddScrapCost(Decimal,Decimal)
+- syntax:
+    content: procedure GetItemCosts()
+  name: GetItemCosts
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.GetItemCosts
+- syntax:
+    content: procedure GetResCosts()
+  name: GetResCosts
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.GetResCosts
+- syntax:
+    content: 'procedure RoundCosts(ShareOfTotalCost: Decimal)'
+    parameters:
+    - id: ShareOfTotalCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: RoundCosts
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.RoundCosts(Decimal)
+- syntax:
+    content: procedure CalcOvhdCost()
+  name: CalcOvhdCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.CalcOvhdCost
+- syntax:
+    content: 'procedure CalcDirectCost(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcDirectCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.CalcDirectCost:Decimal
+- syntax:
+    content: 'procedure CalcIndirectCost(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcIndirectCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.CalcIndirectCost:Decimal
+- syntax:
+    content: procedure CalcUnitCost()
+  name: CalcUnitCost
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.CalcUnitCost
+- syntax:
+    content: 'procedure IsLineOk(LogWarning: Boolean, var BOMWarningLog: Record "BOM Warning Log"): Boolean'
+    parameters:
+    - id: LogWarning
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BOMWarningLog
+      parameterType:
+        name: Record "BOM Warning Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsLineOk
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.IsLineOk(Boolean,BOM_Warning_Log@):Boolean
+- syntax:
+    content: 'procedure AreAllLinesOk(var BOMWarningLog: Record "BOM Warning Log"): Boolean'
+    parameters:
+    - id: BOMWarningLog
+      parameterType:
+        name: Record "BOM Warning Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AreAllLinesOk
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.AreAllLinesOk(BOM_Warning_Log@):Boolean
+- syntax:
+    content: 'procedure SetLocationVariantFiltersFrom(var ItemFilter: Record Item)'
+    parameters:
+    - id: ItemFilter
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: SetLocationVariantFiltersFrom
+  uid: M:Table::Microsoft#Inventory#BOM#BOM_Buffer.SetLocationVariantFiltersFrom(Item@)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#BOM#BOM_Type
+    name: Microsoft.Inventory.BOM."BOM Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Unit_of_Measure_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Variant_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Location_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Replenishment_System
+    name: Microsoft.Inventory.Item."Replenishment System"
+    isExternal: false
+  name: '"Replenishment System"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Replenishment_System
+- type:
+    name: Integer
+    isExternal: true
+  name: Indentation
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Indentation
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Is Leaf"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Is_Leaf
+- type:
+    name: Boolean
+    isExternal: true
+  name: Bottleneck
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Bottleneck
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing No."'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Routing_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Production BOM No."'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Production_BOM_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Lot Size"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Lot_Size
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Low-Level Code"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Low-Level_Code
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rounding Precision"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Parent"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Qty#_per_Parent
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Top Item"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Qty#_per_Top_Item
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Able to Make Top Item"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Able_to_Make_Top_Item
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Able to Make Parent"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Able_to_Make_Parent
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Available Quantity"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Available_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Requirement"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Gross_Requirement
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scheduled Receipts"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Scheduled_Receipts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unused Quantity"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Unused_Quantity
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Lead Time Calculation"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Lead_Time_Calculation
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Lead-Time Offset"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Lead-Time_Offset
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Rolled-up Lead-Time Offset"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Lead-Time_Offset
+- type:
+    name: Date
+    isExternal: true
+  name: '"Needed by Date"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Needed_by_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Safety Lead Time"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Safety_Lead_Time
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Indirect Cost %"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Indirect_Cost_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Overhead Rate"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Overhead_Rate
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap %"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Scrap_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap Qty. per Parent"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Scrap_Qty#_per_Parent
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap Qty. per Top Item"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Scrap_Qty#_per_Top_Item
+- type:
+    name: Option
+    isExternal: true
+  name: '"Resource Usage Type"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Resource_Usage_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Material Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Single-Level_Material_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Capacity Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Single-Level_Capacity_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Subcontrd. Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Single-Level_Subcontrd#_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Cap. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Single-Level_Cap#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Mfg. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Single-Level_Mfg#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Scrap Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Single-Level_Scrap_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Material Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Material_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Capacity Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Capacity_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Subcontracted Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Subcontracted_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Capacity Ovhd. Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Capacity_Ovhd#_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Mfg. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Mfg#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Scrap Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Rolled-up_Scrap_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Cost"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Total_Cost
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"BOM Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.BOM_Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per BOM Line"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Qty#_per_BOM_Line
+- type:
+    name: Boolean
+    isExternal: true
+  name: Inventoriable
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Inventoriable
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Quantity_Calculation_Formula
+    name: Microsoft.Foundation.Enums."Quantity Calculation Formula"
+    isExternal: false
+  name: '"Calculation Formula"'
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.Calculation_Formula
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#BOM#BOM_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#BOM#BOM Buffer
+name: '"BOM Buffer"'
+uid: O:Table::Microsoft#Inventory#BOM#BOM_Buffer

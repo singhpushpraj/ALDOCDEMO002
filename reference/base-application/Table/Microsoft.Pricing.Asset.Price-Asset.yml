@@ -1,0 +1,231 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Pricing.Asset."Price Asset"
+alId: ID 7003
+namespace: Microsoft.Pricing.Asset
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Pricing.Asset
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: TableType
+  value: Temporary
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure NewEntry(AssetType: Enum "Price Asset Type", NewLevel: Integer)'
+    parameters:
+    - id: AssetType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+        name: Microsoft.Pricing.Asset."Price Asset Type"
+        isExternal: false
+    - id: NewLevel
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: NewEntry
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.NewEntry(Enum::Microsoft#Pricing#Asset#Price_Asset_Type,Integer)
+- syntax:
+    content: procedure InitAsset()
+  name: InitAsset
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.InitAsset
+- syntax:
+    content: 'procedure IsAssetNoRequired(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAssetNoRequired
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.IsAssetNoRequired:Boolean
+- syntax:
+    content: 'procedure LookupNo(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupNo
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.LookupNo:Boolean
+- syntax:
+    content: 'procedure LookupVariantCode(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupVariantCode
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.LookupVariantCode:Boolean
+- syntax:
+    content: 'procedure LookupUnitofMeasure(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupUnitofMeasure
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.LookupUnitofMeasure:Boolean
+- syntax:
+    content: 'procedure FilterPriceLines(var PriceListLine: Record "Price List Line"): Boolean'
+    parameters:
+    - id: PriceListLine
+      parameterType:
+        name: Record "Price List Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FilterPriceLines
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.FilterPriceLines(Price_List_Line@):Boolean
+- syntax:
+    content: 'procedure PutRelatedAssetsToList(var PriceAssetList: Codeunit "Price Asset List"): Integer'
+    parameters:
+    - id: PriceAssetList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Asset#Price_Asset_List
+        name: Microsoft.Pricing.Asset."Price Asset List"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: PutRelatedAssetsToList
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.PutRelatedAssetsToList(Codeunit::Microsoft#Pricing#Asset#Price_Asset_List@):Integer
+- syntax:
+    content: 'procedure FillFromBuffer(PriceCalculationBuffer: Record "Price Calculation Buffer" temporary)'
+    parameters:
+    - id: PriceCalculationBuffer
+      parameterType:
+        name: Record "Price Calculation Buffer" temporary
+        isExternal: true
+  name: FillFromBuffer
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.FillFromBuffer(Price_Calculation_Buffer)
+- syntax:
+    content: procedure ValidateAssetNo()
+  name: ValidateAssetNo
+  uid: M:Table::Microsoft#Pricing#Asset#Price_Asset.ValidateAssetNo
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Asset#Price_Asset_Type
+    name: Microsoft.Pricing.Asset."Price Asset Type"
+    isExternal: false
+  name: '"Asset Type"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Asset_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Asset No."'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Asset_No#[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Asset ID"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Asset_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: Level
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Level
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Variant_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Unit_of_Measure_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+    name: Microsoft.Pricing.PriceList."Price Type"
+    isExternal: false
+  name: '"Price Type"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Price_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Table Id"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Table_Id
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+    name: Microsoft.Pricing.PriceList."Price Amount Type"
+    isExternal: false
+  name: '"Amount Type"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Amount_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price 2"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Unit_Price_2
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Allow_Invoice_Disc#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Price Includes VAT"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Price_Includes_VAT
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Gr. (Price)"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.VAT_Bus#_Posting_Gr#_(Price)[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Work_Type_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.Description[100]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Pricing#Asset#Price_Asset.SystemRowVersion
+commentId: O:Table::Microsoft#Pricing#Asset#Price Asset
+name: '"Price Asset"'
+uid: O:Table::Microsoft#Pricing#Asset#Price_Asset

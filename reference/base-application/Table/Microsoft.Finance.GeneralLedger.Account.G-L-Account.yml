@@ -1,0 +1,531 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Account."G/L Account"
+alId: ID 15
+namespace: Microsoft.Finance.GeneralLedger.Account
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Account
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: G/L Account
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: DrillDownPageID
+  value: Chart of Accounts
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Finance#GeneralLedger#Account#Chart_of_Accounts
+    name: Microsoft.Finance.GeneralLedger.Account."Chart of Accounts"
+    isExternal: false
+- name: LookupPageID
+  value: G/L Account List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Finance#GeneralLedger#Account#G/L_Account_List
+    name: Microsoft.Finance.GeneralLedger.Account."G/L Account List"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ShowPriceListLines(PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceListLines
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.ShowPriceListLines(Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure SetupNewGLAcc(OldGLAcc: Record "G/L Account", BelowOldGLAcc: Boolean)'
+    parameters:
+    - id: OldGLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    - id: BelowOldGLAcc
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetupNewGLAcc
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SetupNewGLAcc(G/L_Account,Boolean)
+- syntax:
+    content: procedure CheckGLAcc()
+  name: CheckGLAcc
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.CheckGLAcc
+- syntax:
+    content: 'procedure ValidateAccountSubCategory(NewValue: Text[80])'
+    parameters:
+    - id: NewValue
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: ValidateAccountSubCategory
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.ValidateAccountSubCategory(Text[80])
+- syntax:
+    content: procedure LookupAccountSubCategory()
+  name: LookupAccountSubCategory
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.LookupAccountSubCategory
+- syntax:
+    content: 'procedure GetCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.GetCurrencyCode:Code[10]
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure TranslationMethodConflict(var GLAcc: Record "G/L Account"): Boolean'
+    parameters:
+    - id: GLAcc
+      parameterType:
+        name: Record "G/L Account"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TranslationMethodConflict
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.TranslationMethodConflict(G/L_Account@):Boolean
+- syntax:
+    content: procedure CheckGenProdPostingGroup()
+  name: CheckGenProdPostingGroup
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.CheckGenProdPostingGroup
+- syntax:
+    content: 'procedure IsTotaling(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsTotaling
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.IsTotaling:Boolean
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Name[100]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Name"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Search_Name[100]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Account#G/L_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Account."G/L Account Type"
+    isExternal: false
+  name: '"Account Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Global_Dimension_2_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Account#G/L_Account_Category
+    name: Microsoft.Finance.GeneralLedger.Account."G/L Account Category"
+    isExternal: false
+  name: '"Account Category"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Account_Category
+- type:
+    name: Option
+    isExternal: true
+  name: '"Income/Balance"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Income/Balance
+- type:
+    name: Option
+    isExternal: true
+  name: '"Debit/Credit"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Debit/Credit
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. 2"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.No#_2[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Comment
+- type:
+    name: Boolean
+    isExternal: true
+  name: Blocked
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Direct Posting"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Direct_Posting
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Reconciliation Account"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Reconciliation_Account
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"New Page"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.New_Page
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Blank Lines"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.No#_of_Blank_Lines
+- type:
+    name: Integer
+    isExternal: true
+  name: Indentation
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Indentation
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Currency Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Source_Currency_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Account#G/L_Source_Currency_Posting
+    name: Microsoft.Finance.GeneralLedger.Account."G/L Source Currency Posting"
+    isExternal: false
+  name: '"Source Currency Posting"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Source_Currency_Posting
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Source Currency Revaluation"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Source_Currency_Revaluation
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Unrealized Revaluation"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Unrealized_Revaluation
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Last Modified Date Time"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Last_Modified_Date_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Last_Date_Modified
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Date_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Global_Dimension_1_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Global_Dimension_2_Filter[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance at Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Balance_at_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Change"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Net_Change
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budgeted Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Budgeted_Amount
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Totaling
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Totaling[250]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Budget Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Budget_Filter[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Balance
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Balance
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budget at Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Budget_at_Date
+- type:
+    name: Option
+    isExternal: true
+  name: '"Consol. Translation Method"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Consol#_Translation_Method
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Consol. Debit Acc."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Consol#_Debit_Acc#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Consol. Credit Acc."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Consol#_Credit_Acc#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Business Unit Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Business_Unit_Filter[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+    name: Microsoft.Foundation.Enums."General Posting Type"
+    isExternal: false
+  name: '"Gen. Posting Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Gen#_Posting_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Blob
+    isExternal: true
+  name: Picture
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Picture
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Credit_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Automatic Ext. Texts"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Automatic_Ext#_Texts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budgeted Debit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Budgeted_Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budgeted Credit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Budgeted_Credit_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amt."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.VAT_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Additional-Currency Net Change"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Additional-Currency_Net_Change
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Currency Balance at Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Add#-Currency_Balance_at_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Additional-Currency Balance"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Additional-Currency_Balance
+- type:
+    internalReference: O:Enum::Microsoft#Finance#Currency#Exch#_Rate_Adjustment_Type
+    name: Microsoft.Finance.Currency."Exch. Rate Adjustment Type"
+    isExternal: false
+  name: '"Exchange Rate Adjustment"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Exchange_Rate_Adjustment
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Currency Debit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Add#-Currency_Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Currency Credit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Add#-Currency_Credit_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Default IC Partner G/L Acc. No"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Default_IC_Partner_G/L_Acc#_No[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Omit Default Descr. in Jnl."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Omit_Default_Descr#_in_Jnl#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Currency Net Change"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Source_Currency_Net_Change
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Curr. Balance at Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Source_Curr#_Balance_at_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Currency Balance"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Source_Currency_Balance
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Account Subcategory Entry No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Account_Subcategory_Entry_No#
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Account Subcategory Descript."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Account_Subcategory_Descript#[80]
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.VAT_Reporting_Date_Filter
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude From Consolidation"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Exclude_From_Consolidation
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID Filter"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Dimension_Set_ID_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cost Type No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Cost_Type_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Default Deferral Template Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Default_Deferral_Template_Code[10]
+- type:
+    name: Guid
+    isExternal: true
+  name: Id
+  obsoletion:
+    state: removed
+    reason: This functionality will be replaced by the systemID field
+    version: "22.0"
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.Id
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Account#G/L_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Account."G/L Account Type"
+    isExternal: false
+  name: '"API Account Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.API_Account_Type
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#GeneralLedger#Account#G/L Account
+name: '"G/L Account"'
+uid: O:Table::Microsoft#Finance#GeneralLedger#Account#G/L_Account

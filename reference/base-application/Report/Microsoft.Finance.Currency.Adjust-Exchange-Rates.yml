@@ -1,0 +1,181 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Currency."Adjust Exchange Rates"
+alId: ID 595
+namespace: Microsoft.Finance.Currency
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Currency
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: Adjust Exchange Rates
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rimd,
+                      TableData "Vendor Ledger Entry" = rimd,
+                      TableData "Employee Ledger Entry" = rimd,
+                      TableData "Exch. Rate Adjmt. Reg." = rimd,
+                      TableData "VAT Entry" = rimd,
+                      TableData "Detailed Cust. Ledg. Entry" = rimd,
+                      TableData "Detailed Vendor Ledg. Entry" = rimd,
+                      TableData "Detailed Employee Ledger Entry" = rimd
+  promoted: false
+- name: ProcessingOnly
+  value: "True"
+  promoted: false
+- name: UsageCategory
+  value: Tasks
+  promoted: false
+- name: ObsoleteReason
+  value: Replaced by new report 596 "Exch. Rate Adjustment"
+  promoted: false
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "20.0"
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: Adjust Exchange Rates
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = rimd,
+                      TableData "Vendor Ledger Entry" = rimd,
+                      TableData "Employee Ledger Entry" = rimd,
+                      TableData "Exch. Rate Adjmt. Reg." = rimd,
+                      TableData "VAT Entry" = rimd,
+                      TableData "Detailed Cust. Ledg. Entry" = rimd,
+                      TableData "Detailed Vendor Ledg. Entry" = rimd,
+                      TableData "Detailed Employee Ledger Entry" = rimd
+  promoted: false
+- name: ProcessingOnly
+  value: "True"
+  promoted: false
+- name: UsageCategory
+  value: Tasks
+  promoted: false
+- name: ObsoleteReason
+  value: Replaced by new report 596 "Exch. Rate Adjustment"
+  promoted: false
+- name: ObsoleteState
+  value: Pending
+  promoted: false
+- name: ObsoleteTag
+  value: "20.0"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitializeRequest(NewStartDate: Date, NewEndDate: Date, NewPostingDescription: Text[100], NewPostingDate: Date)'
+    parameters:
+    - id: NewStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostingDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates.InitializeRequest(Date,Date,Text[100],Date)
+- syntax:
+    content: 'procedure InitializeRequest2(NewStartDate: Date, NewEndDate: Date, NewPostingDescription: Text[100], NewPostingDate: Date, NewPostingDocNo: Code[20], NewAdjCustVendBank: Boolean, NewAdjGLAcc: Boolean)'
+    parameters:
+    - id: NewStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostingDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostingDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewAdjCustVendBank
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewAdjGLAcc
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest2
+  uid: M:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates.InitializeRequest2(Date,Date,Text[100],Date,Code[20],Boolean,Boolean)
+- syntax:
+    content: procedure CheckPostingDate()
+  name: CheckPostingDate
+  uid: M:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates.CheckPostingDate
+- syntax:
+    content: 'procedure AdjustCustomerLedgerEntry(CustLedgerEntry: Record "Cust. Ledger Entry", PostingDate2: Date)'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: PostingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AdjustCustomerLedgerEntry
+  uid: M:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates.AdjustCustomerLedgerEntry(Cust#_Ledger_Entry,Date)
+- syntax:
+    content: 'procedure AdjustVendorLedgerEntry(VendLedgerEntry: Record "Vendor Ledger Entry", PostingDate2: Date)'
+    parameters:
+    - id: VendLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: PostingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AdjustVendorLedgerEntry
+  uid: M:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates.AdjustVendorLedgerEntry(Vendor_Ledger_Entry,Date)
+- syntax:
+    content: 'procedure AdjustEmployeeLedgerEntry(EmplLedgerEntry: Record "Employee Ledger Entry", PostingDate2: Date)'
+    parameters:
+    - id: EmplLedgerEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+    - id: PostingDate2
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AdjustEmployeeLedgerEntry
+  uid: M:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates.AdjustEmployeeLedgerEntry(Employee_Ledger_Entry,Date)
+commentId: O:Report::Microsoft#Finance#Currency#Adjust Exchange Rates
+name: '"Adjust Exchange Rates"'
+obsoletion:
+  state: pending
+  reason: Replaced by new report 596 "Exch. Rate Adjustment"
+  version: "20.0"
+uid: O:Report::Microsoft#Finance#Currency#Adjust_Exchange_Rates

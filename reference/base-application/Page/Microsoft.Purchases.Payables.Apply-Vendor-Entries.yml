@@ -1,0 +1,171 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Payables."Apply Vendor Entries"
+alId: ID 233
+namespace: Microsoft.Purchases.Payables
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Payables
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Purchases#Payables#Vendor_Ledger_Entry
+  name: Microsoft.Purchases.Payables."Vendor Ledger Entry"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Apply Vendor Entries
+  promoted: false
+- name: DataCaptionFields
+  value: "3"
+  promoted: false
+- name: DeleteAllowed
+  value: "False"
+  promoted: false
+- name: InsertAllowed
+  value: "False"
+  promoted: false
+- name: LinksAllowed
+  value: "False"
+  promoted: false
+- name: PageType
+  value: Worksheet
+  promoted: true
+- name: SourceTable
+  value: "25"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Payables#Vendor_Ledger_Entry
+    name: Microsoft.Purchases.Payables."Vendor Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetGenJnlLine(NewGenJnlLine: Record "Gen. Journal Line", ApplnTypeSelect: Integer)'
+    parameters:
+    - id: NewGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ApplnTypeSelect
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetGenJnlLine
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetGenJnlLine(Gen#_Journal_Line,Integer)
+- syntax:
+    content: 'procedure SetPurch(NewPurchHeader: Record "Purchase Header", var NewVendLedgEntry: Record "Vendor Ledger Entry", ApplnTypeSelect: Integer)'
+    parameters:
+    - id: NewPurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: NewVendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: ApplnTypeSelect
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetPurch
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetPurch(Purchase_Header,Vendor_Ledger_Entry@,Integer)
+- syntax:
+    content: 'procedure SetVendLedgEntry(NewVendLedgEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: NewVendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: SetVendLedgEntry
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetVendLedgEntry(Vendor_Ledger_Entry)
+- syntax:
+    content: procedure SetApplyingVendLedgEntry()
+  name: SetApplyingVendLedgEntry
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetApplyingVendLedgEntry
+- syntax:
+    content: 'procedure SetVendApplId(CurrentRec: Boolean)'
+    parameters:
+    - id: CurrentRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetVendApplId
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetVendApplId(Boolean)
+- syntax:
+    content: 'procedure CheckVendLedgEntry(var VendorLedgerEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: CheckVendLedgEntry
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.CheckVendLedgEntry(Vendor_Ledger_Entry@)
+- syntax:
+    content: procedure CalcApplnAmount()
+  name: CalcApplnAmount
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.CalcApplnAmount
+- syntax:
+    content: procedure CheckRounding()
+  name: CheckRounding
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.CheckRounding
+- syntax:
+    content: 'procedure GetVendLedgEntry(var VendLedgEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: GetVendLedgEntry
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.GetVendLedgEntry(Vendor_Ledger_Entry@)
+- syntax:
+    content: 'procedure SetAppliesToID(AppliesToID2: Code[50])'
+    parameters:
+    - id: AppliesToID2
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetAppliesToID
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetAppliesToID(Code[50])
+- syntax:
+    content: 'procedure CalcOppositeEntriesAmount(var TempAppliedVendorLedgerEntry: Record "Vendor Ledger Entry" temporary): Decimal'
+    parameters:
+    - id: TempAppliedVendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOppositeEntriesAmount
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.CalcOppositeEntriesAmount(Vendor_Ledger_Entry@):Decimal
+- syntax:
+    content: 'procedure GetApplnCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetApplnCurrencyCode
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.GetApplnCurrencyCode:Code[10]
+- syntax:
+    content: 'procedure GetCalcType(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCalcType
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.GetCalcType:Integer
+- syntax:
+    content: 'procedure SetCalcType(NewCalcType: Enum "Vendor Apply Calculation Type")'
+    parameters:
+    - id: NewCalcType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Purchases#Payables#Vendor_Apply_Calculation_Type
+        name: Microsoft.Purchases.Payables."Vendor Apply Calculation Type"
+        isExternal: false
+  name: SetCalcType
+  uid: M:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries.SetCalcType(Enum::Microsoft#Purchases#Payables#Vendor_Apply_Calculation_Type)
+commentId: O:Page::Microsoft#Purchases#Payables#Apply Vendor Entries
+name: '"Apply Vendor Entries"'
+uid: O:Page::Microsoft#Purchases#Payables#Apply_Vendor_Entries

@@ -1,0 +1,64 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Order"
+alId: ID 42
+namespace: Microsoft.Sales.Document
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+  name: Microsoft.Sales.Document."Sales Header"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Sales Order
+  promoted: false
+- name: PageType
+  value: Document
+  promoted: true
+- name: RefreshOnActivate
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "36"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+- name: SourceTableView
+  value: where("Document Type" = filter(Order))
+  promoted: false
+- name: AdditionalSearchTerms
+  value: Sales Commitment, Sale Order, Client Order
+  promoted: false
+- name: AboutTitle
+  value: About sales order details
+  promoted: false
+- name: AboutText
+  value: Choose the order details and fill in order lines with quantities of what you are selling. Post the order when you are ready to ship or invoice. This creates posted sales shipments and posted sales invoices.
+  promoted: false
+methods:
+- syntax:
+    content: procedure RunBackgroundCheck()
+  name: RunBackgroundCheck
+  uid: M:Page::Microsoft#Sales#Document#Sales_Order.RunBackgroundCheck
+- syntax:
+    content: procedure UpdateShipToBillToGroupVisibility()
+  name: UpdateShipToBillToGroupVisibility
+  uid: M:Page::Microsoft#Sales#Document#Sales_Order.UpdateShipToBillToGroupVisibility
+- syntax:
+    content: procedure SetPostingGroupEditable()
+  name: SetPostingGroupEditable
+  uid: M:Page::Microsoft#Sales#Document#Sales_Order.SetPostingGroupEditable
+- syntax:
+    content: procedure CheckNotificationsOnce()
+  name: CheckNotificationsOnce
+  uid: M:Page::Microsoft#Sales#Document#Sales_Order.CheckNotificationsOnce
+commentId: O:Page::Microsoft#Sales#Document#Sales Order
+name: '"Sales Order"'
+uid: O:Page::Microsoft#Sales#Document#Sales_Order

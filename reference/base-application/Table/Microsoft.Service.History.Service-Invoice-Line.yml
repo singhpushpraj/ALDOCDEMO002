@@ -1,0 +1,669 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.History."Service Invoice Line"
+alId: ID 5993
+namespace: Microsoft.Service.History
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.History
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Service Invoice Line
+  promoted: false
+- name: DrillDownPageID
+  value: Posted Service Invoice Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#History#Posted_Service_Invoice_Lines
+    name: Microsoft.Service.History."Posted Service Invoice Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Posted Service Invoice Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#History#Posted_Service_Invoice_Lines
+    name: Microsoft.Service.History."Posted Service Invoice Lines"
+    isExternal: false
+- name: PasteIsValid
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure ShowItemTrackingLines()
+  name: ShowItemTrackingLines
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.ShowItemTrackingLines
+- syntax:
+    content: 'procedure CalcVATAmountLines(ServInvHeader: Record "Service Invoice Header", var TempVATAmountLine: Record "VAT Amount Line" temporary)'
+    parameters:
+    - id: ServInvHeader
+      parameterType:
+        name: Record "Service Invoice Header"
+        isExternal: true
+    - id: TempVATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.CalcVATAmountLines(Service_Invoice_Header,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.RowID1:Text[250]
+- syntax:
+    content: 'procedure GetCaptionClass(FieldNumber: Integer): Text[80]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.GetCaptionClass(Integer):Text[80]
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.ShowDimensions
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure GetCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCode
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.GetCurrencyCode:Code[10]
+- syntax:
+    content: 'procedure FilterPstdDocLineValueEntries(var ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: FilterPstdDocLineValueEntries
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.FilterPstdDocLineValueEntries(Value_Entry@)
+- syntax:
+    content: procedure ShowItemShipmentLines()
+  name: ShowItemShipmentLines
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.ShowItemShipmentLines
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Service#History#Service_Invoice_Line.SetSecurityFilterOnRespCenter
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Line_Type
+    name: Microsoft.Service.Document."Service Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Posting_Group[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Description_2[50]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount Amount"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Including VAT"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Amount_Including_VAT
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Allow_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Unit_Volume
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Appl#-to_Item_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Customer_Price_Group[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Work_Type_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipment No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Shipment_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Shipment Line No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Shipment_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Order_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Bill-to_Customer_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discount Amount"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Inv#_Discount_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Calculation_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Transport_Method[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Attached_to_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Exit_Point[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Transaction_Specification[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Clause Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Clause_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Base_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.System-Created_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Difference
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Identifier"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.VAT_Identifier[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discount Amount"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Pmt#_Discount_Amount
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Dimension_Set_ID
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Quantity_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Responsibility_Center[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Substitution Available"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Substitution_Available
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Product_Group_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Service Item No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Service_Item_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Service Entry"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Appl#-to_Service_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Service Item Line No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Service_Item_Line_No#
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Service Item Serial No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Service_Item_Serial_No#[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Service Item Line Description"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Service_Item_Line_Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Serv. Price Adjmt. Gr. Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Serv#_Price_Adjmt#_Gr#_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Posting_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Needed by Date"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Needed_by_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Ship-to_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Consumed"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Quantity_Consumed
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Consumed (Base)"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Qty#_Consumed_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Price Group Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Service_Price_Group_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Area Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Fault_Area_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Symptom Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Symptom_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Fault_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Resolution Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Resolution_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude Warranty"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Exclude_Warranty
+- type:
+    name: Boolean
+    isExternal: true
+  name: Warranty
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Warranty
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Contract No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Contract_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract Disc. %"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Contract_Disc#_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Warranty Disc. %"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Warranty_Disc#_%
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Component Line No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Component_Line_No#
+- type:
+    name: Option
+    isExternal: true
+  name: '"Spare Part Action"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Spare_Part_Action
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Reason Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Fault_Reason_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Replaced Item No."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Replaced_Item_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude Contract Discount"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Exclude_Contract_Discount
+- type:
+    name: Option
+    isExternal: true
+  name: '"Replaced Item Type"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Replaced_Item_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Price Adjmt. Status"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Price_Adjmt#_Status
+- type:
+    name: Option
+    isExternal: true
+  name: '"Line Discount Type"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Line_Discount_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Copy Components From"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Copy_Components_From
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Return_Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Allow_Line_Disc#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.Customer_Disc#_Group[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Service#History#Service_Invoice_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Service#History#Service Invoice Line
+name: '"Service Invoice Line"'
+uid: O:Table::Microsoft#Service#History#Service_Invoice_Line

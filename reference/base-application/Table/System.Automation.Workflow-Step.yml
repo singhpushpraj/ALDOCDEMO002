@@ -1,0 +1,269 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Workflow Step"
+alId: ID 1502
+namespace: System.Automation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Workflow Step
+  promoted: false
+- name: LookupPageID
+  value: Workflow Steps
+  promoted: false
+  xrefType:
+    internalReference: O:Page::System#Automation#Workflow_Steps
+    name: System.Automation."Workflow Steps"
+    isExternal: false
+- name: Permissions
+  value: >-
+    tabledata "Workflow Step" = r,
+                      TableData "Workflow Step Instance" = rimd,
+                      TableData "Workflow Step Argument" = ri,
+                      TableData "Workflow Rule" = rimd
+  promoted: false
+- name: ReplicateData
+  value: "True"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateInstance(WorkflowInstanceID: Guid, WorkflowCode: Code[20], PreviousWorkflowStepID: Integer, SubWorkflowStep: Record "Workflow Step")'
+    parameters:
+    - id: WorkflowInstanceID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: WorkflowCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PreviousWorkflowStepID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SubWorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+  name: CreateInstance
+  uid: M:Table::System#Automation#Workflow_Step.CreateInstance(Guid,Code[20],Integer,Workflow_Step)
+- syntax:
+    content: 'procedure ConvertEventConditionsToFilters(RecRef: RecordRef)'
+    parameters:
+    - id: RecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: ConvertEventConditionsToFilters
+  uid: M:Table::System#Automation#Workflow_Step.ConvertEventConditionsToFilters(RecordRef)
+- syntax:
+    content: procedure DeleteEventConditions()
+  name: DeleteEventConditions
+  uid: M:Table::System#Automation#Workflow_Step.DeleteEventConditions
+- syntax:
+    content: procedure OpenAdvancedEventConditions()
+  name: OpenAdvancedEventConditions
+  uid: M:Table::System#Automation#Workflow_Step.OpenAdvancedEventConditions
+- syntax:
+    content: 'procedure CompareEventRule(WorkflowStep: Record "Workflow Step"): Boolean'
+    parameters:
+    - id: WorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CompareEventRule
+  uid: M:Table::System#Automation#Workflow_Step.CompareEventRule(Workflow_Step):Boolean
+- syntax:
+    content: 'procedure InsertAfterStep(var NewWorkflowStep: Record "Workflow Step")'
+    parameters:
+    - id: NewWorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+  name: InsertAfterStep
+  uid: M:Table::System#Automation#Workflow_Step.InsertAfterStep(Workflow_Step@)
+- syntax:
+    content: 'procedure GetDescription(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDescription
+  uid: M:Table::System#Automation#Workflow_Step.GetDescription:Text[250]
+- syntax:
+    content: 'procedure ToString(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: ToString
+  uid: M:Table::System#Automation#Workflow_Step.ToString:Text
+- syntax:
+    content: 'procedure FindByAttributes(WorkflowStepAttributes: Text)'
+    parameters:
+    - id: WorkflowStepAttributes
+      parameterType:
+        name: Text
+        isExternal: true
+  name: FindByAttributes
+  uid: M:Table::System#Automation#Workflow_Step.FindByAttributes(Text)
+- syntax:
+    content: 'procedure GetRuleAsDisplayText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetRuleAsDisplayText
+  uid: M:Table::System#Automation#Workflow_Step.GetRuleAsDisplayText:Text
+- syntax:
+    content: 'procedure HasEventsInSubtree(var ChildWorkflowStep: Record "Workflow Step"): Boolean'
+    parameters:
+    - id: ChildWorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasEventsInSubtree
+  uid: M:Table::System#Automation#Workflow_Step.HasEventsInSubtree(Workflow_Step@):Boolean
+- syntax:
+    content: 'procedure FindWorkflowRules(var WorkflowRule: Record "Workflow Rule"): Boolean'
+    parameters:
+    - id: WorkflowRule
+      parameterType:
+        name: Record "Workflow Rule"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindWorkflowRules
+  uid: M:Table::System#Automation#Workflow_Step.FindWorkflowRules(Workflow_Rule@):Boolean
+- syntax:
+    content: 'procedure HasWorkflowRules(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasWorkflowRules
+  uid: M:Table::System#Automation#Workflow_Step.HasWorkflowRules:Boolean
+- syntax:
+    content: 'procedure SetFilters(var WorkflowRule: Record "Workflow Rule")'
+    parameters:
+    - id: WorkflowRule
+      parameterType:
+        name: Record "Workflow Rule"
+        isExternal: true
+  name: SetFilters
+  uid: M:Table::System#Automation#Workflow_Step.SetFilters(Workflow_Rule@)
+- syntax:
+    content: 'procedure HasParentEvent(var WorkflowStep: Record "Workflow Step"): Boolean'
+    parameters:
+    - id: WorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasParentEvent
+  uid: M:Table::System#Automation#Workflow_Step.HasParentEvent(Workflow_Step@):Boolean
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: ID
+  uid: F:Table::System#Automation#Workflow_Step.ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Workflow Code"'
+  uid: F:Table::System#Automation#Workflow_Step.Workflow_Code[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::System#Automation#Workflow_Step.Description[100]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Entry Point"'
+  uid: F:Table::System#Automation#Workflow_Step.Entry_Point
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Previous Workflow Step ID"'
+  uid: F:Table::System#Automation#Workflow_Step.Previous_Workflow_Step_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Next Workflow Step ID"'
+  uid: F:Table::System#Automation#Workflow_Step.Next_Workflow_Step_ID
+- type:
+    name: Option
+    isExternal: true
+  name: Type
+  uid: F:Table::System#Automation#Workflow_Step.Type
+- type:
+    name: Code[128]
+    isExternal: true
+  name: '"Function Name"'
+  uid: F:Table::System#Automation#Workflow_Step.Function_Name[128]
+- type:
+    name: Guid
+    isExternal: true
+  name: Argument
+  uid: F:Table::System#Automation#Workflow_Step.Argument
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sequence No."'
+  uid: F:Table::System#Automation#Workflow_Step.Sequence_No#
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::System#Automation#Workflow_Step.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::System#Automation#Workflow_Step.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::System#Automation#Workflow_Step.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::System#Automation#Workflow_Step.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::System#Automation#Workflow_Step.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::System#Automation#Workflow_Step.SystemRowVersion
+commentId: O:Table::System#Automation#Workflow Step
+name: '"Workflow Step"'
+uid: O:Table::System#Automation#Workflow_Step

@@ -1,0 +1,449 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.FixedAssets.Depreciation."FA Depreciation Book"
+alId: ID 5612
+namespace: Microsoft.FixedAssets.Depreciation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.FixedAssets.Depreciation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: FA Depreciation Book
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "FA Ledger Entry" = r,
+                      TableData "Maintenance Ledger Entry" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure CalcDeprPeriod()
+  name: CalcDeprPeriod
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.CalcDeprPeriod
+- syntax:
+    content: 'procedure CalcEndingDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcEndingDate
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.CalcEndingDate:Date
+- syntax:
+    content: 'procedure GetExchangeRate(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetExchangeRate
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.GetExchangeRate:Decimal
+- syntax:
+    content: 'procedure Caption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Caption:Text
+- syntax:
+    content: procedure DrillDownOnBookValue()
+  name: DrillDownOnBookValue
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.DrillDownOnBookValue
+- syntax:
+    content: procedure ShowBookValueAfterDisposal()
+  name: ShowBookValueAfterDisposal
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.ShowBookValueAfterDisposal
+- syntax:
+    content: procedure CalcBookValue()
+  name: CalcBookValue
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.CalcBookValue
+- syntax:
+    content: 'procedure SetBookValueFiltersOnFALedgerEntry(var FALedgerEntry: Record "FA Ledger Entry")'
+    parameters:
+    - id: FALedgerEntry
+      parameterType:
+        name: Record "FA Ledger Entry"
+        isExternal: true
+  name: SetBookValueFiltersOnFALedgerEntry
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SetBookValueFiltersOnFALedgerEntry(FA_Ledger_Entry@)
+- syntax:
+    content: 'procedure LineIsReadyForAcquisition(FANo: Code[20]): Boolean'
+    parameters:
+    - id: FANo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LineIsReadyForAcquisition
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.LineIsReadyForAcquisition(Code[20]):Boolean
+- syntax:
+    content: 'procedure RecIsReadyForAcquisition(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RecIsReadyForAcquisition
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.RecIsReadyForAcquisition:Boolean
+- syntax:
+    content: procedure UpdateBookValue()
+  name: UpdateBookValue
+  uid: M:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.UpdateBookValue
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"FA No."'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.FA_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciation_Book_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Method
+    name: Microsoft.FixedAssets.Depreciation."FA Depreciation Method"
+    isExternal: false
+  name: '"Depreciation Method"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciation_Method
+- type:
+    name: Date
+    isExternal: true
+  name: '"Depreciation Starting Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciation_Starting_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Straight-Line %"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Straight-Line_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"No. of Depreciation Years"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.No#_of_Depreciation_Years
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"No. of Depreciation Months"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.No#_of_Depreciation_Months
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Fixed Depr. Amount"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Fixed_Depr#_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Declining-Balance %"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Declining-Balance_%
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Table Code"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciation_Table_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Final Rounding Amount"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Final_Rounding_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Ending Book Value"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Ending_Book_Value
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"FA Posting Group"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.FA_Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Depreciation Ending Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciation_Ending_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Acquisition Cost"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Acquisition_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: Depreciation
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Book Value"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Book_Value
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Proceeds on Disposal"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Proceeds_on_Disposal
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gain/Loss"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Gain/Loss
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Write-Down"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Write-Down
+- type:
+    name: Decimal
+    isExternal: true
+  name: Appreciation
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Appreciation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Custom 1"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Custom_1
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Custom 2"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Custom_2
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Depreciable Basis"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depreciable_Basis
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Salvage Value"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Salvage_Value
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Book Value on Disposal"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Book_Value_on_Disposal
+- type:
+    name: Decimal
+    isExternal: true
+  name: Maintenance
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Maintenance
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Maintenance Code Filter"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Maintenance_Code_Filter[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date Filter"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.FA_Posting_Date_Filter
+- type:
+    name: Date
+    isExternal: true
+  name: '"Acquisition Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Acquisition_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"G/L Acquisition Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.G/L_Acquisition_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Disposal Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Disposal_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Acquisition Cost Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Acquisition_Cost_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Depreciation Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Depreciation_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Write-Down Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Write-Down_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Appreciation Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Appreciation_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Custom 1 Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Custom_1_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Custom 2 Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Custom_2_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Salvage Value Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Salvage_Value_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"FA Exchange Rate"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.FA_Exchange_Rate
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Fixed Depr. Amount below Zero"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Fixed_Depr#_Amount_below_Zero
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Date_Modified
+- type:
+    name: Date
+    isExternal: true
+  name: '"First User-Defined Depr. Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.First_User-Defined_Depr#_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use FA Ledger Check"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Use_FA_Ledger_Check
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Maintenance Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Last_Maintenance_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Depr. below Zero %"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depr#_below_Zero_%
+- type:
+    name: Date
+    isExternal: true
+  name: '"Projected Disposal Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Projected_Disposal_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Projected Proceeds on Disposal"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Projected_Proceeds_on_Disposal
+- type:
+    name: Date
+    isExternal: true
+  name: '"Depr. Starting Date (Custom 1)"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depr#_Starting_Date_(Custom_1)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Depr. Ending Date (Custom 1)"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depr#_Ending_Date_(Custom_1)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Accum. Depr. % (Custom 1)"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Accum#_Depr#_%_(Custom_1)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Depr. This Year % (Custom 1)"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Depr#_This_Year_%_(Custom_1)
+- type:
+    name: Option
+    isExternal: true
+  name: '"Property Class (Custom 1)"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Property_Class_(Custom_1)
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Description[100]
+- type:
+    internalReference: O:Enum::Microsoft#FixedAssets#FixedAsset#FA_Component_Type
+    name: Microsoft.FixedAssets.FixedAsset."FA Component Type"
+    isExternal: false
+  name: '"Main Asset/Component"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Main_Asset/Component
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Component of Main Asset"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Component_of_Main_Asset[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"FA Add.-Currency Factor"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.FA_Add#-Currency_Factor
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Half-Year Convention"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Use_Half-Year_Convention
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use DB% First Fiscal Year"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Use_DB%_First_Fiscal_Year
+- type:
+    name: Date
+    isExternal: true
+  name: '"Temp. Ending Date"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Temp#_Ending_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Temp. Fixed Depr. Amount"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Temp#_Fixed_Depr#_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Ignore Def. Ending Book Value"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Ignore_Def#_Ending_Book_Value
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Default FA Depreciation Book"'
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.Default_FA_Depreciation_Book
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book.SystemRowVersion
+commentId: O:Table::Microsoft#FixedAssets#Depreciation#FA Depreciation Book
+name: '"FA Depreciation Book"'
+uid: O:Table::Microsoft#FixedAssets#Depreciation#FA_Depreciation_Book

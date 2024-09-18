@@ -1,0 +1,238 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Automation."Workflow Step Buffer"
+alId: ID 1507
+namespace: System.Automation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::System.Automation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Workflow Step Buffer
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure OpenEventResponses()
+  name: OpenEventResponses
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.OpenEventResponses
+- syntax:
+    content: 'procedure PopulateTableFromEvent(WorkflowCode: Code[20], WorkflowEventID: Integer)'
+    parameters:
+    - id: WorkflowCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: WorkflowEventID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PopulateTableFromEvent
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.PopulateTableFromEvent(Code[20],Integer)
+- syntax:
+    content: procedure ClearBuffer()
+  name: ClearBuffer
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.ClearBuffer
+- syntax:
+    content: procedure UpdateResponseDescriptionStyle()
+  name: UpdateResponseDescriptionStyle
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.UpdateResponseDescriptionStyle
+- syntax:
+    content: 'procedure CalculateNewKey(BelowxRec: Boolean)'
+    parameters:
+    - id: BelowxRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalculateNewKey
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.CalculateNewKey(Boolean)
+- syntax:
+    content: 'procedure CreateNewWhenThenLine(WorkflowCode: Code[20], BelowxRec: Boolean)'
+    parameters:
+    - id: WorkflowCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BelowxRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CreateNewWhenThenLine
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.CreateNewWhenThenLine(Code[20],Boolean)
+- syntax:
+    content: 'procedure SetxRec(TempWorkflowStepBuffer: Record "Workflow Step Buffer" temporary)'
+    parameters:
+    - id: TempWorkflowStepBuffer
+      parameterType:
+        name: Record "Workflow Step Buffer" temporary
+        isExternal: true
+  name: SetxRec
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.SetxRec(Workflow_Step_Buffer)
+- syntax:
+    content: procedure MoveLeft()
+  name: MoveLeft
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.MoveLeft
+- syntax:
+    content: procedure MoveRight()
+  name: MoveRight
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.MoveRight
+- syntax:
+    content: procedure UpdateNextStepDescription()
+  name: UpdateNextStepDescription
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.UpdateNextStepDescription
+- syntax:
+    content: 'procedure GetWorkflowStep(var WorkflowStep: Record "Workflow Step"): Boolean'
+    parameters:
+    - id: WorkflowStep
+      parameterType:
+        name: Record "Workflow Step"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetWorkflowStep
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.GetWorkflowStep(Workflow_Step@):Boolean
+- syntax:
+    content: 'procedure ResponseDescriptionLookup(ResponseFilter: Text, var WorkflowResponse: Record "Workflow Response"): Boolean'
+    parameters:
+    - id: ResponseFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: WorkflowResponse
+      parameterType:
+        name: Record "Workflow Response"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ResponseDescriptionLookup
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.ResponseDescriptionLookup(Text,Workflow_Response@):Boolean
+- syntax:
+    content: procedure UpdateRecFromWorkflowStep()
+  name: UpdateRecFromWorkflowStep
+  uid: M:Table::System#Automation#Workflow_Step_Buffer.UpdateRecFromWorkflowStep
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: Order
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Order
+- type:
+    name: Integer
+    isExternal: true
+  name: Indent
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Indent
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Event Description"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Event_Description[250]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Condition
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Condition[100]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Response Description"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Response_Description[250]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Event Step ID"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Event_Step_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Response Step ID"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Response_Step_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Workflow Code"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Workflow_Code[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Parent Event Step ID"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Parent_Event_Step_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Previous Workflow Step ID"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Previous_Workflow_Step_ID
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Response Description Style"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Response_Description_Style[30]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Entry Point"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Entry_Point
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sequence No."'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Sequence_No#
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Next Step Description"'
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Next_Step_Description[250]
+- type:
+    name: Guid
+    isExternal: true
+  name: Argument
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Argument
+- type:
+    name: Boolean
+    isExternal: true
+  name: Template
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.Template
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::System#Automation#Workflow_Step_Buffer.SystemRowVersion
+commentId: O:Table::System#Automation#Workflow Step Buffer
+name: '"Workflow Step Buffer"'
+uid: O:Table::System#Automation#Workflow_Step_Buffer

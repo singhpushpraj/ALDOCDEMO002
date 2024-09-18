@@ -1,0 +1,553 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Location.Location
+alId: ID 14
+namespace: Microsoft.Inventory.Location
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Location
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Location
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: DrillDownPageID
+  value: Location List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Location#Location_List
+    name: Microsoft.Inventory.Location."Location List"
+    isExternal: false
+- name: LookupPageID
+  value: Location List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Location#Location_List
+    name: Microsoft.Inventory.Location."Location List"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure RequireShipment(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RequireShipment
+  uid: M:Table::Microsoft#Inventory#Location#Location.RequireShipment(Code[10]):Boolean
+- syntax:
+    content: 'procedure RequirePicking(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RequirePicking
+  uid: M:Table::Microsoft#Inventory#Location#Location.RequirePicking(Code[10]):Boolean
+- syntax:
+    content: 'procedure RequireReceive(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RequireReceive
+  uid: M:Table::Microsoft#Inventory#Location#Location.RequireReceive(Code[10]):Boolean
+- syntax:
+    content: 'procedure RequirePutaway(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RequirePutaway
+  uid: M:Table::Microsoft#Inventory#Location#Location.RequirePutaway(Code[10]):Boolean
+- syntax:
+    content: 'procedure BinMandatory(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BinMandatory
+  uid: M:Table::Microsoft#Inventory#Location#Location.BinMandatory(Code[10]):Boolean
+- syntax:
+    content: 'procedure GetLocationSetup(LocationCode: Code[10], var Location2: Record Location): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Location2
+      parameterType:
+        name: Record Location
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetLocationSetup
+  uid: M:Table::Microsoft#Inventory#Location#Location.GetLocationSetup(Code[10],Location@):Boolean
+- syntax:
+    content: 'procedure CheckEmptyBin(LocationCode: Code[10], BinCode: Code[20], CaptionOfField: Text[30])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CaptionOfField
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CheckEmptyBin
+  uid: M:Table::Microsoft#Inventory#Location#Location.CheckEmptyBin(Code[10],Code[20],Text[30])
+- syntax:
+    content: 'procedure GetRequirementText(FieldNumber: Integer): Text[50]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetRequirementText
+  uid: M:Table::Microsoft#Inventory#Location#Location.GetRequirementText(Integer):Text[50]
+- syntax:
+    content: procedure DisplayMap()
+  name: DisplayMap
+  uid: M:Table::Microsoft#Inventory#Location#Location.DisplayMap
+- syntax:
+    content: 'procedure IsBWReceive(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBWReceive
+  uid: M:Table::Microsoft#Inventory#Location#Location.IsBWReceive:Boolean
+- syntax:
+    content: 'procedure IsBWShip(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBWShip
+  uid: M:Table::Microsoft#Inventory#Location#Location.IsBWShip:Boolean
+- syntax:
+    content: 'procedure IsBinBWReceiveOrShip(BinCode: Code[20]): Boolean'
+    parameters:
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBinBWReceiveOrShip
+  uid: M:Table::Microsoft#Inventory#Location#Location.IsBinBWReceiveOrShip(Code[20]):Boolean
+- syntax:
+    content: 'procedure IsInTransit(LocationCode: Code[10]): Boolean'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInTransit
+  uid: M:Table::Microsoft#Inventory#Location#Location.IsInTransit(Code[10]):Boolean
+- syntax:
+    content: 'procedure GetLocationsIncludingUnspecifiedLocation(IncludeOnlyUnspecifiedLocation: Boolean, ExcludeInTransitLocations: Boolean)'
+    parameters:
+    - id: IncludeOnlyUnspecifiedLocation
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExcludeInTransitLocations
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetLocationsIncludingUnspecifiedLocation
+  uid: M:Table::Microsoft#Inventory#Location#Location.GetLocationsIncludingUnspecifiedLocation(Boolean,Boolean)
+- syntax:
+    content: 'procedure PickAccordingToFEFO(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PickAccordingToFEFO
+  uid: M:Table::Microsoft#Inventory#Location#Location.PickAccordingToFEFO:Boolean
+- syntax:
+    content: 'procedure SelectMultipleLocations(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SelectMultipleLocations
+  uid: M:Table::Microsoft#Inventory#Location#Location.SelectMultipleLocations:Text
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: Code
+  uid: F:Table::Microsoft#Inventory#Location#Location.Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Inventory#Location#Location.Name[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Default Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Default_Bin_Code[20]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Name 2"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Address
+  uid: F:Table::Microsoft#Inventory#Location#Location.Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Address 2"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: City
+  uid: F:Table::Microsoft#Inventory#Location#Location.City[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No."'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Phone_No#[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No. 2"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Phone_No#_2[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Telex No."'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Telex_No#[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Fax No."'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Fax_No#[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Contact
+  uid: F:Table::Microsoft#Inventory#Location#Location.Contact[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Post Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: County
+  uid: F:Table::Microsoft#Inventory#Location#Location.County[30]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"E-Mail"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.E-Mail[80]
+- type:
+    name: Text[90]
+    isExternal: true
+  name: '"Home Page"'
+  obsoletion:
+    state: pending
+    reason: Field length will be increased to 255.
+    version: "24.0"
+  uid: F:Table::Microsoft#Inventory#Location#Location.Home_Page[90]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Country/Region_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use As In-Transit"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Use_As_In-Transit
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Require Put-away"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Require_Put-away
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Require Pick"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Require_Pick
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Cross-Dock Due Date Calc."'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Cross-Dock_Due_Date_Calc#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Cross-Docking"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Use_Cross-Docking
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Require Receive"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Require_Receive
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Require Shipment"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Require_Shipment
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Bin Mandatory"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Bin_Mandatory
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Directed Put-away and Pick"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Directed_Put-away_and_Pick
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Structure#Location_Default_Bin_Selection
+    name: Microsoft.Warehouse.Structure."Location Default Bin Selection"
+    isExternal: false
+  name: '"Default Bin Selection"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Default_Bin_Selection
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Outbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Outbound_Whse#_Handling_Time
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Inbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Inbound_Whse#_Handling_Time
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Put-away Template Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Put-away_Template_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Put-away Worksheet"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Use_Put-away_Worksheet
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Pick According to FEFO"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Pick_According_to_FEFO
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Breakbulk"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Allow_Breakbulk
+- type:
+    name: Option
+    isExternal: true
+  name: '"Bin Capacity Policy"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Bin_Capacity_Policy
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Activity#Pick_Bin_Policy
+    name: Microsoft.Warehouse.Activity."Pick Bin Policy"
+    isExternal: false
+  name: '"Pick Bin Policy"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Pick_Bin_Policy
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Check Whse. Class"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Check_Whse#_Class
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Activity#Put-away_Bin_Policy
+    name: Microsoft.Warehouse.Activity."Put-away Bin Policy"
+    isExternal: false
+  name: '"Put-away Bin Policy"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Put-away_Bin_Policy
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Open Shop Floor Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Open_Shop_Floor_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"To-Production Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.To-Production_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"From-Production Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.From-Production_Bin_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Setup#Prod#_Consump#_Whse#_Handling
+    name: Microsoft.Manufacturing.Setup."Prod. Consump. Whse. Handling"
+    isExternal: false
+  name: '"Prod. Consump. Whse. Handling"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Prod#_Consump#_Whse#_Handling
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Adjustment Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Adjustment_Bin_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Setup#Prod#_Output_Whse#_Handling
+    name: Microsoft.Manufacturing.Setup."Prod. Output Whse. Handling"
+    isExternal: false
+  name: '"Prod. Output Whse. Handling"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Prod#_Output_Whse#_Handling
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Always Create Put-away Line"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Always_Create_Put-away_Line
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Always Create Pick Line"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Always_Create_Pick_Line
+- type:
+    name: Option
+    isExternal: true
+  name: '"Special Equipment"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Special_Equipment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Receipt Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Receipt_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipment Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Shipment_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Dock Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Cross-Dock_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"To-Assembly Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.To-Assembly_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"From-Assembly Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.From-Assembly_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Asm.-to-Order Shpt. Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Asm#-to-Order_Shpt#_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"To-Job Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.To-Job_Bin_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Assembly#Document#Asm#_Consump#_Whse#_Handling
+    name: Microsoft.Assembly.Document."Asm. Consump. Whse. Handling"
+    isExternal: false
+  name: '"Asm. Consump. Whse. Handling"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Asm#_Consump#_Whse#_Handling
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Setup#Job_Consump#_Whse#_Handling
+    name: Microsoft.Projects.Project.Setup."Job Consump. Whse. Handling"
+    isExternal: false
+  name: '"Job Consump. Whse. Handling"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Job_Consump#_Whse#_Handling
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Base Calendar Code"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Base_Calendar_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use ADCS"'
+  uid: F:Table::Microsoft#Inventory#Location#Location.Use_ADCS
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Location#Location.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Location#Location.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Location#Location.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Location#Location.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Location#Location.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Location#Location.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Location#Location
+name: Location
+uid: O:Table::Microsoft#Inventory#Location#Location

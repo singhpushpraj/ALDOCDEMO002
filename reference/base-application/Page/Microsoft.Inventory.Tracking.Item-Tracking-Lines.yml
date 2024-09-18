@@ -1,0 +1,576 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking."Item Tracking Lines"
+alId: ID 6510
+namespace: Microsoft.Inventory.Tracking
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Inventory#Tracking#Tracking_Specification
+  name: Microsoft.Inventory.Tracking."Tracking Specification"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Item Tracking Lines
+  promoted: false
+- name: DataCaptionFields
+  value: 2,5401,7
+  promoted: false
+- name: DelayedInsert
+  value: "True"
+  promoted: false
+- name: PageType
+  value: Worksheet
+  promoted: true
+- name: PopulateAllFields
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "336"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Tracking#Tracking_Specification
+    name: Microsoft.Inventory.Tracking."Tracking Specification"
+    isExternal: false
+- name: SourceTableTemporary
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CountLines(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountLines
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.CountLines:Integer
+- syntax:
+    content: 'procedure InsertRecord(var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: InsertRecord
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.InsertRecord(Tracking_Specification@)
+- syntax:
+    content: 'procedure SetRunMode(RunMode: Enum "Item Tracking Run Mode")'
+    parameters:
+    - id: RunMode
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Run_Mode
+        name: Microsoft.Inventory.Tracking."Item Tracking Run Mode"
+        isExternal: false
+  name: SetRunMode
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetRunMode(Enum::Microsoft#Inventory#Tracking#Item_Tracking_Run_Mode)
+- syntax:
+    content: 'procedure GetRunMode(): Enum "Item Tracking Run Mode"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Run_Mode
+        name: Microsoft.Inventory.Tracking."Item Tracking Run Mode"
+        isExternal: false
+  name: GetRunMode
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetRunMode:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Run_Mode
+- syntax:
+    content: 'procedure SetSourceSpec(TrackingSpecification: Record "Tracking Specification", AvailabilityDate: Date)'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: AvailabilityDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetSourceSpec
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetSourceSpec(Tracking_Specification,Date)
+- syntax:
+    content: 'procedure SetSecondSourceQuantity(SecondSourceQuantityArray: array[3] of Decimal)'
+    parameters:
+    - id: SecondSourceQuantityArray
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+  name: SetSecondSourceQuantity
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetSecondSourceQuantity(Decimal[])
+- syntax:
+    content: 'procedure SetSecondSourceRowID(RowID: Text[250])'
+    parameters:
+    - id: RowID
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SetSecondSourceRowID
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetSecondSourceRowID(Text[250])
+- syntax:
+    content: procedure CalculateSums()
+  name: CalculateSums
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.CalculateSums
+- syntax:
+    content: 'procedure EntriesAreIdentical(var ReservEntry1: Record "Reservation Entry", var ReservEntry2: Record "Reservation Entry", var IdenticalArray: array[2] of Boolean): Boolean'
+    parameters:
+    - id: ReservEntry1
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ReservEntry2
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: IdenticalArray
+      parameterType:
+        name: array[2] of Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EntriesAreIdentical
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.EntriesAreIdentical(Reservation_Entry@,Reservation_Entry@,Boolean[]@):Boolean
+- syntax:
+    content: 'procedure NextEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: NextEntryNo
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.NextEntryNo:Integer
+- syntax:
+    content: procedure WriteToDatabase()
+  name: WriteToDatabase
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.WriteToDatabase
+- syntax:
+    content: 'procedure RegisterChange(var OldTrackingSpecification: Record "Tracking Specification", var NewTrackingSpecification: Record "Tracking Specification", ChangeType: Option, ModifySharedFields: Boolean): Boolean'
+    parameters:
+    - id: OldTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: NewTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: ChangeType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ModifySharedFields
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RegisterChange
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.RegisterChange(Tracking_Specification@,Tracking_Specification@,Option,Boolean):Boolean
+- syntax:
+    content: 'procedure ZeroLineExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ZeroLineExists
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.ZeroLineExists:Boolean
+- syntax:
+    content: 'procedure TestTempSpecificationExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestTempSpecificationExists
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.TestTempSpecificationExists:Boolean
+- syntax:
+    content: 'procedure RegisterItemTrackingLines(SourceTrackingSpecification: Record "Tracking Specification", AvailabilityDate: Date, var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: SourceTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+    - id: AvailabilityDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: RegisterItemTrackingLines
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.RegisterItemTrackingLines(Tracking_Specification,Date,Tracking_Specification@)
+- syntax:
+    content: 'procedure SynchronizeLinkedSources(DialogText: Text[250]): Boolean'
+    parameters:
+    - id: DialogText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SynchronizeLinkedSources
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SynchronizeLinkedSources(Text[250]):Boolean
+- syntax:
+    content: 'procedure SetBlockCommit(NewBlockCommit: Boolean)'
+    parameters:
+    - id: NewBlockCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetBlockCommit
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetBlockCommit(Boolean)
+- syntax:
+    content: 'procedure SetCalledFromSynchWhseItemTrkg(CalledFromSynchWhseItemTrkg2: Boolean)'
+    parameters:
+    - id: CalledFromSynchWhseItemTrkg2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromSynchWhseItemTrkg
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetCalledFromSynchWhseItemTrkg(Boolean)
+- syntax:
+    content: 'procedure LookupAvailable(LookupMode: Enum "Item Tracking Type")'
+    parameters:
+    - id: LookupMode
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+  name: LookupAvailable
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.LookupAvailable(Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type)
+- syntax:
+    content: 'procedure SetInbound(NewInbound: Boolean)'
+    parameters:
+    - id: NewInbound
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInbound
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetInbound(Boolean)
+- syntax:
+    content: 'procedure SetIsInvtDocumentCorrection(NewIsInvtDocumentCorrection: Boolean)'
+    parameters:
+    - id: NewIsInvtDocumentCorrection
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetIsInvtDocumentCorrection
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetIsInvtDocumentCorrection(Boolean)
+- syntax:
+    content: 'procedure SetDirectTransfer(IsDirectTransfer2: Boolean)'
+    parameters:
+    - id: IsDirectTransfer2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetDirectTransfer
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetDirectTransfer(Boolean)
+- syntax:
+    content: 'procedure GetEditableSettings(var ItemNoEditable2: Boolean, var VariantCodeEditable2: Boolean, var LocationCodeEditable2: Boolean, var QtyToHandleBaseEditable2: Boolean, var QtyToInvoiceBaseEditable2: Boolean, var QuantityBaseEditable2: Boolean, var SerialNoEditable2: Boolean, var LotNoEditable2: Boolean, var DescriptionEditable2: Boolean, var NewSerialNoEditable2: Boolean, var NewLotNoEditable2: Boolean, var NewExpirationDateEditable2: Boolean, var ExpirationDateEditable2: Boolean, var WarrantyDateEditable2: Boolean)'
+    parameters:
+    - id: ItemNoEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VariantCodeEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LocationCodeEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToHandleBaseEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToInvoiceBaseEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QuantityBaseEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: SerialNoEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: LotNoEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DescriptionEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewSerialNoEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewLotNoEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewExpirationDateEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExpirationDateEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: WarrantyDateEditable2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetEditableSettings
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetEditableSettings(Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by namesake procedure with additional parameter ExpirationDateVisible2.,24.0)]'
+    content: 'procedure GetVisibleSettings(var Handle1Visible2: Boolean, var Handle2Visible2: Boolean, var Handle3Visible2: Boolean, var QtyToHandleBaseVisible2: Boolean, var Invoice1Visible2: Boolean, var Invoice2Visible2: Boolean, var Invoice3Visible2: Boolean, var QtyToInvoiceBaseVisible2: Boolean, var NewSerialNoVisible2: Boolean, var NewLotNoVisible2: Boolean, var NewExpirationDateVisible2: Boolean, var ButtonLineReclassVisible2: Boolean, var ButtonLineVisible2: Boolean, var FunctionsSupplyVisible2: Boolean, var FunctionsDemandVisible2: Boolean, var Inbound2: Boolean, var InboundIsSet2: Boolean)'
+    parameters:
+    - id: Handle1Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Handle2Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Handle3Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToHandleBaseVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice1Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice2Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice3Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToInvoiceBaseVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewSerialNoVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewLotNoVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewExpirationDateVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ButtonLineReclassVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ButtonLineVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FunctionsSupplyVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FunctionsDemandVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Inbound2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: InboundIsSet2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetVisibleSettings
+  obsoletion:
+    state: pending
+    reason: Replaced by namesake procedure with additional parameter ExpirationDateVisible2.
+    version: "24.0"
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetVisibleSettings(Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetVisibleSettings(var Handle1Visible2: Boolean, var Handle2Visible2: Boolean, var Handle3Visible2: Boolean, var QtyToHandleBaseVisible2: Boolean, var Invoice1Visible2: Boolean, var Invoice2Visible2: Boolean, var Invoice3Visible2: Boolean, var QtyToInvoiceBaseVisible2: Boolean, var NewSerialNoVisible2: Boolean, var NewLotNoVisible2: Boolean, var ExpirationDateVisible2: Boolean, var NewExpirationDateVisible2: Boolean, var ButtonLineReclassVisible2: Boolean, var ButtonLineVisible2: Boolean, var FunctionsSupplyVisible2: Boolean, var FunctionsDemandVisible2: Boolean, var Inbound2: Boolean, var InboundIsSet2: Boolean)'
+    parameters:
+    - id: Handle1Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Handle2Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Handle3Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToHandleBaseVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice1Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice2Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Invoice3Visible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: QtyToInvoiceBaseVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewSerialNoVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewLotNoVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ExpirationDateVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewExpirationDateVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ButtonLineReclassVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ButtonLineVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FunctionsSupplyVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FunctionsDemandVisible2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Inbound2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: InboundIsSet2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetVisibleSettings
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetVisibleSettings(Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure GetVariables(var TempTrackingSpecInsert2: Record "Tracking Specification" temporary, var TempTrackingSpecModify2: Record "Tracking Specification" temporary, var TempTrackingSpecDelete2: Record "Tracking Specification" temporary, var Item2: Record Item, var UndefinedQtyArray2: array[3] of Decimal, var SourceQuantityArray2: array[5] of Decimal, var CurrentSignFactor2: Integer, var InsertIsBlocked2: Boolean, var DeleteIsBlocked2: Boolean, var BlockCommit2: Boolean)'
+    parameters:
+    - id: TempTrackingSpecInsert2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempTrackingSpecModify2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempTrackingSpecDelete2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: Item2
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: UndefinedQtyArray2
+      parameterType:
+        name: array[3] of Decimal
+        isExternal: true
+    - id: SourceQuantityArray2
+      parameterType:
+        name: array[5] of Decimal
+        isExternal: true
+    - id: CurrentSignFactor2
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InsertIsBlocked2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DeleteIsBlocked2
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: BlockCommit2
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetVariables
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetVariables(Tracking_Specification@,Tracking_Specification@,Tracking_Specification@,Item@,Decimal[]@,Decimal[]@,Integer@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: 'procedure SetVariables(var TempTrackingSpecInsert2: Record "Tracking Specification" temporary, var TempTrackingSpecModify2: Record "Tracking Specification" temporary, var TempTrackingSpecDelete2: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTrackingSpecInsert2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempTrackingSpecModify2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+    - id: TempTrackingSpecDelete2
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: SetVariables
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetVariables(Tracking_Specification@,Tracking_Specification@,Tracking_Specification@)
+- syntax:
+    content: 'procedure GetTrackingSpec(var TempTrackingSpecification: Record "Tracking Specification" temporary)'
+    parameters:
+    - id: TempTrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification" temporary
+        isExternal: true
+  name: GetTrackingSpec
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.GetTrackingSpec(Tracking_Specification@)
+- syntax:
+    content: 'procedure SetSecondSourceID(SourceID: Integer, IsATO: Boolean)'
+    parameters:
+    - id: SourceID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: IsATO
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSecondSourceID
+  uid: M:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines.SetSecondSourceID(Integer,Boolean)
+commentId: O:Page::Microsoft#Inventory#Tracking#Item Tracking Lines
+name: '"Item Tracking Lines"'
+uid: O:Page::Microsoft#Inventory#Tracking#Item_Tracking_Lines

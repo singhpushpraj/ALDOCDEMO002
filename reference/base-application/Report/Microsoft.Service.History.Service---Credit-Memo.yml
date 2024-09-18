@@ -1,0 +1,98 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.History."Service - Credit Memo"
+alId: ID 5912
+namespace: Microsoft.Service.History
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.History
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Service/History/ServiceCreditMemo.rdlc
+  promoted: false
+- name: Caption
+  value: Service - Credit Memo
+  promoted: false
+- name: Permissions
+  value: TableData "Sales Shipment Buffer" = rimd
+  promoted: false
+- name: WordMergeDataItem
+  value: Service Cr.Memo Header
+  promoted: false
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Service/History/ServiceCreditMemo.rdlc
+  promoted: false
+- name: Caption
+  value: Service - Credit Memo
+  promoted: false
+- name: Permissions
+  value: TableData "Sales Shipment Buffer" = rimd
+  promoted: false
+- name: WordMergeDataItem
+  value: Service Cr.Memo Header
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindPostedShipmentDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: FindPostedShipmentDate
+  uid: M:Report::Microsoft#Service#History#Service_-_Credit_Memo.FindPostedShipmentDate:Date
+- syntax:
+    content: 'procedure GenerateBufferFromValueEntry(ServiceCrMemoLine2: Record "Service Cr.Memo Line")'
+    parameters:
+    - id: ServiceCrMemoLine2
+      parameterType:
+        name: Record "Service Cr.Memo Line"
+        isExternal: true
+  name: GenerateBufferFromValueEntry
+  uid: M:Report::Microsoft#Service#History#Service_-_Credit_Memo.GenerateBufferFromValueEntry(Service_Cr#Memo_Line)
+- syntax:
+    content: 'procedure AddBufferEntry(ServiceCrMemoLine: Record "Service Cr.Memo Line", QtyOnShipment: Decimal, PostingDate: Date)'
+    parameters:
+    - id: ServiceCrMemoLine
+      parameterType:
+        name: Record "Service Cr.Memo Line"
+        isExternal: true
+    - id: QtyOnShipment
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AddBufferEntry
+  uid: M:Report::Microsoft#Service#History#Service_-_Credit_Memo.AddBufferEntry(Service_Cr#Memo_Line,Decimal,Date)
+- syntax:
+    content: 'procedure FindDimTxt(DimSetID: Integer)'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindDimTxt
+  uid: M:Report::Microsoft#Service#History#Service_-_Credit_Memo.FindDimTxt(Integer)
+- syntax:
+    content: 'procedure InitializeRequest(NewShowInternalInfo: Boolean)'
+    parameters:
+    - id: NewShowInternalInfo
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Service#History#Service_-_Credit_Memo.InitializeRequest(Boolean)
+commentId: O:Report::Microsoft#Service#History#Service - Credit Memo
+name: '"Service - Credit Memo"'
+uid: O:Report::Microsoft#Service#History#Service_-_Credit_Memo

@@ -1,0 +1,569 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Invoice Posting Buffer"
+alId: ID 55
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Invoice Posting Buffer
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: TableType
+  value: Temporary
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PrepareSales(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: PrepareSales
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.PrepareSales(Sales_Line@)
+- syntax:
+    content: 'procedure CalcDiscount(PricesInclVAT: Boolean, DiscountAmount: Decimal, DiscountAmountACY: Decimal)'
+    parameters:
+    - id: PricesInclVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: DiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DiscountAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcDiscount
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.CalcDiscount(Boolean,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetAccount(AccountNo: Code[20], var TotalVAT: Decimal, var TotalVATACY: Decimal, var TotalAmount: Decimal, var TotalAmountACY: Decimal)'
+    parameters:
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetAccount
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SetAccount(Code[20],Decimal@,Decimal@,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure SetAmounts(TotalVAT: Decimal, TotalVATACY: Decimal, TotalAmount: Decimal, TotalAmountACY: Decimal, VATDifference: Decimal, TotalVATBase: Decimal, TotalVATBaseACY: Decimal)'
+    parameters:
+    - id: TotalVAT
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATDifference
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBaseACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetAmounts
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SetAmounts(Decimal,Decimal,Decimal,Decimal,Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure PreparePurchase(var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: PreparePurchase
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.PreparePurchase(Purchase_Line@)
+- syntax:
+    content: 'procedure CalcDiscountNoVAT(DiscountAmount: Decimal, DiscountAmountACY: Decimal)'
+    parameters:
+    - id: DiscountAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: DiscountAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcDiscountNoVAT
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.CalcDiscountNoVAT(Decimal,Decimal)
+- syntax:
+    content: 'procedure SetSalesTaxForPurchLine(PurchaseLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: SetSalesTaxForPurchLine
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SetSalesTaxForPurchLine(Purchase_Line)
+- syntax:
+    content: 'procedure SetSalesTaxForSalesLine(SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SetSalesTaxForSalesLine
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SetSalesTaxForSalesLine(Sales_Line)
+- syntax:
+    content: procedure ReverseAmounts()
+  name: ReverseAmounts
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.ReverseAmounts
+- syntax:
+    content: 'procedure SetAmountsNoVAT(TotalAmount: Decimal, TotalAmountACY: Decimal, VATDifference: Decimal)'
+    parameters:
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalAmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATDifference
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetAmountsNoVAT
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SetAmountsNoVAT(Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure PrepareService(var ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: PrepareService
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.PrepareService(Service_Line@)
+- syntax:
+    content: 'procedure PreparePrepmtAdjBuffer(InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, GLAccountNo: Code[20], AdjAmount: Decimal, RoundingEntry: Boolean)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: GLAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: AdjAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RoundingEntry
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PreparePrepmtAdjBuffer
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.PreparePrepmtAdjBuffer(Invoice_Posting_Buffer,Code[20],Decimal,Boolean)
+- syntax:
+    content: 'procedure Update(InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+  name: Update
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Update(Invoice_Posting_Buffer)
+- syntax:
+    content: 'procedure Update(InvoicePostingBuffer: Record "Invoice Posting Buffer" temporary, var InvDefLineNo: Integer, var DeferralLineNo: Integer)'
+    parameters:
+    - id: InvoicePostingBuffer
+      parameterType:
+        name: Record "Invoice Posting Buffer" temporary
+        isExternal: true
+    - id: InvDefLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DeferralLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: Update
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Update(Invoice_Posting_Buffer,Integer@,Integer@)
+- syntax:
+    content: procedure BuildPrimaryKey()
+  name: BuildPrimaryKey
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.BuildPrimaryKey
+- syntax:
+    content: 'procedure PadField(TextField: Text, MaxLength: Integer): Text'
+    parameters:
+    - id: TextField
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: MaxLength
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: PadField
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.PadField(Text,Integer):Text
+- syntax:
+    content: 'procedure UpdateVATBase(var TotalVATBase: Decimal, var TotalVATBaseACY: Decimal)'
+    parameters:
+    - id: TotalVATBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalVATBaseACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdateVATBase
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.UpdateVATBase(Decimal@,Decimal@)
+- syntax:
+    content: procedure ClearVATFields()
+  name: ClearVATFields
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.ClearVATFields
+- syntax:
+    content: 'procedure CopyToGenJnlLine(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyToGenJnlLine
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.CopyToGenJnlLine(Gen#_Journal_Line@)
+- syntax:
+    content: 'procedure CopyToGenJnlLineFA(var GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyToGenJnlLineFA
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.CopyToGenJnlLineFA(Gen#_Journal_Line@)
+fields:
+- type:
+    name: Text[1000]
+    isExternal: true
+  name: '"Group ID"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Group_ID[1000]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Line_Type
+    name: Microsoft.Finance.ReceivablesPayables."Invoice Posting Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"G/L Account"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.G/L_Account[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Global_Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Job_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Calculation_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Base_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.System-Created_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Tax_Group_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Quantity
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Use_Tax
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (ACY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Amount_(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount (ACY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Amount_(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount (ACY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Base_Amount_(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Before Pmt. Disc."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.VAT_Base_Before_Pmt#_Disc#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Templ. Name"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Journal_Templ#_Name[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Entry Description"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Entry_Description[100]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Additional Grouping Identifier"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Additional_Grouping_Identifier[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Deferral Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Deferral_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Deferral Line No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Deferral_Line_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.FA_Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#FixedAssets#Posting#Purchase_FA_Posting_Type
+    name: Microsoft.FixedAssets.Posting."Purchase FA Posting Type"
+    isExternal: false
+  name: '"FA Posting Type"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.FA_Posting_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Depreciation_Book_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Salvage Value"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Salvage_Value
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. until FA Posting Date"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Depr#_until_FA_Posting_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. Acquisition Cost"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Depr#_Acquisition_Cost
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Maintenance Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Maintenance_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Insurance No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Insurance_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Budgeted FA No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Budgeted_FA_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duplicate in Depreciation Book"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Duplicate_in_Depreciation_Book[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Duplication List"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Use_Duplication_List
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Fixed Asset Line No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Fixed_Asset_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT %"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Non-Deductible_VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Non-Deductible_VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Non-Deductible_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base ACY"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Non-Deductible_VAT_Base_ACY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount ACY"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Non-Deductible_VAT_Amount_ACY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Diff."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.Non-Deductible_VAT_Diff#
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#ReceivablesPayables#Invoice Posting Buffer
+name: '"Invoice Posting Buffer"'
+uid: O:Table::Microsoft#Finance#ReceivablesPayables#Invoice_Posting_Buffer

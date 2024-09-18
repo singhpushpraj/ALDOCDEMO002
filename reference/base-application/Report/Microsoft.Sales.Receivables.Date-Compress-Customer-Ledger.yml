@@ -1,0 +1,90 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Receivables."Date Compress Customer Ledger"
+alId: ID 198
+namespace: Microsoft.Sales.Receivables
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Receivables
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: Caption
+  value: Date Compress Customer Ledger
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rimd,
+                      TableData "Cust. Ledger Entry" = rimd,
+                      TableData "G/L Register" = rimd,
+                      TableData "Date Compr. Register" = rimd,
+                      TableData "Reminder/Fin. Charge Entry" = rimd,
+                      TableData "Dimension Set ID Filter Line" = rimd,
+                      TableData "Detailed Cust. Ledg. Entry" = rimd
+  promoted: false
+- name: ProcessingOnly
+  value: "True"
+  promoted: false
+- name: Caption
+  value: Date Compress Customer Ledger
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rimd,
+                      TableData "Cust. Ledger Entry" = rimd,
+                      TableData "G/L Register" = rimd,
+                      TableData "Date Compr. Register" = rimd,
+                      TableData "Reminder/Fin. Charge Entry" = rimd,
+                      TableData "Dimension Set ID Filter Line" = rimd,
+                      TableData "Detailed Cust. Ledg. Entry" = rimd
+  promoted: false
+- name: ProcessingOnly
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitNewEntry(var NewCustLedgEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: NewCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: InitNewEntry
+  uid: M:Report::Microsoft#Sales#Receivables#Date_Compress_Customer_Ledger.InitNewEntry(Cust#_Ledger_Entry@)
+- syntax:
+    content: 'procedure InitializeRequest(StartingDate: Date, EndingDate: Date, PeriodLength: Option, Description: Text[100], NewDateComprRetainFields: Record "Date Compr. Retain Fields" temporary, RetainDimensionText: Text[250], DoUseDataArchive: Boolean)'
+    parameters:
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: EndingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PeriodLength
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Description
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: NewDateComprRetainFields
+      parameterType:
+        name: Record "Date Compr. Retain Fields" temporary
+        isExternal: true
+    - id: RetainDimensionText
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: DoUseDataArchive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Sales#Receivables#Date_Compress_Customer_Ledger.InitializeRequest(Date,Date,Option,Text[100],Date_Compr#_Retain_Fields,Text[250],Boolean)
+commentId: O:Report::Microsoft#Sales#Receivables#Date Compress Customer Ledger
+name: '"Date Compress Customer Ledger"'
+uid: O:Report::Microsoft#Sales#Receivables#Date_Compress_Customer_Ledger

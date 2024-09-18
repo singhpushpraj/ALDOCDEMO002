@@ -1,0 +1,316 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reminder."Reminder Line"
+alId: ID 296
+namespace: Microsoft.Sales.Reminder
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reminder
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Reminder Line
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure CalcFinanceCharge()
+  name: CalcFinanceCharge
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.CalcFinanceCharge
+- syntax:
+    content: procedure GetReminderHeader()
+  name: GetReminderHeader
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.GetReminderHeader
+- syntax:
+    content: 'procedure GetCurrencyCodeFromHeader(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCodeFromHeader
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.GetCurrencyCodeFromHeader:Code[10]
+- syntax:
+    content: 'procedure GetNoOfReminderForCustLedgEntry(EntryNo: Integer): Integer'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNoOfReminderForCustLedgEntry
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.GetNoOfReminderForCustLedgEntry(Integer):Integer
+- syntax:
+    content: 'procedure CumulateDetailedEntries(var CumAmount: Decimal, UseDueDate: Date, UseCalcDate: Date, UseInterestRate: Decimal, UseInterestPeriod: Decimal)'
+    parameters:
+    - id: CumAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UseCalcDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UseInterestRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseInterestPeriod
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CumulateDetailedEntries
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.CumulateDetailedEntries(Decimal@,Date,Date,Decimal,Decimal)
+- syntax:
+    content: procedure LookupDocNo()
+  name: LookupDocNo
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.LookupDocNo
+- syntax:
+    content: 'procedure CalcFinanceChargeInterestRate(var FinanceChargeInterestRate: Record "Finance Charge Interest Rate", var UseDueDate: Date, var UseInterestRate: Decimal, var UseCalcDate: Date)'
+    parameters:
+    - id: FinanceChargeInterestRate
+      parameterType:
+        name: Record "Finance Charge Interest Rate"
+        isExternal: true
+    - id: UseDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UseInterestRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseCalcDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CalcFinanceChargeInterestRate
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.CalcFinanceChargeInterestRate(Finance_Charge_Interest_Rate@,Date@,Decimal@,Date@)
+- syntax:
+    content: 'procedure CreateMulitplyInterestRateEntries(var ExtraReminderLine: Record "Reminder Line", var FinanceChargeInterestRate: Record "Finance Charge Interest Rate", var UseDueDate: Date, var UseInterestRate: Decimal, var UseCalcDate: Date, var CumAmount: Decimal)'
+    parameters:
+    - id: ExtraReminderLine
+      parameterType:
+        name: Record "Reminder Line"
+        isExternal: true
+    - id: FinanceChargeInterestRate
+      parameterType:
+        name: Record "Finance Charge Interest Rate"
+        isExternal: true
+    - id: UseDueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UseInterestRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: UseCalcDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CumAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CreateMulitplyInterestRateEntries
+  uid: M:Table::Microsoft#Sales#Reminder#Reminder_Line.CreateMulitplyInterestRateEntries(Reminder_Line@,Finance_Charge_Interest_Rate@,Date@,Decimal@,Date@,Decimal@)
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Reminder No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Reminder_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Attached_to_Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Reminder#Reminder_Source_Type
+    name: Microsoft.Sales.Reminder."Reminder Source Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Reminders"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.No#_of_Reminders
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Posting_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Document_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Due_Date
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Description[100]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Original Amount"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Original_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Amount"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Remaining_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Interest Rate"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Interest_Rate
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.VAT_%
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.VAT_Calculation_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.VAT_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Identifier"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.VAT_Identifier[20]
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Reminder#Reminder_Line_Type
+    name: Microsoft.Sales.Reminder."Reminder Line Type"
+    isExternal: false
+  name: '"Line Type"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Line_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Clause Code"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.VAT_Clause_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Applies-to Document Type"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Applies-to_Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Applies-to Document No."'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Applies-to_Document_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Detailed Interest Rates Entry"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.Detailed_Interest_Rates_Entry
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.System-Created_Entry
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Sales#Reminder#Reminder_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Sales#Reminder#Reminder Line
+name: '"Reminder Line"'
+uid: O:Table::Microsoft#Sales#Reminder#Reminder_Line

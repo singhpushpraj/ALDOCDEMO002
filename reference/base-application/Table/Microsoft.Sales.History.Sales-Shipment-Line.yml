@@ -1,0 +1,768 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Sales Shipment Line"
+alId: ID 111
+namespace: Microsoft.Sales.History
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Sales Shipment Line
+  promoted: false
+- name: DrillDownPageID
+  value: Posted Sales Shipment Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#History#Posted_Sales_Shipment_Lines
+    name: Microsoft.Sales.History."Posted Sales Shipment Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Posted Sales Shipment Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#History#Posted_Sales_Shipment_Lines
+    name: Microsoft.Sales.History."Posted Sales Shipment Lines"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Item Ledger Entry" = r,
+                      TableData "Value Entry" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCode
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.GetCurrencyCode:Code[10]
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ShowDimensions
+- syntax:
+    content: procedure ShowItemTrackingLines()
+  name: ShowItemTrackingLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ShowItemTrackingLines
+- syntax:
+    content: 'procedure InsertInvLineFromShptLine(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: InsertInvLineFromShptLine
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.InsertInvLineFromShptLine(Sales_Line@)
+- syntax:
+    content: 'procedure GetSalesInvLines(var TempSalesInvLine: Record "Sales Invoice Line" temporary)'
+    parameters:
+    - id: TempSalesInvLine
+      parameterType:
+        name: Record "Sales Invoice Line" temporary
+        isExternal: true
+  name: GetSalesInvLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.GetSalesInvLines(Sales_Invoice_Line@)
+- syntax:
+    content: 'procedure CalcShippedSaleNotReturned(var ShippedQtyNotReturned: Decimal, var RevUnitCostLCY: Decimal, ExactCostReverse: Boolean)'
+    parameters:
+    - id: ShippedQtyNotReturned
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RevUnitCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExactCostReverse
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcShippedSaleNotReturned
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.CalcShippedSaleNotReturned(Decimal@,Decimal@,Boolean)
+- syntax:
+    content: 'procedure FilterPstdDocLnItemLedgEntries(var ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: FilterPstdDocLnItemLedgEntries
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.FilterPstdDocLnItemLedgEntries(Item_Ledger_Entry@)
+- syntax:
+    content: procedure ShowItemSalesInvLines()
+  name: ShowItemSalesInvLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ShowItemSalesInvLines
+- syntax:
+    content: procedure ShowLineComments()
+  name: ShowLineComments
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ShowLineComments
+- syntax:
+    content: procedure ShowAsmToOrder()
+  name: ShowAsmToOrder
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ShowAsmToOrder
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure AsmToShipmentExists(var PostedAsmHeader: Record "Posted Assembly Header"): Boolean'
+    parameters:
+    - id: PostedAsmHeader
+      parameterType:
+        name: Record "Posted Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AsmToShipmentExists
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.AsmToShipmentExists(Posted_Assembly_Header@):Boolean
+- syntax:
+    content: 'procedure InitFromSalesLine(SalesShptHeader: Record "Sales Shipment Header", SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesShptHeader
+      parameterType:
+        name: Record "Sales Shipment Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: InitFromSalesLine
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.InitFromSalesLine(Sales_Shipment_Header,Sales_Line)
+- syntax:
+    content: 'procedure ClearSalesLineValues(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: ClearSalesLineValues
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.ClearSalesLineValues(Sales_Line@)
+- syntax:
+    content: 'procedure FormatType(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FormatType
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.FormatType:Text
+- syntax:
+    content: 'procedure CalcBaseQuantities(var SalesLine: Record "Sales Line", QtyFactor: Decimal)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: QtyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQuantities
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.CalcBaseQuantities(Sales_Line@,Decimal)
+- syntax:
+    content: 'procedure GetCaptionClass(FieldNumber: Integer): Text[80]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.GetCaptionClass(Integer):Text[80]
+- syntax:
+    content: 'procedure HasTypeToFillMandatoryFields(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasTypeToFillMandatoryFields
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.HasTypeToFillMandatoryFields:Boolean
+- syntax:
+    content: procedure UpdateReferencedIds()
+  name: UpdateReferencedIds
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.UpdateReferencedIds
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Sales#History#Sales_Shipment_Line.SetSecurityFilterOnRespCenter
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Sell-to_Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+    name: Microsoft.Sales.Document."Sales Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Shipment_Date
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Description_2[50]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Line_Discount_%
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Allow_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_Volume
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Appl#-to_Item_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Item Shpt. Entry No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Shpt#_Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Customer_Price_Group[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Job_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Work_Type_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Qty#_Shipped_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Invoiced"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Quantity_Invoiced
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Order_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Bill-to_Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Purchase Order No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Purchase_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Purch. Order Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Purch#_Order_Line_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Drop Shipment"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Drop_Shipment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.VAT_Calculation_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Transport_Method[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Attached_to_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Exit_Point[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Transaction_Specification[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Currency_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Blanket Order No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Blanket_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Blanket Order Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Blanket_Order_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_Cost
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Partner#IC_Partner_Reference_Type
+    name: Microsoft.Intercompany.Partner."IC Partner Reference Type"
+    isExternal: false
+  name: '"IC Partner Ref. Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.IC_Partner_Ref#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Reference"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.IC_Partner_Reference[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Posting_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"IC Item Reference No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.IC_Item_Reference_No#[50]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Dimension_Set_ID
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Authorized for Credit Card"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Authorized_for_Credit_Card
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Job_Task_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Contract Entry No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Job_Contract_Entry_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Invoiced (Base)"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Qty#_Invoiced_(Base)
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.FA_Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Depreciation_Book_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. until FA Posting Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Depr#_until_FA_Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duplicate in Depreciation Book"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Duplicate_in_Depreciation_Book[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Duplication List"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Use_Duplication_List
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Responsibility_Center[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Reference No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Cross-Reference_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure (Cross Ref.)"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Unit_of_Measure_(Cross_Ref#)[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Cross-Reference Type"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Cross-Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Cross-Reference Type No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Cross-Reference_Type_No#[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Purchasing_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Product_Group_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Requested Delivery Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Requested_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Promised Delivery Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Promised_Delivery_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Shipping_Time
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Outbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Outbound_Whse#_Handling_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Delivery Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Planned_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Shipment Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Planned_Shipment_Date
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-from Item Entry"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Appl#-from_Item_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Item Charge Base Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Item_Charge_Base_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: Correction
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Correction
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Return_Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Allow_Line_Disc#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Customer_Disc#_Group[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Document Id"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.Document_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Sales#History#Sales_Shipment_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Sales#History#Sales Shipment Line
+name: '"Sales Shipment Line"'
+uid: O:Table::Microsoft#Sales#History#Sales_Shipment_Line

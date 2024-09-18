@@ -1,0 +1,2409 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Header"
+alId: ID 36
+namespace: Microsoft.Sales.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Sales Header
+  promoted: false
+- name: DataCaptionFields
+  value: 3,79
+  promoted: false
+- name: LookupPageID
+  value: Sales List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Document#Sales_List
+    name: Microsoft.Sales.Document."Sales List"
+    isExternal: false
+- name: Permissions
+  value: >-
+    tabledata "Assemble-to-Order Link" = rmid,
+                      tabledata "Assembly Header" = m
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure InitInsert()
+  name: InitInsert
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InitInsert
+- syntax:
+    content: procedure InitRecord()
+  name: InitRecord
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InitRecord
+- syntax:
+    content: procedure InitPostingDescription()
+  name: InitPostingDescription
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InitPostingDescription
+- syntax:
+    content: 'procedure SetStandardCodesMgt(var StandardCodesMgtNew: Codeunit "Standard Codes Mgt.")'
+    parameters:
+    - id: StandardCodesMgtNew
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Utilities#Standard_Codes_Mgt#
+        name: Microsoft.Utilities."Standard Codes Mgt."
+        isExternal: false
+  name: SetStandardCodesMgt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetStandardCodesMgt(Codeunit::Microsoft#Utilities#Standard_Codes_Mgt#@)
+- syntax:
+    content: 'procedure AssistEdit(OldSalesHeader: Record "Sales Header"): Boolean'
+    parameters:
+    - id: OldSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.AssistEdit(Sales_Header):Boolean
+- syntax:
+    content: procedure TestNoSeries()
+  name: TestNoSeries
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestNoSeries
+- syntax:
+    content: 'procedure GetNoSeriesCode(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetNoSeriesCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetNoSeriesCode:Code[20]
+- syntax:
+    content: 'procedure TestNoSeriesDate(No: Code[20], NoSeriesCode: Code[20], NoCapt: Text[1024], NoSeriesCapt: Text[1024])'
+    parameters:
+    - id: "No"
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NoCapt
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    - id: NoSeriesCapt
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+  name: TestNoSeriesDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestNoSeriesDate(Code[20],Code[20],Text[1024],Text[1024])
+- syntax:
+    content: 'procedure ConfirmDeletion(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmDeletion
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ConfirmDeletion:Boolean
+- syntax:
+    content: 'procedure GetCust(CustNo: Code[20]): Record Customer'
+    parameters:
+    - id: CustNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Record Customer
+        isExternal: true
+  name: GetCust
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCust(Code[20]):Customer
+- syntax:
+    content: 'procedure SalesLinesExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLinesExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SalesLinesExist:Boolean
+- syntax:
+    content: 'procedure RecreateSalesLines(ChangedFieldName: Text[100])'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: RecreateSalesLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.RecreateSalesLines(Text[100])
+- syntax:
+    content: 'procedure StoreSalesCommentLineToTemp(var TempSalesCommentLine: Record "Sales Comment Line" temporary)'
+    parameters:
+    - id: TempSalesCommentLine
+      parameterType:
+        name: Record "Sales Comment Line" temporary
+        isExternal: true
+  name: StoreSalesCommentLineToTemp
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.StoreSalesCommentLineToTemp(Sales_Comment_Line@)
+- syntax:
+    content: 'procedure RestoreSalesCommentLine(var TempSalesCommentLine: Record "Sales Comment Line" temporary, OldDocumnetLineNo: Integer, NewDocumentLineNo: Integer)'
+    parameters:
+    - id: TempSalesCommentLine
+      parameterType:
+        name: Record "Sales Comment Line" temporary
+        isExternal: true
+    - id: OldDocumnetLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewDocumentLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: RestoreSalesCommentLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.RestoreSalesCommentLine(Sales_Comment_Line@,Integer,Integer)
+- syntax:
+    content: 'procedure MessageIfSalesLinesExist(ChangedFieldName: Text[100])'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: MessageIfSalesLinesExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.MessageIfSalesLinesExist(Text[100])
+- syntax:
+    content: 'procedure PriceMessageIfSalesLinesExist(ChangedFieldName: Text[100])'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: PriceMessageIfSalesLinesExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.PriceMessageIfSalesLinesExist(Text[100])
+- syntax:
+    content: procedure UpdateCurrencyFactor()
+  name: UpdateCurrencyFactor
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateCurrencyFactor
+- syntax:
+    content: procedure ConfirmCurrencyFactorUpdate()
+  name: ConfirmCurrencyFactorUpdate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ConfirmCurrencyFactorUpdate
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure GetHideValidationDialog(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideValidationDialog
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetHideValidationDialog:Boolean
+- syntax:
+    content: 'procedure SetHideCreditCheckDialogue(NewHideCreditCheckDialogue: Boolean)'
+    parameters:
+    - id: NewHideCreditCheckDialogue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideCreditCheckDialogue
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetHideCreditCheckDialogue(Boolean)
+- syntax:
+    content: 'procedure GetHideCreditCheckDialogue(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideCreditCheckDialogue
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetHideCreditCheckDialogue:Boolean
+- syntax:
+    content: 'procedure UpdateLocationCode(LocationCode: Code[10])'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: UpdateLocationCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateLocationCode(Code[10])
+- syntax:
+    content: 'procedure UpdateSalesLines(ChangedFieldName: Text[100], AskQuestion: Boolean)'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: AskQuestion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateSalesLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateSalesLines(Text[100],Boolean)
+- syntax:
+    content: 'procedure UpdateSalesLinesByFieldNo(ChangedFieldNo: Integer, AskQuestion: Boolean)'
+    parameters:
+    - id: ChangedFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AskQuestion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateSalesLinesByFieldNo
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateSalesLinesByFieldNo(Integer,Boolean)
+- syntax:
+    content: procedure ConfirmReservationDateConflict()
+  name: ConfirmReservationDateConflict
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ConfirmReservationDateConflict
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShippedSalesLinesExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShippedSalesLinesExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ShippedSalesLinesExist:Boolean
+- syntax:
+    content: 'procedure ReturnReceiptExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReturnReceiptExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ReturnReceiptExist:Boolean
+- syntax:
+    content: procedure DeleteAllSalesLines()
+  name: DeleteAllSalesLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.DeleteAllSalesLines
+- syntax:
+    content: 'procedure CheckCustomerCreated(Prompt: Boolean): Boolean'
+    parameters:
+    - id: Prompt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckCustomerCreated
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckCustomerCreated(Boolean):Boolean
+- syntax:
+    content: 'procedure RecreateReqLine(OldSalesLine: Record "Sales Line", NewSourceRefNo: Integer, ToTemp: Boolean)'
+    parameters:
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewSourceRefNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ToTemp
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: RecreateReqLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.RecreateReqLine(Sales_Line,Integer,Boolean)
+- syntax:
+    content: 'procedure UpdateSellToCont(CustomerNo: Code[20])'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateSellToCont
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateSellToCont(Code[20])
+- syntax:
+    content: 'procedure UpdateBillToCont(CustomerNo: Code[20])'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateBillToCont
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateBillToCont(Code[20])
+- syntax:
+    content: 'procedure UpdateSellToCust(ContactNo: Code[20])'
+    parameters:
+    - id: ContactNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateSellToCust
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateSellToCust(Code[20])
+- syntax:
+    content: 'procedure GetShippingTime(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetShippingTime
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetShippingTime(Integer)
+- syntax:
+    content: 'procedure GetSellToCustomerFaxNo(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSellToCustomerFaxNo
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetSellToCustomerFaxNo:Text
+- syntax:
+    content: procedure CheckCreditMaxBeforeInsert()
+  name: CheckCreditMaxBeforeInsert
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckCreditMaxBeforeInsert
+- syntax:
+    content: procedure CreateInvtPutAwayPick()
+  name: CreateInvtPutAwayPick
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CreateInvtPutAwayPick
+- syntax:
+    content: procedure CreateTask()
+  name: CreateTask
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CreateTask
+- syntax:
+    content: procedure UpdateShipToAddress()
+  name: UpdateShipToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateShipToAddress
+- syntax:
+    content: procedure ShowDocDim()
+  name: ShowDocDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ShowDocDim
+- syntax:
+    content: 'procedure UpdateAllLineDim(NewParentDimSetID: Integer, OldParentDimSetID: Integer)'
+    parameters:
+    - id: NewParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OldParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateAllLineDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateAllLineDim(Integer,Integer)
+- syntax:
+    content: 'procedure LookupAdjmtValueEntries(QtyType: Option)'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: LookupAdjmtValueEntries
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.LookupAdjmtValueEntries(Option)
+- syntax:
+    content: 'procedure GetCustomerVATRegistrationNumber(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCustomerVATRegistrationNumber
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCustomerVATRegistrationNumber:Text
+- syntax:
+    content: 'procedure GetCustomerVATRegistrationNumberLbl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCustomerVATRegistrationNumberLbl
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCustomerVATRegistrationNumberLbl:Text
+- syntax:
+    content: 'procedure GetCustomerGlobalLocationNumber(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCustomerGlobalLocationNumber
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCustomerGlobalLocationNumber:Text
+- syntax:
+    content: 'procedure GetCustomerGlobalLocationNumberLbl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCustomerGlobalLocationNumberLbl
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCustomerGlobalLocationNumberLbl:Text
+- syntax:
+    content: 'procedure GetStatusStyleText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetStatusStyleText
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetStatusStyleText:Text
+- syntax:
+    content: procedure GetPstdDocLinesToReverse()
+  name: GetPstdDocLinesToReverse
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetPstdDocLinesToReverse
+- syntax:
+    content: procedure CalcInvDiscForHeader()
+  name: CalcInvDiscForHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CalcInvDiscForHeader
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetSecurityFilterOnRespCenter
+- syntax:
+    content: 'procedure SynchronizeForReservations(var NewSalesLine: Record "Sales Line", OldSalesLine: Record "Sales Line")'
+    parameters:
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: OldSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: SynchronizeForReservations
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SynchronizeForReservations(Sales_Line@,Sales_Line)
+- syntax:
+    content: 'procedure InventoryPickConflict(DocType: Enum "Sales Document Type", DocNo: Code[20], ShippingAdvice: Enum "Sales Header Shipping Advice"): Boolean'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShippingAdvice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+        name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InventoryPickConflict
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InventoryPickConflict(Enum::Microsoft#Sales#Document#Sales_Document_Type,Code[20],Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice):Boolean
+- syntax:
+    content: 'procedure WhseShipmentConflict(DocType: Enum "Sales Document Type", DocNo: Code[20], ShippingAdvice: Enum "Sales Header Shipping Advice"): Boolean'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShippingAdvice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+        name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhseShipmentConflict
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.WhseShipmentConflict(Enum::Microsoft#Sales#Document#Sales_Document_Type,Code[20],Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice):Boolean
+- syntax:
+    content: procedure CheckItemAvailabilityInLines()
+  name: CheckItemAvailabilityInLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckItemAvailabilityInLines
+- syntax:
+    content: 'procedure QtyToShipIsZero(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: QtyToShipIsZero
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.QtyToShipIsZero:Boolean
+- syntax:
+    content: 'procedure IsApprovedForPosting(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsApprovedForPosting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.IsApprovedForPosting:Boolean
+- syntax:
+    content: 'procedure IsApprovedForPostingBatch(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsApprovedForPostingBatch
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.IsApprovedForPostingBatch:Boolean
+- syntax:
+    content: 'procedure GetLegalStatement(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetLegalStatement
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetLegalStatement:Text
+- syntax:
+    content: 'procedure SendToPosting(PostingCodeunitID: Integer): Boolean'
+    parameters:
+    - id: PostingCodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SendToPosting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SendToPosting(Integer):Boolean
+- syntax:
+    content: procedure CancelBackgroundPosting()
+  name: CancelBackgroundPosting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CancelBackgroundPosting
+- syntax:
+    signatures:
+    - '[Scope(Cloud)]'
+    content: 'procedure EmailRecords(ShowDialog: Boolean)'
+    parameters:
+    - id: ShowDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: EmailRecords
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.EmailRecords(Boolean)
+- syntax:
+    content: 'procedure GetDocTypeTxt(): Text[50]'
+    return:
+      returnType:
+        name: Text[50]
+        isExternal: true
+  name: GetDocTypeTxt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetDocTypeTxt:Text[50]
+- syntax:
+    content: 'procedure GetFullDocTypeTxt(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetFullDocTypeTxt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetFullDocTypeTxt:Text
+- syntax:
+    content: 'procedure LinkSalesDocWithOpportunity(OldOpportunityNo: Code[20])'
+    parameters:
+    - id: OldOpportunityNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LinkSalesDocWithOpportunity
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.LinkSalesDocWithOpportunity(Code[20])
+- syntax:
+    content: procedure SynchronizeAsmHeader()
+  name: SynchronizeAsmHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SynchronizeAsmHeader
+- syntax:
+    content: procedure CheckShippingAdvice()
+  name: CheckShippingAdvice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckShippingAdvice
+- syntax:
+    content: 'procedure InvoicedLineExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvoicedLineExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InvoicedLineExists:Boolean
+- syntax:
+    content: procedure CreateDimSetForPrepmtAccDefaultDim()
+  name: CreateDimSetForPrepmtAccDefaultDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CreateDimSetForPrepmtAccDefaultDim
+- syntax:
+    content: procedure OpenSalesOrderStatistics()
+  name: OpenSalesOrderStatistics
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OpenSalesOrderStatistics
+- syntax:
+    content: procedure OpenDocumentStatistics()
+  name: OpenDocumentStatistics
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OpenDocumentStatistics
+- syntax:
+    content: procedure PrepareOpeningDocumentStatistics()
+  name: PrepareOpeningDocumentStatistics
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.PrepareOpeningDocumentStatistics
+- syntax:
+    content: 'procedure ShowDocumentStatisticsPage(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: ShowDocumentStatisticsPage
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ShowDocumentStatisticsPage:Integer
+- syntax:
+    content: 'procedure CheckAvailableCreditLimit(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CheckAvailableCreditLimit
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckAvailableCreditLimit:Decimal
+- syntax:
+    content: 'procedure SetStatus(NewStatus: Option)'
+    parameters:
+    - id: NewStatus
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetStatus
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetStatus(Option)
+- syntax:
+    content: 'procedure TransferItemChargeAssgntSalesToTemp(var ItemChargeAssgntSales: Record "Item Charge Assignment (Sales)", var TempItemChargeAssgntSales: Record "Item Charge Assignment (Sales)" temporary)'
+    parameters:
+    - id: ItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)"
+        isExternal: true
+    - id: TempItemChargeAssgntSales
+      parameterType:
+        name: Record "Item Charge Assignment (Sales)" temporary
+        isExternal: true
+  name: TransferItemChargeAssgntSalesToTemp
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TransferItemChargeAssgntSalesToTemp(Item_Charge_Assignment_(Sales)@,Item_Charge_Assignment_(Sales)@)
+- syntax:
+    content: procedure CheckSalesPostRestrictions()
+  name: CheckSalesPostRestrictions
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckSalesPostRestrictions
+- syntax:
+    content: procedure CustomerCreditLimitExceeded()
+  name: CustomerCreditLimitExceeded
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CustomerCreditLimitExceeded
+- syntax:
+    content: 'procedure CustomerCreditLimitExceeded(NotificationId: Guid)'
+    parameters:
+    - id: NotificationId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: CustomerCreditLimitExceeded
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CustomerCreditLimitExceeded(Guid)
+- syntax:
+    content: procedure CustomerCreditLimitNotExceeded()
+  name: CustomerCreditLimitNotExceeded
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CustomerCreditLimitNotExceeded
+- syntax:
+    content: procedure CheckSalesReleaseRestrictions()
+  name: CheckSalesReleaseRestrictions
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckSalesReleaseRestrictions
+- syntax:
+    content: 'procedure DeferralHeadersExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DeferralHeadersExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.DeferralHeadersExist:Boolean
+- syntax:
+    content: procedure SetSellToCustomerFromFilter()
+  name: SetSellToCustomerFromFilter
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetSellToCustomerFromFilter
+- syntax:
+    content: 'procedure GetSellToCustomerFromFilter(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetSellToCustomerFromFilter
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetSellToCustomerFromFilter:Code[20]
+- syntax:
+    content: procedure CopySellToCustomerFilter()
+  name: CopySellToCustomerFilter
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CopySellToCustomerFilter
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by BatchConfirmUpdateDeferralDate with VAT Date parameters.,22.0)]'
+    content: 'procedure BatchConfirmUpdateDeferralDate(var BatchConfirm: Option, ReplacePostingDate: Boolean, PostingDateReq: Date)'
+    parameters:
+    - id: BatchConfirm
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDateReq
+      parameterType:
+        name: Date
+        isExternal: true
+  name: BatchConfirmUpdateDeferralDate
+  obsoletion:
+    state: pending
+    reason: Replaced by BatchConfirmUpdateDeferralDate with VAT Date parameters.
+    version: "22.0"
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.BatchConfirmUpdateDeferralDate(Option@,Boolean,Date)
+- syntax:
+    content: 'procedure BatchConfirmUpdateDeferralDate(var BatchConfirm: Option, ReplacePostingDate: Boolean, PostingDateReq: Date, ReplaceVATDate: Boolean, VATDateReq: Date)'
+    parameters:
+    - id: BatchConfirm
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ReplacePostingDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDateReq
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ReplaceVATDate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATDateReq
+      parameterType:
+        name: Date
+        isExternal: true
+  name: BatchConfirmUpdateDeferralDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.BatchConfirmUpdateDeferralDate(Option@,Boolean,Date,Boolean,Date)
+- syntax:
+    content: 'procedure GetSelectedPaymentServicesText(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectedPaymentServicesText
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetSelectedPaymentServicesText:Text
+- syntax:
+    content: procedure SetDefaultPaymentServices()
+  name: SetDefaultPaymentServices
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetDefaultPaymentServices
+- syntax:
+    content: procedure ChangePaymentServiceSetting()
+  name: ChangePaymentServiceSetting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ChangePaymentServiceSetting
+- syntax:
+    content: 'procedure IsCreditDocType(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCreditDocType
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.IsCreditDocType:Boolean
+- syntax:
+    content: 'procedure HasSellToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasSellToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasSellToAddress:Boolean
+- syntax:
+    content: 'procedure HasShipToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasShipToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasShipToAddress:Boolean
+- syntax:
+    content: 'procedure HasBillToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasBillToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasBillToAddress:Boolean
+- syntax:
+    content: 'procedure HasItemChargeAssignment(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasItemChargeAssignment
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasItemChargeAssignment:Boolean
+- syntax:
+    content: 'procedure CopyShipToCustomerAddressFieldsFromCust(var SellToCustomer: Record Customer)'
+    parameters:
+    - id: SellToCustomer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: CopyShipToCustomerAddressFieldsFromCust
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CopyShipToCustomerAddressFieldsFromCust(Customer@)
+- syntax:
+    content: 'procedure SetShipToCustomerAddressFieldsFromShipToAddr(ShipToAddr: Record "Ship-to Address")'
+    parameters:
+    - id: ShipToAddr
+      parameterType:
+        name: Record "Ship-to Address"
+        isExternal: true
+  name: SetShipToCustomerAddressFieldsFromShipToAddr
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetShipToCustomerAddressFieldsFromShipToAddr(Ship-to_Address)
+- syntax:
+    content: 'procedure SetBillToCustomerAddressFieldsFromCustomer(var BillToCustomer: Record Customer)'
+    parameters:
+    - id: BillToCustomer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: SetBillToCustomerAddressFieldsFromCustomer
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetBillToCustomerAddressFieldsFromCustomer(Customer@)
+- syntax:
+    content: 'procedure SetShipToAddress(ShipToName: Text[100], ShipToName2: Text[50], ShipToAddress: Text[100], ShipToAddress2: Text[50], ShipToCity: Text[30], ShipToPostCode: Code[20], ShipToCounty: Text[30], ShipToCountryRegionCode: Code[10])'
+    parameters:
+    - id: ShipToName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShipToName2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ShipToAddress
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShipToAddress2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ShipToCity
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ShipToPostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShipToCounty
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ShipToCountryRegionCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetShipToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetShipToAddress(Text[100],Text[50],Text[100],Text[50],Text[30],Code[20],Text[30],Code[10])
+- syntax:
+    content: 'procedure ShipToAddressEqualsSellToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShipToAddressEqualsSellToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ShipToAddressEqualsSellToAddress:Boolean
+- syntax:
+    content: 'procedure BillToAddressEqualsSellToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BillToAddressEqualsSellToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.BillToAddressEqualsSellToAddress:Boolean
+- syntax:
+    content: procedure CopySellToAddressToShipToAddress()
+  name: CopySellToAddressToShipToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CopySellToAddressToShipToAddress
+- syntax:
+    content: procedure CopySellToAddressToBillToAddress()
+  name: CopySellToAddressToBillToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CopySellToAddressToBillToAddress
+- syntax:
+    content: 'procedure ConfirmCloseUnposted(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmCloseUnposted
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ConfirmCloseUnposted:Boolean
+- syntax:
+    content: 'procedure InitFromSalesHeader(SourceSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SourceSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: InitFromSalesHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InitFromSalesHeader(Sales_Header)
+- syntax:
+    content: 'procedure SetWorkDescription(NewWorkDescription: Text)'
+    parameters:
+    - id: NewWorkDescription
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetWorkDescription
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetWorkDescription(Text)
+- syntax:
+    content: 'procedure GetWorkDescription(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetWorkDescription
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetWorkDescription:Text
+- syntax:
+    content: 'procedure LookupContact(CustomerNo: Code[20], ContactNo: Code[20], var Contact: Record Contact)'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ContactNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Contact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: LookupContact
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.LookupContact(Code[20],Code[20],Contact@)
+- syntax:
+    content: procedure SetAllowSelectNoSeries()
+  name: SetAllowSelectNoSeries
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetAllowSelectNoSeries
+- syntax:
+    content: procedure SetDefaultSalesperson()
+  name: SetDefaultSalesperson
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetDefaultSalesperson
+- syntax:
+    content: 'procedure GetUserSetupSalespersonCode(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetUserSetupSalespersonCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetUserSetupSalespersonCode:Code[20]
+- syntax:
+    content: 'procedure SelltoCustomerNoOnAfterValidate(var SalesHeader: Record "Sales Header", var xSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: xSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SelltoCustomerNoOnAfterValidate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SelltoCustomerNoOnAfterValidate(Sales_Header@,Sales_Header@)
+- syntax:
+    content: 'procedure PerformManualRelease(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PerformManualRelease
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.PerformManualRelease(Sales_Header@)
+- syntax:
+    content: procedure PerformManualRelease()
+  name: PerformManualRelease
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.PerformManualRelease
+- syntax:
+    content: 'procedure PerformManualReopen(var SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: PerformManualReopen
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.PerformManualReopen(Sales_Header@)
+- syntax:
+    content: 'procedure SelectSalesHeaderNewCustomerTemplate(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: SelectSalesHeaderNewCustomerTemplate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SelectSalesHeaderNewCustomerTemplate:Code[20]
+- syntax:
+    content: 'procedure RecallModifyAddressNotification(NotificationID: Guid)'
+    parameters:
+    - id: NotificationID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: RecallModifyAddressNotification
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.RecallModifyAddressNotification(Guid)
+- syntax:
+    content: 'procedure GetModifyCustomerAddressNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetModifyCustomerAddressNotificationId
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetModifyCustomerAddressNotificationId:Guid
+- syntax:
+    content: 'procedure GetModifyBillToCustomerAddressNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetModifyBillToCustomerAddressNotificationId
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetModifyBillToCustomerAddressNotificationId:Guid
+- syntax:
+    content: 'procedure GetLineInvoiceDiscountResetNotificationId(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetLineInvoiceDiscountResetNotificationId
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetLineInvoiceDiscountResetNotificationId:Guid
+- syntax:
+    content: 'procedure GetWarnWhenZeroQuantitySalesLinePosting(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: GetWarnWhenZeroQuantitySalesLinePosting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetWarnWhenZeroQuantitySalesLinePosting:Guid
+- syntax:
+    content: procedure SetModifyCustomerAddressNotificationDefaultState()
+  name: SetModifyCustomerAddressNotificationDefaultState
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetModifyCustomerAddressNotificationDefaultState
+- syntax:
+    content: procedure SetModifyBillToCustomerAddressNotificationDefaultState()
+  name: SetModifyBillToCustomerAddressNotificationDefaultState
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetModifyBillToCustomerAddressNotificationDefaultState
+- syntax:
+    content: 'procedure DontNotifyCurrentUserAgain(NotificationID: Guid)'
+    parameters:
+    - id: NotificationID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: DontNotifyCurrentUserAgain
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.DontNotifyCurrentUserAgain(Guid)
+- syntax:
+    content: 'procedure HasDifferentSellToAddress(Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasDifferentSellToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasDifferentSellToAddress(Customer):Boolean
+- syntax:
+    content: 'procedure HasDifferentBillToAddress(Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasDifferentBillToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasDifferentBillToAddress(Customer):Boolean
+- syntax:
+    content: 'procedure HasDifferentShipToAddress(Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasDifferentShipToAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.HasDifferentShipToAddress(Customer):Boolean
+- syntax:
+    content: procedure ShowInteractionLogEntries()
+  name: ShowInteractionLogEntries
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ShowInteractionLogEntries
+- syntax:
+    content: 'procedure GetBillToNo(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetBillToNo
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetBillToNo:Code[20]
+- syntax:
+    content: 'procedure GetCurrencySymbol(): Text[10]'
+    return:
+      returnType:
+        name: Text[10]
+        isExternal: true
+  name: GetCurrencySymbol
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCurrencySymbol:Text[10]
+- syntax:
+    content: procedure UpdateShipToSalespersonCode()
+  name: UpdateShipToSalespersonCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.UpdateShipToSalespersonCode
+- syntax:
+    content: 'procedure SetSalespersonCode(SalesPersonCodeToCheck: Code[20], var SalesPersonCodeToAssign: Code[20])'
+    parameters:
+    - id: SalesPersonCodeToCheck
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesPersonCodeToAssign
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetSalespersonCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetSalespersonCode(Code[20],Code[20]@)
+- syntax:
+    content: 'procedure ValidateSalesPersonOnSalesHeader(SalesHeader2: Record "Sales Header", IsTransaction: Boolean, IsPostAction: Boolean)'
+    parameters:
+    - id: SalesHeader2
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: IsTransaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsPostAction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateSalesPersonOnSalesHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ValidateSalesPersonOnSalesHeader(Sales_Header,Boolean,Boolean)
+- syntax:
+    content: 'procedure ShouldSearchForCustomerByName(CustomerNo: Code[20]): Boolean'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShouldSearchForCustomerByName
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.ShouldSearchForCustomerByName(Code[20]):Boolean
+- syntax:
+    content: 'procedure CanCalculateTax(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanCalculateTax
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CanCalculateTax:Boolean
+- syntax:
+    content: 'procedure SetSkipTaxCalulation(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipTaxCalulation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetSkipTaxCalulation(Boolean)
+- syntax:
+    content: 'procedure TestQuantityShippedField(SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: TestQuantityShippedField
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestQuantityShippedField(Sales_Line)
+- syntax:
+    content: 'procedure TestStatusIsNotPendingApproval(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestStatusIsNotPendingApproval
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestStatusIsNotPendingApproval:Boolean
+- syntax:
+    content: 'procedure TestStatusIsNotPendingPrepayment(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestStatusIsNotPendingPrepayment
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestStatusIsNotPendingPrepayment:Boolean
+- syntax:
+    content: 'procedure TestStatusIsNotReleased(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TestStatusIsNotReleased
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestStatusIsNotReleased:Boolean
+- syntax:
+    content: procedure TestStatusOpen()
+  name: TestStatusOpen
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.TestStatusOpen
+- syntax:
+    content: 'procedure SuspendStatusCheck(Suspend: Boolean)'
+    parameters:
+    - id: Suspend
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SuspendStatusCheck
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SuspendStatusCheck(Boolean)
+- syntax:
+    content: procedure CheckForBlockedLines()
+  name: CheckForBlockedLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CheckForBlockedLines
+- syntax:
+    content: procedure CopyDocument()
+  name: CopyDocument
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CopyDocument
+- syntax:
+    content: 'procedure LookupSellToCustomerName(var CustomerName: Text): Boolean'
+    parameters:
+    - id: CustomerName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupSellToCustomerName
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.LookupSellToCustomerName(Text@):Boolean
+- syntax:
+    content: 'procedure GetStatusCheckSuspended(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetStatusCheckSuspended
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetStatusCheckSuspended:Boolean
+- syntax:
+    content: 'procedure GetCalledFromWhseDoc(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetCalledFromWhseDoc
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetCalledFromWhseDoc:Boolean
+- syntax:
+    content: 'procedure SetCalledFromWhseDoc(NewCalledFromWhseDoc: Boolean)'
+    parameters:
+    - id: NewCalledFromWhseDoc
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCalledFromWhseDoc
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetCalledFromWhseDoc(Boolean)
+- syntax:
+    content: 'procedure GetUseDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetUseDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.GetUseDate:Date
+- syntax:
+    content: procedure InitPostingNoSeries()
+  name: InitPostingNoSeries
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.InitPostingNoSeries
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.CreateDimFromDefaultDim(Integer)
+- syntax:
+    content: 'procedure SelltoContactLookup(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SelltoContactLookup
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SelltoContactLookup:Boolean
+- syntax:
+    content: procedure SetWarnZeroQuantitySalesPosting()
+  name: SetWarnZeroQuantitySalesPosting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SetWarnZeroQuantitySalesPosting
+- syntax:
+    content: 'procedure SalesLinesEditable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesLinesEditable
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.SalesLinesEditable:Boolean
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(True,False)]'
+    content: procedure OnCheckSalesPostRestrictions()
+  name: OnCheckSalesPostRestrictions
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OnCheckSalesPostRestrictions
+- syntax:
+    signatures:
+    - '[IntegrationEvent(True,False)]'
+    content: 'procedure OnCustomerCreditLimitExceeded(NotificationId: Guid)'
+    parameters:
+    - id: NotificationId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: OnCustomerCreditLimitExceeded
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OnCustomerCreditLimitExceeded(Guid)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(True,False)]'
+    content: procedure OnCustomerCreditLimitNotExceeded()
+  name: OnCustomerCreditLimitNotExceeded
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OnCustomerCreditLimitNotExceeded
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCopySellToCustomerAddressFieldsFromCustomerOnAfterAssignSellToCustomerAddress(var SalesHeader: Record "Sales Header", Customer: Record Customer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: OnCopySellToCustomerAddressFieldsFromCustomerOnAfterAssignSellToCustomerAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OnCopySellToCustomerAddressFieldsFromCustomerOnAfterAssignSellToCustomerAddress(Sales_Header@,Customer)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnSetBillToCustomerAddressFieldsFromCustomerOnAfterAssignBillToCustomerAddress(var SalesHeader: Record "Sales Header", Customer: Record Customer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: OnSetBillToCustomerAddressFieldsFromCustomerOnAfterAssignBillToCustomerAddress
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OnSetBillToCustomerAddressFieldsFromCustomerOnAfterAssignBillToCustomerAddress(Sales_Header@,Customer)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCopyShipToCustomerAddressFieldsFromCustOnAfterAssignAddressFromSellToCustomer(var SalesHeader: Record "Sales Header", SellToCustomer: Record Customer)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SellToCustomer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+  name: OnCopyShipToCustomerAddressFieldsFromCustOnAfterAssignAddressFromSellToCustomer
+  uid: M:Table::Microsoft#Sales#Document#Sales_Header.OnCopyShipToCustomerAddressFieldsFromCustOnAfterAssignAddressFromSellToCustomer(Sales_Header@,Customer)
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+    name: Microsoft.Sales.Document."Sales Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Customer_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Name"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Bill-to Name 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Address"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Bill-to Address 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Bill-to City"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Contact"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Contact[100]
+- type:
+    name: Text[35]
+    isExternal: true
+  name: '"Your Reference"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Your_Reference[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Name"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Ship-to Name 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Address"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Ship-to Address 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to City"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Contact"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Contact[100]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Order Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Order_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Posting_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipment_Date
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Posting Description"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Posting_Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Terms Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Payment_Terms_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Due_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Payment Discount %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Payment_Discount_%
+- type:
+    name: Date
+    isExternal: true
+  name: '"Pmt. Discount Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Pmt#_Discount_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipment Method Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Customer_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Currency Factor"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Currency_Factor
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Customer_Price_Group[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prices Including VAT"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prices_Including_VAT
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Invoice Disc. Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Invoice_Disc#_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Customer_Disc#_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Language Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Language_Code[10]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Format Region"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Format_Region[80]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salesperson Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Salesperson_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Order Class"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Order_Class[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Comment
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. Printed"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.No#_Printed
+- type:
+    name: Code[3]
+    isExternal: true
+  name: '"On Hold"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.On_Hold[3]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Applies-to Doc. Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Applies-to_Doc#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Applies-to Doc. No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Applies-to_Doc#_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Account No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bal#_Account_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Recalculate Invoice Disc."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Recalculate_Invoice_Disc#
+- type:
+    name: Boolean
+    isExternal: true
+  name: Ship
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship
+- type:
+    name: Boolean
+    isExternal: true
+  name: Invoice
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Invoice
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Print Posted Documents"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Print_Posted_Documents
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Including VAT"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Amount_Including_VAT
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipping No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipping_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Posting_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Shipping No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Last_Shipping_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Posting No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Last_Posting_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepayment No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepayment_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Prepayment No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Last_Prepayment_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepmt. Cr. Memo No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepmt#_Cr#_Memo_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Prepmt. Cr. Memo No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Last_Prepmt#_Cr#_Memo_No#[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.VAT_Registration_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Combine Shipments"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Combine_Shipments
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Registration Number"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Registration_Number[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Reason_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"EU 3-Party Trade"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.EU_3-Party_Trade
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Transport_Method[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"VAT Country/Region Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.VAT_Country/Region_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Sell-to Customer Name"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Customer_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Sell-to Customer Name 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Customer_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Sell-to Address"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Sell-to Address 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Sell-to City"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Sell-to Contact"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Contact[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Post Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Bill-to County"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Bill-to Country/Region Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Post Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Sell-to County"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Sell-to Country/Region Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Ship-to Post Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to County"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Country/Region Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Ship-to_Country/Region_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Payment#Payment_Balance_Account_Type
+    name: Microsoft.Bank.Payment."Payment Balance Account Type"
+    isExternal: false
+  name: '"Bal. Account Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bal#_Account_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Exit_Point[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Correction
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Correction
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Document_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.External_Document_No#[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Transaction_Specification[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Method Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Payment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipping_Agent_Code[10]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Package Tracking No."'
+  obsoletion:
+    state: pending
+    reason: Field length will be increased to 50.
+    version: "24.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Package_Tracking_No#[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting No. Series"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Posting_No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipping No. Series"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipping_No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.VAT_Bus#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Reserve
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Applies-to ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Applies-to_ID[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Discount %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.VAT_Base_Discount_%
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Status
+    name: Microsoft.Sales.Document."Sales Document Status"
+    isExternal: false
+  name: Status
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Status
+- type:
+    name: Option
+    isExternal: true
+  name: '"Invoice Discount Calculation"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Invoice_Discount_Calculation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoice Discount Value"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Invoice_Discount_Value
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Send IC Document"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Send_IC_Document
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Setup#Sales_Document_IC_Status
+    name: Microsoft.Intercompany.Setup."Sales Document IC Status"
+    isExternal: false
+  name: '"IC Status"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.IC_Status
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to IC Partner Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_IC_Partner_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to IC Partner Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_IC_Partner_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Reference Document No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.IC_Reference_Document_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Setup#IC_Direction_Type
+    name: Microsoft.Intercompany.Setup."IC Direction Type"
+    isExternal: false
+  name: '"IC Direction"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.IC_Direction
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepayment_%
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepayment No. Series"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepayment_No#_Series[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Compress Prepayment"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Compress_Prepayment
+- type:
+    name: Date
+    isExternal: true
+  name: '"Prepayment Due Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepayment_Due_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepmt. Cr. Memo No. Series"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepmt#_Cr#_Memo_No#_Series[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Prepmt. Posting Description"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepmt#_Posting_Description[100]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Prepmt. Pmt. Discount Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepmt#_Pmt#_Discount_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Prepmt. Payment Terms Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepmt#_Payment_Terms_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Payment Discount %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Prepmt#_Payment_Discount_%
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Quote No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Quote_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Quote Valid Until Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Quote_Valid_Until_Date
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Quote Sent to Customer"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Quote_Sent_to_Customer
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Quote Accepted"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Quote_Accepted
+- type:
+    name: Date
+    isExternal: true
+  name: '"Quote Accepted Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Quote_Accepted_Date
+- type:
+    internalReference: O:Enum::System#Threading#Document_Job_Queue_Status
+    name: System.Threading."Document Job Queue Status"
+    isExternal: false
+  name: '"Job Queue Status"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Job_Queue_Status
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Job Queue Entry ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Job_Queue_Entry_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Company Bank Account Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Company_Bank_Account_Code[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Incoming Document Entry No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Incoming_Document_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: IsTest
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.IsTest
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Sell-to Phone No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Phone_No#[30]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Sell-to E-Mail"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_E-Mail[80]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Payment Instructions Id"'
+  obsoletion:
+    state: removed
+    reason: Microsoft Invoicing is not supported in Business Central
+    version: "21.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Payment_Instructions_Id
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Templ. Name"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Journal_Templ#_Name[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.VAT_Reporting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Rcvd-from Country/Region Code"'
+  obsoletion:
+    state: removed
+    reason: Use new field on range 181
+    version: "23.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Rcvd-from_Country/Region_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Rcvd.-from Count./Region Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Rcvd#-from_Count#/Region_Code[10]
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Work Description"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Work_Description
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amt. Ship. Not Inv. (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Amt#_Ship#_Not_Inv#_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amt. Ship. Not Inv. (LCY) Base"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Amt#_Ship#_Not_Inv#_(LCY)_Base
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Dimension_Set_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Payment Service Set ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Payment_Service_Set_ID
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to CRM"'
+  obsoletion:
+    state: pending
+    reason: Replaced by flow field Coupled to Dataverse
+    version: "23.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Coupled_to_CRM
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to Dataverse"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Coupled_to_Dataverse
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"Direct Debit Mandate ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Direct_Debit_Mandate_ID[35]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoice Discount Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Invoice_Discount_Amount
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Archived Versions"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.No#_of_Archived_Versions
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Doc. No. Occurrence"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Doc#_No#_Occurrence
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Campaign No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Campaign_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Sell-to Customer Template Code"'
+  obsoletion:
+    state: removed
+    reason: Will be removed with other functionality related to "old" templates. Replaced by "Sell-to Customer Templ. Code".
+    version: "21.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Customer_Template_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Contact No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Contact_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Contact No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Contact_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Bill-to Customer Template Code"'
+  obsoletion:
+    state: removed
+    reason: Will be removed with other functionality related to "old" templates. Replaced by "Bill-to Customer Templ. Code".
+    version: "21.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Customer_Template_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Opportunity No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Opportunity_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer Templ. Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Sell-to_Customer_Templ#_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer Templ. Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Bill-to_Customer_Templ#_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Responsibility_Center[10]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+    name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+    isExternal: false
+  name: '"Shipping Advice"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipping_Advice
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipped_Not_Invoiced
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Shipped"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Completely_Shipped
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Posting from Whse. Ref."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Posting_from_Whse#_Ref#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Filter"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Location_Filter[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Shipped
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipped
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Shipment Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Last_Shipment_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Requested Delivery Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Requested_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Promised Delivery Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Promised_Delivery_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipping_Time
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Outbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Outbound_Whse#_Handling_Time
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Shipping_Agent_Service_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Late Order Shipping"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Late_Order_Shipping
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Date_Filter
+- type:
+    name: Boolean
+    isExternal: true
+  name: Receive
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Receive
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Return Receipt No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Return_Receipt_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Return Receipt No. Series"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Return_Receipt_No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Return Receipt No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Last_Return_Receipt_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Allow_Line_Disc#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Get Shipment Used"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Get_Shipment_Used
+- type:
+    name: Guid
+    isExternal: true
+  name: Id
+  obsoletion:
+    state: removed
+    reason: This functionality will be replaced by the systemID field
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Id
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Assigned User ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.Assigned_User_ID[50]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Sales#Document#Sales_Header.SystemRowVersion
+commentId: O:Table::Microsoft#Sales#Document#Sales Header
+name: '"Sales Header"'
+uid: O:Table::Microsoft#Sales#Document#Sales_Header

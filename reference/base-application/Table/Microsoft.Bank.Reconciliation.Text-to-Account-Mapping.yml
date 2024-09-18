@@ -1,0 +1,189 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Text-to-Account Mapping"
+alId: ID 1251
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Text-to-Account Mapping
+  promoted: false
+- name: DataCaptionFields
+  value: "2"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertRec(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: InsertRec
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.InsertRec(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure InsertRecFromBankAccReconciliationLine(BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: InsertRecFromBankAccReconciliationLine
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.InsertRecFromBankAccReconciliationLine(Bank_Acc#_Reconciliation_Line)
+- syntax:
+    content: 'procedure GetAccountNo(Amount: Decimal): Code[20]'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetAccountNo
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.GetAccountNo(Decimal):Code[20]
+- syntax:
+    content: 'procedure GetPaymentDocType(var PaymentDocType: Option, ActualSourceType: Option, Amount: Decimal)'
+    parameters:
+    - id: PaymentDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ActualSourceType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetPaymentDocType
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.GetPaymentDocType(Option@,Option,Decimal)
+- syntax:
+    content: 'procedure GetDocTypeForPmt(var DocType: Option, PaymentDocType: Option)'
+    parameters:
+    - id: DocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: PaymentDocType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: GetDocTypeForPmt
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.GetDocTypeForPmt(Option@,Option)
+- syntax:
+    content: 'procedure IsBalSourceNoEnabled(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBalSourceNoEnabled
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.IsBalSourceNoEnabled:Boolean
+- syntax:
+    content: 'procedure CheckEntriesAreConsistent(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckEntriesAreConsistent
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.CheckEntriesAreConsistent:Boolean
+- syntax:
+    content: 'procedure SearchEnteriesInText(var TextToAccountMapping: Record "Text-to-Account Mapping", LineDescription: Text, VendorNo: Code[20]): Integer'
+    parameters:
+    - id: TextToAccountMapping
+      parameterType:
+        name: Record "Text-to-Account Mapping"
+        isExternal: true
+    - id: LineDescription
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: VendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SearchEnteriesInText
+  uid: M:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SearchEnteriesInText(Text-to-Account_Mapping@,Text,Code[20]):Integer
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Line_No#
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Mapping Text"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Mapping_Text[250]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Debit Acc. No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Debit_Acc#_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Credit Acc. No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Credit_Acc#_No#[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Bal. Source Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Bal#_Source_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Source No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Bal#_Source_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Vendor No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.Vendor_No#[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Reconciliation#Text-to-Account Mapping
+name: '"Text-to-Account Mapping"'
+uid: O:Table::Microsoft#Bank#Reconciliation#Text-to-Account_Mapping

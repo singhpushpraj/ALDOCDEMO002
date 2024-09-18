@@ -1,0 +1,1312 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Requisition."Requisition Line"
+alId: ID 246
+namespace: Microsoft.Inventory.Requisition
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Requisition
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Requisition Line
+  promoted: false
+- name: DataCaptionFields
+  value: 2,3
+  promoted: false
+- name: DrillDownPageID
+  value: Requisition Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Requisition#Requisition_Lines
+    name: Microsoft.Inventory.Requisition."Requisition Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Requisition Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Requisition#Requisition_Lines
+    name: Microsoft.Inventory.Requisition."Requisition Lines"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Prod. Order Capacity Need" = rimd,
+                      TableData "Routing Header" = r,
+                      TableData "Production BOM Header" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure CopyFromItem()
+  name: CopyFromItem
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.CopyFromItem
+- syntax:
+    content: procedure ShowReservation()
+  name: ShowReservation
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ShowReservation
+- syntax:
+    content: 'procedure ShowReservationEntries(Modal: Boolean)'
+    parameters:
+    - id: Modal
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowReservationEntries
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ShowReservationEntries(Boolean)
+- syntax:
+    content: 'procedure UpdateOrderReceiptDate(LeadTimeCalc: DateFormula)'
+    parameters:
+    - id: LeadTimeCalc
+      parameterType:
+        name: DateFormula
+        isExternal: true
+  name: UpdateOrderReceiptDate
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.UpdateOrderReceiptDate(DateFormula)
+- syntax:
+    content: 'procedure LookupVendor(var Vend: Record Vendor, PreferItemVendorCatalog: Boolean): Boolean'
+    parameters:
+    - id: Vend
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: PreferItemVendorCatalog
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupVendor
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.LookupVendor(Vendor@,Boolean):Boolean
+- syntax:
+    content: 'procedure LookupFromLocation(var Location: Record Location): Boolean'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupFromLocation
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.LookupFromLocation(Location@):Boolean
+- syntax:
+    content: procedure UpdateDescription()
+  name: UpdateDescription
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.UpdateDescription
+- syntax:
+    content: 'procedure BlockDynamicTracking(SetBlock: Boolean)'
+    parameters:
+    - id: SetBlock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: BlockDynamicTracking
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.BlockDynamicTracking(Boolean)
+- syntax:
+    content: 'procedure BlockDynamicTrackingOnComp(SetBlock: Boolean)'
+    parameters:
+    - id: SetBlock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: BlockDynamicTrackingOnComp
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.BlockDynamicTrackingOnComp(Boolean)
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure UpdateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: UpdateDim
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.UpdateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.LookupShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: procedure OpenItemTrackingLines()
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.OpenItemTrackingLines
+- syntax:
+    content: procedure DeleteRelations()
+  name: DeleteRelations
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.DeleteRelations
+- syntax:
+    content: 'procedure DeleteRelations(DeleteAllLines: Boolean)'
+    parameters:
+    - id: DeleteAllLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteRelations
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.DeleteRelations(Boolean)
+- syntax:
+    content: procedure DeleteMultiLevel()
+  name: DeleteMultiLevel
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.DeleteMultiLevel
+- syntax:
+    content: 'procedure ClearPlanningWorksheet(SkipConfirm: Boolean)'
+    parameters:
+    - id: SkipConfirm
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ClearPlanningWorksheet
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ClearPlanningWorksheet(Boolean)
+- syntax:
+    content: 'procedure SetUpNewLine(LastReqLine: Record "Requisition Line")'
+    parameters:
+    - id: LastReqLine
+      parameterType:
+        name: Record "Requisition Line"
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetUpNewLine(Requisition_Line)
+- syntax:
+    content: procedure SetDueDate()
+  name: SetDueDate
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetDueDate
+- syntax:
+    content: 'procedure SetCurrFieldNo(NewCurrFieldNo: Integer)'
+    parameters:
+    - id: NewCurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetCurrFieldNo
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetCurrFieldNo(Integer)
+- syntax:
+    content: procedure SetActionMessage()
+  name: SetActionMessage
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetActionMessage
+- syntax:
+    content: 'procedure ValidateFields(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateFields
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ValidateFields:Boolean
+- syntax:
+    content: 'procedure GetProdOrderLine(ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: GetProdOrderLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetProdOrderLine(Prod#_Order_Line)
+- syntax:
+    content: 'procedure GetPurchOrderLine(PurchOrderLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchOrderLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: GetPurchOrderLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetPurchOrderLine(Purchase_Line)
+- syntax:
+    content: 'procedure GetTransLine(TransLine: Record "Transfer Line")'
+    parameters:
+    - id: TransLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: GetTransLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetTransLine(Transfer_Line)
+- syntax:
+    content: 'procedure GetAsmHeader(AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: GetAsmHeader
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetAsmHeader(Assembly_Header)
+- syntax:
+    content: procedure GetActionMessages()
+  name: GetActionMessages
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetActionMessages
+- syntax:
+    content: 'procedure GetRemainingQty(var RemainingQty: Decimal, var RemainingQtyBase: Decimal)'
+    parameters:
+    - id: RemainingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetRemainingQty
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetRemainingQty(Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetReservationQty(var QtyReserved: Decimal, var QtyReservedBase: Decimal, var QtyToReserve: Decimal, var QtyToReserveBase: Decimal): Decimal'
+    parameters:
+    - id: QtyReserved
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyReservedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservationQty
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetReservationQty(Decimal@,Decimal@,Decimal@,Decimal@):Decimal
+- syntax:
+    content: 'procedure GetSourceCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSourceCaption
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetSourceCaption:Text
+- syntax:
+    content: 'procedure SetReservationEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationEntry
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetReservationEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure SetReservationFilters(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationFilters
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetReservationFilters(Reservation_Entry@)
+- syntax:
+    content: 'procedure ReservEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ReservEntryExist:Boolean
+- syntax:
+    content: 'procedure SetRefFilter(RefOrderType: Option, RefOrderStatus: Option, RefOrderNo: Code[20], RefLineNo: Integer)'
+    parameters:
+    - id: RefOrderType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RefOrderStatus
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: RefOrderNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RefLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetRefFilter
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetRefFilter(Option,Option,Code[20],Integer)
+- syntax:
+    content: 'procedure TransferFromProdOrderLine(var ProdOrderLine: Record "Prod. Order Line")'
+    parameters:
+    - id: ProdOrderLine
+      parameterType:
+        name: Record "Prod. Order Line"
+        isExternal: true
+  name: TransferFromProdOrderLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferFromProdOrderLine(Prod#_Order_Line@)
+- syntax:
+    content: 'procedure TransferFromPurchaseLine(var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: TransferFromPurchaseLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferFromPurchaseLine(Purchase_Line@)
+- syntax:
+    content: 'procedure TransferFromAsmHeader(var AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: TransferFromAsmHeader
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferFromAsmHeader(Assembly_Header@)
+- syntax:
+    content: 'procedure TransferFromTransLine(var TransLine: Record "Transfer Line")'
+    parameters:
+    - id: TransLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: TransferFromTransLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferFromTransLine(Transfer_Line@)
+- syntax:
+    content: 'procedure GetDimFromRefOrderLine(AddToExisting: Boolean)'
+    parameters:
+    - id: AddToExisting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetDimFromRefOrderLine
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetDimFromRefOrderLine(Boolean)
+- syntax:
+    content: 'procedure TransferFromActionMessage(var ActionMessageEntry: Record "Action Message Entry")'
+    parameters:
+    - id: ActionMessageEntry
+      parameterType:
+        name: Record "Action Message Entry"
+        isExternal: true
+  name: TransferFromActionMessage
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferFromActionMessage(Action_Message_Entry@)
+- syntax:
+    content: 'procedure TransferToTrackingEntry(var TrkgReservEntry: Record "Reservation Entry", PointerOnly: Boolean)'
+    parameters:
+    - id: TrkgReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: PointerOnly
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TransferToTrackingEntry
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferToTrackingEntry(Reservation_Entry@,Boolean)
+- syntax:
+    content: procedure UpdateDatetime()
+  name: UpdateDatetime
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.UpdateDatetime
+- syntax:
+    content: 'procedure GetDirectCost(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetDirectCost
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetDirectCost(Integer)
+- syntax:
+    content: 'procedure GetLineWithPrice(var LineWithPrice: Interface "Line With Price")'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+  name: GetLineWithPrice
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetLineWithPrice(Interface::Microsoft#Pricing#PriceList#Line_With_Price@)
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.RowID1:Text[250]
+- syntax:
+    content: 'procedure CalcEndingDate(LeadTime: Code[20])'
+    parameters:
+    - id: LeadTime
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CalcEndingDate
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.CalcEndingDate(Code[20])
+- syntax:
+    content: 'procedure CalcStartingDate(LeadTime: Code[20])'
+    parameters:
+    - id: LeadTime
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CalcStartingDate
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.CalcStartingDate(Code[20])
+- syntax:
+    content: 'procedure SetSubcontracting(IsSubcontracting: Boolean)'
+    parameters:
+    - id: IsSubcontracting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSubcontracting
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetSubcontracting(Boolean)
+- syntax:
+    content: 'procedure TransferFromUnplannedDemand(var UnplannedDemand: Record "Unplanned Demand")'
+    parameters:
+    - id: UnplannedDemand
+      parameterType:
+        name: Record "Unplanned Demand"
+        isExternal: true
+  name: TransferFromUnplannedDemand
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.TransferFromUnplannedDemand(Unplanned_Demand@)
+- syntax:
+    content: 'procedure SetSupplyDates(DemandDate: Date)'
+    parameters:
+    - id: DemandDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetSupplyDates
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetSupplyDates(Date)
+- syntax:
+    content: 'procedure SetSupplyQty(DemandQtyBase: Decimal, NeededQtyBase: Decimal)'
+    parameters:
+    - id: DemandQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NeededQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetSupplyQty
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetSupplyQty(Decimal,Decimal)
+- syntax:
+    content: 'procedure SetResiliencyOn(WkshTemplName: Code[10], JnlBatchName: Code[10], ItemNo: Code[20])'
+    parameters:
+    - id: WkshTemplName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JnlBatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetResiliencyOn
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetResiliencyOn(Code[10],Code[10],Code[20])
+- syntax:
+    content: 'procedure GetResiliencyError(var PlanningErrorLog: Record "Planning Error Log"): Boolean'
+    parameters:
+    - id: PlanningErrorLog
+      parameterType:
+        name: Record "Planning Error Log"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetResiliencyError
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetResiliencyError(Planning_Error_Log@):Boolean
+- syntax:
+    content: 'procedure SetResiliencyError(TheError: Text[250], TheTableID: Integer, TheTablePosition: Text[250])'
+    parameters:
+    - id: TheError
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: TheTableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TheTablePosition
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: SetResiliencyError
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.SetResiliencyError(Text[250],Integer,Text[250])
+- syntax:
+    content: 'procedure FilterLinesWithItemToPlan(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: FilterLinesWithItemToPlan
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.FilterLinesWithItemToPlan(Item@)
+- syntax:
+    content: 'procedure FindLinesWithItemToPlan(var Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLinesWithItemToPlan
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.FindLinesWithItemToPlan(Item@):Boolean
+- syntax:
+    content: 'procedure FilterLinesForReservation(ReservationEntry: Record "Reservation Entry", AvailabilityFilter: Text, Positive: Boolean)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: AvailabilityFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterLinesForReservation
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.FilterLinesForReservation(Reservation_Entry,Text,Boolean)
+- syntax:
+    content: 'procedure FindCurrForecastName(var ForecastName: Code[10]): Boolean'
+    parameters:
+    - id: ForecastName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindCurrForecastName
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.FindCurrForecastName(Code[10]@):Boolean
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.ShowDimensions
+- syntax:
+    content: 'procedure GetOriginalQtyBase(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetOriginalQtyBase
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetOriginalQtyBase:Decimal
+- syntax:
+    content: 'procedure IsDropShipment(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDropShipment
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.IsDropShipment:Boolean
+- syntax:
+    content: procedure GetLocationCode()
+  name: GetLocationCode
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetLocationCode
+- syntax:
+    content: 'procedure IsDropShipmentOrSpecialOrder(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsDropShipmentOrSpecialOrder
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.IsDropShipmentOrSpecialOrder:Boolean
+- syntax:
+    content: procedure LookupRefOrderNo()
+  name: LookupRefOrderNo
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.LookupRefOrderNo
+- syntax:
+    content: 'procedure GetJnlBatchNameForOrderPlanning(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetJnlBatchNameForOrderPlanning
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.GetJnlBatchNameForOrderPlanning:Code[10]
+- syntax:
+    content: procedure CreateDimFromDefaultDim()
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Inventory#Requisition#Requisition_Line.CreateDimFromDefaultDim
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Worksheet Template Name"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Worksheet_Template_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Journal_Batch_Name[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Requisition#Requisition_Line_Type
+    name: Microsoft.Inventory.Requisition."Requisition Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Description_2[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Quantity
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Vendor No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Vendor_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Direct Unit Cost"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Direct_Unit_Cost
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Due_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Requester ID"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Requester_ID[50]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Confirmed
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Confirmed
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Location_Code[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Recurring Method"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Recurring_Method
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expiration Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Expiration_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Recurring Frequency"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Recurring_Frequency
+- type:
+    name: Date
+    isExternal: true
+  name: '"Order Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Order_Date
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Vendor Item No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Vendor_Item_No#[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sales Order No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Sales_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sales Order Line No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Sales_Order_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Sell-to_Customer_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ship-to_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Order Address Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Order_Address_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Currency Factor"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Currency_Factor
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Reserved_Quantity
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Purchaser Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Purchaser_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Drop Shipment"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Drop_Shipment
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prod. Order No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Prod#_Order_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Reserved_Qty#_(Base)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Demand Type"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Demand Subtype"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Subtype
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Demand Order No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Demand Line No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Demand Ref. No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Ref#_No#
+- type:
+    name: Option
+    isExternal: true
+  name: Status
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Status
+- type:
+    name: Date
+    isExternal: true
+  name: '"Demand Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Demand Quantity"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Demand Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Needed Quantity"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Needed_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Needed Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Needed_Quantity_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: Reserve
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Reserve
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per UOM (Demand)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Qty#_per_UOM_(Demand)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit Of Measure Code (Demand)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Unit_Of_Measure_Code_(Demand)[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Supply From"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Supply_From[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Original Item No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Original_Item_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Original Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Original_Variant_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: Level
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Level
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Demand Qty. Available"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Demand_Qty#_Available
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.User_ID[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Purchasing_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Product_Group_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transfer-from Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Transfer-from_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Transfer Shipment Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Transfer_Shipment_Date
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Price_Calculation_Method
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Line_Discount_%
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Blanket Purch. Order Exists"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Blanket_Purch#_Order_Exists
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Custom Sorting Order"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Custom_Sorting_Order[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Routing_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Operation No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Operation_No#[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Work Center No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Work_Center_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Prod. Order Line No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Prod#_Order_Line_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"MPS Order"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.MPS_Order
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Planning_Flexibility
+    name: Microsoft.Inventory.Tracking."Reservation Planning Flexibility"
+    isExternal: false
+  name: '"Planning Flexibility"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Planning_Flexibility
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Routing Reference No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Routing_Reference_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Business Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Gen#_Business_Posting_Group[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Low-Level Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Low-Level_Code
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Production BOM Version Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Production_BOM_Version_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing Version Code"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Routing_Version_Code[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Routing Type"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Routing_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Original Quantity"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Original_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Finished Quantity"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Finished_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Quantity"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Remaining_Quantity
+- type:
+    name: Date
+    isExternal: true
+  name: '"Original Due Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Original_Due_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap %"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Scrap_%
+- type:
+    name: Date
+    isExternal: true
+  name: '"Starting Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Starting_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Starting Time"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Starting_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Ending Date"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ending_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Ending Time"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ending_Time
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Production BOM No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Production_BOM_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Indirect Cost %"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Indirect_Cost_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Overhead Rate"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Overhead_Rate
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Cost_Amount
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Replenishment_System
+    name: Microsoft.Inventory.Item."Replenishment System"
+    isExternal: false
+  name: '"Replenishment System"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Replenishment_System
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Ref. Order No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ref#_Order_No#[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Ref. Order Type"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ref#_Order_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Ref. Order Status"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ref#_Order_Status
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Ref. Line No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ref#_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.No#_Series[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Operation Cost Amt."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Expected_Operation_Cost_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Component Cost Amt."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Expected_Component_Cost_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Finished Qty. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Finished_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Qty. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Remaining_Qty#_(Base)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Related to Planning Line"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Related_to_Planning_Line
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Planning Level"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Planning_Level
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Planning#Planning_Line_Origin_Type
+    name: Microsoft.Inventory.Planning."Planning Line Origin Type"
+    isExternal: false
+  name: '"Planning Line Origin"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Planning_Line_Origin
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Action_Message_Type
+    name: Microsoft.Inventory.Tracking."Action Message Type"
+    isExternal: false
+  name: '"Action Message"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Action_Message
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Accept Action Message"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Accept_Action_Message
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Net_Quantity_(Base)
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Starting Date-Time"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Starting_Date-Time
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Ending Date-Time"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Ending_Date-Time
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order Promising ID"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Order_Promising_ID[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Promising Line No."'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Order_Promising_Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Promising Line ID"'
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.Order_Promising_Line_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Requisition#Requisition_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Requisition#Requisition Line
+name: '"Requisition Line"'
+uid: O:Table::Microsoft#Inventory#Requisition#Requisition_Line

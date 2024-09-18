@@ -1,0 +1,893 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Threading."Job Queue Entry"
+alId: ID 472
+namespace: System.Threading
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::System.Threading
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Job Queue Entry
+  promoted: false
+- name: DataCaptionFields
+  value: 7,8,9
+  promoted: false
+- name: DrillDownPageID
+  value: Job Queue Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::System#Threading#Job_Queue_Entries
+    name: System.Threading."Job Queue Entries"
+    isExternal: false
+- name: LookupPageID
+  value: Job Queue Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::System#Threading#Job_Queue_Entries
+    name: System.Threading."Job Queue Entries"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Job Queue Entry" = rimd,
+                      TableData "Job Queue Log Entry" = rimd
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure DoesExistLocked(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesExistLocked
+  uid: M:Table::System#Threading#Job_Queue_Entry.DoesExistLocked:Boolean
+- syntax:
+    content: procedure RefreshLocked()
+  name: RefreshLocked
+  uid: M:Table::System#Threading#Job_Queue_Entry.RefreshLocked
+- syntax:
+    content: 'procedure IsExpired(AtDateTime: DateTime): Boolean'
+    parameters:
+    - id: AtDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExpired
+  uid: M:Table::System#Threading#Job_Queue_Entry.IsExpired(DateTime):Boolean
+- syntax:
+    content: 'procedure IsReadyToStart(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsReadyToStart
+  uid: M:Table::System#Threading#Job_Queue_Entry.IsReadyToStart:Boolean
+- syntax:
+    content: procedure ShowErrorMessage()
+  name: ShowErrorMessage
+  uid: M:Table::System#Threading#Job_Queue_Entry.ShowErrorMessage
+- syntax:
+    content: 'procedure SetError(ErrorText: Text)'
+    parameters:
+    - id: ErrorText
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetError
+  uid: M:Table::System#Threading#Job_Queue_Entry.SetError(Text)
+- syntax:
+    content: 'procedure SetResult(IsSuccess: Boolean, PrevStatus: Option, ErrorMessageRegisterId: Guid)'
+    parameters:
+    - id: IsSuccess
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PrevStatus
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ErrorMessageRegisterId
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: SetResult
+  uid: M:Table::System#Threading#Job_Queue_Entry.SetResult(Boolean,Option,Guid)
+- syntax:
+    content: procedure SetResultDeletedEntry()
+  name: SetResultDeletedEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.SetResultDeletedEntry
+- syntax:
+    content: procedure FinalizeRun()
+  name: FinalizeRun
+  uid: M:Table::System#Threading#Job_Queue_Entry.FinalizeRun
+- syntax:
+    content: 'procedure GetLastLogEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastLogEntryNo
+  uid: M:Table::System#Threading#Job_Queue_Entry.GetLastLogEntryNo:Integer
+- syntax:
+    content: 'procedure InsertLogEntry(var JobQueueLogEntry: Record "Job Queue Log Entry")'
+    parameters:
+    - id: JobQueueLogEntry
+      parameterType:
+        name: Record "Job Queue Log Entry"
+        isExternal: true
+  name: InsertLogEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.InsertLogEntry(Job_Queue_Log_Entry@)
+- syntax:
+    content: 'procedure FinalizeLogEntry(JobQueueLogEntry: Record "Job Queue Log Entry")'
+    parameters:
+    - id: JobQueueLogEntry
+      parameterType:
+        name: Record "Job Queue Log Entry"
+        isExternal: true
+  name: FinalizeLogEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.FinalizeLogEntry(Job_Queue_Log_Entry)
+- syntax:
+    content: 'procedure FinalizeLogEntry(JobQueueLogEntry: Record "Job Queue Log Entry", LastErrorCallStack: Text)'
+    parameters:
+    - id: JobQueueLogEntry
+      parameterType:
+        name: Record "Job Queue Log Entry"
+        isExternal: true
+    - id: LastErrorCallStack
+      parameterType:
+        name: Text
+        isExternal: true
+  name: FinalizeLogEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.FinalizeLogEntry(Job_Queue_Log_Entry,Text)
+- syntax:
+    content: 'procedure SetStatus(NewStatus: Option)'
+    parameters:
+    - id: NewStatus
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SetStatus
+  uid: M:Table::System#Threading#Job_Queue_Entry.SetStatus(Option)
+- syntax:
+    content: procedure Cancel()
+  name: Cancel
+  uid: M:Table::System#Threading#Job_Queue_Entry.Cancel
+- syntax:
+    content: procedure DeleteTask()
+  name: DeleteTask
+  uid: M:Table::System#Threading#Job_Queue_Entry.DeleteTask
+- syntax:
+    content: procedure DeleteTasks()
+  name: DeleteTasks
+  uid: M:Table::System#Threading#Job_Queue_Entry.DeleteTasks
+- syntax:
+    content: procedure Restart()
+  name: Restart
+  uid: M:Table::System#Threading#Job_Queue_Entry.Restart
+- syntax:
+    content: procedure CheckRequiredPermissions()
+  name: CheckRequiredPermissions
+  uid: M:Table::System#Threading#Job_Queue_Entry.CheckRequiredPermissions
+- syntax:
+    content: 'procedure HasRequiredPermissions(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasRequiredPermissions
+  uid: M:Table::System#Threading#Job_Queue_Entry.HasRequiredPermissions:Boolean
+- syntax:
+    content: procedure CancelTask()
+  name: CancelTask
+  uid: M:Table::System#Threading#Job_Queue_Entry.CancelTask
+- syntax:
+    content: 'procedure ScheduleTask(): Guid'
+    return:
+      returnType:
+        name: Guid
+        isExternal: true
+  name: ScheduleTask
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleTask:Guid
+- syntax:
+    content: 'procedure DefaultJobTimeout(): Duration'
+    return:
+      returnType:
+        name: Duration
+        isExternal: true
+  name: DefaultJobTimeout
+  uid: M:Table::System#Threading#Job_Queue_Entry.DefaultJobTimeout:Duration
+- syntax:
+    content: 'procedure ReuseExistingJobFromID(JobID: Guid, ExecutionDateTime: DateTime): Boolean'
+    parameters:
+    - id: JobID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: ExecutionDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReuseExistingJobFromID
+  uid: M:Table::System#Threading#Job_Queue_Entry.ReuseExistingJobFromID(Guid,DateTime):Boolean
+- syntax:
+    content: 'procedure ReuseExistingJobFromCategory(JobQueueCategoryCode: Code[10], ExecutionDateTime: DateTime): Boolean'
+    parameters:
+    - id: JobQueueCategoryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ExecutionDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReuseExistingJobFromCategory
+  uid: M:Table::System#Threading#Job_Queue_Entry.ReuseExistingJobFromCategory(Code[10],DateTime):Boolean
+- syntax:
+    content: 'procedure ReuseExistingJobFromCategoryAndUser(JobQueueCategoryCode: Code[10], UserId: Text, ExecutionDateTime: DateTime): Boolean'
+    parameters:
+    - id: JobQueueCategoryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UserId
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ExecutionDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReuseExistingJobFromCategoryAndUser
+  uid: M:Table::System#Threading#Job_Queue_Entry.ReuseExistingJobFromCategoryAndUser(Code[10],Text,DateTime):Boolean
+- syntax:
+    content: procedure CleanupAfterExecution()
+  name: CleanupAfterExecution
+  uid: M:Table::System#Threading#Job_Queue_Entry.CleanupAfterExecution
+- syntax:
+    content: 'procedure IsNextRunDateFormulaSet(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNextRunDateFormulaSet
+  uid: M:Table::System#Threading#Job_Queue_Entry.IsNextRunDateFormulaSet:Boolean
+- syntax:
+    content: 'procedure ShowStatusMsg(JQID: Guid)'
+    parameters:
+    - id: JQID
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: ShowStatusMsg
+  uid: M:Table::System#Threading#Job_Queue_Entry.ShowStatusMsg(Guid)
+- syntax:
+    content: procedure LookupRecordToProcess()
+  name: LookupRecordToProcess
+  uid: M:Table::System#Threading#Job_Queue_Entry.LookupRecordToProcess
+- syntax:
+    content: 'procedure LookupObjectID(var NewObjectID: Integer): Boolean'
+    parameters:
+    - id: NewObjectID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupObjectID
+  uid: M:Table::System#Threading#Job_Queue_Entry.LookupObjectID(Integer@):Boolean
+- syntax:
+    content: 'procedure GetXmlContent(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetXmlContent
+  uid: M:Table::System#Threading#Job_Queue_Entry.GetXmlContent:Text
+- syntax:
+    content: 'procedure SetXmlContent(Params: Text)'
+    parameters:
+    - id: Params
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetXmlContent
+  uid: M:Table::System#Threading#Job_Queue_Entry.SetXmlContent(Text)
+- syntax:
+    content: 'procedure GetReportParameters(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetReportParameters
+  uid: M:Table::System#Threading#Job_Queue_Entry.GetReportParameters:Text
+- syntax:
+    content: 'procedure SetReportParameters(Params: Text)'
+    parameters:
+    - id: Params
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetReportParameters
+  uid: M:Table::System#Threading#Job_Queue_Entry.SetReportParameters(Text)
+- syntax:
+    content: 'procedure ScheduleJobQueueEntry(CodeunitID: Integer, RecordIDToProcess: RecordId)'
+    parameters:
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordIDToProcess
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ScheduleJobQueueEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleJobQueueEntry(Integer,RecordId)
+- syntax:
+    content: 'procedure ScheduleJobQueueEntryWithParameters(CodeunitID: Integer, RecordIDToProcess: RecordId, JobParameter: Text[250])'
+    parameters:
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecordIDToProcess
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: JobParameter
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: ScheduleJobQueueEntryWithParameters
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleJobQueueEntryWithParameters(Integer,RecordId,Text[250])
+- syntax:
+    content: 'procedure ScheduleJobQueueEntryForLater(CodeunitID: Integer, StartDateTime: DateTime, JobQueueCategoryCode: Code[10], JobParameter: Text)'
+    parameters:
+    - id: CodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StartDateTime
+      parameterType:
+        name: DateTime
+        isExternal: true
+    - id: JobQueueCategoryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: JobParameter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ScheduleJobQueueEntryForLater
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleJobQueueEntryForLater(Integer,DateTime,Code[10],Text)
+- syntax:
+    content: 'procedure GetStartingDateTime(Date: DateTime): DateTime'
+    parameters:
+    - id: Date
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: GetStartingDateTime
+  uid: M:Table::System#Threading#Job_Queue_Entry.GetStartingDateTime(DateTime):DateTime
+- syntax:
+    content: 'procedure GetEndingDateTime(Date: DateTime): DateTime'
+    parameters:
+    - id: Date
+      parameterType:
+        name: DateTime
+        isExternal: true
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: GetEndingDateTime
+  uid: M:Table::System#Threading#Job_Queue_Entry.GetEndingDateTime(DateTime):DateTime
+- syntax:
+    content: 'procedure ScheduleRecurrentJobQueueEntry(ObjType: Option, ObjID: Integer, RecId: RecordId)'
+    parameters:
+    - id: ObjType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ObjID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+  name: ScheduleRecurrentJobQueueEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleRecurrentJobQueueEntry(Option,Integer,RecordId)
+- syntax:
+    content: 'procedure ScheduleRecurrentJobQueueEntryWithFrequency(ObjType: Option, ObjID: Integer, RecId: RecordId, NoofMinutesbetweenRuns: Integer)'
+    parameters:
+    - id: ObjType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ObjID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NoofMinutesbetweenRuns
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ScheduleRecurrentJobQueueEntryWithFrequency
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleRecurrentJobQueueEntryWithFrequency(Option,Integer,RecordId,Integer)
+- syntax:
+    content: 'procedure ScheduleRecurrentJobQueueEntryWithFrequency(ObjType: Option, ObjID: Integer, RecId: RecordId, NoofMinutesbetweenRuns: Integer, StartTime: Time)'
+    parameters:
+    - id: ObjType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ObjID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: NoofMinutesbetweenRuns
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StartTime
+      parameterType:
+        name: Time
+        isExternal: true
+  name: ScheduleRecurrentJobQueueEntryWithFrequency
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleRecurrentJobQueueEntryWithFrequency(Option,Integer,RecordId,Integer,Time)
+- syntax:
+    content: 'procedure ScheduleRecurrentJobQueueEntryWithRunDateFormula(ObjType: Option, ObjID: Integer, RecId: RecordId, JobQueueCategoryCode: Code[10], MaxAttemptsToRun: Integer, NextRunDateFormula: DateFormula, StartingTime: Time)'
+    parameters:
+    - id: ObjType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ObjID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RecId
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: JobQueueCategoryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: MaxAttemptsToRun
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NextRunDateFormula
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    - id: StartingTime
+      parameterType:
+        name: Time
+        isExternal: true
+  name: ScheduleRecurrentJobQueueEntryWithRunDateFormula
+  uid: M:Table::System#Threading#Job_Queue_Entry.ScheduleRecurrentJobQueueEntryWithRunDateFormula(Option,Integer,RecordId,Code[10],Integer,DateFormula,Time)
+- syntax:
+    content: 'procedure InitRecurringJob(NoofMinutesbetweenRuns: Integer)'
+    parameters:
+    - id: NoofMinutesbetweenRuns
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitRecurringJob
+  uid: M:Table::System#Threading#Job_Queue_Entry.InitRecurringJob(Integer)
+- syntax:
+    content: 'procedure FindJobQueueEntry(ObjType: Option, ObjID: Integer): Boolean'
+    parameters:
+    - id: ObjType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ObjID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindJobQueueEntry
+  uid: M:Table::System#Threading#Job_Queue_Entry.FindJobQueueEntry(Option,Integer):Boolean
+- syntax:
+    content: 'procedure GetDefaultDescription(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetDefaultDescription
+  uid: M:Table::System#Threading#Job_Queue_Entry.GetDefaultDescription:Text[250]
+- syntax:
+    content: 'procedure IsToReportInbox(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsToReportInbox
+  uid: M:Table::System#Threading#Job_Queue_Entry.IsToReportInbox:Boolean
+- syntax:
+    content: procedure FilterInactiveOnHoldEntries()
+  name: FilterInactiveOnHoldEntries
+  uid: M:Table::System#Threading#Job_Queue_Entry.FilterInactiveOnHoldEntries
+- syntax:
+    content: 'procedure DoesJobNeedToBeRun(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DoesJobNeedToBeRun
+  uid: M:Table::System#Threading#Job_Queue_Entry.DoesJobNeedToBeRun:Boolean
+fields:
+- type:
+    name: Guid
+    isExternal: true
+  name: ID
+  uid: F:Table::System#Threading#Job_Queue_Entry.ID
+- type:
+    name: Text[65]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.User_ID[65]
+- type:
+    name: Blob
+    isExternal: true
+  name: XML
+  uid: F:Table::System#Threading#Job_Queue_Entry.XML
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Last Ready State"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Last_Ready_State
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Expiration Date/Time"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Expiration_Date/Time
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Earliest Start Date/Time"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Earliest_Start_Date/Time
+- type:
+    name: Option
+    isExternal: true
+  name: '"Object Type to Run"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Object_Type_to_Run
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Object ID to Run"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Object_ID_to_Run
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Object Caption to Run"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Object_Caption_to_Run[250]
+- type:
+    internalReference: O:Enum::System#Threading#Job_Queue_Report_Output_Type
+    name: System.Threading."Job Queue Report Output Type"
+    isExternal: false
+  name: '"Report Output Type"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Report_Output_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Maximum No. of Attempts to Run"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Maximum_No#_of_Attempts_to_Run
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Attempts to Run"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.No#_of_Attempts_to_Run
+- type:
+    name: Option
+    isExternal: true
+  name: Status
+  uid: F:Table::System#Threading#Job_Queue_Entry.Status
+- type:
+    name: Integer
+    isExternal: true
+  name: Priority
+  obsoletion:
+    state: removed
+    reason: No longer supported.
+    version: "15.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.Priority
+- type:
+    name: RecordId
+    isExternal: true
+  name: '"Record ID to Process"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Record_ID_to_Process
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Parameter String"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Parameter_String[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Recurring Job"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Recurring_Job
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Minutes between Runs"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.No#_of_Minutes_between_Runs
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Mondays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Mondays
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Tuesdays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Tuesdays
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Wednesdays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Wednesdays
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Thursdays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Thursdays
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Fridays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Fridays
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Saturdays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Saturdays
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run on Sundays"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_on_Sundays
+- type:
+    name: Time
+    isExternal: true
+  name: '"Starting Time"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Starting_Time
+- type:
+    name: Time
+    isExternal: true
+  name: '"Ending Time"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Ending_Time
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Reference Starting Time"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Reference_Starting_Time
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Next Run Date Formula"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Next_Run_Date_Formula
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Description
+  uid: F:Table::System#Threading#Job_Queue_Entry.Description[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Run in User Session"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Run_in_User_Session
+- type:
+    name: Integer
+    isExternal: true
+  name: '"User Session ID"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.User_Session_ID
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Job Queue Category Code"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Job_Queue_Category_Code[10]
+- type:
+    name: Text[2048]
+    isExternal: true
+  name: '"Error Message"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Error_Message[2048]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Error Message 2"'
+  obsoletion:
+    state: removed
+    reason: Error Message field size has been increased.
+    version: "15.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.Error_Message_2[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Error Message 3"'
+  obsoletion:
+    state: removed
+    reason: Error Message field size has been increased.
+    version: "15.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.Error_Message_3[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Error Message 4"'
+  obsoletion:
+    state: removed
+    reason: Error Message field size has been increased.
+    version: "15.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.Error_Message_4[250]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"User Service Instance ID"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.User_Service_Instance_ID
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"User Session Started"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.User_Session_Started
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Timeout (sec.)"'
+  obsoletion:
+    state: removed
+    reason: No longer supported.
+    version: "15.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.Timeout_(sec#)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Notify On Success"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Notify_On_Success
+- type:
+    name: Integer
+    isExternal: true
+  name: '"User Language ID"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.User_Language_ID
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Printer Name"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Printer_Name[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Report Request Page Options"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Report_Request_Page_Options
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Rerun Delay (sec.)"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Rerun_Delay_(sec#)
+- type:
+    name: Guid
+    isExternal: true
+  name: '"System Task ID"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.System_Task_ID
+- type:
+    name: Boolean
+    isExternal: true
+  name: Scheduled
+  uid: F:Table::System#Threading#Job_Queue_Entry.Scheduled
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Manual Recurrence"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Manual_Recurrence
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"On Hold Due to Inactivity"'
+  obsoletion:
+    state: removed
+    reason: Functionality moved into new job queue status
+    version: "18.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.On_Hold_Due_to_Inactivity
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Inactivity Timeout Period"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Inactivity_Timeout_Period
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Error Message Register Id"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Error_Message_Register_Id
+- type:
+    name: Duration
+    isExternal: true
+  name: '"Job Timeout"'
+  uid: F:Table::System#Threading#Job_Queue_Entry.Job_Timeout
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Recovery Task Id"'
+  obsoletion:
+    state: removed
+    reason: The recovery job is no longer needed.
+    version: "23.0"
+  uid: F:Table::System#Threading#Job_Queue_Entry.Recovery_Task_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::System#Threading#Job_Queue_Entry.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::System#Threading#Job_Queue_Entry.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::System#Threading#Job_Queue_Entry.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::System#Threading#Job_Queue_Entry.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::System#Threading#Job_Queue_Entry.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::System#Threading#Job_Queue_Entry.SystemRowVersion
+commentId: O:Table::System#Threading#Job Queue Entry
+name: '"Job Queue Entry"'
+uid: O:Table::System#Threading#Job_Queue_Entry

@@ -1,0 +1,269 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Ledger Entry Matching Buffer"
+alId: ID 1248
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Ledger Entry Matching Buffer
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: TableType
+  value: Temporary
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertFromCustomerLedgerEntry(CustLedgerEntry: Record "Cust. Ledger Entry", UseLCYAmounts: Boolean, var UsePaymentDiscounts: Boolean)'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: UseLCYAmounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: UsePaymentDiscounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertFromCustomerLedgerEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.InsertFromCustomerLedgerEntry(Cust#_Ledger_Entry,Boolean,Boolean@)
+- syntax:
+    content: 'procedure InsertFromVendorLedgerEntry(VendorLedgerEntry: Record "Vendor Ledger Entry", UseLCYAmounts: Boolean, var UsePaymentDiscounts: Boolean)'
+    parameters:
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+    - id: UseLCYAmounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: UsePaymentDiscounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertFromVendorLedgerEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.InsertFromVendorLedgerEntry(Vendor_Ledger_Entry,Boolean,Boolean@)
+- syntax:
+    content: 'procedure InsertFromEmployeeLedgerEntry(EmployeeLedgerEntry: Record "Employee Ledger Entry")'
+    parameters:
+    - id: EmployeeLedgerEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+  name: InsertFromEmployeeLedgerEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.InsertFromEmployeeLedgerEntry(Employee_Ledger_Entry)
+- syntax:
+    content: 'procedure InsertFromEmployeeLedgerEntry(EmployeeLedgerEntry: Record "Employee Ledger Entry", UseLCYAmounts: Boolean)'
+    parameters:
+    - id: EmployeeLedgerEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+    - id: UseLCYAmounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertFromEmployeeLedgerEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.InsertFromEmployeeLedgerEntry(Employee_Ledger_Entry,Boolean)
+- syntax:
+    content: 'procedure InsertFromBankAccLedgerEntry(BankAccountLedgerEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: InsertFromBankAccLedgerEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.InsertFromBankAccLedgerEntry(Bank_Account_Ledger_Entry)
+- syntax:
+    content: 'procedure GetApplicableRemainingAmount(BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line", UsePaymentDiscounts: Boolean): Decimal'
+    parameters:
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+    - id: UsePaymentDiscounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetApplicableRemainingAmount
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.GetApplicableRemainingAmount(Bank_Acc#_Reconciliation_Line,Boolean):Decimal
+- syntax:
+    content: 'procedure GetNoOfLedgerEntriesWithinRange(MinAmount: Decimal, MaxAmount: Decimal, TransactionDate: Date, UsePaymentDiscounts: Boolean): Integer'
+    parameters:
+    - id: MinAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MaxAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransactionDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UsePaymentDiscounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNoOfLedgerEntriesWithinRange
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.GetNoOfLedgerEntriesWithinRange(Decimal,Decimal,Date,Boolean):Integer
+- syntax:
+    content: 'procedure GetNoOfLedgerEntriesOutsideRange(MinAmount: Decimal, MaxAmount: Decimal, TransactionDate: Date, UsePaymentDiscounts: Boolean): Integer'
+    parameters:
+    - id: MinAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MaxAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransactionDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: UsePaymentDiscounts
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNoOfLedgerEntriesOutsideRange
+  uid: M:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.GetNoOfLedgerEntriesOutsideRange(Decimal,Decimal,Date,Boolean):Integer
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Reconciliation#Matching_Ledger_Account_Type
+    name: Microsoft.Bank.Reconciliation."Matching Ledger Account Type"
+    isExternal: false
+  name: '"Account Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Account_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Bal. Account Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Bal#_Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Bal#_Account_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Description[100]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Document_Type
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Due_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Posting_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Document_No#[20]
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.External_Document_No#[35]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Payment Reference"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Payment_Reference[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Remaining_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Amt. Incl. Discount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Remaining_Amt#_Incl#_Discount
+- type:
+    name: Date
+    isExternal: true
+  name: '"Pmt. Discount Due Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.Pmt#_Discount_Due_Date
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Reconciliation#Ledger Entry Matching Buffer
+name: '"Ledger Entry Matching Buffer"'
+uid: O:Table::Microsoft#Bank#Reconciliation#Ledger_Entry_Matching_Buffer

@@ -1,0 +1,181 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service Document Register"
+alId: ID 5936
+namespace: Microsoft.Service.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Service Document Register
+  promoted: false
+- name: DrillDownPageID
+  value: Service Document Registers
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_Document_Registers
+    name: Microsoft.Service.Document."Service Document Registers"
+    isExternal: false
+- name: LookupPageID
+  value: Service Document Registers
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_Document_Registers
+    name: Microsoft.Service.Document."Service Document Registers"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertServiceSalesDocument(ServDocType: Enum "Service Source Document Type", ServDocNo: Code[20], SalesDocType: Enum "Service Destination Document Type", SalesDocNo: Code[20])'
+    parameters:
+    - id: ServDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Source_Document_Type
+        name: Microsoft.Service.Document."Service Source Document Type"
+        isExternal: false
+    - id: ServDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Destination_Document_Type
+        name: Microsoft.Service.Document."Service Destination Document Type"
+        isExternal: false
+    - id: SalesDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InsertServiceSalesDocument
+  uid: M:Table::Microsoft#Service#Document#Service_Document_Register.InsertServiceSalesDocument(Enum::Microsoft#Service#Document#Service_Source_Document_Type,Code[20],Enum::Microsoft#Service#Document#Service_Destination_Document_Type,Code[20])
+- syntax:
+    content: 'procedure PostServiceSalesDocument(SalesDocType: Enum "Service Destination Document Type", SalesDocNo: Code[20], InvoiceNo: Code[20])'
+    parameters:
+    - id: SalesDocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Destination_Document_Type
+        name: Microsoft.Service.Document."Service Destination Document Type"
+        isExternal: false
+    - id: SalesDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: InvoiceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PostServiceSalesDocument
+  uid: M:Table::Microsoft#Service#Document#Service_Document_Register.PostServiceSalesDocument(Enum::Microsoft#Service#Document#Service_Destination_Document_Type,Code[20],Code[20])
+- syntax:
+    content: 'procedure ServiceDocument(SalesDocType: Option, SalesDocNo: Code[20], var ServTable: Integer, var ServDocNo: Code[20]): Boolean'
+    parameters:
+    - id: SalesDocType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ServTable
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ServDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceDocument
+  uid: M:Table::Microsoft#Service#Document#Service_Document_Register.ServiceDocument(Option,Code[20],Integer@,Code[20]@):Boolean
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Source_Document_Type
+    name: Microsoft.Service.Document."Service Source Document Type"
+    isExternal: false
+  name: '"Source Document Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Source_Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source Document No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Source_Document_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Destination_Document_Type
+    name: Microsoft.Service.Document."Service Destination Document Type"
+    isExternal: false
+  name: '"Destination Document Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Destination_Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Destination Document No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Destination_Document_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Service#Contract#Service_Contract_Header_Invoice_Period
+    name: Microsoft.Service.Contract."Service Contract Header Invoice Period"
+    isExternal: false
+  name: '"Invoice Period"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Invoice_Period
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Invoice Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Last_Invoice_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Next Invoice Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Next_Invoice_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Next Invoice Period Start"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Next_Invoice_Period_Start
+- type:
+    name: Date
+    isExternal: true
+  name: '"Next Invoice Period End"'
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.Next_Invoice_Period_End
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Service#Document#Service_Document_Register.SystemRowVersion
+commentId: O:Table::Microsoft#Service#Document#Service Document Register
+name: '"Service Document Register"'
+uid: O:Table::Microsoft#Service#Document#Service_Document_Register

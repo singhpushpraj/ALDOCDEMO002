@@ -1,0 +1,248 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Payment."Credit Transfer Entry"
+alId: ID 1206
+namespace: Microsoft.Bank.Payment
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Payment
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Credit Transfer Entry
+  promoted: false
+- name: DataCaptionFields
+  value: 3,4,9
+  promoted: false
+- name: DrillDownPageID
+  value: Credit Transfer Reg. Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Payment#Credit_Transfer_Reg#_Entries
+    name: Microsoft.Bank.Payment."Credit Transfer Reg. Entries"
+    isExternal: false
+- name: LookupPageID
+  value: Credit Transfer Reg. Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Payment#Credit_Transfer_Reg#_Entries
+    name: Microsoft.Bank.Payment."Credit Transfer Reg. Entries"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateNew(RegisterNo: Integer, EntryNo: Integer, GenJnlAccountType: Enum "Gen. Journal Account Type", AccountNo: Code[20], LedgerEntryNo: Integer, TransferDate: Date, CurrencyCode: Code[10], TransferAmount: Decimal, TransActionID: Text[35], RecipientBankAccount: Code[20], MessageToRecipient: Text[140])'
+    parameters:
+    - id: RegisterNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: GenJnlAccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TransferDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: TransferAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TransActionID
+      parameterType:
+        name: Text[35]
+        isExternal: true
+    - id: RecipientBankAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: MessageToRecipient
+      parameterType:
+        name: Text[140]
+        isExternal: true
+  name: CreateNew
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.CreateNew(Integer,Integer,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Code[20],Integer,Date,Code[10],Decimal,Text[35],Code[20],Text[140])
+- syntax:
+    content: procedure FillRecipientData()
+  name: FillRecipientData
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.FillRecipientData
+- syntax:
+    content: 'procedure AppliesToEntryDocumentNo(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: AppliesToEntryDocumentNo
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.AppliesToEntryDocumentNo:Code[20]
+- syntax:
+    content: 'procedure AppliesToEntryDescription(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: AppliesToEntryDescription
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.AppliesToEntryDescription:Text
+- syntax:
+    content: 'procedure AppliesToEntryPostingDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: AppliesToEntryPostingDate
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.AppliesToEntryPostingDate:Date
+- syntax:
+    content: 'procedure AppliesToEntryCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: AppliesToEntryCurrencyCode
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.AppliesToEntryCurrencyCode:Code[10]
+- syntax:
+    content: 'procedure AppliesToEntryAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AppliesToEntryAmount
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.AppliesToEntryAmount:Decimal
+- syntax:
+    content: 'procedure AppliesToEntryRemainingAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AppliesToEntryRemainingAmount
+  uid: M:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.AppliesToEntryRemainingAmount:Decimal
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Credit Transfer Register No."'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Credit_Transfer_Register_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Payment#Credit_Transfer_Account_Type
+    name: Microsoft.Bank.Payment."Credit Transfer Account Type"
+    isExternal: false
+  name: '"Account Type"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Account No."'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Account_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applies-to Entry No."'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Applies-to_Entry_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Transfer Date"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Transfer_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Transfer Amount"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Transfer_Amount
+- type:
+    name: Text[35]
+    isExternal: true
+  name: '"Transaction ID"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Transaction_ID[35]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Canceled
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Canceled
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Recipient Bank Acc. No."'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Recipient_Bank_Acc#_No#[50]
+- type:
+    name: Text[140]
+    isExternal: true
+  name: '"Message to Recipient"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Message_to_Recipient[140]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Recipient IBAN"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Recipient_IBAN[50]
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Recipient Bank Account No."'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Recipient_Bank_Account_No#[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Recipient Name"'
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.Recipient_Name[100]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Payment#Credit Transfer Entry
+name: '"Credit Transfer Entry"'
+uid: O:Table::Microsoft#Bank#Payment#Credit_Transfer_Entry

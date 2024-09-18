@@ -1,0 +1,284 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Document."Warehouse Receipt Header"
+alId: ID 7316
+namespace: Microsoft.Warehouse.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Warehouse Receipt Header
+  promoted: false
+- name: LookupPageID
+  value: Warehouse Receipts
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Warehouse#Document#Warehouse_Receipts
+    name: Microsoft.Warehouse.Document."Warehouse Receipts"
+    isExternal: false
+- name: Permissions
+  value: TableData "Warehouse Receipt Line" = rd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(OldWhseRcptHeader: Record "Warehouse Receipt Header"): Boolean'
+    parameters:
+    - id: OldWhseRcptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.AssistEdit(Warehouse_Receipt_Header):Boolean
+- syntax:
+    content: procedure SortWhseDoc()
+  name: SortWhseDoc
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SortWhseDoc
+- syntax:
+    content: 'procedure MessageIfReceiptLinesExist(ChangedFieldName: Text[80])'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[80]
+        isExternal: true
+  name: MessageIfReceiptLinesExist
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.MessageIfReceiptLinesExist(Text[80])
+- syntax:
+    content: 'procedure DeleteRelatedLines(UseTableTrigger: Boolean)'
+    parameters:
+    - id: UseTableTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeleteRelatedLines
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.DeleteRelatedLines(Boolean)
+- syntax:
+    content: 'procedure GetHeaderStatus(LineNo: Integer): Integer'
+    parameters:
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetHeaderStatus
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.GetHeaderStatus(Integer):Integer
+- syntax:
+    content: 'procedure LookupLocation(var WhseRcptHeader: Record "Warehouse Receipt Header")'
+    parameters:
+    - id: WhseRcptHeader
+      parameterType:
+        name: Record "Warehouse Receipt Header"
+        isExternal: true
+  name: LookupLocation
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.LookupLocation(Warehouse_Receipt_Header@)
+- syntax:
+    content: 'procedure GetLocation(LocationCode: Code[10]): Record Location'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Record Location
+        isExternal: true
+  name: GetLocation
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.GetLocation(Code[10]):Location
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure FindFirstAllowedRec(Which: Text[1024]): Boolean'
+    parameters:
+    - id: Which
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstAllowedRec
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.FindFirstAllowedRec(Text[1024]):Boolean
+- syntax:
+    content: 'procedure FindNextAllowedRec(Steps: Integer): Integer'
+    parameters:
+    - id: Steps
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindNextAllowedRec
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.FindNextAllowedRec(Integer):Integer
+- syntax:
+    content: procedure ErrorIfUserIsNotWhseEmployee()
+  name: ErrorIfUserIsNotWhseEmployee
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.ErrorIfUserIsNotWhseEmployee
+- syntax:
+    content: 'procedure ReceiptLinesEditable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReceiptLinesEditable
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.ReceiptLinesEditable:Boolean
+- syntax:
+    content: 'procedure BinCodeMandatory(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BinCodeMandatory
+  uid: M:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.BinCodeMandatory:Boolean
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Location_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Assigned User ID"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Assigned_User_ID[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Assignment Date"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Assignment_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Assignment Time"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Assignment_Time
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Document#Warehouse_Receipt_Sorting_Method
+    name: Microsoft.Warehouse.Document."Warehouse Receipt Sorting Method"
+    isExternal: false
+  name: '"Sorting Method"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Sorting_Method
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.No#_Series[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Bin_Code[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Document Status"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Document_Status
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Comment
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Posting_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"Vendor Shipment No."'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Vendor_Shipment_No#[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Cross-Dock Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Cross-Dock_Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Dock Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Cross-Dock_Bin_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Create Posted Header"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Create_Posted_Header
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Receiving No."'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Receiving_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Receiving No."'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Last_Receiving_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Receiving No. Series"'
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.Receiving_No#_Series[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header.SystemRowVersion
+commentId: O:Table::Microsoft#Warehouse#Document#Warehouse Receipt Header
+name: '"Warehouse Receipt Header"'
+uid: O:Table::Microsoft#Warehouse#Document#Warehouse_Receipt_Header

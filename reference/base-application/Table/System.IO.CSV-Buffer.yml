@@ -1,0 +1,285 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.IO."CSV Buffer"
+alId: ID 1234
+namespace: System.IO
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::System.IO
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: CSV Buffer
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertEntry(LineNo: Integer, FieldNo: Integer, FieldValue: Text[250])'
+    parameters:
+    - id: LineNo
+      description: The line number on which to insert the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      description: The field number (or position) on which to insert the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldValue
+      description: The value to insert.
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  summary: Inserts an entry to the record.
+  name: InsertEntry
+  uid: M:Table::System#IO#CSV_Buffer.InsertEntry(Integer,Integer,Text[250])
+- syntax:
+    content: 'procedure LoadDataFromStream(CSVInStream: InStream, CSVFieldSeparator: Text[1], CSVCharactersToTrim: Text)'
+    parameters:
+    - id: CSVInStream
+      description: The stream from which to laod data.
+      parameterType:
+        name: InStream
+        isExternal: true
+    - id: CSVFieldSeparator
+      description: The character to use to split the values.
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    - id: CSVCharactersToTrim
+      description: Characters to trim from the beginning and the end of the read values.
+      parameterType:
+        name: Text
+        isExternal: true
+  summary: Loads data from a stream.
+  name: LoadDataFromStream
+  uid: M:Table::System#IO#CSV_Buffer.LoadDataFromStream(InStream,Text[1],Text)
+- syntax:
+    content: 'procedure LoadDataFromStream(CSVInStream: InStream, CSVFieldSeparator: Text[1])'
+    parameters:
+    - id: CSVInStream
+      description: The stream from which to laod data.
+      parameterType:
+        name: InStream
+        isExternal: true
+    - id: CSVFieldSeparator
+      description: The character to use to split the values.
+      parameterType:
+        name: Text[1]
+        isExternal: true
+  summary: Loads data from a stream.
+  name: LoadDataFromStream
+  uid: M:Table::System#IO#CSV_Buffer.LoadDataFromStream(InStream,Text[1])
+- syntax:
+    content: 'procedure SaveDataToBlob(TempBlob: __MissingTypeSymbol__, CSVFieldSeparator: Text[1])'
+    parameters:
+    - id: TempBlob
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+    - id: CSVFieldSeparator
+      parameterType:
+        name: Text[1]
+        isExternal: true
+  name: SaveDataToBlob
+  uid: M:Table::System#IO#CSV_Buffer.SaveDataToBlob(__MissingSymbol__@,Text[1])
+- syntax:
+    content: 'procedure InitializeReaderFromStream(CSVInStream: InStream, CSVFieldSeparator: Text[1], CSVCharactersToTrim: Text)'
+    parameters:
+    - id: CSVInStream
+      description: The stream from which to read data.
+      parameterType:
+        name: InStream
+        isExternal: true
+    - id: CSVFieldSeparator
+      description: The character to use to split the values.
+      parameterType:
+        name: Text[1]
+        isExternal: true
+    - id: CSVCharactersToTrim
+      description: Characters to trim from the beginning and the end of the read values.
+      parameterType:
+        name: Text
+        isExternal: true
+  summary: Initializes the CSV buffer.
+  remarks: No data is inserted into the buffer.
+  name: InitializeReaderFromStream
+  uid: M:Table::System#IO#CSV_Buffer.InitializeReaderFromStream(InStream,Text[1],Text)
+- syntax:
+    content: 'procedure InitializeReaderFromStream(CSVInStream: InStream, CSVFieldSeparator: Text[1])'
+    parameters:
+    - id: CSVInStream
+      description: The stream from which to read data.
+      parameterType:
+        name: InStream
+        isExternal: true
+    - id: CSVFieldSeparator
+      description: The character to use to split the values.
+      parameterType:
+        name: Text[1]
+        isExternal: true
+  summary: Initializes the CSV buffer.
+  remarks: No data is inserted into the buffer.
+  name: InitializeReaderFromStream
+  uid: M:Table::System#IO#CSV_Buffer.InitializeReaderFromStream(InStream,Text[1])
+- syntax:
+    content: procedure ResetFilters()
+  summary: Resets the filters on the record.
+  name: ResetFilters
+  uid: M:Table::System#IO#CSV_Buffer.ResetFilters
+- syntax:
+    content: 'procedure GetValue(LineNo: Integer, FieldNo: Integer): Text[250]'
+    parameters:
+    - id: LineNo
+      description: The line number to identify the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FieldNo
+      description: The field number (or position) to identify the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      description: The value stored on line `LineNo` and field `FieldNo`.
+      returnType:
+        name: Text[250]
+        isExternal: true
+  summary: Gets a value from the record.
+  name: GetValue
+  uid: M:Table::System#IO#CSV_Buffer.GetValue(Integer,Integer):Text[250]
+- syntax:
+    content: 'procedure GetCSVLinesWhere(FilterFieldNo: Integer, FilterValue: Text, var TempResultCSVBuffer: Record "CSV Buffer" temporary)'
+    parameters:
+    - id: FilterFieldNo
+      description: The field number (or position) of the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: FilterValue
+      description: The value to filter on.
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: TempResultCSVBuffer
+      description: Out parameter to store the result.
+      parameterType:
+        name: Record "CSV Buffer" temporary
+        isExternal: true
+  summary: Gets all the lines that contain a specific value on a specific field/position.
+  name: GetCSVLinesWhere
+  uid: M:Table::System#IO#CSV_Buffer.GetCSVLinesWhere(Integer,Text,CSV_Buffer@)
+- syntax:
+    content: 'procedure GetValueOfLineAt(FieldNo: Integer): Text[250]'
+    parameters:
+    - id: FieldNo
+      description: The field number (or posistion) to identify the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      description: The value on the current line and field number `FieldNo`
+      returnType:
+        name: Text[250]
+        isExternal: true
+  summary: Gets the value on the current line with a specific field number (or position).
+  name: GetValueOfLineAt
+  uid: M:Table::System#IO#CSV_Buffer.GetValueOfLineAt(Integer):Text[250]
+- syntax:
+    content: 'procedure GetValueOfLineAt(FieldNo: Integer, AcceptNonExisting: Boolean): Text[250]'
+    parameters:
+    - id: FieldNo
+      description: The field number (or posistion) to identify the value.
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AcceptNonExisting
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      description: The value on the current line and field number `FieldNo`
+      returnType:
+        name: Text[250]
+        isExternal: true
+  summary: Gets the value on the current line with a specific field number (or position).
+  name: GetValueOfLineAt
+  uid: M:Table::System#IO#CSV_Buffer.GetValueOfLineAt(Integer,Boolean):Text[250]
+- syntax:
+    content: 'procedure GetNumberOfColumns(): Integer'
+    return:
+      description: The number of fields for every line.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Gets the number of columns store in the record.
+  name: GetNumberOfColumns
+  uid: M:Table::System#IO#CSV_Buffer.GetNumberOfColumns:Integer
+- syntax:
+    content: 'procedure GetNumberOfLines(): Integer'
+    return:
+      description: The number of lines stored in the record.
+      returnType:
+        name: Integer
+        isExternal: true
+  summary: Gets the number of lines stored in the record.
+  name: GetNumberOfLines
+  uid: M:Table::System#IO#CSV_Buffer.GetNumberOfLines:Integer
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::System#IO#CSV_Buffer.Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Field No."'
+  uid: F:Table::System#IO#CSV_Buffer.Field_No#
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Value
+  uid: F:Table::System#IO#CSV_Buffer.Value[250]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::System#IO#CSV_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::System#IO#CSV_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::System#IO#CSV_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::System#IO#CSV_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::System#IO#CSV_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::System#IO#CSV_Buffer.SystemRowVersion
+commentId: O:Table::System#IO#CSV Buffer
+summary: Table to store CSV (comma-separated values).
+name: '"CSV Buffer"'
+uid: O:Table::System#IO#CSV_Buffer

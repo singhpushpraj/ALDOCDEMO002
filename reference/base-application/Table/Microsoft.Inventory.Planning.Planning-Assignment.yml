@@ -1,0 +1,216 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Planning."Planning Assignment"
+alId: ID 99000850
+namespace: Microsoft.Inventory.Planning
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Planning
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Planning Assignment
+  promoted: false
+- name: Permissions
+  value: TableData "Planning Assignment" = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ItemChange(var NewItem: Record Item, var OldItem: Record Item)'
+    parameters:
+    - id: NewItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: OldItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ItemChange
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.ItemChange(Item@,Item@)
+- syntax:
+    content: 'procedure SKUChange(var NewSKU: Record "Stockkeeping Unit", var OldSKU: Record "Stockkeeping Unit")'
+    parameters:
+    - id: NewSKU
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+    - id: OldSKU
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+  name: SKUChange
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.SKUChange(Stockkeeping_Unit@,Stockkeeping_Unit@)
+- syntax:
+    content: 'procedure RoutingReplace(var Item: Record Item, OldRoutingNo: Code[20])'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: OldRoutingNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RoutingReplace
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.RoutingReplace(Item@,Code[20])
+- syntax:
+    content: 'procedure BomReplace(var Item: Record Item, OldProductionBOMNo: Code[20])'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: OldProductionBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: BomReplace
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.BomReplace(Item@,Code[20])
+- syntax:
+    content: 'procedure OldBom(ProductionBOMNo: Code[20])'
+    parameters:
+    - id: ProductionBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: OldBom
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.OldBom(Code[20])
+- syntax:
+    content: 'procedure NewBOM(ProductionBOMNo: Code[20])'
+    parameters:
+    - id: ProductionBOMNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: NewBOM
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.NewBOM(Code[20])
+- syntax:
+    content: 'procedure AssignPlannedOrders(ItemNo: Code[20], CheckSKU: Boolean)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CheckSKU
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: AssignPlannedOrders
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.AssignPlannedOrders(Code[20],Boolean)
+- syntax:
+    content: 'procedure AssignOne(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], UpdateDate: Date)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UpdateDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AssignOne
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.AssignOne(Code[20],Code[10],Code[10],Date)
+- syntax:
+    content: 'procedure ChkAssignOne(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10], UpdateDate: Date)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: UpdateDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ChkAssignOne
+  uid: M:Table::Microsoft#Inventory#Planning#Planning_Assignment.ChkAssignOne(Code[20],Code[10],Code[10],Date)
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Item_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Variant_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Location_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Latest Date"'
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Latest_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: Inactive
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Inactive
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Action Msg. Response Planning"'
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Action_Msg#_Response_Planning
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Net Change Planning"'
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.Net_Change_Planning
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Planning#Planning_Assignment.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Planning#Planning Assignment
+name: '"Planning Assignment"'
+uid: O:Table::Microsoft#Inventory#Planning#Planning_Assignment

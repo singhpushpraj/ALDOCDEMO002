@@ -1,0 +1,98 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.History."Service - Invoice"
+alId: ID 5911
+namespace: Microsoft.Service.History
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.History
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Service/History/ServiceInvoice.rdlc
+  promoted: false
+- name: Caption
+  value: Service - Invoice
+  promoted: false
+- name: Permissions
+  value: TableData "Sales Shipment Buffer" = rimd
+  promoted: false
+- name: WordMergeDataItem
+  value: Service Invoice Header
+  promoted: false
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Service/History/ServiceInvoice.rdlc
+  promoted: false
+- name: Caption
+  value: Service - Invoice
+  promoted: false
+- name: Permissions
+  value: TableData "Sales Shipment Buffer" = rimd
+  promoted: false
+- name: WordMergeDataItem
+  value: Service Invoice Header
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindPostedShipmentDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: FindPostedShipmentDate
+  uid: M:Report::Microsoft#Service#History#Service_-_Invoice.FindPostedShipmentDate:Date
+- syntax:
+    content: 'procedure GenerateBufferFromValueEntry(ServiceInvoiceLine2: Record "Service Invoice Line")'
+    parameters:
+    - id: ServiceInvoiceLine2
+      parameterType:
+        name: Record "Service Invoice Line"
+        isExternal: true
+  name: GenerateBufferFromValueEntry
+  uid: M:Report::Microsoft#Service#History#Service_-_Invoice.GenerateBufferFromValueEntry(Service_Invoice_Line)
+- syntax:
+    content: 'procedure GenerateBufferFromShipment(ServiceInvoiceLine: Record "Service Invoice Line")'
+    parameters:
+    - id: ServiceInvoiceLine
+      parameterType:
+        name: Record "Service Invoice Line"
+        isExternal: true
+  name: GenerateBufferFromShipment
+  uid: M:Report::Microsoft#Service#History#Service_-_Invoice.GenerateBufferFromShipment(Service_Invoice_Line)
+- syntax:
+    content: 'procedure AddBufferEntry(ServiceInvoiceLine: Record "Service Invoice Line", QtyOnShipment: Decimal, PostingDate: Date)'
+    parameters:
+    - id: ServiceInvoiceLine
+      parameterType:
+        name: Record "Service Invoice Line"
+        isExternal: true
+    - id: QtyOnShipment
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AddBufferEntry
+  uid: M:Report::Microsoft#Service#History#Service_-_Invoice.AddBufferEntry(Service_Invoice_Line,Decimal,Date)
+- syntax:
+    content: 'procedure FindDimTxt(DimSetID: Integer)'
+    parameters:
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindDimTxt
+  uid: M:Report::Microsoft#Service#History#Service_-_Invoice.FindDimTxt(Integer)
+commentId: O:Report::Microsoft#Service#History#Service - Invoice
+name: '"Service - Invoice"'
+uid: O:Report::Microsoft#Service#History#Service_-_Invoice

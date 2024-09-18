@@ -1,0 +1,398 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Deferral."Deferral Posting Buffer"
+alId: ID 1706
+namespace: Microsoft.Finance.Deferral
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Deferral
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Deferral Posting Buffer
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure PrepareSales(SalesLine: Record "Sales Line", DocumentNo: Code[20])'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PrepareSales
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PrepareSales(Sales_Line,Code[20])
+- syntax:
+    content: procedure ReverseAmounts()
+  name: ReverseAmounts
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.ReverseAmounts
+- syntax:
+    content: 'procedure PreparePurch(PurchLine: Record "Purchase Line", DocumentNo: Code[20])'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PreparePurch
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PreparePurch(Purchase_Line,Code[20])
+- syntax:
+    content: 'procedure PrepareRemainderSales(SalesLine: Record "Sales Line", NewAmountLCY: Decimal, NewAmount: Decimal, GLAccount: Code[20], DeferralAccount: Code[20], DeferralLineNo: Integer)'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: NewAmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PrepareRemainderSales
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PrepareRemainderSales(Sales_Line,Decimal,Decimal,Code[20],Code[20],Integer)
+- syntax:
+    content: 'procedure PrepareRemainderPurchase(PurchaseLine: Record "Purchase Line", NewAmountLCY: Decimal, NewAmount: Decimal, GLAccount: Code[20], DeferralAccount: Code[20], DeferralLineNo: Integer)'
+    parameters:
+    - id: PurchaseLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: NewAmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PrepareRemainderPurchase
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PrepareRemainderPurchase(Purchase_Line,Decimal,Decimal,Code[20],Code[20],Integer)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by PrepareInitialAmounts(),20.0)]'
+    content: 'procedure PrepareInitialPair(InvoicePostBuffer: Record "Invoice Post. Buffer" temporary, RemainAmtToDefer: Decimal, RemainAmtToDeferACY: Decimal, GLAccount: Code[20], DeferralAccount: Code[20])'
+    parameters:
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+    - id: RemainAmtToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainAmtToDeferACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PrepareInitialPair
+  obsoletion:
+    state: pending
+    reason: Replaced by PrepareInitialAmounts()
+    version: "20.0"
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PrepareInitialPair(Invoice_Post#_Buffer,Decimal,Decimal,Code[20],Code[20])
+- syntax:
+    content: 'procedure PrepareInitialAmounts(AmountLCY: Decimal, AmountACY: Decimal, RemainAmtToDefer: Decimal, RemainAmtToDeferACY: Decimal, GLAccount: Code[20], DeferralAccount: Code[20])'
+    parameters:
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainAmtToDefer
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainAmtToDeferACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: GLAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DeferralAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PrepareInitialAmounts
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.PrepareInitialAmounts(Decimal,Decimal,Decimal,Decimal,Code[20],Code[20])
+- syntax:
+    content: 'procedure InitFromDeferralLine(DeferralLine: Record "Deferral Line")'
+    parameters:
+    - id: DeferralLine
+      parameterType:
+        name: Record "Deferral Line"
+        isExternal: true
+  name: InitFromDeferralLine
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.InitFromDeferralLine(Deferral_Line)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure Update without parameter InvoicePostBuffer.,19.0)]'
+    content: 'procedure Update(DeferralPostBuffer: Record "Deferral Posting Buffer", InvoicePostBuffer: Record "Invoice Post. Buffer" temporary)'
+    parameters:
+    - id: DeferralPostBuffer
+      parameterType:
+        name: Record "Deferral Posting Buffer"
+        isExternal: true
+    - id: InvoicePostBuffer
+      parameterType:
+        name: Record "Invoice Post. Buffer" temporary
+        isExternal: true
+  name: Update
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure Update without parameter InvoicePostBuffer.
+    version: "19.0"
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Update(Deferral_Posting_Buffer,Invoice_Post#_Buffer)
+- syntax:
+    content: 'procedure Update(DeferralPostBuffer: Record "Deferral Posting Buffer")'
+    parameters:
+    - id: DeferralPostBuffer
+      parameterType:
+        name: Record "Deferral Posting Buffer"
+        isExternal: true
+  name: Update
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Update(Deferral_Posting_Buffer)
+- syntax:
+    content: 'procedure GetLastEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastEntryNo
+  uid: M:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.GetLastEntryNo:Integer
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Entry_No#
+- type:
+    name: Option
+    isExternal: true
+  name: Type
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"G/L Account"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.G/L_Account[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Tax_Area_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Tax_Group_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Tax_Liable
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Use_Tax
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Job_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Posting_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Amount_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.System-Created_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Global_Dimension_2_Code[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Description[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Deferral Account"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Deferral_Account[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Period Description"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Period_Description[100]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#Deferral#Deferral_Document_Type
+    name: Microsoft.Finance.Deferral."Deferral Document Type"
+    isExternal: false
+  name: '"Deferral Doc. Type"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Deferral_Doc#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Document_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales/Purch Amount"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Sales/Purch_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales/Purch Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Sales/Purch_Amount_(LCY)
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+    name: Microsoft.Foundation.Enums."General Posting Type"
+    isExternal: false
+  name: '"Gen. Posting Type"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Gen#_Posting_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Partial Deferral"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Partial_Deferral
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Dimension_Set_ID
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Deferral Code"'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Deferral_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Deferral Line No."'
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.Deferral_Line_No#
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#Deferral#Deferral Posting Buffer
+name: '"Deferral Posting Buffer"'
+uid: O:Table::Microsoft#Finance#Deferral#Deferral_Posting_Buffer

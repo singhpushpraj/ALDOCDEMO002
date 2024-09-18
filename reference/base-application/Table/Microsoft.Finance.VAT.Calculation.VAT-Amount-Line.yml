@@ -1,0 +1,634 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Calculation."VAT Amount Line"
+alId: ID 290
+namespace: Microsoft.Finance.VAT.Calculation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Calculation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: VAT Amount Line
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckVATDifference(NewCurrencyCode: Code[10], NewAllowVATDifference: Boolean)'
+    parameters:
+    - id: NewCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewAllowVATDifference
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckVATDifference
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CheckVATDifference(Code[10],Boolean)
+- syntax:
+    content: 'procedure InsertLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InsertLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.InsertLine:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced with InsertNewLine with NonDeductibleVATPct parameter,23.0)]'
+    content: 'procedure InsertNewLine(VATIdentifier: Code[20], VATCalcType: Enum "Tax Calculation Type", TaxGroupCode: Code[20], UseTax: Boolean, TaxRate: Decimal, IsPositive: Boolean, IsPrepayment: Boolean)'
+    parameters:
+    - id: VATIdentifier
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATCalcType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+        name: Microsoft.Foundation.Enums."Tax Calculation Type"
+        isExternal: false
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UseTax
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TaxRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsPositive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsPrepayment
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertNewLine
+  obsoletion:
+    state: pending
+    reason: Replaced with InsertNewLine with NonDeductibleVATPct parameter
+    version: "23.0"
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.InsertNewLine(Code[20],Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type,Code[20],Boolean,Decimal,Boolean,Boolean)
+- syntax:
+    content: 'procedure InsertNewLine(VATIdentifier: Code[20], VATCalcType: Enum "Tax Calculation Type", TaxGroupCode: Code[20], UseTax: Boolean, TaxRate: Decimal, IsPositive: Boolean, IsPrepayment: Boolean, NonDeductibleVATPct: Decimal)'
+    parameters:
+    - id: VATIdentifier
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VATCalcType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+        name: Microsoft.Foundation.Enums."Tax Calculation Type"
+        isExternal: false
+    - id: TaxGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: UseTax
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: TaxRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: IsPositive
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsPrepayment
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NonDeductibleVATPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertNewLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.InsertNewLine(Code[20],Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type,Code[20],Boolean,Decimal,Boolean,Boolean,Decimal)
+- syntax:
+    content: 'procedure GetLine(Number: Integer)'
+    parameters:
+    - id: Number
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetLine(Integer)
+- syntax:
+    content: 'procedure VATAmountText(): Text[30]'
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: VATAmountText
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VATAmountText:Text[30]
+- syntax:
+    content: 'procedure GetTotalLineAmount(SubtractVAT: Boolean, CurrencyCode: Code[10]): Decimal'
+    parameters:
+    - id: SubtractVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalLineAmount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalLineAmount(Boolean,Code[10]):Decimal
+- syntax:
+    content: 'procedure GetTotalVATAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalVATAmount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalVATAmount:Decimal
+- syntax:
+    content: 'procedure GetTotalInvDiscAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalInvDiscAmount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalInvDiscAmount:Decimal
+- syntax:
+    content: 'procedure GetTotalInvDiscBaseAmount(SubtractVAT: Boolean, CurrencyCode: Code[10]): Decimal'
+    parameters:
+    - id: SubtractVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalInvDiscBaseAmount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalInvDiscBaseAmount(Boolean,Code[10]):Decimal
+- syntax:
+    content: 'procedure GetTotalVATBase(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalVATBase
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalVATBase:Decimal
+- syntax:
+    content: 'procedure GetTotalAmountInclVAT(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalAmountInclVAT
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalAmountInclVAT:Decimal
+- syntax:
+    content: 'procedure GetTotalVATDiscount(CurrencyCode: Code[10], NewPricesIncludingVAT: Boolean): Decimal'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewPricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalVATDiscount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetTotalVATDiscount(Code[10],Boolean):Decimal
+- syntax:
+    content: 'procedure GetAnyLineModified(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetAnyLineModified
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetAnyLineModified:Boolean
+- syntax:
+    content: 'procedure SetInvoiceDiscountAmount(NewInvoiceDiscount: Decimal, NewCurrencyCode: Code[10], NewPricesIncludingVAT: Boolean, NewVATBaseDiscPct: Decimal)'
+    parameters:
+    - id: NewInvoiceDiscount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewPricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewVATBaseDiscPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetInvoiceDiscountAmount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SetInvoiceDiscountAmount(Decimal,Code[10],Boolean,Decimal)
+- syntax:
+    content: 'procedure SetInvoiceDiscountPercent(NewInvoiceDiscountPct: Decimal, NewCurrencyCode: Code[10], NewPricesIncludingVAT: Boolean, CalcInvDiscPerVATID: Boolean, NewVATBaseDiscPct: Decimal)'
+    parameters:
+    - id: NewInvoiceDiscountPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewPricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: CalcInvDiscPerVATID
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewVATBaseDiscPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetInvoiceDiscountPercent
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SetInvoiceDiscountPercent(Decimal,Code[10],Boolean,Boolean,Decimal)
+- syntax:
+    content: 'procedure CalcLineAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineAmount
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CalcLineAmount:Decimal
+- syntax:
+    content: 'procedure CalcVATFields(NewCurrencyCode: Code[10], NewPricesIncludingVAT: Boolean, NewVATBaseDiscPct: Decimal)'
+    parameters:
+    - id: NewCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NewPricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewVATBaseDiscPct
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcVATFields
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CalcVATFields(Code[10],Boolean,Decimal)
+- syntax:
+    content: 'procedure GetBaseLCY(PostingDate: Date, CurrencyCode: Code[10], CurrencyFactor: Decimal): Decimal'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetBaseLCY
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetBaseLCY(Date,Code[10],Decimal):Decimal
+- syntax:
+    content: 'procedure GetAmountLCY(PostingDate: Date, CurrencyCode: Code[10], CurrencyFactor: Decimal): Decimal'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetAmountLCY
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.GetAmountLCY(Date,Code[10],Decimal):Decimal
+- syntax:
+    content: 'procedure DeductVATAmountLine(var VATAmountLineDeduct: Record "VAT Amount Line")'
+    parameters:
+    - id: VATAmountLineDeduct
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: DeductVATAmountLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.DeductVATAmountLine(VAT_Amount_Line@)
+- syntax:
+    content: 'procedure SumLine(LineAmount: Decimal, InvDiscAmount: Decimal, VATDifference: Decimal, AllowInvDisc: Boolean, Prepayment: Boolean)'
+    parameters:
+    - id: LineAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: InvDiscAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: VATDifference
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AllowInvDisc
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Prepayment
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SumLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SumLine(Decimal,Decimal,Decimal,Boolean,Boolean)
+- syntax:
+    content: 'procedure UpdateLines(var TotalVATAmount: Decimal, Currency: Record Currency, CurrencyFactor: Decimal, PricesIncludingVAT: Boolean, VATBaseDiscountPercHeader: Decimal, TaxAreaCode: Code[20], TaxLiable: Boolean, PostingDate: Date)'
+    parameters:
+    - id: TotalVATAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Currency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PricesIncludingVAT
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: VATBaseDiscountPercHeader
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TaxAreaCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TaxLiable
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: UpdateLines
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.UpdateLines(Decimal@,Currency,Decimal,Boolean,Decimal,Code[20],Boolean,Date)
+- syntax:
+    content: 'procedure CopyFromPurchInvLine(PurchInvLine: Record "Purch. Inv. Line")'
+    parameters:
+    - id: PurchInvLine
+      parameterType:
+        name: Record "Purch. Inv. Line"
+        isExternal: true
+  name: CopyFromPurchInvLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CopyFromPurchInvLine(Purch#_Inv#_Line)
+- syntax:
+    content: 'procedure CopyFromPurchCrMemoLine(PurchCrMemoLine: Record "Purch. Cr. Memo Line")'
+    parameters:
+    - id: PurchCrMemoLine
+      parameterType:
+        name: Record "Purch. Cr. Memo Line"
+        isExternal: true
+  name: CopyFromPurchCrMemoLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CopyFromPurchCrMemoLine(Purch#_Cr#_Memo_Line)
+- syntax:
+    content: 'procedure CopyFromSalesInvLine(SalesInvoiceLine: Record "Sales Invoice Line")'
+    parameters:
+    - id: SalesInvoiceLine
+      parameterType:
+        name: Record "Sales Invoice Line"
+        isExternal: true
+  name: CopyFromSalesInvLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CopyFromSalesInvLine(Sales_Invoice_Line)
+- syntax:
+    content: 'procedure CopyFromSalesCrMemoLine(SalesCrMemoLine: Record "Sales Cr.Memo Line")'
+    parameters:
+    - id: SalesCrMemoLine
+      parameterType:
+        name: Record "Sales Cr.Memo Line"
+        isExternal: true
+  name: CopyFromSalesCrMemoLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CopyFromSalesCrMemoLine(Sales_Cr#Memo_Line)
+- syntax:
+    content: 'procedure CopyFromServInvLine(ServiceInvoiceLine: Record "Service Invoice Line")'
+    parameters:
+    - id: ServiceInvoiceLine
+      parameterType:
+        name: Record "Service Invoice Line"
+        isExternal: true
+  name: CopyFromServInvLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CopyFromServInvLine(Service_Invoice_Line)
+- syntax:
+    content: 'procedure CopyFromServCrMemoLine(ServiceCrMemoLine: Record "Service Cr.Memo Line")'
+    parameters:
+    - id: ServiceCrMemoLine
+      parameterType:
+        name: Record "Service Cr.Memo Line"
+        isExternal: true
+  name: CopyFromServCrMemoLine
+  uid: M:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.CopyFromServCrMemoLine(Service_Cr#Memo_Line)
+fields:
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Including VAT"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Amount_Including_VAT
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Identifier"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_Identifier[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Disc. Base Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Inv#_Disc#_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoice Discount Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Invoice_Discount_Amount
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_Calculation_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Tax_Group_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Quantity
+- type:
+    name: Boolean
+    isExternal: true
+  name: Modified
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Modified
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Use_Tax
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Calculated VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Calculated_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_Difference
+- type:
+    name: Boolean
+    isExternal: true
+  name: Positive
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Positive
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Includes Prepayment"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Includes_Prepayment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Clause Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.VAT_Clause_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Tax Category"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Tax_Category[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discount Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Pmt#_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT %"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Non-Deductible_VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Non-Deductible_VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Non-Deductible_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Calc. Non-Ded. VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Calc#_Non-Ded#_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Deductible VAT Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Deductible_VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Deductible VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Deductible_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Diff."'
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.Non-Deductible_VAT_Diff#
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#VAT#Calculation#VAT Amount Line
+name: '"VAT Amount Line"'
+uid: O:Table::Microsoft#Finance#VAT#Calculation#VAT_Amount_Line

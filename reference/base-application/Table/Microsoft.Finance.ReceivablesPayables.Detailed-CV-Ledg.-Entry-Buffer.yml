@@ -1,0 +1,396 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.ReceivablesPayables."Detailed CV Ledg. Entry Buffer"
+alId: ID 383
+namespace: Microsoft.Finance.ReceivablesPayables
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.ReceivablesPayables
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Detailed CV Ledg. Entry Buffer
+  promoted: false
+- name: DrillDownPageID
+  value: Detailed Cust. Ledg. Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Receivables#Detailed_Cust#_Ledg#_Entries
+    name: Microsoft.Sales.Receivables."Detailed Cust. Ledg. Entries"
+    isExternal: false
+- name: LookupPageID
+  value: Detailed Cust. Ledg. Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Receivables#Detailed_Cust#_Ledg#_Entries
+    name: Microsoft.Sales.Receivables."Detailed Cust. Ledg. Entries"
+    isExternal: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InsertDtldCVLedgEntry(var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", var CVLedgEntryBuf: Record "CV Ledger Entry Buffer", InsertZeroAmout: Boolean)'
+    parameters:
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: CVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: InsertZeroAmout
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InsertDtldCVLedgEntry
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.InsertDtldCVLedgEntry(Detailed_CV_Ledg#_Entry_Buffer@,CV_Ledger_Entry_Buffer@,Boolean)
+- syntax:
+    content: 'procedure CopyPostingGroupsFromVATEntry(VATEntry: Record "VAT Entry")'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+  name: CopyPostingGroupsFromVATEntry
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.CopyPostingGroupsFromVATEntry(VAT_Entry)
+- syntax:
+    content: 'procedure CopyFromGenJnlLine(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyFromGenJnlLine
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.CopyFromGenJnlLine(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure InitFromGenJnlLine(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: InitFromGenJnlLine
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.InitFromGenJnlLine(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure CopyFromCVLedgEntryBuf(CVLedgEntryBuf: Record "CV Ledger Entry Buffer")'
+    parameters:
+    - id: CVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+  name: CopyFromCVLedgEntryBuf
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.CopyFromCVLedgEntryBuf(CV_Ledger_Entry_Buffer)
+- syntax:
+    content: 'procedure InitDetailedCVLedgEntryBuf(GenJnlLine: Record "Gen. Journal Line", var CVLedgEntryBuf: Record "CV Ledger Entry Buffer", var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer", EntryType: Enum "Detailed CV Ledger Entry Type", AmountFCY: Decimal, AmountLCY: Decimal, AmountAddCurr: Decimal, AppliedEntryNo: Integer, RemainingPmtDiscPossible: Decimal, MaxPaymentTolerance: Decimal)'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: CVLedgEntryBuf
+      parameterType:
+        name: Record "CV Ledger Entry Buffer"
+        isExternal: true
+    - id: DtldCVLedgEntryBuf
+      parameterType:
+        name: Record "Detailed CV Ledg. Entry Buffer"
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledger_Entry_Type
+        name: Microsoft.Finance.ReceivablesPayables."Detailed CV Ledger Entry Type"
+        isExternal: false
+    - id: AmountFCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AmountAddCurr
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AppliedEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: RemainingPmtDiscPossible
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: MaxPaymentTolerance
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InitDetailedCVLedgEntryBuf
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.InitDetailedCVLedgEntryBuf(Gen#_Journal_Line,CV_Ledger_Entry_Buffer@,Detailed_CV_Ledg#_Entry_Buffer@,Enum::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledger_Entry_Type,Decimal,Decimal,Decimal,Integer,Decimal,Decimal)
+- syntax:
+    content: 'procedure FindVATEntry(var VATEntry: Record "VAT Entry", TransactionNo: Integer)'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: TransactionNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindVATEntry
+  uid: M:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.FindVATEntry(VAT_Entry@,Integer)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"CV Ledger Entry No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.CV_Ledger_Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledger_Entry_Type
+    name: Microsoft.Finance.ReceivablesPayables."Detailed CV Ledger Entry Type"
+    isExternal: false
+  name: '"Entry Type"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Entry_Type
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Document_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Amount_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"CV No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.CV_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Currency_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.User_ID[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Source_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Transaction No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Transaction_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Journal_Batch_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Reason_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Credit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Debit_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Credit_Amount_(LCY)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Initial Entry Due Date"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Initial_Entry_Due_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Initial Entry Global Dim. 1"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Initial_Entry_Global_Dim#_1[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Initial Entry Global Dim. 2"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Initial_Entry_Global_Dim#_2[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+    name: Microsoft.Foundation.Enums."General Posting Type"
+    isExternal: false
+  name: '"Gen. Posting Type"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Gen#_Posting_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Tax_Group_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Use_Tax
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Additional-Currency Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Additional-Currency_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.VAT_Amount_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Additional-Currency Amount"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Use_Additional-Currency_Amount
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Initial Document Type"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Initial_Document_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applied CV Ledger Entry No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Applied_CV_Ledger_Entry_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Pmt. Disc. Possible"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Remaining_Pmt#_Disc#_Possible
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Max. Payment Tolerance"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Max#_Payment_Tolerance
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Tax Jurisdiction Code"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Tax_Jurisdiction_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Exch. Rate Adjmt. Reg. No."'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Exch#_Rate_Adjmt#_Reg#_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount LCY"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Non-Deductible_VAT_Amount_LCY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount ACY"'
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.Non-Deductible_VAT_Amount_ACY
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#ReceivablesPayables#Detailed CV Ledg# Entry Buffer
+name: '"Detailed CV Ledg. Entry Buffer"'
+uid: O:Table::Microsoft#Finance#ReceivablesPayables#Detailed_CV_Ledg#_Entry_Buffer

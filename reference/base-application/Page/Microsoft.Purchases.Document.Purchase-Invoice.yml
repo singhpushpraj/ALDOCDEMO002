@@ -1,0 +1,68 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Document."Purchase Invoice"
+alId: ID 51
+namespace: Microsoft.Purchases.Document
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Document
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+  name: Microsoft.Purchases.Document."Purchase Header"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Purchase Invoice
+  promoted: false
+- name: PageType
+  value: Document
+  promoted: true
+- name: RefreshOnActivate
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "38"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Purchases#Document#Purchase_Header
+    name: Microsoft.Purchases.Document."Purchase Header"
+    isExternal: false
+- name: SourceTableView
+  value: where("Document Type" = filter(Invoice))
+  promoted: false
+- name: AdditionalSearchTerms
+  value: Vendor Invoice, Procurement Invoice, Vendor Bill, Purchase Bill, Supplier Invoice, Acquisition Bill, Buying Invoice, Supplier Bill, Invoice Purchase, Merchant Invoice, Trade Invoice
+  promoted: false
+methods:
+- syntax:
+    content: procedure LineModified()
+  name: LineModified
+  uid: M:Page::Microsoft#Purchases#Document#Purchase_Invoice.LineModified
+- syntax:
+    content: 'procedure CallPostDocument(PostingCodeunitID: Integer, Navigate: Enum "Navigate After Posting")'
+    parameters:
+    - id: PostingCodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Navigate
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Navigate_After_Posting
+        name: Microsoft.Foundation.Enums."Navigate After Posting"
+        isExternal: false
+  name: CallPostDocument
+  uid: M:Page::Microsoft#Purchases#Document#Purchase_Invoice.CallPostDocument(Integer,Enum::Microsoft#Foundation#Enums#Navigate_After_Posting)
+- syntax:
+    content: procedure RunBackgroundCheck()
+  name: RunBackgroundCheck
+  uid: M:Page::Microsoft#Purchases#Document#Purchase_Invoice.RunBackgroundCheck
+- syntax:
+    content: procedure SetPostingGroupEditable()
+  name: SetPostingGroupEditable
+  uid: M:Page::Microsoft#Purchases#Document#Purchase_Invoice.SetPostingGroupEditable
+commentId: O:Page::Microsoft#Purchases#Document#Purchase Invoice
+name: '"Purchase Invoice"'
+uid: O:Page::Microsoft#Purchases#Document#Purchase_Invoice

@@ -1,0 +1,1731 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service Line"
+alId: ID 5902
+namespace: Microsoft.Service.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Service Line
+  promoted: false
+- name: DrillDownPageID
+  value: Service Line List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_Line_List
+    name: Microsoft.Service.Document."Service Line List"
+    isExternal: false
+- name: LookupPageID
+  value: Service Line List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_Line_List
+    name: Microsoft.Service.Document."Service Line List"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckItemAvailable(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckItemAvailable
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CheckItemAvailable(Integer)
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupShortcutDimCode
+  uid: M:Table::Microsoft#Service#Document#Service_Line.LookupShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure GetPriceCalculationHandler(PriceType: Enum "Price Type", ServiceHeader: Record "Service Header", var PriceCalculation: Interface "Price Calculation")'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: PriceCalculation
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+        name: Microsoft.Pricing.Calculation."Price Calculation"
+        isExternal: false
+  name: GetPriceCalculationHandler
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetPriceCalculationHandler(Enum::Microsoft#Pricing#PriceList#Price_Type,Service_Header,Interface::Microsoft#Pricing#Calculation#Price_Calculation@)
+- syntax:
+    content: 'procedure GetLineWithPrice(var LineWithPrice: Interface "Line With Price")'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+  name: GetLineWithPrice
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetLineWithPrice(Interface::Microsoft#Pricing#PriceList#Line_With_Price@)
+- syntax:
+    content: 'procedure ApplyDiscount(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: ApplyDiscount
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ApplyDiscount(Service_Header)
+- syntax:
+    content: procedure PickDiscount()
+  name: PickDiscount
+  uid: M:Table::Microsoft#Service#Document#Service_Line.PickDiscount
+- syntax:
+    content: procedure PickPrice()
+  name: PickPrice
+  uid: M:Table::Microsoft#Service#Document#Service_Line.PickPrice
+- syntax:
+    content: 'procedure CountDiscount(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountDiscount
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CountDiscount(Boolean):Integer
+- syntax:
+    content: 'procedure CountPrice(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountPrice
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CountPrice(Boolean):Integer
+- syntax:
+    content: 'procedure DiscountExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DiscountExists
+  uid: M:Table::Microsoft#Service#Document#Service_Line.DiscountExists(Boolean):Boolean
+- syntax:
+    content: 'procedure PriceExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PriceExists
+  uid: M:Table::Microsoft#Service#Document#Service_Line.PriceExists(Boolean):Boolean
+- syntax:
+    content: procedure UpdateAmounts()
+  name: UpdateAmounts
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateAmounts
+- syntax:
+    content: 'procedure GetItem(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: GetItem
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetItem(Item@)
+- syntax:
+    content: procedure GetServHeader()
+  name: GetServHeader
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetServHeader
+- syntax:
+    content: 'procedure IsPriceCalcCalledByField(CurrPriceFieldNo: Integer): Boolean'
+    parameters:
+    - id: CurrPriceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPriceCalcCalledByField
+  uid: M:Table::Microsoft#Service#Document#Service_Line.IsPriceCalcCalledByField(Integer):Boolean
+- syntax:
+    content: 'procedure PlanPriceCalcByField(CurrPriceFieldNo: Integer)'
+    parameters:
+    - id: CurrPriceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PlanPriceCalcByField
+  uid: M:Table::Microsoft#Service#Document#Service_Line.PlanPriceCalcByField(Integer)
+- syntax:
+    content: procedure ClearFieldCausedPriceCalculation()
+  name: ClearFieldCausedPriceCalculation
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ClearFieldCausedPriceCalculation
+- syntax:
+    content: 'procedure UpdateUnitPrice(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateUnitPrice
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateUnitPrice(Integer)
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowDimensions
+- syntax:
+    content: procedure ShowReservation()
+  name: ShowReservation
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowReservation
+- syntax:
+    content: 'procedure ShowReservationEntries(Modal: Boolean)'
+    parameters:
+    - id: Modal
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowReservationEntries
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowReservationEntries(Boolean)
+- syntax:
+    content: procedure AutoReserve()
+  name: AutoReserve
+  uid: M:Table::Microsoft#Service#Document#Service_Line.AutoReserve
+- syntax:
+    content: 'procedure AutoReserve(ShowReservationForm: Boolean)'
+    parameters:
+    - id: ShowReservationForm
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: AutoReserve
+  uid: M:Table::Microsoft#Service#Document#Service_Line.AutoReserve(Boolean)
+- syntax:
+    content: procedure ShowNonstock()
+  name: ShowNonstock
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowNonstock
+- syntax:
+    content: 'procedure CalcLineAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineAmount
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CalcLineAmount:Decimal
+- syntax:
+    content: 'procedure CopyFromServItem(ServItem: Record "Service Item")'
+    parameters:
+    - id: ServItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+  name: CopyFromServItem
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CopyFromServItem(Service_Item)
+- syntax:
+    content: procedure ShowItemSub()
+  name: ShowItemSub
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowItemSub
+- syntax:
+    content: 'procedure SetHideReplacementDialog(NewHideReplacementDialog: Boolean)'
+    parameters:
+    - id: NewHideReplacementDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideReplacementDialog
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetHideReplacementDialog(Boolean)
+- syntax:
+    content: 'procedure GetHideReplacementDialog(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideReplacementDialog
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetHideReplacementDialog:Boolean
+- syntax:
+    content: 'procedure CheckIfServItemReplacement(ComponentLineNo: Integer)'
+    parameters:
+    - id: ComponentLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckIfServItemReplacement
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CheckIfServItemReplacement(Integer)
+- syntax:
+    content: 'procedure IsInbound(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInbound
+  uid: M:Table::Microsoft#Service#Document#Service_Line.IsInbound:Boolean
+- syntax:
+    content: procedure OpenItemTrackingLines()
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Service#Document#Service_Line.OpenItemTrackingLines
+- syntax:
+    content: procedure GetDefaultBin()
+  name: GetDefaultBin
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetDefaultBin
+- syntax:
+    content: procedure GetItemTranslation()
+  name: GetItemTranslation
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetItemTranslation
+- syntax:
+    content: 'procedure GetSKU(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSKU
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetSKU:Boolean
+- syntax:
+    content: procedure GetUnitCost()
+  name: GetUnitCost
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetUnitCost
+- syntax:
+    content: 'procedure GetRemainingQty(var RemainingQty: Decimal, var RemainingQtyBase: Decimal)'
+    parameters:
+    - id: RemainingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetRemainingQty
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetRemainingQty(Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetReservationQty(var QtyReserved: Decimal, var QtyReservedBase: Decimal, var QtyToReserve: Decimal, var QtyToReserveBase: Decimal): Decimal'
+    parameters:
+    - id: QtyReserved
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyReservedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservationQty
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetReservationQty(Decimal@,Decimal@,Decimal@,Decimal@):Decimal
+- syntax:
+    content: 'procedure GetSourceCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSourceCaption
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetSourceCaption:Text
+- syntax:
+    content: 'procedure SetReservationEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationEntry
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetReservationEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure SetReservationFilters(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationFilters
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetReservationFilters(Reservation_Entry@)
+- syntax:
+    content: 'procedure ReservEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ReservEntryExist:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the new implementation (V16) of price calculation.,17.0)]'
+    content: 'procedure AfterResourseFindCost(var ResourceCost: Record "Resource Cost")'
+    parameters:
+    - id: ResourceCost
+      parameterType:
+        name: Record "Resource Cost"
+        isExternal: true
+  name: AfterResourseFindCost
+  obsoletion:
+    state: pending
+    reason: Replaced by the new implementation (V16) of price calculation.
+    version: "17.0"
+  uid: M:Table::Microsoft#Service#Document#Service_Line.AfterResourseFindCost(Resource_Cost@)
+- syntax:
+    content: procedure InitOutstanding()
+  name: InitOutstanding
+  uid: M:Table::Microsoft#Service#Document#Service_Line.InitOutstanding
+- syntax:
+    content: procedure InitOutstandingAmount()
+  name: InitOutstandingAmount
+  uid: M:Table::Microsoft#Service#Document#Service_Line.InitOutstandingAmount
+- syntax:
+    content: procedure InitQtyToShip()
+  name: InitQtyToShip
+  uid: M:Table::Microsoft#Service#Document#Service_Line.InitQtyToShip
+- syntax:
+    content: procedure InitQtyToInvoice()
+  name: InitQtyToInvoice
+  uid: M:Table::Microsoft#Service#Document#Service_Line.InitQtyToInvoice
+- syntax:
+    content: 'procedure MaxQtyToInvoice(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: MaxQtyToInvoice
+  uid: M:Table::Microsoft#Service#Document#Service_Line.MaxQtyToInvoice:Decimal
+- syntax:
+    content: 'procedure ItemExists(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemExists
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ItemExists(Code[20]):Boolean
+- syntax:
+    content: 'procedure GetCaptionClass(FieldNumber: Integer): Text[80]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetCaptionClass(Integer):Text[80]
+- syntax:
+    content: procedure UpdateVATAmounts()
+  name: UpdateVATAmounts
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateVATAmounts
+- syntax:
+    content: 'procedure MaxQtyToConsume(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: MaxQtyToConsume
+  uid: M:Table::Microsoft#Service#Document#Service_Line.MaxQtyToConsume:Decimal
+- syntax:
+    content: 'procedure MaxQtyToConsumeBase(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: MaxQtyToConsumeBase
+  uid: M:Table::Microsoft#Service#Document#Service_Line.MaxQtyToConsumeBase:Decimal
+- syntax:
+    content: procedure InitQtyToConsume()
+  name: InitQtyToConsume
+  uid: M:Table::Microsoft#Service#Document#Service_Line.InitQtyToConsume
+- syntax:
+    content: 'procedure SetServHeader(NewServHeader: Record "Service Header")'
+    parameters:
+    - id: NewServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetServHeader
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetServHeader(Service_Header)
+- syntax:
+    content: 'procedure SetServiceItemLine(var NewServiceItemLine: Record "Service Item Line")'
+    parameters:
+    - id: NewServiceItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: SetServiceItemLine
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetServiceItemLine(Service_Item_Line@)
+- syntax:
+    content: 'procedure CalcVATAmountLines(QtyType: Option, var ServHeader: Record "Service Header", var ServiceLine: Record "Service Line", var VATAmountLine: Record "VAT Amount Line", isShip: Boolean)'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: isShip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CalcVATAmountLines(Option,Service_Header@,Service_Line@,VAT_Amount_Line@,Boolean)
+- syntax:
+    content: 'procedure UpdateVATOnLines(QtyType: Option, var ServHeader: Record "Service Header", var ServiceLine: Record "Service Line", var VATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: ServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: UpdateVATOnLines
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateVATOnLines(Option,Service_Header@,Service_Line@,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure CalcChargeableQty(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcChargeableQty
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CalcChargeableQty:Decimal
+- syntax:
+    content: 'procedure SignedXX(Value: Decimal): Decimal'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: SignedXX
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SignedXX(Decimal):Decimal
+- syntax:
+    content: 'procedure IsShipment(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsShipment
+  uid: M:Table::Microsoft#Service#Document#Service_Line.IsShipment:Boolean
+- syntax:
+    content: 'procedure CheckLineDiscount(LineDisc: Decimal)'
+    parameters:
+    - id: LineDisc
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CheckLineDiscount
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CheckLineDiscount(Decimal)
+- syntax:
+    content: procedure ConfirmAdjPriceLineChange()
+  name: ConfirmAdjPriceLineChange
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ConfirmAdjPriceLineChange
+- syntax:
+    content: 'procedure SetHideCostWarning(Value: Boolean)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideCostWarning
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetHideCostWarning(Boolean)
+- syntax:
+    content: 'procedure SetHideWarrantyWarning(Value: Boolean)'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideWarrantyWarning
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SetHideWarrantyWarning(Boolean)
+- syntax:
+    content: procedure SplitResourceLine()
+  name: SplitResourceLine
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SplitResourceLine
+- syntax:
+    content: procedure UpdateRemainingCostsAndAmounts()
+  name: UpdateRemainingCostsAndAmounts
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateRemainingCostsAndAmounts
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Service#Document#Service_Line.RowID1:Text[250]
+- syntax:
+    content: 'procedure UpdatePlanned(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdatePlanned
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdatePlanned:Boolean
+- syntax:
+    content: 'procedure UpdateReservation(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateReservation
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateReservation(Integer)
+- syntax:
+    content: procedure ShowTracking()
+  name: ShowTracking
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowTracking
+- syntax:
+    content: procedure ShowOrderPromisingLine()
+  name: ShowOrderPromisingLine
+  uid: M:Table::Microsoft#Service#Document#Service_Line.ShowOrderPromisingLine
+- syntax:
+    content: 'procedure FilterLinesWithItemToPlan(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: FilterLinesWithItemToPlan
+  uid: M:Table::Microsoft#Service#Document#Service_Line.FilterLinesWithItemToPlan(Item@)
+- syntax:
+    content: 'procedure FindLinesWithItemToPlan(var Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLinesWithItemToPlan
+  uid: M:Table::Microsoft#Service#Document#Service_Line.FindLinesWithItemToPlan(Item@):Boolean
+- syntax:
+    content: 'procedure LinesWithItemToPlanExist(var Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LinesWithItemToPlanExist
+  uid: M:Table::Microsoft#Service#Document#Service_Line.LinesWithItemToPlanExist(Item@):Boolean
+- syntax:
+    content: 'procedure FindLinesForReservation(ReservationEntry: Record "Reservation Entry", AvailabilityFilter: Text, Positive: Boolean)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: AvailabilityFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FindLinesForReservation
+  uid: M:Table::Microsoft#Service#Document#Service_Line.FindLinesForReservation(Reservation_Entry,Text,Boolean)
+- syntax:
+    content: procedure UpdateWithWarehouseShip()
+  name: UpdateWithWarehouseShip
+  uid: M:Table::Microsoft#Service#Document#Service_Line.UpdateWithWarehouseShip
+- syntax:
+    content: procedure TestStatusOpen()
+  name: TestStatusOpen
+  uid: M:Table::Microsoft#Service#Document#Service_Line.TestStatusOpen
+- syntax:
+    content: 'procedure SuspendStatusCheck(bSuspend: Boolean)'
+    parameters:
+    - id: bSuspend
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SuspendStatusCheck
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SuspendStatusCheck(Boolean)
+- syntax:
+    content: 'procedure GetDueDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDueDate
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetDueDate:Date
+- syntax:
+    content: 'procedure GetShipmentDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetShipmentDate
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetShipmentDate:Date
+- syntax:
+    content: 'procedure GetDateForCalculations(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDateForCalculations
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetDateForCalculations:Date
+- syntax:
+    content: 'procedure OutstandingInvoiceAmountFromShipment(CustomerNo: Code[20]): Decimal'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: OutstandingInvoiceAmountFromShipment
+  uid: M:Table::Microsoft#Service#Document#Service_Line.OutstandingInvoiceAmountFromShipment(Code[20]):Decimal
+- syntax:
+    content: 'procedure TestItemFields(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: TestItemFields
+  uid: M:Table::Microsoft#Service#Document#Service_Line.TestItemFields(Code[20],Code[10],Code[10])
+- syntax:
+    content: procedure TestBinCode()
+  name: TestBinCode
+  uid: M:Table::Microsoft#Service#Document#Service_Line.TestBinCode
+- syntax:
+    content: 'procedure GetNextLineNo(ServiceLineSource: Record "Service Line", BelowxRec: Boolean): Integer'
+    parameters:
+    - id: ServiceLineSource
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+    - id: BelowxRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNextLineNo
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetNextLineNo(Service_Line,Boolean):Integer
+- syntax:
+    content: 'procedure GetLineNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLineNo
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetLineNo:Integer
+- syntax:
+    content: 'procedure GetCPGInvRoundAcc(ServiceHeader: Record "Service Header"): Code[20]'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCPGInvRoundAcc
+  uid: M:Table::Microsoft#Service#Document#Service_Line.GetCPGInvRoundAcc(Service_Header):Code[20]
+- syntax:
+    content: procedure DeleteWithAttachedLines()
+  name: DeleteWithAttachedLines
+  uid: M:Table::Microsoft#Service#Document#Service_Line.DeleteWithAttachedLines
+- syntax:
+    content: 'procedure IsNonInventoriableItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNonInventoriableItem
+  uid: M:Table::Microsoft#Service#Document#Service_Line.IsNonInventoriableItem:Boolean
+- syntax:
+    content: 'procedure IsInventoriableItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInventoriableItem
+  uid: M:Table::Microsoft#Service#Document#Service_Line.IsInventoriableItem:Boolean
+- syntax:
+    content: procedure SelectMultipleItems()
+  name: SelectMultipleItems
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SelectMultipleItems
+- syntax:
+    content: 'procedure SwitchLinesWithErrorsFilter(var ShowAllLinesEnabled: Boolean)'
+    parameters:
+    - id: ShowAllLinesEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SwitchLinesWithErrorsFilter
+  uid: M:Table::Microsoft#Service#Document#Service_Line.SwitchLinesWithErrorsFilter(Boolean@)
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CreateDimFromDefaultDim(Integer)
+- syntax:
+    content: 'procedure CheckIfServiceLineMeetsReservedFromStockSetting(QtyToPost: Decimal, ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: QtyToPost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfServiceLineMeetsReservedFromStockSetting
+  uid: M:Table::Microsoft#Service#Document#Service_Line.CheckIfServiceLineMeetsReservedFromStockSetting(Decimal,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Type
+    name: Microsoft.Service.Document."Service Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Line_Type
+    name: Microsoft.Service.Document."Service Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Posting_Group[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Description_2[50]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Quantity"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Outstanding_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Invoice"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_to_Invoice
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Ship"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_to_Ship
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Including VAT"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Amount_Including_VAT
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Allow_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Unit_Volume
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Appl#-to_Item_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Customer_Price_Group[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Task_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Job#Job_Line_Type
+    name: Microsoft.Projects.Project.Job."Job Line Type"
+    isExternal: false
+  name: '"Job Line Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Line_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Work_Type_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Outstanding_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Shipped_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipped_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Shipped"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Quantity_Shipped
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Invoiced"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Quantity_Invoiced
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipment No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipment_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Shipment Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipment_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Order_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Bill-to_Customer_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discount Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Inv#_Discount_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Calculation_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Transport_Method[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Attached_to_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Exit_Point[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Transaction_Specification[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Clause Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Clause_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Amount (LCY)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Outstanding_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Invoiced (LCY)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipped_Not_Invoiced_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Reserved_Quantity
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Reserve
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Unit_Cost
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.System-Created_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Disc. Amount to Invoice"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Inv#_Disc#_Amount_to_Invoice
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Identifier"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.VAT_Identifier[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discount Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Pmt#_Discount_Amount
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Time Sheet No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Time_Sheet_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Time Sheet Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Time_Sheet_Line_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Time Sheet Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Time_Sheet_Date
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Planning Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Planning_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Remaining Qty."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Remaining_Qty#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Remaining Qty. (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Remaining_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Remaining Total Cost"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Remaining_Total_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Remaining Total Cost (LCY)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Remaining_Total_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Remaining Line Amount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Job_Remaining_Line_Amount
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Boolean
+    isExternal: true
+  name: Planned
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Planned
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Qty. (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Outstanding_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Invoice (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_to_Invoice_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Ship (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_to_Ship_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped Not Invd. (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Shipped_Not_Invd#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Shipped_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Invoiced (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Invoiced_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Reserved_Qty#_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Responsibility_Center[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Substitution Available"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Substitution_Available
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Product_Group_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Whse. Outstanding Qty. (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Whse#_Outstanding_Qty#_(Base)
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Shipped"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Completely_Shipped
+- type:
+    name: Date
+    isExternal: true
+  name: '"Requested Delivery Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Requested_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Promised Delivery Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Promised_Delivery_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipping_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Delivery Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Planned_Delivery_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipping_Agent_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Shipping_Agent_Service_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-from Item Entry"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Appl#-from_Item_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Service Item No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Service_Item_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Service Entry"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Appl#-to_Service_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Service Item Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Service_Item_Line_No#
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Service Item Serial No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Service_Item_Serial_No#[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Service Item Line Description"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Service_Item_Line_Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Serv. Price Adjmt. Gr. Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Serv#_Price_Adjmt#_Gr#_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Posting_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Order Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Order_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Needed by Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Needed_by_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Ship-to_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Consume"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_to_Consume
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Consumed"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Quantity_Consumed
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Consume (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_to_Consume_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Consumed (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Consumed_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Price Group Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Service_Price_Group_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Area Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Fault_Area_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Symptom Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Symptom_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Fault_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Resolution Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Resolution_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude Warranty"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Exclude_Warranty
+- type:
+    name: Boolean
+    isExternal: true
+  name: Warranty
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Warranty
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Contract No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Contract_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract Disc. %"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Contract_Disc#_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Warranty Disc. %"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Warranty_Disc#_%
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Component Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Component_Line_No#
+- type:
+    name: Option
+    isExternal: true
+  name: '"Spare Part Action"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Spare_Part_Action
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Reason Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Fault_Reason_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Replaced Item No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Replaced_Item_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude Contract Discount"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Exclude_Contract_Discount
+- type:
+    internalReference: O:Enum::Microsoft#Service#Item#Replaced_Service_Item_Component_Type
+    name: Microsoft.Service.Item."Replaced Service Item Component Type"
+    isExternal: false
+  name: '"Replaced Item Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Replaced_Item_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Price Adjmt. Status"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Price_Adjmt#_Status
+- type:
+    name: Option
+    isExternal: true
+  name: '"Line Discount Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Line_Discount_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Copy Components From"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Copy_Components_From
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Return_Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Allow_Line_Disc#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Customer_Disc#_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Picked"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Picked
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Picked (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Qty#_Picked_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Picked"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Completely_Picked
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pick Qty. (Base)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Line.Pick_Qty#_(Base)
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Service#Document#Service_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Service#Document#Service_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Service#Document#Service Line
+name: '"Service Line"'
+uid: O:Table::Microsoft#Service#Document#Service_Line

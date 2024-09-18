@@ -1,0 +1,192 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Reporting."Calc. and Post VAT Settlement"
+alId: ID 20
+namespace: Microsoft.Finance.VAT.Reporting
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Reporting
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Finance/VAT/Reporting/CalcandPostVATSettlement.rdlc
+  promoted: false
+- name: AdditionalSearchTerms
+  value: settle vat value added tax,report vat value added tax
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: Calculate and Post VAT Settlement
+  promoted: false
+- name: Permissions
+  value: TableData "VAT Entry" = rimd
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Finance/VAT/Reporting/CalcandPostVATSettlement.rdlc
+  promoted: false
+- name: AdditionalSearchTerms
+  value: settle vat value added tax,report vat value added tax
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: Calculate and Post VAT Settlement
+  promoted: false
+- name: Permissions
+  value: TableData "VAT Entry" = rimd
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitializeRequest(NewStartDate: Date, NewEndDate: Date, NewPostingDate: Date, NewDocNo: Code[20], NewSettlementAcc: Code[20], ShowVATEntries: Boolean, Post: Boolean)'
+    parameters:
+    - id: NewStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewSettlementAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShowVATEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: InitializeRequest with "VAT Date" default to "Posting Date"
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement.InitializeRequest(Date,Date,Date,Code[20],Code[20],Boolean,Boolean)
+- syntax:
+    content: 'procedure InitializeRequest(NewStartDate: Date, NewEndDate: Date, NewPostingDate: Date, NewVATDate: Date, NewDocNo: Code[20], NewSettlementAcc: Code[20], ShowVATEntries: Boolean, Post: Boolean)'
+    parameters:
+    - id: NewStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewVATDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewSettlementAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShowVATEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  summary: InitializeRequest with specified "VAT Date"
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement.InitializeRequest(Date,Date,Date,Date,Code[20],Code[20],Boolean,Boolean)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced By InitializeRequest without VAT date,22.0)]'
+    content: 'procedure InitializeRequest(NewStartDate: Date, NewEndDate: Date, NewVATDateType: Enum "VAT Date Type", NewPostingDate: Date, NewDocNo: Code[20], NewSettlementAcc: Code[20], ShowVATEntries: Boolean, Post: Boolean)'
+    parameters:
+    - id: NewStartDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewEndDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewVATDateType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#VAT_Date_Type
+        name: Microsoft.Foundation.Enums."VAT Date Type"
+        isExternal: false
+    - id: NewPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: NewDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewSettlementAcc
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShowVATEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Post
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest
+  obsoletion:
+    state: pending
+    reason: Replaced By InitializeRequest without VAT date
+    version: "22.0"
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement.InitializeRequest(Date,Date,Enum::Microsoft#Foundation#Enums#VAT_Date_Type,Date,Code[20],Code[20],Boolean,Boolean)
+- syntax:
+    content: 'procedure InitializeRequest2(NewUseAmtsInAddCurr: Boolean)'
+    parameters:
+    - id: NewUseAmtsInAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest2
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement.InitializeRequest2(Boolean)
+- syntax:
+    content: 'procedure SetInitialized(NewInitialized: Boolean)'
+    parameters:
+    - id: NewInitialized
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInitialized
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement.SetInitialized(Boolean)
+commentId: O:Report::Microsoft#Finance#VAT#Reporting#Calc# and Post VAT Settlement
+name: '"Calc. and Post VAT Settlement"'
+uid: O:Report::Microsoft#Finance#VAT#Reporting#Calc#_and_Post_VAT_Settlement

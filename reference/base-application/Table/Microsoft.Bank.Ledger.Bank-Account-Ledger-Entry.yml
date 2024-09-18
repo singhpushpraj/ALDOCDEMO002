@@ -1,0 +1,392 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Ledger."Bank Account Ledger Entry"
+alId: ID 271
+namespace: Microsoft.Bank.Ledger
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Ledger
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Bank Account Ledger Entry
+  promoted: false
+- name: DrillDownPageID
+  value: Bank Account Ledger Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entries
+    name: Microsoft.Bank.Ledger."Bank Account Ledger Entries"
+    isExternal: false
+- name: LookupPageID
+  value: Bank Account Ledger Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entries
+    name: Microsoft.Bank.Ledger."Bank Account Ledger Entries"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.ShowDimensions
+- syntax:
+    content: 'procedure CopyFromGenJnlLine(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyFromGenJnlLine
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.CopyFromGenJnlLine(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure UpdateDebitCredit(Correction: Boolean)'
+    parameters:
+    - id: Correction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateDebitCredit
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.UpdateDebitCredit(Boolean)
+- syntax:
+    content: 'procedure GetAppliedStatementNo(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetAppliedStatementNo
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.GetAppliedStatementNo:Code[20]
+- syntax:
+    content: 'procedure IsApplied(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsApplied
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.IsApplied:Boolean
+- syntax:
+    content: 'procedure SetStyle(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SetStyle
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SetStyle:Text
+- syntax:
+    content: 'procedure SetFilterBankAccNoOpen(BankAccNo: Code[20])'
+    parameters:
+    - id: BankAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetFilterBankAccNoOpen
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SetFilterBankAccNoOpen(Code[20])
+- syntax:
+    content: 'procedure CopyFromBankAccLedgerEntry(BankAccountLedgerEntry: Record "Bank Account Ledger Entry", StatementNo: Code[20])'
+    parameters:
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: StatementNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyFromBankAccLedgerEntry
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.CopyFromBankAccLedgerEntry(Bank_Account_Ledger_Entry,Code[20])
+- syntax:
+    content: 'procedure SetBankReconciliationCandidatesFilter(BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: SetBankReconciliationCandidatesFilter
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SetBankReconciliationCandidatesFilter(Bank_Acc#_Reconciliation)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnAfterCopyFromGenJnlLine(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry", GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OnAfterCopyFromGenJnlLine
+  uid: M:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.OnAfterCopyFromGenJnlLine(Bank_Account_Ledger_Entry@,Gen#_Journal_Line)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bank Account No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Bank_Account_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Amount"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Remaining_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (LCY)"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Amount_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bank Acc. Posting Group"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Bank_Acc#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Global_Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Our Contact Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Our_Contact_Code[20]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.User_ID[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Source_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Open
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Open
+- type:
+    name: Boolean
+    isExternal: true
+  name: Positive
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Positive
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Closed by Entry No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Closed_by_Entry_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Closed at Date"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Closed_at_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Templ. Name"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Journal_Templ#_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Journal_Batch_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Bal. Account Type"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Bal#_Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Account No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Bal#_Account_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Transaction No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Transaction_No#
+- type:
+    name: Option
+    isExternal: true
+  name: '"Statement Status"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Statement_Status
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Statement No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Statement_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Statement Line No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Statement_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Credit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount (LCY)"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Debit_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount (LCY)"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Credit_Amount_(LCY)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Document_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.External_Document_No#[35]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Reversed
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Reversed
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Reversed by Entry No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Reversed_by_Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Reversed Entry No."'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Reversed_Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Check Ledger Entries"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Check_Ledger_Entries
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 3 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Shortcut_Dimension_3_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 4 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Shortcut_Dimension_4_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 5 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Shortcut_Dimension_5_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 6 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Shortcut_Dimension_6_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 7 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Shortcut_Dimension_7_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 8 Code"'
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.Shortcut_Dimension_8_Code[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Ledger#Bank Account Ledger Entry
+name: '"Bank Account Ledger Entry"'
+uid: O:Table::Microsoft#Bank#Ledger#Bank_Account_Ledger_Entry

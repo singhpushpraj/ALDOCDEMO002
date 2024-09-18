@@ -1,0 +1,47 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Manufacturing.Document."Pending Prod. Orders - by Cost"
+alId: ID 5401
+namespace: Microsoft.Manufacturing.Document
+baseKind: Query
+kind: Query
+parent: N:Module::Base_Application::Namespace::Microsoft.Manufacturing.Document
+langs:
+- al
+seeAlso:
+- '[Query](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-query-object)'
+objectProperties:
+- name: Caption
+  value: Pending Prod. Orders - by Cost
+  promoted: false
+- name: OrderBy
+  value: descending(Cost_of_Open_Production_Orders)
+  promoted: false
+queryColumns:
+- dataItem: Prod_Order_Line
+  columnType:
+    name: Code[20]
+    isExternal: true
+  name: Item_No
+  uid: C:Query::Microsoft#Manufacturing#Document#Pending_Prod#_Orders_-_by_Cost.Prod_Order_Line.Item_No
+- dataItem: Prod_Order_Line
+  columnType:
+    internalReference: O:Enum::Microsoft#Manufacturing#Document#Production_Order_Status
+    name: Microsoft.Manufacturing.Document."Production Order Status"
+    isExternal: false
+  name: Status
+  uid: C:Query::Microsoft#Manufacturing#Document#Pending_Prod#_Orders_-_by_Cost.Prod_Order_Line.Status
+- dataItem: Prod_Order_Line
+  columnType:
+    name: Decimal
+    isExternal: true
+  name: Sum_Remaining_Quantity
+  uid: C:Query::Microsoft#Manufacturing#Document#Pending_Prod#_Orders_-_by_Cost.Prod_Order_Line.Sum_Remaining_Quantity
+- dataItem: Item
+  columnType:
+    name: Decimal
+    isExternal: true
+  name: Cost_of_Open_Production_Orders
+  uid: C:Query::Microsoft#Manufacturing#Document#Pending_Prod#_Orders_-_by_Cost.Prod_Order_Line.Item.Cost_of_Open_Production_Orders
+commentId: O:Query::Microsoft#Manufacturing#Document#Pending Prod# Orders - by Cost
+name: '"Pending Prod. Orders - by Cost"'
+uid: O:Query::Microsoft#Manufacturing#Document#Pending_Prod#_Orders_-_by_Cost

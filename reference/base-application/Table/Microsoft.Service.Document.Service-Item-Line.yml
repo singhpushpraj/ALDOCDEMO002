@@ -1,0 +1,616 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service Item Line"
+alId: ID 5901
+namespace: Microsoft.Service.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Service Item Line
+  promoted: false
+- name: DrillDownPageID
+  value: Service Item Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_Item_Lines
+    name: Microsoft.Service.Document."Service Item Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Service Item Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_Item_Lines
+    name: Microsoft.Service.Document."Service Item Lines"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Loaner Entry" = rimd,
+                      TableData "Service Order Allocation" = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure SetUpNewLine()
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.SetUpNewLine
+- syntax:
+    content: 'procedure SetServHeader(var NewServHeader: Record "Service Header")'
+    parameters:
+    - id: NewServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: SetServHeader
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.SetServHeader(Service_Header@)
+- syntax:
+    content: 'procedure CheckWarranty(Date: Date)'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+  name: CheckWarranty
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CheckWarranty(Date)
+- syntax:
+    content: 'procedure CalculateResponseDateTime(OrderDate: Date, OrderTime: Time)'
+    parameters:
+    - id: OrderDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: OrderTime
+      parameterType:
+        name: Time
+        isExternal: true
+  name: CalculateResponseDateTime
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CalculateResponseDateTime(Date,Time)
+- syntax:
+    content: 'procedure CheckServLineExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckServLineExist
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CheckServLineExist:Boolean
+- syntax:
+    content: 'procedure CheckIfServHourExist(ContractNo: Code[20]): Boolean'
+    parameters:
+    - id: ContractNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfServHourExist
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CheckIfServHourExist(Code[20]):Boolean
+- syntax:
+    content: 'procedure UpdateStartFinishDateTime(DocumentType: Enum "Service Document Type", DocumentNo: Code[20], LineNo: Integer, StartingDate: Date, StartingTime: Time, FinishingDate: Date, FinishingTime: Time, Erasing: Boolean)'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Type
+        name: Microsoft.Service.Document."Service Document Type"
+        isExternal: false
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: StartingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: FinishingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: FinishingTime
+      parameterType:
+        name: Time
+        isExternal: true
+    - id: Erasing
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateStartFinishDateTime
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.UpdateStartFinishDateTime(Enum::Microsoft#Service#Document#Service_Document_Type,Code[20],Integer,Date,Time,Date,Time,Boolean)
+- syntax:
+    content: procedure AssistEditSerialNo()
+  name: AssistEditSerialNo
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.AssistEditSerialNo
+- syntax:
+    content: 'procedure GetHideDialogBox(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideDialogBox
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.GetHideDialogBox:Boolean
+- syntax:
+    content: 'procedure SetHideDialogBox(DialogBoxVar: Boolean)'
+    parameters:
+    - id: DialogBoxVar
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideDialogBox
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.SetHideDialogBox(Boolean)
+- syntax:
+    content: 'procedure ShowComments(Type: Option)'
+    parameters:
+    - id: Type
+      parameterType:
+        name: Option
+        isExternal: true
+  name: ShowComments
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.ShowComments(Option)
+- syntax:
+    content: 'procedure CalculateResponseTimeHours(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalculateResponseTimeHours
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CalculateResponseTimeHours:Decimal
+- syntax:
+    content: procedure UpdateResponseTimeHours()
+  name: UpdateResponseTimeHours
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.UpdateResponseTimeHours
+- syntax:
+    content: 'procedure UpdateServiceOrderChangeLog(var OldServItemLine: Record "Service Item Line")'
+    parameters:
+    - id: OldServItemLine
+      parameterType:
+        name: Record "Service Item Line"
+        isExternal: true
+  name: UpdateServiceOrderChangeLog
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.UpdateServiceOrderChangeLog(Service_Item_Line@)
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.ShowDimensions
+- syntax:
+    content: 'procedure UpdateAllLineDim(NewParentDimSetID: Integer, OldParentDimSetID: Integer)'
+    parameters:
+    - id: NewParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OldParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateAllLineDim
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.UpdateAllLineDim(Integer,Integer)
+- syntax:
+    content: 'procedure SetServItemInfo(ServItem: Record "Service Item")'
+    parameters:
+    - id: ServItem
+      parameterType:
+        name: Record "Service Item"
+        isExternal: true
+  name: SetServItemInfo
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.SetServItemInfo(Service_Item)
+- syntax:
+    content: 'procedure CheckTempDateErrorDate(Tempdate: Date, ErrorDate: Date, Caption1: Text[30], Caption2: Text[30])'
+    parameters:
+    - id: Tempdate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ErrorDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Caption1
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: Caption2
+      parameterType:
+        name: Text[30]
+        isExternal: true
+  name: CheckTempDateErrorDate
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CheckTempDateErrorDate(Date,Date,Text[30],Text[30])
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.SetSecurityFilterOnRespCenter
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Service#Document#Service_Item_Line.CreateDimFromDefaultDim(Integer)
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Service Item No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Service_Item_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Item Group Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Service_Item_Group_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Item_No#[20]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Serial No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Serial_No#[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Description_2[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Repair Status Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Repair_Status_Code[10]
+- type:
+    name: Option
+    isExternal: true
+  name: Priority
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Priority
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Response Time (Hours)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Response_Time_(Hours)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Response Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Response_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Response Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Response_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Starting Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Starting_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Starting Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Starting_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Finishing Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Finishing_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Finishing Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Finishing_Time
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Shelf No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Service_Shelf_No#[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Warranty Starting Date (Parts)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty_Starting_Date_(Parts)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Warranty Ending Date (Parts)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty_Ending_Date_(Parts)
+- type:
+    name: Boolean
+    isExternal: true
+  name: Warranty
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Warranty % (Parts)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty_%_(Parts)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Warranty % (Labor)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty_%_(Labor)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Warranty Starting Date (Labor)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty_Starting_Date_(Labor)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Warranty Ending Date (Labor)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Warranty_Ending_Date_(Labor)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Contract No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Contract_No#[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Location of Service Item"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Location_of_Service_Item[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Loaner No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Loaner_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Vendor No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Vendor_No#[20]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Vendor Item No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Vendor_Item_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Reason Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Fault_Reason_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Price Group Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Service_Price_Group_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Area Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Fault_Area_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Symptom Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Symptom_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fault Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Fault_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Resolution Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Resolution_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Fault Comment"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Fault_Comment
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Resolution Comment"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Resolution_Comment
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Variant_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Service Item Loaner Comment"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Service_Item_Loaner_Comment
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Actual Response Time (Hours)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Actual_Response_Time_(Hours)
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Type
+    name: Microsoft.Service.Document."Service Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Document_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Serv. Price Adjmt. Gr. Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Serv#_Price_Adjmt#_Gr#_Code[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Adjustment Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Adjustment_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Base Amount to Adjust"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Base_Amount_to_Adjust
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Active/Finished Allocs"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.No#_of_Active/Finished_Allocs
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Allocations"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.No#_of_Allocations
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Previous Services"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.No#_of_Previous_Services
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Contract Line No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Contract_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Ship-to_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Customer_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Date_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Resource Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Resource_Filter[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Allocation Date Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Allocation_Date_Filter
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Repair Status Code Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Repair_Status_Code_Filter[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Allocation Status Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Allocation_Status_Filter
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Responsibility_Center[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Service Order Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Service_Order_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Resource Group Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Resource_Group_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Doc#_Release_Status
+    name: Microsoft.Service.Document."Service Doc. Release Status"
+    isExternal: false
+  name: '"Release Status"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Release_Status
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.Dimension_Set_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Service#Document#Service_Item_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Service#Document#Service Item Line
+name: '"Service Item Line"'
+uid: O:Table::Microsoft#Service#Document#Service_Item_Line

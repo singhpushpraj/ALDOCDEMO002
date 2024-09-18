@@ -1,0 +1,377 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Bank Acc. Reconciliation"
+alId: ID 273
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Bank Acc. Reconciliation
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: LookupPageID
+  value: Bank Acc. Reconciliation List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation_List
+    name: Microsoft.Bank.Reconciliation."Bank Acc. Reconciliation List"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Bank Account" = rm,
+                      TableData "Data Exch." = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure MatchSingle(DateRange: Integer)'
+    parameters:
+    - id: DateRange
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MatchSingle
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.MatchSingle(Integer)
+- syntax:
+    content: procedure ImportBankStatement()
+  name: ImportBankStatement
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.ImportBankStatement
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: procedure ShowDocDim()
+  name: ShowDocDim
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.ShowDocDim
+- syntax:
+    content: procedure OpenNewWorksheet()
+  name: OpenNewWorksheet
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.OpenNewWorksheet
+- syntax:
+    content: procedure ImportAndProcessToNewStatement()
+  name: ImportAndProcessToNewStatement
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.ImportAndProcessToNewStatement
+- syntax:
+    content: 'procedure ImportStatement(var BankAccReconciliation: Record "Bank Acc. Reconciliation", DataExch: Record "Data Exch."): Boolean'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    - id: DataExch
+      parameterType:
+        name: Record "Data Exch."
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ImportStatement
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.ImportStatement(Bank_Acc#_Reconciliation@,Data_Exch#):Boolean
+- syntax:
+    content: 'procedure ProcessStatement(var BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: ProcessStatement
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.ProcessStatement(Bank_Acc#_Reconciliation@)
+- syntax:
+    content: 'procedure CreateNewBankPaymentAppBatch(BankAccountNo: Code[20], var BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: CreateNewBankPaymentAppBatch
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.CreateNewBankPaymentAppBatch(Code[20],Bank_Acc#_Reconciliation@)
+- syntax:
+    content: 'procedure SelectBankAccountToUse(var BankAccount: Record "Bank Account", OnlyWithImportFormatSet: Boolean): Boolean'
+    parameters:
+    - id: BankAccount
+      parameterType:
+        name: Record "Bank Account"
+        isExternal: true
+    - id: OnlyWithImportFormatSet
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SelectBankAccountToUse
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SelectBankAccountToUse(Bank_Account@,Boolean):Boolean
+- syntax:
+    content: 'procedure OpenWorksheet(BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: OpenWorksheet
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.OpenWorksheet(Bank_Acc#_Reconciliation)
+- syntax:
+    content: 'procedure OpenList(BankAccReconciliation: Record "Bank Acc. Reconciliation")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+  name: OpenList
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.OpenList(Bank_Acc#_Reconciliation)
+- syntax:
+    content: 'procedure SetFiltersOnBankAccReconLineTable(BankAccReconciliation: Record "Bank Acc. Reconciliation", var BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line")'
+    parameters:
+    - id: BankAccReconciliation
+      parameterType:
+        name: Record "Bank Acc. Reconciliation"
+        isExternal: true
+    - id: BankAccReconciliationLine
+      parameterType:
+        name: Record "Bank Acc. Reconciliation Line"
+        isExternal: true
+  name: SetFiltersOnBankAccReconLineTable
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SetFiltersOnBankAccReconLineTable(Bank_Acc#_Reconciliation,Bank_Acc#_Reconciliation_Line@)
+- syntax:
+    content: procedure DrillDownOnBalanceOnBankAccount()
+  name: DrillDownOnBalanceOnBankAccount
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.DrillDownOnBalanceOnBankAccount
+- syntax:
+    content: procedure CreateDimFromDefaultDim()
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.CreateDimFromDefaultDim
+- syntax:
+    content: procedure CreateBankAccountReconcillation()
+  name: CreateBankAccountReconcillation
+  uid: M:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.CreateBankAccountReconcillation
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bank Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Bank_Account_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Statement No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Statement_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Statement Ending Balance"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Statement_Ending_Balance
+- type:
+    name: Date
+    isExternal: true
+  name: '"Statement Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Statement_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance Last Statement"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Balance_Last_Statement
+- type:
+    name: Blob
+    isExternal: true
+  name: '"Bank Statement"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Bank_Statement
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Balance on Bank Account"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Balance_on_Bank_Account
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Applied Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Applied_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Transaction Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Transaction_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Unposted Applied Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Unposted_Applied_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Difference"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Paid Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Paid_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Received Amount"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Received_Amount
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Reconciliation#Bank_Acc#_Rec#_Stmt#_Type
+    name: Microsoft.Bank.Reconciliation."Bank Acc. Rec. Stmt. Type"
+    isExternal: false
+  name: '"Statement Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Statement_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Post Payments Only"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Post_Payments_Only
+- type:
+    name: Option
+    isExternal: true
+  name: '"Import Posted Transactions"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Import_Posted_Transactions
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Outstd Bank Transactions"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Outstd_Bank_Transactions
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Outstd Payments"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Outstd_Payments
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Applied Amount Payments"'
+  obsoletion:
+    state: removed
+    reason: Type is not used to determine if the bank rec. line is associated to a CLE, instead find explicitly CLEs with their corresponding BLE No. . See BankAccReconTest codeunit TotalOutstandingPayments for an example
+    version: "24.0"
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Applied_Amount_Payments
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bank Account Balance (LCY)"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Bank_Account_Balance_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Positive Adjustments"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Positive_Adjustments
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Negative Adjustments"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Negative_Adjustments
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Positive Difference"'
+  obsoletion:
+    state: removed
+    reason: Difference is now tracked manually instead. Type field was redundant and error prone.
+    version: "24.0"
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Positive_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Negative Difference"'
+  obsoletion:
+    state: removed
+    reason: Difference is now tracked manually instead. Type field was redundant and error prone.
+    version: "24.0"
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Total_Negative_Difference
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Copy VAT Setup to Jnl. Line"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Copy_VAT_Setup_to_Jnl#_Line
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bank Account Name"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Bank_Account_Name[100]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Duplicated Transactions"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Allow_Duplicated_Transactions
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.Dimension_Set_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Reconciliation#Bank Acc# Reconciliation
+name: '"Bank Acc. Reconciliation"'
+uid: O:Table::Microsoft#Bank#Reconciliation#Bank_Acc#_Reconciliation

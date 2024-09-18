@@ -1,0 +1,283 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.Analysis."Analysis View"
+alId: ID 363
+namespace: Microsoft.Finance.Analysis
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.Analysis
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Analysis View
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: LookupPageID
+  value: Analysis View List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Finance#Analysis#Analysis_View_List
+    name: Microsoft.Finance.Analysis."Analysis View List"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Analysis View Entry" = rimd,
+                      TableData "Analysis View Budget Entry" = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure AnalysisViewReset()
+  name: AnalysisViewReset
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.AnalysisViewReset
+- syntax:
+    content: 'procedure CheckDimensionIsTracked(DimensionCode: Code[20]): Boolean'
+    parameters:
+    - id: DimensionCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimensionIsTracked
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.CheckDimensionIsTracked(Code[20]):Boolean
+- syntax:
+    content: 'procedure CheckDimensionsAreRetained(ObjectType: Integer, ObjectID: Integer, OnlyIfIncludeBudgets: Boolean)'
+    parameters:
+    - id: ObjectType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ObjectID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OnlyIfIncludeBudgets
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckDimensionsAreRetained
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.CheckDimensionsAreRetained(Integer,Integer,Boolean)
+- syntax:
+    content: procedure CheckViewsAreUpdated()
+  name: CheckViewsAreUpdated
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.CheckViewsAreUpdated
+- syntax:
+    content: 'procedure UpdateAllAnalysisViews(ShowWindow: Boolean)'
+    parameters:
+    - id: ShowWindow
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateAllAnalysisViews
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.UpdateAllAnalysisViews(Boolean)
+- syntax:
+    content: procedure UpdateLastEntryNo()
+  name: UpdateLastEntryNo
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.UpdateLastEntryNo
+- syntax:
+    content: 'procedure ValidateDelete(FieldName: Text)'
+    parameters:
+    - id: FieldName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ValidateDelete
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.ValidateDelete(Text)
+- syntax:
+    content: procedure AnalysisViewBudgetReset()
+  name: AnalysisViewBudgetReset
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.AnalysisViewBudgetReset
+- syntax:
+    content: 'procedure ValidateModify(FieldName: Text)'
+    parameters:
+    - id: FieldName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: ValidateModify
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.ValidateModify(Text)
+- syntax:
+    content: 'procedure CopyAnalysisViewFilters(ObjectType: Integer, ObjectID: Integer, AnalysisViewCode: Code[10])'
+    parameters:
+    - id: ObjectType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ObjectID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AnalysisViewCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CopyAnalysisViewFilters
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.CopyAnalysisViewFilters(Integer,Integer,Code[10])
+- syntax:
+    content: 'procedure CheckIfLastEntryOrDateIsSet(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfLastEntryOrDateIsSet
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.CheckIfLastEntryOrDateIsSet:Boolean
+- syntax:
+    content: 'procedure SetUpdateOnPosting(NewUpdateOnPosting: Boolean)'
+    parameters:
+    - id: NewUpdateOnPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetUpdateOnPosting
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.SetUpdateOnPosting(Boolean)
+- syntax:
+    content: procedure SetSkipConfirmationDialogue()
+  name: SetSkipConfirmationDialogue
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.SetSkipConfirmationDialogue
+- syntax:
+    content: procedure RunAnalysisByDimensionPage()
+  name: RunAnalysisByDimensionPage
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.RunAnalysisByDimensionPage
+- syntax:
+    content: procedure ShowResetNeededNotification()
+  name: ShowResetNeededNotification
+  uid: M:Table::Microsoft#Finance#Analysis#Analysis_View.ShowResetNeededNotification
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: Code
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Code[10]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Name[50]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#Analysis#Analysis_Account_Source
+    name: Microsoft.Finance.Analysis."Analysis Account Source"
+    isExternal: false
+  name: '"Account Source"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Account_Source
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Last Entry No."'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Last_Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Last Budget Entry No."'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Last_Budget_Entry_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Updated"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Last_Date_Updated
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Update on Posting"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Update_on_Posting
+- type:
+    name: Boolean
+    isExternal: true
+  name: Blocked
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Blocked
+- type:
+    name: Code[250]
+    isExternal: true
+  name: '"Account Filter"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Account_Filter[250]
+- type:
+    name: Code[250]
+    isExternal: true
+  name: '"Business Unit Filter"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Business_Unit_Filter[250]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Starting Date"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Starting_Date
+- type:
+    name: Option
+    isExternal: true
+  name: '"Date Compression"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Date_Compression
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Dimension 1 Code"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Dimension 2 Code"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Dimension 3 Code"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Dimension_3_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Dimension 4 Code"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Dimension_4_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Include Budgets"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Include_Budgets
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Refresh When Unblocked"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Refresh_When_Unblocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Reset Needed"'
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.Reset_Needed
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#Analysis#Analysis_View.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#Analysis#Analysis View
+name: '"Analysis View"'
+uid: O:Table::Microsoft#Finance#Analysis#Analysis_View

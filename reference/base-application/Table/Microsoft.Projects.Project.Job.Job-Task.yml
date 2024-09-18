@@ -1,0 +1,656 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Job."Job Task"
+alId: ID 1001
+namespace: Microsoft.Projects.Project.Job
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Job
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Project Task
+  promoted: false
+- name: DrillDownPageID
+  value: Job Task Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Projects#Project#Job#Job_Task_Lines
+    name: Microsoft.Projects.Project.Job."Job Task Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Job Task Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Projects#Project#Job#Job_Task_Lines
+    name: Microsoft.Projects.Project.Job."Job Task Lines"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalcEACTotalCost(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcEACTotalCost
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.CalcEACTotalCost:Decimal
+- syntax:
+    content: 'procedure CalcEACTotalPrice(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcEACTotalPrice
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.CalcEACTotalPrice:Decimal
+- syntax:
+    content: 'procedure Caption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.Caption:Text
+- syntax:
+    content: procedure InitWIPFields()
+  name: InitWIPFields
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.InitWIPFields
+- syntax:
+    content: 'procedure ToPriceSource(var PriceSource: Record "Price Source" temporary, PriceType: Enum "Price Type")'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+  name: ToPriceSource
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ToPriceSource(Price_Source@,Enum::Microsoft#Pricing#PriceList#Price_Type)
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: procedure ClearTempDim()
+  name: ClearTempDim
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ClearTempDim
+- syntax:
+    content: 'procedure ApplyPurchaseLineFilters(var PurchLine: Record "Purchase Line", JobNo: Code[20], JobTaskNo: Code[20])'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: JobTaskNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ApplyPurchaseLineFilters
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ApplyPurchaseLineFilters(Purchase_Line@,Code[20],Code[20])
+- syntax:
+    content: 'procedure JobPlanningLineExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: JobPlanningLineExist
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.JobPlanningLineExist:Boolean
+- syntax:
+    content: 'procedure SalesJobLedgEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SalesJobLedgEntryExist
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.SalesJobLedgEntryExist:Boolean
+- syntax:
+    content: 'procedure ShouldSearchForCustomerByName(CustomerNo: Code[20]): Boolean'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShouldSearchForCustomerByName
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ShouldSearchForCustomerByName(Code[20]):Boolean
+- syntax:
+    content: 'procedure BilltoContactLookup(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BilltoContactLookup
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.BilltoContactLookup:Boolean
+- syntax:
+    content: 'procedure LookupSellToCustomerName(var CustomerName: Text): Boolean'
+    parameters:
+    - id: CustomerName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupSellToCustomerName
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.LookupSellToCustomerName(Text@):Boolean
+- syntax:
+    content: 'procedure SelltoCustomerNoOnAfterValidate(var JobTask: Record "Job Task", var xJobTask: Record "Job Task")'
+    parameters:
+    - id: JobTask
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+    - id: xJobTask
+      parameterType:
+        name: Record "Job Task"
+        isExternal: true
+  name: SelltoCustomerNoOnAfterValidate
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.SelltoCustomerNoOnAfterValidate(Job_Task@,Job_Task@)
+- syntax:
+    content: 'procedure SelltoContactLookup(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SelltoContactLookup
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.SelltoContactLookup:Boolean
+- syntax:
+    content: 'procedure ShipToNameEqualsSellToName(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShipToNameEqualsSellToName
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ShipToNameEqualsSellToName:Boolean
+- syntax:
+    content: 'procedure BillToAddressEqualsSellToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BillToAddressEqualsSellToAddress
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.BillToAddressEqualsSellToAddress:Boolean
+- syntax:
+    content: 'procedure ShipToAddressEqualsSellToAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShipToAddressEqualsSellToAddress
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.ShipToAddressEqualsSellToAddress:Boolean
+- syntax:
+    content: procedure SyncShipToWithSellTo()
+  name: SyncShipToWithSellTo
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.SyncShipToWithSellTo
+- syntax:
+    content: 'procedure JobLedgEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: JobLedgEntryExist
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.JobLedgEntryExist:Boolean
+- syntax:
+    content: 'procedure JobPlanLineExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: JobPlanLineExist
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.JobPlanLineExist:Boolean
+- syntax:
+    content: 'procedure SendProfile(var DocumentSendingProfile: Record "Document Sending Profile")'
+    parameters:
+    - id: DocumentSendingProfile
+      parameterType:
+        name: Record "Document Sending Profile"
+        isExternal: true
+  name: SendProfile
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.SendProfile(Document_Sending_Profile@)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure GetHideValidationDialog(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideValidationDialog
+  uid: M:Table::Microsoft#Projects#Project#Job#Job_Task.GetHideValidationDialog:Boolean
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Job_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Job_Task_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Description[100]
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Job#Job_Task_Type
+    name: Microsoft.Projects.Project.Job."Job Task Type"
+    isExternal: false
+  name: '"Job Task Type"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Job_Task_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"WIP-Total"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.WIP-Total
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Posting Group"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Job_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"WIP Method"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.WIP_Method[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Schedule (Total Cost)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Schedule_(Total_Cost)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Schedule (Total Price)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Schedule_(Total_Price)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Usage (Total Cost)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Usage_(Total_Cost)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Usage (Total Price)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Usage_(Total_Price)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract (Total Cost)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Contract_(Total_Cost)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract (Total Price)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Contract_(Total_Price)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract (Invoiced Price)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Contract_(Invoiced_Price)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract (Invoiced Cost)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Contract_(Invoiced_Cost)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date Filter"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Posting_Date_Filter
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planning Date Filter"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Planning_Date_Filter
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Totaling
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Totaling[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"New Page"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.New_Page
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Blank Lines"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.No#_of_Blank_Lines
+- type:
+    name: Integer
+    isExternal: true
+  name: Indentation
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Indentation
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Recognized Sales Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Recognized_Sales_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Recognized Costs Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Recognized_Costs_Amount
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Language Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Language_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Recognized Sales G/L Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Recognized_Sales_G/L_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Recognized Costs G/L Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Recognized_Costs_G/L_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Global_Dimension_2_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Orders"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Outstanding_Orders
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amt. Rcd. Not Invoiced"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Amt#_Rcd#_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining (Total Cost)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Remaining_(Total_Cost)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining (Total Price)"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Remaining_(Total_Price)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Start Date"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Start_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"End Date"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.End_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Customer_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Name"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Name[100]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Address"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Bill-to Address 2"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Bill-to City"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_City[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Bill-to County"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_County[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Post Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Post_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Bill-to Country/Region Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Country/Region_Code[10]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Bill-to Name 2"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Name_2[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Contact No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Contact_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Contact"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Bill-to_Contact[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Customer_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Sell-to Customer Name"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Customer_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Sell-to Customer Name 2"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Customer_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Sell-to Address"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Sell-to Address 2"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Sell-to City"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Sell-to Contact"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Contact[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Post Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Sell-to County"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Sell-to Country/Region Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Contact No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Sell-to_Contact_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Name"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Ship-to Name 2"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Address"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Ship-to Address 2"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to City"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Contact"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Contact[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Ship-to Post Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to County"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Country/Region Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Ship-to_Country/Region_Code[10]
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.External_Document_No#[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Method Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Payment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Terms Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Payment_Terms_Code[10]
+- type:
+    name: Text[35]
+    isExternal: true
+  name: '"Your Reference"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Your_Reference[35]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Price_Calculation_Method
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Invoice Currency Code"'
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.Invoice_Currency_Code[10]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Projects#Project#Job#Job_Task.SystemRowVersion
+commentId: O:Table::Microsoft#Projects#Project#Job#Job Task
+name: '"Job Task"'
+uid: O:Table::Microsoft#Projects#Project#Job#Job_Task

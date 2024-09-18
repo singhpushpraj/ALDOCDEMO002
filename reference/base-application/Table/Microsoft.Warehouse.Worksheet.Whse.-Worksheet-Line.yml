@@ -1,0 +1,743 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Worksheet."Whse. Worksheet Line"
+alId: ID 7326
+namespace: Microsoft.Warehouse.Worksheet
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Worksheet
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Whse. Worksheet Line
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalcBaseQty(Qty: Decimal): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQty
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CalcBaseQty(Decimal):Decimal
+- syntax:
+    content: 'procedure CalcQty(QtyBase: Decimal): Decimal'
+    parameters:
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQty
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CalcQty(Decimal):Decimal
+- syntax:
+    content: 'procedure AutofillQtyToHandle(var WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: AutofillQtyToHandle
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.AutofillQtyToHandle(Whse#_Worksheet_Line@)
+- syntax:
+    content: 'procedure DeleteQtyToHandle(var WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: DeleteQtyToHandle
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.DeleteQtyToHandle(Whse#_Worksheet_Line@)
+- syntax:
+    content: 'procedure AssignedQtyOnReservedLines(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AssignedQtyOnReservedLines
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.AssignedQtyOnReservedLines:Decimal
+- syntax:
+    content: 'procedure CalcAvailableQtyBase(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailableQtyBase
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CalcAvailableQtyBase:Decimal
+- syntax:
+    content: 'procedure CalcReservedNotFromILEQty(QtyBaseAvailToPick: Decimal, var QtyToPick: Decimal, var QtyToPickBase: Decimal)'
+    parameters:
+    - id: QtyBaseAvailToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToPick
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToPickBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalcReservedNotFromILEQty
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CalcReservedNotFromILEQty(Decimal,Decimal@,Decimal@)
+- syntax:
+    content: 'procedure CheckAvailQtytoMove(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CheckAvailQtytoMove
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CheckAvailQtytoMove:Decimal
+- syntax:
+    content: 'procedure SortWhseWkshLines(WhseWkshTemplate: Code[10], WhseWkshName: Code[10], LocationCode: Code[10], SortingMethod: Enum "Whse. Activity Sorting Method")'
+    parameters:
+    - id: WhseWkshTemplate
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SortingMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method
+        name: Microsoft.Warehouse.Activity."Whse. Activity Sorting Method"
+        isExternal: false
+  name: SortWhseWkshLines
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SortWhseWkshLines(Code[10],Code[10],Code[10],Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method)
+- syntax:
+    content: 'procedure GetItem(ItemNo: Code[20], var ItemDescription: Text[100])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ItemDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: GetItem
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.GetItem(Code[20],Text[100]@)
+- syntax:
+    content: 'procedure CheckBin(LocationCode: Code[10], BinCode: Code[20], Inbound: Boolean)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: Inbound
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckBin
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CheckBin(Code[10],Code[20],Boolean)
+- syntax:
+    content: 'procedure PutAwayCreate(var WhsePutAwayWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhsePutAwayWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: PutAwayCreate
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.PutAwayCreate(Whse#_Worksheet_Line@)
+- syntax:
+    content: 'procedure MovementCreate(var WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: MovementCreate
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.MovementCreate(Whse#_Worksheet_Line@)
+- syntax:
+    content: 'procedure TemplateSelection(PageID: Integer, PageTemplate: Option, var WhseWkshLine: Record "Whse. Worksheet Line", var WhseWkshSelected: Boolean)'
+    parameters:
+    - id: PageID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PageTemplate
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: WhseWkshSelected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: TemplateSelection
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.TemplateSelection(Integer,Option,Whse#_Worksheet_Line@,Boolean@)
+- syntax:
+    content: 'procedure TemplateSelectionFromBatch(var WhseWkshName: Record "Whse. Worksheet Name")'
+    parameters:
+    - id: WhseWkshName
+      parameterType:
+        name: Record "Whse. Worksheet Name"
+        isExternal: true
+  name: TemplateSelectionFromBatch
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.TemplateSelectionFromBatch(Whse#_Worksheet_Name@)
+- syntax:
+    content: 'procedure OpenWhseWksh(var WhseWkshLine: Record "Whse. Worksheet Line", var CurrentWkshTemplateName: Code[10], var CurrentWkshName: Code[10], var CurrentLocationCode: Code[10])'
+    parameters:
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: CurrentWkshTemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: OpenWhseWksh
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.OpenWhseWksh(Whse#_Worksheet_Line@,Code[10]@,Code[10]@,Code[10]@)
+- syntax:
+    content: 'procedure OpenWhseWkshBatch(var WhseWkshName: Record "Whse. Worksheet Name")'
+    parameters:
+    - id: WhseWkshName
+      parameterType:
+        name: Record "Whse. Worksheet Name"
+        isExternal: true
+  name: OpenWhseWkshBatch
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.OpenWhseWkshBatch(Whse#_Worksheet_Name@)
+- syntax:
+    content: 'procedure CheckWhseWkshName(CurrentWkshName: Code[10], CurrentLocationCode: Code[10], var WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: CurrentWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: CheckWhseWkshName
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CheckWhseWkshName(Code[10],Code[10],Whse#_Worksheet_Line@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by CheckUserIsWhseEmployee procedure in WMS Management codeunit,23.0)]'
+    content: procedure CheckWhseEmployee()
+  name: CheckWhseEmployee
+  obsoletion:
+    state: pending
+    reason: Replaced by CheckUserIsWhseEmployee procedure in WMS Management codeunit
+    version: "23.0"
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.CheckWhseEmployee
+- syntax:
+    content: 'procedure SetWhseWkshName(CurrentWkshName: Code[10], CurrentLocationCode: Code[10], var WhseWkshLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: CurrentWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: SetWhseWkshName
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SetWhseWkshName(Code[10],Code[10],Whse#_Worksheet_Line@)
+- syntax:
+    content: 'procedure LookupWhseWkshName(var WhseWkshLine: Record "Whse. Worksheet Line", var CurrentWkshName: Code[10], var CurrentLocationCode: Code[10])'
+    parameters:
+    - id: WhseWkshLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+    - id: CurrentWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: LookupWhseWkshName
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.LookupWhseWkshName(Whse#_Worksheet_Line@,Code[10]@,Code[10]@)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SetHideValidationDialog(Boolean)
+- syntax:
+    content: procedure OpenItemTrackingLines()
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.OpenItemTrackingLines
+- syntax:
+    content: 'procedure AvailableQtyToPick(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AvailableQtyToPick
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.AvailableQtyToPick:Decimal
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by procedure AvailableQtyToPick,23.0)]'
+    content: 'procedure AvailableQtyToPickExcludingQCBins(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: AvailableQtyToPickExcludingQCBins
+  obsoletion:
+    state: pending
+    reason: Replaced by procedure AvailableQtyToPick
+    version: "23.0"
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.AvailableQtyToPickExcludingQCBins:Decimal
+- syntax:
+    content: 'procedure InitNewLineWithItem(DocumentType: Enum "Warehouse Worksheet Document Type", DocumentNo: Code[20], DocumentLineNo: Integer, LocationCode: Code[10], ItemNo: Code[20], VariantCode: Code[10], Qty: Decimal, QtyToHandle: Decimal, QtyPerUoM: Decimal)'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type
+        name: Microsoft.Warehouse.Worksheet."Warehouse Worksheet Document Type"
+        isExternal: false
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocumentLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyPerUoM
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InitNewLineWithItem
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.InitNewLineWithItem(Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type,Code[20],Integer,Code[10],Code[20],Code[10],Decimal,Decimal,Decimal)
+- syntax:
+    content: 'procedure SetUpNewLine(WhseWkshTemplate: Code[10], WhseWkshName: Code[10], LocationCode: Code[10], SortingMethod: Enum "Whse. Activity Sorting Method", LineNo: Integer)'
+    parameters:
+    - id: WhseWkshTemplate
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseWkshName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: SortingMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method
+        name: Microsoft.Warehouse.Activity."Whse. Activity Sorting Method"
+        isExternal: false
+    - id: LineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SetUpNewLine(Code[10],Code[10],Code[10],Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method,Integer)
+- syntax:
+    content: 'procedure GetSortSeqNo(SortMethod: Enum "Whse. Activity Sorting Method"): Integer'
+    parameters:
+    - id: SortMethod
+      parameterType:
+        internalReference: O:Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method
+        name: Microsoft.Warehouse.Activity."Whse. Activity Sorting Method"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetSortSeqNo
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.GetSortSeqNo(Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method):Integer
+- syntax:
+    content: 'procedure SetItemTrackingLines(WhseEntry: Record "Warehouse Entry", QtyToEmpty: Decimal)'
+    parameters:
+    - id: WhseEntry
+      parameterType:
+        name: Record "Warehouse Entry"
+        isExternal: true
+    - id: QtyToEmpty
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetItemTrackingLines
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SetItemTrackingLines(Warehouse_Entry,Decimal)
+- syntax:
+    content: 'procedure SetCurrentFieldNo(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetCurrentFieldNo
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SetCurrentFieldNo(Integer)
+- syntax:
+    content: 'procedure SetSourceFilter(SourceType: Integer, SourceSubType: Option, SourceNo: Code[20], SourceLineNo: Integer, SetKey: Boolean)'
+    parameters:
+    - id: SourceType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SourceSubType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SourceLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SetKey
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSourceFilter
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SetSourceFilter(Integer,Option,Code[20],Integer,Boolean)
+- syntax:
+    content: 'procedure LookupItemTracking(var WhseItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: WhseItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: LookupItemTracking
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.LookupItemTracking(Item_Tracking_Setup@)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnDeleteQtyToHandleOnBeforeModify(var WhseWorksheetLine: Record "Whse. Worksheet Line")'
+    parameters:
+    - id: WhseWorksheetLine
+      parameterType:
+        name: Record "Whse. Worksheet Line"
+        isExternal: true
+  name: OnDeleteQtyToHandleOnBeforeModify
+  uid: M:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.OnDeleteQtyToHandleOnBeforeModify(Whse#_Worksheet_Line@)
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Worksheet Template Name"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Worksheet_Template_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Name[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Source_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Source Subtype"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Source_Subtype
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Source_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Line No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Source_Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Subline No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Source_Subline_No#
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Source_Document
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Source Document"
+    isExternal: false
+  name: '"Source Document"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Source_Document
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Location_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shelf No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Shelf_No#[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"From Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.From_Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"From Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.From_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"To Bin Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.To_Bin_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"To Zone Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.To_Zone_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Item_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Outstanding"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_Outstanding
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Outstanding (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_Outstanding_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Handle"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_to_Handle
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Handle (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_to_Handle_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Handled"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_Handled
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Handled (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_Handled_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"From Unit of Measure Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.From_Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per From Unit of Measure"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_per_From_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Variant_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Description_2[50]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sorting Sequence No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Sorting_Sequence_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Due_Date
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Request#Warehouse_Destination_Type
+    name: Microsoft.Warehouse.Request."Warehouse Destination Type"
+    isExternal: false
+  name: '"Destination Type"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Destination_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Destination No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Destination_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Shipping_Agent_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Shipping_Agent_Service_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipment Method Code"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Shipment_Method_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+    name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+    isExternal: false
+  name: '"Shipping Advice"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Shipping_Advice
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Shipment_Date
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Worksheet#Warehouse_Worksheet_Document_Type
+    name: Microsoft.Warehouse.Worksheet."Warehouse Worksheet Document Type"
+    isExternal: false
+  name: '"Whse. Document Type"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Whse#_Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Whse. Document No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Whse#_Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Whse. Document Line No."'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Whse#_Document_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Warehouse#Worksheet#Whse# Worksheet Line
+name: '"Whse. Worksheet Line"'
+uid: O:Table::Microsoft#Warehouse#Worksheet#Whse#_Worksheet_Line

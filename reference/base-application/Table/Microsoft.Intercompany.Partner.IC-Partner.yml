@@ -1,0 +1,252 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Intercompany.Partner."IC Partner"
+alId: ID 413
+namespace: Microsoft.Intercompany.Partner
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Intercompany.Partner
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: IC Partner
+  promoted: false
+- name: LookupPageID
+  value: IC Partner List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Intercompany#Partner#IC_Partner_List
+    name: Microsoft.Intercompany.Partner."IC Partner List"
+    isExternal: false
+- name: Permissions
+  value: TableData "G/L Entry" = rm
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure CheckICPartner()
+  name: CheckICPartner
+  uid: M:Table::Microsoft#Intercompany#Partner#IC_Partner.CheckICPartner
+- syntax:
+    content: 'procedure CheckICPartnerIndirect(AccountType: Text[250], AccountNo: Code[20])'
+    parameters:
+    - id: AccountType
+      parameterType:
+        name: Text[250]
+        isExternal: true
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckICPartnerIndirect
+  uid: M:Table::Microsoft#Intercompany#Partner#IC_Partner.CheckICPartnerIndirect(Text[250],Code[20])
+- syntax:
+    content: 'procedure PropagateCustomerICPartner(PreviousCustomerNo: Code[20], NewCustomerNo: Code[20], ICPartnerCode: Code[20])'
+    parameters:
+    - id: PreviousCustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewCustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PropagateCustomerICPartner
+  uid: M:Table::Microsoft#Intercompany#Partner#IC_Partner.PropagateCustomerICPartner(Code[20],Code[20],Code[20])
+- syntax:
+    content: 'procedure PropagateVendorICPartner(PreviousVendorNo: Code[20], NewVendorNo: Code[20], ICPartnerCode: Code[20])'
+    parameters:
+    - id: PreviousVendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewVendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ICPartnerCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: PropagateVendorICPartner
+  uid: M:Table::Microsoft#Intercompany#Partner#IC_Partner.PropagateVendorICPartner(Code[20],Code[20],Code[20])
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: Code
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Code[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Name[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Currency_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Partner#IC_Partner_Inbox_Type
+    name: Microsoft.Intercompany.Partner."IC Partner Inbox Type"
+    isExternal: false
+  name: '"Inbox Type"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Inbox_Type
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Inbox Details"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Inbox_Details[250]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Receivables Account"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Receivables_Account[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Payables Account"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Payables_Account[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Country/Region_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Blocked
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Comment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer No."'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Vendor No."'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Vendor_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Outbox#IC_Outb#_Sales_Item_No#_Type
+    name: Microsoft.Intercompany.Outbox."IC Outb. Sales Item No. Type"
+    isExternal: false
+  name: '"Outbound Sales Item No. Type"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Outbound_Sales_Item_No#_Type
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Outbox#IC_Outb#_Purch#_Item_No#_Type
+    name: Microsoft.Intercompany.Outbox."IC Outb. Purch. Item No. Type"
+    isExternal: false
+  name: '"Outbound Purch. Item No. Type"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Outbound_Purch#_Item_No#_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Cost Distribution in LCY"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Cost_Distribution_in_LCY
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Auto. Accept Transactions"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Auto#_Accept_Transactions
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#DataExchange#IC_Data_Exchange_Type
+    name: Microsoft.Intercompany.DataExchange."IC Data Exchange Type"
+    isExternal: false
+  name: '"Data Exchange Type"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Data_Exchange_Type
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Connection Url Key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Connection_Url_Key
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Company Id Key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Company_Id_Key
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Client Id Key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Client_Id_Key
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Client Secret Key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Client_Secret_Key
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Authority Url Key"'
+  obsoletion:
+    state: pending
+    reason: Usage of authority url is moved to token endpoint.
+    version: "24.0"
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Authority_Url_Key
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Redirect Url key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Redirect_Url_key
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Token Key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Token_Key
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Token Expiration Time"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Token_Expiration_Time
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Token Endpoint Key"'
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.Token_Endpoint_Key
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Intercompany#Partner#IC_Partner.SystemRowVersion
+commentId: O:Table::Microsoft#Intercompany#Partner#IC Partner
+name: '"IC Partner"'
+uid: O:Table::Microsoft#Intercompany#Partner#IC_Partner

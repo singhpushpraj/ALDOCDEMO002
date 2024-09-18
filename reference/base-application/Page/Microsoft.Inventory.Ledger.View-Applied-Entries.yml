@@ -1,0 +1,84 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Ledger."View Applied Entries"
+alId: ID 522
+namespace: Microsoft.Inventory.Ledger
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Ledger
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Inventory#Ledger#Item_Ledger_Entry
+  name: Microsoft.Inventory.Ledger."Item Ledger Entry"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: View Applied Entries
+  promoted: false
+- name: DataCaptionExpression
+  value: CaptionExpr()
+  promoted: false
+- name: DeleteAllowed
+  value: "False"
+  promoted: false
+- name: InsertAllowed
+  value: "False"
+  promoted: false
+- name: ModifyAllowed
+  value: "True"
+  promoted: false
+- name: PageType
+  value: Worksheet
+  promoted: true
+- name: Permissions
+  value: TableData "Item Application Entry" = rimd
+  promoted: false
+- name: SaveValues
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "32"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Ledger#Item_Ledger_Entry
+    name: Microsoft.Inventory.Ledger."Item Ledger Entry"
+    isExternal: false
+- name: SourceTableTemporary
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetRecordToShow(var RecordToSet: Record "Item Ledger Entry", var ApplyCodeunit: Codeunit "Item Jnl.-Post Line", newShowApplied: Boolean)'
+    parameters:
+    - id: RecordToSet
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+    - id: ApplyCodeunit
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line
+        name: Microsoft.Inventory.Posting."Item Jnl.-Post Line"
+        isExternal: false
+    - id: newShowApplied
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetRecordToShow
+  uid: M:Page::Microsoft#Inventory#Ledger#View_Applied_Entries.SetRecordToShow(Item_Ledger_Entry@,Codeunit::Microsoft#Inventory#Posting#Item_Jnl#-Post_Line@,Boolean)
+- syntax:
+    content: procedure ApplyRec()
+  name: ApplyRec
+  uid: M:Page::Microsoft#Inventory#Ledger#View_Applied_Entries.ApplyRec
+- syntax:
+    content: 'procedure CaptionExpr(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: CaptionExpr
+  uid: M:Page::Microsoft#Inventory#Ledger#View_Applied_Entries.CaptionExpr:Text
+commentId: O:Page::Microsoft#Inventory#Ledger#View Applied Entries
+name: '"View Applied Entries"'
+uid: O:Page::Microsoft#Inventory#Ledger#View_Applied_Entries

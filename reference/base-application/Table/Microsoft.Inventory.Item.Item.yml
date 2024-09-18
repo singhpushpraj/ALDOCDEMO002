@@ -1,0 +1,1819 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Item.Item
+alId: ID 27
+namespace: Microsoft.Inventory.Item
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Item
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Item
+  promoted: false
+- name: DataCaptionFields
+  value: 1,3
+  promoted: false
+- name: DrillDownPageID
+  value: Item List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Item#Item_List
+    name: Microsoft.Inventory.Item."Item List"
+    isExternal: false
+- name: LookupPageID
+  value: Item Lookup
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Item#Item_Lookup
+    name: Microsoft.Inventory.Item."Item Lookup"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Service Item" = rm,
+                      TableData "Service Item Component" = rm,
+                      TableData "Bin Content" = d,
+                      TableData "Planning Assignment" = d
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Inventory#Item#Item.AssistEdit:Boolean
+- syntax:
+    content: 'procedure FindItemVend(var ItemVend: Record "Item Vendor", LocationCode: Code[10])'
+    parameters:
+    - id: ItemVend
+      parameterType:
+        name: Record "Item Vendor"
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: FindItemVend
+  uid: M:Table::Microsoft#Inventory#Item#Item.FindItemVend(Item_Vendor@,Code[10])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Item#Item.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure TestNoEntriesExist(CurrentFieldName: Text[100])'
+    parameters:
+    - id: CurrentFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: TestNoEntriesExist
+  uid: M:Table::Microsoft#Inventory#Item#Item.TestNoEntriesExist(Text[100])
+- syntax:
+    content: 'procedure TestNoWhseEntriesExist(CurrentFieldName: Text)'
+    parameters:
+    - id: CurrentFieldName
+      parameterType:
+        name: Text
+        isExternal: true
+  name: TestNoWhseEntriesExist
+  uid: M:Table::Microsoft#Inventory#Item#Item.TestNoWhseEntriesExist(Text)
+- syntax:
+    content: 'procedure TestNoOpenEntriesExist(CurrentFieldName: Text[100])'
+    parameters:
+    - id: CurrentFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: TestNoOpenEntriesExist
+  uid: M:Table::Microsoft#Inventory#Item#Item.TestNoOpenEntriesExist(Text[100])
+- syntax:
+    content: 'procedure ItemSKUGet(var Item: Record Item, LocationCode: Code[10], VariantCode: Code[10])'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: ItemSKUGet
+  uid: M:Table::Microsoft#Inventory#Item#Item.ItemSKUGet(Item@,Code[10],Code[10])
+- syntax:
+    content: 'procedure GetSKU(LocationCode: Code[10], VariantCode: Code[10]): Record "Stockkeeping Unit" temporary'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Record "Stockkeeping Unit" temporary
+        isExternal: true
+  name: GetSKU
+  uid: M:Table::Microsoft#Inventory#Item#Item.GetSKU(Code[10],Code[10]):Stockkeeping_Unit
+- syntax:
+    content: 'procedure IsMfgItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsMfgItem
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsMfgItem:Boolean
+- syntax:
+    content: 'procedure IsAssemblyItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAssemblyItem
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsAssemblyItem:Boolean
+- syntax:
+    content: 'procedure HasBOM(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasBOM
+  uid: M:Table::Microsoft#Inventory#Item#Item.HasBOM:Boolean
+- syntax:
+    content: 'procedure CheckSerialNoQty(ItemNo: Code[20], FieldName: Text[30], Quantity: Decimal)'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FieldName
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: Quantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CheckSerialNoQty
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckSerialNoQty(Code[20],Text[30],Decimal)
+- syntax:
+    content: procedure CheckBlockedByApplWorksheet()
+  name: CheckBlockedByApplWorksheet
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckBlockedByApplWorksheet
+- syntax:
+    content: 'procedure CheckJournalsAndWorksheets(CurrFieldNo: Integer)'
+    parameters:
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckJournalsAndWorksheets
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckJournalsAndWorksheets(Integer)
+- syntax:
+    content: 'procedure CheckDocuments(CurrentFieldNo: Integer)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckDocuments
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckDocuments(Integer)
+- syntax:
+    content: 'procedure CheckBOM(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckBOM
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckBOM(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckPurchLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckPurchLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckPurchLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckSalesLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckSalesLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckSalesLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckProdOrderLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckProdOrderLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckProdOrderLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckProdOrderCompLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckProdOrderCompLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckProdOrderCompLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckPlanningCompLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckPlanningCompLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckPlanningCompLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckTransLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckTransLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckTransLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckServLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckServLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckServLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckProdBOMLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckProdBOMLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckProdBOMLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckServContractLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckServContractLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckServContractLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckAsmHeader(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckAsmHeader
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckAsmHeader(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CheckAsmLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckAsmLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckAsmLine(Integer,Integer,Text)
+- syntax:
+    content: procedure CheckUpdateFieldsForNonInventoriableItem()
+  name: CheckUpdateFieldsForNonInventoriableItem
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckUpdateFieldsForNonInventoriableItem
+- syntax:
+    content: 'procedure PreventNegativeInventory(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PreventNegativeInventory
+  uid: M:Table::Microsoft#Inventory#Item#Item.PreventNegativeInventory:Boolean
+- syntax:
+    content: 'procedure CheckJobPlanningLine(CurrentFieldNo: Integer, CheckFieldNo: Integer, CheckFieldCaption: Text)'
+    parameters:
+    - id: CurrentFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CheckFieldCaption
+      parameterType:
+        name: Text
+        isExternal: true
+  name: CheckJobPlanningLine
+  uid: M:Table::Microsoft#Inventory#Item#Item.CheckJobPlanningLine(Integer,Integer,Text)
+- syntax:
+    content: 'procedure CalcUnitPriceExclVAT(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcUnitPriceExclVAT
+  uid: M:Table::Microsoft#Inventory#Item#Item.CalcUnitPriceExclVAT:Decimal
+- syntax:
+    content: 'procedure GetItemNo(ItemText: Text): Code[20]'
+    parameters:
+    - id: ItemText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetItemNo
+  uid: M:Table::Microsoft#Inventory#Item#Item.GetItemNo(Text):Code[20]
+- syntax:
+    content: 'procedure ShowPriceListLines(PriceType: Enum "Price Type", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: ShowPriceListLines
+  uid: M:Table::Microsoft#Inventory#Item#Item.ShowPriceListLines(Enum::Microsoft#Pricing#PriceList#Price_Type,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+- syntax:
+    content: 'procedure TryGetItemNo(var ReturnValue: Text[50], ItemText: Text, DefaultCreate: Boolean): Boolean'
+    parameters:
+    - id: ReturnValue
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ItemText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DefaultCreate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TryGetItemNo
+  uid: M:Table::Microsoft#Inventory#Item#Item.TryGetItemNo(Text[50]@,Text,Boolean):Boolean
+- syntax:
+    content: 'procedure TryGetItemNoOpenCard(var ReturnValue: Text, ItemText: Text, DefaultCreate: Boolean, ShowItemCard: Boolean, ShowCreateItemOption: Boolean): Boolean'
+    parameters:
+    - id: ReturnValue
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ItemText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: DefaultCreate
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowItemCard
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowCreateItemOption
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TryGetItemNoOpenCard
+  uid: M:Table::Microsoft#Inventory#Item#Item.TryGetItemNoOpenCard(Text@,Text,Boolean,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure PickItem(var Item: Record Item): Code[20]'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: PickItem
+  uid: M:Table::Microsoft#Inventory#Item#Item.PickItem(Item@):Code[20]
+- syntax:
+    content: procedure SetLastDateTimeModified()
+  name: SetLastDateTimeModified
+  uid: M:Table::Microsoft#Inventory#Item#Item.SetLastDateTimeModified
+- syntax:
+    content: 'procedure SetLastDateTimeFilter(DateFilter: DateTime)'
+    parameters:
+    - id: DateFilter
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SetLastDateTimeFilter
+  uid: M:Table::Microsoft#Inventory#Item#Item.SetLastDateTimeFilter(DateTime)
+- syntax:
+    content: 'procedure UpdateReplenishmentSystem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateReplenishmentSystem
+  uid: M:Table::Microsoft#Inventory#Item#Item.UpdateReplenishmentSystem:Boolean
+- syntax:
+    content: procedure UpdateUnitOfMeasureId()
+  name: UpdateUnitOfMeasureId
+  uid: M:Table::Microsoft#Inventory#Item#Item.UpdateUnitOfMeasureId
+- syntax:
+    content: procedure UpdateItemCategoryId()
+  name: UpdateItemCategoryId
+  uid: M:Table::Microsoft#Inventory#Item#Item.UpdateItemCategoryId
+- syntax:
+    content: procedure UpdateTaxGroupId()
+  name: UpdateTaxGroupId
+  uid: M:Table::Microsoft#Inventory#Item#Item.UpdateTaxGroupId
+- syntax:
+    content: procedure UpdateReferencedIds()
+  name: UpdateReferencedIds
+  uid: M:Table::Microsoft#Inventory#Item#Item.UpdateReferencedIds
+- syntax:
+    content: 'procedure GetReferencedIds(TempField: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempField
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GetReferencedIds
+  uid: M:Table::Microsoft#Inventory#Item#Item.GetReferencedIds(__MissingSymbol__@)
+- syntax:
+    content: 'procedure IsServiceType(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsServiceType
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsServiceType:Boolean
+- syntax:
+    content: 'procedure IsNonInventoriableType(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNonInventoriableType
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsNonInventoriableType:Boolean
+- syntax:
+    content: 'procedure IsInventoriableType(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInventoriableType
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsInventoriableType:Boolean
+- syntax:
+    content: 'procedure IsVariantMandatory(IsTypeItem: Boolean, ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: IsTypeItem
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVariantMandatory
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsVariantMandatory(Boolean,Code[20]):Boolean
+- syntax:
+    content: 'procedure IsVariantMandatory(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsVariantMandatory
+  uid: M:Table::Microsoft#Inventory#Item#Item.IsVariantMandatory:Boolean
+- syntax:
+    content: 'procedure ExistsItemLedgerEntry(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ExistsItemLedgerEntry
+  uid: M:Table::Microsoft#Inventory#Item#Item.ExistsItemLedgerEntry:Boolean
+- syntax:
+    content: 'procedure ItemTrackingCodeUseExpirationDates(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemTrackingCodeUseExpirationDates
+  uid: M:Table::Microsoft#Inventory#Item#Item.ItemTrackingCodeUseExpirationDates:Boolean
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. 2"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.No#_2[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Inventory#Item#Item.Description[100]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Description"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Search_Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Description_2[50]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Assembly BOM"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Assembly_BOM
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Base Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Base_Unit_of_Measure[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Price Unit Conversion"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Price_Unit_Conversion
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Item_Type
+    name: Microsoft.Inventory.Item."Item Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Inventory#Item#Item.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Inventory Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Inventory_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shelf No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Shelf_No#[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Disc. Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Item_Disc#_Group[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Allow_Invoice_Disc#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Statistics Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Statistics_Group
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Commission Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Commission_Group
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_Price
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Item_Price_Profit_Calculation
+    name: Microsoft.Inventory.Item."Item Price Profit Calculation"
+    isExternal: false
+  name: '"Price/Profit Calculation"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Price/Profit_Calculation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Profit %"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Profit_%
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Costing_Method
+    name: Microsoft.Inventory.Item."Costing Method"
+    isExternal: false
+  name: '"Costing Method"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Costing_Method
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Standard Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Standard_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Last Direct Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_Direct_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Indirect Cost %"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Indirect_Cost_%
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Cost is Adjusted"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Cost_is_Adjusted
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Online Adjustment"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Allow_Online_Adjustment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Vendor No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Vendor_No#[20]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Vendor Item No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Vendor_Item_No#[50]
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Lead Time Calculation"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Lead_Time_Calculation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reorder Point"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reorder_Point
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Maximum Inventory"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Maximum_Inventory
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reorder Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reorder_Quantity
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Alternative Item No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Alternative_Item_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit List Price"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_List_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Duty Due %"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Duty_Due_%
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duty Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Duty_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_Volume
+- type:
+    name: Code[10]
+    isExternal: true
+  name: Durability
+  uid: F:Table::Microsoft#Inventory#Item#Item.Durability[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Freight Type"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Freight_Type[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tariff No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Tariff_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Duty Unit Conversion"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Duty_Unit_Conversion
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Purchased Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Country/Region_Purchased_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budget Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Budget_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budgeted Amount"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Budgeted_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budget Profit"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Budget_Profit
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Inventory#Item#Item.Comment
+- type:
+    name: Boolean
+    isExternal: true
+  name: Blocked
+  uid: F:Table::Microsoft#Inventory#Item#Item.Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Cost is Posted to G/L"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Cost_is_Posted_to_G/L
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Block Reason"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Block_Reason[250]
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Last DateTime Modified"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_DateTime_Modified
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_Date_Modified
+- type:
+    name: Time
+    isExternal: true
+  name: '"Last Time Modified"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_Time_Modified
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Date_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Global_Dimension_1_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Global_Dimension_2_Filter[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Location_Filter[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Inventory
+  uid: F:Table::Microsoft#Inventory#Item#Item.Inventory
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Invoiced Qty."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Net_Invoiced_Qty#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Change"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Net_Change
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purchases (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purchases_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Sales_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Positive Adjmt. (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Positive_Adjmt#_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Negative Adjmt. (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Negative_Adjmt#_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purchases (LCY)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purchases_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales (LCY)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Sales_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Positive Adjmt. (LCY)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Positive_Adjmt#_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Negative Adjmt. (LCY)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Negative_Adjmt#_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"COGS (LCY)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.COGS_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Purch. Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Purch#_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Sales Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Sales_Order
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Price Includes VAT"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Price_Includes_VAT
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Drop Shipment Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Drop_Shipment_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Gr. (Price)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.VAT_Bus#_Posting_Gr#_(Price)[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: MediaSet
+    isExternal: true
+  name: Picture
+  uid: F:Table::Microsoft#Inventory#Item#Item.Picture
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Transferred (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Transferred_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Transferred (LCY)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Transferred_(LCY)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region of Origin Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Country/Region_of_Origin_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Automatic Ext. Texts"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Automatic_Ext#_Texts
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.VAT_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reserve
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. on Inventory"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reserved_Qty#_on_Inventory
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. on Purch. Orders"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reserved_Qty#_on_Purch#_Orders
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. on Sales Orders"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reserved_Qty#_on_Sales_Orders
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Global_Dimension_2_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Outbound Transfer"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Outbound_Transfer
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Inbound Transfer"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Inbound_Transfer
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Sales Returns"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Sales_Returns
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Purch. Returns"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Purch#_Returns
+- type:
+    name: Option
+    isExternal: true
+  name: '"Stockout Warning"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Stockout_Warning
+- type:
+    name: Option
+    isExternal: true
+  name: '"Prevent Negative Inventory"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Prevent_Negative_Inventory
+- type:
+    name: Option
+    isExternal: true
+  name: '"Variant Mandatory if Exists"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Variant_Mandatory_if_Exists
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost of Open Production Orders"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Cost_of_Open_Production_Orders
+- type:
+    name: Code[128]
+    isExternal: true
+  name: '"Application Wksh. User ID"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Application_Wksh#_User_ID[128]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to CRM"'
+  obsoletion:
+    state: pending
+    reason: Replaced by flow field Coupled to Dataverse
+    version: "23.0"
+  uid: F:Table::Microsoft#Inventory#Item#Item.Coupled_to_CRM
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to Dataverse"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Coupled_to_Dataverse
+- type:
+    internalReference: O:Enum::Microsoft#Assembly#Setup#Assembly_Policy
+    name: Microsoft.Assembly.Setup."Assembly Policy"
+    isExternal: false
+  name: '"Assembly Policy"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Assembly_Policy
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Assembly Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Assembly_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on  Asm. Comp."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on__Asm#_Comp#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Assembly Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Assembly_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Asm. Component"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Asm#_Component
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Job Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Job_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Job Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Job_Order
+- type:
+    name: Code[14]
+    isExternal: true
+  name: GTIN
+  uid: F:Table::Microsoft#Inventory#Item#Item.GTIN[14]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Default Deferral Template Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Default_Deferral_Template_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Low-Level Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Low-Level_Code
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Lot Size"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Lot_Size
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Serial Nos."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Serial_Nos#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Unit Cost Calc. Date"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_Unit_Cost_Calc#_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Material Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rolled-up_Material_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Capacity Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rolled-up_Capacity_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap %"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Scrap_%
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Inventory Value Zero"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Inventory_Value_Zero
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Discrete Order Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Discrete_Order_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Minimum Order Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Minimum_Order_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Maximum Order Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Maximum_Order_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Safety Stock Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Safety_Stock_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Order Multiple"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Order_Multiple
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Safety Lead Time"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Safety_Lead_Time
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Setup#Flushing_Method
+    name: Microsoft.Manufacturing.Setup."Flushing Method"
+    isExternal: false
+  name: '"Flushing Method"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Flushing_Method
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Replenishment_System
+    name: Microsoft.Inventory.Item."Replenishment System"
+    isExternal: false
+  name: '"Replenishment System"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Replenishment_System
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scheduled Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Scheduled_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scheduled Need (Qty.)"'
+  obsoletion:
+    state: pending
+    reason: Use the field 'Qty. on Component Lines' instead
+    version: "18.0"
+  uid: F:Table::Microsoft#Inventory#Item#Item.Scheduled_Need_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rounding Precision"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rounding_Precision
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Bin_Filter[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Variant_Filter[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Sales Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Sales_Unit_of_Measure[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purch. Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purch#_Unit_of_Measure[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_of_Measure_Filter[10]
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Time Bucket"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Time_Bucket
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. on Prod. Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reserved_Qty#_on_Prod#_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Prod. Order Comp."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Prod#_Order_Comp#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Req. Line"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Req#_Line
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Reordering_Policy
+    name: Microsoft.Inventory.Item."Reordering Policy"
+    isExternal: false
+  name: '"Reordering Policy"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Reordering_Policy
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Include Inventory"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Include_Inventory
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Setup#Manufacturing_Policy
+    name: Microsoft.Manufacturing.Setup."Manufacturing Policy"
+    isExternal: false
+  name: '"Manufacturing Policy"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Manufacturing_Policy
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Rescheduling Period"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rescheduling_Period
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Lot Accumulation Period"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Lot_Accumulation_Period
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Dampener Period"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Dampener_Period
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Dampener Quantity"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Dampener_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Overflow Level"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Overflow_Level
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planning Transfer Ship. (Qty)."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planning_Transfer_Ship#_(Qty)#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planning Worksheet (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planning_Worksheet_(Qty#)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Stockkeeping Unit Exists"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Stockkeeping_Unit_Exists
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Manufacturer Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Manufacturer_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Created From Nonstock Item"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Created_From_Nonstock_Item
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Inventory#Item#Item.Product_Group_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Substitutes Exist"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Substitutes_Exist
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. in Transit"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_in_Transit
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Trans. Ord. Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Trans#_Ord#_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Trans. Ord. Shipment (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Trans#_Ord#_Shipment_(Qty#)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purchasing_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Assigned to ship"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_Assigned_to_ship
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Picked"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_Picked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Excluded from Cost Adjustment"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Excluded_from_Cost_Adjustment
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Item Group"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Service_Item_Group[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Service Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Service_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Res. Qty. on Service Orders"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Res#_Qty#_on_Service_Orders
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Tracking Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Item_Tracking_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Lot Nos."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Lot_Nos#[20]
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Expiration Calculation"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Expiration_Calculation
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Lot No. Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Lot_No#_Filter[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Serial No. Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Serial_No#_Filter[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Package No. Filter"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Package_No#_Filter[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Purch. Return"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Purch#_Return
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Sales Return"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Sales_Return
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Substitutes"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.No#_of_Substitutes
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Warehouse Class Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Warehouse_Class_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Special Equipment Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Special_Equipment_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Put-away Template Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Put-away_Template_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Put-away Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Put-away_Unit_of_Measure_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Phys Invt Counting Period Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Phys_Invt_Counting_Period_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Counting Period Update"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_Counting_Period_Update
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Phys. Invt. Date"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Last_Phys#_Invt#_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Cross-Docking"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Use_Cross-Docking
+- type:
+    name: Date
+    isExternal: true
+  name: '"Next Counting Start Date"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Next_Counting_Start_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Next Counting End Date"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Next_Counting_End_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Unit Group Exists"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_Group_Exists
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Identifier Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Identifier_Code[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: Id
+  obsoletion:
+    state: removed
+    reason: This functionality will be replaced by the systemID field
+    version: "22.0"
+  uid: F:Table::Microsoft#Inventory#Item#Item.Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Unit of Measure Id"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Unit_of_Measure_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Tax Group Id"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Tax_Group_Id
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Sales Blocked"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Sales_Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Purchasing Blocked"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purchasing_Blocked
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Item Category Id"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Item_Category_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Inventory Posting Group Id"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Inventory_Posting_Group_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Gen. Prod. Posting Group Id"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Gen#_Prod#_Posting_Group_Id
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Service Blocked"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Service_Blocked
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Over-Receipt Code"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Over-Receipt_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Routing_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Production BOM No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Production_BOM_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Material Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Single-Level_Material_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Capacity Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Single-Level_Capacity_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Subcontrd. Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Single-Level_Subcontrd#_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Cap. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Single-Level_Cap#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Mfg. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Single-Level_Mfg#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Overhead Rate"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Overhead_Rate
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Subcontracted Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rolled-up_Subcontracted_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Mfg. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rolled-up_Mfg#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Cap. Overhead Cost"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rolled-up_Cap#_Overhead_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planning Issues (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planning_Issues_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planning Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planning_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planned Order Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planned_Order_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"FP Order Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.FP_Order_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rel. Order Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Rel#_Order_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planning Release (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planning_Release_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Planned Order Release (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Planned_Order_Release_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purch. Req. Receipt (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purch#_Req#_Receipt_(Qty#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purch. Req. Release (Qty.)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Purch#_Req#_Release_(Qty#)
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Order_Tracking_Policy
+    name: Microsoft.Inventory.Tracking."Order Tracking Policy"
+    isExternal: false
+  name: '"Order Tracking Policy"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Order_Tracking_Policy
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prod. Forecast Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Prod#_Forecast_Quantity_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Production Forecast Name"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Production_Forecast_Name[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Component Forecast"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Component_Forecast
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Prod. Order"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Prod#_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Component Lines"'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Qty#_on_Component_Lines
+- type:
+    name: Boolean
+    isExternal: true
+  name: Critical
+  uid: F:Table::Microsoft#Inventory#Item#Item.Critical
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Common Item No."'
+  uid: F:Table::Microsoft#Inventory#Item#Item.Common_Item_No#[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Item#Item.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Item#Item.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Item#Item.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Item#Item.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Item#Item.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Item#Item.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Item#Item
+name: Item
+uid: O:Table::Microsoft#Inventory#Item#Item

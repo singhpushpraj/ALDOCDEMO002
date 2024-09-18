@@ -1,0 +1,263 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Check."Check Ledger Entry"
+alId: ID 272
+namespace: Microsoft.Bank.Check
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Check
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Check Ledger Entry
+  promoted: false
+- name: DrillDownPageID
+  value: Check Ledger Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Check#Check_Ledger_Entries
+    name: Microsoft.Bank.Check."Check Ledger Entries"
+    isExternal: false
+- name: LookupPageID
+  value: Check Ledger Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Bank#Check#Check_Ledger_Entries
+    name: Microsoft.Bank.Check."Check Ledger Entries"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetCurrencyCodeFromBank(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCodeFromBank
+  uid: M:Table::Microsoft#Bank#Check#Check_Ledger_Entry.GetCurrencyCodeFromBank:Code[10]
+- syntax:
+    content: 'procedure CopyFromBankAccLedgEntry(BankAccLedgEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: BankAccLedgEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: CopyFromBankAccLedgEntry
+  uid: M:Table::Microsoft#Bank#Check#Check_Ledger_Entry.CopyFromBankAccLedgEntry(Bank_Account_Ledger_Entry)
+- syntax:
+    content: procedure ExportCheckFile()
+  name: ExportCheckFile
+  uid: M:Table::Microsoft#Bank#Check#Check_Ledger_Entry.ExportCheckFile
+- syntax:
+    content: 'procedure GetPayee(): Text[100]'
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetPayee
+  uid: M:Table::Microsoft#Bank#Check#Check_Ledger_Entry.GetPayee:Text[100]
+- syntax:
+    content: 'procedure SetFilterBankAccNoOpen(BankAccNo: Code[20])'
+    parameters:
+    - id: BankAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetFilterBankAccNoOpen
+  uid: M:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SetFilterBankAccNoOpen(Code[20])
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnAfterCopyFromBankAccLedgEntry(var CheckLedgerEntry: Record "Check Ledger Entry", BankAccountLedgerEntry: Record "Bank Account Ledger Entry")'
+    parameters:
+    - id: CheckLedgerEntry
+      parameterType:
+        name: Record "Check Ledger Entry"
+        isExternal: true
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+  name: OnAfterCopyFromBankAccLedgEntry
+  uid: M:Table::Microsoft#Bank#Check#Check_Ledger_Entry.OnAfterCopyFromBankAccLedgEntry(Check_Ledger_Entry@,Bank_Account_Ledger_Entry)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bank Account No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Bank_Account_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bank Account Ledger Entry No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Bank_Account_Ledger_Entry_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Description[100]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Amount
+- type:
+    name: Date
+    isExternal: true
+  name: '"Check Date"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Check_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Check No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Check_No#[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Check Type"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Check_Type
+- type:
+    internalReference: O:Enum::Microsoft#Bank#BankAccount#Bank_Payment_Type
+    name: Microsoft.Bank.BankAccount."Bank Payment Type"
+    isExternal: false
+  name: '"Bank Payment Type"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Bank_Payment_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Entry Status"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Entry_Status
+- type:
+    name: Option
+    isExternal: true
+  name: '"Original Entry Status"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Original_Entry_Status
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Bal. Account Type"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Bal#_Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Account No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Bal#_Account_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Open
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Open
+- type:
+    name: Option
+    isExternal: true
+  name: '"Statement Status"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Statement_Status
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Statement No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Statement_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Statement Line No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Statement_Line_No#
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.User_ID[50]
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.External_Document_No#[35]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Data Exch. Entry No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Data_Exch#_Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Data Exch. Voided Entry No."'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Data_Exch#_Voided_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Positive Pay Exported"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Positive_Pay_Exported
+- type:
+    name: RecordId
+    isExternal: true
+  name: '"Record ID to Print"'
+  obsoletion:
+    state: pending
+    reason: Replaced by Print Gen Jnl Line SystemId field
+    version: "24.0"
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Record_ID_to_Print
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Print Gen Jnl Line SystemId"'
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.Print_Gen_Jnl_Line_SystemId
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Check#Check_Ledger_Entry.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Check#Check Ledger Entry
+name: '"Check Ledger Entry"'
+uid: O:Table::Microsoft#Bank#Check#Check_Ledger_Entry

@@ -1,0 +1,756 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.History."Sales Cr.Memo Line"
+alId: ID 115
+namespace: Microsoft.Sales.History
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.History
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Sales Cr.Memo Line
+  promoted: false
+- name: DrillDownPageID
+  value: Posted Sales Credit Memo Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#History#Posted_Sales_Credit_Memo_Lines
+    name: Microsoft.Sales.History."Posted Sales Credit Memo Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Posted Sales Credit Memo Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#History#Posted_Sales_Credit_Memo_Lines
+    name: Microsoft.Sales.History."Posted Sales Credit Memo Lines"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Item Ledger Entry" = r,
+                      TableData "Value Entry" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCode
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetCurrencyCode:Code[10]
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.ShowDimensions
+- syntax:
+    content: procedure ShowItemTrackingLines()
+  name: ShowItemTrackingLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.ShowItemTrackingLines
+- syntax:
+    content: 'procedure CalcVATAmountLines(SalesCrMemoHeader: Record "Sales Cr.Memo Header", var TempVATAmountLine: Record "VAT Amount Line" temporary)'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: TempVATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line" temporary
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.CalcVATAmountLines(Sales_Cr#Memo_Header,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure GetLineAmountExclVAT(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLineAmountExclVAT
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetLineAmountExclVAT:Decimal
+- syntax:
+    content: 'procedure GetLineAmountInclVAT(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLineAmountInclVAT
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetLineAmountInclVAT:Decimal
+- syntax:
+    content: 'procedure GetCaptionClass(FieldNumber: Integer): Text[80]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetCaptionClass(Integer):Text[80]
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.RowID1:Text[250]
+- syntax:
+    content: 'procedure GetReturnRcptLines(var TempReturnRcptLine: Record "Return Receipt Line" temporary)'
+    parameters:
+    - id: TempReturnRcptLine
+      parameterType:
+        name: Record "Return Receipt Line" temporary
+        isExternal: true
+  name: GetReturnRcptLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetReturnRcptLines(Return_Receipt_Line@)
+- syntax:
+    content: 'procedure GetItemLedgEntries(var TempItemLedgEntry: Record "Item Ledger Entry" temporary, SetQuantity: Boolean)'
+    parameters:
+    - id: TempItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry" temporary
+        isExternal: true
+    - id: SetQuantity
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: GetItemLedgEntries
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetItemLedgEntries(Item_Ledger_Entry@,Boolean)
+- syntax:
+    content: 'procedure FilterPstdDocLineValueEntries(var ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: FilterPstdDocLineValueEntries
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.FilterPstdDocLineValueEntries(Value_Entry@)
+- syntax:
+    content: procedure ShowItemReturnRcptLines()
+  name: ShowItemReturnRcptLines
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.ShowItemReturnRcptLines
+- syntax:
+    content: procedure ShowLineComments()
+  name: ShowLineComments
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.ShowLineComments
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure InitFromSalesLine(SalesCrMemoHeader: Record "Sales Cr.Memo Header", SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesCrMemoHeader
+      parameterType:
+        name: Record "Sales Cr.Memo Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: InitFromSalesLine
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.InitFromSalesLine(Sales_Cr#Memo_Header,Sales_Line)
+- syntax:
+    content: procedure ShowDeferrals()
+  name: ShowDeferrals
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.ShowDeferrals
+- syntax:
+    content: 'procedure GetDocumentType(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetDocumentType
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.GetDocumentType:Integer
+- syntax:
+    content: 'procedure HasTypeToFillMandatoryFields(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasTypeToFillMandatoryFields
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.HasTypeToFillMandatoryFields:Boolean
+- syntax:
+    content: 'procedure FormatType(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FormatType
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.FormatType:Text
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SetSecurityFilterOnRespCenter
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Sell-to_Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+    name: Microsoft.Sales.Document."Sales Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Shipment_Date
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Description_2[50]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Including VAT"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Amount_Including_VAT
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Allow_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_Volume
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Appl#-to_Item_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Customer_Price_Group[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Job_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Work_Type_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Order_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Bill-to_Customer_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discount Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Inv#_Discount_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Calculation_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Transport_Method[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Attached_to_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Exit_Point[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Transaction_Specification[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Tax Category"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Tax_Category[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Clause Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Clause_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Blanket Order No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Blanket_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Blanket Order Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Blanket_Order_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_Cost
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.System-Created_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Difference
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Identifier"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.VAT_Identifier[20]
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Partner#IC_Partner_Reference_Type
+    name: Microsoft.Intercompany.Partner."IC Partner Reference Type"
+    isExternal: false
+  name: '"IC Partner Ref. Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.IC_Partner_Ref#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Reference"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.IC_Partner_Reference[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prepayment Line"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Prepayment_Line
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.IC_Partner_Code[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Posting_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"IC Item Reference No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.IC_Item_Reference_No#[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discount Amount"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Pmt#_Discount_Amount
+- type:
+    name: Option
+    isExternal: true
+  name: '"Line Discount Calculation"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Line_Discount_Calculation
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Job_Task_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Contract Entry No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Job_Contract_Entry_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Deferral Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Deferral_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Quantity_(Base)
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.FA_Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Depreciation_Book_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. until FA Posting Date"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Depr#_until_FA_Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duplicate in Depreciation Book"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Duplicate_in_Depreciation_Book[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Duplication List"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Use_Duplication_List
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Responsibility_Center[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Reference No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Cross-Reference_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure (Cross Ref.)"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Unit_of_Measure_(Cross_Ref#)[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Cross-Reference Type"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Cross-Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Cross-Reference Type No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Cross-Reference_Type_No#[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Purchasing_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Product_Group_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-from Item Entry"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Appl#-from_Item_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Return Receipt No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Return_Receipt_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Return Receipt Line No."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Return_Receipt_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Return_Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Allow_Line_Disc#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.Customer_Disc#_Group[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Sales#History#Sales Cr#Memo Line
+name: '"Sales Cr.Memo Line"'
+uid: O:Table::Microsoft#Sales#History#Sales_Cr#Memo_Line

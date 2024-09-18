@@ -1,0 +1,255 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Inventory Adjustment Buffer"
+alId: ID 5895
+namespace: Microsoft.Inventory.Costing
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Inventory Adjustment Buffer
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalcItemLedgEntryCost(ItemLedgEntryNo: Integer, Expected: Boolean)'
+    parameters:
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Expected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcItemLedgEntryCost
+  uid: M:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.CalcItemLedgEntryCost(Integer,Boolean)
+- syntax:
+    content: 'procedure SumCostsTillValuationDate(var ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: SumCostsTillValuationDate
+  uid: M:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SumCostsTillValuationDate(Value_Entry@)
+- syntax:
+    content: 'procedure AddActualCostBuf(ValueEntry: Record "Value Entry", NewAdjustedCost: Decimal, NewAdjustedCostACY: Decimal, ItemLedgEntryPostingDate: Date)'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: NewAdjustedCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewAdjustedCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ItemLedgEntryPostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: AddActualCostBuf
+  uid: M:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.AddActualCostBuf(Value_Entry,Decimal,Decimal,Date)
+- syntax:
+    content: 'procedure AddBalanceExpectedCostBuf(ValueEntry: Record "Value Entry", NewAdjustedCost: Decimal, NewAdjustedCostACY: Decimal)'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+    - id: NewAdjustedCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: NewAdjustedCostACY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddBalanceExpectedCostBuf
+  uid: M:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.AddBalanceExpectedCostBuf(Value_Entry,Decimal,Decimal)
+- syntax:
+    content: 'procedure AddOrderCost(ItemLedgEntryNo: Integer, EntryType: Option, VarianceType: Option, CostAmt: Decimal, CostAmtLCY: Decimal)'
+    parameters:
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: VarianceType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: CostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CostAmtLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddOrderCost
+  uid: M:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.AddOrderCost(Integer,Option,Option,Decimal,Decimal)
+- syntax:
+    content: 'procedure AddCost(ItemLedgEntryNo: Integer, EntryType: Enum "Cost Entry Type", VarianceType: Enum "Cost Variance Type", CostAmt: Decimal, CostAmtLCY: Decimal)'
+    parameters:
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: EntryType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Entry_Type
+        name: Microsoft.Inventory.Costing."Cost Entry Type"
+        isExternal: false
+    - id: VarianceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Variance_Type
+        name: Microsoft.Inventory.Costing."Cost Variance Type"
+        isExternal: false
+    - id: CostAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: CostAmtLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AddCost
+  uid: M:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.AddCost(Integer,Enum::Microsoft#Inventory#Costing#Cost_Entry_Type,Enum::Microsoft#Inventory#Costing#Cost_Variance_Type,Decimal,Decimal)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Item_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Posting_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Document_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Location_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Item Ledger Entry No."'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Item_Ledger_Entry_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Item Ledger Entry Quantity"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Item_Ledger_Entry_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Actual)"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Cost_Amount_(Actual)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Actual) (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Cost_Amount_(Actual)_(ACY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Expected Cost"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Expected_Cost
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Valued By Average Cost"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Valued_By_Average_Cost
+- type:
+    name: Date
+    isExternal: true
+  name: '"Valuation Date"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Valuation_Date
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Entry_Type
+    name: Microsoft.Inventory.Costing."Cost Entry Type"
+    isExternal: false
+  name: '"Entry Type"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Entry_Type
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Variance_Type
+    name: Microsoft.Inventory.Costing."Cost Variance Type"
+    isExternal: false
+  name: '"Variance Type"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Variance_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Expected)"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Cost_Amount_(Expected)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Expected) (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Cost_Amount_(Expected)_(ACY)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.Variant_Code[10]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Costing#Inventory Adjustment Buffer
+name: '"Inventory Adjustment Buffer"'
+uid: O:Table::Microsoft#Inventory#Costing#Inventory_Adjustment_Buffer

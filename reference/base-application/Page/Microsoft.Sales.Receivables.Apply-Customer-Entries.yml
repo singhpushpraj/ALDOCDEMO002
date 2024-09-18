@@ -1,0 +1,210 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Receivables."Apply Customer Entries"
+alId: ID 232
+namespace: Microsoft.Sales.Receivables
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Receivables
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Sales#Receivables#Cust#_Ledger_Entry
+  name: Microsoft.Sales.Receivables."Cust. Ledger Entry"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Apply Customer Entries
+  promoted: false
+- name: DataCaptionFields
+  value: "3"
+  promoted: false
+- name: DeleteAllowed
+  value: "False"
+  promoted: false
+- name: InsertAllowed
+  value: "False"
+  promoted: false
+- name: LinksAllowed
+  value: "False"
+  promoted: false
+- name: PageType
+  value: Worksheet
+  promoted: true
+- name: SourceTable
+  value: "21"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Receivables#Cust#_Ledger_Entry
+    name: Microsoft.Sales.Receivables."Cust. Ledger Entry"
+    isExternal: false
+methods:
+- syntax:
+    content: 'procedure SetGenJnlLine(NewGenJnlLine: Record "Gen. Journal Line", ApplnTypeSelect: Integer)'
+    parameters:
+    - id: NewGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: ApplnTypeSelect
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetGenJnlLine
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetGenJnlLine(Gen#_Journal_Line,Integer)
+- syntax:
+    content: 'procedure SetSales(NewSalesHeader: Record "Sales Header", var NewCustLedgEntry: Record "Cust. Ledger Entry", ApplnTypeSelect: Integer)'
+    parameters:
+    - id: NewSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: NewCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplnTypeSelect
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetSales
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetSales(Sales_Header,Cust#_Ledger_Entry@,Integer)
+- syntax:
+    content: 'procedure SetService(NewServHeader: Record "Service Header", var NewCustLedgEntry: Record "Cust. Ledger Entry", ApplnTypeSelect: Integer)'
+    parameters:
+    - id: NewServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: NewCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: ApplnTypeSelect
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SetService
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetService(Service_Header,Cust#_Ledger_Entry@,Integer)
+- syntax:
+    content: 'procedure SetCustLedgEntry(NewCustLedgEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: NewCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: SetCustLedgEntry
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetCustLedgEntry(Cust#_Ledger_Entry)
+- syntax:
+    content: procedure SetApplyingCustLedgEntry()
+  name: SetApplyingCustLedgEntry
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetApplyingCustLedgEntry
+- syntax:
+    content: 'procedure SetCustApplId(CurrentRec: Boolean)'
+    parameters:
+    - id: CurrentRec
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetCustApplId
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetCustApplId(Boolean)
+- syntax:
+    content: 'procedure CheckCustLedgEntry(var CustLedgerEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: CheckCustLedgEntry
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.CheckCustLedgEntry(Cust#_Ledger_Entry@)
+- syntax:
+    content: procedure CalcApplnAmount()
+  name: CalcApplnAmount
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.CalcApplnAmount
+- syntax:
+    content: procedure CheckRounding()
+  name: CheckRounding
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.CheckRounding
+- syntax:
+    content: 'procedure GetCustLedgEntry(var CustLedgEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: GetCustLedgEntry
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.GetCustLedgEntry(Cust#_Ledger_Entry@)
+- syntax:
+    content: 'procedure SetAppliesToID(AppliesToID2: Code[50])'
+    parameters:
+    - id: AppliesToID2
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: SetAppliesToID
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetAppliesToID(Code[50])
+- syntax:
+    content: 'procedure ExchangeLedgerEntryAmounts(Type: Enum "Customer Apply Calculation Type", CurrencyCode: Code[10], var CalcCustLedgEntry: Record "Cust. Ledger Entry", PostingDate: Date)'
+    parameters:
+    - id: Type
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Receivables#Customer_Apply_Calculation_Type
+        name: Microsoft.Sales.Receivables."Customer Apply Calculation Type"
+        isExternal: false
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CalcCustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: ExchangeLedgerEntryAmounts
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.ExchangeLedgerEntryAmounts(Enum::Microsoft#Sales#Receivables#Customer_Apply_Calculation_Type,Code[10],Cust#_Ledger_Entry@,Date)
+- syntax:
+    content: 'procedure CalcOppositeEntriesAmount(var TempAppliedCustLedgerEntry: Record "Cust. Ledger Entry" temporary): Decimal'
+    parameters:
+    - id: TempAppliedCustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOppositeEntriesAmount
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.CalcOppositeEntriesAmount(Cust#_Ledger_Entry@):Decimal
+- syntax:
+    content: 'procedure GetApplnCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetApplnCurrencyCode
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.GetApplnCurrencyCode:Code[10]
+- syntax:
+    content: 'procedure GetCalcType(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetCalcType
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.GetCalcType:Integer
+- syntax:
+    content: 'procedure SetCalcType(NewCalcType: Enum "Customer Apply Calculation Type")'
+    parameters:
+    - id: NewCalcType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Receivables#Customer_Apply_Calculation_Type
+        name: Microsoft.Sales.Receivables."Customer Apply Calculation Type"
+        isExternal: false
+  name: SetCalcType
+  uid: M:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries.SetCalcType(Enum::Microsoft#Sales#Receivables#Customer_Apply_Calculation_Type)
+commentId: O:Page::Microsoft#Sales#Receivables#Apply Customer Entries
+name: '"Apply Customer Entries"'
+uid: O:Page::Microsoft#Sales#Receivables#Apply_Customer_Entries

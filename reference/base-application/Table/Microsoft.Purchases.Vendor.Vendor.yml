@@ -1,0 +1,1179 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.Vendor.Vendor
+alId: ID 23
+namespace: Microsoft.Purchases.Vendor
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.Vendor
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Vendor
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: DrillDownPageID
+  value: Vendor List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Purchases#Vendor#Vendor_List
+    name: Microsoft.Purchases.Vendor."Vendor List"
+    isExternal: false
+- name: LookupPageID
+  value: Vendor Lookup
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Purchases#Vendor#Vendor_Lookup
+    name: Microsoft.Purchases.Vendor."Vendor Lookup"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Vendor Ledger Entry" = r,
+                      TableData "Service Item" = rm,
+                      TableData "Price List Header" = rd,
+                      TableData "Price List Line" = rd,
+    #if not CLEAN23
+                      TableData "Purchase Price" = rd,
+                      TableData "Purchase Line Discount" = rd,
+    #endif
+                      TableData "Purchase Price Access" = rd,
+                      TableData "Purchase Discount Access" = rd,
+                      tabledata Language = r,
+                      tabledata "Language Selection" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(OldVend: Record Vendor): Boolean'
+    parameters:
+    - id: OldVend
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.AssistEdit(Vendor):Boolean
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: procedure ShowContact()
+  name: ShowContact
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.ShowContact
+- syntax:
+    content: 'procedure SetInsertFromContact(FromContact: Boolean)'
+    parameters:
+    - id: FromContact
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInsertFromContact
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.SetInsertFromContact(Boolean)
+- syntax:
+    content: 'procedure CheckBlockedVendOnDocs(Vend2: Record Vendor, Transaction: Boolean)'
+    parameters:
+    - id: Vend2
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckBlockedVendOnDocs
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CheckBlockedVendOnDocs(Vendor,Boolean)
+- syntax:
+    content: 'procedure CheckBlockedVendOnJnls(Vend2: Record Vendor, DocType: Enum "Gen. Journal Document Type", Transaction: Boolean)'
+    parameters:
+    - id: Vend2
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckBlockedVendOnJnls
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CheckBlockedVendOnJnls(Vendor,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Boolean)
+- syntax:
+    content: procedure CreateAndShowNewInvoice()
+  name: CreateAndShowNewInvoice
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CreateAndShowNewInvoice
+- syntax:
+    content: procedure CreateAndShowNewCreditMemo()
+  name: CreateAndShowNewCreditMemo
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CreateAndShowNewCreditMemo
+- syntax:
+    content: procedure CreateAndShowNewPurchaseOrder()
+  name: CreateAndShowNewPurchaseOrder
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CreateAndShowNewPurchaseOrder
+- syntax:
+    content: 'procedure VendBlockedErrorMessage(Vend2: Record Vendor, Transaction: Boolean)'
+    parameters:
+    - id: Vend2
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: VendBlockedErrorMessage
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.VendBlockedErrorMessage(Vendor,Boolean)
+- syntax:
+    content: 'procedure VendPrivacyBlockedErrorMessage(Vend2: Record Vendor, Transaction: Boolean)'
+    parameters:
+    - id: Vend2
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: VendPrivacyBlockedErrorMessage
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.VendPrivacyBlockedErrorMessage(Vendor,Boolean)
+- syntax:
+    content: 'procedure GetPrivacyBlockedGenericErrorText(Vend2: Record Vendor): Text[250]'
+    parameters:
+    - id: Vend2
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetPrivacyBlockedGenericErrorText
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetPrivacyBlockedGenericErrorText(Vendor):Text[250]
+- syntax:
+    content: procedure DisplayMap()
+  name: DisplayMap
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.DisplayMap
+- syntax:
+    content: 'procedure CalcOverDueBalance(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOverDueBalance
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CalcOverDueBalance:Decimal
+- syntax:
+    content: 'procedure GetInvoicedPrepmtAmountLCY(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetInvoicedPrepmtAmountLCY
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetInvoicedPrepmtAmountLCY:Decimal
+- syntax:
+    content: 'procedure GetPriceCalculationMethod(): Enum "Price Calculation Method"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+        name: Microsoft.Pricing.Calculation."Price Calculation Method"
+        isExternal: false
+  name: GetPriceCalculationMethod
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetPriceCalculationMethod:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+- syntax:
+    content: 'procedure GetTotalAmountLCY(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalAmountLCY
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetTotalAmountLCY:Decimal
+- syntax:
+    content: 'procedure HasAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasAddress
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.HasAddress:Boolean
+- syntax:
+    content: 'procedure GetBalanceAsCustomer(var LinkedCustomerNo: Code[20]): Decimal'
+    parameters:
+    - id: LinkedCustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetBalanceAsCustomer
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetBalanceAsCustomer(Code[20]@):Decimal
+- syntax:
+    content: 'procedure GetLinkedCustomer(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetLinkedCustomer
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetLinkedCustomer:Code[20]
+- syntax:
+    content: 'procedure GetVendorNo(VendorText: Text[100]): Code[20]'
+    parameters:
+    - id: VendorText
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetVendorNo
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetVendorNo(Text[100]):Code[20]
+- syntax:
+    content: 'procedure GetVendorNoOpenCard(VendorText: Text[100], ShowVendorCard: Boolean): Code[20]'
+    parameters:
+    - id: VendorText
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShowVendorCard
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetVendorNoOpenCard
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetVendorNoOpenCard(Text[100],Boolean):Code[20]
+- syntax:
+    content: 'procedure SelectVendor(var Vendor: Record Vendor): Boolean'
+    parameters:
+    - id: Vendor
+      parameterType:
+        name: Record Vendor
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SelectVendor
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.SelectVendor(Vendor@):Boolean
+- syntax:
+    content: 'procedure OpenVendorLedgerEntries(FilterOnDueEntries: Boolean)'
+    parameters:
+    - id: FilterOnDueEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OpenVendorLedgerEntries
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.OpenVendorLedgerEntries(Boolean)
+- syntax:
+    content: 'procedure GetInsertFromContact(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetInsertFromContact
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetInsertFromContact:Boolean
+- syntax:
+    content: 'procedure GetInsertFromTemplate(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetInsertFromTemplate
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetInsertFromTemplate:Boolean
+- syntax:
+    content: 'procedure SetInsertFromTemplate(FromTemplate: Boolean)'
+    parameters:
+    - id: FromTemplate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInsertFromTemplate
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.SetInsertFromTemplate(Boolean)
+- syntax:
+    content: 'procedure SetAddress(VendorAddress: Text[100], VendorAddress2: Text[50], VendorPostCode: Code[20], VendorCity: Text[30], VendorCounty: Text[30], VendorCountryCode: Code[10], VendorContact: Text[100])'
+    parameters:
+    - id: VendorAddress
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: VendorAddress2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: VendorPostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VendorCity
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: VendorCounty
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: VendorCountryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: VendorContact
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: SetAddress
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.SetAddress(Text[100],Text[50],Code[20],Text[30],Text[30],Code[10],Text[100])
+- syntax:
+    content: 'procedure ToPriceSource(var PriceSource: Record "Price Source" temporary)'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+  name: ToPriceSource
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.ToPriceSource(Price_Source@)
+- syntax:
+    content: procedure VATRegistrationValidation()
+  name: VATRegistrationValidation
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.VATRegistrationValidation
+- syntax:
+    content: procedure UpdateCurrencyId()
+  name: UpdateCurrencyId
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.UpdateCurrencyId
+- syntax:
+    content: procedure UpdatePaymentTermsId()
+  name: UpdatePaymentTermsId
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.UpdatePaymentTermsId
+- syntax:
+    content: procedure UpdatePaymentMethodId()
+  name: UpdatePaymentMethodId
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.UpdatePaymentMethodId
+- syntax:
+    content: 'procedure SetForceUpdateContact(NewForceUpdateContact: Boolean)'
+    parameters:
+    - id: NewForceUpdateContact
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetForceUpdateContact
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.SetForceUpdateContact(Boolean)
+- syntax:
+    content: procedure UpdateReferencedIds()
+  name: UpdateReferencedIds
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.UpdateReferencedIds
+- syntax:
+    content: 'procedure GetReferencedIds(TempField: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempField
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GetReferencedIds
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.GetReferencedIds(__MissingSymbol__@)
+- syntax:
+    content: procedure CheckAllowMultiplePostingGroups()
+  name: CheckAllowMultiplePostingGroups
+  uid: M:Table::Microsoft#Purchases#Vendor#Vendor.CheckAllowMultiplePostingGroups
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Name[100]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Name"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Search_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Name 2"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Address
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Address 2"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: City
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Contact
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Contact[100]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Phone_No#[30]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Telex No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Telex_No#[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Our Account No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Our_Account_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Territory Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Territory_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Global_Dimension_2_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budgeted Amount"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Budgeted_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Vendor Posting Group"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Vendor_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Currency_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Language Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Language_Code[10]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Registration Number"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Registration_Number[50]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Statistics Group"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Statistics_Group
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Terms Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Payment_Terms_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fin. Charge Terms Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Fin#_Charge_Terms_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Purchaser Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Purchaser_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipment Method Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Shipment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Shipping_Agent_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Invoice Disc. Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Invoice_Disc#_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Country/Region_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Comment
+- type:
+    internalReference: O:Enum::Microsoft#Purchases#Vendor#Vendor_Blocked
+    name: Microsoft.Purchases.Vendor."Vendor Blocked"
+    isExternal: false
+  name: Blocked
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Blocked
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Pay-to Vendor No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_Vendor_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: Priority
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Priority
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Method Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Payment_Method_Code[10]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Format Region"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Format_Region[80]
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Last Modified Date Time"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Last_Modified_Date_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Last_Date_Modified
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Date_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Filter"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Global_Dimension_1_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Filter"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Global_Dimension_2_Filter[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Balance
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Balance
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Balance_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Change"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Net_Change
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Change (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Net_Change_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purchases (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Purchases_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Inv#_Discounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pmt#_Discounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance Due"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Balance_Due
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance Due (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Balance_Due_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: Payments
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Payments
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoice Amounts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Invoice_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cr. Memo Amounts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Cr#_Memo_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Finance Charge Memo Amounts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Finance_Charge_Memo_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Payments (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Payments_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Amounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Inv#_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cr. Memo Amounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Cr#_Memo_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Fin. Charge Memo Amounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Fin#_Charge_Memo_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Outstanding_Orders
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amt. Rcd. Not Invoiced"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Amt#_Rcd#_Not_Invoiced
+- type:
+    internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Application_Method
+    name: Microsoft.Finance.ReceivablesPayables."Application Method"
+    isExternal: false
+  name: '"Application Method"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Application_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prices Including VAT"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Prices_Including_VAT
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Fax No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Fax_No#[30]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Telex Answer Back"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Telex_Answer_Back[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.VAT_Registration_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Blob
+    isExternal: true
+  name: Picture
+  obsoletion:
+    state: removed
+    reason: Replaced by Image field
+    version: "18.0"
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Picture
+- type:
+    name: Code[13]
+    isExternal: true
+  name: GLN
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.GLN[13]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Post Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: County
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.County[30]
+- type:
+    name: Text[40]
+    isExternal: true
+  name: '"EORI Number"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.EORI_Number[40]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Credit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Debit_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Credit_Amount_(LCY)
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"E-Mail"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.E-Mail[80]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Home Page"'
+  obsoletion:
+    state: pending
+    reason: Field length will be increased to 255.
+    version: "24.0"
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Home_Page[80]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reminder Amounts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Reminder_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reminder Amounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Reminder_Amounts_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Filter"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Currency_Filter[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Orders (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Outstanding_Orders_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amt. Rcd. Not Invoiced (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Amt#_Rcd#_Not_Invoiced_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Block Payment Tolerance"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Block_Payment_Tolerance
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Disc. Tolerance (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pmt#_Disc#_Tolerance_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Tolerance (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pmt#_Tolerance_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.IC_Partner_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Refunds
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Refunds
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Refunds (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Refunds_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Other Amounts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Other_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Other Amounts (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Other_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment %"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Prepayment_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Invoices"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Outstanding_Invoices
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Invoices (LCY)"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Outstanding_Invoices_(LCY)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. Of Archived Doc."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_Of_Archived_Doc#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Buy-from No. Of Archived Doc."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Buy-from_No#_Of_Archived_Doc#
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Partner_Type
+    name: Microsoft.Foundation.Enums."Partner Type"
+    isExternal: false
+  name: '"Partner Type"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Partner_Type
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Partner_Type
+    name: Microsoft.Foundation.Enums."Partner Type"
+    isExternal: false
+  name: '"Intrastat Partner Type"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Intrastat_Partner_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude from Pmt. Practices"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Exclude_from_Pmt#_Practices
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Company Size Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Company_Size_Code[20]
+- type:
+    name: Media
+    isExternal: true
+  name: Image
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Image
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Privacy Blocked"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Privacy_Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Disable Search by Name"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Disable_Search_by_Name
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Creditor No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Creditor_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Multiple Posting Groups"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Allow_Multiple_Posting_Groups
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Preferred Bank Account Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Preferred_Bank_Account_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to CRM"'
+  obsoletion:
+    state: pending
+    reason: Replaced by flow field Coupled to Dataverse
+    version: "23.0"
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Coupled_to_CRM
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to Dataverse"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Coupled_to_Dataverse
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Cash Flow Payment Terms Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Cash_Flow_Payment_Terms_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Primary Contact No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Primary_Contact_No#[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Mobile Phone No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Mobile_Phone_No#[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Responsibility_Center[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Location_Code[10]
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Lead Time Calculation"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Lead_Time_Calculation
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Price_Calculation_Method
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Receipts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Pstd#_Receipts
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Invoices"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Pstd#_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Return Shipments"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Pstd#_Return_Shipments
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Credit Memos"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Pstd#_Credit_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Invoices"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Return Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Return_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Credit Memos"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Credit_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Pstd. Receipts"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Pstd#_Receipts
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Pstd. Invoices"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Pstd#_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Pstd. Return S."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Pstd#_Return_S#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Pstd. Cr. Memos"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Pstd#_Cr#_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Quotes"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Quotes
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Blanket Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Blanket_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Invoices"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Return Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Return_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Credit Memos"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Credit_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Order Addresses"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Order_Addresses
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Quotes"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Quotes
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Pay-to No. of Blanket Orders"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Pay-to_No#_of_Blanket_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Incoming Documents"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.No#_of_Incoming_Documents
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Base Calendar Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Base_Calendar_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document Sending Profile"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Document_Sending_Profile[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Validate EU Vat Reg. No."'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Validate_EU_Vat_Reg#_No#
+- type:
+    name: Guid
+    isExternal: true
+  name: Id
+  obsoletion:
+    state: removed
+    reason: This functionality will be replaced by the systemID field
+    version: "22.0"
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Currency Id"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Currency_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Payment Terms Id"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Payment_Terms_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Payment Method Id"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Payment_Method_Id
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Over-Receipt Code"'
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.Over-Receipt_Code[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Purchases#Vendor#Vendor.SystemRowVersion
+commentId: O:Table::Microsoft#Purchases#Vendor#Vendor
+name: Vendor
+uid: O:Table::Microsoft#Purchases#Vendor#Vendor

@@ -1,0 +1,385 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CashFlow.Forecast."Cash Flow Forecast"
+alId: ID 840
+namespace: Microsoft.CashFlow.Forecast
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.CashFlow.Forecast
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Cash Flow Forecast
+  promoted: false
+- name: DrillDownPageID
+  value: Cash Flow Forecast List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_List
+    name: Microsoft.CashFlow.Forecast."Cash Flow Forecast List"
+    isExternal: false
+- name: LookupPageID
+  value: Cash Flow Forecast List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast_List
+    name: Microsoft.CashFlow.Forecast."Cash Flow Forecast List"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Cash Flow Account Comment" = rimd,
+                      TableData "Cash Flow Forecast Entry" = rimd
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(OldCashFlowForecast: Record "Cash Flow Forecast"): Boolean'
+    parameters:
+    - id: OldCashFlowForecast
+      parameterType:
+        name: Record "Cash Flow Forecast"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.AssistEdit(Cash_Flow_Forecast):Boolean
+- syntax:
+    content: procedure DrillDown()
+  name: DrillDown
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.DrillDown
+- syntax:
+    content: 'procedure CalcAmountForPosNeg(PositiveAmount: Boolean): Decimal'
+    parameters:
+    - id: PositiveAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAmountForPosNeg
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.CalcAmountForPosNeg(Boolean):Decimal
+- syntax:
+    content: 'procedure DrillDownPosNegEntries(PositiveAmount: Boolean)'
+    parameters:
+    - id: PositiveAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DrillDownPosNegEntries
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.DrillDownPosNegEntries(Boolean)
+- syntax:
+    content: 'procedure CalcAmountForAccountNo(AccountNo: Code[20]): Decimal'
+    parameters:
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAmountForAccountNo
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.CalcAmountForAccountNo(Code[20]):Decimal
+- syntax:
+    content: 'procedure SetAccountNoFilter(AccountNo: Code[20])'
+    parameters:
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetAccountNoFilter
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SetAccountNoFilter(Code[20])
+- syntax:
+    content: 'procedure DrillDownEntriesForAccNo(AccountNo: Code[20])'
+    parameters:
+    - id: AccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DrillDownEntriesForAccNo
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.DrillDownEntriesForAccNo(Code[20])
+- syntax:
+    content: 'procedure CalcSourceTypeAmount(SourceType: Enum "Cash Flow Source Type"): Decimal'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type
+        name: Microsoft.CashFlow.Setup."Cash Flow Source Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcSourceTypeAmount
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.CalcSourceTypeAmount(Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type):Decimal
+- syntax:
+    content: 'procedure SetSourceTypeEntriesFilter(SourceType: Enum "Cash Flow Source Type")'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type
+        name: Microsoft.CashFlow.Setup."Cash Flow Source Type"
+        isExternal: false
+  name: SetSourceTypeEntriesFilter
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SetSourceTypeEntriesFilter(Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type)
+- syntax:
+    content: 'procedure DrillDownSourceTypeEntries(SourceType: Enum "Cash Flow Source Type")'
+    parameters:
+    - id: SourceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type
+        name: Microsoft.CashFlow.Setup."Cash Flow Source Type"
+        isExternal: false
+  name: DrillDownSourceTypeEntries
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.DrillDownSourceTypeEntries(Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type)
+- syntax:
+    content: 'procedure CalcAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAmount
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.CalcAmount:Decimal
+- syntax:
+    content: 'procedure SetCashFlowDateFilter(FromDate: Date, ToDate: Date)'
+    parameters:
+    - id: FromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+  name: SetCashFlowDateFilter
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SetCashFlowDateFilter(Date,Date)
+- syntax:
+    content: procedure PrintRecords()
+  name: PrintRecords
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.PrintRecords
+- syntax:
+    content: 'procedure LookupCashFlowFilter(var Text: Text): Boolean'
+    parameters:
+    - id: Text
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LookupCashFlowFilter
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.LookupCashFlowFilter(Text@):Boolean
+- syntax:
+    content: 'procedure CalculateAllAmounts(FromDate: Date, ToDate: Date, var Amounts: array[14] of Decimal, var TotalAmount: Decimal)'
+    parameters:
+    - id: FromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: Amounts
+      parameterType:
+        name: array[14] of Decimal
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CalculateAllAmounts
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.CalculateAllAmounts(Date,Date,Decimal[]@,Decimal@)
+- syntax:
+    content: 'procedure ValidateShowInChart(ShowInChart: Boolean): Boolean'
+    parameters:
+    - id: ShowInChart
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateShowInChart
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.ValidateShowInChart(Boolean):Boolean
+- syntax:
+    content: 'procedure GetShowInChart(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetShowInChart
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.GetShowInChart:Boolean
+- syntax:
+    content: 'procedure GetEntryDate(Which: Option): Date'
+    parameters:
+    - id: Which
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetEntryDate
+  uid: M:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.GetEntryDate(Option):Date
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.No#[20]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Name"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Search_Name[100]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Description_2[50]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Consider Discount"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Consider_Discount
+- type:
+    name: Date
+    isExternal: true
+  name: '"Creation Date"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Creation_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Created By"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Created_By[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Manual Payments To"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Manual_Payments_To
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Comment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.No#_Series[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Manual Payments From"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Manual_Payments_From
+- type:
+    name: Date
+    isExternal: true
+  name: '"G/L Budget From"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.G/L_Budget_From
+- type:
+    name: Date
+    isExternal: true
+  name: '"G/L Budget To"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.G/L_Budget_To
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Consider CF Payment Terms"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Consider_CF_Payment_Terms
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Consider Pmt. Disc. Tol. Date"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Consider_Pmt#_Disc#_Tol#_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Consider Pmt. Tol. Amount"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Consider_Pmt#_Tol#_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Account No. Filter"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Account_No#_Filter[20]
+- type:
+    internalReference: O:Enum::Microsoft#CashFlow#Setup#Cash_Flow_Source_Type
+    name: Microsoft.CashFlow.Setup."Cash Flow Source Type"
+    isExternal: false
+  name: '"Source Type Filter"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Source_Type_Filter
+- type:
+    name: Date
+    isExternal: true
+  name: '"Cash Flow Date Filter"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Cash_Flow_Date_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (LCY)"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Amount_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Positive Filter"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Positive_Filter
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Overdue CF Dates to Work Date"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Overdue_CF_Dates_to_Work_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Default G/L Budget Name"'
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.Default_G/L_Budget_Name[10]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast.SystemRowVersion
+commentId: O:Table::Microsoft#CashFlow#Forecast#Cash Flow Forecast
+name: '"Cash Flow Forecast"'
+uid: O:Table::Microsoft#CashFlow#Forecast#Cash_Flow_Forecast

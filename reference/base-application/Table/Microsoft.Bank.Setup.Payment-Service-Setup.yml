@@ -1,0 +1,290 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Setup."Payment Service Setup"
+alId: ID 1060
+namespace: Microsoft.Bank.Setup
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Setup
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Payment Service Setup
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rimd,
+                      TableData "Payment Reporting Argument" = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure OpenSetupCard()
+  name: OpenSetupCard
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.OpenSetupCard
+- syntax:
+    content: 'procedure CreateReportingArgs(var PaymentReportingArgument: Record "Payment Reporting Argument" temporary, DocumentRecordVariant: Variant)'
+    parameters:
+    - id: PaymentReportingArgument
+      parameterType:
+        name: Record "Payment Reporting Argument" temporary
+        isExternal: true
+    - id: DocumentRecordVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: CreateReportingArgs
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.CreateReportingArgs(Payment_Reporting_Argument@,Variant)
+- syntax:
+    content: 'procedure GetDefaultPaymentServices(var SetID: Integer): Boolean'
+    parameters:
+    - id: SetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetDefaultPaymentServices
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.GetDefaultPaymentServices(Integer@):Boolean
+- syntax:
+    content: 'procedure SelectPaymentService(var SetID: Integer): Boolean'
+    parameters:
+    - id: SetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SelectPaymentService
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SelectPaymentService(Integer@):Boolean
+- syntax:
+    content: 'procedure SaveSet(var TempPaymentServiceSetup: Record "Payment Service Setup" temporary): Integer'
+    parameters:
+    - id: TempPaymentServiceSetup
+      parameterType:
+        name: Record "Payment Service Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: SaveSet
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SaveSet(Payment_Service_Setup@):Integer
+- syntax:
+    content: 'procedure LoadSet(var TempPaymentServiceSetup: Record "Payment Service Setup" temporary, SetID: Integer)'
+    parameters:
+    - id: TempPaymentServiceSetup
+      parameterType:
+        name: Record "Payment Service Setup" temporary
+        isExternal: true
+    - id: SetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: LoadSet
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.LoadSet(Payment_Service_Setup@,Integer)
+- syntax:
+    content: 'procedure GetSelectedPaymentsText(SetID: Integer): Text'
+    parameters:
+    - id: SetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSelectedPaymentsText
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.GetSelectedPaymentsText(Integer):Text
+- syntax:
+    content: 'procedure CanChangePaymentService(DocumentVariant: Variant): Boolean'
+    parameters:
+    - id: DocumentVariant
+      parameterType:
+        name: Variant
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanChangePaymentService
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.CanChangePaymentService(Variant):Boolean
+- syntax:
+    content: 'procedure ChangePaymentServicePostedInvoice(var SalesInvoiceHeader: Record "Sales Invoice Header")'
+    parameters:
+    - id: SalesInvoiceHeader
+      parameterType:
+        name: Record "Sales Invoice Header"
+        isExternal: true
+  name: ChangePaymentServicePostedInvoice
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.ChangePaymentServicePostedInvoice(Sales_Invoice_Header@)
+- syntax:
+    content: 'procedure IsPaymentServiceVisible(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPaymentServiceVisible
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.IsPaymentServiceVisible:Boolean
+- syntax:
+    content: 'procedure NewPaymentService(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: NewPaymentService
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.NewPaymentService:Boolean
+- syntax:
+    content: 'procedure AssignPrimaryKey(var PaymentServiceSetup: Record "Payment Service Setup")'
+    parameters:
+    - id: PaymentServiceSetup
+      parameterType:
+        name: Record "Payment Service Setup"
+        isExternal: true
+  name: AssignPrimaryKey
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.AssignPrimaryKey(Payment_Service_Setup@)
+- syntax:
+    content: 'procedure DeletePaymentServiceSetup(RunTrigger: Boolean)'
+    parameters:
+    - id: RunTrigger
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: DeletePaymentServiceSetup
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.DeletePaymentServiceSetup(Boolean)
+- syntax:
+    content: procedure TermsOfServiceDrillDown()
+  name: TermsOfServiceDrillDown
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.TermsOfServiceDrillDown
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnRegisterPaymentServices(var PaymentServiceSetup: Record "Payment Service Setup")'
+    parameters:
+    - id: PaymentServiceSetup
+      parameterType:
+        name: Record "Payment Service Setup"
+        isExternal: true
+  name: OnRegisterPaymentServices
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.OnRegisterPaymentServices(Payment_Service_Setup@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnRegisterPaymentServiceProviders(var PaymentServiceSetup: Record "Payment Service Setup")'
+    parameters:
+    - id: PaymentServiceSetup
+      parameterType:
+        name: Record "Payment Service Setup"
+        isExternal: true
+  name: OnRegisterPaymentServiceProviders
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.OnRegisterPaymentServiceProviders(Payment_Service_Setup@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnCreatePaymentService(var PaymentServiceSetup: Record "Payment Service Setup")'
+    parameters:
+    - id: PaymentServiceSetup
+      parameterType:
+        name: Record "Payment Service Setup"
+        isExternal: true
+  name: OnCreatePaymentService
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.OnCreatePaymentService(Payment_Service_Setup@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: procedure OnDoNotIncludeAnyPaymentServicesOnAllDocuments()
+  name: OnDoNotIncludeAnyPaymentServicesOnAllDocuments
+  uid: M:Table::Microsoft#Bank#Setup#Payment_Service_Setup.OnDoNotIncludeAnyPaymentServicesOnAllDocuments
+fields:
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.No#[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Name[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Description[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Enabled
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Enabled
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Always Include on Documents"'
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Always_Include_on_Documents
+- type:
+    name: RecordId
+    isExternal: true
+  name: '"Setup Record ID"'
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Setup_Record_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Setup Page ID"'
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Setup_Page_ID
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Terms of Service"'
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Terms_of_Service[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Available
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Available
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Management Codeunit ID"'
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.Management_Codeunit_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Setup#Payment_Service_Setup.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Setup#Payment Service Setup
+name: '"Payment Service Setup"'
+uid: O:Table::Microsoft#Bank#Setup#Payment_Service_Setup

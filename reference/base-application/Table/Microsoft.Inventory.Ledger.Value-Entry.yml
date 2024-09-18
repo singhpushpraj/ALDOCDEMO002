@@ -1,0 +1,603 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Ledger."Value Entry"
+alId: ID 5802
+namespace: Microsoft.Inventory.Ledger
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Ledger
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Value Entry
+  promoted: false
+- name: DrillDownPageID
+  value: Value Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Ledger#Value_Entries
+    name: Microsoft.Inventory.Ledger."Value Entries"
+    isExternal: false
+- name: LookupPageID
+  value: Value Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Ledger#Value_Entries
+    name: Microsoft.Inventory.Ledger."Value Entries"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetLastEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastEntryNo
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.GetLastEntryNo:Integer
+- syntax:
+    content: 'procedure GetValuationDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetValuationDate
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.GetValuationDate:Date
+- syntax:
+    content: 'procedure AddCost(InvtAdjmtBuffer: Record "Inventory Adjustment Buffer")'
+    parameters:
+    - id: InvtAdjmtBuffer
+      parameterType:
+        name: Record "Inventory Adjustment Buffer"
+        isExternal: true
+  name: AddCost
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.AddCost(Inventory_Adjustment_Buffer)
+- syntax:
+    content: 'procedure SumCostsTillValuationDate(var ValueEntry: Record "Value Entry")'
+    parameters:
+    - id: ValueEntry
+      parameterType:
+        name: Record "Value Entry"
+        isExternal: true
+  name: SumCostsTillValuationDate
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.SumCostsTillValuationDate(Value_Entry@)
+- syntax:
+    content: 'procedure CalcItemLedgEntryCost(ItemLedgEntryNo: Integer, Expected: Boolean)'
+    parameters:
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Expected
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcItemLedgEntryCost
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.CalcItemLedgEntryCost(Integer,Boolean)
+- syntax:
+    content: 'procedure NotInvdRevaluationExists(ItemLedgEntryNo: Integer): Boolean'
+    parameters:
+    - id: ItemLedgEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: NotInvdRevaluationExists
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.NotInvdRevaluationExists(Integer):Boolean
+- syntax:
+    content: 'procedure CalcQtyFactor(FromDate: Date, ToDate: Date): Decimal'
+    parameters:
+    - id: FromDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcQtyFactor
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.CalcQtyFactor(Date,Date):Decimal
+- syntax:
+    content: procedure ShowGL()
+  name: ShowGL
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.ShowGL
+- syntax:
+    content: 'procedure IsAvgCostException(IsAvgCostCalcTypeItem: Boolean): Boolean'
+    parameters:
+    - id: IsAvgCostCalcTypeItem
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAvgCostException
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.IsAvgCostException(Boolean):Boolean
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.ShowDimensions
+- syntax:
+    content: 'procedure GetAvgToDate(ToDate: Date): Date'
+    parameters:
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetAvgToDate
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.GetAvgToDate(Date):Date
+- syntax:
+    content: 'procedure GetAvgFromDate(ToDate: Date, var AccountingPeriod: Record "Accounting Period", var CostCalcIsChanged: Boolean): Date'
+    parameters:
+    - id: ToDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: AccountingPeriod
+      parameterType:
+        name: Record "Accounting Period"
+        isExternal: true
+    - id: CostCalcIsChanged
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetAvgFromDate
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.GetAvgFromDate(Date,Accounting_Period@,Boolean@):Date
+- syntax:
+    content: 'procedure FindFirstValueEntryByItemLedgerEntryNo(ItemLedgerEntryNo: Integer)'
+    parameters:
+    - id: ItemLedgerEntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindFirstValueEntryByItemLedgerEntryNo
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.FindFirstValueEntryByItemLedgerEntryNo(Integer)
+- syntax:
+    content: 'procedure IsInbound(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInbound
+  uid: M:Table::Microsoft#Inventory#Ledger#Value_Entry.IsInbound:Boolean
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Item_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Entry_Type
+    name: Microsoft.Inventory.Ledger."Item Ledger Entry Type"
+    isExternal: false
+  name: '"Item Ledger Entry Type"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Item_Ledger_Entry_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Source_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Inventory Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Inventory_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Source_Posting_Group[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Item Ledger Entry No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Item_Ledger_Entry_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Valued Quantity"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Valued_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Item Ledger Entry Quantity"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Item_Ledger_Entry_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoiced Quantity"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Invoiced_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost per Unit"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_per_Unit
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales Amount (Actual)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Sales_Amount_(Actual)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salespers./Purch. Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Salespers#/Purch#_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Discount Amount"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Discount_Amount
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.User_ID[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Source_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applies-to Entry"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Applies-to_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Global_Dimension_2_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+    name: Microsoft.Foundation.Enums."Analysis Source Type"
+    isExternal: false
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Source_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Actual)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Amount_(Actual)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Posted to G/L"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Posted_to_G/L
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Reason_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Drop Shipment"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Drop_Shipment
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Journal_Batch_Name[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Document_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.External_Document_No#[35]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Actual) (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Amount_(Actual)_(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Posted to G/L (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Posted_to_G/L_(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost per Unit (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_per_Unit_(ACY)
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Document_Type
+    name: Microsoft.Inventory.Ledger."Item Ledger Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Document_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Document Line No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Document_Line_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.VAT_Reporting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Inventory_Order_Type
+    name: Microsoft.Foundation.Enums."Inventory Order Type"
+    isExternal: false
+  name: '"Order Type"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Order_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Line No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Order_Line_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Expected Cost"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Expected_Cost
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Charge No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Item_Charge_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Valued By Average Cost"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Valued_By_Average_Cost
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Partial Revaluation"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Partial_Revaluation
+- type:
+    name: Boolean
+    isExternal: true
+  name: Inventoriable
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Inventoriable
+- type:
+    name: Date
+    isExternal: true
+  name: '"Valuation Date"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Valuation_Date
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Entry_Type
+    name: Microsoft.Inventory.Costing."Cost Entry Type"
+    isExternal: false
+  name: '"Entry Type"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Entry_Type
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Variance_Type
+    name: Microsoft.Inventory.Costing."Cost Variance Type"
+    isExternal: false
+  name: '"Variance Type"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Variance_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purchase Amount (Actual)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Purchase_Amount_(Actual)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Purchase Amount (Expected)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Purchase_Amount_(Expected)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales Amount (Expected)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Sales_Amount_(Expected)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Expected)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Amount_(Expected)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Non-Invtbl.)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Amount_(Non-Invtbl#)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Expected) (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Amount_(Expected)_(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Amount (Non-Invtbl.)(ACY)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Cost_Amount_(Non-Invtbl#)(ACY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Expected Cost Posted to G/L"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Expected_Cost_Posted_to_G/L
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Exp. Cost Posted to G/L (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Exp#_Cost_Posted_to_G/L_(ACY)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 3 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Shortcut_Dimension_3_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 4 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Shortcut_Dimension_4_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 5 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Shortcut_Dimension_5_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 6 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Shortcut_Dimension_6_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 7 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Shortcut_Dimension_7_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 8 Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Shortcut_Dimension_8_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Job_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Job_Task_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Ledger Entry No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Job_Ledger_Entry_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Variant_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Adjustment
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Adjustment
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Average Cost Exception"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Average_Cost_Exception
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Capacity Ledger Entry No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Capacity_Ledger_Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type_Journal
+    name: Microsoft.Manufacturing.Capacity."Capacity Type Journal"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.Return_Reason_Code[10]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Ledger#Value_Entry.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Ledger#Value Entry
+name: '"Value Entry"'
+uid: O:Table::Microsoft#Inventory#Ledger#Value_Entry

@@ -1,0 +1,1262 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Service.Document."Service Header"
+alId: ID 5900
+namespace: Microsoft.Service.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Service.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Service Header
+  promoted: false
+- name: DataCaptionFields
+  value: 3,79,5902
+  promoted: false
+- name: DrillDownPageID
+  value: Service List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_List
+    name: Microsoft.Service.Document."Service List"
+    isExternal: false
+- name: LookupPageID
+  value: Service List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Service#Document#Service_List
+    name: Microsoft.Service.Document."Service List"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Loaner Entry" = d,
+                      TableData "Service Order Allocation" = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(OldServHeader: Record "Service Header"): Boolean'
+    parameters:
+    - id: OldServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Service#Document#Service_Header.AssistEdit(Service_Header):Boolean
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Service#Document#Service_Header.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure UpdateAllLineDim(NewParentDimSetID: Integer, OldParentDimSetID: Integer)'
+    parameters:
+    - id: NewParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: OldParentDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateAllLineDim
+  uid: M:Table::Microsoft#Service#Document#Service_Header.UpdateAllLineDim(Integer,Integer)
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure RecreateServLines(ChangedFieldName: Text[100])'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: RecreateServLines
+  uid: M:Table::Microsoft#Service#Document#Service_Header.RecreateServLines(Text[100])
+- syntax:
+    content: 'procedure UpdateServLinesByFieldNo(ChangedFieldNo: Integer, AskQuestion: Boolean)'
+    parameters:
+    - id: ChangedFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: AskQuestion
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: UpdateServLinesByFieldNo
+  uid: M:Table::Microsoft#Service#Document#Service_Header.UpdateServLinesByFieldNo(Integer,Boolean)
+- syntax:
+    content: 'procedure TestMandatoryFields(var PassedServLine: Record "Service Line")'
+    parameters:
+    - id: PassedServLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: TestMandatoryFields
+  uid: M:Table::Microsoft#Service#Document#Service_Header.TestMandatoryFields(Service_Line@)
+- syntax:
+    content: procedure UpdateResponseDateTime()
+  name: UpdateResponseDateTime
+  uid: M:Table::Microsoft#Service#Document#Service_Header.UpdateResponseDateTime
+- syntax:
+    content: 'procedure ServItemLineExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServItemLineExists
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ServItemLineExists:Boolean
+- syntax:
+    content: 'procedure ServLineExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServLineExists
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ServLineExists:Boolean
+- syntax:
+    content: 'procedure MessageIfServLinesExist(ChangedFieldName: Text[100])'
+    parameters:
+    - id: ChangedFieldName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: MessageIfServLinesExist
+  uid: M:Table::Microsoft#Service#Document#Service_Header.MessageIfServLinesExist(Text[100])
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure SetValidatingFromLines(NewValidatingFromLines: Boolean)'
+    parameters:
+    - id: NewValidatingFromLines
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetValidatingFromLines
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetValidatingFromLines(Boolean)
+- syntax:
+    content: procedure TestNoSeries()
+  name: TestNoSeries
+  uid: M:Table::Microsoft#Service#Document#Service_Header.TestNoSeries
+- syntax:
+    content: 'procedure GetNoSeriesCode(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetNoSeriesCode
+  uid: M:Table::Microsoft#Service#Document#Service_Header.GetNoSeriesCode:Code[20]
+- syntax:
+    content: 'procedure CheckCreditMaxBeforeInsert(HideCreditCheckDialogue: Boolean)'
+    parameters:
+    - id: HideCreditCheckDialogue
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckCreditMaxBeforeInsert
+  uid: M:Table::Microsoft#Service#Document#Service_Header.CheckCreditMaxBeforeInsert(Boolean)
+- syntax:
+    content: 'procedure UpdateServiceOrderChangeLog(var OldServHeader: Record "Service Header")'
+    parameters:
+    - id: OldServHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: UpdateServiceOrderChangeLog
+  uid: M:Table::Microsoft#Service#Document#Service_Header.UpdateServiceOrderChangeLog(Service_Header@)
+- syntax:
+    content: procedure InitInsert()
+  name: InitInsert
+  uid: M:Table::Microsoft#Service#Document#Service_Header.InitInsert
+- syntax:
+    content: procedure InitRecord()
+  name: InitRecord
+  uid: M:Table::Microsoft#Service#Document#Service_Header.InitRecord
+- syntax:
+    content: 'procedure SendToPost(CodeunitId: Integer): Boolean'
+    parameters:
+    - id: CodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SendToPost
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SendToPost(Integer):Boolean
+- syntax:
+    content: 'procedure SendToPostWithLines(CodeunitId: Integer, var TempServLine: Record "Service Line" temporary): Boolean'
+    parameters:
+    - id: CodeunitId
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: TempServLine
+      parameterType:
+        name: Record "Service Line" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SendToPostWithLines
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SendToPostWithLines(Integer,Service_Line@):Boolean
+- syntax:
+    content: 'procedure SetShipToAddress(ShipToName: Text[100], ShipToName2: Text[50], ShipToAddress: Text[100], ShipToAddress2: Text[50], ShipToCity: Text[30], ShipToPostCode: Code[20], ShipToCounty: Text[30], ShipToCountryRegionCode: Code[10])'
+    parameters:
+    - id: ShipToName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShipToName2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ShipToAddress
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShipToAddress2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: ShipToCity
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ShipToPostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShipToCounty
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: ShipToCountryRegionCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetShipToAddress
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetShipToAddress(Text[100],Text[50],Text[100],Text[50],Text[30],Code[20],Text[30],Code[10])
+- syntax:
+    content: 'procedure ConfirmDeletion(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmDeletion
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ConfirmDeletion:Boolean
+- syntax:
+    content: procedure ShowDocDim()
+  name: ShowDocDim
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ShowDocDim
+- syntax:
+    content: 'procedure LookupAdjmtValueEntries(QtyType: Option)'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+  name: LookupAdjmtValueEntries
+  uid: M:Table::Microsoft#Service#Document#Service_Header.LookupAdjmtValueEntries(Option)
+- syntax:
+    content: procedure CalcInvDiscForHeader()
+  name: CalcInvDiscForHeader
+  uid: M:Table::Microsoft#Service#Document#Service_Header.CalcInvDiscForHeader
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetSecurityFilterOnRespCenter
+- syntax:
+    content: procedure OpenStatistics()
+  name: OpenStatistics
+  uid: M:Table::Microsoft#Service#Document#Service_Header.OpenStatistics
+- syntax:
+    content: procedure OpenOrderStatistics()
+  name: OpenOrderStatistics
+  uid: M:Table::Microsoft#Service#Document#Service_Header.OpenOrderStatistics
+- syntax:
+    content: 'procedure SetShipToCustomerAddressFieldsFromShipToAddr(ShipToAddr: Record "Ship-to Address")'
+    parameters:
+    - id: ShipToAddr
+      parameterType:
+        name: Record "Ship-to Address"
+        isExternal: true
+  name: SetShipToCustomerAddressFieldsFromShipToAddr
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetShipToCustomerAddressFieldsFromShipToAddr(Ship-to_Address)
+- syntax:
+    content: 'procedure WhsePickConflict(DocType: Enum "Service Document Type", DocNo: Code[20], ShippingAdvice: Enum "Sales Header Shipping Advice"): Boolean'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Type
+        name: Microsoft.Service.Document."Service Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShippingAdvice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+        name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhsePickConflict
+  uid: M:Table::Microsoft#Service#Document#Service_Header.WhsePickConflict(Enum::Microsoft#Service#Document#Service_Document_Type,Code[20],Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice):Boolean
+- syntax:
+    content: 'procedure InvPickConflictResolutionTxt(): Text[500]'
+    return:
+      returnType:
+        name: Text[500]
+        isExternal: true
+  name: InvPickConflictResolutionTxt
+  uid: M:Table::Microsoft#Service#Document#Service_Header.InvPickConflictResolutionTxt:Text[500]
+- syntax:
+    content: 'procedure WhseShipmentConflict(DocType: Enum "Service Document Type", DocNo: Code[20], ShippingAdvice: Enum "Sales Header Shipping Advice"): Boolean'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Type
+        name: Microsoft.Service.Document."Service Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShippingAdvice
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+        name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: WhseShipmentConflict
+  uid: M:Table::Microsoft#Service#Document#Service_Header.WhseShipmentConflict(Enum::Microsoft#Service#Document#Service_Document_Type,Code[20],Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice):Boolean
+- syntax:
+    content: 'procedure WhseShpmtConflictResolutionTxt(): Text[500]'
+    return:
+      returnType:
+        name: Text[500]
+        isExternal: true
+  name: WhseShpmtConflictResolutionTxt
+  uid: M:Table::Microsoft#Service#Document#Service_Header.WhseShpmtConflictResolutionTxt:Text[500]
+- syntax:
+    content: procedure SetCustomerFromFilter()
+  name: SetCustomerFromFilter
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetCustomerFromFilter
+- syntax:
+    content: procedure CopyCustomerFilter()
+  name: CopyCustomerFilter
+  uid: M:Table::Microsoft#Service#Document#Service_Header.CopyCustomerFilter
+- syntax:
+    content: 'procedure ConfirmCloseUnposted(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmCloseUnposted
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ConfirmCloseUnposted:Boolean
+- syntax:
+    content: 'procedure ValidateSalesPersonOnServiceHeader(ServiceHeader2: Record "Service Header", IsTransaction: Boolean, IsPostAction: Boolean)'
+    parameters:
+    - id: ServiceHeader2
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+    - id: IsTransaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsPostAction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateSalesPersonOnServiceHeader
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ValidateSalesPersonOnServiceHeader(Service_Header,Boolean,Boolean)
+- syntax:
+    content: procedure UpdateShipToSalespersonCode()
+  name: UpdateShipToSalespersonCode
+  uid: M:Table::Microsoft#Service#Document#Service_Header.UpdateShipToSalespersonCode
+- syntax:
+    content: 'procedure SetSalespersonCode(SalesPersonCodeToCheck: Code[20], var SalesPersonCodeToAssign: Code[20])'
+    parameters:
+    - id: SalesPersonCodeToCheck
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: SalesPersonCodeToAssign
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetSalespersonCode
+  uid: M:Table::Microsoft#Service#Document#Service_Header.SetSalespersonCode(Code[20],Code[20]@)
+- syntax:
+    content: 'procedure GetHideValidationDialog(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideValidationDialog
+  uid: M:Table::Microsoft#Service#Document#Service_Header.GetHideValidationDialog:Boolean
+- syntax:
+    content: 'procedure GetFullDocTypeTxt(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetFullDocTypeTxt
+  uid: M:Table::Microsoft#Service#Document#Service_Header.GetFullDocTypeTxt:Text
+- syntax:
+    content: procedure GetServiceMgtSetup()
+  name: GetServiceMgtSetup
+  uid: M:Table::Microsoft#Service#Document#Service_Header.GetServiceMgtSetup
+- syntax:
+    content: 'procedure IsCreditDocType(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCreditDocType
+  uid: M:Table::Microsoft#Service#Document#Service_Header.IsCreditDocType:Boolean
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Service#Document#Service_Header.CreateDimFromDefaultDim(Integer)
+- syntax:
+    content: 'procedure ServiceLinesEditable(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ServiceLinesEditable
+  uid: M:Table::Microsoft#Service#Document#Service_Header.ServiceLinesEditable:Boolean
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Type
+    name: Microsoft.Service.Document."Service Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Customer_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Name"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Bill-to Name 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Address"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Bill-to Address 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Bill-to City"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Bill-to Contact"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Contact[100]
+- type:
+    name: Text[35]
+    isExternal: true
+  name: '"Your Reference"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Your_Reference[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Name"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Ship-to Name 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Address"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Ship-to Address 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to City"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Ship-to Contact"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Contact[100]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Order Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Order_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Posting_Date
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Posting Description"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Posting_Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Terms Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Payment_Terms_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Due_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Payment Discount %"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Payment_Discount_%
+- type:
+    name: Date
+    isExternal: true
+  name: '"Pmt. Discount Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Pmt#_Discount_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipment Method Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Customer_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Currency Factor"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Currency_Factor
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Customer_Price_Group[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prices Including VAT"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Prices_Including_VAT
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Invoice Disc. Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Invoice_Disc#_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Customer_Disc#_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Language Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Language_Code[10]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Format Region"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Format_Region[80]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salesperson Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Salesperson_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Comment
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. Printed"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.No#_Printed
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Applies-to Doc. Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Applies-to_Doc#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Applies-to Doc. No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Applies-to_Doc#_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Account No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bal#_Account_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipping No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipping_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Posting_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Shipping No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Last_Shipping_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Posting No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Last_Posting_No#[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.VAT_Registration_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Reason_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"EU 3-Party Trade"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.EU_3-Party_Trade
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Transport_Method[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"VAT Country/Region Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.VAT_Country/Region_Code[10]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Name 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Address
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Address 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: City
+  uid: F:Table::Microsoft#Service#Document#Service_Header.City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Contact Name"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Contact_Name[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Post Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Bill-to County"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Bill-to Country/Region Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Post Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: County
+  uid: F:Table::Microsoft#Service#Document#Service_Header.County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Ship-to Post Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to County"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_County[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Country/Region Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Country/Region_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Bank#Payment#Payment_Balance_Account_Type
+    name: Microsoft.Bank.Payment."Payment Balance Account Type"
+    isExternal: false
+  name: '"Bal. Account Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bal#_Account_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Exit_Point[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Correction
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Correction
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Document_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.External_Document_No#[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Transaction_Specification[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Method Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Payment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipping_Agent_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting No. Series"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Posting_No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipping No. Series"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipping_No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.VAT_Bus#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Reserve
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Applies-to ID"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Applies-to_ID[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Discount %"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.VAT_Base_Discount_%
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Document_Status
+    name: Microsoft.Service.Document."Service Document Status"
+    isExternal: false
+  name: Status
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Status
+- type:
+    name: Option
+    isExternal: true
+  name: '"Invoice Discount Calculation"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Invoice_Discount_Calculation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoice Discount Value"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Invoice_Discount_Value
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Company Bank Account Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Company_Bank_Account_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Service#Document#Service_Doc#_Release_Status
+    name: Microsoft.Service.Document."Service Doc. Release Status"
+    isExternal: false
+  name: '"Release Status"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Release_Status
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.VAT_Reporting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Templ. Name"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Journal_Templ#_Name[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Dimension_Set_ID
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"Direct Debit Mandate ID"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Direct_Debit_Mandate_ID[35]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Contact No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Contact_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Contact No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Bill-to_Contact_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Responsibility_Center[10]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+    name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+    isExternal: false
+  name: '"Shipping Advice"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipping_Advice
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Shipped"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Completely_Shipped
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Location_Filter[10]
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipping_Time
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Shipping_Agent_Service_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Date_Filter
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Order Type"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Service_Order_Type[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Link Service to Service Item"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Link_Service_to_Service_Item
+- type:
+    name: Option
+    isExternal: true
+  name: Priority
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Priority
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Allocated Hours"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Allocated_Hours
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Phone_No#[30]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"E-Mail"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.E-Mail[80]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No. 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Phone_No#_2[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Fax No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Fax_No#[30]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Unallocated Items"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.No#_of_Unallocated_Items
+- type:
+    name: Time
+    isExternal: true
+  name: '"Order Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Order_Time
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Default Response Time (Hours)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Default_Response_Time_(Hours)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Actual Response Time (Hours)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Actual_Response_Time_(Hours)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Service Time (Hours)"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Service_Time_(Hours)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Response Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Response_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Response Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Response_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Starting Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Starting_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Starting Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Starting_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Finishing Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Finishing_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Finishing Time"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Finishing_Time
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Contract Serv. Hours Exist"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Contract_Serv#_Hours_Exist
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Reallocation Needed"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Reallocation_Needed
+- type:
+    name: Option
+    isExternal: true
+  name: '"Notify Customer"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Notify_Customer
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Max. Labor Unit Price"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Max#_Labor_Unit_Price
+- type:
+    name: Option
+    isExternal: true
+  name: '"Warning Status"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Warning_Status
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Allocations"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.No#_of_Allocations
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Contract No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Contract_No#[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Type Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Type_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Customer_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Resource Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Resource_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Contract Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Contract_Filter[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to Fax No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Fax_No#[30]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Ship-to E-Mail"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_E-Mail[80]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Resource Group Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Resource_Group_Filter[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to Phone"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Phone[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Ship-to Phone 2"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Ship-to_Phone_2[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Zone Filter"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Service_Zone_Filter[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Zone Code"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Service_Zone_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expected Finishing Date"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Expected_Finishing_Date
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Allow_Line_Disc#
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Assigned User ID"'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Assigned_User_ID[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Quote No."'
+  uid: F:Table::Microsoft#Service#Document#Service_Header.Quote_No#[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Service#Document#Service_Header.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Header.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Header.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Service#Document#Service_Header.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Service#Document#Service_Header.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Service#Document#Service_Header.SystemRowVersion
+commentId: O:Table::Microsoft#Service#Document#Service Header
+name: '"Service Header"'
+uid: O:Table::Microsoft#Service#Document#Service_Header

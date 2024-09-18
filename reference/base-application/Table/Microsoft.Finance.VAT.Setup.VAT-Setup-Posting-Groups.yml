@@ -1,0 +1,208 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Setup."VAT Setup Posting Groups"
+alId: ID 1877
+namespace: Microsoft.Finance.VAT.Setup
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Setup
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: VAT Setup Posting Groups
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure ValidateVATRates(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateVATRates
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.ValidateVATRates:Boolean
+- syntax:
+    content: procedure PopulateVATProdGroups()
+  name: PopulateVATProdGroups
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.PopulateVATProdGroups
+- syntax:
+    content: 'procedure AddOrUpdateProdPostingGrp(ProdGrpCode: Code[20], GrpDesc: Text[100], VatRate: Decimal, SalesAccount: Code[20], PurchAccount: Code[20], IsService: Boolean, IsDefault: Boolean): Boolean'
+    parameters:
+    - id: ProdGrpCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GrpDesc
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: VatRate
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: SalesAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PurchAccount
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IsService
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsDefault
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AddOrUpdateProdPostingGrp
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.AddOrUpdateProdPostingGrp(Code[20],Text[100],Decimal,Code[20],Code[20],Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure CheckExistingItemAndServiceWithVAT(VATProdPostingGroupCode: Code[20], IsService: Boolean): Boolean'
+    parameters:
+    - id: VATProdPostingGroupCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: IsService
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckExistingItemAndServiceWithVAT
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.CheckExistingItemAndServiceWithVAT(Code[20],Boolean):Boolean
+- syntax:
+    content: 'procedure ValidateGLAccountsExist(var ErrorMessage: Text): Boolean'
+    parameters:
+    - id: ErrorMessage
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ValidateGLAccountsExist
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.ValidateGLAccountsExist(Text@):Boolean
+- syntax:
+    content: 'procedure GetLabelTok(LabelName: Text): Code[20]'
+    parameters:
+    - id: LabelName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetLabelTok
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.GetLabelTok(Text):Code[20]
+- syntax:
+    content: 'procedure GetLabelTxt(LabelName: Text): Text[100]'
+    parameters:
+    - id: LabelName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: GetLabelTxt
+  uid: M:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.GetLabelTxt(Text):Text[100]
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.VAT_%
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sales VAT Account"'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.Sales_VAT_Account[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Purchase VAT Account"'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.Purchase_VAT_Account[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Reverse Chrg. VAT Acc."'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.Reverse_Chrg#_VAT_Acc#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"VAT Prod. Posting Grp Desc."'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.VAT_Prod#_Posting_Grp_Desc#[100]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"VAT Clause Desc"'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.VAT_Clause_Desc[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Selected
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.Selected
+- type:
+    name: Option
+    isExternal: true
+  name: '"Application Type"'
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.Application_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: Default
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.Default
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#VAT#Setup#VAT Setup Posting Groups
+name: '"VAT Setup Posting Groups"'
+uid: O:Table::Microsoft#Finance#VAT#Setup#VAT_Setup_Posting_Groups

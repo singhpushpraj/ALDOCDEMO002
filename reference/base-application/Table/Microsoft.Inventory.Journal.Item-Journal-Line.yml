@@ -1,0 +1,1694 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Journal."Item Journal Line"
+alId: ID 83
+namespace: Microsoft.Inventory.Journal
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Journal
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Item Journal Line
+  promoted: false
+- name: DrillDownPageID
+  value: Item Journal Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Journal#Item_Journal_Lines
+    name: Microsoft.Inventory.Journal."Item Journal Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Item Journal Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Journal#Item_Journal_Lines
+    name: Microsoft.Inventory.Journal."Item Journal Lines"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure EmptyLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EmptyLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.EmptyLine:Boolean
+- syntax:
+    content: 'procedure IsValueEntryForDeletedItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsValueEntryForDeletedItem
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsValueEntryForDeletedItem:Boolean
+- syntax:
+    content: procedure UpdateAmount()
+  name: UpdateAmount
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.UpdateAmount
+- syntax:
+    content: 'procedure CheckItemAvailable(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckItemAvailable
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckItemAvailable(Integer)
+- syntax:
+    content: 'procedure SetUpNewLine(LastItemJnlLine: Record "Item Journal Line")'
+    parameters:
+    - id: LastItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SetUpNewLine(Item_Journal_Line)
+- syntax:
+    content: 'procedure SetDocNos(DocType: Enum "Item Ledger Document Type", DocNo: Code[20], ExtDocNo: Text[35], PostingNos: Code[20])'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Document_Type
+        name: Microsoft.Inventory.Ledger."Item Ledger Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Text[35]
+        isExternal: true
+    - id: PostingNos
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: SetDocNos
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SetDocNos(Enum::Microsoft#Inventory#Ledger#Item_Ledger_Document_Type,Code[20],Text[35],Code[20])
+- syntax:
+    content: 'procedure GetUnitAmount(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetUnitAmount
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.GetUnitAmount(Integer)
+- syntax:
+    content: 'procedure ApplyPrice(PriceType: Enum "Price Type", CalledByFieldNo: Integer)'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ApplyPrice
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ApplyPrice(Enum::Microsoft#Pricing#PriceList#Price_Type,Integer)
+- syntax:
+    content: 'procedure GetLineWithPrice(var LineWithPrice: Interface "Line With Price")'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+  name: GetLineWithPrice
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.GetLineWithPrice(Interface::Microsoft#Pricing#PriceList#Line_With_Price@)
+- syntax:
+    content: 'procedure Signed(Value: Decimal): Decimal'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: Signed
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Signed(Decimal):Decimal
+- syntax:
+    content: 'procedure IsInbound(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInbound
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsInbound:Boolean
+- syntax:
+    content: 'procedure OpenItemTrackingLines(IsReclass: Boolean)'
+    parameters:
+    - id: IsReclass
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.OpenItemTrackingLines(Boolean)
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], InheritFromDimSetID: Integer, InheritFromTableNo: Integer)'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: InheritFromDimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: InheritFromTableNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CreateDim(List_of_[Dictionary],Integer,Integer)
+- syntax:
+    content: 'procedure CopyDim(DimesionSetID: Integer)'
+    parameters:
+    - id: DimesionSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CopyDim
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyDim(Integer)
+- syntax:
+    content: procedure CreateProdDim()
+  name: CreateProdDim
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CreateProdDim
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.LookupShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure ValidateNewShortcutDimCode(FieldNumber: Integer, var NewShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateNewShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ValidateNewShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupNewShortcutDimCode(FieldNumber: Integer, var NewShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupNewShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.LookupNewShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowNewShortcutDimCode(var NewShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: NewShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowNewShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ShowNewShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure CopyDocumentFields(DocType: Enum "Item Ledger Document Type", DocNo: Code[20], ExtDocNo: Text[35], SourceCode: Code[10], NoSeriesCode: Code[20])'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Document_Type
+        name: Microsoft.Inventory.Ledger."Item Ledger Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Text[35]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyDocumentFields
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyDocumentFields(Enum::Microsoft#Inventory#Ledger#Item_Ledger_Document_Type,Code[20],Text[35],Code[10],Code[20])
+- syntax:
+    content: 'procedure CopyFromSalesHeader(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyFromSalesHeader
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromSalesHeader(Sales_Header)
+- syntax:
+    content: 'procedure CopyFromSalesLine(SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: CopyFromSalesLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromSalesLine(Sales_Line)
+- syntax:
+    content: 'procedure CopyFromPurchHeader(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFromPurchHeader
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromPurchHeader(Purchase_Header)
+- syntax:
+    content: 'procedure CopyFromPurchLine(PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: CopyFromPurchLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromPurchLine(Purchase_Line)
+- syntax:
+    content: 'procedure CopyFromServHeader(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CopyFromServHeader
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromServHeader(Service_Header)
+- syntax:
+    content: 'procedure CopyFromServLine(ServiceLine: Record "Service Line")'
+    parameters:
+    - id: ServiceLine
+      parameterType:
+        name: Record "Service Line"
+        isExternal: true
+  name: CopyFromServLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromServLine(Service_Line)
+- syntax:
+    content: 'procedure CopyFromServShptHeader(ServShptHeader: Record "Service Shipment Header")'
+    parameters:
+    - id: ServShptHeader
+      parameterType:
+        name: Record "Service Shipment Header"
+        isExternal: true
+  name: CopyFromServShptHeader
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromServShptHeader(Service_Shipment_Header)
+- syntax:
+    content: 'procedure CopyFromServShptLine(ServShptLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: CopyFromServShptLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromServShptLine(Service_Shipment_Line)
+- syntax:
+    content: 'procedure CopyFromServShptLineUndo(ServShptLine: Record "Service Shipment Line")'
+    parameters:
+    - id: ServShptLine
+      parameterType:
+        name: Record "Service Shipment Line"
+        isExternal: true
+  name: CopyFromServShptLineUndo
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromServShptLineUndo(Service_Shipment_Line)
+- syntax:
+    content: 'procedure CopyFromJobJnlLine(JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: CopyFromJobJnlLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyFromJobJnlLine(Job_Journal_Line)
+- syntax:
+    content: 'procedure OnlyStopTime(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OnlyStopTime
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.OnlyStopTime:Boolean
+- syntax:
+    content: 'procedure OutputValuePosting(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: OutputValuePosting
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.OutputValuePosting:Boolean
+- syntax:
+    content: 'procedure TimeIsEmpty(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TimeIsEmpty
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.TimeIsEmpty:Boolean
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.RowID1:Text[250]
+- syntax:
+    content: 'procedure GetSourceCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSourceCaption
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.GetSourceCaption:Text
+- syntax:
+    content: 'procedure SetReservationEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationEntry
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SetReservationEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure SetReservationFilters(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationFilters
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SetReservationFilters(Reservation_Entry@)
+- syntax:
+    content: 'procedure ReservEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ReservEntryExist:Boolean
+- syntax:
+    content: 'procedure ItemPosting(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemPosting
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ItemPosting:Boolean
+- syntax:
+    content: 'procedure LastOutputOperation(ItemJnlLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LastOutputOperation
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.LastOutputOperation(Item_Journal_Line):Boolean
+- syntax:
+    content: procedure LookupItemNo()
+  name: LookupItemNo
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.LookupItemNo
+- syntax:
+    content: procedure RecalculateUnitAmount()
+  name: RecalculateUnitAmount
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.RecalculateUnitAmount
+- syntax:
+    content: 'procedure IsReclass(ItemJnlLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJnlLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsReclass
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsReclass(Item_Journal_Line):Boolean
+- syntax:
+    content: 'procedure CheckWhse(LocationCode: Code[20], var QtyToPost: Decimal)'
+    parameters:
+    - id: LocationCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: QtyToPost
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CheckWhse
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckWhse(Code[20],Decimal@)
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ShowDimensions
+- syntax:
+    content: procedure ShowReclasDimensions()
+  name: ShowReclasDimensions
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ShowReclasDimensions
+- syntax:
+    content: 'procedure SwitchLinesWithErrorsFilter(var ShowAllLinesEnabled: Boolean)'
+    parameters:
+    - id: ShowAllLinesEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SwitchLinesWithErrorsFilter
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SwitchLinesWithErrorsFilter(Boolean@)
+- syntax:
+    content: 'procedure PostingItemJnlFromProduction(Print: Boolean)'
+    parameters:
+    - id: Print
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: PostingItemJnlFromProduction
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.PostingItemJnlFromProduction(Boolean)
+- syntax:
+    content: 'procedure IsAssemblyResourceConsumpLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAssemblyResourceConsumpLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsAssemblyResourceConsumpLine:Boolean
+- syntax:
+    content: 'procedure IsAssemblyOutputLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAssemblyOutputLine
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsAssemblyOutputLine:Boolean
+- syntax:
+    content: 'procedure IsATOCorrection(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsATOCorrection
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsATOCorrection:Boolean
+- syntax:
+    content: procedure ClearTracking()
+  name: ClearTracking
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ClearTracking
+- syntax:
+    content: procedure ClearDates()
+  name: ClearDates
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ClearDates
+- syntax:
+    content: 'procedure CopyTrackingFromReservEntry(ReservationEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: CopyTrackingFromReservEntry
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyTrackingFromReservEntry(Reservation_Entry)
+- syntax:
+    content: 'procedure CopyTrackingFromItemLedgEntry(ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: CopyTrackingFromItemLedgEntry
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyTrackingFromItemLedgEntry(Item_Ledger_Entry)
+- syntax:
+    content: 'procedure CopyTrackingFromSpec(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CopyTrackingFromSpec
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyTrackingFromSpec(Tracking_Specification)
+- syntax:
+    content: 'procedure CopyNewTrackingFromNewSpec(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CopyNewTrackingFromNewSpec
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyNewTrackingFromNewSpec(Tracking_Specification)
+- syntax:
+    content: 'procedure CopyNewTrackingFromOldItemLedgerEntry(ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: CopyNewTrackingFromOldItemLedgerEntry
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CopyNewTrackingFromOldItemLedgerEntry(Item_Ledger_Entry)
+- syntax:
+    content: 'procedure SetTrackingFilterFromItemLedgerEntry(ItemledgerEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemledgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: SetTrackingFilterFromItemLedgerEntry
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SetTrackingFilterFromItemLedgerEntry(Item_Ledger_Entry)
+- syntax:
+    content: 'procedure TrackingExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: TrackingExists
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.TrackingExists:Boolean
+- syntax:
+    content: 'procedure HasSameTracking(ItemJournalLine: Record "Item Journal Line"): Boolean'
+    parameters:
+    - id: ItemJournalLine
+      parameterType:
+        name: Record "Item Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasSameTracking
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.HasSameTracking(Item_Journal_Line):Boolean
+- syntax:
+    content: 'procedure HasSameNewTracking(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasSameNewTracking
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.HasSameNewTracking:Boolean
+- syntax:
+    content: 'procedure TestItemFields(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: TestItemFields
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.TestItemFields(Code[20],Code[10],Code[10])
+- syntax:
+    content: 'procedure DisplayErrorIfItemIsBlocked(Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: DisplayErrorIfItemIsBlocked
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.DisplayErrorIfItemIsBlocked(Item)
+- syntax:
+    content: 'procedure DisplayErrorIfItemVariantIsBlocked(ItemVariant: Record "Item Variant")'
+    parameters:
+    - id: ItemVariant
+      parameterType:
+        name: Record "Item Variant"
+        isExternal: true
+  name: DisplayErrorIfItemVariantIsBlocked
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.DisplayErrorIfItemVariantIsBlocked(Item_Variant)
+- syntax:
+    content: 'procedure IsPurchaseReturn(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPurchaseReturn
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsPurchaseReturn:Boolean
+- syntax:
+    content: 'procedure IsOpenedFromBatch(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOpenedFromBatch
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsOpenedFromBatch:Boolean
+- syntax:
+    content: 'procedure SubcontractingWorkCenterUsed(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SubcontractingWorkCenterUsed
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SubcontractingWorkCenterUsed:Boolean
+- syntax:
+    content: procedure CheckItemJournalLineRestriction()
+  name: CheckItemJournalLineRestriction
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckItemJournalLineRestriction
+- syntax:
+    content: procedure CheckTrackingIsEmpty()
+  name: CheckTrackingIsEmpty
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckTrackingIsEmpty
+- syntax:
+    content: procedure CheckNewTrackingIsEmpty()
+  name: CheckNewTrackingIsEmpty
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckNewTrackingIsEmpty
+- syntax:
+    content: 'procedure CheckTrackingEqualItemLedgEntry(ItemLedgerEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgerEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: CheckTrackingEqualItemLedgEntry
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckTrackingEqualItemLedgEntry(Item_Ledger_Entry)
+- syntax:
+    content: 'procedure CheckTrackingEqualTrackingSpecification(TrackingSpecification: Record "Tracking Specification")'
+    parameters:
+    - id: TrackingSpecification
+      parameterType:
+        name: Record "Tracking Specification"
+        isExternal: true
+  name: CheckTrackingEqualTrackingSpecification
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckTrackingEqualTrackingSpecification(Tracking_Specification)
+- syntax:
+    content: 'procedure CheckTrackingIfRequired(ItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CheckTrackingIfRequired
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckTrackingIfRequired(Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CheckNewTrackingIfRequired(ItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CheckNewTrackingIfRequired
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckNewTrackingIfRequired(Item_Tracking_Setup)
+- syntax:
+    content: 'procedure CheckTrackingIfRequiredNotBlank(ItemTrackingSetup: Record "Item Tracking Setup" temporary)'
+    parameters:
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+  name: CheckTrackingIfRequiredNotBlank
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CheckTrackingIfRequiredNotBlank(Item_Tracking_Setup)
+- syntax:
+    content: procedure ValidateTypeWithItemNo()
+  name: ValidateTypeWithItemNo
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.ValidateTypeWithItemNo
+- syntax:
+    content: 'procedure IsNotInternalWhseMovement(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNotInternalWhseMovement
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.IsNotInternalWhseMovement:Boolean
+- syntax:
+    content: procedure PrintInventoryMovement()
+  name: PrintInventoryMovement
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.PrintInventoryMovement
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.CreateDimFromDefaultDim(Integer)
+- syntax:
+    content: procedure RenumberDocumentNo()
+  name: RenumberDocumentNo
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.RenumberDocumentNo
+- syntax:
+    content: 'procedure LookUpTrackingSummary(TrackingType: Enum "Item Tracking Type")'
+    parameters:
+    - id: TrackingType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type
+        name: Microsoft.Inventory.Tracking."Item Tracking Type"
+        isExternal: false
+  name: LookUpTrackingSummary
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.LookUpTrackingSummary(Enum::Microsoft#Inventory#Tracking#Item_Tracking_Type)
+- syntax:
+    content: 'procedure GetDateForCalculations(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDateForCalculations
+  uid: M:Table::Microsoft#Inventory#Journal#Item_Journal_Line.GetDateForCalculations:Date
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Template Name"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Journal_Template_Name[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Entry_Type
+    name: Microsoft.Inventory.Ledger."Item Ledger Entry Type"
+    isExternal: false
+  name: '"Entry Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Entry_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Source_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Description[100]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Inventory Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Inventory_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Source_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoiced Quantity"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Invoiced_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Amount"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Discount Amount"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Discount_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salespers./Purch. Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Salespers#/Purch#_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Source_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applies-to Entry"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Applies-to_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Item Shpt. Entry No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Shpt#_Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Indirect Cost %"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Indirect_Cost_%
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Analysis_Source_Type
+    name: Microsoft.Foundation.Enums."Analysis Source Type"
+    isExternal: false
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Source_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shpt. Method Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Shpt#_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Journal_Batch_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Reason_Code[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Recurring Method"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Recurring_Method
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expiration Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Expiration_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Recurring Frequency"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Recurring_Frequency
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Drop Shipment"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Drop_Shipment
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Transport_Method[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Country/Region_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"New Location Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"New Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"New Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Shortcut_Dimension_2_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Calculated)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Qty#_(Calculated)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. (Phys. Inventory)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Qty#_(Phys#_Inventory)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Last Item Ledger Entry No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Last_Item_Ledger_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Phys. Inventory"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Phys#_Inventory
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Entry/Exit Point"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Entry/Exit_Point[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Document_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.External_Document_No#[35]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Transaction_Specification[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting No. Series"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Posting_No#_Series[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Reserved_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_Cost_(ACY)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Currency Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Source_Currency_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Ledger#Item_Ledger_Document_Type
+    name: Microsoft.Inventory.Ledger."Item Ledger Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Document_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Document Line No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Document_Line_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.VAT_Reporting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Inventory_Order_Type
+    name: Microsoft.Foundation.Enums."Inventory Order Type"
+    isExternal: false
+  name: '"Order Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Order_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Line No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Order_Line_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Dimension_Set_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"New Dimension Set ID"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Dimension_Set_ID
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Assemble to Order"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Assemble_to_Order
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Job_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Job_Task_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Job Purchase"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Job_Purchase
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Contract Entry No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Job_Contract_Entry_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"New Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Bin_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Derived from Blanket Order"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Derived_from_Blanket_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoiced Qty. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Invoiced_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Reserved_Qty#_(Base)
+- type:
+    name: Integer
+    isExternal: true
+  name: Level
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Level
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Setup#Flushing_Method
+    name: Microsoft.Manufacturing.Setup."Flushing Method"
+    isExternal: false
+  name: '"Flushing Method"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Flushing_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Changed by User"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Changed_by_User
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Reference No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Cross-Reference_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Originally Ordered No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Originally_Ordered_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Originally Ordered Var. Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Originally_Ordered_Var#_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Out-of-Stock Substitution"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Out-of-Stock_Substitution
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Purchasing_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Product_Group_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Delivery Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Planned_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Order Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Order_Date
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Entry_Type
+    name: Microsoft.Inventory.Costing."Cost Entry Type"
+    isExternal: false
+  name: '"Value Entry Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Value_Entry_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Charge No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Charge_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inventory Value (Calculated)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Inventory_Value_(Calculated)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inventory Value (Revalued)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Inventory_Value_(Revalued)
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Costing#Cost_Variance_Type
+    name: Microsoft.Inventory.Costing."Cost Variance Type"
+    isExternal: false
+  name: '"Variance Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Variance_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Inventory Value Per"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Inventory_Value_Per
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Partial Revaluation"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Partial_Revaluation
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applies-from Entry"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Applies-from_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Invoice No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Invoice_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (Calculated)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_Cost_(Calculated)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (Revalued)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_Cost_(Revalued)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Applied Amount"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Applied_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Update Standard Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Update_Standard_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (ACY)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Amount_(ACY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: Correction
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Correction
+- type:
+    name: Boolean
+    isExternal: true
+  name: Adjustment
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Adjustment
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Applies-to Value Entry"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Applies-to_Value_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Invoice-to Source No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Invoice-to_Source_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Manufacturing#Capacity#Capacity_Type_Journal
+    name: Microsoft.Manufacturing.Capacity."Capacity Type Journal"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Operation No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Operation_No#[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Work Center No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Work_Center_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Setup Time"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Setup_Time
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Run Time"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Run_Time
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Stop Time"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Stop_Time
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Output Quantity"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Output_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap Quantity"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Scrap_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Concurrent Capacity"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Concurrent_Capacity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Setup Time (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Setup_Time_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Run Time (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Run_Time_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Stop Time (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Stop_Time_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Output Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Output_Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Scrap Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Scrap_Quantity_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Cap. Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Cap#_Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Cap. Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Qty#_per_Cap#_Unit_of_Measure
+- type:
+    name: Time
+    isExternal: true
+  name: '"Starting Time"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Starting_Time
+- type:
+    name: Time
+    isExternal: true
+  name: '"Ending Time"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Ending_Time
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Routing_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Routing Reference No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Routing_Reference_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Prod. Order Comp. Line No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Prod#_Order_Comp#_Line_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: Finished
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Finished
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Unit_Cost_Calculation_Type
+    name: Microsoft.Foundation.Enums."Unit Cost Calculation Type"
+    isExternal: false
+  name: '"Unit Cost Calculation"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Unit_Cost_Calculation
+- type:
+    name: Boolean
+    isExternal: true
+  name: Subcontracting
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Subcontracting
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Stop Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Stop_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Scrap Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Scrap_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Center Group Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Work_Center_Group_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Shift Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Work_Shift_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Serial No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Serial_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Lot No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Lot_No#[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Warranty Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Warranty_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"New Serial No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Serial_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"New Lot No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Lot_No#[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"New Item Expiration Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Item_Expiration_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Item Expiration Date"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Item_Expiration_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Package No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Package_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"New Package No."'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.New_Package_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Return_Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Warehouse Adjustment"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Warehouse_Adjustment
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Direct Transfer"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Direct_Transfer
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Phys Invt Counting Period Code"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Phys_Invt_Counting_Period_Code[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Phys Invt Counting Period Type"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Phys_Invt_Counting_Period_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Overhead Rate"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Overhead_Rate
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Material Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Single-Level_Material_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Capacity Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Single-Level_Capacity_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Subcontrd. Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Single-Level_Subcontrd#_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Cap. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Single-Level_Cap#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Single-Level Mfg. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Single-Level_Mfg#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Material Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Rolled-up_Material_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Capacity Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Rolled-up_Capacity_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Subcontracted Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Rolled-up_Subcontracted_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Mfg. Ovhd Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Rolled-up_Mfg#_Ovhd_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Rolled-up Cap. Overhead Cost"'
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.Rolled-up_Cap#_Overhead_Cost
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Journal#Item_Journal_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Journal#Item Journal Line
+name: '"Item Journal Line"'
+uid: O:Table::Microsoft#Inventory#Journal#Item_Journal_Line

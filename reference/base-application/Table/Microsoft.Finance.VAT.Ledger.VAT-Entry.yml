@@ -1,0 +1,591 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Ledger."VAT Entry"
+alId: ID 254
+namespace: Microsoft.Finance.VAT.Ledger
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Ledger
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: VAT Entry
+  promoted: false
+- name: LookupPageID
+  value: VAT Entries
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Finance#VAT#Ledger#VAT_Entries
+    name: Microsoft.Finance.VAT.Ledger."VAT Entries"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Sales Invoice Header" = rm,
+                        TableData "Sales Cr.Memo Header" = rm,
+                        TableData "Service Invoice Header" = rm,
+                        TableData "Service Cr.Memo Header" = rm,
+                        TableData "Issued Reminder Header" = rm,
+                        TableData "Issued Fin. Charge Memo Header" = rm,
+                        TableData "Purch. Inv. Header" = rm,
+                        TableData "Purch. Cr. Memo Hdr." = rm,
+                        TableData "G/L Entry" = rm
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetLastEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetLastEntryNo
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.GetLastEntryNo:Integer
+- syntax:
+    content: 'procedure GetUnrealizedVATPart(SettledAmount: Decimal, Paid: Decimal, Full: Decimal, TotalUnrealVATAmountFirst: Decimal, TotalUnrealVATAmountLast: Decimal): Decimal'
+    parameters:
+    - id: SettledAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Paid
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Full
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalUnrealVATAmountFirst
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalUnrealVATAmountLast
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetUnrealizedVATPart
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.GetUnrealizedVATPart(Decimal,Decimal,Decimal,Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure GetUnrealizedVATType(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetUnrealizedVATType
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.GetUnrealizedVATType:Integer
+- syntax:
+    content: 'procedure CopyFromGenJnlLine(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyFromGenJnlLine
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.CopyFromGenJnlLine(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure CopyPostingDataFromGenJnlLine(GenJnlLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CopyPostingDataFromGenJnlLine
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.CopyPostingDataFromGenJnlLine(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure SetGLAccountNo(WithUI: Boolean)'
+    parameters:
+    - id: WithUI
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetGLAccountNo
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SetGLAccountNo(Boolean)
+- syntax:
+    content: 'procedure SetGLAccountNoWithResponse(WithUI: Boolean, ShowConfirm: Boolean, var Response: Boolean)'
+    parameters:
+    - id: WithUI
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowConfirm
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Response
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetGLAccountNoWithResponse
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SetGLAccountNoWithResponse(Boolean,Boolean,Boolean@)
+- syntax:
+    content: procedure CheckGLAccountNoFilled()
+  name: CheckGLAccountNoFilled
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.CheckGLAccountNoFilled
+- syntax:
+    content: 'procedure CopyAmountsFromVATEntry(VATEntry: Record "VAT Entry", WithOppositeSign: Boolean)'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: WithOppositeSign
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyAmountsFromVATEntry
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.CopyAmountsFromVATEntry(VAT_Entry,Boolean)
+- syntax:
+    content: procedure SetUnrealAmountsToZero()
+  name: SetUnrealAmountsToZero
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SetUnrealAmountsToZero
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnAfterCopyFromGenJnlLine(var VATEntry: Record "VAT Entry", GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OnAfterCopyFromGenJnlLine
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.OnAfterCopyFromGenJnlLine(VAT_Entry@,Gen#_Journal_Line)
+- syntax:
+    signatures:
+    - '[Obsolete(Use the OnAfterOnCopyAmountsFromVATEntry method instead,24.0)]'
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnAfterCopyAmountsFromVATEntry(var VATEntry: Record "VAT Entry", WithOppositeSign: Boolean)'
+    parameters:
+    - id: VATEntry
+      parameterType:
+        name: Record "VAT Entry"
+        isExternal: true
+    - id: WithOppositeSign
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OnAfterCopyAmountsFromVATEntry
+  obsoletion:
+    state: pending
+    reason: Use the OnAfterOnCopyAmountsFromVATEntry method instead
+    version: "24.0"
+  uid: M:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.OnAfterCopyAmountsFromVATEntry(VAT_Entry@,Boolean)
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Posting_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Document_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Document_Type
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+    name: Microsoft.Foundation.Enums."General Posting Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: Base
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Amount
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Calculation_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to/Pay-to No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Bill-to/Pay-to_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"EU 3-Party Trade"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.EU_3-Party_Trade
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.User_ID[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Source_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Reason_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Closed by Entry No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Closed_by_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: Closed
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Closed
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Country/Region_Code[10]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Internal Ref. No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Internal_Ref#_No#[30]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Transaction No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Transaction_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unrealized Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Unrealized_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unrealized Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Unrealized_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Unrealized Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Remaining_Unrealized_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Unrealized Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Remaining_Unrealized_Base
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.External_Document_No#[35]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_Group_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Use_Tax
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Tax Jurisdiction Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_Jurisdiction_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Used"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_Group_Used[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Tax Type"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax on Tax"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Tax_on_Tax
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sales Tax Connection No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Sales_Tax_Connection_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Unrealized VAT Entry No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Unrealized_VAT_Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Additional-Currency Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Additional-Currency_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Additional-Currency Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Additional-Currency_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Currency Unrealized Amt."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Currency_Unrealized_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Currency Unrealized Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Currency_Unrealized_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Discount %"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Base_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Curr. Rem. Unreal. Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Curr#_Rem#_Unreal#_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Curr. Rem. Unreal. Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Curr#_Rem#_Unreal#_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Curr. VAT Difference"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Curr#_VAT_Difference
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to/Order Address Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Ship-to/Order_Address_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Document_Date
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Registration_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Reversed
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Reversed
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Reversed by Entry No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Reversed_by_Entry_No#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Reversed Entry No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Reversed_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"EU Service"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.EU_Service
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Base Before Pmt. Disc."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Base_Before_Pmt#_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Currency VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Source_Currency_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Currency VAT Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Source_Currency_VAT_Base
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Currency Code"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Source_Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Currency Factor"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Source_Currency_Factor
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Templ. Name"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Journal_Templ#_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Journal_Batch_Name[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Realized Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Realized_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Realized Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Realized_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Curr. Realized Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Curr#_Realized_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Add.-Curr. Realized Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Add#-Curr#_Realized_Base
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"G/L Acc. No."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.G/L_Acc#_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.VAT_Reporting_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT %"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base ACY"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_Base_ACY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount ACY"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_Amount_ACY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Diff."'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_Diff#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Diff. ACY"'
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.Non-Deductible_VAT_Diff#_ACY
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#VAT#Ledger#VAT Entry
+name: '"VAT Entry"'
+uid: O:Table::Microsoft#Finance#VAT#Ledger#VAT_Entry

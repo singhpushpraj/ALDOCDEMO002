@@ -1,0 +1,66 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Return Order"
+alId: ID 6630
+namespace: Microsoft.Sales.Document
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+  name: Microsoft.Sales.Document."Sales Header"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Sales Return Order
+  promoted: false
+- name: PageType
+  value: Document
+  promoted: true
+- name: RefreshOnActivate
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "36"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+- name: SourceTableView
+  value: where("Document Type" = filter("Return Order"))
+  promoted: false
+- name: AboutTitle
+  value: About sales return order details
+  promoted: false
+- name: AboutText
+  value: When you receive items back from the customer, you post the quantity received and the quantity you choose to credit the customer. Posting issues a related sales credit memo and return-related documents.
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CallPostDocument(PostingCodeunitID: Integer)'
+    parameters:
+    - id: PostingCodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CallPostDocument
+  uid: M:Page::Microsoft#Sales#Document#Sales_Return_Order.CallPostDocument(Integer)
+- syntax:
+    content: procedure SetPostingGroupEditable()
+  name: SetPostingGroupEditable
+  uid: M:Page::Microsoft#Sales#Document#Sales_Return_Order.SetPostingGroupEditable
+- syntax:
+    content: procedure ShowPreview()
+  name: ShowPreview
+  uid: M:Page::Microsoft#Sales#Document#Sales_Return_Order.ShowPreview
+- syntax:
+    content: procedure RunBackgroundCheck()
+  name: RunBackgroundCheck
+  uid: M:Page::Microsoft#Sales#Document#Sales_Return_Order.RunBackgroundCheck
+commentId: O:Page::Microsoft#Sales#Document#Sales Return Order
+name: '"Sales Return Order"'
+uid: O:Page::Microsoft#Sales#Document#Sales_Return_Order

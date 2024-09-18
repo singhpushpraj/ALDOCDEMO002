@@ -1,0 +1,142 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Setup."Adjust Add. Reporting Currency"
+alId: ID 86
+namespace: Microsoft.Finance.GeneralLedger.Setup
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Setup
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: Caption
+  value: Adjust Add. Reporting Currency
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rim,
+                      TableData "Item Ledger Entry" = rm,
+                      TableData "G/L Register" = rim,
+                      TableData "Job Ledger Entry" = rm,
+                      TableData "VAT Entry" = rm,
+                      TableData "Dimension Set ID Filter Line" = rimd,
+                      TableData "Value Entry" = rm
+  promoted: false
+- name: ProcessingOnly
+  value: "True"
+  promoted: false
+- name: Caption
+  value: Adjust Add. Reporting Currency
+  promoted: false
+- name: Permissions
+  value: >-
+    TableData "G/L Entry" = rim,
+                      TableData "Item Ledger Entry" = rm,
+                      TableData "G/L Register" = rim,
+                      TableData "Job Ledger Entry" = rm,
+                      TableData "VAT Entry" = rm,
+                      TableData "Dimension Set ID Filter Line" = rimd,
+                      TableData "Value Entry" = rm
+  promoted: false
+- name: ProcessingOnly
+  value: "True"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetAddCurr(AddCurr: Code[10])'
+    parameters:
+    - id: AddCurr
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: SetAddCurr
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.SetAddCurr(Code[10])
+- syntax:
+    content: 'procedure IsExecuted(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExecuted
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.IsExecuted:Boolean
+- syntax:
+    content: 'procedure IsAccountingPeriodClosingDate(Date: Date): Boolean'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAccountingPeriodClosingDate
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.IsAccountingPeriodClosingDate(Date):Boolean
+- syntax:
+    content: 'procedure CheckCombination(CloseIncomeStmtBuffer2: Record "Close Income Statement Buffer")'
+    parameters:
+    - id: CloseIncomeStmtBuffer2
+      parameterType:
+        name: Record "Close Income Statement Buffer"
+        isExternal: true
+  name: CheckCombination
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.CheckCombination(Close_Income_Statement_Buffer)
+- syntax:
+    content: 'procedure InsertGLEntry(PostingDate: Date, DocumentDate: Date, DocumentType: Integer, DocumentNo: Code[20], GLAccountNo: Code[20], ReasonCode: Code[10], AddCurrAmount: Decimal)'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DocumentDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: DocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: GLAccountNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ReasonCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: AddCurrAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertGLEntry
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.InsertGLEntry(Date,Date,Integer,Code[20],Code[20],Code[10],Decimal)
+- syntax:
+    content: 'procedure InitializeRequest(NewDocumentNo: Code[20], NewRetainedEarningsGLAccNo: Code[20])'
+    parameters:
+    - id: NewDocumentNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewRetainedEarningsGLAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.InitializeRequest(Code[20],Code[20])
+- syntax:
+    content: 'procedure SetGenJnlBatch(NewGenJnlBatch: Record "Gen. Journal Batch")'
+    parameters:
+    - id: NewGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+  name: SetGenJnlBatch
+  uid: M:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency.SetGenJnlBatch(Gen#_Journal_Batch)
+commentId: O:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust Add# Reporting Currency
+name: '"Adjust Add. Reporting Currency"'
+uid: O:Report::Microsoft#Finance#GeneralLedger#Setup#Adjust_Add#_Reporting_Currency

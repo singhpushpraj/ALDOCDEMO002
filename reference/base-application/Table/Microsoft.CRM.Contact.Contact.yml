@@ -1,0 +1,1012 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Contact.Contact
+alId: ID 5050
+namespace: Microsoft.CRM.Contact
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Contact
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Contact
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+- name: DrillDownPageID
+  value: Contact List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#CRM#Contact#Contact_List
+    name: Microsoft.CRM.Contact."Contact List"
+    isExternal: false
+- name: LookupPageID
+  value: Contact List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#CRM#Contact#Contact_List
+    name: Microsoft.CRM.Contact."Contact List"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Sales Header" = rm,
+                      TableData "Contact Alt. Address" = rd,
+                      TableData "Contact Alt. Addr. Date Range" = rd,
+                      TableData "Contact Business Relation" = rid,
+                      TableData "Contact Mailing Group" = rd,
+                      TableData "Contact Industry Group" = rd,
+                      TableData "Contact Web Source" = rd,
+                      TableData "Rlshp. Mgt. Comment Line" = rd,
+                      TableData "Interaction Log Entry" = rm,
+                      TableData "Contact Job Responsibility" = rd,
+                      TableData "To-do" = rm,
+                      TableData "Contact Profile Answer" = rd,
+                      TableData Opportunity = rm,
+                      TableData "Opportunity Entry" = rm,
+                      tabledata Contact = rm,
+                      tabledata "Salesperson/Purchaser" = R,
+                      tabledata "Marketing Setup" = r,
+                      tabledata Salutation = r,
+                      tabledata "Salutation Formula" = r,
+                      tabledata Language = r,
+                      tabledata "Language Selection" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure DoModify(ContactBeforeModify: Record Contact)'
+    parameters:
+    - id: ContactBeforeModify
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: DoModify
+  uid: M:Table::Microsoft#CRM#Contact#Contact.DoModify(Contact)
+- syntax:
+    content: procedure TypeChange()
+  name: TypeChange
+  uid: M:Table::Microsoft#CRM#Contact#Contact.TypeChange
+- syntax:
+    content: 'procedure AssistEdit(OldCont: Record Contact): Boolean'
+    parameters:
+    - id: OldCont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#CRM#Contact#Contact.AssistEdit(Contact):Boolean
+- syntax:
+    content: 'procedure CreateCustomer(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateCustomer
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateCustomer:Code[20]
+- syntax:
+    content: 'procedure CreateCustomerFromTemplate(CustomerTemplateCode: Code[20]): Code[20]'
+    parameters:
+    - id: CustomerTemplateCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateCustomerFromTemplate
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateCustomerFromTemplate(Code[20]):Code[20]
+- syntax:
+    content: 'procedure CreateVendor(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateVendor
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateVendor:Code[20]
+- syntax:
+    content: 'procedure CreateVendorFromTemplate(VendorTemplateCode: Code[20]): Code[20]'
+    parameters:
+    - id: VendorTemplateCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateVendorFromTemplate
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateVendorFromTemplate(Code[20]):Code[20]
+- syntax:
+    content: 'procedure CreateBankAccount(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateBankAccount
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateBankAccount:Code[20]
+- syntax:
+    content: procedure CreateCustomerLink()
+  name: CreateCustomerLink
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateCustomerLink
+- syntax:
+    content: procedure CreateVendorLink()
+  name: CreateVendorLink
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateVendorLink
+- syntax:
+    content: procedure CreateBankAccountLink()
+  name: CreateBankAccountLink
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateBankAccountLink
+- syntax:
+    content: procedure CreateInteraction()
+  name: CreateInteraction
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateInteraction
+- syntax:
+    content: 'procedure GetDefaultPhoneNo(): Text[30]'
+    return:
+      returnType:
+        name: Text[30]
+        isExternal: true
+  name: GetDefaultPhoneNo
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetDefaultPhoneNo:Text[30]
+- syntax:
+    content: 'procedure ShowBusinessRelation(LinkToTable: Enum "Contact Business Relation Link To Table", All: Boolean)'
+    parameters:
+    - id: LinkToTable
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table
+        name: Microsoft.CRM.BusinessRelation."Contact Business Relation Link To Table"
+        isExternal: false
+    - id: All
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowBusinessRelation
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ShowBusinessRelation(Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table,Boolean)
+- syntax:
+    content: procedure ShowBusinessRelations()
+  name: ShowBusinessRelations
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ShowBusinessRelations
+- syntax:
+    content: 'procedure UpdateBusinessRelation(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateBusinessRelation
+  uid: M:Table::Microsoft#CRM#Contact#Contact.UpdateBusinessRelation:Boolean
+- syntax:
+    content: 'procedure HasBusinessRelation(LinkToTable: Enum "Contact Business Relation Link To Table", BusRelationCode: Code[10]): Boolean'
+    parameters:
+    - id: LinkToTable
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table
+        name: Microsoft.CRM.BusinessRelation."Contact Business Relation Link To Table"
+        isExternal: false
+    - id: BusRelationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasBusinessRelation
+  uid: M:Table::Microsoft#CRM#Contact#Contact.HasBusinessRelation(Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table,Code[10]):Boolean
+- syntax:
+    content: 'procedure HasBusinessRelations(var RelatedCustomerEnabled: Boolean, var RelatedVendorEnabled: Boolean, var RelatedBankEnabled: Boolean, var RelatedEmployeeEnabled: Boolean)'
+    parameters:
+    - id: RelatedCustomerEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RelatedVendorEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RelatedBankEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: RelatedEmployeeEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: HasBusinessRelations
+  uid: M:Table::Microsoft#CRM#Contact#Contact.HasBusinessRelations(Boolean@,Boolean@,Boolean@,Boolean@)
+- syntax:
+    content: procedure SetSkipDefault()
+  name: SetSkipDefault
+  uid: M:Table::Microsoft#CRM#Contact#Contact.SetSkipDefault
+- syntax:
+    content: 'procedure IdenticalAddress(Cont: Record Contact): Boolean'
+    parameters:
+    - id: Cont
+      parameterType:
+        name: Record Contact
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IdenticalAddress
+  uid: M:Table::Microsoft#CRM#Contact#Contact.IdenticalAddress(Contact):Boolean
+- syntax:
+    content: 'procedure ActiveAltAddress(ActiveDate: Date): Code[10]'
+    parameters:
+    - id: ActiveDate
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: ActiveAltAddress
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ActiveAltAddress(Date):Code[10]
+- syntax:
+    content: 'procedure CalculatedName(): Text[100]'
+    return:
+      returnType:
+        name: Text[100]
+        isExternal: true
+  name: CalculatedName
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CalculatedName:Text[100]
+- syntax:
+    content: procedure UpdateSearchName()
+  name: UpdateSearchName
+  uid: M:Table::Microsoft#CRM#Contact#Contact.UpdateSearchName
+- syntax:
+    content: procedure CheckDuplicates()
+  name: CheckDuplicates
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CheckDuplicates
+- syntax:
+    content: 'procedure CheckContactType(ContactType: Enum "Contact Type")'
+    parameters:
+    - id: ContactType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#Contact#Contact_Type
+        name: Microsoft.CRM.Contact."Contact Type"
+        isExternal: false
+  name: CheckContactType
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CheckContactType(Enum::Microsoft#CRM#Contact#Contact_Type)
+- syntax:
+    content: 'procedure FindNewCustomerTemplate(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: FindNewCustomerTemplate
+  uid: M:Table::Microsoft#CRM#Contact#Contact.FindNewCustomerTemplate:Code[20]
+- syntax:
+    content: 'procedure ChooseNewCustomerTemplate(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: ChooseNewCustomerTemplate
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ChooseNewCustomerTemplate:Code[20]
+- syntax:
+    content: 'procedure UpdateQuotesFromTemplate(Customer: Record Customer, CustomerTemplateCode: Code[20])'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: CustomerTemplateCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: UpdateQuotesFromTemplate
+  uid: M:Table::Microsoft#CRM#Contact#Contact.UpdateQuotesFromTemplate(Customer,Code[20])
+- syntax:
+    content: 'procedure GetSalutation(SalutationType: Enum "Salutation Formula Salutation Type", LanguageCode: Code[10]): Text[260]'
+    parameters:
+    - id: SalutationType
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#Setup#Salutation_Formula_Salutation_Type
+        name: Microsoft.CRM.Setup."Salutation Formula Salutation Type"
+        isExternal: false
+    - id: LanguageCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Text[260]
+        isExternal: true
+  name: GetSalutation
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetSalutation(Enum::Microsoft#CRM#Setup#Salutation_Formula_Salutation_Type,Code[10]):Text[260]
+- syntax:
+    content: 'procedure InheritCompanyToPersonData(NewCompanyContact: Record Contact)'
+    parameters:
+    - id: NewCompanyContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: InheritCompanyToPersonData
+  uid: M:Table::Microsoft#CRM#Contact#Contact.InheritCompanyToPersonData(Contact)
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#CRM#Contact#Contact.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure GetHideValidationDialog(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideValidationDialog
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetHideValidationDialog:Boolean
+- syntax:
+    content: procedure DisplayMap()
+  name: DisplayMap
+  uid: M:Table::Microsoft#CRM#Contact#Contact.DisplayMap
+- syntax:
+    content: procedure ProcessNameChange()
+  name: ProcessNameChange
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ProcessNameChange
+- syntax:
+    content: 'procedure GetCompNo(ContactText: Text): Text'
+    parameters:
+    - id: ContactText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCompNo
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetCompNo(Text):Text
+- syntax:
+    content: 'procedure ToPriceSource(var PriceSource: Record "Price Source" temporary)'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+  name: ToPriceSource
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ToPriceSource(Price_Source@)
+- syntax:
+    content: procedure LookupCompany()
+  name: LookupCompany
+  uid: M:Table::Microsoft#CRM#Contact#Contact.LookupCompany
+- syntax:
+    content: 'procedure LookupNewCustomerTemplate(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: LookupNewCustomerTemplate
+  uid: M:Table::Microsoft#CRM#Contact#Contact.LookupNewCustomerTemplate:Code[20]
+- syntax:
+    content: 'procedure CheckForExistingRelationships(LinkToTable: Enum "Contact Business Relation Link To Table")'
+    parameters:
+    - id: LinkToTable
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table
+        name: Microsoft.CRM.BusinessRelation."Contact Business Relation Link To Table"
+        isExternal: false
+  name: CheckForExistingRelationships
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CheckForExistingRelationships(Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table)
+- syntax:
+    content: procedure SetLastDateTimeModified()
+  name: SetLastDateTimeModified
+  uid: M:Table::Microsoft#CRM#Contact#Contact.SetLastDateTimeModified
+- syntax:
+    content: 'procedure GetLastDateTimeModified(): DateTime'
+    return:
+      returnType:
+        name: DateTime
+        isExternal: true
+  name: GetLastDateTimeModified
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetLastDateTimeModified:DateTime
+- syntax:
+    content: 'procedure SetLastDateTimeFilter(DateFilter: DateTime)'
+    parameters:
+    - id: DateFilter
+      parameterType:
+        name: DateTime
+        isExternal: true
+  name: SetLastDateTimeFilter
+  uid: M:Table::Microsoft#CRM#Contact#Contact.SetLastDateTimeFilter(DateTime)
+- syntax:
+    content: 'procedure TouchContact(ContactNo: Code[20])'
+    parameters:
+    - id: ContactNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: TouchContact
+  uid: M:Table::Microsoft#CRM#Contact#Contact.TouchContact(Code[20])
+- syntax:
+    content: 'procedure CountNoOfBusinessRelations(LinkToTable: Enum "Contact Business Relation Link To Table"): Integer'
+    parameters:
+    - id: LinkToTable
+      parameterType:
+        internalReference: O:Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table
+        name: Microsoft.CRM.BusinessRelation."Contact Business Relation Link To Table"
+        isExternal: false
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountNoOfBusinessRelations
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CountNoOfBusinessRelations(Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation_Link_To_Table):Integer
+- syntax:
+    content: procedure CreateSalesQuoteFromContact()
+  name: CreateSalesQuoteFromContact
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CreateSalesQuoteFromContact
+- syntax:
+    content: 'procedure ContactToCustBusinessRelationExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ContactToCustBusinessRelationExist
+  uid: M:Table::Microsoft#CRM#Contact#Contact.ContactToCustBusinessRelationExist:Boolean
+- syntax:
+    content: procedure CheckIfMinorForProfiles()
+  name: CheckIfMinorForProfiles
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CheckIfMinorForProfiles
+- syntax:
+    content: 'procedure CheckIfPrivacyBlocked(IsPosting: Boolean)'
+    parameters:
+    - id: IsPosting
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfPrivacyBlocked
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CheckIfPrivacyBlocked(Boolean)
+- syntax:
+    content: procedure CheckIfPrivacyBlockedGeneric()
+  name: CheckIfPrivacyBlockedGeneric
+  uid: M:Table::Microsoft#CRM#Contact#Contact.CheckIfPrivacyBlockedGeneric
+- syntax:
+    content: procedure VATRegistrationValidation()
+  name: VATRegistrationValidation
+  uid: M:Table::Microsoft#CRM#Contact#Contact.VATRegistrationValidation
+- syntax:
+    content: 'procedure GetContNo(ContactText: Text): Code[20]'
+    parameters:
+    - id: ContactText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetContNo
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetContNo(Text):Code[20]
+- syntax:
+    content: 'procedure GetContactsSelectionFromContactList(SelectMode: Boolean): Boolean'
+    parameters:
+    - id: SelectMode
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetContactsSelectionFromContactList
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetContactsSelectionFromContactList(Boolean):Boolean
+- syntax:
+    content: 'procedure GetOrClear(ContactNo: Code[20])'
+    parameters:
+    - id: ContactNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetOrClear
+  uid: M:Table::Microsoft#CRM#Contact#Contact.GetOrClear(Code[20])
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Name[100]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Name"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Search_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Name 2"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Address
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Address 2"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: City
+  uid: F:Table::Microsoft#CRM#Contact#Contact.City[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Phone_No#[30]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Telex No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Telex_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Territory Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Territory_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Currency_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Language Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Language_Code[10]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Registration Number"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Registration_Number[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salesperson Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Salesperson_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Country/Region_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Comment
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Format Region"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Format_Region[80]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Last_Date_Modified
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Fax No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Fax_No#[30]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Telex Answer Back"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Telex_Answer_Back[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.VAT_Registration_No#[20]
+- type:
+    name: Blob
+    isExternal: true
+  name: Picture
+  obsoletion:
+    state: removed
+    reason: Replaced by Image field
+    version: "18.0"
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Picture
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Post Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: County
+  uid: F:Table::Microsoft#CRM#Contact#Contact.County[30]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"E-Mail"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.E-Mail[80]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Home Page"'
+  obsoletion:
+    state: pending
+    reason: Field length will be increased to 255.
+    version: "24.0"
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Home_Page[80]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_Series[20]
+- type:
+    name: Media
+    isExternal: true
+  name: Image
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Image
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Privacy Blocked"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Privacy_Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: Minor
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Minor
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Parental Consent Received"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Parental_Consent_Received
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to CRM"'
+  obsoletion:
+    state: pending
+    reason: Replaced by flow field Coupled to Dataverse
+    version: "23.0"
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Coupled_to_CRM
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to Dataverse"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Coupled_to_Dataverse
+- type:
+    internalReference: O:Enum::Microsoft#CRM#Contact#Contact_Type
+    name: Microsoft.CRM.Contact."Contact Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Company No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Company_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Company Name"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Company_Name[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Lookup Contact No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Lookup_Contact_No#[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"First Name"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.First_Name[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Middle Name"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Middle_Name[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: Surname
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Surname[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Job Title"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Job_Title[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: Initials
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Initials[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Extension No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Extension_No#[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Mobile Phone No."'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Mobile_Phone_No#[30]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: Pager
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Pager[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Organizational Level Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Organizational_Level_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude from Segment"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Exclude_from_Segment
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Date_Filter
+- type:
+    name: Date
+    isExternal: true
+  name: '"Next Task Date"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Next_Task_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Attempted"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Last_Date_Attempted
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date of Last Interaction"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Date_of_Last_Interaction
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Job Responsibilities"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_of_Job_Responsibilities
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Industry Groups"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_of_Industry_Groups
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Business Relations"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_of_Business_Relations
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Mailing Groups"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_of_Mailing_Groups
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"External ID"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.External_ID[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Interactions"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_of_Interactions
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Business Relation"'
+  obsoletion:
+    state: removed
+    reason: Replaced by the Contact Business Relation field.
+    version: "22.0"
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Business_Relation[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost (LCY)"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Duration (Min.)"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Duration_(Min#)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Opportunities"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.No#_of_Opportunities
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Estimated Value (LCY)"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Estimated_Value_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Calcd. Current Value (LCY)"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Calcd#_Current_Value_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Opportunity Entry Exists"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Opportunity_Entry_Exists
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Task Entry Exists"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Task_Entry_Exists
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salesperson Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Salesperson_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Campaign Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Campaign_Filter[20]
+- type:
+    internalReference: O:Enum::Microsoft#CRM#BusinessRelation#Contact_Business_Relation
+    name: Microsoft.CRM.BusinessRelation."Contact Business Relation"
+    isExternal: false
+  name: '"Contact Business Relation"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Contact_Business_Relation
+- type:
+    name: Option
+    isExternal: true
+  name: '"Action Taken Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Action_Taken_Filter
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Sales Cycle Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Sales_Cycle_Filter[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sales Cycle Stage Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Sales_Cycle_Stage_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Probability % Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Probability_%_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Completed % Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Completed_%_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Estimated Value Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Estimated_Value_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Calcd. Current Value Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Calcd#_Current_Value_Filter
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Chances of Success % Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Chances_of_Success_%_Filter
+- type:
+    internalReference: O:Enum::Microsoft#CRM#Task#Task_Status
+    name: Microsoft.CRM.Task."Task Status"
+    isExternal: false
+  name: '"Task Status Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Task_Status_Filter
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Task Closed Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Task_Closed_Filter
+- type:
+    name: Option
+    isExternal: true
+  name: '"Priority Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Priority_Filter
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Team Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Team_Filter[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Close Opportunity Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Close_Opportunity_Filter[10]
+- type:
+    internalReference: O:Enum::Microsoft#CRM#Interaction#Correspondence_Type
+    name: Microsoft.CRM.Interaction."Correspondence Type"
+    isExternal: false
+  name: '"Correspondence Type"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Correspondence_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Salutation Code"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Salutation_Code[10]
+- type:
+    name: Code[80]
+    isExternal: true
+  name: '"Search E-Mail"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Search_E-Mail[80]
+- type:
+    name: Time
+    isExternal: true
+  name: '"Last Time Modified"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Last_Time_Modified
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"E-Mail 2"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.E-Mail_2[80]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Job Responsibility Filter"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Job_Responsibility_Filter[10]
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Xrm Id"'
+  uid: F:Table::Microsoft#CRM#Contact#Contact.Xrm_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#CRM#Contact#Contact.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#CRM#Contact#Contact.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#CRM#Contact#Contact.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#CRM#Contact#Contact.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#CRM#Contact#Contact.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#CRM#Contact#Contact.SystemRowVersion
+commentId: O:Table::Microsoft#CRM#Contact#Contact
+name: Contact
+uid: O:Table::Microsoft#CRM#Contact#Contact

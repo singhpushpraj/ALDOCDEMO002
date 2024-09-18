@@ -1,0 +1,2805 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Line"
+alId: ID 37
+namespace: Microsoft.Sales.Document
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Sales Line
+  promoted: false
+- name: DrillDownPageID
+  value: Sales Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Document#Sales_Lines
+    name: Microsoft.Sales.Document."Sales Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Sales Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Document#Sales_Lines
+    name: Microsoft.Sales.Document."Sales Lines"
+    isExternal: false
+- name: Permissions
+  value: TableData "Sales Line" = m
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure InitOutstanding()
+  name: InitOutstanding
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitOutstanding
+- syntax:
+    content: procedure InitOutstandingAmount()
+  name: InitOutstandingAmount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitOutstandingAmount
+- syntax:
+    content: procedure InitQtyToShip()
+  name: InitQtyToShip
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitQtyToShip
+- syntax:
+    content: procedure InitQtyToReceive()
+  name: InitQtyToReceive
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitQtyToReceive
+- syntax:
+    content: procedure InitQtyToInvoice()
+  name: InitQtyToInvoice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitQtyToInvoice
+- syntax:
+    content: 'procedure MaxQtyToInvoice(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: MaxQtyToInvoice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.MaxQtyToInvoice:Decimal
+- syntax:
+    content: 'procedure MaxQtyToInvoiceBase(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: MaxQtyToInvoiceBase
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.MaxQtyToInvoiceBase:Decimal
+- syntax:
+    content: 'procedure MaxQtyToShipBase(QtyToShipBase: Decimal): Decimal'
+    parameters:
+    - id: QtyToShipBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: MaxQtyToShipBase
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.MaxQtyToShipBase(Decimal):Decimal
+- syntax:
+    content: 'procedure CalcLineAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcLineAmount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcLineAmount:Decimal
+- syntax:
+    content: procedure CalcShipmentDateForLocation()
+  name: CalcShipmentDateForLocation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcShipmentDateForLocation
+- syntax:
+    signatures:
+    - '[Obsolete(Renaming the global procedure to GetSkipTaxCalculation():Boolean,22.0)]'
+    content: 'procedure CanCalculateTax(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanCalculateTax
+  obsoletion:
+    state: pending
+    reason: Renaming the global procedure to GetSkipTaxCalculation():Boolean
+    version: "22.0"
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CanCalculateTax:Boolean
+- syntax:
+    content: 'procedure GetSkipTaxCalculation(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSkipTaxCalculation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSkipTaxCalculation:Boolean
+- syntax:
+    content: 'procedure SetSkipTaxCalulation(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipTaxCalulation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetSkipTaxCalulation(Boolean)
+- syntax:
+    content: 'procedure SetSalesHeader(NewSalesHeader: Record "Sales Header")'
+    parameters:
+    - id: NewSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: SetSalesHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetSalesHeader(Sales_Header)
+- syntax:
+    content: 'procedure GetSalesHeader(): Record "Sales Header"'
+    return:
+      returnType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: GetSalesHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSalesHeader:Sales_Header
+- syntax:
+    content: 'procedure GetSalesHeader(var OutSalesHeader: Record "Sales Header", var OutCurrency: Record Currency)'
+    parameters:
+    - id: OutSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: OutCurrency
+      parameterType:
+        name: Record Currency
+        isExternal: true
+  name: GetSalesHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSalesHeader(Sales_Header@,Currency@)
+- syntax:
+    content: 'procedure GetItem(): Record Item'
+    return:
+      returnType:
+        name: Record Item
+        isExternal: true
+  name: GetItem
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetItem:Item
+- syntax:
+    content: 'procedure GetItem(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: GetItem
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetItem(Item@)
+- syntax:
+    content: 'procedure GetResource(): Record Resource'
+    return:
+      returnType:
+        name: Record Resource
+        isExternal: true
+  name: GetResource
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetResource:Resource
+- syntax:
+    content: 'procedure GetRemainingQty(var RemainingQty: Decimal, var RemainingQtyBase: Decimal)'
+    parameters:
+    - id: RemainingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetRemainingQty
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetRemainingQty(Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetReservationQty(var QtyReserved: Decimal, var QtyReservedBase: Decimal, var QtyToReserve: Decimal, var QtyToReserveBase: Decimal): Decimal'
+    parameters:
+    - id: QtyReserved
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyReservedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservationQty
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetReservationQty(Decimal@,Decimal@,Decimal@,Decimal@):Decimal
+- syntax:
+    content: 'procedure GetSourceCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSourceCaption
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSourceCaption:Text
+- syntax:
+    content: 'procedure SetReservationEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationEntry
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetReservationEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure SetReservationFilters(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationFilters
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetReservationFilters(Reservation_Entry@)
+- syntax:
+    content: 'procedure ReservEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ReservEntryExist:Boolean
+- syntax:
+    content: 'procedure IsPriceCalcCalledByField(CurrPriceFieldNo: Integer): Boolean'
+    parameters:
+    - id: CurrPriceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPriceCalcCalledByField
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsPriceCalcCalledByField(Integer):Boolean
+- syntax:
+    content: 'procedure PlanPriceCalcByField(CurrPriceFieldNo: Integer)'
+    parameters:
+    - id: CurrPriceFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: PlanPriceCalcByField
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.PlanPriceCalcByField(Integer)
+- syntax:
+    content: procedure ClearFieldCausedPriceCalculation()
+  name: ClearFieldCausedPriceCalculation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ClearFieldCausedPriceCalculation
+- syntax:
+    content: 'procedure UpdateUnitPrice(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateUnitPrice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateUnitPrice(Integer)
+- syntax:
+    content: 'procedure UpdateUnitPriceByField(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateUnitPriceByField
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateUnitPriceByField(Integer)
+- syntax:
+    content: 'procedure GetPriceCalculationHandler(PriceType: Enum "Price Type", SalesHeader: Record "Sales Header", var PriceCalculation: Interface "Price Calculation")'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: PriceCalculation
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+        name: Microsoft.Pricing.Calculation."Price Calculation"
+        isExternal: false
+  name: GetPriceCalculationHandler
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetPriceCalculationHandler(Enum::Microsoft#Pricing#PriceList#Price_Type,Sales_Header,Interface::Microsoft#Pricing#Calculation#Price_Calculation@)
+- syntax:
+    content: 'procedure GetLineWithPrice(var LineWithPrice: Interface "Line With Price")'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+  name: GetLineWithPrice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetLineWithPrice(Interface::Microsoft#Pricing#PriceList#Line_With_Price@)
+- syntax:
+    content: 'procedure ApplyDiscount(var PriceCalculation: Interface "Price Calculation")'
+    parameters:
+    - id: PriceCalculation
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+        name: Microsoft.Pricing.Calculation."Price Calculation"
+        isExternal: false
+  name: ApplyDiscount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ApplyDiscount(Interface::Microsoft#Pricing#Calculation#Price_Calculation@)
+- syntax:
+    content: 'procedure ApplyPrice(CalledByFieldNo: Integer, var PriceCalculation: Interface "Price Calculation")'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: PriceCalculation
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#Calculation#Price_Calculation
+        name: Microsoft.Pricing.Calculation."Price Calculation"
+        isExternal: false
+  name: ApplyPrice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ApplyPrice(Integer,Interface::Microsoft#Pricing#Calculation#Price_Calculation@)
+- syntax:
+    content: 'procedure CountDiscount(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountDiscount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CountDiscount(Boolean):Integer
+- syntax:
+    content: 'procedure CountPrice(ShowAll: Boolean): Integer'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: CountPrice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CountPrice(Boolean):Integer
+- syntax:
+    content: 'procedure DiscountExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: DiscountExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.DiscountExists(Boolean):Boolean
+- syntax:
+    content: 'procedure PriceExists(ShowAll: Boolean): Boolean'
+    parameters:
+    - id: ShowAll
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PriceExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.PriceExists(Boolean):Boolean
+- syntax:
+    content: procedure PickDiscount()
+  name: PickDiscount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.PickDiscount
+- syntax:
+    content: procedure PickPrice()
+  name: PickPrice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.PickPrice
+- syntax:
+    content: procedure UpdateReferencePriceAndDiscount()
+  name: UpdateReferencePriceAndDiscount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateReferencePriceAndDiscount
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the new implementation (V16) of price calculation.,16.0)]'
+    content: procedure FindResUnitCost()
+  name: FindResUnitCost
+  obsoletion:
+    state: pending
+    reason: Replaced by the new implementation (V16) of price calculation.
+    version: "16.0"
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FindResUnitCost
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the new implementation (V16) of price calculation.,17.0)]'
+    content: 'procedure FindResUnitCostOnAfterInitResCost(var ResourceCost: Record "Resource Cost")'
+    parameters:
+    - id: ResourceCost
+      parameterType:
+        name: Record "Resource Cost"
+        isExternal: true
+  name: FindResUnitCostOnAfterInitResCost
+  obsoletion:
+    state: pending
+    reason: Replaced by the new implementation (V16) of price calculation.
+    version: "17.0"
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FindResUnitCostOnAfterInitResCost(Resource_Cost@)
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the new implementation (V16) of price calculation.,17.0)]'
+    content: 'procedure AfterFindResUnitCost(var ResourceCost: Record "Resource Cost")'
+    parameters:
+    - id: ResourceCost
+      parameterType:
+        name: Record "Resource Cost"
+        isExternal: true
+  name: AfterFindResUnitCost
+  obsoletion:
+    state: pending
+    reason: Replaced by the new implementation (V16) of price calculation.
+    version: "17.0"
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AfterFindResUnitCost(Resource_Cost@)
+- syntax:
+    content: procedure UpdatePrepmtSetupFields()
+  name: UpdatePrepmtSetupFields
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdatePrepmtSetupFields
+- syntax:
+    content: procedure UpdateAmounts()
+  name: UpdateAmounts
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateAmounts
+- syntax:
+    content: procedure UpdateVATAmounts()
+  name: UpdateVATAmounts
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateVATAmounts
+- syntax:
+    content: 'procedure CheckItemAvailable(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckItemAvailable
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckItemAvailable(Integer)
+- syntax:
+    content: procedure ShowReservation()
+  name: ShowReservation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowReservation
+- syntax:
+    content: 'procedure ShowReservationEntries(Modal: Boolean)'
+    parameters:
+    - id: Modal
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowReservationEntries
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowReservationEntries(Boolean)
+- syntax:
+    content: procedure AutoReserve()
+  name: AutoReserve
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AutoReserve
+- syntax:
+    content: procedure AutoAsmToOrder()
+  name: AutoAsmToOrder
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AutoAsmToOrder
+- syntax:
+    content: 'procedure GetDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDate:Date
+- syntax:
+    content: 'procedure CalcPlannedDeliveryDate(CurrFieldNo: Integer): Date'
+    parameters:
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcPlannedDeliveryDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcPlannedDeliveryDate(Integer):Date
+- syntax:
+    content: 'procedure CalcPlannedShptDate(CurrFieldNo: Integer): Date'
+    parameters:
+    - id: CurrFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcPlannedShptDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcPlannedShptDate(Integer):Date
+- syntax:
+    content: 'procedure CalcShipmentDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcShipmentDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcShipmentDate:Date
+- syntax:
+    content: 'procedure SignedXX(Value: Decimal): Decimal'
+    parameters:
+    - id: Value
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: SignedXX
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SignedXX(Decimal):Decimal
+- syntax:
+    content: 'procedure ShowDimensions(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowDimensions:Boolean
+- syntax:
+    content: procedure OpenItemTrackingLines()
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.OpenItemTrackingLines
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupShortcutDimCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.LookupShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: procedure SelectMultipleItems()
+  name: SelectMultipleItems
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SelectMultipleItems
+- syntax:
+    content: 'procedure AddItems(SelectionFilter: Text)'
+    parameters:
+    - id: SelectionFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AddItems
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AddItems(Text)
+- syntax:
+    content: 'procedure AddItem(var SalesLine: Record "Sales Line", ItemNo: Code[20])'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddItem
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AddItem(Sales_Line@,Code[20])
+- syntax:
+    content: 'procedure ProcessSalesLine(var SalesLine: Record "Sales Line")'
+    parameters:
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: ProcessSalesLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ProcessSalesLine(Sales_Line@)
+- syntax:
+    content: 'procedure InitNewLine(var NewSalesLine: Record "Sales Line")'
+    parameters:
+    - id: NewSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: InitNewLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitNewLine(Sales_Line@)
+- syntax:
+    content: procedure ShowItemSub()
+  name: ShowItemSub
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowItemSub
+- syntax:
+    content: procedure ShowNonstock()
+  name: ShowNonstock
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowNonstock
+- syntax:
+    content: procedure GetFAPostingGroup()
+  name: GetFAPostingGroup
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetFAPostingGroup
+- syntax:
+    content: 'procedure GetCaptionClass(FieldNumber: Integer): Text[80]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetCaptionClass(Integer):Text[80]
+- syntax:
+    content: 'procedure GetSKU(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSKU
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSKU:Boolean
+- syntax:
+    content: 'procedure GetSKU(var StockkeepingUnit: Record "Stockkeeping Unit"): Boolean'
+    parameters:
+    - id: StockkeepingUnit
+      parameterType:
+        name: Record "Stockkeeping Unit"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSKU
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSKU(Stockkeeping_Unit@):Boolean
+- syntax:
+    content: procedure GetUnitCost()
+  name: GetUnitCost
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetUnitCost
+- syntax:
+    content: procedure ShowItemChargeAssgnt()
+  name: ShowItemChargeAssgnt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowItemChargeAssgnt
+- syntax:
+    content: procedure UpdateItemChargeAssgnt()
+  name: UpdateItemChargeAssgnt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateItemChargeAssgnt
+- syntax:
+    content: 'procedure DeleteItemChargeAssignment(DocType: Enum "Sales Document Type", DocNo: Code[20], DocLineNo: Integer)'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DocLineNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: DeleteItemChargeAssignment
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.DeleteItemChargeAssignment(Enum::Microsoft#Sales#Document#Sales_Document_Type,Code[20],Integer)
+- syntax:
+    content: procedure TestStatusOpen()
+  name: TestStatusOpen
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.TestStatusOpen
+- syntax:
+    content: 'procedure GetSuspendedStatusCheck(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSuspendedStatusCheck
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetSuspendedStatusCheck:Boolean
+- syntax:
+    content: 'procedure SuspendStatusCheck(Suspend: Boolean)'
+    parameters:
+    - id: Suspend
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SuspendStatusCheck
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SuspendStatusCheck(Boolean)
+- syntax:
+    content: 'procedure SwitchLinesWithErrorsFilter(var ShowAllLinesEnabled: Boolean)'
+    parameters:
+    - id: ShowAllLinesEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SwitchLinesWithErrorsFilter
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SwitchLinesWithErrorsFilter(Boolean@)
+- syntax:
+    content: 'procedure UpdateVATOnLines(QtyType: Option, var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var VATAmountLine: Record "VAT Amount Line"): Boolean'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdateVATOnLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateVATOnLines(Option,Sales_Header@,Sales_Line@,VAT_Amount_Line@):Boolean
+- syntax:
+    content: 'procedure CalcVATAmountLines(QtyType: Option, var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var VATAmountLine: Record "VAT Amount Line")'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcVATAmountLines(Option,Sales_Header@,Sales_Line@,VAT_Amount_Line@)
+- syntax:
+    content: 'procedure CalcVATAmountLines(QtyType: Option, var SalesHeader: Record "Sales Header", var SalesLine: Record "Sales Line", var VATAmountLine: Record "VAT Amount Line", IncludePrepayments: Boolean)'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: IncludePrepayments
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcVATAmountLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcVATAmountLines(Option,Sales_Header@,Sales_Line@,VAT_Amount_Line@,Boolean)
+- syntax:
+    content: 'procedure GetCPGInvRoundAcc(var SalesHeader: Record "Sales Header"): Code[20]'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCPGInvRoundAcc
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetCPGInvRoundAcc(Sales_Header@):Code[20]
+- syntax:
+    content: 'procedure GetVATAmountLineOfMaxAmt(var VATAmountLine: Record "VAT Amount Line", SalesLine: Record "Sales Line"): Boolean'
+    parameters:
+    - id: VATAmountLine
+      parameterType:
+        name: Record "VAT Amount Line"
+        isExternal: true
+    - id: SalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetVATAmountLineOfMaxAmt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetVATAmountLineOfMaxAmt(VAT_Amount_Line@,Sales_Line):Boolean
+- syntax:
+    content: procedure CalcInvDiscToInvoice()
+  name: CalcInvDiscToInvoice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcInvDiscToInvoice
+- syntax:
+    content: procedure UpdateWithWarehouseShip()
+  name: UpdateWithWarehouseShip
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateWithWarehouseShip
+- syntax:
+    content: 'procedure CheckWarehouse(ShowDialogMessage: Boolean)'
+    parameters:
+    - id: ShowDialogMessage
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckWarehouse
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckWarehouse(Boolean)
+- syntax:
+    content: procedure CheckWarehouseForQtyToShip()
+  name: CheckWarehouseForQtyToShip
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckWarehouseForQtyToShip
+- syntax:
+    content: procedure UpdateDates()
+  name: UpdateDates
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateDates
+- syntax:
+    content: procedure GetItemTranslation()
+  name: GetItemTranslation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetItemTranslation
+- syntax:
+    content: 'procedure PriceExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: PriceExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.PriceExists:Boolean
+- syntax:
+    content: 'procedure LineDiscExists(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LineDiscExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.LineDiscExists:Boolean
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.RowID1:Text[250]
+- syntax:
+    content: procedure GetDefaultBin()
+  name: GetDefaultBin
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDefaultBin
+- syntax:
+    content: 'procedure GetATOBin(Location: Record Location, var BinCode: Code[20]): Boolean'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetATOBin
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetATOBin(Location,Code[20]@):Boolean
+- syntax:
+    content: 'procedure IsInbound(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInbound
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsInbound:Boolean
+- syntax:
+    content: 'procedure CheckAssocPurchOrder(TheFieldCaption: Text[250])'
+    parameters:
+    - id: TheFieldCaption
+      parameterType:
+        name: Text[250]
+        isExternal: true
+  name: CheckAssocPurchOrder
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckAssocPurchOrder(Text[250])
+- syntax:
+    content: procedure CheckServItemCreation()
+  name: CheckServItemCreation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckServItemCreation
+- syntax:
+    content: 'procedure ItemExists(ItemNo: Code[20]): Boolean'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ItemExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ItemExists(Code[20]):Boolean
+- syntax:
+    content: 'procedure FindOrCreateRecordByNo(SourceNo: Code[20]): Code[20]'
+    parameters:
+    - id: SourceNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: FindOrCreateRecordByNo
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FindOrCreateRecordByNo(Code[20]):Code[20]
+- syntax:
+    content: 'procedure IsShipment(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsShipment
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsShipment:Boolean
+- syntax:
+    content: 'procedure GetAbsMin(QtyToHandle: Decimal, QtyHandled: Decimal): Decimal'
+    parameters:
+    - id: QtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyHandled
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetAbsMin
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetAbsMin(Decimal,Decimal):Decimal
+- syntax:
+    content: 'procedure SetHideValidationDialog(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidationDialog
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetHideValidationDialog(Boolean)
+- syntax:
+    content: 'procedure GetHideValidationDialog(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetHideValidationDialog
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetHideValidationDialog:Boolean
+- syntax:
+    content: procedure CalcPrepaymentToDeduct()
+  name: CalcPrepaymentToDeduct
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcPrepaymentToDeduct
+- syntax:
+    content: 'procedure IsFinalInvoice(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsFinalInvoice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsFinalInvoice:Boolean
+- syntax:
+    content: 'procedure GetLineAmountToHandle(QtyToHandle: Decimal): Decimal'
+    parameters:
+    - id: QtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLineAmountToHandle
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetLineAmountToHandle(Decimal):Decimal
+- syntax:
+    content: 'procedure GetLineAmountToHandleInclPrepmt(QtyToHandle: Decimal): Decimal'
+    parameters:
+    - id: QtyToHandle
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLineAmountToHandleInclPrepmt
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetLineAmountToHandleInclPrepmt(Decimal):Decimal
+- syntax:
+    content: 'procedure GetLineAmountExclVAT(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLineAmountExclVAT
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetLineAmountExclVAT:Decimal
+- syntax:
+    content: 'procedure GetLineAmountInclVAT(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetLineAmountInclVAT
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetLineAmountInclVAT:Decimal
+- syntax:
+    content: procedure SetHasBeenShown()
+  name: SetHasBeenShown
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetHasBeenShown
+- syntax:
+    content: procedure TestJobPlanningLine()
+  name: TestJobPlanningLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.TestJobPlanningLine
+- syntax:
+    content: 'procedure BlockDynamicTracking(SetBlock: Boolean)'
+    parameters:
+    - id: SetBlock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: BlockDynamicTracking
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.BlockDynamicTracking(Boolean)
+- syntax:
+    content: procedure InitQtyToShip2()
+  name: InitQtyToShip2
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitQtyToShip2
+- syntax:
+    content: procedure ShowLineComments()
+  name: ShowLineComments
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowLineComments
+- syntax:
+    content: procedure SetDefaultQuantity()
+  name: SetDefaultQuantity
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SetDefaultQuantity
+- syntax:
+    content: procedure UpdatePrePaymentAmounts()
+  name: UpdatePrePaymentAmounts
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdatePrePaymentAmounts
+- syntax:
+    content: 'procedure ZeroAmountLine(QtyType: Option): Boolean'
+    parameters:
+    - id: QtyType
+      parameterType:
+        name: Option
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ZeroAmountLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ZeroAmountLine(Option):Boolean
+- syntax:
+    content: 'procedure FilterLinesWithItemToPlan(var Item: Record Item, DocumentType: Enum "Sales Document Type")'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+  name: FilterLinesWithItemToPlan
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FilterLinesWithItemToPlan(Item@,Enum::Microsoft#Sales#Document#Sales_Document_Type)
+- syntax:
+    content: 'procedure FindLinesWithItemToPlan(var Item: Record Item, DocumentType: Enum "Sales Document Type"): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLinesWithItemToPlan
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FindLinesWithItemToPlan(Item@,Enum::Microsoft#Sales#Document#Sales_Document_Type):Boolean
+- syntax:
+    content: 'procedure LinesWithItemToPlanExist(var Item: Record Item, DocumentType: Enum "Sales Document Type"): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LinesWithItemToPlanExist
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.LinesWithItemToPlanExist(Item@,Enum::Microsoft#Sales#Document#Sales_Document_Type):Boolean
+- syntax:
+    content: 'procedure FilterLinesForReservation(ReservationEntry: Record "Reservation Entry", DocumentType: Enum "Sales Document Type", AvailabilityFilter: Text, Positive: Boolean)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    - id: AvailabilityFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterLinesForReservation
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FilterLinesForReservation(Reservation_Entry,Enum::Microsoft#Sales#Document#Sales_Document_Type,Text,Boolean)
+- syntax:
+    content: 'procedure AsmToOrderExists(var AsmHeader: Record "Assembly Header"): Boolean'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AsmToOrderExists
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AsmToOrderExists(Assembly_Header@):Boolean
+- syntax:
+    content: 'procedure FullQtyIsForAsmToOrder(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FullQtyIsForAsmToOrder
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FullQtyIsForAsmToOrder:Boolean
+- syntax:
+    content: 'procedure QtyBaseOnATO(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: QtyBaseOnATO
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.QtyBaseOnATO:Decimal
+- syntax:
+    content: 'procedure QtyAsmRemainingBaseOnATO(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: QtyAsmRemainingBaseOnATO
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.QtyAsmRemainingBaseOnATO:Decimal
+- syntax:
+    content: 'procedure QtyToAsmBaseOnATO(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: QtyToAsmBaseOnATO
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.QtyToAsmBaseOnATO:Decimal
+- syntax:
+    content: 'procedure IsAsmToOrderAllowed(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAsmToOrderAllowed
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsAsmToOrderAllowed:Boolean
+- syntax:
+    content: 'procedure IsAsmToOrderRequired(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAsmToOrderRequired
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsAsmToOrderRequired:Boolean
+- syntax:
+    content: 'procedure CheckAsmToOrder(AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: CheckAsmToOrder
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckAsmToOrder(Assembly_Header)
+- syntax:
+    content: procedure ShowAsmToOrderLines()
+  name: ShowAsmToOrderLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowAsmToOrderLines
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by FindOpenATOEntry() with parameter ItemTrackingSetup.,17.0)]'
+    content: 'procedure FindOpenATOEntry(LotNo: Code[50], SerialNo: Code[50]): Integer'
+    parameters:
+    - id: LotNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: SerialNo
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindOpenATOEntry
+  obsoletion:
+    state: pending
+    reason: Replaced by FindOpenATOEntry() with parameter ItemTrackingSetup.
+    version: "17.0"
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FindOpenATOEntry(Code[50],Code[50]):Integer
+- syntax:
+    content: 'procedure FindOpenATOEntry(ItemTrackingSetup: Record "Item Tracking Setup" temporary): Integer'
+    parameters:
+    - id: ItemTrackingSetup
+      parameterType:
+        name: Record "Item Tracking Setup" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindOpenATOEntry
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FindOpenATOEntry(Item_Tracking_Setup):Integer
+- syntax:
+    content: procedure RollUpAsmCost()
+  name: RollUpAsmCost
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.RollUpAsmCost
+- syntax:
+    content: procedure RollupAsmPrice()
+  name: RollupAsmPrice
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.RollupAsmPrice
+- syntax:
+    content: procedure UpdateICPartner()
+  name: UpdateICPartner
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateICPartner
+- syntax:
+    content: 'procedure OutstandingInvoiceAmountFromShipment(SellToCustomerNo: Code[20]): Decimal'
+    parameters:
+    - id: SellToCustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: OutstandingInvoiceAmountFromShipment
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.OutstandingInvoiceAmountFromShipment(Code[20]):Decimal
+- syntax:
+    content: procedure VerifyItemLineDim()
+  name: VerifyItemLineDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.VerifyItemLineDim
+- syntax:
+    content: 'procedure IsShippedReceivedItemDimChanged(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsShippedReceivedItemDimChanged
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsShippedReceivedItemDimChanged:Boolean
+- syntax:
+    content: 'procedure IsServiceChargeLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsServiceChargeLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsServiceChargeLine:Boolean
+- syntax:
+    content: 'procedure ConfirmShippedReceivedItemDimChange(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmShippedReceivedItemDimChange
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ConfirmShippedReceivedItemDimChange:Boolean
+- syntax:
+    content: procedure InitType()
+  name: InitType
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitType
+- syntax:
+    content: 'procedure GetDefaultLineType(): Enum "Sales Line Type"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+        name: Microsoft.Sales.Document."Sales Line Type"
+        isExternal: false
+  name: GetDefaultLineType
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDefaultLineType:Enum::Microsoft#Sales#Document#Sales_Line_Type
+- syntax:
+    content: procedure CheckLocationOnWMS()
+  name: CheckLocationOnWMS
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckLocationOnWMS
+- syntax:
+    content: 'procedure IsNonInventoriableItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNonInventoriableItem
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsNonInventoriableItem:Boolean
+- syntax:
+    content: 'procedure IsInventoriableItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInventoriableItem
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsInventoriableItem:Boolean
+- syntax:
+    content: 'procedure IsExtendedText(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExtendedText
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsExtendedText:Boolean
+- syntax:
+    content: 'procedure GetJnlTemplateName(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetJnlTemplateName
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetJnlTemplateName:Code[10]
+- syntax:
+    content: 'procedure ValidateReturnReasonCode(CallingFieldNo: Integer)'
+    parameters:
+    - id: CallingFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateReturnReasonCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ValidateReturnReasonCode(Integer)
+- syntax:
+    content: 'procedure ValidateLineDiscountPercent(DropInvoiceDiscountAmount: Boolean)'
+    parameters:
+    - id: DropInvoiceDiscountAmount
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ValidateLineDiscountPercent
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ValidateLineDiscountPercent(Boolean)
+- syntax:
+    content: 'procedure HasTypeToFillMandatoryFields(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasTypeToFillMandatoryFields
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.HasTypeToFillMandatoryFields:Boolean
+- syntax:
+    content: 'procedure GetDeferralAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetDeferralAmount
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDeferralAmount:Decimal
+- syntax:
+    content: procedure UpdateDeferralAmounts()
+  name: UpdateDeferralAmounts
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdateDeferralAmounts
+- syntax:
+    content: procedure UpdatePriceDescription()
+  name: UpdatePriceDescription
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdatePriceDescription
+- syntax:
+    content: 'procedure ShowDeferrals(PostingDate: Date, CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowDeferrals
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowDeferrals(Date,Code[10]):Boolean
+- syntax:
+    content: 'procedure InitHeaderDefaults(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: InitHeaderDefaults
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitHeaderDefaults(Sales_Header)
+- syntax:
+    content: procedure DefaultDeferralCode()
+  name: DefaultDeferralCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.DefaultDeferralCode
+- syntax:
+    content: 'procedure IsCreditDocType(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCreditDocType
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsCreditDocType:Boolean
+- syntax:
+    content: 'procedure CanEditUnitOfMeasureCode(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanEditUnitOfMeasureCode
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CanEditUnitOfMeasureCode:Boolean
+- syntax:
+    content: 'procedure InsertFreightLine(var FreightAmount: Decimal)'
+    parameters:
+    - id: FreightAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InsertFreightLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InsertFreightLine(Decimal@)
+- syntax:
+    content: 'procedure IsLookupRequested(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsLookupRequested
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.IsLookupRequested:Boolean
+- syntax:
+    content: 'procedure TestItemFields(ItemNo: Code[20], VariantCode: Code[10], LocationCode: Code[10])'
+    parameters:
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: VariantCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: LocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: TestItemFields
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.TestItemFields(Code[20],Code[10],Code[10])
+- syntax:
+    content: procedure CalculateNotShippedInvExlcVatLCY()
+  name: CalculateNotShippedInvExlcVatLCY
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalculateNotShippedInvExlcVatLCY
+- syntax:
+    content: procedure ClearSalesHeader()
+  name: ClearSalesHeader
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ClearSalesHeader
+- syntax:
+    content: procedure SendLineInvoiceDiscountResetNotification()
+  name: SendLineInvoiceDiscountResetNotification
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SendLineInvoiceDiscountResetNotification
+- syntax:
+    content: 'procedure GetDocumentTypeDescription(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetDocumentTypeDescription
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDocumentTypeDescription:Text
+- syntax:
+    content: 'procedure FormatType(): Text[20]'
+    return:
+      returnType:
+        name: Text[20]
+        isExternal: true
+  name: FormatType
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.FormatType:Text[20]
+- syntax:
+    content: 'procedure RenameNo(LineType: Enum "Sales Line Type", OldNo: Code[20], NewNo: Code[20])'
+    parameters:
+    - id: LineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+        name: Microsoft.Sales.Document."Sales Line Type"
+        isExternal: false
+    - id: OldNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RenameNo
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.RenameNo(Enum::Microsoft#Sales#Document#Sales_Line_Type,Code[20],Code[20])
+- syntax:
+    content: 'procedure UpdatePlanned(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdatePlanned
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.UpdatePlanned:Boolean
+- syntax:
+    content: 'procedure AssignedItemCharge(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssignedItemCharge
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AssignedItemCharge:Boolean
+- syntax:
+    content: 'procedure CalcPlannedDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: CalcPlannedDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcPlannedDate:Date
+- syntax:
+    content: 'procedure ValidateUnitCostLCYOnGetUnitCost(Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: ValidateUnitCostLCYOnGetUnitCost
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ValidateUnitCostLCYOnGetUnitCost(Item)
+- syntax:
+    content: procedure CheckPromisedDeliveryDate()
+  name: CheckPromisedDeliveryDate
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckPromisedDeliveryDate
+- syntax:
+    content: 'procedure ShowBlanketOrderSalesLines(DocumentType: Enum "Sales Document Type")'
+    parameters:
+    - id: DocumentType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+  name: ShowBlanketOrderSalesLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowBlanketOrderSalesLines(Enum::Microsoft#Sales#Document#Sales_Document_Type)
+- syntax:
+    content: procedure ShowBlanketOrderPostedShipmentLines()
+  name: ShowBlanketOrderPostedShipmentLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowBlanketOrderPostedShipmentLines
+- syntax:
+    content: procedure ShowBlanketOrderPostedInvoiceLines()
+  name: ShowBlanketOrderPostedInvoiceLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowBlanketOrderPostedInvoiceLines
+- syntax:
+    content: procedure ShowBlanketOrderPostedReturnReceiptLines()
+  name: ShowBlanketOrderPostedReturnReceiptLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowBlanketOrderPostedReturnReceiptLines
+- syntax:
+    content: procedure ShowBlanketOrderPostedCreditMemoLines()
+  name: ShowBlanketOrderPostedCreditMemoLines
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowBlanketOrderPostedCreditMemoLines
+- syntax:
+    content: procedure ShowDeferralSchedule()
+  name: ShowDeferralSchedule
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.ShowDeferralSchedule
+- syntax:
+    content: 'procedure CalcBaseQty(Qty: Decimal, FromFieldName: Text, ToFieldName: Text): Decimal'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: FromFieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ToFieldName
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcBaseQty
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CalcBaseQty(Decimal,Text,Text):Decimal
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FieldNo: Integer)'
+    parameters:
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CreateDimFromDefaultDim(Integer)
+- syntax:
+    content: 'procedure InitDefaultDimensionSources(var DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], FieldNo: Integer)'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitDefaultDimensionSources
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitDefaultDimensionSources(List_of_[Dictionary]@,Integer)
+- syntax:
+    content: 'procedure InitDefaultDimensionSources(var DefaultDimSource: List of [Dictionary of [Integer, Code[20]]], JobNo: Code[20], FieldNo: Integer)'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+    - id: JobNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: InitDefaultDimensionSources
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.InitDefaultDimensionSources(List_of_[Dictionary]@,Code[20],Integer)
+- syntax:
+    content: 'procedure SaveLookupSelection(SelectedRecordRef: RecordRef)'
+    parameters:
+    - id: SelectedRecordRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+  name: SaveLookupSelection
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.SaveLookupSelection(RecordRef)
+- syntax:
+    content: 'procedure AttachToInventoryItemLine(var SelectedSalesLine: Record "Sales Line")'
+    parameters:
+    - id: SelectedSalesLine
+      parameterType:
+        name: Record "Sales Line"
+        isExternal: true
+  name: AttachToInventoryItemLine
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.AttachToInventoryItemLine(Sales_Line@)
+- syntax:
+    content: procedure RestoreLookupSelection()
+  name: RestoreLookupSelection
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.RestoreLookupSelection
+- syntax:
+    content: 'procedure GetDateForCalculations(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDateForCalculations
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDateForCalculations:Date
+- syntax:
+    content: 'procedure GetDateForCalculations(FromSalesHeader: Record "Sales Header"): Date'
+    parameters:
+    - id: FromSalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetDateForCalculations
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.GetDateForCalculations(Sales_Header):Date
+- syntax:
+    content: 'procedure CheckIfSalesLineMeetsReservedFromStockSetting(QtyToPost: Decimal, ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: QtyToPost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfSalesLineMeetsReservedFromStockSetting
+  uid: M:Table::Microsoft#Sales#Document#Sales_Line.CheckIfSalesLineMeetsReservedFromStockSetting(Decimal,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+    name: Microsoft.Sales.Document."Sales Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to Customer No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Sell-to_Customer_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Document#Sales_Line_Type
+    name: Microsoft.Sales.Document."Sales Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipment_Date
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Description_2[50]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Quantity"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Outstanding_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Invoice"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Invoice
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Ship"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Ship
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount Including VAT"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Amount_Including_VAT
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Allow_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_Volume
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Appl#-to_Item_Entry
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Customer_Price_Group[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Job_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Work_Type_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Recalculate Invoice Disc."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Recalculate_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Outstanding_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Shipped_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipped_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Shipped"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Quantity_Shipped
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Invoiced"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Quantity_Invoiced
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shipment No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipment_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Shipment Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipment_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Profit %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Profit_%
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Bill-to_Customer_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discount Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Inv#_Discount_Amount
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Purchase Order No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Purchase_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Purch. Order Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Purch#_Order_Line_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Drop Shipment"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Drop_Shipment
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Calculation_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Transport_Method[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Attached_to_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Exit Point"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Exit_Point[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Transaction_Specification[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Tax Category"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Tax_Category[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Tax_Group_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Clause Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Clause_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Amount (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Outstanding_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Invoiced (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipped_Not_Invoiced_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Inv. (LCY) No VAT"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipped_Not_Inv#_(LCY)_No_VAT
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Reserved_Quantity
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Reserve
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Blanket Order No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Blanket_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Blanket Order Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Blanket_Order_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_Cost
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.System-Created_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Disc. Amount to Invoice"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Inv#_Disc#_Amount_to_Invoice
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Identifier"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.VAT_Identifier[20]
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Partner#IC_Partner_Reference_Type
+    name: Microsoft.Intercompany.Partner."IC Partner Reference Type"
+    isExternal: false
+  name: '"IC Partner Ref. Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.IC_Partner_Ref#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Reference"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.IC_Partner_Reference[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Line Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Amt. Inv."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_Amt#_Inv#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Amt. Incl. VAT"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_Amt#_Incl#_VAT
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. VAT Base Amt."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_VAT_Base_Amt#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment VAT %"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_VAT_%
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"Prepmt. VAT Calc. Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_VAT_Calc#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepayment VAT Identifier"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_VAT_Identifier[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepayment Tax Area Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prepayment Tax Liable"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prepayment Tax Group Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_Tax_Group_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt Amt to Deduct"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt_Amt_to_Deduct
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt Amt Deducted"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt_Amt_Deducted
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prepayment Line"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_Line
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Amount Inv. Incl. VAT"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_Amount_Inv#_Incl#_VAT
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Amount Inv. (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_Amount_Inv#_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.IC_Partner_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. VAT Amount Inv. (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_VAT_Amount_Inv#_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment VAT Difference"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepayment_VAT_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt VAT Diff. to Deduct"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt_VAT_Diff#_to_Deduct
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt VAT Diff. Deducted"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt_VAT_Diff#_Deducted
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"IC Item Reference No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.IC_Item_Reference_No#[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discount Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Pmt#_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepmt. Pmt. Discount Amount"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Prepmt#_Pmt#_Discount_Amount
+- type:
+    name: Option
+    isExternal: true
+  name: '"Line Discount Calculation"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Line_Discount_Calculation
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Dimension_Set_ID
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Assemble to Order"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Assemble_to_Order
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Asm. to Order (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Asm#_to_Order_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"ATO Whse. Outstanding Qty."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.ATO_Whse#_Outstanding_Qty#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"ATO Whse. Outstd. Qty. (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.ATO_Whse#_Outstd#_Qty#_(Base)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Job_Task_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Contract Entry No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Job_Contract_Entry_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Deferral Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Deferral_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Returns Deferral Start Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Returns_Deferral_Start_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Selected Alloc. Account No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Selected_Alloc#_Account_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Alloc. Acc. Modified by User"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Alloc#_Acc#_Modified_by_User
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Allocation Account No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Allocation_Account_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Boolean
+    isExternal: true
+  name: Planned
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Planned
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Qty. (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Outstanding_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Invoice (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Invoice_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Ship (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Ship_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped Not Invd. (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Shipped_Not_Invd#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Shipped_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Invoiced (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Invoiced_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Reserved_Qty#_(Base)
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.FA_Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Depreciation_Book_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. until FA Posting Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Depr#_until_FA_Posting_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duplicate in Depreciation Book"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Duplicate_in_Depreciation_Book[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Duplication List"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Use_Duplication_List
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Responsibility_Center[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Out-of-Stock Substitution"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Out-of-Stock_Substitution
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Substitution Available"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Substitution_Available
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Originally Ordered No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Originally_Ordered_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Originally Ordered Var. Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Originally_Ordered_Var#_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Reference No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Cross-Reference_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure (Cross Ref.)"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Unit_of_Measure_(Cross_Ref#)[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Cross-Reference Type"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Cross-Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Cross-Reference Type No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Cross-Reference_Type_No#[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Purchasing_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Product_Group_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Special Order"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Special_Order
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Special Order Purchase No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Special_Order_Purchase_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Special Order Purch. Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Special_Order_Purch#_Line_No#
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Whse. Outstanding Qty."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Whse#_Outstanding_Qty#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Whse. Outstanding Qty. (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Whse#_Outstanding_Qty#_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Shipped"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Completely_Shipped
+- type:
+    name: Date
+    isExternal: true
+  name: '"Requested Delivery Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Requested_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Promised Delivery Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Promised_Delivery_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipping_Time
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Outbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Outbound_Whse#_Handling_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Delivery Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Planned_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Shipment Date"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Planned_Shipment_Date
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipping_Agent_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Shipping_Agent_Service_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Item Charge Assignment"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Allow_Item_Charge_Assignment
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Assign"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_to_Assign
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Assigned"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Qty#_Assigned
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Qty. to Receive"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Qty#_to_Receive
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Qty. to Receive (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Qty#_to_Receive_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Qty. Rcd. Not Invd."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Qty#_Rcd#_Not_Invd#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Ret. Qty. Rcd. Not Invd.(Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Ret#_Qty#_Rcd#_Not_Invd#(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Rcd. Not Invd."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Rcd#_Not_Invd#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Rcd. Not Invd. (LCY)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Rcd#_Not_Invd#_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Qty. Received"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Qty#_Received
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Return Qty. Received (Base)"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Qty#_Received_(Base)
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-from Item Entry"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Appl#-from_Item_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Item Charge Qty. to Handle"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Item_Charge_Qty#_to_Handle
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"BOM Item No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.BOM_Item_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Return Receipt No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Receipt_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Return Receipt Line No."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Receipt_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Return_Reason_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Copied From Posted Doc."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Copied_From_Posted_Doc#
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Allow_Line_Disc#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Customer_Disc#_Group[20]
+- type:
+    name: Option
+    isExternal: true
+  name: Subtype
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Subtype
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Price description"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Price_description[80]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached Doc Count"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Attached_Doc_Count
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached Lines Count"'
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.Attached_Lines_Count
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Sales#Document#Sales_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Sales#Document#Sales Line
+name: '"Sales Line"'
+uid: O:Table::Microsoft#Sales#Document#Sales_Line

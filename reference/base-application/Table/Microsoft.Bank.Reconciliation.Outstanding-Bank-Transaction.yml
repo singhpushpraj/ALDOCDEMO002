@@ -1,0 +1,209 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Bank.Reconciliation."Outstanding Bank Transaction"
+alId: ID 1284
+namespace: Microsoft.Bank.Reconciliation
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Bank.Reconciliation
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Outstanding Bank Transaction
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure DrillDown(BankAccNo: Code[20], TransactionType: Option, StatementType: Integer, StatementNo: Code[20])'
+    parameters:
+    - id: BankAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: TransactionType
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: StatementType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatementNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: DrillDown
+  uid: M:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.DrillDown(Code[20],Option,Integer,Code[20])
+- syntax:
+    content: 'procedure CreateTempOutstandingBankTrxs(var TempOutstandingBankTransaction: Record "Outstanding Bank Transaction" temporary, BankAccNo: Code[20], StatementType: Integer, StatementNo: Code[20])'
+    parameters:
+    - id: TempOutstandingBankTransaction
+      parameterType:
+        name: Record "Outstanding Bank Transaction" temporary
+        isExternal: true
+    - id: BankAccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: StatementType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatementNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CreateTempOutstandingBankTrxs
+  uid: M:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.CreateTempOutstandingBankTrxs(Outstanding_Bank_Transaction@,Code[20],Integer,Code[20])
+- syntax:
+    content: 'procedure GetCurrencyCode(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCode
+  uid: M:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.GetCurrencyCode:Code[10]
+- syntax:
+    content: 'procedure CopyFromBankAccLedgerEntry(BankAccountLedgerEntry: Record "Bank Account Ledger Entry", BankTransacType: Integer, StatementType: Integer, StatementNo: Code[20], RemainingAmt: Decimal)'
+    parameters:
+    - id: BankAccountLedgerEntry
+      parameterType:
+        name: Record "Bank Account Ledger Entry"
+        isExternal: true
+    - id: BankTransacType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatementType
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: StatementNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: RemainingAmt
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: CopyFromBankAccLedgerEntry
+  uid: M:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.CopyFromBankAccLedgerEntry(Bank_Account_Ledger_Entry,Integer,Integer,Code[20],Decimal)
+- syntax:
+    content: 'procedure GetAppliedAmount(EntryNo: Integer): Decimal'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetAppliedAmount
+  uid: M:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.GetAppliedAmount(Integer):Decimal
+- syntax:
+    content: 'procedure GetRemainingAmount(EntryNo: Integer): Decimal'
+    parameters:
+    - id: EntryNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetRemainingAmount
+  uid: M:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.GetRemainingAmount(Integer):Decimal
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Entry No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Entry_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Posting_Date
+- type:
+    name: Option
+    isExternal: true
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Document_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bank Account No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Bank_Account_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Description[100]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Amount
+- type:
+    name: Option
+    isExternal: true
+  name: Type
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: Applied
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Applied
+- type:
+    name: Option
+    isExternal: true
+  name: '"Statement Type"'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Statement_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Statement No."'
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.Statement_No#[20]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction.SystemRowVersion
+commentId: O:Table::Microsoft#Bank#Reconciliation#Outstanding Bank Transaction
+name: '"Outstanding Bank Transaction"'
+uid: O:Table::Microsoft#Bank#Reconciliation#Outstanding_Bank_Transaction

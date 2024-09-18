@@ -1,0 +1,79 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Document."Sales Invoice"
+alId: ID 43
+namespace: Microsoft.Sales.Document
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Document
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+  name: Microsoft.Sales.Document."Sales Header"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Sales Invoice
+  promoted: false
+- name: PageType
+  value: Document
+  promoted: true
+- name: RefreshOnActivate
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "36"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Sales#Document#Sales_Header
+    name: Microsoft.Sales.Document."Sales Header"
+    isExternal: false
+- name: SourceTableView
+  value: where("Document Type" = filter(Invoice))
+  promoted: false
+- name: AdditionalSearchTerms
+  value: Sales Bill, Sales Receipt, Commerce Invoice, Client Invoice, Sales Slip, Sales Transaction Invoice
+  promoted: false
+- name: AboutTitle
+  value: About sales invoice details
+  promoted: false
+- name: AboutText
+  value: You can update and add to the sales invoice until you post it. If you leave the invoice without posting, you can return to it later from the list of ongoing invoices.
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CallPostDocument(PostingCodeunitID: Integer, Navigate: Enum "Navigate After Posting")'
+    parameters:
+    - id: PostingCodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: Navigate
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Navigate_After_Posting
+        name: Microsoft.Foundation.Enums."Navigate After Posting"
+        isExternal: false
+  name: CallPostDocument
+  uid: M:Page::Microsoft#Sales#Document#Sales_Invoice.CallPostDocument(Integer,Enum::Microsoft#Foundation#Enums#Navigate_After_Posting)
+- syntax:
+    content: procedure RunBackgroundCheck()
+  name: RunBackgroundCheck
+  uid: M:Page::Microsoft#Sales#Document#Sales_Invoice.RunBackgroundCheck
+- syntax:
+    content: 'procedure SetSkipConfirmationDialogOnClosing(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipConfirmationDialogOnClosing
+  uid: M:Page::Microsoft#Sales#Document#Sales_Invoice.SetSkipConfirmationDialogOnClosing(Boolean)
+- syntax:
+    content: procedure SetPostingGroupEditable()
+  name: SetPostingGroupEditable
+  uid: M:Page::Microsoft#Sales#Document#Sales_Invoice.SetPostingGroupEditable
+commentId: O:Page::Microsoft#Sales#Document#Sales Invoice
+name: '"Sales Invoice"'
+uid: O:Page::Microsoft#Sales#Document#Sales_Invoice

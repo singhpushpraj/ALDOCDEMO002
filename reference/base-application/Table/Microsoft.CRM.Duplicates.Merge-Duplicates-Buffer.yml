@@ -1,0 +1,184 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.CRM.Duplicates."Merge Duplicates Buffer"
+alId: ID 64
+namespace: Microsoft.CRM.Duplicates
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.CRM.Duplicates
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Merge Duplicates Buffer
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure FindConflicts(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindConflicts
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.FindConflicts:Boolean
+- syntax:
+    content: 'procedure GetConflictsMsg(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetConflictsMsg
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.GetConflictsMsg:Text
+- syntax:
+    content: 'procedure GetLines(var TempMergeDuplicatesLineBuf: Record "Merge Duplicates Line Buffer" temporary, var TempMergeDuplicatesConflictBuf: Record "Merge Duplicates Conflict" temporary)'
+    parameters:
+    - id: TempMergeDuplicatesLineBuf
+      parameterType:
+        name: Record "Merge Duplicates Line Buffer" temporary
+        isExternal: true
+    - id: TempMergeDuplicatesConflictBuf
+      parameterType:
+        name: Record "Merge Duplicates Conflict" temporary
+        isExternal: true
+  name: GetLines
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.GetLines(Merge_Duplicates_Line_Buffer@,Merge_Duplicates_Conflict@)
+- syntax:
+    content: 'procedure InsertFromConflict(MergeDuplicatesConflict: Record "Merge Duplicates Conflict")'
+    parameters:
+    - id: MergeDuplicatesConflict
+      parameterType:
+        name: Record "Merge Duplicates Conflict"
+        isExternal: true
+  name: InsertFromConflict
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.InsertFromConflict(Merge_Duplicates_Conflict)
+- syntax:
+    content: 'procedure Show(TableID: Integer, CurrentKey: Code[20])'
+    parameters:
+    - id: TableID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: CurrentKey
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: Show
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Show(Integer,Code[20])
+- syntax:
+    content: procedure ShowConflicts()
+  name: ShowConflicts
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.ShowConflicts
+- syntax:
+    content: 'procedure Merge(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Merge
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Merge:Boolean
+- syntax:
+    content: 'procedure MergeRecords(DuplicateRecID: RecordId, CurrentRecID: RecordId, IdFieldId: Integer)'
+    parameters:
+    - id: DuplicateRecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: CurrentRecID
+      parameterType:
+        name: RecordId
+        isExternal: true
+    - id: IdFieldId
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: MergeRecords
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.MergeRecords(RecordId,RecordId,Integer)
+- syntax:
+    content: 'procedure RemoveConflictingRecord(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RemoveConflictingRecord
+  uid: M:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.RemoveConflictingRecord:Boolean
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Table ID"'
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Table_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: Duplicate
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Duplicate[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: Current
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Current[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Table Name"'
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Table_Name[30]
+- type:
+    name: Integer
+    isExternal: true
+  name: Conflicts
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Conflicts
+- type:
+    name: RecordId
+    isExternal: true
+  name: '"Duplicate Record ID"'
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Duplicate_Record_ID
+- type:
+    name: RecordId
+    isExternal: true
+  name: '"Current Record ID"'
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Current_Record_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Conflict Field ID"'
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.Conflict_Field_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer.SystemRowVersion
+commentId: O:Table::Microsoft#CRM#Duplicates#Merge Duplicates Buffer
+name: '"Merge Duplicates Buffer"'
+uid: O:Table::Microsoft#CRM#Duplicates#Merge_Duplicates_Buffer

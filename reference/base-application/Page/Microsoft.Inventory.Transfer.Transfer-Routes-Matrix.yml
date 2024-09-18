@@ -1,0 +1,71 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."Transfer Routes Matrix"
+alId: ID 9285
+namespace: Microsoft.Inventory.Transfer
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Inventory#Location#Location
+  name: Microsoft.Inventory.Location.Location
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Transfer Routes Matrix
+  promoted: false
+- name: DataCaptionExpression
+  value: "''"
+  promoted: false
+- name: Editable
+  value: "False"
+  promoted: false
+- name: LinksAllowed
+  value: "False"
+  promoted: false
+- name: PageType
+  value: ListPart
+  promoted: true
+- name: SourceTable
+  value: "14"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Location#Location
+    name: Microsoft.Inventory.Location.Location
+    isExternal: false
+- name: SourceTableView
+  value: where("Use As In-Transit" = const(false))
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure LoadMatrix(NewMatrixColumns: array[32] of Text[1024], var NewMatrixRecords: array[32] of Record Location, NewCurrentNoOfMatrixColumns: Integer, NewShow: Enum "Transfer Routes Show")'
+    parameters:
+    - id: NewMatrixColumns
+      parameterType:
+        name: array[32] of Text[1024]
+        isExternal: true
+    - id: NewMatrixRecords
+      parameterType:
+        name: array[32] of Record Location
+        isExternal: true
+    - id: NewCurrentNoOfMatrixColumns
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: NewShow
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Transfer#Transfer_Routes_Show
+        name: Microsoft.Inventory.Transfer."Transfer Routes Show"
+        isExternal: false
+  name: LoadMatrix
+  uid: M:Page::Microsoft#Inventory#Transfer#Transfer_Routes_Matrix.LoadMatrix(Text[1024][],Location[]@,Integer,Enum::Microsoft#Inventory#Transfer#Transfer_Routes_Show)
+- syntax:
+    content: procedure SetColumnVisibility()
+  name: SetColumnVisibility
+  uid: M:Page::Microsoft#Inventory#Transfer#Transfer_Routes_Matrix.SetColumnVisibility
+commentId: O:Page::Microsoft#Inventory#Transfer#Transfer Routes Matrix
+name: '"Transfer Routes Matrix"'
+uid: O:Page::Microsoft#Inventory#Transfer#Transfer_Routes_Matrix

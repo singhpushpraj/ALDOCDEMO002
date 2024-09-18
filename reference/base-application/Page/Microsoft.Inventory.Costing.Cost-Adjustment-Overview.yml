@@ -1,0 +1,56 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Costing."Cost Adjustment Overview"
+alId: ID 5801
+namespace: Microsoft.Inventory.Costing
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Costing
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Inventory#Item#Item
+  name: Microsoft.Inventory.Item.Item
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: PageType
+  value: List
+  promoted: true
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+- name: SourceTable
+  value: "27"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Item#Item
+    name: Microsoft.Inventory.Item.Item
+    isExternal: false
+- name: Caption
+  value: Inventory Cost Adjustment
+  promoted: false
+- name: Editable
+  value: "False"
+  promoted: false
+- name: Permissions
+  value: >-
+    tabledata "Avg. Cost Adjmt. Entry Point" = r,
+                      tabledata "Inventory Adjmt. Entry (Order)" = r
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure RunAdjustCostItemEntries(var SelectedItem: Record Item)'
+    parameters:
+    - id: SelectedItem
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: RunAdjustCostItemEntries
+  uid: M:Page::Microsoft#Inventory#Costing#Cost_Adjustment_Overview.RunAdjustCostItemEntries(Item@)
+commentId: O:Page::Microsoft#Inventory#Costing#Cost Adjustment Overview
+name: '"Cost Adjustment Overview"'
+uid: O:Page::Microsoft#Inventory#Costing#Cost_Adjustment_Overview

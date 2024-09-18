@@ -1,0 +1,125 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Tracking.Reservation
+alId: ID 498
+namespace: Microsoft.Inventory.Tracking
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Tracking
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Inventory#Tracking#Entry_Summary
+  name: Microsoft.Inventory.Tracking."Entry Summary"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Reservation
+  promoted: false
+- name: DataCaptionExpression
+  value: CaptionText
+  promoted: false
+- name: DeleteAllowed
+  value: "False"
+  promoted: false
+- name: PageType
+  value: Worksheet
+  promoted: true
+- name: SourceTable
+  value: "338"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Inventory#Tracking#Entry_Summary
+    name: Microsoft.Inventory.Tracking."Entry Summary"
+    isExternal: false
+- name: SourceTableTemporary
+  value: "True"
+  promoted: false
+- name: InsertAllowed
+  value: "False"
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetReservSource(CurrentRecordVar: Variant)'
+    parameters:
+    - id: CurrentRecordVar
+      parameterType:
+        name: Variant
+        isExternal: true
+  name: SetReservSource
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.SetReservSource(Variant)
+- syntax:
+    content: 'procedure SetReservSource(CurrentRecordVar: Variant, Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: CurrentRecordVar
+      parameterType:
+        name: Variant
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: SetReservSource
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.SetReservSource(Variant,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure SetReservSource(CurrentSourceRecRef: RecordRef, Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: CurrentSourceRecRef
+      parameterType:
+        name: RecordRef
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: SetReservSource
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.SetReservSource(RecordRef,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure SetReservEntry(ReservEntry2: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry2
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservEntry
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.SetReservEntry(Reservation_Entry)
+- syntax:
+    content: 'procedure FilterReservEntry(var FilterReservEntry: Record "Reservation Entry", ReservEntrySummary: Record "Entry Summary" temporary)'
+    parameters:
+    - id: FilterReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: ReservEntrySummary
+      parameterType:
+        name: Record "Entry Summary" temporary
+        isExternal: true
+  name: FilterReservEntry
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.FilterReservEntry(Reservation_Entry@,Entry_Summary)
+- syntax:
+    content: procedure UpdateReservFrom()
+  name: UpdateReservFrom
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.UpdateReservFrom
+- syntax:
+    content: 'procedure ReservedThisLine(ReservSummEntry2: Record "Entry Summary" temporary): Decimal'
+    parameters:
+    - id: ReservSummEntry2
+      parameterType:
+        name: Record "Entry Summary" temporary
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ReservedThisLine
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.ReservedThisLine(Entry_Summary):Decimal
+- syntax:
+    content: procedure AutoReserve()
+  name: AutoReserve
+  uid: M:Page::Microsoft#Inventory#Tracking#Reservation.AutoReserve
+commentId: O:Page::Microsoft#Inventory#Tracking#Reservation
+name: Reservation
+uid: O:Page::Microsoft#Inventory#Tracking#Reservation

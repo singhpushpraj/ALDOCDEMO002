@@ -1,0 +1,1158 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Projects.Project.Planning."Job Planning Line"
+alId: ID 1003
+namespace: Microsoft.Projects.Project.Planning
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Projects.Project.Planning
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Project Planning Line
+  promoted: false
+- name: DrillDownPageID
+  value: Job Planning Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Projects#Project#Planning#Job_Planning_Lines
+    name: Microsoft.Projects.Project.Planning."Job Planning Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Job Planning Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Projects#Project#Planning#Job_Planning_Lines
+    name: Microsoft.Projects.Project.Planning."Job Planning Lines"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CheckItemAvailable(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckItemAvailable
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.CheckItemAvailable(Integer)
+- syntax:
+    content: procedure GetJob()
+  name: GetJob
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetJob
+- syntax:
+    content: procedure UpdateCurrencyFactor()
+  name: UpdateCurrencyFactor
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdateCurrencyFactor
+- syntax:
+    content: procedure InitRoundingPrecisions()
+  name: InitRoundingPrecisions
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.InitRoundingPrecisions
+- syntax:
+    content: 'procedure Caption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: Caption
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Caption:Text
+- syntax:
+    content: 'procedure SetUpNewLine(LastJobPlanningLine: Record "Job Planning Line")'
+    parameters:
+    - id: LastJobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SetUpNewLine(Job_Planning_Line)
+- syntax:
+    content: procedure InitJobPlanningLine()
+  name: InitJobPlanningLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.InitJobPlanningLine
+- syntax:
+    content: 'procedure GetRemainingQty(var RemainingQty: Decimal, var RemainingQtyBase: Decimal)'
+    parameters:
+    - id: RemainingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: GetRemainingQty
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetRemainingQty(Decimal@,Decimal@)
+- syntax:
+    content: 'procedure GetReservationQty(var QtyReserved: Decimal, var QtyReservedBase: Decimal, var QtyToReserve: Decimal, var QtyToReserveBase: Decimal): Decimal'
+    parameters:
+    - id: QtyReserved
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyReservedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservationQty
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetReservationQty(Decimal@,Decimal@,Decimal@,Decimal@):Decimal
+- syntax:
+    content: 'procedure GetSourceCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSourceCaption
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetSourceCaption:Text
+- syntax:
+    content: 'procedure SetReservationEntry(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationEntry
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SetReservationEntry(Reservation_Entry@)
+- syntax:
+    content: 'procedure SetReservationFilters(var ReservEntry: Record "Reservation Entry")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+  name: SetReservationFilters
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SetReservationFilters(Reservation_Entry@)
+- syntax:
+    content: 'procedure ReservEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ReservEntryExist:Boolean
+- syntax:
+    content: procedure UpdateAllAmounts()
+  name: UpdateAllAmounts
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdateAllAmounts
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by the new implementation (V16) of price calculation.,17.0)]'
+    content: 'procedure AfterResourceFindCost(var ResourceCost: Record "Resource Cost")'
+    parameters:
+    - id: ResourceCost
+      parameterType:
+        name: Record "Resource Cost"
+        isExternal: true
+  name: AfterResourceFindCost
+  obsoletion:
+    state: pending
+    reason: Replaced by the new implementation (V16) of price calculation.
+    version: "17.0"
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.AfterResourceFindCost(Resource_Cost@)
+- syntax:
+    content: 'procedure FindPriceAndDiscount(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: FindPriceAndDiscount
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.FindPriceAndDiscount(Integer)
+- syntax:
+    content: 'procedure ApplyPrice(PriceType: Enum "Price Type", CalledByFieldNo: Integer)'
+    parameters:
+    - id: PriceType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Type
+        name: Microsoft.Pricing.PriceList."Price Type"
+        isExternal: false
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ApplyPrice
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ApplyPrice(Enum::Microsoft#Pricing#PriceList#Price_Type,Integer)
+- syntax:
+    content: 'procedure GetLineWithPrice(var LineWithPrice: Interface "Line With Price")'
+    parameters:
+    - id: LineWithPrice
+      parameterType:
+        internalReference: O:Interface::Microsoft#Pricing#PriceList#Line_With_Price
+        name: Microsoft.Pricing.PriceList."Line With Price"
+        isExternal: false
+  name: GetLineWithPrice
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetLineWithPrice(Interface::Microsoft#Pricing#PriceList#Line_With_Price@)
+- syntax:
+    content: procedure UpdateAmountsAndDiscounts()
+  name: UpdateAmountsAndDiscounts
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdateAmountsAndDiscounts
+- syntax:
+    content: 'procedure Use(PostedQty: Decimal, PostedTotalCost: Decimal, PostedLineAmount: Decimal, PostingDate: Date, CurrencyFactor: Decimal)'
+    parameters:
+    - id: PostedQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostedTotalCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostedLineAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: Use
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Use(Decimal,Decimal,Decimal,Date,Decimal)
+- syntax:
+    content: procedure UpdateQtyToTransfer()
+  name: UpdateQtyToTransfer
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdateQtyToTransfer
+- syntax:
+    content: procedure UpdateQtyToInvoice()
+  name: UpdateQtyToInvoice
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdateQtyToInvoice
+- syntax:
+    content: 'procedure UpdatePostedTotalCost(AdjustJobCost: Decimal, AdjustJobCostLCY: Decimal)'
+    parameters:
+    - id: AdjustJobCost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: AdjustJobCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: UpdatePostedTotalCost
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdatePostedTotalCost(Decimal,Decimal)
+- syntax:
+    content: 'procedure ValidateModification(FieldChanged: Boolean, FieldNo: Integer)'
+    parameters:
+    - id: FieldChanged
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: FieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: ValidateModification
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ValidateModification(Boolean,Integer)
+- syntax:
+    content: 'procedure Overdue(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: Overdue
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Overdue:Boolean
+- syntax:
+    content: 'procedure SetBypassQtyValidation(Bypass: Boolean)'
+    parameters:
+    - id: Bypass
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetBypassQtyValidation
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SetBypassQtyValidation(Boolean)
+- syntax:
+    content: 'procedure UpdateReservation(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: UpdateReservation
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdateReservation(Integer)
+- syntax:
+    content: procedure ShowReservation()
+  name: ShowReservation
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ShowReservation
+- syntax:
+    content: 'procedure ShowReservationEntries(Modal: Boolean)'
+    parameters:
+    - id: Modal
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ShowReservationEntries
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ShowReservationEntries(Boolean)
+- syntax:
+    content: procedure AutoReserve()
+  name: AutoReserve
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.AutoReserve
+- syntax:
+    content: procedure ShowTracking()
+  name: ShowTracking
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ShowTracking
+- syntax:
+    content: procedure ShowOrderPromisingLine()
+  name: ShowOrderPromisingLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ShowOrderPromisingLine
+- syntax:
+    content: 'procedure FilterLinesWithItemToPlan(var Item: Record Item)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+  name: FilterLinesWithItemToPlan
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.FilterLinesWithItemToPlan(Item@)
+- syntax:
+    content: 'procedure FindLinesWithItemToPlan(var Item: Record Item): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLinesWithItemToPlan
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.FindLinesWithItemToPlan(Item@):Boolean
+- syntax:
+    content: 'procedure LinesWithItemToPlanExist(var Item2: Record Item): Boolean'
+    parameters:
+    - id: Item2
+      parameterType:
+        name: Record Item
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LinesWithItemToPlanExist
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.LinesWithItemToPlanExist(Item@):Boolean
+- syntax:
+    content: 'procedure FilterLinesForReservation(ReservationEntry: Record "Reservation Entry", NewStatus: Option, AvailabilityFilter: Text, Positive: Boolean)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: NewStatus
+      parameterType:
+        name: Option
+        isExternal: true
+    - id: AvailabilityFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterLinesForReservation
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.FilterLinesForReservation(Reservation_Entry,Option,Text,Boolean)
+- syntax:
+    content: procedure DrillDownJobInvoices()
+  name: DrillDownJobInvoices
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.DrillDownJobInvoices
+- syntax:
+    content: 'procedure RowID1(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.RowID1:Text[250]
+- syntax:
+    content: 'procedure UpdatePlanned(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdatePlanned
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdatePlanned:Boolean
+- syntax:
+    content: 'procedure UpdatePlannedDueDate(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: UpdatePlannedDueDate
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.UpdatePlannedDueDate:Boolean
+- syntax:
+    content: procedure ClearValues()
+  name: ClearValues
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ClearValues
+- syntax:
+    content: procedure ClearTracking()
+  name: ClearTracking
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ClearTracking
+- syntax:
+    content: 'procedure InitFromJobPlanningLine(FromJobPlanningLine: Record "Job Planning Line", NewQuantity: Decimal)'
+    parameters:
+    - id: FromJobPlanningLine
+      parameterType:
+        name: Record "Job Planning Line"
+        isExternal: true
+    - id: NewQuantity
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: InitFromJobPlanningLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.InitFromJobPlanningLine(Job_Planning_Line,Decimal)
+- syntax:
+    content: 'procedure IsInventoriableItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInventoriableItem
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.IsInventoriableItem:Boolean
+- syntax:
+    content: 'procedure IsNonInventoriableItem(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsNonInventoriableItem
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.IsNonInventoriableItem:Boolean
+- syntax:
+    content: 'procedure ConvertToJobLineType(): Enum "Job Line Type"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Projects#Project#Job#Job_Line_Type
+        name: Microsoft.Projects.Project.Job."Job Line Type"
+        isExternal: false
+  name: ConvertToJobLineType
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ConvertToJobLineType:Enum::Microsoft#Projects#Project#Job#Job_Line_Type
+- syntax:
+    content: 'procedure ConvertFromJobLineType(JobLineType: Enum "Job Line Type"): Enum "Job Planning Line Line Type"'
+    parameters:
+    - id: JobLineType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Projects#Project#Job#Job_Line_Type
+        name: Microsoft.Projects.Project.Job."Job Line Type"
+        isExternal: false
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Projects#Project#Planning#Job_Planning_Line_Line_Type
+        name: Microsoft.Projects.Project.Planning."Job Planning Line Line Type"
+        isExternal: false
+  name: ConvertFromJobLineType
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ConvertFromJobLineType(Enum::Microsoft#Projects#Project#Job#Job_Line_Type):Enum::Microsoft#Projects#Project#Planning#Job_Planning_Line_Line_Type
+- syntax:
+    content: 'procedure CopyTrackingFromJobJnlLine(JobJnlLine: Record "Job Journal Line")'
+    parameters:
+    - id: JobJnlLine
+      parameterType:
+        name: Record "Job Journal Line"
+        isExternal: true
+  name: CopyTrackingFromJobJnlLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.CopyTrackingFromJobJnlLine(Job_Journal_Line)
+- syntax:
+    content: 'procedure CopyTrackingFromJobLedgEntry(JobLedgEntry: Record "Job Ledger Entry")'
+    parameters:
+    - id: JobLedgEntry
+      parameterType:
+        name: Record "Job Ledger Entry"
+        isExternal: true
+  name: CopyTrackingFromJobLedgEntry
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.CopyTrackingFromJobLedgEntry(Job_Ledger_Entry)
+- syntax:
+    content: procedure TestStatusOpen()
+  name: TestStatusOpen
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.TestStatusOpen
+- syntax:
+    content: 'procedure CheckIfJobPlngLineMeetsReservedFromStockSetting(QtyToPost: Decimal, ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: QtyToPost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfJobPlngLineMeetsReservedFromStockSetting
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.CheckIfJobPlngLineMeetsReservedFromStockSetting(Decimal,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+- syntax:
+    content: 'procedure IsAsmToOrderAllowed(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAsmToOrderAllowed
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.IsAsmToOrderAllowed:Boolean
+- syntax:
+    content: 'procedure QtyToAsmBaseOnATO(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: QtyToAsmBaseOnATO
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.QtyToAsmBaseOnATO:Decimal
+- syntax:
+    content: procedure ShowAsmToJobPlanningLines()
+  name: ShowAsmToJobPlanningLines
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.ShowAsmToJobPlanningLines
+- syntax:
+    content: 'procedure CheckAsmToOrder(AsmHeader: Record "Assembly Header")'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+  name: CheckAsmToOrder
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.CheckAsmToOrder(Assembly_Header)
+- syntax:
+    content: 'procedure AsmToOrderExists(var AsmHeader: Record "Assembly Header"): Boolean'
+    parameters:
+    - id: AsmHeader
+      parameterType:
+        name: Record "Assembly Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AsmToOrderExists
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.AsmToOrderExists(Assembly_Header@):Boolean
+- syntax:
+    content: 'procedure AssembledQuantity(var Qty: Decimal, var QtyBase: Decimal)'
+    parameters:
+    - id: Qty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: AssembledQuantity
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.AssembledQuantity(Decimal@,Decimal@)
+- syntax:
+    content: 'procedure IsAsmToOrderRequired(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAsmToOrderRequired
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.IsAsmToOrderRequired:Boolean
+- syntax:
+    content: procedure SelectMultipleItems()
+  name: SelectMultipleItems
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SelectMultipleItems
+- syntax:
+    content: 'procedure GetATOBin(Location: Record Location, var BinCode: Code[20]): Boolean'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: BinCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetATOBin
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetATOBin(Location,Code[20]@):Boolean
+- syntax:
+    content: 'procedure IsExtendedText(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExtendedText
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.IsExtendedText:Boolean
+- syntax:
+    content: 'procedure SetSkipCheckForMultipleJobsOnSalesLine(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipCheckForMultipleJobsOnSalesLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SetSkipCheckForMultipleJobsOnSalesLine(Boolean)
+- syntax:
+    content: 'procedure GetSkipCheckForMultipleJobsOnSalesLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSkipCheckForMultipleJobsOnSalesLine
+  uid: M:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.GetSkipCheckForMultipleJobsOnSalesLine:Boolean
+fields:
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Job_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planning Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Planning_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Document_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Planning#Job_Planning_Line_Type
+    name: Microsoft.Projects.Project.Planning."Job Planning Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Description[100]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Direct Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Direct_Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Cost (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Total_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Unit_Price_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Price (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Total_Price_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Resource Group No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Resource_Group_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Location_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Last_Date_Modified
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.User_ID[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Work Type Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Work_Type_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Customer_Price_Group[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Document_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planning Due Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Planning_Due_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Assemble"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_to_Assemble
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Assemble (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_to_Assemble_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Assemble to Order"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Assemble_to_Order
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"BOM Item No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.BOM_Item_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Attached_to_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Job_Task_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Cost"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Total_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Total Price"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Total_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount Amount (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_Discount_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cost Factor"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Cost_Factor
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Serial No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Serial_No#[50]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Lot No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Lot_No#[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_Discount_%
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Planning#Job_Planning_Line_Line_Type
+    name: Microsoft.Projects.Project.Planning."Job Planning Line Line Type"
+    isExternal: false
+  name: '"Line Type"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Line_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Currency_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Currency Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Currency_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Currency Factor"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Currency_Factor
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Schedule Line"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Schedule_Line
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Contract Line"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Contract_Line
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Contract Entry No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Job_Contract_Entry_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoiced Amount (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Invoiced_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoiced Cost Amount (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Invoiced_Cost_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Unit Price"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.VAT_Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Line Discount Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.VAT_Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Line Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.VAT_Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.VAT_%
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Description_2[50]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Ledger Entry No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Job_Ledger_Entry_No#
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Planning#Job_Planning_Line_Status
+    name: Microsoft.Projects.Project.Planning."Job Planning Line Status"
+    isExternal: false
+  name: Status
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Status
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Ledger#Job_Ledger_Entry_Type
+    name: Microsoft.Projects.Project.Ledger."Job Ledger Entry Type"
+    isExternal: false
+  name: '"Ledger Entry Type"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Ledger_Entry_Type
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Ledger Entry No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Ledger_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.System-Created_Entry
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Usage Link"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Usage_Link
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Qty."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Remaining_Qty#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Qty. (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Remaining_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Total Cost"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Remaining_Total_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Total Cost (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Remaining_Total_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Line Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Remaining_Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Remaining Line Amount (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Remaining_Line_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Posted"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Posted
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Transfer to Journal"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_to_Transfer_to_Journal
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Posted Total Cost"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Posted_Total_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Posted Total Cost (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Posted_Total_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Posted Line Amount"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Posted_Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Posted Line Amount (LCY)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Posted_Line_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Transferred to Invoice"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Transferred_to_Invoice
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Transfer to Invoice"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_to_Transfer_to_Invoice
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Invoiced"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Invoice"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_to_Invoice
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Reserved_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Reserved_Qty#_(Base)
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Reserve
+- type:
+    name: Boolean
+    isExternal: true
+  name: Planned
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Planned
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Quantity_(Base)
+- type:
+    name: Date
+    isExternal: true
+  name: '"Requested Delivery Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Requested_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Promised Delivery Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Promised_Delivery_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Delivery Date"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Planned_Delivery_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Service Order No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Service_Order_No#[20]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Package No."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Package_No#[50]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Price_Calculation_Method
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Cost Calculation Method"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Cost_Calculation_Method
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pick Qty."'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Pick_Qty#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Picked"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Picked
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Picked (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_Picked_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Picked"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Completely_Picked
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pick Qty. (Base)"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Pick_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. on Journal"'
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.Qty#_on_Journal
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Projects#Project#Planning#Job Planning Line
+name: '"Job Planning Line"'
+uid: O:Table::Microsoft#Projects#Project#Planning#Job_Planning_Line

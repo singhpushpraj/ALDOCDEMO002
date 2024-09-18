@@ -1,0 +1,106 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Reports."Customer - Summary Aging"
+alId: ID 105
+namespace: Microsoft.Sales.Reports
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Reports
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Sales/Reports/CustomerSummaryAging.rdlc
+  promoted: false
+- name: AdditionalSearchTerms
+  value: customer balance,payment due
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: Customer - Summary Aging
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+- name: DataAccessIntent
+  value: ReadOnly
+  promoted: false
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Sales/Reports/CustomerSummaryAging.rdlc
+  promoted: false
+- name: AdditionalSearchTerms
+  value: customer balance,payment due
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: Customer - Summary Aging
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+- name: DataAccessIntent
+  value: ReadOnly
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure InitializeRequest(NewStartingDate: Date, SetPeriodLength: Text[1024], ShowAmountInLCY: Boolean)'
+    parameters:
+    - id: NewStartingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: SetPeriodLength
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    - id: ShowAmountInLCY
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Sales#Reports#Customer_-_Summary_Aging.InitializeRequest(Date,Text[1024],Boolean)
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeFillColumnsInteger(var Customer: Record Customer, var DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry")'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: DtldCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+  name: OnBeforeFillColumnsInteger
+  uid: M:Report::Microsoft#Sales#Reports#Customer_-_Summary_Aging.OnBeforeFillColumnsInteger(Customer@,Detailed_Cust#_Ledg#_Entry@)
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnBeforeFillColumnsCustomer(var Customer: Record Customer, var DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry")'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: DtldCustLedgEntry
+      parameterType:
+        name: Record "Detailed Cust. Ledg. Entry"
+        isExternal: true
+  name: OnBeforeFillColumnsCustomer
+  uid: M:Report::Microsoft#Sales#Reports#Customer_-_Summary_Aging.OnBeforeFillColumnsCustomer(Customer@,Detailed_Cust#_Ledg#_Entry@)
+commentId: O:Report::Microsoft#Sales#Reports#Customer - Summary Aging
+name: '"Customer - Summary Aging"'
+uid: O:Report::Microsoft#Sales#Reports#Customer_-_Summary_Aging

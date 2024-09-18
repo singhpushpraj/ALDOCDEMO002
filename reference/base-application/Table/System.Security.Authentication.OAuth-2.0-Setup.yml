@@ -1,0 +1,384 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: System.Security.Authentication."OAuth 2.0 Setup"
+alId: ID 1140
+namespace: System.Security.Authentication
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::System.Security.Authentication
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: OAuth 2.0 Setup
+  promoted: false
+- name: ReplicateData
+  value: "False"
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use SetToken with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure SetToken(var TokenKey: Guid, TokenValue: Text)'
+    parameters:
+    - id: TokenKey
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: TokenValue
+      parameterType:
+        name: Text
+        isExternal: true
+  name: SetToken
+  obsoletion:
+    state: pending
+    reason: Use SetToken with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.SetToken(Guid@,Text)
+- syntax:
+    content: 'procedure SetToken(var TokenKey: Guid, TokenValue: SecretText)'
+    parameters:
+    - id: TokenKey
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: TokenValue
+      parameterType:
+        name: SecretText
+        isExternal: true
+  name: SetToken
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.SetToken(Guid@,SecretText)
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    - '[Obsolete(Use GetToken with paramaters declared as SecretText instead.,24.0)]'
+    content: 'procedure GetToken(TokenKey: Guid): Text'
+    parameters:
+    - id: TokenKey
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetToken
+  obsoletion:
+    state: pending
+    reason: Use GetToken with paramaters declared as SecretText instead.
+    version: "24.0"
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.GetToken(Guid):Text
+- syntax:
+    content: 'procedure GetTokenAsSecretText(TokenKey: Guid): SecretText'
+    parameters:
+    - id: TokenKey
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: SecretText
+        isExternal: true
+  name: GetTokenAsSecretText
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.GetTokenAsSecretText(Guid):SecretText
+- syntax:
+    content: 'procedure DeleteToken(TokenKey: Guid)'
+    parameters:
+    - id: TokenKey
+      parameterType:
+        name: Guid
+        isExternal: true
+  name: DeleteToken
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.DeleteToken(Guid)
+- syntax:
+    content: 'procedure HasToken(TokenKey: Guid): Boolean'
+    parameters:
+    - id: TokenKey
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasToken
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.HasToken(Guid):Boolean
+- syntax:
+    content: 'procedure GetTokenDataScope(): DataScope'
+    return:
+      returnType:
+        name: DataScope
+        isExternal: true
+  name: GetTokenDataScope
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.GetTokenDataScope:DataScope
+- syntax:
+    content: procedure RequestAuthorizationCode()
+  name: RequestAuthorizationCode
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.RequestAuthorizationCode
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure RequestAccessToken(var MessageText: Text, AuthorizationCode: Text): Boolean'
+    parameters:
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AuthorizationCode
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RequestAccessToken
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.RequestAccessToken(Text@,Text):Boolean
+- syntax:
+    content: 'procedure RefreshAccessToken(var MessageText: Text): Boolean'
+    parameters:
+    - id: MessageText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: RefreshAccessToken
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.RefreshAccessToken(Text@):Boolean
+- syntax:
+    signatures:
+    - '[NonDebuggable]'
+    content: 'procedure InvokeRequest(RequestJSON: Text, var ResponseJSON: Text, var HttpError: Text, RetryOnCredentialsFailure: Boolean): Boolean'
+    parameters:
+    - id: RequestJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ResponseJSON
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: HttpError
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: RetryOnCredentialsFailure
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: InvokeRequest
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.InvokeRequest(Text,Text@,Text@,Boolean):Boolean
+- syntax:
+    content: 'procedure FindSetOAuth20SetupByFeature(FeatureGUID: Guid): Boolean'
+    parameters:
+    - id: FeatureGUID
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindSetOAuth20SetupByFeature
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.FindSetOAuth20SetupByFeature(Guid):Boolean
+- syntax:
+    content: 'procedure FindFirstOAuth20SetupByFeatureAndCurrUser(FeatureGUID: Guid): Boolean'
+    parameters:
+    - id: FeatureGUID
+      parameterType:
+        name: Guid
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstOAuth20SetupByFeatureAndCurrUser
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.FindFirstOAuth20SetupByFeatureAndCurrUser(Guid):Boolean
+- syntax:
+    content: 'procedure FindFirstOAuth20SetupByFeatureAndUser(FeatureGUID: Guid, OAuthUserID: Code[50]): Boolean'
+    parameters:
+    - id: FeatureGUID
+      parameterType:
+        name: Guid
+        isExternal: true
+    - id: OAuthUserID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstOAuth20SetupByFeatureAndUser
+  uid: M:Table::System#Security#Authentication#OAuth_2#0_Setup.FindFirstOAuth20SetupByFeatureAndUser(Guid,Code[50]):Boolean
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: Code
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Code[20]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Description
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Description[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Service URL"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Service_URL[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Redirect URL"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Redirect_URL[250]
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Client ID"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Client_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Client Secret"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Client_Secret
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Access Token"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Access_Token
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Refresh Token"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Refresh_Token
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Authorization URL Path"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Authorization_URL_Path[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Access Token URL Path"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Access_Token_URL_Path[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Refresh Token URL Path"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Refresh_Token_URL_Path[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Scope
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Scope[250]
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Authorization Response Type"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Authorization_Response_Type[250]
+- type:
+    name: Option
+    isExternal: true
+  name: Status
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Status
+- type:
+    name: Option
+    isExternal: true
+  name: '"Token DataScope"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Token_DataScope
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Activity Log ID"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Activity_Log_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Daily Limit"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Daily_Limit
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Daily Count"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Daily_Count
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Latest Datetime"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Latest_Datetime
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Access Token Due DateTime"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Access_Token_Due_DateTime
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Feature GUID"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Feature_GUID
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"User ID"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.User_ID[50]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#OAuth_2#0_Code_Challenge
+    name: Microsoft.Foundation.Enums."OAuth 2.0 Code Challenge"
+    isExternal: false
+  name: '"Code Challenge Method"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Code_Challenge_Method
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Code Verifier"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Code_Verifier
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Nonce"'
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.Use_Nonce
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::System#Security#Authentication#OAuth_2#0_Setup.SystemRowVersion
+commentId: O:Table::System#Security#Authentication#OAuth 2#0 Setup
+name: '"OAuth 2.0 Setup"'
+uid: O:Table::System#Security#Authentication#OAuth_2#0_Setup

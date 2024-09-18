@@ -1,0 +1,865 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Purchases.History."Purch. Rcpt. Line"
+alId: ID 121
+namespace: Microsoft.Purchases.History
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Purchases.History
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Purch. Rcpt. Line
+  promoted: false
+- name: DrillDownPageID
+  value: Posted Purchase Receipt Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Purchases#History#Posted_Purchase_Receipt_Lines
+    name: Microsoft.Purchases.History."Posted Purchase Receipt Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Posted Purchase Receipt Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Purchases#History#Posted_Purchase_Receipt_Lines
+    name: Microsoft.Purchases.History."Posted Purchase Receipt Lines"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Item Ledger Entry" = r,
+                      TableData "Value Entry" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure GetCurrencyCodeFromHeader(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetCurrencyCodeFromHeader
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.GetCurrencyCodeFromHeader:Code[10]
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.ShowDimensions
+- syntax:
+    content: procedure ShowItemTrackingLines()
+  name: ShowItemTrackingLines
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.ShowItemTrackingLines
+- syntax:
+    content: 'procedure InsertInvLineFromRcptLine(var PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: InsertInvLineFromRcptLine
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.InsertInvLineFromRcptLine(Purchase_Line@)
+- syntax:
+    content: 'procedure GetPurchInvLines(var TempPurchInvLine: Record "Purch. Inv. Line" temporary)'
+    parameters:
+    - id: TempPurchInvLine
+      parameterType:
+        name: Record "Purch. Inv. Line" temporary
+        isExternal: true
+  name: GetPurchInvLines
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.GetPurchInvLines(Purch#_Inv#_Line@)
+- syntax:
+    content: 'procedure CalcReceivedPurchNotReturned(var RemainingQty: Decimal, var RevUnitCostLCY: Decimal, ExactCostReverse: Boolean)'
+    parameters:
+    - id: RemainingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RevUnitCostLCY
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ExactCostReverse
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CalcReceivedPurchNotReturned
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.CalcReceivedPurchNotReturned(Decimal@,Decimal@,Boolean)
+- syntax:
+    content: 'procedure FilterPstdDocLnItemLedgEntries(var ItemLedgEntry: Record "Item Ledger Entry")'
+    parameters:
+    - id: ItemLedgEntry
+      parameterType:
+        name: Record "Item Ledger Entry"
+        isExternal: true
+  name: FilterPstdDocLnItemLedgEntries
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.FilterPstdDocLnItemLedgEntries(Item_Ledger_Entry@)
+- syntax:
+    content: procedure ShowItemPurchInvLines()
+  name: ShowItemPurchInvLines
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.ShowItemPurchInvLines
+- syntax:
+    content: procedure ShowLineComments()
+  name: ShowLineComments
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.ShowLineComments
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure InitFromPurchLine(PurchRcptHeader: Record "Purch. Rcpt. Header", PurchLine: Record "Purchase Line")'
+    parameters:
+    - id: PurchRcptHeader
+      parameterType:
+        name: Record "Purch. Rcpt. Header"
+        isExternal: true
+    - id: PurchLine
+      parameterType:
+        name: Record "Purchase Line"
+        isExternal: true
+  name: InitFromPurchLine
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.InitFromPurchLine(Purch#_Rcpt#_Header,Purchase_Line)
+- syntax:
+    content: 'procedure FormatType(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: FormatType
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.FormatType:Text
+- syntax:
+    content: 'procedure GetCaptionClass(FieldNumber: Integer): Text[80]'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[80]
+        isExternal: true
+  name: GetCaptionClass
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.GetCaptionClass(Integer):Text[80]
+- syntax:
+    content: 'procedure HasTypeToFillMandatoryFields(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasTypeToFillMandatoryFields
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.HasTypeToFillMandatoryFields:Boolean
+- syntax:
+    content: procedure UpdateReferencedIds()
+  name: UpdateReferencedIds
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.UpdateReferencedIds
+- syntax:
+    content: procedure SetSecurityFilterOnRespCenter()
+  name: SetSecurityFilterOnRespCenter
+  uid: M:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SetSecurityFilterOnRespCenter
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Buy-from Vendor No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Buy-from_Vendor_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Purchases#Document#Purchase_Line_Type
+    name: Microsoft.Purchases.Document."Purchase Line Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Location_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Posting_Group[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expected Receipt Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Expected_Receipt_Date
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Description[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Description_2[50]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Direct Unit Cost"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Direct_Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Line Discount %"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Price (LCY)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_Price_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Invoice Disc."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Allow_Invoice_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Units_per_Parcel
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_Volume
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Appl#-to_Item_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Item Rcpt. Entry No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Rcpt#_Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Indirect Cost %"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Indirect_Cost_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rcd. Not Invoiced"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Qty#_Rcd#_Not_Invoiced
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Invoiced"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Quantity_Invoiced
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Order No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Order Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Order_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Pay-to Vendor No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Pay-to_Vendor_No#[20]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Vendor Item No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Vendor_Item_No#[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sales Order No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Sales_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sales Order Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Sales_Order_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.VAT_Calculation_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Type"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Transaction_Type[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transport Method"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Transport_Method[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Attached to Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Attached_to_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Entry Point"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Entry_Point[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Area"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Area[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transaction Specification"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Transaction_Specification[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Tax_Group_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Use_Tax
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Currency_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Blanket Order No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Blanket_Order_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Blanket Order Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Blanket_Order_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Cost"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_Cost
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Partner#IC_Partner_Reference_Type
+    name: Microsoft.Intercompany.Partner."IC Partner Reference Type"
+    isExternal: false
+  name: '"IC Partner Ref. Type"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.IC_Partner_Ref#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Reference"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.IC_Partner_Reference[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Posting_Date
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"IC Item Reference No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.IC_Item_Reference_No#[50]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Task_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Job#Job_Line_Type
+    name: Microsoft.Projects.Project.Job."Job Line Type"
+    isExternal: false
+  name: '"Job Line Type"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Line_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Unit Price"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Total Price"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Total_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Amount"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Discount Amount"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Discount %"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Unit Price (LCY)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Unit_Price_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Total Price (LCY)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Total_Price_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Amount (LCY)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Line_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Disc. Amount (LCY)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Line_Disc#_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Currency Factor"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Currency_Factor
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Currency Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Job_Currency_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prod. Order No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Prod#_Order_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Variant_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bin Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Bin_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Invoiced (Base)"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Qty#_Invoiced_(Base)
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.FA_Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#FixedAssets#Posting#Purchase_FA_Posting_Type
+    name: Microsoft.FixedAssets.Posting."Purchase FA Posting Type"
+    isExternal: false
+  name: '"FA Posting Type"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.FA_Posting_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Depreciation_Book_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Salvage Value"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Salvage_Value
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. until FA Posting Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Depr#_until_FA_Posting_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. Acquisition Cost"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Depr#_Acquisition_Cost
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Maintenance Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Maintenance_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Insurance No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Insurance_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Budgeted FA No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Budgeted_FA_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duplicate in Depreciation Book"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Duplicate_in_Depreciation_Book[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Duplication List"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Use_Duplication_List
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Responsibility_Center[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Cross-Reference No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Cross-Reference_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure (Cross Ref.)"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Unit_of_Measure_(Cross_Ref#)[10]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Cross-Reference Type"'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Cross-Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Cross-Reference Type No."'
+  obsoletion:
+    state: removed
+    reason: Cross-Reference replaced by Item Reference feature.
+    version: "22.0"
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Cross-Reference_Type_No#[30]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Item Reference No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Reference_No#[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Item Reference Unit of Measure"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Reference_Unit_of_Measure[10]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Item#Catalog#Item_Reference_Type
+    name: Microsoft.Inventory.Item.Catalog."Item Reference Type"
+    isExternal: false
+  name: '"Item Reference Type"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Reference_Type
+- type:
+    name: Code[30]
+    isExternal: true
+  name: '"Item Reference Type No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Reference_Type_No#[30]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Category_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Nonstock
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Nonstock
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Purchasing Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Purchasing_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Product_Group_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Special Order Sales No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Special_Order_Sales_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Special Order Sales Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Special_Order_Sales_Line_No#
+- type:
+    name: Date
+    isExternal: true
+  name: '"Requested Receipt Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Requested_Receipt_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Promised Receipt Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Promised_Receipt_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Lead Time Calculation"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Lead_Time_Calculation
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Inbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Inbound_Whse#_Handling_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Planned Receipt Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Planned_Receipt_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Order Date"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Order_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Item Charge Base Amount"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Item_Charge_Base_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: Correction
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Correction
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Return Reason Code"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Return_Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Price_Calculation_Method
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Document Id"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Document_Id
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Over-Receipt Quantity"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Over-Receipt_Quantity
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Over-Receipt Code"'
+  obsoletion:
+    state: removed
+    reason: Replaced with field 8512 due to wrong field length
+    version: "20.0"
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Over-Receipt_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Over-Receipt Code 2"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Over-Receipt_Code_2[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Routing No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Routing_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Operation No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Operation_No#[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Work Center No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Work_Center_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Prod. Order Line No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Prod#_Order_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Overhead Rate"'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Overhead_Rate
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Routing Reference No."'
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.Routing_Reference_No#
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Purchases#History#Purch# Rcpt# Line
+name: '"Purch. Rcpt. Line"'
+uid: O:Table::Microsoft#Purchases#History#Purch#_Rcpt#_Line

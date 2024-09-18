@@ -1,0 +1,2302 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Line"
+alId: ID 81
+namespace: Microsoft.Finance.GeneralLedger.Journal
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.GeneralLedger.Journal
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Gen. Journal Line
+  promoted: false
+- name: Permissions
+  value: >-
+    tabledata "Sales Invoice Header" = r,
+                      tabledata Customer = R,
+                      tabledata "Cust. Ledger Entry" = R,
+                      tabledata "G/L Account" = R,
+                      tabledata "VAT Posting Setup" = R,
+                      tabledata Vendor = R,
+                      tabledata "Vendor Ledger Entry" = R,
+                      tabledata "Data Exch. Field" = rimd
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure EmptyLine(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: EmptyLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.EmptyLine:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Renaming the global procedure to GetSkipTaxCalculation():Boolean,22.0)]'
+    content: 'procedure CanCalculateTax(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CanCalculateTax
+  obsoletion:
+    state: pending
+    reason: Renaming the global procedure to GetSkipTaxCalculation():Boolean
+    version: "22.0"
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CanCalculateTax:Boolean
+- syntax:
+    content: 'procedure GetSkipTaxCalculation(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetSkipTaxCalculation
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetSkipTaxCalculation:Boolean
+- syntax:
+    content: 'procedure SetSkipTaxCalulation(Skip: Boolean)'
+    parameters:
+    - id: Skip
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSkipTaxCalulation
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetSkipTaxCalulation(Boolean)
+- syntax:
+    content: procedure UpdateLineBalance()
+  name: UpdateLineBalance
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateLineBalance
+- syntax:
+    content: 'procedure SetUpNewLine(LastGenJnlLine: Record "Gen. Journal Line", Balance: Decimal, BottomLine: Boolean)'
+    parameters:
+    - id: LastGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Balance
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: BottomLine
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetUpNewLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetUpNewLine(Gen#_Journal_Line,Decimal,Boolean)
+- syntax:
+    content: 'procedure InitNewLine(PostingDate: Date, DocumentDate: Date, VATDate: Date, PostingDescription: Text[100], ShortcutDim1Code: Code[20], ShortcutDim2Code: Code[20], DimSetID: Integer, ReasonCode: Code[10])'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DocumentDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: VATDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: PostingDescription
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShortcutDim1Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ShortcutDim2Code
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: DimSetID
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ReasonCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: InitNewLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.InitNewLine(Date,Date,Date,Text[100],Code[20],Code[20],Integer,Code[10])
+- syntax:
+    content: procedure CheckDocNoOnLines()
+  name: CheckDocNoOnLines
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckDocNoOnLines
+- syntax:
+    signatures:
+    - '[Obsolete(Do not use this procedure. It is for compatibility only.,24.0)]'
+    content: 'procedure ObsoleteCheckDocNoBasedOnNoSeries(PrevDocNo: Code[20], NoSeriesCode: Code[20], NoSeriesMgtInstance: __MissingTypeSymbol__)'
+    parameters:
+    - id: PrevDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NoSeriesMgtInstance
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: ObsoleteCheckDocNoBasedOnNoSeries
+  obsoletion:
+    state: pending
+    reason: Do not use this procedure. It is for compatibility only.
+    version: "24.0"
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ObsoleteCheckDocNoBasedOnNoSeries(Code[20],Code[20],__MissingSymbol__@)
+- syntax:
+    signatures:
+    - '[Obsolete(This method is no longer used. Do the check directly in code instead.,24.0)]'
+    content: 'procedure CheckDocNoBasedOnNoSeries(PrevDocNo: Code[20], NoSeriesCode: Code[20], NoSeriesMgtInstance: __MissingTypeSymbol__)'
+    parameters:
+    - id: PrevDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NoSeriesMgtInstance
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: CheckDocNoBasedOnNoSeries
+  obsoletion:
+    state: pending
+    reason: This method is no longer used. Do the check directly in code instead.
+    version: "24.0"
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckDocNoBasedOnNoSeries(Code[20],Code[20],__MissingSymbol__@)
+- syntax:
+    content: procedure RenumberDocumentNo()
+  name: RenumberDocumentNo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.RenumberDocumentNo
+- syntax:
+    content: 'procedure RenumberAppliesToID(GenJnlLine2: Record "Gen. Journal Line", OriginalAppliesToID: Code[50], NewAppliesToID: Code[50])'
+    parameters:
+    - id: GenJnlLine2
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: OriginalAppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+    - id: NewAppliesToID
+      parameterType:
+        name: Code[50]
+        isExternal: true
+  name: RenumberAppliesToID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.RenumberAppliesToID(Gen#_Journal_Line,Code[50],Code[50])
+- syntax:
+    content: 'procedure RenumberAppliesToDocNo(GenJnlLine2: Record "Gen. Journal Line", OriginalAppliesToDocNo: Code[20], NewAppliesToDocNo: Code[20])'
+    parameters:
+    - id: GenJnlLine2
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: OriginalAppliesToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewAppliesToDocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RenumberAppliesToDocNo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.RenumberAppliesToDocNo(Gen#_Journal_Line,Code[20],Code[20])
+- syntax:
+    content: 'procedure SetCurrencyFactor(CurrencyCode: Code[10], CurrencyFactor: Decimal)'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CurrencyFactor
+      parameterType:
+        name: Decimal
+        isExternal: true
+  name: SetCurrencyFactor
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetCurrencyFactor(Code[10],Decimal)
+- syntax:
+    content: procedure UpdateSource()
+  name: UpdateSource
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateSource
+- syntax:
+    content: procedure GetFAAddCurrExchRate()
+  name: GetFAAddCurrExchRate
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetFAAddCurrExchRate
+- syntax:
+    content: 'procedure GetShowCurrencyCode(CurrencyCode: Code[10]): Code[10]'
+    parameters:
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetShowCurrencyCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetShowCurrencyCode(Code[10]):Code[10]
+- syntax:
+    content: procedure ClearCustVendApplnEntry()
+  name: ClearCustVendApplnEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ClearCustVendApplnEntry
+- syntax:
+    content: 'procedure CheckFixedCurrency(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckFixedCurrency
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckFixedCurrency:Boolean
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupShortcutDimCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.LookupShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: 'procedure ShowDimensions(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ShowDimensions:Boolean
+- syntax:
+    content: 'procedure SwitchLinesWithErrorsFilter(var ShowAllLinesEnabled: Boolean)'
+    parameters:
+    - id: ShowAllLinesEnabled
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SwitchLinesWithErrorsFilter
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SwitchLinesWithErrorsFilter(Boolean@)
+- syntax:
+    content: procedure GetFAVATSetup()
+  name: GetFAVATSetup
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetFAVATSetup
+- syntax:
+    content: procedure GetTemplate()
+  name: GetTemplate
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetTemplate
+- syntax:
+    content: 'procedure LookUpAppliesToDocCust(AccNo: Code[20])'
+    parameters:
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookUpAppliesToDocCust
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.LookUpAppliesToDocCust(Code[20])
+- syntax:
+    content: 'procedure LookUpAppliesToDocVend(AccNo: Code[20])'
+    parameters:
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookUpAppliesToDocVend
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.LookUpAppliesToDocVend(Code[20])
+- syntax:
+    content: 'procedure LookUpAppliesToDocEmpl(AccNo: Code[20])'
+    parameters:
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookUpAppliesToDocEmpl
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.LookUpAppliesToDocEmpl(Code[20])
+- syntax:
+    content: procedure SetApplyToAmount()
+  name: SetApplyToAmount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetApplyToAmount
+- syntax:
+    content: 'procedure ValidateApplyRequirements(TempGenJnlLine: Record "Gen. Journal Line" temporary)'
+    parameters:
+    - id: TempGenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line" temporary
+        isExternal: true
+  name: ValidateApplyRequirements
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ValidateApplyRequirements(Gen#_Journal_Line)
+- syntax:
+    content: 'procedure JobTaskIsSet(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: JobTaskIsSet
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.JobTaskIsSet:Boolean
+- syntax:
+    content: procedure CreateTempJobJnlLine()
+  name: CreateTempJobJnlLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CreateTempJobJnlLine
+- syntax:
+    content: procedure UpdatePricesFromJobJnlLine()
+  name: UpdatePricesFromJobJnlLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdatePricesFromJobJnlLine
+- syntax:
+    content: 'procedure SetHideValidation(NewHideValidationDialog: Boolean)'
+    parameters:
+    - id: NewHideValidationDialog
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetHideValidation
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetHideValidation(Boolean)
+- syntax:
+    content: 'procedure IsApplied(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsApplied
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsApplied:Boolean
+- syntax:
+    content: 'procedure DataCaption(): Text[250]'
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: DataCaption
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.DataCaption:Text[250]
+- syntax:
+    content: procedure GetCustLedgerEntry()
+  name: GetCustLedgerEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetCustLedgerEntry
+- syntax:
+    content: procedure GetVendLedgerEntry()
+  name: GetVendLedgerEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetVendLedgerEntry
+- syntax:
+    content: procedure GetEmplLedgerEntry()
+  name: GetEmplLedgerEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetEmplLedgerEntry
+- syntax:
+    content: 'procedure IncludeVATAmount(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IncludeVATAmount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IncludeVATAmount:Boolean
+- syntax:
+    content: 'procedure ConvertAmtFCYToLCYForSourceCurrency(Amount: Decimal): Decimal'
+    parameters:
+    - id: Amount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: ConvertAmtFCYToLCYForSourceCurrency
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ConvertAmtFCYToLCYForSourceCurrency(Decimal):Decimal
+- syntax:
+    content: procedure MatchSingleLedgerEntry()
+  name: MatchSingleLedgerEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.MatchSingleLedgerEntry
+- syntax:
+    content: 'procedure GetStyle(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetStyle
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetStyle:Text
+- syntax:
+    content: 'procedure GetDocumentBalance(var GenJournalLine: Record "Gen. Journal Line"): Decimal'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetDocumentBalance
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetDocumentBalance(Gen#_Journal_Line@):Decimal
+- syntax:
+    content: 'procedure GetOverdueDateInteractions(var OverdueWarningText: Text): Text'
+    parameters:
+    - id: OverdueWarningText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetOverdueDateInteractions
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetOverdueDateInteractions(Text@):Text
+- syntax:
+    content: 'procedure ClearDataExchangeEntries(DeleteHeaderEntries: Boolean)'
+    parameters:
+    - id: DeleteHeaderEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: ClearDataExchangeEntries
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ClearDataExchangeEntries(Boolean)
+- syntax:
+    content: procedure ClearAppliedGenJnlLine()
+  name: ClearAppliedGenJnlLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ClearAppliedGenJnlLine
+- syntax:
+    content: 'procedure GetIncomingDocumentURL(): Text[1024]'
+    return:
+      returnType:
+        name: Text[1024]
+        isExternal: true
+  name: GetIncomingDocumentURL
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetIncomingDocumentURL:Text[1024]
+- syntax:
+    content: 'procedure InsertPaymentFileError(Text: Text)'
+    parameters:
+    - id: Text
+      parameterType:
+        name: Text
+        isExternal: true
+  name: InsertPaymentFileError
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.InsertPaymentFileError(Text)
+- syntax:
+    content: 'procedure InsertPaymentFileErrorWithDetails(ErrorText: Text, AddnlInfo: Text, ExtSupportInfo: Text)'
+    parameters:
+    - id: ErrorText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: AddnlInfo
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ExtSupportInfo
+      parameterType:
+        name: Text
+        isExternal: true
+  name: InsertPaymentFileErrorWithDetails
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.InsertPaymentFileErrorWithDetails(Text,Text,Text)
+- syntax:
+    content: procedure DeletePaymentFileBatchErrors()
+  name: DeletePaymentFileBatchErrors
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.DeletePaymentFileBatchErrors
+- syntax:
+    content: procedure DeletePaymentFileErrors()
+  name: DeletePaymentFileErrors
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.DeletePaymentFileErrors
+- syntax:
+    content: 'procedure HasPaymentFileErrors(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasPaymentFileErrors
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.HasPaymentFileErrors:Boolean
+- syntax:
+    content: 'procedure HasPaymentFileErrorsInBatch(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasPaymentFileErrorsInBatch
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.HasPaymentFileErrorsInBatch:Boolean
+- syntax:
+    content: 'procedure GetAppliesToDocEntryNo(): Integer'
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetAppliesToDocEntryNo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetAppliesToDocEntryNo:Integer
+- syntax:
+    content: 'procedure GetAppliesToDocDueDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetAppliesToDocDueDate
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetAppliesToDocDueDate:Date
+- syntax:
+    content: 'procedure GetAppliesToDocPmtDiscountDate(): Date'
+    return:
+      returnType:
+        name: Date
+        isExternal: true
+  name: GetAppliesToDocPmtDiscountDate
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetAppliesToDocPmtDiscountDate:Date
+- syntax:
+    content: procedure SetJournalLineFieldsFromApplication()
+  name: SetJournalLineFieldsFromApplication
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetJournalLineFieldsFromApplication
+- syntax:
+    content: 'procedure GetAccTypeAndNo(GenJnlLine2: Record "Gen. Journal Line", var AccType: Enum "Gen. Journal Account Type", var AccNo: Code[20])'
+    parameters:
+    - id: GenJnlLine2
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: AccType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: AccNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: GetAccTypeAndNo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetAccTypeAndNo(Gen#_Journal_Line,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type@,Code[20]@)
+- syntax:
+    content: procedure CancelBackgroundPosting()
+  name: CancelBackgroundPosting
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CancelBackgroundPosting
+- syntax:
+    content: 'procedure IsCustVendICAdded(GenJournalLine: Record "Gen. Journal Line"): Boolean'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsCustVendICAdded
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsCustVendICAdded(Gen#_Journal_Line):Boolean
+- syntax:
+    content: 'procedure IsExportedToPaymentFile(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsExportedToPaymentFile
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsExportedToPaymentFile:Boolean
+- syntax:
+    content: 'procedure IsPaymentJournallLineExported(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsPaymentJournallLineExported
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsPaymentJournallLineExported:Boolean
+- syntax:
+    content: 'procedure IsAppliedToVendorLedgerEntryExported(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAppliedToVendorLedgerEntryExported
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsAppliedToVendorLedgerEntryExported:Boolean
+- syntax:
+    content: 'procedure SetPostingDateAsDueDate(DueDate: Date, DateOffset: DateFormula): Boolean'
+    parameters:
+    - id: DueDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: DateOffset
+      parameterType:
+        name: DateFormula
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SetPostingDateAsDueDate
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetPostingDateAsDueDate(Date,DateFormula):Boolean
+- syntax:
+    content: procedure CalculatePostingDate()
+  name: CalculatePostingDate
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CalculatePostingDate
+- syntax:
+    content: procedure ImportBankStatement()
+  name: ImportBankStatement
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ImportBankStatement
+- syntax:
+    content: procedure ExportPaymentFile()
+  name: ExportPaymentFile
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ExportPaymentFile
+- syntax:
+    content: 'procedure SetSuppressCommit(NewSuppressCommit: Boolean)'
+    parameters:
+    - id: NewSuppressCommit
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetSuppressCommit
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetSuppressCommit(Boolean)
+- syntax:
+    content: 'procedure TotalExportedAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: TotalExportedAmount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.TotalExportedAmount:Decimal
+- syntax:
+    content: procedure DrillDownExportedAmount()
+  name: DrillDownExportedAmount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.DrillDownExportedAmount
+- syntax:
+    content: 'procedure CopyDocumentFields(DocType: Enum "Gen. Journal Document Type", DocNo: Code[20], ExtDocNo: Text[35], SourceCode: Code[10], NoSeriesCode: Code[20])'
+    parameters:
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: DocNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: ExtDocNo
+      parameterType:
+        name: Text[35]
+        isExternal: true
+    - id: SourceCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: NoSeriesCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CopyDocumentFields
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyDocumentFields(Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Code[20],Text[35],Code[10],Code[20])
+- syntax:
+    content: 'procedure CopyCustLedgEntry(CustLedgerEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: CustLedgerEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: CopyCustLedgEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyCustLedgEntry(Cust#_Ledger_Entry)
+- syntax:
+    content: 'procedure CopyVendLedgEntry(VendorLedgerEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: VendorLedgerEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: CopyVendLedgEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyVendLedgEntry(Vendor_Ledger_Entry)
+- syntax:
+    content: 'procedure CopyFromGenJnlAllocation(GenJnlAlloc: Record "Gen. Jnl. Allocation")'
+    parameters:
+    - id: GenJnlAlloc
+      parameterType:
+        name: Record "Gen. Jnl. Allocation"
+        isExternal: true
+  name: CopyFromGenJnlAllocation
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromGenJnlAllocation(Gen#_Jnl#_Allocation)
+- syntax:
+    content: 'procedure CopyFromIssuedFinChargeMemoHeader(IssuedFinChargeMemoHeader: Record "Issued Fin. Charge Memo Header")'
+    parameters:
+    - id: IssuedFinChargeMemoHeader
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Header"
+        isExternal: true
+  name: CopyFromIssuedFinChargeMemoHeader
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromIssuedFinChargeMemoHeader(Issued_Fin#_Charge_Memo_Header)
+- syntax:
+    content: 'procedure CopyFromIssuedFinChargeMemoLine(IssuedFinChargeMemoLine: Record "Issued Fin. Charge Memo Line")'
+    parameters:
+    - id: IssuedFinChargeMemoLine
+      parameterType:
+        name: Record "Issued Fin. Charge Memo Line"
+        isExternal: true
+  name: CopyFromIssuedFinChargeMemoLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromIssuedFinChargeMemoLine(Issued_Fin#_Charge_Memo_Line)
+- syntax:
+    content: 'procedure CopyFromIssuedReminderHeader(IssuedReminderHeader: Record "Issued Reminder Header")'
+    parameters:
+    - id: IssuedReminderHeader
+      parameterType:
+        name: Record "Issued Reminder Header"
+        isExternal: true
+  name: CopyFromIssuedReminderHeader
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromIssuedReminderHeader(Issued_Reminder_Header)
+- syntax:
+    content: 'procedure CopyFromIssuedReminderLine(IssuedReminderLine: Record "Issued Reminder Line")'
+    parameters:
+    - id: IssuedReminderLine
+      parameterType:
+        name: Record "Issued Reminder Line"
+        isExternal: true
+  name: CopyFromIssuedReminderLine
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromIssuedReminderLine(Issued_Reminder_Line)
+- syntax:
+    content: 'procedure CopyFromPrepmtInvoiceBuffer(PrepmtInvLineBuffer: Record "Prepayment Inv. Line Buffer")'
+    parameters:
+    - id: PrepmtInvLineBuffer
+      parameterType:
+        name: Record "Prepayment Inv. Line Buffer"
+        isExternal: true
+  name: CopyFromPrepmtInvoiceBuffer
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPrepmtInvoiceBuffer(Prepayment_Inv#_Line_Buffer)
+- syntax:
+    content: 'procedure CopyFromPurchHeader(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFromPurchHeader
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPurchHeader(Purchase_Header)
+- syntax:
+    content: 'procedure CopyFromPurchHeaderPrepmt(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFromPurchHeaderPrepmt
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPurchHeaderPrepmt(Purchase_Header)
+- syntax:
+    content: 'procedure CopyFromPurchHeaderPrepmtPost(PurchHeader: Record "Purchase Header", UsePmtDisc: Boolean)'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+    - id: UsePmtDisc
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyFromPurchHeaderPrepmtPost
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPurchHeaderPrepmtPost(Purchase_Header,Boolean)
+- syntax:
+    content: 'procedure CopyFromPurchHeaderApplyTo(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFromPurchHeaderApplyTo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPurchHeaderApplyTo(Purchase_Header)
+- syntax:
+    content: 'procedure CopyFromPurchHeaderPayment(PurchHeader: Record "Purchase Header")'
+    parameters:
+    - id: PurchHeader
+      parameterType:
+        name: Record "Purchase Header"
+        isExternal: true
+  name: CopyFromPurchHeaderPayment
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPurchHeaderPayment(Purchase_Header)
+- syntax:
+    content: 'procedure CopyFromSalesHeader(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyFromSalesHeader
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromSalesHeader(Sales_Header)
+- syntax:
+    content: 'procedure CopyFromSalesHeaderPrepmt(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyFromSalesHeaderPrepmt
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromSalesHeaderPrepmt(Sales_Header)
+- syntax:
+    content: 'procedure CopyFromSalesHeaderPrepmtPost(SalesHeader: Record "Sales Header", UsePmtDisc: Boolean)'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+    - id: UsePmtDisc
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CopyFromSalesHeaderPrepmtPost
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromSalesHeaderPrepmtPost(Sales_Header,Boolean)
+- syntax:
+    content: 'procedure CopyFromSalesHeaderApplyTo(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyFromSalesHeaderApplyTo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromSalesHeaderApplyTo(Sales_Header)
+- syntax:
+    content: 'procedure CopyFromSalesHeaderPayment(SalesHeader: Record "Sales Header")'
+    parameters:
+    - id: SalesHeader
+      parameterType:
+        name: Record "Sales Header"
+        isExternal: true
+  name: CopyFromSalesHeaderPayment
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromSalesHeaderPayment(Sales_Header)
+- syntax:
+    content: 'procedure CopyFromServiceHeader(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CopyFromServiceHeader
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromServiceHeader(Service_Header)
+- syntax:
+    content: 'procedure CopyFromServiceHeaderApplyTo(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CopyFromServiceHeaderApplyTo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromServiceHeaderApplyTo(Service_Header)
+- syntax:
+    content: 'procedure CopyFromServiceHeaderPayment(ServiceHeader: Record "Service Header")'
+    parameters:
+    - id: ServiceHeader
+      parameterType:
+        name: Record "Service Header"
+        isExternal: true
+  name: CopyFromServiceHeaderPayment
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromServiceHeaderPayment(Service_Header)
+- syntax:
+    content: 'procedure CopyFromPaymentCustLedgEntry(CustLedgEntry: Record "Cust. Ledger Entry")'
+    parameters:
+    - id: CustLedgEntry
+      parameterType:
+        name: Record "Cust. Ledger Entry"
+        isExternal: true
+  name: CopyFromPaymentCustLedgEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPaymentCustLedgEntry(Cust#_Ledger_Entry)
+- syntax:
+    content: 'procedure CopyFromPaymentVendLedgEntry(VendLedgEntry: Record "Vendor Ledger Entry")'
+    parameters:
+    - id: VendLedgEntry
+      parameterType:
+        name: Record "Vendor Ledger Entry"
+        isExternal: true
+  name: CopyFromPaymentVendLedgEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPaymentVendLedgEntry(Vendor_Ledger_Entry)
+- syntax:
+    content: 'procedure CopyFromPaymentEmpLedgEntry(EmployeeLedgerEntry: Record "Employee Ledger Entry")'
+    parameters:
+    - id: EmployeeLedgerEntry
+      parameterType:
+        name: Record "Employee Ledger Entry"
+        isExternal: true
+  name: CopyFromPaymentEmpLedgEntry
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CopyFromPaymentEmpLedgEntry(Employee_Ledger_Entry)
+- syntax:
+    content: 'procedure CheckModifyCurrencyCode(AccountType: Enum "Gen. Journal Account Type", CustVendLedgEntryCurrencyCode: Code[10])'
+    parameters:
+    - id: AccountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+        isExternal: false
+    - id: CustVendLedgEntryCurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+  name: CheckModifyCurrencyCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckModifyCurrencyCode(Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type,Code[10])
+- syntax:
+    content: 'procedure IsOpenedFromBatch(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsOpenedFromBatch
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsOpenedFromBatch:Boolean
+- syntax:
+    content: 'procedure GetDeferralAmount(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetDeferralAmount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetDeferralAmount:Decimal
+- syntax:
+    content: 'procedure ShowDeferrals(PostingDate: Date, CurrencyCode: Code[10]): Boolean'
+    parameters:
+    - id: PostingDate
+      parameterType:
+        name: Date
+        isExternal: true
+    - id: CurrencyCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ShowDeferrals
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ShowDeferrals(Date,Code[10]):Boolean
+- syntax:
+    content: 'procedure IsForPurchase(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsForPurchase
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsForPurchase:Boolean
+- syntax:
+    content: 'procedure IsForSales(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsForSales
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsForSales:Boolean
+- syntax:
+    content: 'procedure IsForGLAccount(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsForGLAccount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsForGLAccount:Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Use SimulateGetNextNo from "No. Series - Batch" instead,24.0)]'
+    content: 'procedure IncrementDocumentNo(LocGenJnlBatch: Record "Gen. Journal Batch", var LastDocNumber: Code[20])'
+    parameters:
+    - id: LocGenJnlBatch
+      parameterType:
+        name: Record "Gen. Journal Batch"
+        isExternal: true
+    - id: LastDocNumber
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: IncrementDocumentNo
+  obsoletion:
+    state: pending
+    reason: Use SimulateGetNextNo from "No. Series - Batch" instead
+    version: "24.0"
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IncrementDocumentNo(Gen#_Journal_Batch,Code[20]@)
+- syntax:
+    content: 'procedure NeedCheckZeroAmount(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: NeedCheckZeroAmount
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.NeedCheckZeroAmount:Boolean
+- syntax:
+    content: 'procedure IsRecurring(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsRecurring
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsRecurring:Boolean
+- syntax:
+    content: 'procedure CreateFAAcquisitionLines(var FAGenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: FAGenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: CreateFAAcquisitionLines
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CreateFAAcquisitionLines(Gen#_Journal_Line@)
+- syntax:
+    content: procedure SetAccountNoFromFilter()
+  name: SetAccountNoFromFilter
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SetAccountNoFromFilter
+- syntax:
+    content: 'procedure GetNewLineNo(TemplateName: Code[10], BatchName: Code[10]): Integer'
+    parameters:
+    - id: TemplateName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: BatchName
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: GetNewLineNo
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.GetNewLineNo(Code[10],Code[10]):Integer
+- syntax:
+    content: procedure VoidPaymentFile()
+  name: VoidPaymentFile
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VoidPaymentFile
+- syntax:
+    content: procedure TransmitPaymentFile()
+  name: TransmitPaymentFile
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.TransmitPaymentFile
+- syntax:
+    content: 'procedure ValidateSalesPersonPurchaserCode(GenJournalLine2: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine2
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: ValidateSalesPersonPurchaserCode
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ValidateSalesPersonPurchaserCode(Gen#_Journal_Line)
+- syntax:
+    content: procedure CheckIfPrivacyBlocked()
+  name: CheckIfPrivacyBlocked
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckIfPrivacyBlocked
+- syntax:
+    content: procedure UpdateAccountID()
+  name: UpdateAccountID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateAccountID
+- syntax:
+    content: procedure UpdateBankAccountID()
+  name: UpdateBankAccountID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateBankAccountID
+- syntax:
+    content: procedure UpdateCustomerID()
+  name: UpdateCustomerID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateCustomerID
+- syntax:
+    content: procedure UpdateVendorID()
+  name: UpdateVendorID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateVendorID
+- syntax:
+    content: procedure UpdateAppliesToInvoiceID()
+  name: UpdateAppliesToInvoiceID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateAppliesToInvoiceID
+- syntax:
+    content: procedure UpdateJournalBatchID()
+  name: UpdateJournalBatchID
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdateJournalBatchID
+- syntax:
+    content: procedure UpdatePaymentMethodId()
+  name: UpdatePaymentMethodId
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.UpdatePaymentMethodId
+- syntax:
+    content: procedure ShowDeferralSchedule()
+  name: ShowDeferralSchedule
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ShowDeferralSchedule
+- syntax:
+    content: procedure ShowRecurringDimFilter()
+  name: ShowRecurringDimFilter
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.ShowRecurringDimFilter
+- syntax:
+    content: 'procedure CheckShortcutDimCodeRecurringMethod(ShortcutDimCode: Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: CheckShortcutDimCodeRecurringMethod
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CheckShortcutDimCodeRecurringMethod(Code[20])
+- syntax:
+    content: 'procedure SendToPosting(PostingCodeunitID: Integer)'
+    parameters:
+    - id: PostingCodeunitID
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SendToPosting
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SendToPosting(Integer)
+- syntax:
+    content: 'procedure CreateDimFromDefaultDim(FromFieldNo: Integer)'
+    parameters:
+    - id: FromFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.CreateDimFromDefaultDim(Integer)
+- syntax:
+    content: 'procedure IsAcquisitionCost(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsAcquisitionCost
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IsAcquisitionCost:Boolean
+events:
+- syntax:
+    signatures:
+    - '[IntegrationEvent(False,False)]'
+    content: 'procedure OnUpdateLineBalanceOnAfterUpdateAllocations(var GenJournalLine: Record "Gen. Journal Line")'
+    parameters:
+    - id: GenJournalLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+  name: OnUpdateLineBalanceOnAfterUpdateAllocations
+  uid: M:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.OnUpdateLineBalanceOnAfterUpdateAllocations(Gen#_Journal_Line@)
+fields:
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Template Name"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Journal_Template_Name[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Line_No#
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Account Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Account No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Account_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Document Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Document_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Document_No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Description[100]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_%
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Account No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Account_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Credit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Balance_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Currency Factor"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Currency_Factor
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales/Purch. (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Sales/Purch#_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Profit (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Profit_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Inv#_Discount_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to/Pay-to No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bill-to/Pay-to_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salespers./Purch. Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Salespers#/Purch#_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Pending Approval"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Pending_Approval
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"System-Created Entry"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.System-Created_Entry
+- type:
+    name: Text[35]
+    isExternal: true
+  name: '"Your Reference"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Your_Reference[35]
+- type:
+    name: Code[3]
+    isExternal: true
+  name: '"On Hold"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.On_Hold[3]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+    isExternal: false
+  name: '"Applies-to Doc. Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Applies-to_Doc#_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Applies-to Doc. No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Applies-to_Doc#_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Due Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Due_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Pmt. Discount Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Pmt#_Discount_Date
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Payment Discount %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Payment_Discount_%
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Amount
+- type:
+    name: Option
+    isExternal: true
+  name: '"VAT Posting"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Posting
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Terms Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Payment_Terms_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Applies-to ID"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Applies-to_ID[50]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Business Unit Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Business_Unit_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Journal Batch Name"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Journal_Batch_Name[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reason Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Reason_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Recurring_Method
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Recurring Method"
+    isExternal: false
+  name: '"Recurring Method"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Recurring_Method
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expiration Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Expiration_Date
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Recurring Frequency"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Recurring_Frequency
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Allocated Amt. (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Allocated_Amt#_(LCY)
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+    name: Microsoft.Foundation.Enums."General Posting Type"
+    isExternal: false
+  name: '"Gen. Posting Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Gen#_Posting_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"VAT Calculation Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Calculation_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"EU 3-Party Trade"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.EU_3-Party_Trade
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Application"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Allow_Application
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Account_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Account Type"
+    isExternal: false
+  name: '"Bal. Account Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Account_Type
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#General_Posting_Type
+    name: Microsoft.Foundation.Enums."General Posting Type"
+    isExternal: false
+  name: '"Bal. Gen. Posting Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Gen#_Posting_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Gen#_Prod#_Posting_Group[20]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Tax_Calculation_Type
+    name: Microsoft.Foundation.Enums."Tax Calculation Type"
+    isExternal: false
+  name: '"Bal. VAT Calculation Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Calculation_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. VAT %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. VAT Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Amount
+- type:
+    internalReference: O:Enum::Microsoft#Bank#BankAccount#Bank_Payment_Type
+    name: Microsoft.Bank.BankAccount."Bank Payment Type"
+    isExternal: false
+  name: '"Bank Payment Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bank_Payment_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. VAT Base Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Base_Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: Correction
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Correction
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Print Posted Documents"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Print_Posted_Documents
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Check Printed"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Check_Printed
+- type:
+    name: Date
+    isExternal: true
+  name: '"Document Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Document_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.External_Document_No#[35]
+- type:
+    internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Source_Type
+    name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Source Type"
+    isExternal: false
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Posting No. Series"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Posting_No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Tax_Group_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Tax"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Use_Tax
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Tax Area Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Bal. Tax Liable"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. Tax Group Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Tax_Group_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Bal. Use Tax"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Use_Tax
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bal. VAT Prod. Posting Group"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Prod#_Posting_Group[20]
+- type:
+    name: Option
+    isExternal: true
+  name: '"Additional-Currency Posting"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Additional-Currency_Posting
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"FA Add.-Currency Factor"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.FA_Add#-Currency_Factor
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Source Currency Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Currency_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Currency Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Currency_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Curr. VAT Base Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Curr#_VAT_Base_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Source Curr. VAT Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Curr#_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Discount %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Base_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Base_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. VAT Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. VAT Base Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Base_Amount_(LCY)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Reversing Entry"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Reversing_Entry
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Zero-Amount Posting"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Allow_Zero-Amount_Posting
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to/Order Address Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Ship-to/Order_Address_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Difference"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Difference
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. VAT Difference"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_VAT_Difference
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Partner_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Setup#IC_Direction_Type
+    name: Microsoft.Intercompany.Setup."IC Direction Type"
+    isExternal: false
+  name: '"IC Direction"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Direction
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner G/L Acc. No."'
+  obsoletion:
+    state: pending
+    reason: This field will be replaced by IC Account No.
+    version: "22.0"
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Partner_G/L_Acc#_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"IC Partner Transaction No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Partner_Transaction_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Sell-to/Buy-from No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Sell-to/Buy-from_No#[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Registration_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Country/Region_Code[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Prepayment
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Prepayment
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Financial Void"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Financial_Void
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Copy VAT Setup to Jnl. Lines"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Copy_VAT_Setup_to_Jnl#_Lines
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"VAT Base Before Pmt. Disc."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Base_Before_Pmt#_Disc#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Orig. Pmt. Disc. Possible"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Orig#_Pmt#_Disc#_Possible
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Orig. Pmt. Disc. Possible(LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Orig#_Pmt#_Disc#_Possible(LCY)
+- type:
+    name: Date
+    isExternal: true
+  name: '"VAT Reporting Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.VAT_Reporting_Date
+- type:
+    internalReference: O:Enum::Microsoft#Intercompany#Journal#IC_Journal_Account_Type
+    name: Microsoft.Intercompany.Journal."IC Journal Account Type"
+    isExternal: false
+  name: '"IC Account Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Account_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Account No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.IC_Account_No#[20]
+- type:
+    internalReference: O:Enum::System#Threading#Document_Job_Queue_Status
+    name: System.Threading."Document Job Queue Status"
+    isExternal: false
+  name: '"Job Queue Status"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Queue_Status
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Job Queue Entry ID"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Queue_Entry_ID
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Incoming Document Entry No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Incoming_Document_Entry_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Creditor No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Creditor_No#[20]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Payment Reference"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Payment_Reference[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Method Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Payment_Method_Code[10]
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"Applies-to Ext. Doc. No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Applies-to_Ext#_Doc#_No#[35]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Invoice Received Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Invoice_Received_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Keep Description"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Keep_Description
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Recipient Bank Account"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Recipient_Bank_Account[20]
+- type:
+    name: Text[140]
+    isExternal: true
+  name: '"Message to Recipient"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Message_to_Recipient[140]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exported to Payment File"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Exported_to_Payment_File
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Has Payment Export Error"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Has_Payment_Export_Error
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Credit Card No."'
+  obsoletion:
+    state: removed
+    reason: This field is not needed and it is not used anymore.
+    version: "15.0"
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Credit_Card_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Remit-to Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Remit-to_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Job Task No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Task_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Unit Price (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Unit_Price_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Total Price (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Total_Price_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Quantity"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Unit Cost (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Unit_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Discount %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Line_Discount_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Disc. Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Line_Disc#_Amount_(LCY)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Job Unit Of Measure Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Unit_Of_Measure_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#Projects#Project#Job#Job_Line_Type
+    name: Microsoft.Projects.Project.Job."Job Line Type"
+    isExternal: false
+  name: '"Job Line Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Line_Type
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Unit Price"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Unit_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Total Price"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Total_Price
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Unit Cost"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Unit_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Total Cost"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Total_Cost
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Discount Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Line_Discount_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Line_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Total Cost (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Total_Cost_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Line Amount (LCY)"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Line_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Currency Factor"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Currency_Factor
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Job Currency Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Currency_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Job Planning Line No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Planning_Line_No#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Job Remaining Qty."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Job_Remaining_Qty#
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"Direct Debit Mandate ID"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Direct_Debit_Mandate_ID[35]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Data Exch. Entry No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Data_Exch#_Entry_No#
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Payer Information"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Payer_Information[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Transaction Information"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Transaction_Information[100]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Data Exch. Line No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Data_Exch#_Line_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Applied Automatically"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Applied_Automatically
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Linked Table ID"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Linked_Table_ID
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Linked System ID"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Linked_System_ID
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Deferral Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Deferral_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Deferral Line No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Deferral_Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Selected Alloc. Account No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Selected_Alloc#_Account_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Alloc. Acc. Modified by User"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Alloc#_Acc#_Modified_by_User
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Allocation Account No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Allocation_Account_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Campaign No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Campaign_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Prod. Order No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Prod#_Order_No#[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"FA Posting Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.FA_Posting_Date
+- type:
+    internalReference: O:Enum::Microsoft#FixedAssets#Journal#Gen#_Journal_Line_FA_Posting_Type
+    name: Microsoft.FixedAssets.Journal."Gen. Journal Line FA Posting Type"
+    isExternal: false
+  name: '"FA Posting Type"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.FA_Posting_Type
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Depreciation Book Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Depreciation_Book_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Salvage Value"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Salvage_Value
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Depreciation Days"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.No#_of_Depreciation_Days
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. until FA Posting Date"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Depr#_until_FA_Posting_Date
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Depr. Acquisition Cost"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Depr#_Acquisition_Cost
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Maintenance Code"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Maintenance_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Insurance No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Insurance_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Budgeted FA No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Budgeted_FA_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Duplicate in Depreciation Book"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Duplicate_in_Depreciation_Book[10]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use Duplication List"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Use_Duplication_List
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"FA Reclassification Entry"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.FA_Reclassification_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"FA Error Entry No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.FA_Error_Entry_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Index Entry"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Index_Entry
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Line No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Source_Line_No#
+- type:
+    name: Text[250]
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Comment[250]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Check Exported"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Check_Exported
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Check Transmitted"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Check_Transmitted
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Reverse Date Calculation"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Reverse_Date_Calculation
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base LCY"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Base_LCY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount LCY"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Amount_LCY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Base ACY"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Base_ACY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Amount ACY"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Amount_ACY
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"FA G/L Account No."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.FA_G/L_Account_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Non-Deductible VAT Diff."'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Non-Deductible_VAT_Diff#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. Non-Ded. VAT %"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Non-Ded#_VAT_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. Non-Ded. VAT Base"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Non-Ded#_VAT_Base
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. Non-Ded. VAT Amount"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Non-Ded#_VAT_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. Non-Ded. VAT Base LCY"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Non-Ded#_VAT_Base_LCY
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Bal. Non-Ded. VAT Amount LCY"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Bal#_Non-Ded#_VAT_Amount_LCY
+- type:
+    name: Guid
+    isExternal: true
+  name: Id
+  obsoletion:
+    state: removed
+    reason: This functionality will be replaced by the systemID field
+    version: "22.0"
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Account Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Account_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Customer Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Customer_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Applies-to Invoice Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Applies-to_Invoice_Id
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Contact Graph Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Contact_Graph_Id[250]
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Last Modified DateTime"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Last_Modified_DateTime
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Journal Batch Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Journal_Batch_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Payment Method Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Payment_Method_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Balance Account Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Balance_Account_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Vendor Id"'
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.Vendor_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen# Journal Line
+name: '"Gen. Journal Line"'
+uid: O:Table::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Line

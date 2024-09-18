@@ -1,0 +1,171 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Finance.VAT.Reporting."VAT Statement"
+alId: ID 12
+namespace: Microsoft.Finance.VAT.Reporting
+baseKind: Report
+kind: Report
+parent: N:Module::Base_Application::Namespace::Microsoft.Finance.VAT.Reporting
+langs:
+- al
+seeAlso:
+- '[Report](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-report-object)'
+objectProperties:
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Finance/VAT/Reporting/VATStatement.rdlc
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: VAT Statement
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+- name: WordMergeDataItem
+  value: VAT Statement Name
+  promoted: false
+- name: DefaultLayout
+  value: RDLC
+  promoted: false
+- name: RDLCLayout
+  value: ./Finance/VAT/Reporting/VATStatement.rdlc
+  promoted: false
+- name: ApplicationArea
+  value: '#Basic,#Suite'
+  promoted: false
+- name: Caption
+  value: VAT Statement
+  promoted: false
+- name: UsageCategory
+  value: ReportsAndAnalysis
+  promoted: false
+- name: WordMergeDataItem
+  value: VAT Statement Name
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure CalcLineTotal(VATStmtLine2: Record "VAT Statement Line", var TotalAmount: Decimal, Level: Integer): Boolean'
+    parameters:
+    - id: VATStmtLine2
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalcLineTotal
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#VAT_Statement.CalcLineTotal(VAT_Statement_Line,Decimal@,Integer):Boolean
+- syntax:
+    content: 'procedure CalcLineTotalWithBase(VATStmtLine2: Record "VAT Statement Line", var TotalAmount: Decimal, var TotalBase: Decimal, Level: Integer): Boolean'
+    parameters:
+    - id: VATStmtLine2
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+    - id: TotalAmount
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: TotalBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Level
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CalcLineTotalWithBase
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#VAT_Statement.CalcLineTotalWithBase(VAT_Statement_Line,Decimal@,Decimal@,Integer):Boolean
+- syntax:
+    signatures:
+    - '[Obsolete(Replaced by InitializeRequest without VAT Date parameter,22.0)]'
+    content: 'procedure InitializeRequest(var NewVATStmtName: Record "VAT Statement Name", var NewVATStatementLine: Record "VAT Statement Line", NewSelection: Enum "VAT Statement Report Selection", NewPeriodSelection: Enum "VAT Statement Report Period Selection", NewPrintInIntegers: Boolean, NewUseAmtsInAddCurr: Boolean, NewVATDateType: Enum "VAT Date Type")'
+    parameters:
+    - id: NewVATStmtName
+      parameterType:
+        name: Record "VAT Statement Name"
+        isExternal: true
+    - id: NewVATStatementLine
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+    - id: NewSelection
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Selection
+        name: Microsoft.Finance.VAT.Reporting."VAT Statement Report Selection"
+        isExternal: false
+    - id: NewPeriodSelection
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Period_Selection
+        name: Microsoft.Finance.VAT.Reporting."VAT Statement Report Period Selection"
+        isExternal: false
+    - id: NewPrintInIntegers
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewUseAmtsInAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewVATDateType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#VAT_Date_Type
+        name: Microsoft.Foundation.Enums."VAT Date Type"
+        isExternal: false
+  name: InitializeRequest
+  obsoletion:
+    state: pending
+    reason: Replaced by InitializeRequest without VAT Date parameter
+    version: "22.0"
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#VAT_Statement.InitializeRequest(VAT_Statement_Name@,VAT_Statement_Line@,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Selection,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Period_Selection,Boolean,Boolean,Enum::Microsoft#Foundation#Enums#VAT_Date_Type)
+- syntax:
+    content: 'procedure InitializeRequest(var NewVATStmtName: Record "VAT Statement Name", var NewVATStatementLine: Record "VAT Statement Line", NewSelection: Enum "VAT Statement Report Selection", NewPeriodSelection: Enum "VAT Statement Report Period Selection", NewPrintInIntegers: Boolean, NewUseAmtsInAddCurr: Boolean)'
+    parameters:
+    - id: NewVATStmtName
+      parameterType:
+        name: Record "VAT Statement Name"
+        isExternal: true
+    - id: NewVATStatementLine
+      parameterType:
+        name: Record "VAT Statement Line"
+        isExternal: true
+    - id: NewSelection
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Selection
+        name: Microsoft.Finance.VAT.Reporting."VAT Statement Report Selection"
+        isExternal: false
+    - id: NewPeriodSelection
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Period_Selection
+        name: Microsoft.Finance.VAT.Reporting."VAT Statement Report Period Selection"
+        isExternal: false
+    - id: NewPrintInIntegers
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: NewUseAmtsInAddCurr
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: InitializeRequest
+  uid: M:Report::Microsoft#Finance#VAT#Reporting#VAT_Statement.InitializeRequest(VAT_Statement_Name@,VAT_Statement_Line@,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Selection,Enum::Microsoft#Finance#VAT#Reporting#VAT_Statement_Report_Period_Selection,Boolean,Boolean)
+commentId: O:Report::Microsoft#Finance#VAT#Reporting#VAT Statement
+name: '"VAT Statement"'
+uid: O:Report::Microsoft#Finance#VAT#Reporting#VAT_Statement

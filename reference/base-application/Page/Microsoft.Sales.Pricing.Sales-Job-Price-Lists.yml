@@ -1,0 +1,82 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Pricing."Sales Job Price Lists"
+alId: ID 7019
+namespace: Microsoft.Sales.Pricing
+baseKind: Page
+kind: Page
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Pricing
+langs:
+- al
+sourceTableType:
+  internalReference: O:Table::Microsoft#Pricing#PriceList#Price_List_Header
+  name: Microsoft.Pricing.PriceList."Price List Header"
+  isExternal: false
+seeAlso:
+- '[Page](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-object)'
+objectProperties:
+- name: Caption
+  value: Sales Project Price Lists
+  promoted: false
+- name: CardPageID
+  value: Sales Price List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Pricing#Sales_Price_List
+    name: Microsoft.Sales.Pricing."Sales Price List"
+    isExternal: false
+- name: Editable
+  value: "False"
+  promoted: false
+- name: PageType
+  value: List
+  promoted: true
+- name: QueryCategory
+  value: Sales Job Price Lists
+  promoted: false
+- name: RefreshOnActivate
+  value: "True"
+  promoted: false
+- name: SourceTable
+  value: "7000"
+  promoted: true
+  xrefType:
+    internalReference: O:Table::Microsoft#Pricing#PriceList#Price_List_Header
+    name: Microsoft.Pricing.PriceList."Price List Header"
+    isExternal: false
+- name: SourceTableView
+  value: where("Source Group" = const(Job), "Price Type" = const(Sale))
+  promoted: false
+- name: ApplicationArea
+  value: '#Jobs'
+  promoted: false
+- name: UsageCategory
+  value: Lists
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure SetRecordFilter(var PriceListHeader: Record "Price List Header")'
+    parameters:
+    - id: PriceListHeader
+      parameterType:
+        name: Record "Price List Header"
+        isExternal: true
+  name: SetRecordFilter
+  uid: M:Page::Microsoft#Sales#Pricing#Sales_Job_Price_Lists.SetRecordFilter(Price_List_Header@)
+- syntax:
+    content: 'procedure SetSource(PriceSourceList: Codeunit "Price Source List", AmountType: Enum "Price Amount Type")'
+    parameters:
+    - id: PriceSourceList
+      parameterType:
+        internalReference: O:Codeunit::Microsoft#Pricing#Source#Price_Source_List
+        name: Microsoft.Pricing.Source."Price Source List"
+        isExternal: false
+    - id: AmountType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Pricing#PriceList#Price_Amount_Type
+        name: Microsoft.Pricing.PriceList."Price Amount Type"
+        isExternal: false
+  name: SetSource
+  uid: M:Page::Microsoft#Sales#Pricing#Sales_Job_Price_Lists.SetSource(Codeunit::Microsoft#Pricing#Source#Price_Source_List,Enum::Microsoft#Pricing#PriceList#Price_Amount_Type)
+commentId: O:Page::Microsoft#Sales#Pricing#Sales Job Price Lists
+name: '"Sales Job Price Lists"'
+uid: O:Page::Microsoft#Sales#Pricing#Sales_Job_Price_Lists

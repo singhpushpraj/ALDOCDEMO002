@@ -1,0 +1,861 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Inventory.Transfer."Transfer Line"
+alId: ID 5741
+namespace: Microsoft.Inventory.Transfer
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Inventory.Transfer
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Transfer Line
+  promoted: false
+- name: DrillDownPageID
+  value: Transfer Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Transfer#Transfer_Lines
+    name: Microsoft.Inventory.Transfer."Transfer Lines"
+    isExternal: false
+- name: LookupPageID
+  value: Transfer Lines
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Inventory#Transfer#Transfer_Lines
+    name: Microsoft.Inventory.Transfer."Transfer Lines"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: procedure InitOutstandingQty()
+  name: InitOutstandingQty
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.InitOutstandingQty
+- syntax:
+    content: procedure InitQtyToShip()
+  name: InitQtyToShip
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.InitQtyToShip
+- syntax:
+    content: procedure InitQtyToReceive()
+  name: InitQtyToReceive
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.InitQtyToReceive
+- syntax:
+    content: procedure InitQtyInTransit()
+  name: InitQtyInTransit
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.InitQtyInTransit
+- syntax:
+    content: procedure ResetPostedQty()
+  name: ResetPostedQty
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ResetPostedQty
+- syntax:
+    content: procedure GetTransHeaderExternal()
+  name: GetTransHeaderExternal
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.GetTransHeaderExternal
+- syntax:
+    content: 'procedure BlockDynamicTracking(SetBlock: Boolean)'
+    parameters:
+    - id: SetBlock
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: BlockDynamicTracking
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.BlockDynamicTracking(Boolean)
+- syntax:
+    content: procedure ShowDimensions()
+  name: ShowDimensions
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ShowDimensions
+- syntax:
+    content: 'procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])'
+    parameters:
+    - id: DefaultDimSource
+      parameterType:
+        name: List of [Dictionary of [Integer, Code[20]]]
+        isExternal: true
+  name: CreateDim
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.CreateDim(List_of_[Dictionary])
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure LookupShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: LookupShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.LookupShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: 'procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])'
+    parameters:
+    - id: ShortcutDimCode
+      parameterType:
+        name: array[8] of Code[20]
+        isExternal: true
+  name: ShowShortcutDimCode
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ShowShortcutDimCode(Code[20][]@)
+- syntax:
+    content: procedure SelectMultipleItems()
+  name: SelectMultipleItems
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.SelectMultipleItems
+- syntax:
+    content: 'procedure AddItems(SelectionFilter: Text)'
+    parameters:
+    - id: SelectionFilter
+      parameterType:
+        name: Text
+        isExternal: true
+  name: AddItems
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.AddItems(Text)
+- syntax:
+    content: 'procedure AddItem(var TransferLine: Record "Transfer Line", ItemNo: Code[20])'
+    parameters:
+    - id: TransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+    - id: ItemNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: AddItem
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.AddItem(Transfer_Line@,Code[20])
+- syntax:
+    content: 'procedure InitNewLine(var NewTransferLine: Record "Transfer Line")'
+    parameters:
+    - id: NewTransferLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: InitNewLine
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.InitNewLine(Transfer_Line@)
+- syntax:
+    content: 'procedure CheckItemAvailable(CalledByFieldNo: Integer)'
+    parameters:
+    - id: CalledByFieldNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: CheckItemAvailable
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.CheckItemAvailable(Integer)
+- syntax:
+    content: procedure CheckDirectTransferQtyToShip()
+  name: CheckDirectTransferQtyToShip
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.CheckDirectTransferQtyToShip
+- syntax:
+    content: 'procedure OpenItemTrackingLines(Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: OpenItemTrackingLines
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.OpenItemTrackingLines(Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure OpenItemTrackingLinesWithReclass(Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: OpenItemTrackingLinesWithReclass
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.OpenItemTrackingLinesWithReclass(Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: procedure TestStatusOpen()
+  name: TestStatusOpen
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.TestStatusOpen
+- syntax:
+    content: 'procedure SuspendStatusCheck(Suspend: Boolean)'
+    parameters:
+    - id: Suspend
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SuspendStatusCheck
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.SuspendStatusCheck(Boolean)
+- syntax:
+    content: procedure ShowReservation()
+  name: ShowReservation
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ShowReservation
+- syntax:
+    content: procedure UpdateWithWarehouseShipReceive()
+  name: UpdateWithWarehouseShipReceive
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.UpdateWithWarehouseShipReceive
+- syntax:
+    content: 'procedure RenameNo(OldNo: Code[20], NewNo: Code[20])'
+    parameters:
+    - id: OldNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: NewNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: RenameNo
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.RenameNo(Code[20],Code[20])
+- syntax:
+    content: 'procedure CheckWarehouse(Location: Record Location, Receive: Boolean)'
+    parameters:
+    - id: Location
+      parameterType:
+        name: Record Location
+        isExternal: true
+    - id: Receive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckWarehouse
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.CheckWarehouse(Location,Boolean)
+- syntax:
+    content: 'procedure GetRemainingQty(var RemainingQty: Decimal, var RemainingQtyBase: Decimal, Direction: Integer)'
+    parameters:
+    - id: RemainingQty
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: RemainingQtyBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: GetRemainingQty
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.GetRemainingQty(Decimal@,Decimal@,Integer)
+- syntax:
+    content: 'procedure GetReservationQty(var QtyReserved: Decimal, var QtyReservedBase: Decimal, var QtyToReserve: Decimal, var QtyToReserveBase: Decimal, Direction: Integer): Decimal'
+    parameters:
+    - id: QtyReserved
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyReservedBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserve
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: QtyToReserveBase
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: Direction
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReservationQty
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.GetReservationQty(Decimal@,Decimal@,Decimal@,Decimal@,Integer):Decimal
+- syntax:
+    content: 'procedure GetSourceCaption(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetSourceCaption
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.GetSourceCaption:Text
+- syntax:
+    content: 'procedure SetReservationEntry(var ReservEntry: Record "Reservation Entry", Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: SetReservationEntry
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.SetReservationEntry(Reservation_Entry@,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure SetReservationFilters(var ReservEntry: Record "Reservation Entry", Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: ReservEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: SetReservationFilters
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.SetReservationFilters(Reservation_Entry@,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+- syntax:
+    content: 'procedure ReservEntryExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ReservEntryExist
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ReservEntryExist:Boolean
+- syntax:
+    content: 'procedure IsInbound(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsInbound
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.IsInbound:Boolean
+- syntax:
+    content: 'procedure FilterLinesWithItemToPlan(var Item: Record Item, IsReceipt: Boolean, IsSupplyForPlanning: Boolean)'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: IsReceipt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsSupplyForPlanning
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterLinesWithItemToPlan
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.FilterLinesWithItemToPlan(Item@,Boolean,Boolean)
+- syntax:
+    content: 'procedure FindLinesWithItemToPlan(var Item: Record Item, IsReceipt: Boolean, IsSupplyForPlanning: Boolean): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: IsReceipt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: IsSupplyForPlanning
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindLinesWithItemToPlan
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.FindLinesWithItemToPlan(Item@,Boolean,Boolean):Boolean
+- syntax:
+    content: 'procedure LinesWithItemToPlanExist(var Item: Record Item, IsReceipt: Boolean): Boolean'
+    parameters:
+    - id: Item
+      parameterType:
+        name: Record Item
+        isExternal: true
+    - id: IsReceipt
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LinesWithItemToPlanExist
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.LinesWithItemToPlanExist(Item@,Boolean):Boolean
+- syntax:
+    content: 'procedure FilterInboundLinesForReservation(ReservationEntry: Record "Reservation Entry", AvailabilityFilter: Text, Positive: Boolean)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: AvailabilityFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterInboundLinesForReservation
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.FilterInboundLinesForReservation(Reservation_Entry,Text,Boolean)
+- syntax:
+    content: 'procedure FilterOutboundLinesForReservation(ReservationEntry: Record "Reservation Entry", AvailabilityFilter: Text, Positive: Boolean)'
+    parameters:
+    - id: ReservationEntry
+      parameterType:
+        name: Record "Reservation Entry"
+        isExternal: true
+    - id: AvailabilityFilter
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: Positive
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: FilterOutboundLinesForReservation
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.FilterOutboundLinesForReservation(Reservation_Entry,Text,Boolean)
+- syntax:
+    content: procedure VerifyItemLineDim()
+  name: VerifyItemLineDim
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.VerifyItemLineDim
+- syntax:
+    content: 'procedure ReserveFromInventory(var TransLine: Record "Transfer Line")'
+    parameters:
+    - id: TransLine
+      parameterType:
+        name: Record "Transfer Line"
+        isExternal: true
+  name: ReserveFromInventory
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ReserveFromInventory(Transfer_Line@)
+- syntax:
+    content: 'procedure IsShippedDimChanged(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsShippedDimChanged
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.IsShippedDimChanged:Boolean
+- syntax:
+    content: 'procedure ConfirmShippedDimChange(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: ConfirmShippedDimChange
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ConfirmShippedDimChange:Boolean
+- syntax:
+    content: 'procedure GetTransferHeader(): Record "Transfer Header"'
+    return:
+      returnType:
+        name: Record "Transfer Header"
+        isExternal: true
+  name: GetTransferHeader
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.GetTransferHeader:Transfer_Header
+- syntax:
+    content: procedure DateConflictCheck()
+  name: DateConflictCheck
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.DateConflictCheck
+- syntax:
+    content: 'procedure RowID1(Direction: Enum "Transfer Direction"): Text[250]'
+    parameters:
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: RowID1
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.RowID1(Enum::Microsoft#Foundation#Enums#Transfer_Direction):Text[250]
+- syntax:
+    content: procedure CreateDimFromDefaultDim()
+  name: CreateDimFromDefaultDim
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.CreateDimFromDefaultDim
+- syntax:
+    content: 'procedure CheckIfTransferLineMeetsReservedFromStockSetting(QtyToPost: Decimal, ReservedFromStock: Enum "Reservation From Stock"): Boolean'
+    parameters:
+    - id: QtyToPost
+      parameterType:
+        name: Decimal
+        isExternal: true
+    - id: ReservedFromStock
+      parameterType:
+        internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock
+        name: Microsoft.Inventory.Tracking."Reservation From Stock"
+        isExternal: false
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: CheckIfTransferLineMeetsReservedFromStockSetting
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.CheckIfTransferLineMeetsReservedFromStockSetting(Decimal,Enum::Microsoft#Inventory#Tracking#Reservation_From_Stock):Boolean
+- syntax:
+    content: 'procedure ShowReservationEntries(Modal: Boolean, Direction: Enum "Transfer Direction")'
+    parameters:
+    - id: Modal
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Direction
+      parameterType:
+        internalReference: O:Enum::Microsoft#Foundation#Enums#Transfer_Direction
+        name: Microsoft.Foundation.Enums."Transfer Direction"
+        isExternal: false
+  name: ShowReservationEntries
+  uid: M:Table::Microsoft#Inventory#Transfer#Transfer_Line.ShowReservationEntries(Boolean,Enum::Microsoft#Foundation#Enums#Transfer_Direction)
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document No."'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Document_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Line No."'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Line_No#
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item No."'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Item_No#[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Quantity
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Quantity
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Unit_of_Measure[50]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Ship"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_to_Ship
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Receive"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_to_Receive
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Shipped"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Quantity_Shipped
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity Received"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Quantity_Received
+- type:
+    name: Option
+    isExternal: true
+  name: Status
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Status
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 1 Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Shortcut_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Shortcut Dimension 2 Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Shortcut_Dimension_2_Code[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Description
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Description[100]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Prod. Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Gen#_Prod#_Posting_Group[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Inventory Posting Group"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Inventory_Posting_Group[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Quantity (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Quantity_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Qty. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Outstanding_Qty#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Ship (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_to_Ship_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Shipped (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_Shipped_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. to Receive (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_to_Receive_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Received (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_Received_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. per Unit of Measure"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_per_Unit_of_Measure
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Unit of Measure Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Unit_of_Measure_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Quantity"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Outstanding_Quantity
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Gross Weight"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Gross_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Weight"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Net_Weight
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Unit Volume"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Unit_Volume
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_Rounding_Precision
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. Rounding Precision (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_Rounding_Precision_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Variant Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Variant_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Units per Parcel"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Units_per_Parcel
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Description 2"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Description_2[50]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"In-Transit Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.In-Transit_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. in Transit"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_in_Transit
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Qty. in Transit (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Qty#_in_Transit_(Base)
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transfer-from Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Transfer-from_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Transfer-to Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Transfer-to_Code[10]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Shipment_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Receipt Date"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Receipt_Date
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Derived From Line No."'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Derived_From_Line_No#
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Shipping_Agent_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Shipping_Agent_Service_Code[10]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Appl.-to Item Entry"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Appl#-to_Item_Entry
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity Inbnd."'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Reserved_Quantity_Inbnd#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity Outbnd."'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Reserved_Quantity_Outbnd#
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. Inbnd. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Reserved_Qty#_Inbnd#_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. Outbnd. (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Reserved_Qty#_Outbnd#_(Base)
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Shipping_Time
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Quantity Shipped"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Reserved_Quantity_Shipped
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reserved Qty. Shipped (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Reserved_Qty#_Shipped_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Direct Transfer"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Direct_Transfer
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Dimension Set ID"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Dimension_Set_ID
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Item Category Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Item_Category_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Product Group Code"'
+  obsoletion:
+    state: removed
+    reason: Product Groups became first level children of Item Categories.
+    version: "15.0"
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Product_Group_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Whse. Inbnd. Otsdg. Qty (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Whse#_Inbnd#_Otsdg#_Qty_(Base)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Whse Outbnd. Otsdg. Qty (Base)"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Whse_Outbnd#_Otsdg#_Qty_(Base)
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Shipped"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Completely_Shipped
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Completely Received"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Completely_Received
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Outbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Outbound_Whse#_Handling_Time
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Inbound Whse. Handling Time"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Inbound_Whse#_Handling_Time
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Transfer-from Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Transfer-from_Bin_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Transfer-To Bin Code"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Transfer-To_Bin_Code[20]
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reservation_Planning_Flexibility
+    name: Microsoft.Inventory.Tracking."Reservation Planning Flexibility"
+    isExternal: false
+  name: '"Planning Flexibility"'
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.Planning_Flexibility
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Inventory#Transfer#Transfer_Line.SystemRowVersion
+commentId: O:Table::Microsoft#Inventory#Transfer#Transfer Line
+name: '"Transfer Line"'
+uid: O:Table::Microsoft#Inventory#Transfer#Transfer_Line

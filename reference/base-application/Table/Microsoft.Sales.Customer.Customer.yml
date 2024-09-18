@@ -1,0 +1,1590 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Sales.Customer.Customer
+alId: ID 18
+namespace: Microsoft.Sales.Customer
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Sales.Customer
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Customer
+  promoted: false
+- name: DataCaptionFields
+  value: 1,2
+  promoted: false
+- name: DrillDownPageID
+  value: Customer List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Customer#Customer_List
+    name: Microsoft.Sales.Customer."Customer List"
+    isExternal: false
+- name: LookupPageID
+  value: Customer Lookup
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Sales#Customer#Customer_Lookup
+    name: Microsoft.Sales.Customer."Customer Lookup"
+    isExternal: false
+- name: Permissions
+  value: >-
+    TableData "Cust. Ledger Entry" = r,
+                      TableData Job = r,
+                      tabledata "VAT Business Posting Group" = R,
+                      TableData "VAT Registration Log" = rd,
+                      tabledata "Payment Terms" = R,
+                      TableData "Service Header" = r,
+                      TableData "Service Ledger Entry" = r,
+                      TableData "Service Item" = rm,
+                      TableData "Service Contract Header" = rm,
+                      TableData "Price List Header" = rd,
+                      TableData "Price List Line" = rd,
+    #if not CLEAN23
+                      TableData "Sales Price" = rd,
+                      TableData "Sales Line Discount" = rd,
+    #endif
+                      TableData "Sales Price Access" = rd,
+                      TableData "Sales Discount Access" = rd,
+                      tabledata "Customer Templ." = rm,
+                      tabledata "General Ledger Setup" = r,
+                      tabledata "Sales & Receivables Setup" = r,
+                      tabledata "Marketing Setup" = r,
+                      tabledata Language = r,
+                      tabledata "Language Selection" = r
+  promoted: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(OldCust: Record Customer): Boolean'
+    parameters:
+    - id: OldCust
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Sales#Customer#Customer.AssistEdit(Customer):Boolean
+- syntax:
+    content: 'procedure ValidateShortcutDimCode(FieldNumber: Integer, var ShortcutDimCode: Code[20])'
+    parameters:
+    - id: FieldNumber
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: ShortcutDimCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+  name: ValidateShortcutDimCode
+  uid: M:Table::Microsoft#Sales#Customer#Customer.ValidateShortcutDimCode(Integer,Code[20]@)
+- syntax:
+    content: procedure ShowContact()
+  name: ShowContact
+  uid: M:Table::Microsoft#Sales#Customer#Customer.ShowContact
+- syntax:
+    content: 'procedure SetInsertFromContact(FromContact: Boolean)'
+    parameters:
+    - id: FromContact
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInsertFromContact
+  uid: M:Table::Microsoft#Sales#Customer#Customer.SetInsertFromContact(Boolean)
+- syntax:
+    content: 'procedure CheckBlockedCustOnDocs(Cust2: Record Customer, DocType: Enum "Sales Document Type", Shipment: Boolean, Transaction: Boolean)'
+    parameters:
+    - id: Cust2
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Sales#Document#Sales_Document_Type
+        name: Microsoft.Sales.Document."Sales Document Type"
+        isExternal: false
+    - id: Shipment
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckBlockedCustOnDocs
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CheckBlockedCustOnDocs(Customer,Enum::Microsoft#Sales#Document#Sales_Document_Type,Boolean,Boolean)
+- syntax:
+    content: 'procedure CheckBlockedCustOnJnls(Cust2: Record Customer, DocType: Enum "Gen. Journal Document Type", Transaction: Boolean)'
+    parameters:
+    - id: Cust2
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: DocType
+      parameterType:
+        internalReference: O:Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type
+        name: Microsoft.Finance.GeneralLedger.Journal."Gen. Journal Document Type"
+        isExternal: false
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckBlockedCustOnJnls
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CheckBlockedCustOnJnls(Customer,Enum::Microsoft#Finance#GeneralLedger#Journal#Gen#_Journal_Document_Type,Boolean)
+- syntax:
+    content: 'procedure CheckBlockedCustOnJnls(Cust2: Record Customer, var GenJnlLine: Record "Gen. Journal Line", Transaction: Boolean)'
+    parameters:
+    - id: Cust2
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: GenJnlLine
+      parameterType:
+        name: Record "Gen. Journal Line"
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CheckBlockedCustOnJnls
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CheckBlockedCustOnJnls(Customer,Gen#_Journal_Line@,Boolean)
+- syntax:
+    content: 'procedure CustBlockedErrorMessage(Cust2: Record Customer, Transaction: Boolean)'
+    parameters:
+    - id: Cust2
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CustBlockedErrorMessage
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CustBlockedErrorMessage(Customer,Boolean)
+- syntax:
+    content: 'procedure CustPrivacyBlockedErrorMessage(Cust2: Record Customer, Transaction: Boolean)'
+    parameters:
+    - id: Cust2
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: Transaction
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: CustPrivacyBlockedErrorMessage
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CustPrivacyBlockedErrorMessage(Customer,Boolean)
+- syntax:
+    content: 'procedure GetPrivacyBlockedGenericErrorText(Cust2: Record Customer): Text[250]'
+    parameters:
+    - id: Cust2
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Text[250]
+        isExternal: true
+  name: GetPrivacyBlockedGenericErrorText
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetPrivacyBlockedGenericErrorText(Customer):Text[250]
+- syntax:
+    content: procedure DisplayMap()
+  name: DisplayMap
+  uid: M:Table::Microsoft#Sales#Customer#Customer.DisplayMap
+- syntax:
+    content: 'procedure GetPriceCalculationMethod(): Enum "Price Calculation Method"'
+    return:
+      returnType:
+        internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+        name: Microsoft.Pricing.Calculation."Price Calculation Method"
+        isExternal: false
+  name: GetPriceCalculationMethod
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetPriceCalculationMethod:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+- syntax:
+    content: 'procedure GetPrimaryContact(CustomerNo: Code[20], var PrimaryContact: Record Contact)'
+    parameters:
+    - id: CustomerNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: PrimaryContact
+      parameterType:
+        name: Record Contact
+        isExternal: true
+  name: GetPrimaryContact
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetPrimaryContact(Code[20],Contact@)
+- syntax:
+    content: 'procedure GetTotalAmountLCY(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalAmountLCY
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetTotalAmountLCY:Decimal
+- syntax:
+    content: 'procedure GetTotalAmountLCYUI(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetTotalAmountLCYUI
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetTotalAmountLCYUI:Decimal
+- syntax:
+    content: 'procedure GetSalesLCY(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetSalesLCY
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetSalesLCY:Decimal
+- syntax:
+    content: 'procedure GetTopCustomerHeadlineQueryDocumentTypeFilter(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetTopCustomerHeadlineQueryDocumentTypeFilter
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetTopCustomerHeadlineQueryDocumentTypeFilter:Text
+- syntax:
+    content: 'procedure CalcAvailableCredit(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailableCredit
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CalcAvailableCredit:Decimal
+- syntax:
+    content: 'procedure CalcAvailableCreditUI(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcAvailableCreditUI
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CalcAvailableCreditUI:Decimal
+- syntax:
+    content: 'procedure CalcOverdueBalance(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcOverdueBalance
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CalcOverdueBalance:Decimal
+- syntax:
+    content: 'procedure GetLegalEntityType(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetLegalEntityType
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetLegalEntityType:Text
+- syntax:
+    content: 'procedure GetLegalEntityTypeLbl(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetLegalEntityTypeLbl
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetLegalEntityTypeLbl:Text
+- syntax:
+    content: 'procedure SetStyle(): Text'
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: SetStyle
+  uid: M:Table::Microsoft#Sales#Customer#Customer.SetStyle:Text
+- syntax:
+    content: 'procedure HasValidDDMandate(Date: Date): Boolean'
+    parameters:
+    - id: Date
+      parameterType:
+        name: Date
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasValidDDMandate
+  uid: M:Table::Microsoft#Sales#Customer#Customer.HasValidDDMandate(Date):Boolean
+- syntax:
+    content: 'procedure GetReturnRcdNotInvAmountLCY(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetReturnRcdNotInvAmountLCY
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetReturnRcdNotInvAmountLCY:Decimal
+- syntax:
+    content: 'procedure GetInvoicedPrepmtAmountLCY(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetInvoicedPrepmtAmountLCY
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetInvoicedPrepmtAmountLCY:Decimal
+- syntax:
+    content: 'procedure CalcCreditLimitLCYExpendedPct(): Decimal'
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: CalcCreditLimitLCYExpendedPct
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CalcCreditLimitLCYExpendedPct:Decimal
+- syntax:
+    content: procedure CreateAndShowNewInvoice()
+  name: CreateAndShowNewInvoice
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CreateAndShowNewInvoice
+- syntax:
+    content: procedure CreateAndShowNewOrder()
+  name: CreateAndShowNewOrder
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CreateAndShowNewOrder
+- syntax:
+    content: procedure CreateAndShowNewCreditMemo()
+  name: CreateAndShowNewCreditMemo
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CreateAndShowNewCreditMemo
+- syntax:
+    content: procedure CreateAndShowNewQuote()
+  name: CreateAndShowNewQuote
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CreateAndShowNewQuote
+- syntax:
+    content: 'procedure GetBillToCustomerNo(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetBillToCustomerNo
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetBillToCustomerNo:Code[20]
+- syntax:
+    content: 'procedure HasAddressIgnoreCountryCode(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasAddressIgnoreCountryCode
+  uid: M:Table::Microsoft#Sales#Customer#Customer.HasAddressIgnoreCountryCode:Boolean
+- syntax:
+    content: 'procedure HasAddress(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasAddress
+  uid: M:Table::Microsoft#Sales#Customer#Customer.HasAddress:Boolean
+- syntax:
+    content: 'procedure HasDifferentAddress(OtherCustomer: Record Customer): Boolean'
+    parameters:
+    - id: OtherCustomer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasDifferentAddress
+  uid: M:Table::Microsoft#Sales#Customer#Customer.HasDifferentAddress(Customer):Boolean
+- syntax:
+    content: 'procedure GetBalanceAsVendor(var LinkedVendorNo: Code[20]): Decimal'
+    parameters:
+    - id: LinkedVendorNo
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    return:
+      returnType:
+        name: Decimal
+        isExternal: true
+  name: GetBalanceAsVendor
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetBalanceAsVendor(Code[20]@):Decimal
+- syntax:
+    content: 'procedure GetLinkedVendor(): Code[20]'
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetLinkedVendor
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetLinkedVendor:Code[20]
+- syntax:
+    content: 'procedure GetCustNo(CustomerText: Text): Text'
+    parameters:
+    - id: CustomerText
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Text
+        isExternal: true
+  name: GetCustNo
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetCustNo(Text):Text
+- syntax:
+    content: 'procedure GetCustNoOpenCard(CustomerText: Text, ShowCustomerCard: Boolean, ShowCreateCustomerOption: Boolean): Code[20]'
+    parameters:
+    - id: CustomerText
+      parameterType:
+        name: Text
+        isExternal: true
+    - id: ShowCustomerCard
+      parameterType:
+        name: Boolean
+        isExternal: true
+    - id: ShowCreateCustomerOption
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: GetCustNoOpenCard
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetCustNoOpenCard(Text,Boolean,Boolean):Code[20]
+- syntax:
+    content: 'procedure CreateNewCustomer(CustomerName: Text[100], ShowCustomerCard: Boolean): Code[20]'
+    parameters:
+    - id: CustomerName
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: ShowCustomerCard
+      parameterType:
+        name: Boolean
+        isExternal: true
+    return:
+      returnType:
+        name: Code[20]
+        isExternal: true
+  name: CreateNewCustomer
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CreateNewCustomer(Text[100],Boolean):Code[20]
+- syntax:
+    content: 'procedure SelectCustomer(var Customer: Record Customer): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: SelectCustomer
+  uid: M:Table::Microsoft#Sales#Customer#Customer.SelectCustomer(Customer@):Boolean
+- syntax:
+    content: 'procedure ToPriceSource(var PriceSource: Record "Price Source" temporary)'
+    parameters:
+    - id: PriceSource
+      parameterType:
+        name: Record "Price Source" temporary
+        isExternal: true
+  name: ToPriceSource
+  uid: M:Table::Microsoft#Sales#Customer#Customer.ToPriceSource(Price_Source@)
+- syntax:
+    content: 'procedure OpenCustomerLedgerEntries(FilterOnDueEntries: Boolean)'
+    parameters:
+    - id: FilterOnDueEntries
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: OpenCustomerLedgerEntries
+  uid: M:Table::Microsoft#Sales#Customer#Customer.OpenCustomerLedgerEntries(Boolean)
+- syntax:
+    content: 'procedure SetInsertFromTemplate(FromTemplate: Boolean)'
+    parameters:
+    - id: FromTemplate
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetInsertFromTemplate
+  uid: M:Table::Microsoft#Sales#Customer#Customer.SetInsertFromTemplate(Boolean)
+- syntax:
+    content: 'procedure IsLookupRequested(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsLookupRequested
+  uid: M:Table::Microsoft#Sales#Customer#Customer.IsLookupRequested:Boolean
+- syntax:
+    content: 'procedure IsContactUpdateNeeded(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsContactUpdateNeeded
+  uid: M:Table::Microsoft#Sales#Customer#Customer.IsContactUpdateNeeded:Boolean
+- syntax:
+    content: 'procedure IsBlocked(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: IsBlocked
+  uid: M:Table::Microsoft#Sales#Customer#Customer.IsBlocked:Boolean
+- syntax:
+    content: 'procedure HasAnyOpenOrPostedDocuments(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: HasAnyOpenOrPostedDocuments
+  uid: M:Table::Microsoft#Sales#Customer#Customer.HasAnyOpenOrPostedDocuments:Boolean
+- syntax:
+    content: 'procedure CopyFromNewCustomerTemplate(CustomerTemplate: Record "Customer Templ.")'
+    parameters:
+    - id: CustomerTemplate
+      parameterType:
+        name: Record "Customer Templ."
+        isExternal: true
+  name: CopyFromNewCustomerTemplate
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CopyFromNewCustomerTemplate(Customer_Templ#)
+- syntax:
+    content: 'procedure GetInsertFromContact(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetInsertFromContact
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetInsertFromContact:Boolean
+- syntax:
+    content: 'procedure GetInsertFromTemplate(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: GetInsertFromTemplate
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetInsertFromTemplate:Boolean
+- syntax:
+    content: procedure VATRegistrationValidation()
+  name: VATRegistrationValidation
+  uid: M:Table::Microsoft#Sales#Customer#Customer.VATRegistrationValidation
+- syntax:
+    content: 'procedure SetAddress(CustomerAddress: Text[100], CustomerAddress2: Text[50], CustomerPostCode: Code[20], CustomerCity: Text[30], CustomerCounty: Text[30], CustomerCountryCode: Code[10], CustomerContact: Text[100])'
+    parameters:
+    - id: CustomerAddress
+      parameterType:
+        name: Text[100]
+        isExternal: true
+    - id: CustomerAddress2
+      parameterType:
+        name: Text[50]
+        isExternal: true
+    - id: CustomerPostCode
+      parameterType:
+        name: Code[20]
+        isExternal: true
+    - id: CustomerCity
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: CustomerCounty
+      parameterType:
+        name: Text[30]
+        isExternal: true
+    - id: CustomerCountryCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: CustomerContact
+      parameterType:
+        name: Text[100]
+        isExternal: true
+  name: SetAddress
+  uid: M:Table::Microsoft#Sales#Customer#Customer.SetAddress(Text[100],Text[50],Code[20],Text[30],Text[30],Code[10],Text[100])
+- syntax:
+    content: 'procedure FindByEmail(var Customer: Record Customer, Email: Text): Boolean'
+    parameters:
+    - id: Customer
+      parameterType:
+        name: Record Customer
+        isExternal: true
+    - id: Email
+      parameterType:
+        name: Text
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindByEmail
+  uid: M:Table::Microsoft#Sales#Customer#Customer.FindByEmail(Customer@,Text):Boolean
+- syntax:
+    content: procedure UpdateReferencedIds()
+  name: UpdateReferencedIds
+  uid: M:Table::Microsoft#Sales#Customer#Customer.UpdateReferencedIds
+- syntax:
+    content: 'procedure GetReferencedIds(TempField: __MissingTypeSymbol__)'
+    parameters:
+    - id: TempField
+      parameterType:
+        name: __MissingTypeSymbol__
+        isExternal: true
+  name: GetReferencedIds
+  uid: M:Table::Microsoft#Sales#Customer#Customer.GetReferencedIds(__MissingSymbol__@)
+- syntax:
+    content: 'procedure SetForceUpdateContact(NewForceUpdateContact: Boolean)'
+    parameters:
+    - id: NewForceUpdateContact
+      parameterType:
+        name: Boolean
+        isExternal: true
+  name: SetForceUpdateContact
+  uid: M:Table::Microsoft#Sales#Customer#Customer.SetForceUpdateContact(Boolean)
+- syntax:
+    content: procedure UpdateCurrencyId()
+  name: UpdateCurrencyId
+  uid: M:Table::Microsoft#Sales#Customer#Customer.UpdateCurrencyId
+- syntax:
+    content: procedure UpdatePaymentTermsId()
+  name: UpdatePaymentTermsId
+  uid: M:Table::Microsoft#Sales#Customer#Customer.UpdatePaymentTermsId
+- syntax:
+    content: procedure UpdateShipmentMethodId()
+  name: UpdateShipmentMethodId
+  uid: M:Table::Microsoft#Sales#Customer#Customer.UpdateShipmentMethodId
+- syntax:
+    content: procedure UpdatePaymentMethodId()
+  name: UpdatePaymentMethodId
+  uid: M:Table::Microsoft#Sales#Customer#Customer.UpdatePaymentMethodId
+- syntax:
+    content: procedure UpdateTaxAreaId()
+  name: UpdateTaxAreaId
+  uid: M:Table::Microsoft#Sales#Customer#Customer.UpdateTaxAreaId
+- syntax:
+    content: procedure CheckAllowMultiplePostingGroups()
+  name: CheckAllowMultiplePostingGroups
+  uid: M:Table::Microsoft#Sales#Customer#Customer.CheckAllowMultiplePostingGroups
+fields:
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#[20]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Name
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Name[100]
+- type:
+    name: Code[100]
+    isExternal: true
+  name: '"Search Name"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Search_Name[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Name 2"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Name_2[50]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Address
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Address[100]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Address 2"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Address_2[50]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: City
+  uid: F:Table::Microsoft#Sales#Customer#Customer.City[30]
+- type:
+    name: Text[100]
+    isExternal: true
+  name: Contact
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Contact[100]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Phone No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Phone_No#[30]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Telex No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Telex_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Document Sending Profile"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Document_Sending_Profile[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Ship-to_Code[10]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Our Account No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Our_Account_No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Territory Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Territory_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Global_Dimension_1_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Global_Dimension_2_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Chain Name"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Chain_Name[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Budgeted Amount"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Budgeted_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Limit (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Credit_Limit_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Posting Group"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Customer_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Currency_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Customer Price Group"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Customer_Price_Group[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Language Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Language_Code[10]
+- type:
+    name: Text[50]
+    isExternal: true
+  name: '"Registration Number"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Registration_Number[50]
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Statistics Group"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Statistics_Group
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Terms Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Payment_Terms_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Fin. Charge Terms Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Fin#_Charge_Terms_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Salesperson Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Salesperson_Code[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipment Method Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipment_Method_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipping_Agent_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Place of Export"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Place_of_Export[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Invoice Disc. Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Invoice_Disc#_Code[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Customer Disc. Group"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Customer_Disc#_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Country/Region Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Country/Region_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Collection Method"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Collection_Method[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Amount
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Amount
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Comment
+- type:
+    internalReference: O:Enum::Microsoft#Sales#Customer#Customer_Blocked
+    name: Microsoft.Sales.Customer."Customer Blocked"
+    isExternal: false
+  name: Blocked
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Blocked
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Invoice Copies"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Invoice_Copies
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Last Statement No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Last_Statement_No#
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Print Statements"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Print_Statements
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Bill-to Customer No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-to_Customer_No#[20]
+- type:
+    name: Integer
+    isExternal: true
+  name: Priority
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Priority
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Payment Method Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Payment_Method_Code[10]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Format Region"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Format_Region[80]
+- type:
+    name: DateTime
+    isExternal: true
+  name: '"Last Modified Date Time"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Last_Modified_Date_Time
+- type:
+    name: Date
+    isExternal: true
+  name: '"Last Date Modified"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Last_Date_Modified
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date Filter"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Date_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 1 Filter"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Global_Dimension_1_Filter[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Global Dimension 2 Filter"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Global_Dimension_2_Filter[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Balance
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Balance
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Balance_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Change"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Net_Change
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Net Change (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Net_Change_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Sales (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Sales_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Profit (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Profit_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Discounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Inv#_Discounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Discounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Pmt#_Discounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance Due"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Balance_Due
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Balance Due (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Balance_Due_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: Payments
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Payments
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Invoice Amounts"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Invoice_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cr. Memo Amounts"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Cr#_Memo_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Finance Charge Memo Amounts"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Finance_Charge_Memo_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Payments (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Payments_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Inv. Amounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Inv#_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Cr. Memo Amounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Cr#_Memo_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Fin. Charge Memo Amounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Fin#_Charge_Memo_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Outstanding_Orders
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Invoiced"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipped_Not_Invoiced
+- type:
+    internalReference: O:Enum::Microsoft#Finance#ReceivablesPayables#Application_Method
+    name: Microsoft.Finance.ReceivablesPayables."Application Method"
+    isExternal: false
+  name: '"Application Method"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Application_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Prices Including VAT"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Prices_Including_VAT
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Location_Code[10]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Fax No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Fax_No#[30]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"Telex Answer Back"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Telex_Answer_Back[20]
+- type:
+    name: Text[20]
+    isExternal: true
+  name: '"VAT Registration No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.VAT_Registration_No#[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Combine Shipments"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Combine_Shipments
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Gen. Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Gen#_Bus#_Posting_Group[20]
+- type:
+    name: Blob
+    isExternal: true
+  name: Picture
+  obsoletion:
+    state: removed
+    reason: Replaced by Image field
+    version: "19.0"
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Picture
+- type:
+    name: Code[13]
+    isExternal: true
+  name: GLN
+  uid: F:Table::Microsoft#Sales#Customer#Customer.GLN[13]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Post Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Post_Code[20]
+- type:
+    name: Text[30]
+    isExternal: true
+  name: County
+  uid: F:Table::Microsoft#Sales#Customer#Customer.County[30]
+- type:
+    name: Text[40]
+    isExternal: true
+  name: '"EORI Number"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.EORI_Number[40]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Use GLN in Electronic Document"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Use_GLN_in_Electronic_Document
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Debit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Credit_Amount
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Debit Amount (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Debit_Amount_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Credit Amount (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Credit_Amount_(LCY)
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"E-Mail"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.E-Mail[80]
+- type:
+    name: Text[80]
+    isExternal: true
+  name: '"Home Page"'
+  obsoletion:
+    state: pending
+    reason: Field length will be increased to 255.
+    version: "24.0"
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Home_Page[80]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Reminder Terms Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Reminder_Terms_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reminder Amounts"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Reminder_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Reminder Amounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Reminder_Amounts_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_Series[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Tax Area Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Tax_Area_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Tax Liable"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Tax_Liable
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"VAT Bus. Posting Group"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.VAT_Bus#_Posting_Group[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Currency Filter"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Currency_Filter[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Orders (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Outstanding_Orders_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Shipped Not Invoiced (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipped_Not_Invoiced_(LCY)
+- type:
+    internalReference: O:Enum::Microsoft#Inventory#Tracking#Reserve_Method
+    name: Microsoft.Inventory.Tracking."Reserve Method"
+    isExternal: false
+  name: Reserve
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Reserve
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Block Payment Tolerance"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Block_Payment_Tolerance
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Disc. Tolerance (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Pmt#_Disc#_Tolerance_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Pmt. Tolerance (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Pmt#_Tolerance_(LCY)
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"IC Partner Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.IC_Partner_Code[20]
+- type:
+    name: Decimal
+    isExternal: true
+  name: Refunds
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Refunds
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Refunds (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Refunds_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Other Amounts"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Other_Amounts
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Other Amounts (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Other_Amounts_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Prepayment %"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Prepayment_%
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Invoices (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Outstanding_Invoices_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Invoices"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Outstanding_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-to No. Of Archived Doc."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-to_No#_Of_Archived_Doc#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Sell-to No. Of Archived Doc."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Sell-to_No#_Of_Archived_Doc#
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Partner_Type
+    name: Microsoft.Foundation.Enums."Partner Type"
+    isExternal: false
+  name: '"Partner Type"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Partner_Type
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Enums#Partner_Type
+    name: Microsoft.Foundation.Enums."Partner Type"
+    isExternal: false
+  name: '"Intrastat Partner Type"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Intrastat_Partner_Type
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Exclude from Pmt. Practices"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Exclude_from_Pmt#_Practices
+- type:
+    name: Media
+    isExternal: true
+  name: Image
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Image
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Privacy Blocked"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Privacy_Blocked
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Disable Search by Name"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Disable_Search_by_Name
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Multiple Posting Groups"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Allow_Multiple_Posting_Groups
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Preferred Bank Account Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Preferred_Bank_Account_Code[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to CRM"'
+  obsoletion:
+    state: pending
+    reason: Replaced by flow field Coupled to Dataverse
+    version: "23.0"
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Coupled_to_CRM
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Coupled to Dataverse"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Coupled_to_Dataverse
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Cash Flow Payment Terms Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Cash_Flow_Payment_Terms_Code[10]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Primary Contact No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Primary_Contact_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#CRM#Contact#Contact_Type
+    name: Microsoft.CRM.Contact."Contact Type"
+    isExternal: false
+  name: '"Contact Type"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Contact_Type
+- type:
+    name: Text[30]
+    isExternal: true
+  name: '"Mobile Phone No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Mobile_Phone_No#[30]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Responsibility Center"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Responsibility_Center[10]
+- type:
+    internalReference: O:Enum::Microsoft#Foundation#Shipping#Sales_Header_Shipping_Advice
+    name: Microsoft.Foundation.Shipping."Sales Header Shipping Advice"
+    isExternal: false
+  name: '"Shipping Advice"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipping_Advice
+- type:
+    name: DateFormula
+    isExternal: true
+  name: '"Shipping Time"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipping_Time
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Shipping Agent Service Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipping_Agent_Service_Code[10]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Service Zone Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Service_Zone_Code[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Contract Gain/Loss Amount"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Contract_Gain/Loss_Amount
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Ship-to Filter"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Ship-to_Filter[10]
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Serv. Orders (LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Outstanding_Serv#_Orders_(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Serv Shipped Not Invoiced(LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Serv_Shipped_Not_Invoiced(LCY)
+- type:
+    name: Decimal
+    isExternal: true
+  name: '"Outstanding Serv.Invoices(LCY)"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Outstanding_Serv#Invoices(LCY)
+- type:
+    internalReference: O:Enum::Microsoft#Pricing#Calculation#Price_Calculation_Method
+    name: Microsoft.Pricing.Calculation."Price Calculation Method"
+    isExternal: false
+  name: '"Price Calculation Method"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Price_Calculation_Method
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Allow Line Disc."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Allow_Line_Disc#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Quotes"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Quotes
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Blanket Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Blanket_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Invoices"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Return Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Return_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Credit Memos"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Credit_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Shipments"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Pstd#_Shipments
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Invoices"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Pstd#_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Return Receipts"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Pstd#_Return_Receipts
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Pstd. Credit Memos"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Pstd#_Credit_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Ship-to Addresses"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.No#_of_Ship-to_Addresses
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Quotes"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Quotes
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Blanket Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Blanket_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Invoices"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Return Orders"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Return_Orders
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Credit Memos"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Credit_Memos
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Pstd. Shipments"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Pstd#_Shipments
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Pstd. Invoices"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Pstd#_Invoices
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Pstd. Return R."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Pstd#_Return_R#
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Bill-To No. of Pstd. Cr. Memos"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Bill-To_No#_of_Pstd#_Cr#_Memos
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Base Calendar Code"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Base_Calendar_Code[10]
+- type:
+    internalReference: O:Enum::Microsoft#CRM#Contact#Contact_Type
+    name: Microsoft.CRM.Contact."Contact Type"
+    isExternal: false
+  name: '"Copy Sell-to Addr. to Qte From"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Copy_Sell-to_Addr#_to_Qte_From
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Validate EU Vat Reg. No."'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Validate_EU_Vat_Reg#_No#
+- type:
+    name: Guid
+    isExternal: true
+  name: Id
+  obsoletion:
+    state: removed
+    reason: This functionality will be replaced by the systemID field
+    version: "22.0"
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Currency Id"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Currency_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Payment Terms Id"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Payment_Terms_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Shipment Method Id"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Shipment_Method_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Payment Method Id"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Payment_Method_Id
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Tax Area ID"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Tax_Area_ID
+- type:
+    name: Text[100]
+    isExternal: true
+  name: '"Tax Area Display Name"'
+  obsoletion:
+    state: removed
+    reason: This field is not needed and it should not be used.
+    version: "15.0"
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Tax_Area_Display_Name[100]
+- type:
+    name: Guid
+    isExternal: true
+  name: '"Contact ID"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Contact_ID
+- type:
+    name: Text[250]
+    isExternal: true
+  name: '"Contact Graph Id"'
+  uid: F:Table::Microsoft#Sales#Customer#Customer.Contact_Graph_Id[250]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Sales#Customer#Customer.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Sales#Customer#Customer.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Sales#Customer#Customer.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Sales#Customer#Customer.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Sales#Customer#Customer.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Sales#Customer#Customer.SystemRowVersion
+commentId: O:Table::Microsoft#Sales#Customer#Customer
+name: Customer
+uid: O:Table::Microsoft#Sales#Customer#Customer

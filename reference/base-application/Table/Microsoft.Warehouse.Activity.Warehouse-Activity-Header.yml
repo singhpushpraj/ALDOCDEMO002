@@ -1,0 +1,355 @@
+﻿### YamlMime:BusinessCentralApplicationObject
+fqName: Microsoft.Warehouse.Activity."Warehouse Activity Header"
+alId: ID 5766
+namespace: Microsoft.Warehouse.Activity
+baseKind: Table
+kind: Table
+parent: N:Module::Base_Application::Namespace::Microsoft.Warehouse.Activity
+langs:
+- al
+seeAlso:
+- '[Table](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-table-object)'
+objectProperties:
+- name: Caption
+  value: Warehouse Activity Header
+  promoted: false
+- name: LookupPageID
+  value: Warehouse Activity List
+  promoted: false
+  xrefType:
+    internalReference: O:Page::Microsoft#Warehouse#Activity#Warehouse_Activity_List
+    name: Microsoft.Warehouse.Activity."Warehouse Activity List"
+    isExternal: false
+- name: DataClassification
+  value: CustomerContent
+  promoted: false
+methods:
+- syntax:
+    content: 'procedure AssistEdit(OldWhseActivHeader: Record "Warehouse Activity Header"): Boolean'
+    parameters:
+    - id: OldWhseActivHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: AssistEdit
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.AssistEdit(Warehouse_Activity_Header):Boolean
+- syntax:
+    content: procedure SortWhseDoc()
+  name: SortWhseDoc
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SortWhseDoc
+- syntax:
+    content: 'procedure SortWhseDocByShelfOrBin(var WhseActivLine2: Record "Warehouse Activity Line", var SequenceNo: Integer)'
+    parameters:
+    - id: WhseActivLine2
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: SequenceNo
+      parameterType:
+        name: Integer
+        isExternal: true
+  name: SortWhseDocByShelfOrBin
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SortWhseDocByShelfOrBin(Warehouse_Activity_Line@,Integer@)
+- syntax:
+    content: 'procedure SortLinesBinShelf(var WarehouseActivityLineParam: Record "Warehouse Activity Line", var SeqNo: Integer, SortOrder: Option)'
+    parameters:
+    - id: WarehouseActivityLineParam
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: SeqNo
+      parameterType:
+        name: Integer
+        isExternal: true
+    - id: SortOrder
+      parameterType:
+        name: Option
+        isExternal: true
+  name: SortLinesBinShelf
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SortLinesBinShelf(Warehouse_Activity_Line@,Integer@,Option)
+- syntax:
+    content: 'procedure SetActivityFilter(var WhseActivLineFrom: Record "Warehouse Activity Line", var WhseActivLineTo: Record "Warehouse Activity Line")'
+    parameters:
+    - id: WhseActivLineFrom
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+    - id: WhseActivLineTo
+      parameterType:
+        name: Record "Warehouse Activity Line"
+        isExternal: true
+  name: SetActivityFilter
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SetActivityFilter(Warehouse_Activity_Line@,Warehouse_Activity_Line@)
+- syntax:
+    content: 'procedure LookupActivityHeader(var CurrentLocationCode: Code[10], var WhseActivHeader: Record "Warehouse Activity Header")'
+    parameters:
+    - id: CurrentLocationCode
+      parameterType:
+        name: Code[10]
+        isExternal: true
+    - id: WhseActivHeader
+      parameterType:
+        name: Record "Warehouse Activity Header"
+        isExternal: true
+  name: LookupActivityHeader
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.LookupActivityHeader(Code[10]@,Warehouse_Activity_Header@)
+- syntax:
+    content: 'procedure LineExist(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: LineExist
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.LineExist:Boolean
+- syntax:
+    content: 'procedure FindFirstAllowedRec(Which: Text[1024]): Boolean'
+    parameters:
+    - id: Which
+      parameterType:
+        name: Text[1024]
+        isExternal: true
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: FindFirstAllowedRec
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.FindFirstAllowedRec(Text[1024]):Boolean
+- syntax:
+    content: 'procedure FindNextAllowedRec(Steps: Integer): Integer'
+    parameters:
+    - id: Steps
+      parameterType:
+        name: Integer
+        isExternal: true
+    return:
+      returnType:
+        name: Integer
+        isExternal: true
+  name: FindNextAllowedRec
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.FindNextAllowedRec(Integer):Integer
+- syntax:
+    content: procedure ErrorIfUserIsNotWhseEmployee()
+  name: ErrorIfUserIsNotWhseEmployee
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.ErrorIfUserIsNotWhseEmployee
+- syntax:
+    content: 'procedure GetUserLocation(): Code[10]'
+    return:
+      returnType:
+        name: Code[10]
+        isExternal: true
+  name: GetUserLocation
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.GetUserLocation:Code[10]
+- syntax:
+    content: procedure Lock()
+  name: Lock
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Lock
+- syntax:
+    content: 'procedure BinCodeMandatory(): Boolean'
+    return:
+      returnType:
+        name: Boolean
+        isExternal: true
+  name: BinCodeMandatory
+  uid: M:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.BinCodeMandatory:Boolean
+fields:
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Type
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Type"
+    isExternal: false
+  name: Type
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No."'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.No#[20]
+- type:
+    name: Code[10]
+    isExternal: true
+  name: '"Location Code"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Location_Code[10]
+- type:
+    name: Code[50]
+    isExternal: true
+  name: '"Assigned User ID"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Assigned_User_ID[50]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Assignment Date"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Assignment_Date
+- type:
+    name: Time
+    isExternal: true
+  name: '"Assignment Time"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Assignment_Time
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Activity#Whse#_Activity_Sorting_Method
+    name: Microsoft.Warehouse.Activity."Whse. Activity Sorting Method"
+    isExternal: false
+  name: '"Sorting Method"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Sorting_Method
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"No. Series"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.No#_Series[20]
+- type:
+    name: Boolean
+    isExternal: true
+  name: Comment
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Comment
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. Printed"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.No#_Printed
+- type:
+    name: Integer
+    isExternal: true
+  name: '"No. of Lines"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.No#_of_Lines
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Type Filter"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_Type_Filter
+- type:
+    name: Option
+    isExternal: true
+  name: '"Source Subtype Filter"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_Subtype_Filter
+- type:
+    name: Code[250]
+    isExternal: true
+  name: '"Source No. Filter"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_No#_Filter[250]
+- type:
+    name: Code[250]
+    isExternal: true
+  name: '"Location Filter"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Location_Filter[250]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Posting Date"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Posting_Date
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Registering No."'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Registering_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Last Registering No."'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Last_Registering_No#[20]
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Registering No. Series"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Registering_No#_Series[20]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Date of Last Printing"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Date_of_Last_Printing
+- type:
+    name: Time
+    isExternal: true
+  name: '"Time of Last Printing"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Time_of_Last_Printing
+- type:
+    name: Boolean
+    isExternal: true
+  name: '"Breakbulk Filter"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Breakbulk_Filter
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Source No."'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_No#[20]
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Activity#Warehouse_Activity_Source_Document
+    name: Microsoft.Warehouse.Activity."Warehouse Activity Source Document"
+    isExternal: false
+  name: '"Source Document"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_Document
+- type:
+    name: Integer
+    isExternal: true
+  name: '"Source Type"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_Type
+- type:
+    name: Option
+    isExternal: true
+  name: '"Source Subtype"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Source_Subtype
+- type:
+    internalReference: O:Enum::Microsoft#Warehouse#Request#Warehouse_Destination_Type
+    name: Microsoft.Warehouse.Request."Warehouse Destination Type"
+    isExternal: false
+  name: '"Destination Type"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Destination_Type
+- type:
+    name: Code[20]
+    isExternal: true
+  name: '"Destination No."'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Destination_No#[20]
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No."'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.External_Document_No#[35]
+- type:
+    name: Date
+    isExternal: true
+  name: '"Expected Receipt Date"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Expected_Receipt_Date
+- type:
+    name: Date
+    isExternal: true
+  name: '"Shipment Date"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.Shipment_Date
+- type:
+    name: Code[35]
+    isExternal: true
+  name: '"External Document No.2"'
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.External_Document_No#2[35]
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemId
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SystemId
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemCreatedAt
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SystemCreatedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemCreatedBy
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SystemCreatedBy
+- type:
+    name: DateTime
+    isExternal: true
+  name: SystemModifiedAt
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SystemModifiedAt
+- type:
+    name: Guid
+    isExternal: true
+  name: SystemModifiedBy
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SystemModifiedBy
+- type:
+    name: BigInteger
+    isExternal: true
+  name: SystemRowVersion
+  uid: F:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header.SystemRowVersion
+commentId: O:Table::Microsoft#Warehouse#Activity#Warehouse Activity Header
+name: '"Warehouse Activity Header"'
+uid: O:Table::Microsoft#Warehouse#Activity#Warehouse_Activity_Header
